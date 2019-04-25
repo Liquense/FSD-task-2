@@ -40,6 +40,7 @@
     "pug-loader": "^2.4.0",
     "react-hot-loader": "^4.8.4",
     "sass-loader": "^7.1.0",
+    "static-eval": "^2.0.2",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-bem-loader": "^0.8.0",
