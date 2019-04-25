@@ -1,5 +1,5 @@
 import "./index.pug"
-import "b:circle"
-import "b:circle m:color=white"
+import "b:button"
+import "b:button m:color=white"
 
 console.log('hi, im first');
