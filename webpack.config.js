@@ -9,7 +9,7 @@ const paths = {
 };
 
 //Отдельные странички
-const pagesMap = ['index', 'second'].map(name => {
+const pagesMap = ['styles.scss', 'second'].map(name => {
     return new HtmlWebpackPlugin({
         template: `./src/${name}.pug`,
         filename: `${name}.html`,

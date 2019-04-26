@@ -1,15 +1,17 @@
 @import "../../variables";
 
 //text($font, $fontWeight, $size, $lineHeight, $color)
-.input::placeholder {
-  font-family: Montserrat;
-}
-
 .input {
-  color: $darkShade25;
+  @include text(Montserrat, normal, 14px, 18px, $darkShade25)
+}
+.input:focus {
+  color: #1F2041;
+  outline: 0;
 }
 
-.input:focus {
-  color: $darkShade100;
-  outline: 0;
+.input::placeholder {
+  @include text(inherit, inherit, inherit, inherit, inherit);
+}
+.input:focus::placeholder {
+  @include text(inherit, inherit, inherit, inherit, inherit);
 }

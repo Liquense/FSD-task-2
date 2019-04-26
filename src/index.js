@@ -1,5 +1,5 @@
 import "./index.pug"
-import "./index.scss"
+import "./styles.scss"
 import "./fonts.scss"
 
 import "b:button"
