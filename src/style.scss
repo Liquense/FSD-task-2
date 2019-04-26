@@ -1,0 +1,36 @@
+@import "./variables";
+$fontsPath: "./assets/fonts/";
+
+@font-face {
+  font-family: Montserrat;
+  src: url("#{$fontsPath}/Montserrat-Regular.otf");
+}
+@font-face {
+  font-family: Montserrat;
+  src: url("#{$fontsPath}/Montserrat-Bold.otf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Quicksand;
+  src: url("#{$fontsPath}/Quicksand-Regular.otf");
+}
+@font-face {
+  font-family: Quicksand;
+  src: url("#{$fontsPath}/Quicksand-Bold.otf");
+  font-weight: bold;
+}
+
+.widgetTitle {
+  font-family: Quicksand, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 30px;
+  color: $darkShade100;
+
+}
+
+.itemTitle {
+
+}

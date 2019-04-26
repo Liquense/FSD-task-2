@@ -1,0 +1,39 @@
+@font-face {
+  font-family: Montserrat;
+  src: url(fonts/Montserrat-Regular.otf); }
+
+@font-face {
+  font-family: Montserrat;
+  src: url(fonts/Montserrat-Bold.otf);
+  font-weight: bold; }
+
+@font-face {
+  font-family: Quicksand;
+  src: url(fonts/Quicksand-Regular.otf); }
+
+@font-face {
+  font-family: Quicksand;
+  src: url(fonts/Quicksand-Bold.otf);
+  font-weight: bold; }
+
+.widgetTitle {
+  font-family: Quicksand, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 30px;
+  color: #1F2041; }
+
+.button {
+  background-color: rgba(31, 32, 65, 0.25);
+  border-radius: 50%;
+  width: 120px;
+  height: 120px; }
+
+.button_color_white {
+  background-color: white;
+  border: black solid 2px;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px; }
+

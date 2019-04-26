@@ -13,7 +13,6 @@ const pagesMap = ['index', 'second'].map(name => {
     return new HtmlWebpackPlugin({
         template: `./src/${name}.pug`,
         filename: `${name}.html`,
-        //chunks: `${name}`,
     })
 });
 
@@ -29,7 +28,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: './css/[name].css',
+            filename: './[name].css',
         }),
     ].concat(pagesMap),
     module: {
@@ -76,8 +75,10 @@ module.exports = {
                 test: /\.scss$/,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader', //translates CSS into CommonJS
-                    'sass-loader', //compiles Sass to CSS, using Node-Sass by default
+                    {
+                        loader: 'css-loader',
+                    },
+                    'sass-loader',
                 ]
             },
             {
@@ -91,6 +92,19 @@ module.exports = {
                         }
                     }
                     ]
+            },
+            {
+                test: [/\.otf$/, /\.ttf$/,],
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            outputPath: 'fonts',
+                            name: '[name].[ext]',
+                            publicPath: "fonts",
+                        }
+                    }
+                ]
             },
         ]
     }
