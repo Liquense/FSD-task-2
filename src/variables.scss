@@ -5,6 +5,7 @@ $darkShade25: change_color($darkShade100, $alpha: 0.25);
 $darkShade5: change_color($darkShade100, $alpha: 0.05);
 $purple: #BC9CFF;
 $green: #6FCF97;
+$inputBackgroundColor: white;
 
 @mixin text($font, $fontWeight, $size, $lineHeight, $color) {
   font-family: $font, sans-serif;
@@ -14,4 +15,9 @@ $green: #6FCF97;
   line-height: $lineHeight;
   color: $color;
   text-decoration: none;
+}
+
+@mixin minSize($minWidth, $minHeight) {
+  min-width: $minWidth;
+  min-height: $minHeight;
 }

@@ -9,7 +9,7 @@ const paths = {
 };
 
 //Отдельные странички
-const pagesMap = ['styles.scss', 'second'].map(name => {
+const pagesMap = ['index', 'second'].map(name => {
     return new HtmlWebpackPlugin({
         template: `./src/${name}.pug`,
         filename: `${name}.html`,
@@ -31,6 +31,7 @@ module.exports = {
             filename: './[name].css',
         }),
     ].concat(pagesMap),
+
     module: {
         rules: [
             {
@@ -74,6 +75,7 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
+                    'style-loader',
                     MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
@@ -82,7 +84,7 @@ module.exports = {
                 ]
             },
             {
-                test: [/\.jpg$/, /\.jpeg$/, /\.png$/, /\.svg$/, /\.gif$/],
+                test: [/\.jpg$/, /\.jpeg$/, /\.png$/, /\.gif$/],
                 use: [
                     {
                         loader: 'file-loader',
