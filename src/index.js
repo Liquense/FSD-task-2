@@ -1,5 +1,6 @@
 import "./index.pug"
-import "./styles.scss"
+import "./index.scss"
+import "./fonts.scss"
 
 import "b:button"
 import "b:button m:color=white"

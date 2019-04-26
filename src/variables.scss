@@ -6,4 +6,12 @@ $darkShade5: change_color($darkShade100, $alpha: 0.05);
 $purple: #BC9CFF;
 $green: #6FCF97;
 
-
+@mixin text($font, $fontWeight, $size, $lineHeight, $color) {
+  font-family: $font, sans-serif;
+  font-weight: $fontWeight;
+  font-style: normal;
+  font-size: $size;
+  line-height: $lineHeight;
+  color: $color;
+  text-decoration: none;
+}

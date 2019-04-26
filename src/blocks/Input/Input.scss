@@ -1,12 +1,12 @@
 @import "../../variables";
 
+//text($font, $fontWeight, $size, $lineHeight, $color)
 .input::placeholder {
-  color: $darkShade25;
+  font-family: Montserrat;
 }
 
 .input {
   color: $darkShade25;
-
 }
 
 .input:focus {

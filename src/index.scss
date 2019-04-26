@@ -1,0 +1,23 @@
+@import "variables";
+@import "fonts";
+
+.widgetTitle {
+  @include text(Quicksand, bold, 24px, 30px, $darkShade100);
+}
+
+.itemTitle {
+  @include text(Quicksand, bold, 19px, 24px, $darkShade100);
+}
+
+.label-CTA {
+  @include text(Montserrat, bold, 12px, 15px, $darkShade100);
+  text-transform: uppercase;
+}
+
+.regularText {
+  @include text(Montserrat, normal, 14px, 24px, $darkShade75);
+}
+
+.buttonWrapper {
+
+}

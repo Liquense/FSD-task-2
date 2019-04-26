@@ -94,7 +94,7 @@ module.exports = {
                     ]
             },
             {
-                test: [/\.otf$/, /\.ttf$/,],
+                test: [/\.otf$/, /\.ttf$/, /\.svg$/,],
                 use: [
                     {
                         loader: 'file-loader',
