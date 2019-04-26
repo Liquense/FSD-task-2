@@ -1,0 +1,15 @@
+@import "../../variables";
+
+.input::placeholder {
+  color: $darkShade25;
+}
+
+.input {
+  color: $darkShade25;
+
+}
+
+.input:focus {
+  color: $darkShade100;
+  outline: 0;
+}

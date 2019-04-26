@@ -1,8 +1,19 @@
 @import "../../variables";
 
+button {
+  border: none;
+  margin: 0;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+button:focus {
+  outline: 0 solid #fff;
+}
+
 .button {
   background-color: $darkShade25;
-  border-radius: 50%;
   width: 120px;
   height: 120px;
 }

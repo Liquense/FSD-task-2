@@ -1,0 +1,52 @@
+@import "./variables";
+
+$fontsPath: "./assets/fonts";
+
+@font-face {
+  font-family: Montserrat;
+  src: url("#{$fontsPath}/Montserrat-Regular.ttf"), url("#{$fontsPath}/Montserrat-Regular.svg");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("#{$fontsPath}/Montserrat-Bold.ttf"), url("#{$fontsPath}/Montserrat-Bold.svg");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Quicksand;
+  src: url("#{$fontsPath}/Quicksand-Regular.ttf"), url("#{$fontsPath}/Quicksand-Regular.svg");
+}
+
+@font-face {
+  font-family: Quicksand;
+  src: url("#{$fontsPath}/Quicksand-Bold.ttf"), url("#{$fontsPath}/Quicksand-Bold.svg");
+  font-weight: bold;
+}
+
+@mixin text($font, $fontWeight, $size, $lineHeight, $color) {
+  font-family: $font, sans-serif;
+  font-weight: $fontWeight;
+  font-style: normal;
+  font-size: $size;
+  line-height: $lineHeight;
+  color: $color;
+  text-decoration: none;
+}
+
+.widgetTitle {
+  @include text(Quicksand, bold, 24px, 30px, $darkShade100);
+}
+
+.itemTitle {
+  @include text(Quicksand, bold, 19px, 24px, $darkShade100);
+}
+
+.label-CTA {
+  @include text(Montserrat, bold, 12px, 15px, $darkShade100);
+  text-transform: uppercase;
+}
+
+.regularText {
+  @include text(Montserrat, normal, 14px, 24px, $darkShade75);
+}

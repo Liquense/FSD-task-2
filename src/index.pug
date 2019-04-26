@@ -3,7 +3,8 @@ html
 	head
 		title TOXIN
 	body
-		.button
-		include blocks/Button/_color/Button_color_white
-		a(href="second.html" class="widgetTitle") 123
-		img(src=require('./assets/images/test.png'))
+		a(href="second.html" class="widgetTitle") 123 instead of Title
+		div(class="inputWrapper")
+			include blocks/Input/_type/Input_type_text
+		div(class="buttonWrapper")
+			include blocks/Button/Button
