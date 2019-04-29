@@ -260,7 +260,7 @@ eval("\n\n__webpack_require__(/*! ./index.pug */ \"./src/index.pug\");\n\n__webp
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var pug = __webpack_require__(/*! ../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;var pug_indent = [];\npug_html = pug_html + \"\\u003C!DOCTYPE html\\u003E\\n\\u003Chtml\\u003E\\n  \\u003Chead\\u003E\\n    \\u003Ctitle\\u003ETOXIN\\u003C\\u002Ftitle\\u003E\\n  \\u003C\\u002Fhead\\u003E\\n  \\u003Cbody\\u003E\\u003Ca class=\\\"widgetTitle\\\" href=\\\"second.html\\\"\\u003E123 instead of Title\\u003C\\u002Fa\\u003E\\u003C\\u002Fbody\\u003E\\n\\u003C\\u002Fhtml\\u003E\";;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/index.pug?");
+eval("var pug = __webpack_require__(/*! ../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;var pug_indent = [];\npug_html = pug_html + \"\\u003C!DOCTYPE html\\u003E\\n\\u003Chtml lang=\\\"ru\\\"\\u003E\\n  \\u003Chead\\u003E\\n    \\u003Cmeta charset=\\\"UTF-8\\\"\\u003E\\n    \\u003Ctitle\\u003ETOXIN\\u003C\\u002Ftitle\\u003E\\n  \\u003C\\u002Fhead\\u003E\\n  \\u003Cbody\\u003E\\u003Ca class=\\\"widgetTitle\\\" href=\\\"second.html\\\"\\u003E123 instead of Title\\u003C\\u002Fa\\u003E\\u003C\\u002Fbody\\u003E\\n\\u003C\\u002Fhtml\\u003E\";;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/index.pug?");
 
 /***/ }),
 
