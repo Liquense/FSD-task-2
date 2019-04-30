@@ -1,5 +1,2 @@
-- var fieldDefault = "input some text"
-- var fieldTitle = "Text Field"
-
-block Input
-	input(class="input input_type_text roundBox" type="text" placeholder=fieldDefault)
+mixin TextInput(inputText, elementClass)
+	input(class="input input_type_text " + elementClass type="text" placeholder=inputText)

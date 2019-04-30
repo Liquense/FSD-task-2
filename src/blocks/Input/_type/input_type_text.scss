@@ -1,28 +1,17 @@
 @import "../../../variables";
 
-//text($font, $fontWeight, $size, $lineHeight, $color)
 .input_type_text {
-  @include text(Montserrat, normal, 14px, 18px, $darkShade25);
-  @include minSize(320px, 44px);
-  border: 1px solid $darkShade25;
-  border-radius: 4px;
 
-  background: $inputBackgroundColor;
-
-  box-sizing: border-box;
-  padding: 13px 15px 13px 15px;
-
-  margin: 0;
 }
 .input_type_text:focus, .input:hover {
-  color: $darkShade100;
+  color: $darkShade75;
   border-color: $darkShade50;
   outline: 0;
 }
 
 .input_type_text::placeholder {
-  @include text(inherit, inherit, inherit, inherit, inherit);
+  @include text(inherit, inherit, inherit, inherit, inherit, inherit);
 }
 .input_type_text:focus::placeholder, .input:hover::placeholder {
-  @include text(inherit, inherit, inherit, inherit, inherit);
+  @include text(inherit, inherit, inherit, inherit, inherit, inherit);
 }

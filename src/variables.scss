@@ -7,12 +7,13 @@ $purple: #BC9CFF;
 $green: #6FCF97;
 $inputBackgroundColor: white;
 
-@mixin text($font, $fontWeight, $size, $lineHeight, $color) {
+@mixin text($font, $fontWeight, $size, $lineHeight, $color, $letterSpacing) {
   font-family: $font, sans-serif;
   font-weight: $fontWeight;
   font-style: normal;
   font-size: $size;
   line-height: $lineHeight;
+  letter-spacing: $letterSpacing;
   color: $color;
   text-decoration: none;
 }

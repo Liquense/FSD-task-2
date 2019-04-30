@@ -3,7 +3,15 @@
 //text($font, $fontWeight, $size, $lineHeight, $color)
 .input {
   border-radius: 4px;
+  width: 320px;
+  height: 44px;
+  border: 1px solid $darkShade25;
+  background: $inputBackgroundColor;
+  padding: 12px 0 8px 15px;
+  @include text(Montserrat, normal, 14px, 14px, $darkShade25, -0.15px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect получилось вот так
+  margin: 0;
 }
+
 .input:focus, .input:hover {
   color: #1F2041;
   outline: 0;

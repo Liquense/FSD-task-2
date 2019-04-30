@@ -2,7 +2,7 @@ $fontsPath: "./assets/fonts";
 
 @font-face {
   font-family: Montserrat;
-  src: url("#{$fontsPath}/Montserrat-Regular.ttf"), url("#{$fontsPath}/Montserrat-Regular.svg");
+  src: url("#{$fontsPath}/Montserrat-Regular.ttf"), url("#{$fontsPath}/Montserrat-Regular.svg"); //todo: SVG
 }
 
 @font-face {
