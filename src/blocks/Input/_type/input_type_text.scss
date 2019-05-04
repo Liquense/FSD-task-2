@@ -13,5 +13,5 @@
   @include text(inherit, inherit, inherit, inherit, inherit, inherit);
 }
 .input_type_text:focus::placeholder, .input:hover::placeholder {
-  @include text(inherit, inherit, inherit, inherit, inherit, inherit);
+  @include text(inherit, inherit, inherit, inherit, $darkShade25, inherit);
 }

@@ -137,7 +137,7 @@ button:focus {
   font-size: inherit;
   line-height: inherit;
   letter-spacing: inherit;
-  color: inherit;
+  color: rgba(31, 32, 65, 0.25);
   text-decoration: none; }
 
 .input {
