@@ -1,14 +1,23 @@
 @import "../../variables";
+$inputHeight: 44px;
+$fontSize: 14px;
+$borderWidth: 1px;
 
-//text($font, $fontWeight, $size, $lineHeight, $color)
+$paddingTop: 12px - $borderWidth;
+$paddingRight: 15px - $borderWidth;
+$paddingBottom: 14px - $borderWidth;
+$paddingLeft: 15px - $borderWidth;
+
+$lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
+
 .input {
   border-radius: 4px;
   width: 320px;
-  height: 44px;
-  border: 1px solid $darkShade25;
+  height: $inputHeight;
+  border: $borderWidth solid $darkShade25;
   background: $inputBackgroundColor;
-  padding: 12px 0 8px 15px;
-  @include text(Montserrat, normal, 14px, 14px, $darkShade25, -0.15px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect получилось вот так
+  padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
+  @include text(Montserrat, normal, $fontSize, $lineHeight, $darkShade25, -0.18px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect похоже получилось -0.18px
   margin: 0;
 }
 
