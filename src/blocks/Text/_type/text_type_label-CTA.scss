@@ -1,0 +1,4 @@
+.label-CTA {
+  @include text(Montserrat, bold, 12px, $labelCTAlineHeight, $darkShade100, normal);
+  text-transform: uppercase;
+}

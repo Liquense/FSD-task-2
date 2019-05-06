@@ -1,22 +1,5 @@
-.widgetTitle {
-  font-family: Quicksand, sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 30px;
-  letter-spacing: normal;
-  color: #1F2041;
-  text-decoration: none; }
-
-.itemTitle {
-  font-family: Quicksand, sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 19px;
-  line-height: 24px;
-  letter-spacing: normal;
-  color: #1F2041;
-  text-decoration: none; }
+* {
+  box-sizing: border-box; }
 
 .label-CTA {
   font-family: Montserrat, sans-serif;
@@ -29,6 +12,16 @@
   text-decoration: none;
   text-transform: uppercase; }
 
+.itemTitle {
+  font-family: Quicksand, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: normal;
+  color: #1F2041;
+  text-decoration: none; }
+
 .regularText {
   font-family: Montserrat, sans-serif;
   font-weight: normal;
@@ -39,8 +32,15 @@
   color: rgba(31, 32, 65, 0.75);
   text-decoration: none; }
 
-* {
-  box-sizing: border-box; }
+.widgetTitle {
+  font-family: Quicksand, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: normal;
+  color: #1F2041;
+  text-decoration: none; }
 
 @font-face {
   font-family: Montserrat;

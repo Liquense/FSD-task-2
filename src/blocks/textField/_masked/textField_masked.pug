@@ -1,0 +1,7 @@
+include ../../Input/_type/input_type_maskedText
+
+mixin MaskedTextField(labelText, inputText)
+	div(class="textField_masked")
+		label(class="label-CTA textField__title textField_masked__title") #{labelText}
+			br
+			+MaskedTextInput(inputText, "textField__input textField_masked__input")

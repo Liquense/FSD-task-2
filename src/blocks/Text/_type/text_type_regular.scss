@@ -1,0 +1,3 @@
+.regularText {
+  @include text(Montserrat, normal, 14px, 24px, $darkShade75, normal);
+}

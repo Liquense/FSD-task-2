@@ -1,0 +1,3 @@
+.itemTitle {
+  @include text(Quicksand, bold, 19px, 24px, $darkShade100, normal);
+}

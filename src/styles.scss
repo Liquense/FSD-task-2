@@ -1,20 +1,3 @@
-.widgetTitle {
-  @include text(Quicksand, bold, 24px, 30px, $darkShade100, normal);
-}
-
-.itemTitle {
-  @include text(Quicksand, bold, 19px, 24px, $darkShade100, normal);
-}
-
-.label-CTA {
-  @include text(Montserrat, bold, 12px, $labelCTAlineHeight, $darkShade100, normal);
-  text-transform: uppercase;
-}
-
-.regularText {
-  @include text(Montserrat, normal, 14px, 24px, $darkShade75, normal);
-}
-
 * {
   box-sizing: border-box;
 }
