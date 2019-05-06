@@ -123,5 +123,8 @@ button:focus {
   text-decoration: none; }
 
 .textField__title {
-  border-bottom: 55px solid black; }
+  border-bottom: 5px solid transparent; }
+
+.textField__input {
+  margin-top: 4px; }
 

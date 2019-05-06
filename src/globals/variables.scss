@@ -1,3 +1,4 @@
+//GLOBAL COLORS
 $darkShade100: #1F2041;
 $darkShade75: change_color($darkShade100, $alpha: 0.75);
 $darkShade50: change_color($darkShade100, $alpha: 0.5);
@@ -6,3 +7,6 @@ $darkShade5: change_color($darkShade100, $alpha: 0.05);
 $purple: #BC9CFF;
 $green: #6FCF97;
 $inputBackgroundColor: white;
+
+//STYLES.SCSS
+$labelCTAlineHeight: 15px;

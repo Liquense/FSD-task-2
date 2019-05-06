@@ -1,8 +1,9 @@
-//@import "../Input/Input";
+@import "../Input/_type/input_type_text";
+
 .textField__title {
-  border-bottom: 55px solid black;
+  border-bottom: 5px solid transparent; //работает только с display:inline, иначе нижняя граница будет в других местах, а не между заголовком и элементом
 }
 
 .textField__input {
-  //margin-top: 5px - $borderWidth;
+  margin-top: 5px - $borderWidth;
 }

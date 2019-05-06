@@ -3,11 +3,9 @@ html(lang="ru")
         meta(charset="UTF-8")
         title UI-Kit
     body
-        //a(href="index.html" class="label-CTA") Вернуться на главную
-        //br
-        //br
+        a(href="index.html" class="label-CTA") Вернуться на главную
+        br
+        br
         include blocks/textField/textField
-        include blocks/Button/Button
-        div(class="buttonWrapper")
-            +textField("Text Field", "This is pretty awesome")
+        +textField("Text Field", "This is pretty awesome")
             //+Button('not example')
