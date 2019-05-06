@@ -7,7 +7,6 @@ html(lang="ru")
         br
         br
         include blocks/textField/textField
-        include blocks/textField/_masked/textField_masked
-        +TextField("Text Field", "This is pretty awesome")
-        +MaskedTextField("Masked Text Field", "ДД.ММ.ГГГГ")
-            //+Button('not example')
+        +TextField("Text Field", "This is pretty awesome", "")
+        +TextField("Masked Text Field", "ДД.ММ.ГГГГ", "textField_masked", "12")
+            //-+Button('not example')

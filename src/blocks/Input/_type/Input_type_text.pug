@@ -1,2 +1,5 @@
-mixin TextInput(inputText, addClasses)
-	input(class="input input_type_text " + addClasses type="text" placeholder=inputText)
+mixin TextInput(inputText, addClasses, mask)
+	if mask
+		input(class="input input_type_text " + addClasses type="text" placeholder=inputText pattern=mask)
+	else
+		input(class="input input_type_text " + addClasses type="text" placeholder=inputText)
