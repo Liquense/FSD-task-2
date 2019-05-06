@@ -1,8 +1,8 @@
-$fontsPath: "./assets/fonts";
+$fontsPath: "../assets/fonts";
 
 @font-face {
   font-family: Montserrat;
-  src: url("#{$fontsPath}/Montserrat-Regular.ttf"), url("#{$fontsPath}/Montserrat-Regular.svg"); //todo: SVG
+  src: url("#{$fontsPath}/Montserrat-Regular.ttf"), url("#{$fontsPath}/Montserrat-Regular.svg");
 }
 
 @font-face {

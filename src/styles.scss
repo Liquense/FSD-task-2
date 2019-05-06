@@ -1,6 +1,3 @@
-@import "variables";
-@import "fonts";
-
 .widgetTitle {
   @include text(Quicksand, bold, 24px, 30px, $darkShade100, normal);
 }

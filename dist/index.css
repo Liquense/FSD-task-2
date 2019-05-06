@@ -1,21 +1,3 @@
-@font-face {
-  font-family: Montserrat;
-  src: url(fonts/Montserrat-Regular.ttf), url(fonts/Montserrat-Regular.svg); }
-
-@font-face {
-  font-family: Montserrat;
-  src: url(fonts/Montserrat-Bold.ttf), url(fonts/Montserrat-Bold.svg);
-  font-weight: bold; }
-
-@font-face {
-  font-family: Quicksand;
-  src: url(fonts/Quicksand-Regular.ttf), url(fonts/Quicksand-Regular.svg); }
-
-@font-face {
-  font-family: Quicksand;
-  src: url(fonts/Quicksand-Bold.ttf), url(fonts/Quicksand-Bold.svg);
-  font-weight: bold; }
-
 .widgetTitle {
   font-family: Quicksand, sans-serif;
   font-weight: bold;
@@ -140,27 +122,6 @@ button:focus {
   color: rgba(31, 32, 65, 0.25);
   text-decoration: none; }
 
-.input {
-  border-radius: 4px;
-  width: 320px;
-  height: 44px;
-  border: 1px solid rgba(31, 32, 65, 0.25);
-  background: white;
-  padding: 11px 14px 13px 14px;
-  font-family: Montserrat, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: -0.18px;
-  color: rgba(31, 32, 65, 0.25);
-  text-decoration: none;
-  margin: 0; }
-
-.input:focus, .input:hover {
-  color: #1F2041;
-  outline: 0; }
-
-.textField__input {
-  margin-top: 4px; }
+.textField__title {
+  border-bottom: 55px solid black; }
 

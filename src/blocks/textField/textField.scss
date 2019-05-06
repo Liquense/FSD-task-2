@@ -1,5 +1,8 @@
-@import "../Input/Input";
+//@import "../Input/Input";
+.textField__title {
+  border-bottom: 55px solid black;
+}
 
 .textField__input {
-  margin-top: 5px - $borderWidth;
+  //margin-top: 5px - $borderWidth;
 }

@@ -81,6 +81,15 @@ module.exports = {
                         loader: 'css-loader',
                     },
                     'sass-loader',
+                    {
+                        loader: 'sass-resources-loader',
+                        options: {
+                            resources: [
+                                paths.source + '/globals/mixins.scss',
+                                paths.source + '/globals/variables.scss',
+                            ],
+                        }
+                    },
                 ]
             },
             {
