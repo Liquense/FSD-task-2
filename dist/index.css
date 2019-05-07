@@ -76,6 +76,12 @@ button:focus {
   width: 80px;
   height: 40px; }
 
+.input_masked:invalid:hover {
+  color: rgba(31, 32, 65, 0.25); }
+
+.input_masked:valid:hover, .input_masked:invalid:focus {
+  color: rgba(31, 32, 65, 0.75); }
+
 .input {
   border-radius: 4px;
   width: 320px;

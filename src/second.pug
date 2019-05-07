@@ -8,5 +8,5 @@ html(lang="ru")
         br
         include blocks/textField/textField
         +TextField("Text Field", "This is pretty awesome", "")
-        +TextField("Masked Text Field", "ДД.ММ.ГГГГ", "textField_masked", "12")
+        +TextField("Masked Text Field", "ДД.ММ.ГГГГ", "textField_masked", "[0123][0-9].[012][0-9].[0-9]{4}")
             //-+Button('not example')

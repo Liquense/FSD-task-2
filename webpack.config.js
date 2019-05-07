@@ -41,10 +41,10 @@ module.exports = {
 
     module: {
         rules: [
-            {
-                test: /vendor\/.+\.(jsx|js)$/,
-                loader: "imports-loader?jQuery=jquery,$=jquery,this=>window"
-            },
+            // {
+            //     test: /vendor\/.+\.(jsx|js)$/,
+            //     loader: "imports-loader?jQuery=jquery,$=jquery,this=>window"
+            // },
             {
                 test: /[\/\\]src[\/\\]index\.js$/,
                 use: [
@@ -54,9 +54,9 @@ module.exports = {
                             levels: [
                                 './src/blocks'
                             ],
-                            techs: ['js', 'css', 'html'],
+                            techs: [/*'js', */'css', 'html'],
                             techMap: {
-                                js: ['js'],
+                                // js: ['js'],
                                 css: ['scss'],
                                 html: ['pug']
                             }

@@ -1,0 +1,6 @@
+.input_masked:invalid:hover {
+  color: $darkShade25;
+}
+.input_masked:valid:hover, .input_masked:invalid:focus {
+  color: $darkShade75;
+}
