@@ -1,0 +1,5 @@
+mixin Input(type, placeholder, addClasses, mask)
+	if mask
+		input(class="input input_masked " + addClasses type=type placeholder=placeholder pattern=mask)
+	else
+		input(class="input " + addClasses type="text" placeholder=placeholder)

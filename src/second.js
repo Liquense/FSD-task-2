@@ -1,4 +1,4 @@
-import './second.pug'
-import './second.scss'
+//import './second.pug'
+//import './second.scss'
 
-console.log('hi, im second');
+//console.log('hi, im second');

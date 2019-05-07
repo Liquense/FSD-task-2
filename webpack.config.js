@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -30,13 +31,22 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: './[name].css',
         }),
+        // new webpack.ProvidePlugin({
+        //     $: "jQuery",
+        //     jQuery: "jQuery",
+        //     "window.$": "jQuery",
+        //     "window.jQuery": "jQuery"
+        // }),
     ].concat(pagesMap),
 
     module: {
         rules: [
             {
-                test: /\.js$/,
-                exclude: /(node_modules)/,
+                test: /vendor\/.+\.(jsx|js)$/,
+                loader: "imports-loader?jQuery=jquery,$=jquery,this=>window"
+            },
+            {
+                test: /[\/\\]src[\/\\]index\.js$/,
                 use: [
                     {
                         loader: 'webpack-bem-loader',
