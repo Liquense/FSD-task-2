@@ -1,4 +1,6 @@
-//import './second.pug'
-//import './second.scss'
+import "./common"
 
-//console.log('hi, im second');
+import './second.pug'
+import './second.scss'
+
+console.log('hi, im second');

@@ -24,7 +24,13 @@ module.exports = {
     },
     output: {
         path: paths.build,
-        filename: "js/[name].bundle.js",
+        filename: "js/[id].bundle.js",
+        chunkFilename: "[id].js",
+    },
+    optimization: {
+      splitChunks: {
+          chunks: "all"
+      },
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -46,7 +52,7 @@ module.exports = {
             //     loader: "imports-loader?jQuery=jquery,$=jquery,this=>window"
             // },
             {
-                test: /[\/\\]src[\/\\]index\.js$/,
+                test: /[\/\\]src[\/\\]common\.js$/,
                 use: [
                     {
                         loader: 'webpack-bem-loader',
