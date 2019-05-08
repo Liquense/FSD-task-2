@@ -14,6 +14,7 @@ const pagesMap = ['index', 'second'].map(name => {
     return new HtmlWebpackPlugin({
         template: `./src/${name}.pug`,
         filename: `${name}.html`,
+        chunks: [`${name}`],
     })
 });
 
@@ -24,18 +25,13 @@ module.exports = {
     },
     output: {
         path: paths.build,
-        filename: "js/[id].bundle.js",
-        chunkFilename: "[id].js",
-    },
-    optimization: {
-      splitChunks: {
-          chunks: "all"
-      },
+        filename: "js/[name].bundle.js",
+        chunkFilename: "[name].js",
     },
     plugins: [
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
-            filename: './[name].css',
+            filename: './[id].css',
         }),
         // new webpack.ProvidePlugin({
         //     $: "jQuery",
@@ -91,10 +87,9 @@ module.exports = {
             {
                 test: /\.scss$/,
                 use: [
-                    'style-loader',
                     MiniCssExtractPlugin.loader,
                     {
-                        loader: 'css-loader',
+                        loader: "css-loader",
                     },
                     'sass-loader',
                     {
@@ -118,7 +113,7 @@ module.exports = {
                             name: '[name].[ext]',
                         }
                     }
-                    ]
+                ]
             },
             {
                 test: [/\.otf$/, /\.ttf$/, /\.svg$/,],
