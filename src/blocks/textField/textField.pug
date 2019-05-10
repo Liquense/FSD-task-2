@@ -2,6 +2,6 @@ include ../Input/Input
 
 mixin TextField(labelText, placeholder, addClasses, mask)
 	div(class="textField")
-		label(class="label-CTA textField__title " + addClasses) #{labelText}
+		label(class="text_type_label-CTA textField__title " + addClasses) #{labelText}
 			br
 			+Input("text", placeholder, "input_type_text textField__input", mask)

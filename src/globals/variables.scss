@@ -4,9 +4,14 @@ $darkShade75: change_color($darkShade100, $alpha: 0.75);
 $darkShade50: change_color($darkShade100, $alpha: 0.5);
 $darkShade25: change_color($darkShade100, $alpha: 0.25);
 $darkShade5: change_color($darkShade100, $alpha: 0.05);
-$purple: #BC9CFF;
+$purple: #BC9CFF; // 	hsl(259, 100%, 81%)
 $green: #6FCF97;
 $inputBackgroundColor: white;
+$purpleGradientSecond: adjust_color($purple, null, null, null, -34.2612, -9.6, -5.09804‬); //значения подобраны путём вычислений
+
+//@debug $purpleGradientSecond hue($purpleGradientSecond) saturation($purpleGradientSecond) lightness($purpleGradientSecond);
+//$second: #88A4F9; //	hsl(225, 90%, 75%)
+//@debug $second hue($second) saturation($second) lightness($second);
 
 //STYLES.SCSS
 $labelCTAlineHeight: 15px;

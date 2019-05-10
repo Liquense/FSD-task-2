@@ -1,0 +1,7 @@
+.button_hovered.button_type_filled,
+.button_type_filled:hover,
+.button_hovered.button_type_bordered::before,
+.button_type_bordered:hover::before {
+  opacity: 0.5;
+}
+

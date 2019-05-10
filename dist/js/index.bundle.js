@@ -132,6 +132,50 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 /***/ }),
 
+/***/ "./src/blocks/button/_hovered/button_hovered.scss":
+/*!********************************************************!*\
+  !*** ./src/blocks/button/_hovered/button_hovered.scss ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/button/_hovered/button_hovered.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/button/_type/button_type_bordered.scss":
+/*!***********************************************************!*\
+  !*** ./src/blocks/button/_type/button_type_bordered.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/button/_type/button_type_bordered.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/button/_type/button_type_filled.scss":
+/*!*********************************************************!*\
+  !*** ./src/blocks/button/_type/button_type_filled.scss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/button/_type/button_type_filled.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/button/_width/button_width_wide.scss":
+/*!*********************************************************!*\
+  !*** ./src/blocks/button/_width/button_width_wide.scss ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/button/_width/button_width_wide.scss?");
+
+/***/ }),
+
 /***/ "./src/blocks/button/button.pug":
 /*!**************************************!*\
   !*** ./src/blocks/button/button.pug ***!
@@ -151,6 +195,39 @@ eval("var pug = __webpack_require__(/*! ../../../node_modules/pug-runtime/index.
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/button/button.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/link/_hovered/link_hovered.scss":
+/*!****************************************************!*\
+  !*** ./src/blocks/link/_hovered/link_hovered.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/link/_hovered/link_hovered.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/link/link.pug":
+/*!**********************************!*\
+  !*** ./src/blocks/link/link.pug ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var pug = __webpack_require__(/*! ../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;var pug_indent = [];\n\n\n\n;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/blocks/link/link.pug?");
+
+/***/ }),
+
+/***/ "./src/blocks/link/link.scss":
+/*!***********************************!*\
+  !*** ./src/blocks/link/link.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/link/link.scss?");
 
 /***/ }),
 
@@ -228,7 +305,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\n__webpack_require__(/*! ../vendor/jquery.maskedinput/src/jquery.maskedinput */ \"./vendor/jquery.maskedinput/src/jquery.maskedinput.js\");\n\n[__webpack_require__(/*! ./blocks/text/_type/text_type_label-CTA.scss */ \"./src/blocks/text/_type/text_type_label-CTA.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_itemTitle.scss */ \"./src/blocks/text/_type/text_type_itemTitle.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_regular.scss */ \"./src/blocks/text/_type/text_type_regular.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_widgetTitle.scss */ \"./src/blocks/text/_type/text_type_widgetTitle.scss\")][0];\n\n__webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n\n__webpack_require__(/*! ./globals/fonts.scss */ \"./src/globals/fonts.scss\");\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n__webpack_require__(/*! ./blocks/Input/_masked/input_masked.scss */ \"./src/blocks/Input/_masked/input_masked.scss\");\n\n__webpack_require__(/*! ./blocks/Input/_masked/input_masked.js */ \"./src/blocks/Input/_masked/input_masked.js\");\n\n[__webpack_require__(/*! ./blocks/textField/textField.scss */ \"./src/blocks/textField/textField.scss\"),__webpack_require__(/*! ./blocks/textField/textField.pug */ \"./src/blocks/textField/textField.pug\")][0];\n\n//# sourceURL=webpack:///./src/common.js?");
+eval("\n\n__webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n\n__webpack_require__(/*! ../vendor/jquery.maskedinput/src/jquery.maskedinput */ \"./vendor/jquery.maskedinput/src/jquery.maskedinput.js\");\n\n[__webpack_require__(/*! ./blocks/text/_type/text_type_label-CTA.scss */ \"./src/blocks/text/_type/text_type_label-CTA.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_itemTitle.scss */ \"./src/blocks/text/_type/text_type_itemTitle.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_regular.scss */ \"./src/blocks/text/_type/text_type_regular.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_widgetTitle.scss */ \"./src/blocks/text/_type/text_type_widgetTitle.scss\")][0];\n\n__webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n\n__webpack_require__(/*! ./globals/fonts.scss */ \"./src/globals/fonts.scss\");\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_bordered.scss */ \"./src/blocks/button/_type/button_type_bordered.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_filled.scss */ \"./src/blocks/button/_type/button_type_filled.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_hovered/button_hovered.scss */ \"./src/blocks/button/_hovered/button_hovered.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_width/button_width_wide.scss */ \"./src/blocks/button/_width/button_width_wide.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/link/link.scss */ \"./src/blocks/link/link.scss\"),__webpack_require__(/*! ./blocks/link/link.pug */ \"./src/blocks/link/link.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/link/link.scss */ \"./src/blocks/link/link.scss\"),\n__webpack_require__(/*! ./blocks/link/_hovered/link_hovered.scss */ \"./src/blocks/link/_hovered/link_hovered.scss\"),__webpack_require__(/*! ./blocks/link/link.pug */ \"./src/blocks/link/link.pug\")][0];\n\n__webpack_require__(/*! ./blocks/Input/_masked/input_masked.scss */ \"./src/blocks/Input/_masked/input_masked.scss\");\n\n__webpack_require__(/*! ./blocks/Input/_masked/input_masked.js */ \"./src/blocks/Input/_masked/input_masked.js\");\n\n[__webpack_require__(/*! ./blocks/textField/textField.scss */ \"./src/blocks/textField/textField.scss\"),__webpack_require__(/*! ./blocks/textField/textField.pug */ \"./src/blocks/textField/textField.pug\")][0];\n\n//# sourceURL=webpack:///./src/common.js?");
 
 /***/ }),
 
@@ -262,7 +339,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _com
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var pug = __webpack_require__(/*! ../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;var pug_indent = [];\npug_html = pug_html + \"\\u003C!DOCTYPE html\\u003E\\n\\u003Chtml lang=\\\"ru\\\"\\u003E\\n  \\u003Chead\\u003E\\n    \\u003Cmeta charset=\\\"UTF-8\\\"\\u003E\\n    \\u003Ctitle\\u003ETOXIN\\u003C\\u002Ftitle\\u003E\\n  \\u003C\\u002Fhead\\u003E\\n  \\u003Cbody\\u003E\\u003Ca class=\\\"widgetTitle\\\" href=\\\"second.html\\\"\\u003EGo to UI-Kit\\u003C\\u002Fa\\u003E\\u003C\\u002Fbody\\u003E\\n\\u003C\\u002Fhtml\\u003E\";;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/index.pug?");
+eval("var pug = __webpack_require__(/*! ../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;var pug_indent = [];\npug_html = pug_html + \"\\u003C!DOCTYPE html\\u003E\\n\\u003Chtml lang=\\\"ru\\\"\\u003E\\n  \\u003Chead\\u003E\\n    \\u003Cmeta charset=\\\"UTF-8\\\"\\u003E\\n    \\u003Ctitle\\u003ETOXIN\\u003C\\u002Ftitle\\u003E\\n  \\u003C\\u002Fhead\\u003E\\n  \\u003Cbody\\u003E\\u003Ca class=\\\"text_type_widgetTitle\\\" href=\\\"second.html\\\"\\u003EGo to UI-Kit\\u003C\\u002Fa\\u003E\\u003C\\u002Fbody\\u003E\\n\\u003C\\u002Fhtml\\u003E\";;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/index.pug?");
 
 /***/ }),
 

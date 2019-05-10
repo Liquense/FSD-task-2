@@ -3,10 +3,20 @@ html(lang="ru")
         meta(charset="UTF-8")
         title UI-Kit
     body
-        a(href="index.html" class="label-CTA") Вернуться на главную
+        a(href="index.html" class="text_type_label-CTA") Вернуться на главную
         br
         br
         include blocks/textField/textField
         +TextField("Text Field", "This is pretty awesome", "")
         +TextField("Masked Text Field", "ДД.ММ.ГГГГ", "textField_masked", "[0123][0-9].[012][0-9].[0-9]{4}")
-            //-+Button('not example')
+        include blocks/Button/Button
+        include blocks/Link/Link
+        div(class="buttonsContainer")
+            +Link("Click Me", "firstRow__button")
+            +Link("Click Me", "link_hovered firstRow__button")
+            +Button("Click Me", "button_type_filled secondRow__button")
+            +Button("Click Me", "button_type_filled button_hovered secondRow__button")
+            +Button("Click Me", "button_type_bordered thirdRow__button")
+            +Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
+            +Button("Click Me", "button_type_filled button_width_wide fourthRow")
+            +Button("Click Me", "button_type_bordered button_width_wide fifthRow")

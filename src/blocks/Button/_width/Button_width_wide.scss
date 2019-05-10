@@ -1,0 +1,12 @@
+@import "../_type/Button_type_bordered";
+
+.button_width_wide {
+  width: 320px;
+}
+
+.button_width_wide.button_type_bordered {
+  width: 320px - $buttonBorderWidth*2;
+}
+.button_width_wide.button_type_bordered:before {
+  width: 320px ;
+}
