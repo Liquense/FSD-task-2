@@ -208,6 +208,7 @@
 
 .buttonsContainer {
   margin-top: 20px;
+  width: 320px;
   display: grid;
   grid-gap: 15px;
   grid-template-columns: auto auto;
