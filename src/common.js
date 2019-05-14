@@ -10,7 +10,6 @@ import "b:button m:type=bordered|filled|text"
 import "b:button m:hovered"
 import "b:button m:width=wide"
 
-import "b:link"
 import "b:link m:hovered"
 
 import "./blocks/Input/_masked/input_masked.scss"
