@@ -1,0 +1,27 @@
+$lineHeight: 15px;
+$fontSize: 12px;
+//$sliderMargin: 10px;
+
+.slider {
+  width: 266px;
+}
+
+.slider__control {
+  background-color: grey;
+}
+
+.slider__text {
+  display: flex;
+  justify-content: space-between;
+}
+.slider__title, .slider__value {
+  line-height: $fontSize;
+  font-size: $fontSize;
+  margin: 0 0 20px 0;
+}
+.slider__title {
+
+}
+.slider__value {
+
+}

@@ -6,9 +6,11 @@ html(lang="ru")
         a(href="index.html" class="text_type_label-CTA") Вернуться на главную
         br
         br
+        hr
         include blocks/textField/textField
         +TextField("Text Field", "This is pretty awesome", "")
         +TextField("Masked Text Field", "ДД.ММ.ГГГГ", "textField_masked", "[0123][0-9].[012][0-9].[0-9]{4}")
+        hr
         include blocks/Button/Button
         include blocks/Link/Link
         div(class="buttonsContainer")
@@ -20,3 +22,6 @@ html(lang="ru")
             +Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
             +Button("Click Me", "button_type_filled button_width_wide fourthRow")
             +Button("Click Me", "button_type_bordered button_width_wide fifthRow")
+        include blocks/Slider/Slider
+        hr
+        +slider(1, 10, 1, "Slider", "")

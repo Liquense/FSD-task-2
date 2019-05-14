@@ -1,5 +1,8 @@
 import "jquery"
+import "jquery-ui/ui/widgets/slider"
 import "../vendor/jquery.maskedinput/src/jquery.maskedinput"
+
+import "jquery-ui/themes/base/slider.css"
 
 import "b:text m:type=label-CTA|itemTitle|regular|widgetTitle"
 
@@ -16,3 +19,6 @@ import "./blocks/Input/_masked/input_masked.scss"
 import "./blocks/Input/_masked/input_masked.js" //импорт с бэм-лоадера даёт ошибку
 
 import "b:textField"
+
+import "./blocks/Slider/Slider.js"
+import "b:slider"

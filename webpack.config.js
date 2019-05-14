@@ -33,13 +33,19 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: './[id].css',
         }),
-        // new webpack.ProvidePlugin({
-        //     $: "jQuery",
-        //     jQuery: "jQuery",
-        //     "window.$": "jQuery",
-        //     "window.jQuery": "jQuery"
+        //  new webpack.ProvidePlugin({
+        //      $: "jquery",
+        //      jQuery: "jquery",
+        //      "window.$": "jquery",
+        //      "window.jQuery": "jquery"
         // }),
     ].concat(pagesMap),
+    // resolve: {
+    //     alias: {
+    //         "jquery-ui": "jquery-ui/build/release.js",
+    //         modules: path.join(__dirname, "node_modules"),
+    //     }
+    // },
 
     module: {
         rules: [
@@ -83,6 +89,10 @@ module.exports = {
                         }
                     }
                 ]
+            },
+            {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"],
             },
             {
                 test: /\.scss$/,
