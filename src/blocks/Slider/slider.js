@@ -1,9 +1,8 @@
 import $ from "jquery"
-import {formatNumber} from "../../../common/functions";
-import {sliderHandlerValueChange} from "../slider";
+import {formatNumber} from "../../common/functions";
 
-console.log("cat");
-$(".slider__control_range").each(function () {
+console.log("nyan");
+$(".slider__control").each(function () {
     const minimalValue = Number($(this).attr("data-min"));
     const maximumValue = Number($(this).attr("data-max"));
     const step = Number($(this).attr("data-step"));
@@ -12,20 +11,22 @@ $(".slider__control_range").each(function () {
         min: minimalValue,
         max: maximumValue,
         step: step,
-        range: true,
         animate: "fast",
         change: sliderValuesChange,
         slide: sliderHandlerValueChange,
     });
 
     //установка начальных значений (через инициализацию не триггерился change, а как получить UI из ивентов плагина (кроме воссоздания самому) я не знаю)
-    $(this).slider("values", [minimalValue, maximumValue]);
-    $(this).children(".ui-slider-handle").first().attr("sliderHandleValue", minimalValue);
-    $(this).children(".ui-slider-handle").last().attr("sliderHandleValue", maximumValue);
+    $(this).slider("value", maximumValue/2);
+    $(this).children(".ui-slider-handle").first().attr("sliderHandleValue", maximumValue/2);
 });
 
 function sliderValuesChange(event, ui) {
     $(ui.handle).closest(".slider").find(".slider__value").text(
-        `${formatNumber(ui.values[0], "")}₽ - ${formatNumber(ui.values[1], "")}₽`
+        `${formatNumber(ui.value, "")}₽`
     );
+}
+
+export function sliderHandlerValueChange(event, ui){
+    $(ui.handle).attr("sliderHandleValue", ui.value);
 }

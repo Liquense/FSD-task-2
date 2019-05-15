@@ -6,7 +6,8 @@ import "jquery-ui/themes/base/slider.css"
 import "../vendor/jquery.maskedinput/src/jquery.maskedinput"
 
 import "./styles.scss"
-import "./globals/fonts.scss"
+import "./common/fonts.scss"
+import "./common/functions"
 
 import "b:text m:type=label-CTA|itemTitle|regular|widgetTitle"
 
@@ -24,7 +25,8 @@ import "./blocks/Input/_masked/input_masked.js" //импорт с бэм-лоа�
 //text field
 import "b:textField"
 //slider
-import "./blocks/Slider/_range/Slider_range.js"
 import "b:slider"
+import "./blocks/Slider/slider"
+import "./blocks/Slider/_range/Slider_range.js"
 
 //----

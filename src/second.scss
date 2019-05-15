@@ -1,4 +1,4 @@
-@import "globals/variables";
+@import "common/variables";
 
 .input__wrapper {
   padding: 5px;
@@ -25,4 +25,8 @@
 
 .fourthRow, .fifthRow {
   grid-column: 1 / span 2;
+}
+
+.slider:first-child {
+  margin-bottom: 20px;
 }

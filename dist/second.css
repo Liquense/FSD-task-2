@@ -253,7 +253,7 @@ hr {
   vertical-align: middle;
   color: #1F2041;
   text-decoration: none;
-  content: "test";
+  content: attr(sliderHandleValue);
   position: absolute;
   text-align: center;
   width: 40px;
@@ -286,4 +286,7 @@ hr {
 
 .fourthRow, .fifthRow {
   grid-column: 1 / span 2; }
+
+.slider:first-child {
+  margin-bottom: 20px; }
 

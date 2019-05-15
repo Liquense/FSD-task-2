@@ -47,7 +47,7 @@ $sliderHandleSize: 12px;
 
 .slider .ui-slider-handle.ui-state-focus::before {
   @include text(Montserrat, normal, 10px, $labelCTAlineHeight, $darkShade100, normal);
-  content: "test";
+  content: attr(sliderHandleValue);
   position: absolute;
   text-align: center;
   width: 40px;

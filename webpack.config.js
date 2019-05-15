@@ -106,8 +106,8 @@ module.exports = {
                         loader: 'sass-resources-loader',
                         options: {
                             resources: [
-                                paths.source + '/globals/mixins.scss',
-                                paths.source + '/globals/variables.scss',
+                                paths.source + '/common/mixins.scss',
+                                paths.source + '/common/variables.scss',
                             ],
                         }
                     },
