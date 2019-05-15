@@ -24,7 +24,7 @@ import "./blocks/Input/_masked/input_masked.js" //импорт с бэм-лоа�
 //text field
 import "b:textField"
 //slider
-import "./blocks/Slider/Slider.js"
+import "./blocks/Slider/_range/Slider_range.js"
 import "b:slider"
 
 //----

@@ -6,16 +6,16 @@ $darkShade25: change_color($darkShade100, $alpha: 0.25);
 $darkShade5: change_color($darkShade100, $alpha: 0.05);
 
 $purple: #BC9CFF; // 	hsl(259, 100%, 81%)
-$purpleGradientSecond: adjust_color($purple, null, null, null, -34.2612, -9.6, -5.09804‬);
+$purpleGradientSecond: adjust_color($purple, null, null, null, -34.2612, -9.6, -5.09804‬); //#88A4F9
 
 $green: #6FCF97;
-$greenGradientSecond: #66D2EA;
+$greenGradientSecond: adjust_color($green, null, null, null, 45.90909, 25.86207, 3.52941); //#66D2EA
 
 $inputBackgroundColor: white;
 
-//@debug $purpleGradientSecond hue($purpleGradientSecond) saturation($purpleGradientSecond) lightness($purpleGradientSecond);
-//$second: #88A4F9; //	hsl(225, 90%, 75%)
-//@debug $second hue($second) saturation($second) lightness($second);
+//@debug $greenGradientSecond hue($green) - hue($greenGradientSecond) saturation($green) - saturation($greenGradientSecond) lightness($green) - lightness($greenGradientSecond);
+//@debug $greenGradientSecondTest hue($greenGradientSecondTest) saturation($greenGradientSecondTest) lightness($greenGradientSecondTest);
+//@debug $greenGradientSecond hue($greenGradientSecond) saturation($greenGradientSecond) lightness($greenGradientSecond);
 
 //STYLES.SCSS
 $labelCTAlineHeight: 15px;

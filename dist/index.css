@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box; }
 
+hr {
+  border-color: #BC9CFF;
+  margin: 40px 0; }
+
 @font-face {
   font-family: Montserrat;
   src: url(fonts/Montserrat-Regular.ttf), url(fonts/Montserrat-Regular.svg); }
@@ -221,11 +225,11 @@
   height: 6px; }
 
 .slider .ui-slider-range {
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%); }
+  background: linear-gradient(180deg, #6FCF97 0%, #66d2ea 100%); }
 
 .slider .ui-slider-horizontal .ui-slider-handle {
   border-radius: 50%;
-  background: linear-gradient(180deg, #6FCF97 0%, #66D2EA 100%);
+  background: linear-gradient(180deg, #6FCF97 0%, #66d2ea 100%);
   width: 16px;
   height: 16px;
   border: 2px solid white;
