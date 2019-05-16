@@ -7,8 +7,10 @@ html(lang="ru")
         br
         hr
         include blocks/textField/textField
-        +TextField("Text Field", "This is pretty awesome", "")
-        +TextField("Masked Text Field", "ДД.ММ.ГГГГ", "textField_masked", "[0123][0-9].[012][0-9].[0-9]{4}")
+        div(class="inputsContainer")
+            +TextField("Text Field", "This is pretty awesome", "")
+            +TextField("Masked Text Field", "ДД.ММ.ГГГГ", "textField_masked", "[0123][0-9].[012][0-9].[0-9]{4}", "mask")
+            +TextField("DatePicker", "ДД.ММ.ГГГГ", "textField_datepicker", "[0123][0-9].[012][0-9].[0-9]{4}", "datepicker")
         hr
         include blocks/Button/Button
         include blocks/Link/Link
@@ -23,6 +25,6 @@ html(lang="ru")
             +Button("Click Me", "button_type_bordered button_width_wide fifthRow")
         include blocks/Slider/Slider
         hr
-        div
+        div(class="slidersContainer")
             +slider(100, 15000, 100, "Range Slider", "", true)
             +slider(1, 10, 1, "Range Slider", "", false)

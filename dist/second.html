@@ -6,16 +6,23 @@
   <link href="./second.css" rel="stylesheet"></head>
   <body><a class="text_type_label-CTA" href="index.html">Вернуться на главную</a><br>
     <hr>
-        <div class="textField">
-          <label class="text_type_label-CTA textField__title ">Text Field<br>
-                <input class="input input_type_text textField__input" type="text" placeholder="This is pretty awesome">
-          </label>
-        </div>
-        <div class="textField">
-          <label class="text_type_label-CTA textField__title textField_masked">Masked Text Field<br>
-                <input class="input input_masked input_type_text textField__input" type="text" placeholder="ДД.ММ.ГГГГ" pattern="[0123][0-9].[012][0-9].[0-9]{4}">
-          </label>
-        </div>
+    <div class="inputsContainer">
+          <div class="textField">
+            <label class="text_type_label-CTA textField__title ">Text Field<br>
+                  <input class="input textField__input" type="text" placeholder="This is pretty awesome">
+            </label>
+          </div>
+          <div class="textField">
+            <label class="text_type_label-CTA textField__title textField_masked">Masked Text Field<br>
+                  <input class="input input_masked textField__input" type="text" placeholder="ДД.ММ.ГГГГ" pattern="[0123][0-9].[012][0-9].[0-9]{4}">
+            </label>
+          </div>
+          <div class="textField">
+            <label class="text_type_label-CTA textField__title textField_datepicker">DatePicker<br>
+                  <input class="input input_type_datepicker textField__input" type="select" placeholder="ДД.ММ.ГГГГ">
+            </label>
+          </div>
+    </div>
     <hr>
     <div class="buttonsContainer"><a class="link text_type_label-CTA firstRow__button" href="#">Click Me</a><a class="link text_type_label-CTA link_hovered firstRow__button" href="#">Click Me</a>
           <button class="button text_type_label-CTA button_type_filled secondRow__button">Click Me</button>
@@ -26,7 +33,7 @@
           <button class="button text_type_label-CTA button_type_bordered button_width_wide fifthRow">Click Me</button>
     </div>
     <hr>
-    <div>
+    <div class="slidersContainer">
           <div class="slider slider_range ">
             <div class="slider__text">
               <p class="slider__title text_type_label-CTA">Range Slider</p>

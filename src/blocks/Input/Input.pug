@@ -1,5 +1,8 @@
 mixin Input(type, placeholder, addClasses, mask)
-	if mask
-		input(class="input input_masked " + addClasses type=type placeholder=placeholder pattern=mask)
-	else
-		input(class="input " + addClasses type="text" placeholder=placeholder)
+	case type
+		when "mask"
+			input(class="input input_masked " + addClasses type="text" placeholder=placeholder pattern=mask)
+		when "datepicker"
+			input(class="input input_type_datepicker " + addClasses type="select" placeholder=placeholder)
+		default
+			input(class="input " + addClasses type="text" placeholder=placeholder)

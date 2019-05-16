@@ -1,7 +1,12 @@
 import "jquery"
+import "jquery-ui"
 //slider
 import "jquery-ui/ui/widgets/slider"
 import "jquery-ui/themes/base/slider.css"
+//datepicker
+import "jquery-ui/ui/widgets/datepicker"
+//import "jquery-ui/themes/base/datepicker.css"
+import "../vendor/jquery-date-range-picker-master/dist/jquery.daterangepicker.min"
 //masked input
 import "../vendor/jquery.maskedinput/src/jquery.maskedinput"
 

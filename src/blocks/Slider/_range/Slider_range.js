@@ -2,11 +2,14 @@ import $ from "jquery"
 import {formatNumber} from "../../../common/functions";
 import {sliderHandlerValueChange} from "../slider";
 
-console.log("cat");
 $(".slider__control_range").each(function () {
     const minimalValue = Number($(this).attr("data-min"));
     const maximumValue = Number($(this).attr("data-max"));
     const step = Number($(this).attr("data-step"));
+
+    $(this).removeAttr("data-min");
+    $(this).removeAttr("data-max");
+    $(this).removeAttr("data-step");
 
     $(this).slider({
         min: minimalValue,

@@ -1,11 +1,17 @@
 import $ from "jquery"
 import {formatNumber} from "../../common/functions";
 
-console.log("nyan");
 $(".slider__control").each(function () {
     const minimalValue = Number($(this).attr("data-min"));
     const maximumValue = Number($(this).attr("data-max"));
     const step = Number($(this).attr("data-step"));
+
+    // if (!$(this).hasClass("slider_range")) {
+    //     console.log("!!!");
+    //     $(this).removeAttr("data-min");
+    //     $(this).removeAttr("data-max");
+    //     $(this).removeAttr("data-step");
+    // }
 
     $(this).slider({
         min: minimalValue,
