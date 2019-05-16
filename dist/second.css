@@ -150,13 +150,10 @@ hr {
 .link_hovered.link, .link:hover {
   color: rgba(31, 32, 65, 0.5); }
 
-.input_masked:invalid:hover {
-  color: rgba(31, 32, 65, 0.25); }
+.input__title {
+  border-bottom: 5px solid transparent; }
 
-.input_masked:valid:hover, .input_masked:invalid:focus {
-  color: rgba(31, 32, 65, 0.75); }
-
-.input {
+.input__control {
   border-radius: 4px;
   width: 320px;
   height: 44px;
@@ -172,18 +169,13 @@ hr {
   vertical-align: middle;
   color: rgba(31, 32, 65, 0.25);
   text-decoration: none;
-  margin: 0; }
+  margin: 4px 0 0 0; }
 
-.input:focus, .input:hover {
-  color: #1F2041;
-  outline: 0; }
-
-.input_type_text:focus, .input:hover {
-  color: rgba(31, 32, 65, 0.75);
+.input__control:focus, .input__control:hover {
   border-color: rgba(31, 32, 65, 0.5);
   outline: 0; }
 
-.input_type_text::placeholder {
+.input__control::placeholder {
   font-family: inherit, sans-serif;
   font-weight: inherit;
   font-style: normal;
@@ -194,7 +186,7 @@ hr {
   color: inherit;
   text-decoration: none; }
 
-.input_type_text:focus::placeholder, .input:hover::placeholder {
+.input__control:focus::placeholder, .input__control:hover::placeholder {
   font-family: inherit, sans-serif;
   font-weight: inherit;
   font-style: normal;
@@ -205,11 +197,16 @@ hr {
   color: rgba(31, 32, 65, 0.25);
   text-decoration: none; }
 
-.textField__title {
-  border-bottom: 5px solid transparent; }
+.input__control_type_text:focus, .input__control_type_text:hover {
+  color: rgba(31, 32, 65, 0.75); }
 
-.textField__input {
-  margin-top: 4px; }
+.input__control_type_masked:valid:hover,
+.input__control_type_masked:focus {
+  color: rgba(31, 32, 65, 0.75); }
+
+.input__control_type_datepicker:valid:hover,
+.input__control_type_datepicker:valid:focus {
+  color: rgba(31, 32, 65, 0.75); }
 
 .slider {
   width: 266px; }
@@ -272,9 +269,6 @@ hr {
 
 .input__wrapper {
   padding: 5px; }
-
-.input__title {
-  margin: 0 0 5px 0; }
 
 .buttonsContainer {
   margin-top: 20px;

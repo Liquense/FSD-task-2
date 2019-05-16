@@ -1,12 +1,11 @@
-import "jquery"
+//import "jquery"
 import "jquery-ui"
 //slider
 import "jquery-ui/ui/widgets/slider"
 import "jquery-ui/themes/base/slider.css"
 //datepicker
-import "jquery-ui/ui/widgets/datepicker"
-//import "jquery-ui/themes/base/datepicker.css"
-import "../vendor/jquery-date-range-picker-master/dist/jquery.daterangepicker.min"
+import "air-datepicker"
+import "air-datepicker/dist/css/datepicker.css"
 //masked input
 import "../vendor/jquery.maskedinput/src/jquery.maskedinput"
 
@@ -25,10 +24,11 @@ import "b:button m:width=wide"
 //link
 import "b:link m:hovered"
 //input
-import "./blocks/Input/_masked/input_masked.scss"
-import "./blocks/Input/_masked/input_masked.js" //импорт с бэм-лоадера даёт ошибку
-//text field
-import "b:textField"
+import "b:input m:type=text"
+import "./blocks/Input/_type/_masked/input_masked.scss"
+import "./blocks/Input/_type/_masked/input_masked.js" //импорт с бэм-лоадера даёт ошибку
+import "./blocks/Input/_type/_datepicker/input_type_datepicker.scss"
+import "./blocks/Input/_type/_datepicker/input_type_datepicker.js"
 //slider
 import "b:slider"
 import "./blocks/Slider/slider"

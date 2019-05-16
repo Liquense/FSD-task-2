@@ -33,12 +33,12 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: './[id].css',
         }),
-        //  new webpack.ProvidePlugin({
-        //      $: "jquery",
-        //      jQuery: "jquery",
-        //      "window.$": "jquery",
-        //      "window.jQuery": "jquery"
-        // }),
+          new webpack.ProvidePlugin({
+              $: "jquery",
+              jQuery: "jquery",
+              "window.$": "jquery",
+              "window.jQuery": "jquery"
+         }),
     ].concat(pagesMap),
     // resolve: {
     //     alias: {

@@ -6,11 +6,11 @@ html(lang="ru")
         a(href="index.html" class="text_type_label-CTA") Вернуться на главную
         br
         hr
-        include blocks/textField/textField
+        include blocks/Input/Input
         div(class="inputsContainer")
-            +TextField("Text Field", "This is pretty awesome", "")
-            +TextField("Masked Text Field", "ДД.ММ.ГГГГ", "textField_masked", "[0123][0-9].[012][0-9].[0-9]{4}", "mask")
-            +TextField("DatePicker", "ДД.ММ.ГГГГ", "textField_datepicker", "[0123][0-9].[012][0-9].[0-9]{4}", "datepicker")
+            +Input("Text field", "text", "This is pretty awesome", "", "")
+            +Input("Masked Text Field", "mask", "ДД.ММ.ГГГГ", "textField_masked", "[0123][0-9].[012][0-9].[0-9]{4}")
+            +Input("DatePicker", "datepicker", "ДД.ММ.ГГГГ", "textField_datepicker", "[0123][0-9].[012][0-9].[0-9]{4}")
         hr
         include blocks/Button/Button
         include blocks/Link/Link

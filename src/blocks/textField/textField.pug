@@ -1,7 +1,0 @@
-include ../Input/Input
-
-mixin TextField(labelText, placeholder, addClasses, mask, type)
-	div(class="textField")
-		label(class="text_type_label-CTA textField__title " + addClasses) #{labelText}
-			br
-			+Input(type, placeholder, "textField__input", mask)

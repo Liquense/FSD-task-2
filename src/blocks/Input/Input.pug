@@ -1,8 +1,11 @@
-mixin Input(type, placeholder, addClasses, mask)
-	case type
-		when "mask"
-			input(class="input input_masked " + addClasses type="text" placeholder=placeholder pattern=mask)
-		when "datepicker"
-			input(class="input input_type_datepicker " + addClasses type="select" placeholder=placeholder)
-		default
-			input(class="input " + addClasses type="text" placeholder=placeholder)
+mixin Input(title, type, placeholder, addClasses, mask)
+	div(class="input")
+		label(class="text_type_label-CTA input__title ") #{title}
+			br
+			case type
+				when "mask"
+					input(class="input__control input__control_type_masked " type="text" placeholder=placeholder pattern=mask)
+				when "datepicker"
+					input(class="input__control input__control_type_datepicker " type="select" placeholder=placeholder pattern="[0123][0-9].[012][0-9].[0-9]{4}")
+				default
+					input(class="input__control input__control_type_text" type="text" placeholder=placeholder)

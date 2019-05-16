@@ -1,4 +1,3 @@
-import $ from "jquery"
 import {formatNumber} from "../../common/functions";
 
 $(".slider__control").each(function () {
