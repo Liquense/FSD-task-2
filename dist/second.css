@@ -200,8 +200,8 @@ hr {
 .input__control_type_text:focus, .input__control_type_text:hover {
   color: rgba(31, 32, 65, 0.75); }
 
-.input__control_type_masked:valid:hover,
-.input__control_type_masked:focus {
+.input__control_masked:valid:hover,
+.input__control_masked:focus {
   color: rgba(31, 32, 65, 0.75); }
 
 .input__control_type_datepicker:valid:hover,

@@ -308,6 +308,29 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 
 /***/ }),
 
+/***/ "./src/blocks/Input/_masked/input_masked.js":
+/*!**************************************************!*\
+  !*** ./src/blocks/Input/_masked/input_masked.js ***!
+  \**************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.mask.definitions['m'] = \"[012]\";\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.mask.definitions['d'] = \"[0123]\";\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".input__control_masked\").mask(\"d9.m9.9999\",\r\n        {\r\n            completed: function() {\r\n              console.log(\"Введена дата: \" +this.val());\r\n            },\r\n            placeholder: \"ДД.ММ.ГГГГ\",\r\n            autoclear: false\r\n        });\r\n});\r\n\n\n//# sourceURL=webpack:///./src/blocks/Input/_masked/input_masked.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/Input/_masked/input_masked.scss":
+/*!****************************************************!*\
+  !*** ./src/blocks/Input/_masked/input_masked.scss ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Input/_masked/input_masked.scss?");
+
+/***/ }),
+
 /***/ "./src/blocks/Input/_type/_datepicker/input_type_datepicker.js":
 /*!*********************************************************************!*\
   !*** ./src/blocks/Input/_type/_datepicker/input_type_datepicker.js ***!
@@ -315,7 +338,7 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("/* WEBPACK VAR INJECTION */(function($) {$(\".input__control_type_datepicker\").each(function () {\r\n    $(this).datepicker();\r\n    console.log(\"i'm datepicker\");\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/Input/_type/_datepicker/input_type_datepicker.js?");
+eval("/* WEBPACK VAR INJECTION */(function($) {$(\".input__control_type_datepicker\").each(function () {\r\n    $(this).datepicker({\r\n        range: true,\r\n        clearButton: true,\r\n    });\r\n\r\n    console.log(\"i'm datepicker\");\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/Input/_type/_datepicker/input_type_datepicker.js?");
 
 /***/ }),
 
@@ -327,29 +350,6 @@ eval("/* WEBPACK VAR INJECTION */(function($) {$(\".input__control_type_datepick
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Input/_type/_datepicker/input_type_datepicker.scss?");
-
-/***/ }),
-
-/***/ "./src/blocks/Input/_type/_masked/input_masked.js":
-/*!********************************************************!*\
-  !*** ./src/blocks/Input/_type/_masked/input_masked.js ***!
-  \********************************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\njquery__WEBPACK_IMPORTED_MODULE_0___default()(document).ready(function () {\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.mask.definitions['m'] = \"[012]\";\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default.a.mask.definitions['d'] = \"[0123]\";\r\n    jquery__WEBPACK_IMPORTED_MODULE_0___default()(\".input__control_type_masked\").mask(\"d9.m9.9999\",\r\n        {\r\n            completed: function() {\r\n              console.log(\"Введена дата: \" +this.val());\r\n            },\r\n            placeholder: \"ДД.ММ.ГГГГ\",\r\n            autoclear: false\r\n        });\r\n});\r\n\n\n//# sourceURL=webpack:///./src/blocks/Input/_type/_masked/input_masked.js?");
-
-/***/ }),
-
-/***/ "./src/blocks/Input/_type/_masked/input_masked.scss":
-/*!**********************************************************!*\
-  !*** ./src/blocks/Input/_type/_masked/input_masked.scss ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Input/_type/_masked/input_masked.scss?");
 
 /***/ }),
 
@@ -461,7 +461,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var pug = __webpack_require__(/*! ../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;var pug_indent = [];\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/blocks/input/input.pug?");
+eval("var pug = __webpack_require__(/*! ../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;var pug_indent = [];\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/blocks/input/input.pug?");
 
 /***/ }),
 
@@ -583,7 +583,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! jquery-ui */ \"./node_modules/jquery-ui/ui/widget.js\");\n\n__webpack_require__(/*! jquery-ui/ui/widgets/slider */ \"./node_modules/jquery-ui/ui/widgets/slider.js\");\n\n__webpack_require__(/*! jquery-ui/themes/base/slider.css */ \"./node_modules/jquery-ui/themes/base/slider.css\");\n\n__webpack_require__(/*! air-datepicker */ \"./node_modules/air-datepicker/src/js/air-datepicker.js\");\n\n__webpack_require__(/*! air-datepicker/dist/css/datepicker.css */ \"./node_modules/air-datepicker/dist/css/datepicker.css\");\n\n__webpack_require__(/*! ../vendor/jquery.maskedinput/src/jquery.maskedinput */ \"./vendor/jquery.maskedinput/src/jquery.maskedinput.js\");\n\n__webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n\n__webpack_require__(/*! ./common/fonts.scss */ \"./src/common/fonts.scss\");\n\n__webpack_require__(/*! ./common/functions */ \"./src/common/functions.js\");\n\n[__webpack_require__(/*! ./blocks/text/_type/text_type_label-CTA.scss */ \"./src/blocks/text/_type/text_type_label-CTA.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_itemTitle.scss */ \"./src/blocks/text/_type/text_type_itemTitle.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_regular.scss */ \"./src/blocks/text/_type/text_type_regular.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_widgetTitle.scss */ \"./src/blocks/text/_type/text_type_widgetTitle.scss\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_bordered.scss */ \"./src/blocks/button/_type/button_type_bordered.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_filled.scss */ \"./src/blocks/button/_type/button_type_filled.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_hovered/button_hovered.scss */ \"./src/blocks/button/_hovered/button_hovered.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_width/button_width_wide.scss */ \"./src/blocks/button/_width/button_width_wide.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/link/link.scss */ \"./src/blocks/link/link.scss\"),\n__webpack_require__(/*! ./blocks/link/_hovered/link_hovered.scss */ \"./src/blocks/link/_hovered/link_hovered.scss\"),__webpack_require__(/*! ./blocks/link/link.pug */ \"./src/blocks/link/link.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/input/input.scss */ \"./src/blocks/input/input.scss\"),\n__webpack_require__(/*! ./blocks/input/_type/input_type_text.scss */ \"./src/blocks/input/_type/input_type_text.scss\"),__webpack_require__(/*! ./blocks/input/input.pug */ \"./src/blocks/input/input.pug\")][0];\n\n__webpack_require__(/*! ./blocks/Input/_type/_masked/input_masked.scss */ \"./src/blocks/Input/_type/_masked/input_masked.scss\");\n\n__webpack_require__(/*! ./blocks/Input/_type/_masked/input_masked.js */ \"./src/blocks/Input/_type/_masked/input_masked.js\");\n\n__webpack_require__(/*! ./blocks/Input/_type/_datepicker/input_type_datepicker.scss */ \"./src/blocks/Input/_type/_datepicker/input_type_datepicker.scss\");\n\n__webpack_require__(/*! ./blocks/Input/_type/_datepicker/input_type_datepicker.js */ \"./src/blocks/Input/_type/_datepicker/input_type_datepicker.js\");\n\n[__webpack_require__(/*! ./blocks/slider/slider.scss */ \"./src/blocks/slider/slider.scss\"),__webpack_require__(/*! ./blocks/slider/slider.pug */ \"./src/blocks/slider/slider.pug\")][0];\n\n__webpack_require__(/*! ./blocks/Slider/slider */ \"./src/blocks/Slider/slider.js\");\n\n__webpack_require__(/*! ./blocks/Slider/_range/Slider_range.js */ \"./src/blocks/Slider/_range/Slider_range.js\");\n\n//# sourceURL=webpack:///./src/common.js?");
+eval("\n\n__webpack_require__(/*! jquery-ui */ \"./node_modules/jquery-ui/ui/widget.js\");\n\n__webpack_require__(/*! jquery-ui/ui/widgets/slider */ \"./node_modules/jquery-ui/ui/widgets/slider.js\");\n\n__webpack_require__(/*! jquery-ui/themes/base/slider.css */ \"./node_modules/jquery-ui/themes/base/slider.css\");\n\n__webpack_require__(/*! air-datepicker */ \"./node_modules/air-datepicker/src/js/air-datepicker.js\");\n\n__webpack_require__(/*! air-datepicker/dist/css/datepicker.css */ \"./node_modules/air-datepicker/dist/css/datepicker.css\");\n\n__webpack_require__(/*! ../vendor/jquery.maskedinput/src/jquery.maskedinput */ \"./vendor/jquery.maskedinput/src/jquery.maskedinput.js\");\n\n__webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n\n__webpack_require__(/*! ./common/fonts.scss */ \"./src/common/fonts.scss\");\n\n__webpack_require__(/*! ./common/functions */ \"./src/common/functions.js\");\n\n[__webpack_require__(/*! ./blocks/text/_type/text_type_label-CTA.scss */ \"./src/blocks/text/_type/text_type_label-CTA.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_itemTitle.scss */ \"./src/blocks/text/_type/text_type_itemTitle.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_regular.scss */ \"./src/blocks/text/_type/text_type_regular.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_widgetTitle.scss */ \"./src/blocks/text/_type/text_type_widgetTitle.scss\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_bordered.scss */ \"./src/blocks/button/_type/button_type_bordered.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_filled.scss */ \"./src/blocks/button/_type/button_type_filled.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_hovered/button_hovered.scss */ \"./src/blocks/button/_hovered/button_hovered.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_width/button_width_wide.scss */ \"./src/blocks/button/_width/button_width_wide.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/link/link.scss */ \"./src/blocks/link/link.scss\"),\n__webpack_require__(/*! ./blocks/link/_hovered/link_hovered.scss */ \"./src/blocks/link/_hovered/link_hovered.scss\"),__webpack_require__(/*! ./blocks/link/link.pug */ \"./src/blocks/link/link.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/input/input.scss */ \"./src/blocks/input/input.scss\"),\n__webpack_require__(/*! ./blocks/input/_type/input_type_text.scss */ \"./src/blocks/input/_type/input_type_text.scss\"),__webpack_require__(/*! ./blocks/input/input.pug */ \"./src/blocks/input/input.pug\")][0];\n\n__webpack_require__(/*! ./blocks/Input/_masked/input_masked.scss */ \"./src/blocks/Input/_masked/input_masked.scss\");\n\n__webpack_require__(/*! ./blocks/Input/_masked/input_masked.js */ \"./src/blocks/Input/_masked/input_masked.js\");\n\n__webpack_require__(/*! ./blocks/Input/_type/_datepicker/input_type_datepicker.scss */ \"./src/blocks/Input/_type/_datepicker/input_type_datepicker.scss\");\n\n__webpack_require__(/*! ./blocks/Input/_type/_datepicker/input_type_datepicker.js */ \"./src/blocks/Input/_type/_datepicker/input_type_datepicker.js\");\n\n[__webpack_require__(/*! ./blocks/slider/slider.scss */ \"./src/blocks/slider/slider.scss\"),__webpack_require__(/*! ./blocks/slider/slider.pug */ \"./src/blocks/slider/slider.pug\")][0];\n\n__webpack_require__(/*! ./blocks/Slider/slider */ \"./src/blocks/Slider/slider.js\");\n\n__webpack_require__(/*! ./blocks/Slider/_range/Slider_range.js */ \"./src/blocks/Slider/_range/Slider_range.js\");\n\n//# sourceURL=webpack:///./src/common.js?");
 
 /***/ }),
 

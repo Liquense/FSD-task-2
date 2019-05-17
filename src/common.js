@@ -25,8 +25,8 @@ import "b:button m:width=wide"
 import "b:link m:hovered"
 //input
 import "b:input m:type=text"
-import "./blocks/Input/_type/_masked/input_masked.scss"
-import "./blocks/Input/_type/_masked/input_masked.js" //импорт с бэм-лоадера даёт ошибку
+import "./blocks/Input/_masked/input_masked.scss"
+import "./blocks/Input/_masked/input_masked.js" //импорт с бэм-лоадера даёт ошибку
 import "./blocks/Input/_type/_datepicker/input_type_datepicker.scss"
 import "./blocks/Input/_type/_datepicker/input_type_datepicker.js"
 //slider

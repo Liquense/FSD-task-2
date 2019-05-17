@@ -2,10 +2,17 @@ mixin Input(title, type, placeholder, addClasses, mask)
 	div(class="input")
 		label(class="text_type_label-CTA input__title ") #{title}
 			br
+			- var attributes = {}
+			- attributes.placeholder = placeholder
+			- attributes.class = "input__control "
 			case type
-				when "mask"
-					input(class="input__control input__control_type_masked " type="text" placeholder=placeholder pattern=mask)
 				when "datepicker"
-					input(class="input__control input__control_type_datepicker " type="select" placeholder=placeholder pattern="[0123][0-9].[012][0-9].[0-9]{4}")
+					- attributes.class += "input__control_type_datepicker "
+					- attributes.type = "select"
+					- attributes.readonly = true;
 				default
-					input(class="input__control input__control_type_text" type="text" placeholder=placeholder)
+					- attributes.class += "input__control_type_text "
+					- attributes.type = "text"
+			if mask
+				- attributes.class += "input__control_masked "
+			input&attributes(attributes)
