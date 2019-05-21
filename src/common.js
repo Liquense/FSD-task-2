@@ -5,7 +5,7 @@ import "jquery-ui/ui/widgets/slider"
 import "jquery-ui/themes/base/slider.css"
 //datepicker
 import "air-datepicker"
-import "air-datepicker/dist/css/datepicker.css"
+//import "air-datepicker/dist/css/datepicker.css"
 //masked input
 import "../vendor/jquery.maskedinput/src/jquery.maskedinput"
 

@@ -5,13 +5,6 @@ $(".slider__control").each(function () {
     const maximumValue = Number($(this).attr("data-max"));
     const step = Number($(this).attr("data-step"));
 
-    // if (!$(this).hasClass("slider_range")) {
-    //     console.log("!!!");
-    //     $(this).removeAttr("data-min");
-    //     $(this).removeAttr("data-max");
-    //     $(this).removeAttr("data-step");
-    // }
-
     $(this).slider({
         min: minimalValue,
         max: maximumValue,
