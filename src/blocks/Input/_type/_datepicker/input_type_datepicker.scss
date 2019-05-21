@@ -4,7 +4,7 @@ $datepickerContentHeight: 240px;
 $cellSize: 40px;
 $cellTextColor: $darkShade50;
 $datepickerContentSidesPadding: 20px;
-$datepickerContentTopPadding: 30px;
+$datepickerContentTopPadding: 26px;
 $datepickerContentWidth: $datepickerWidth - $datepickerContentSidesPadding*2;
 $actualPointsGradient: linear-gradient($gradientDefaultAngle,
         $purple 0%,
@@ -26,7 +26,6 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
 .input_type_datepicker__confirmButton,
 .input_type_datepicker__clearButton {
-  line-height: 30px;
   width: 50%;
   height: fit-content;
 
@@ -67,7 +66,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   justify-content: center;
   height: $cellSize;
   width: $cellSize;
-  //z-index: 1; - переопределяет z-index псевдоэлементов
+  //z-index: 1; //- переопределяет z-index псевдоэлементов
   //@include text(Montserrat, normal, 12px, 15px, $cellTextColor, normal);
 
   &.datepicker--cell.-focus- {
@@ -178,7 +177,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin: 8px 0 3px;
+  margin: 0;
 }
 
 .datepicker--day-name {
@@ -264,9 +263,8 @@ $yearCellsColumnLength: 3;
   box-sizing: border-box;
   //font-family: Tahoma, sans-serif;
   @include text(Montserrat, normal, 12px, 15px, $cellTextColor, normal);
-  font-size: 14px;
   color: #4a4a4a;
-  width: $datepickerWidth + $datepickerBorderWidth*2;
+  width: $datepickerWidth;
   position: absolute;
   left: -100000px;
   opacity: 0;
@@ -322,8 +320,8 @@ $yearCellsColumnLength: 3;
 
 .datepicker--content {
   box-sizing: content-box;
-  padding: $datepickerContentTopPadding $datepickerContentSidesPadding 0 $datepickerContentSidesPadding;
-  height: $datepickerContentHeight;
+  padding: $datepickerContentTopPadding $datepickerContentSidesPadding - $datepickerBorderWidth*2 0 $datepickerContentSidesPadding;
+  min-height: $datepickerContentHeight;
 }
 
 .-only-timepicker- .datepicker--content {
@@ -408,7 +406,7 @@ $yearCellsColumnLength: 3;
   -ms-flex-pack: justify;
   justify-content: space-between;
   min-height: 32px;
-  padding: 20px 0 0 0;
+  padding: 15px 0 0 0;
 }
 
 .-only-timepicker- .datepicker--nav {
@@ -459,6 +457,7 @@ $yearCellsColumnLength: 3;
 
 .datepicker--nav-title {
   border-radius: 4px;
+  text-transform: none;
 }
 
 //.datepicker--nav-title i {
@@ -480,7 +479,7 @@ $yearCellsColumnLength: 3;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 20px;
+  padding: 20px 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth;
 }
 
 .datepicker--button {

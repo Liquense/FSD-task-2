@@ -9,8 +9,10 @@ $(".input__control_type_datepicker").each(function () {
         navTitles: {
             days: 'MM yyyy'
         },
+        inline: true,
+        minDate: new Date(),
     }).data('datepicker');
-    console.log(datepicker);
+    console.log(datepicker.$nav);
     datepicker.$nav.addClass("text_type_itemTitle");
     datepicker.$datepicker.find('.datepicker--button[data-action="today"]').remove();
     datepicker.$datepicker.find(".datepicker--buttons").append(clearButton);
