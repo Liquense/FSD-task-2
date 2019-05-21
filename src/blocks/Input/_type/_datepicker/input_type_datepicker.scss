@@ -6,6 +6,18 @@ $cellTextColor: $darkShade50;
 $datepickerContentSidesPadding: 20px;
 $datepickerContentTopPadding: 30px;
 $datepickerContentWidth: $datepickerWidth - $datepickerContentSidesPadding*2;
+$actualPointsGradient: linear-gradient($gradientDefaultAngle,
+        $purple 0%,
+        $purpleGradientSecond 100%);
+$actualRangeGradient: linear-gradient($gradientDefaultAngle,
+        rgba($purple, 0.25) 0%,
+        rgba($purpleGradientSecond, 0.25) 100%);
+$otherPointsGradient: linear-gradient($gradientDefaultAngle,
+        scale-color($purple, $lightness: 50%) 0%,
+        scale-color($purpleGradientSecond, $lightness: 50%) 100%);
+$otherRangeGradient: linear-gradient($gradientDefaultAngle,
+        rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
+        rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%);
 
 .input__control_type_datepicker:valid:hover,
 .input__control_type_datepicker:valid:focus {
@@ -78,7 +90,7 @@ $datepickerContentWidth: $datepickerWidth - $datepickerContentSidesPadding*2;
 }
 
 .datepicker--cell.-in-range- {
-  background: linear-gradient(180deg, rgba($purple, 0.25) 0%, rgba($purpleGradientSecond, 0.25) 100%);
+  background: $actualRangeGradient;
   color: $cellTextColor;
   border-radius: 0;
 
@@ -107,7 +119,7 @@ $datepickerContentWidth: $datepickerWidth - $datepickerContentSidesPadding*2;
 
 .datepicker--cell.-range-from-,
 .datepicker--cell.-range-to- {
-  background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+  background: $actualPointsGradient;
   color: white;
 
   &.-other-month- {
@@ -115,18 +127,21 @@ $datepickerContentWidth: $datepickerWidth - $datepickerContentSidesPadding*2;
   }
 
   &.-focus- {
-    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+    background: $actualPointsGradient;
   }
 
   &::before {
     content: "";
-    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-    opacity: 0.25;
+    background: $actualRangeGradient;
     height: $cellSize;
     width: $cellSize/2;
     position: absolute;
     top: 0;
     z-index: -1;
+  }
+
+  &.-other-month-::before {
+    background: $otherRangeGradient;
   }
 
   &.datepicker--cell.-range-from-::before {
@@ -168,6 +183,7 @@ $datepickerContentWidth: $datepickerWidth - $datepickerContentSidesPadding*2;
 
 .datepicker--day-name {
   color: $purple;
+  height: 40px;
   font-weight: bold;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -197,6 +213,15 @@ $monthCellSize: $datepickerContentHeight/4;
   .datepicker--cell-month {
     width: $monthCellSize;
     height: $monthCellSize;
+
+    &.-range-from-,
+    &.-range-to- {
+      border-radius: 50%;
+
+      &.-current- {
+        color: scale-color($green, $lightness: 75%);
+      }
+    }
   }
 }
 
@@ -306,13 +331,14 @@ $yearCellsColumnLength: 3;
 }
 
 .datepicker--pointer {
-  position: absolute;
-  background: #fff;
-  border-top: 1px solid #dbdbdb;
-  border-right: 1px solid #dbdbdb;
-  width: 10px;
-  height: 10px;
-  z-index: -1;
+  display: none;
+  //position: absolute;
+  //background: #fff;
+  //border-top: 1px solid #dbdbdb;
+  //border-right: 1px solid #dbdbdb;
+  //width: 10px;
+  //height: 10px;
+  //z-index: -1;
 }
 
 .-top-left- .datepicker--pointer, .-top-center- .datepicker--pointer, .-top-right- .datepicker--pointer {
@@ -381,9 +407,8 @@ $yearCellsColumnLength: 3;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  border-bottom: 1px solid #efefef;
   min-height: 32px;
-  padding: 4px;
+  padding: 20px 0 0 0;
 }
 
 .-only-timepicker- .datepicker--nav {
@@ -434,14 +459,13 @@ $yearCellsColumnLength: 3;
 
 .datepicker--nav-title {
   border-radius: 4px;
-  padding: 0 8px;
 }
 
-.datepicker--nav-title i {
-  font-style: normal;
-  color: #9c9c9c;
-  margin-left: 5px;
-}
+//.datepicker--nav-title i {
+//  font-style: normal;
+//  color: #9c9c9c;
+//  margin-left: 5px;
+//}
 
 .datepicker--nav-title:hover {
   background: #f0f0f0;
@@ -768,20 +792,20 @@ $yearCellsColumnLength: 3;
 
 .-selected-.datepicker--cell-day.-other-month-, .-selected-.datepicker--cell-year.-other-decade- {
   color: #fff;
-  background: linear-gradient($gradientDefaultAngle, lighten($purple, 0.5) 0%, lighten($purpleGradientSecond, 0.5) 100%);
+  background: $otherPointsGradient;
 }
 
 .-selected-.-focus-.datepicker--cell-day.-other-month-, .-selected-.-focus-.datepicker--cell-year.-other-decade- {
-  background: linear-gradient($gradientDefaultAngle, lighten($purple, 0.5) 0%, lighten($purpleGradientSecond, 0.5) 100%);
+  background: $actualPointsGradient;
 }
 
 .-in-range-.datepicker--cell-day.-other-month-, .-in-range-.datepicker--cell-year.-other-decade- {
-  background: linear-gradient($gradientDefaultAngle, rgba($purple, 0.25) 0%, rgba($purpleGradientSecond, 0.25) 100%);
-  color: #cccccc;
+  background: $otherRangeGradient;
+  color: $darkShade25;
 }
 
 .-in-range-.-focus-.datepicker--cell-day.-other-month-, .-in-range-.-focus-.datepicker--cell-year.-other-decade- {
-  background-color: rgba(92, 196, 239, 0.2);
+  background: $otherPointsGradient;
 }
 
 .datepicker--cell-day.-other-month-:empty, .datepicker--cell-year.-other-decade-:empty {
