@@ -286,6 +286,17 @@ eval("\n/**\n * When source maps are enabled, `style-loader` uses a link element
 
 /***/ }),
 
+/***/ "./src/assets/images/arrow_back.svg":
+/*!******************************************!*\
+  !*** ./src/assets/images/arrow_back.svg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"images/arrow_back.svg\";\n\n//# sourceURL=webpack:///./src/assets/images/arrow_back.svg?");
+
+/***/ }),
+
 /***/ "./src/blocks/Input/_masked/input_masked.js":
 /*!**************************************************!*\
   !*** ./src/blocks/Input/_masked/input_masked.js ***!
@@ -313,10 +324,11 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /*!*********************************************************************!*\
   !*** ./src/blocks/Input/_type/_datepicker/input_type_datepicker.js ***!
   \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-eval("/* WEBPACK VAR INJECTION */(function($) {let confirmButton = '<a class=\"link text_type_label-CTA input_type_datepicker__confirmButton\" href=\"#\">Применить</link>';\r\nlet clearButton = '<a class=\"link text_type_label-CTA input_type_datepicker__clearButton link_hovered\" href=\"#\">Очистить</link>';\r\n\r\n$(\".input__control_type_datepicker\").each(function () {\r\n    let datepicker = $(this).datepicker({\r\n        range: true,\r\n        todayButton: true,\r\n        offset: 5,\r\n        navTitles: {\r\n            days: 'MM yyyy'\r\n        },\r\n        inline: true,\r\n        minDate: new Date(),\r\n    }).data('datepicker');\r\n    console.log(datepicker.$nav);\r\n    datepicker.$nav.addClass(\"text_type_itemTitle\");\r\n    datepicker.$datepicker.find('.datepicker--button[data-action=\"today\"]').remove();\r\n    datepicker.$datepicker.find(\".datepicker--buttons\").append(clearButton);\r\n    datepicker.$datepicker.find(\".datepicker--buttons\").append(confirmButton);\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/Input/_type/_datepicker/input_type_datepicker.js?");
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _assets_images_arrow_back_svg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../assets/images/arrow_back.svg */ \"./src/assets/images/arrow_back.svg\");\n/* harmony import */ var _assets_images_arrow_back_svg__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_assets_images_arrow_back_svg__WEBPACK_IMPORTED_MODULE_0__);\n\r\nlet confirmButton = '<a class=\"link text_type_label-CTA input_type_datepicker__confirmButton\" href=\"#\">Применить</link>';\r\nlet clearButton = '<a class=\"link text_type_label-CTA input_type_datepicker__clearButton link_hovered\" href=\"#\">Очистить</link>';\r\n//let svgArrow = '<div class=\"datepicker--nav-action\" data-action=\"prev\"><svg><path d=\"M 10,5 l -5,5 l 5,5\"></path></svg></div>';\r\nlet svgArrow = '<img src=\"./images/arrow_back.svg\" alt=\"назад\" class=\"datepicker--nav-action\" data-action=\"prev\">';\r\n\r\n\r\n$(\".input__control_type_datepicker\").each(function () {\r\n    let datepicker = $(this).datepicker({\r\n        range: true,\r\n        todayButton: true,\r\n        offset: 5,\r\n        navTitles: {\r\n            days: 'MM yyyy'\r\n        },\r\n        inline: true,\r\n        minDate: new Date(),\r\n        onShow: function () {\r\n            datepicker.$nav.prepend(svgArrow);\r\n        },\r\n        onChangeMonth: function () {\r\n            datepicker.$nav.prepend(svgArrow);\r\n        },\r\n        onChangeView: function () {\r\n            datepicker.$nav.prepend(svgArrow);\r\n        },\r\n    }).data('datepicker');\r\n    console.log(datepicker.$nav);\r\n    datepicker.$nav.prepend(svgArrow);\r\n    datepicker.$nav.addClass(\"text_type_itemTitle\");\r\n    datepicker.$datepicker.find('.datepicker--button[data-action=\"today\"]').remove();\r\n    datepicker.$datepicker.find(\".datepicker--buttons\").append(clearButton);\r\n    datepicker.$datepicker.find(\".datepicker--buttons\").append(confirmButton);\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/Input/_type/_datepicker/input_type_datepicker.js?");
 
 /***/ }),
 

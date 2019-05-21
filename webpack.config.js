@@ -33,12 +33,12 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: './[id].css',
         }),
-          new webpack.ProvidePlugin({
-              $: "jquery",
-              jQuery: "jquery",
-              "window.$": "jquery",
-              "window.jQuery": "jquery"
-         }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.$": "jquery",
+            "window.jQuery": "jquery"
+        }),
     ].concat(pagesMap),
     // resolve: {
     //     alias: {
@@ -114,19 +114,26 @@ module.exports = {
                 ]
             },
             {
-                test: [/\.jpg$/, /\.jpeg$/, /\.png$/, /\.gif$/],
+                test: /\.(png|svg|jpg|gif)$/,
+                include: [
+                    path.resolve(paths.source, "assets/images")
+                ],
                 use: [
                     {
                         loader: 'file-loader',
                         options: {
                             outputPath: 'images',
                             name: '[name].[ext]',
+                            publicPath: "images",
                         }
                     }
                 ]
             },
             {
-                test: [/\.otf$/, /\.ttf$/, /\.svg$/,],
+                test: /\.(otf|ttf|svg)$/,
+                include: [
+                    path.resolve(paths.source, "assets/fonts")
+                ],
                 use: [
                     {
                         loader: 'file-loader',
