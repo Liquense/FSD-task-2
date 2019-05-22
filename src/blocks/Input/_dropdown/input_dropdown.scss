@@ -1,14 +1,19 @@
-@import "../Input";
-
+@import "../styleVariables";
 $expandHeight: 8px;
 $expandWidth: 12px;
 
+$expandVerticalPadding: ($inputHeight - $expandHeight)/2;
+$expandHorizontalPadding: $expandVerticalPadding - ($expandWidth - $expandHeight)/2;
+$expandFullWidth: $expandWidth + $expandHorizontalPadding*2;
+$expandFullHeight: $expandHeight + $expandVerticalPadding*2;
+
 .input_dropdown__expand {
   position: relative;
-  width: 12px;
-  height: 8px;
-  left: -29px;
-  top: 23px;
+  width: $expandFullWidth;
+  height: $expandFullHeight;
+  top: $inputTopMargin + $borderWidth;
+  left: -$expandFullWidth - $borderWidth;
+  padding: $expandVerticalPadding $expandHorizontalPadding;
   vertical-align: top;
   text-align: left;
 }

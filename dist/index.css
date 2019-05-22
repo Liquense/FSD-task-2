@@ -832,59 +832,13 @@ hr {
   background: none;
   border: none; }
 
-.input__title {
-  border-bottom: 5px solid transparent; }
-
-.input__control {
-  border-radius: 4px;
-  width: 320px;
-  height: 44px;
-  border: 1px solid rgba(31, 32, 65, 0.25);
-  background: white;
-  padding: 11px 14px 13px 14px;
-  font-family: Montserrat, sans-serif;
-  font-weight: normal;
-  font-style: normal;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: -0.18px;
-  vertical-align: middle;
-  color: rgba(31, 32, 65, 0.25);
-  text-decoration: none;
-  margin: 4px 0 0 0; }
-
-.input__control:focus, .input__control:hover {
-  border-color: rgba(31, 32, 65, 0.5);
-  outline: 0; }
-
-.input__control::placeholder {
-  font-family: inherit, sans-serif;
-  font-weight: inherit;
-  font-style: normal;
-  font-size: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  vertical-align: middle;
-  color: rgba(31, 32, 65, 0.25);
-  text-decoration: none; }
-
-.input__control:focus::placeholder, .input__control:hover::placeholder {
-  font-family: inherit, sans-serif;
-  font-weight: inherit;
-  font-style: normal;
-  font-size: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  vertical-align: middle;
-  color: rgba(31, 32, 65, 0.25);
-  text-decoration: none; }
-
 .input_dropdown__expand {
   position: relative;
-  width: 12px;
-  height: 8px;
-  left: -29px;
-  top: 23px;
+  width: 44px;
+  height: 44px;
+  top: 5px;
+  left: -45px;
+  padding: 18px 16px;
   vertical-align: top;
   text-align: left; }
 

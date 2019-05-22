@@ -1,3 +1,4 @@
+@import "styleVariables";
 $inputHeight: 44px;
 $fontSize: 14px;
 $borderWidth: 1px;
@@ -21,7 +22,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   background: $inputBackgroundColor;
   padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
   @include text(Montserrat, normal, $fontSize, $lineHeight, $darkShade25, -0.18px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect похоже получилось -0.18px
-  margin: 5px - $borderWidth 0 0 0;
+  margin: $inputTopMargin 0 0 0;
 }
 
 .input__control:focus, .input__control:hover {
