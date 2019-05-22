@@ -186,7 +186,7 @@ hr {
   line-height: inherit;
   letter-spacing: inherit;
   vertical-align: middle;
-  color: inherit;
+  color: rgba(31, 32, 65, 0.25);
   text-decoration: none; }
 
 .input__control:focus::placeholder, .input__control:hover::placeholder {
@@ -207,20 +207,28 @@ hr {
 .input__control_masked:focus {
   color: rgba(31, 32, 65, 0.75); }
 
+.input__control_type_datepicker {
+  width: 150px;
+  color: rgba(31, 32, 65, 0.75); }
+  .input__control_type_datepicker::placeholder, .input__control_type_datepicker:focus::placeholder, .input__control_type_datepicker:hover::placeholder {
+    color: rgba(31, 32, 65, 0.75); }
+
 .input__control_type_datepicker:valid:hover,
 .input__control_type_datepicker:valid:focus {
   color: rgba(31, 32, 65, 0.75); }
 
 .input_type_datepicker__confirmButton,
 .input_type_datepicker__clearButton {
-  width: 50%;
+  width: fit-content;
   height: fit-content; }
   .input_type_datepicker__confirmButton.input_type_datepicker__confirmButton,
   .input_type_datepicker__clearButton.input_type_datepicker__confirmButton {
-    text-align: right; }
+    text-align: right;
+    margin-left: auto; }
   .input_type_datepicker__confirmButton.input_type_datepicker__clearButton,
   .input_type_datepicker__clearButton.input_type_datepicker__clearButton {
-    text-align: left; }
+    text-align: left;
+    margin-right: auto; }
 
 /* -------------------------------------------------
     Datepicker cells
@@ -442,7 +450,7 @@ hr {
 
 .datepicker--content {
   box-sizing: content-box;
-  padding: 26px 18px 0 20px;
+  padding: 29px 18px 0 20px;
   min-height: 240px; }
 
 .-only-timepicker- .datepicker--content {
@@ -505,8 +513,7 @@ hr {
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  min-height: 32px;
-  padding: 15px 0 0 0; }
+  padding: 20px 20px 0 20px; }
 
 .-only-timepicker- .datepicker--nav {
   display: none; }
@@ -525,15 +532,15 @@ hr {
   justify-content: center; }
 
 .datepicker--nav-action {
-  width: 32px;
-  border-radius: 4px;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none; }
-
-.datepicker--nav-action:hover {
-  background: #f0f0f0; }
+  .datepicker--nav-action:hover {
+    background: #eeeeee; }
 
 .datepicker--nav-action.-disabled- {
   visibility: hidden; }
@@ -563,28 +570,6 @@ hr {
   display: -ms-flexbox;
   display: flex;
   padding: 20px 19px 19px 19px; }
-
-.datepicker--button {
-  color: #4EB5E6;
-  cursor: pointer;
-  border-radius: 4px;
-  -webkit-flex: 1;
-  -ms-flex: 1;
-  flex: 1;
-  display: -webkit-inline-flex;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 32px; }
-
-.datepicker--button:hover {
-  color: #4a4a4a;
-  background: #f0f0f0; }
 
 /* -------------------------------------------------
     Timepicker
@@ -846,6 +831,62 @@ hr {
 .datepicker--cell-day.-other-month-:empty, .datepicker--cell-year.-other-decade-:empty {
   background: none;
   border: none; }
+
+.input__title {
+  border-bottom: 5px solid transparent; }
+
+.input__control {
+  border-radius: 4px;
+  width: 320px;
+  height: 44px;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  background: white;
+  padding: 11px 14px 13px 14px;
+  font-family: Montserrat, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: -0.18px;
+  vertical-align: middle;
+  color: rgba(31, 32, 65, 0.25);
+  text-decoration: none;
+  margin: 4px 0 0 0; }
+
+.input__control:focus, .input__control:hover {
+  border-color: rgba(31, 32, 65, 0.5);
+  outline: 0; }
+
+.input__control::placeholder {
+  font-family: inherit, sans-serif;
+  font-weight: inherit;
+  font-style: normal;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  vertical-align: middle;
+  color: rgba(31, 32, 65, 0.25);
+  text-decoration: none; }
+
+.input__control:focus::placeholder, .input__control:hover::placeholder {
+  font-family: inherit, sans-serif;
+  font-weight: inherit;
+  font-style: normal;
+  font-size: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  vertical-align: middle;
+  color: rgba(31, 32, 65, 0.25);
+  text-decoration: none; }
+
+.input_dropdown__expand {
+  position: relative;
+  width: 12px;
+  height: 8px;
+  left: -29px;
+  top: 23px;
+  vertical-align: top;
+  text-align: left; }
 
 .slider {
   width: 266px; }

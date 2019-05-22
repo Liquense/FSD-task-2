@@ -1,18 +1,38 @@
-mixin Input(title, type, placeholder, addClasses, mask)
-	div(class="input")
-		label(class="text_type_label-CTA input__title ") #{title}
+mixin Input(title, types, placeholder, addClasses, mask)
+	- var blockClassName = "input"
+	- var titleClassName = "input__title"
+	- var controlClassName = "input__control"
+	- var blockAttributes = {class: "input " + addClasses + " "}
+	- var titleAttributes = {class: "text_type_label-CTA input__title "}
+	- var controlAttributes = {}
+	- controlAttributes.placeholder = placeholder
+	- controlAttributes.class = controlClassName + " "
+
+	if types.includes("datepicker")
+		- blockAttributes.class += blockClassName + "_type_datepicker "
+		- titleAttributes.class += titleClassName +  "_type_datepicker "
+		- controlAttributes.class += controlClassName + "_type_datepicker "
+
+		- controlAttributes.type = "select"
+		- controlAttributes.readonly = true;
+	if types.includes("text")
+		- blockAttributes.class += blockClassName + "_type_text "
+		- titleAttributes.class += titleClassName +  "_type_text "
+		- controlAttributes.class += controlClassName + "_type_text "
+
+		- controlAttributes.type = "text"
+
+	if types.includes("mask")
+		- blockAttributes.class += blockClassName + "_masked "
+		- titleAttributes.class += titleClassName +  "_masked "
+		- controlAttributes.class += controlClassName + "_masked "
+
+	if types.includes("dropdown")
+		- blockAttributes.class += blockClassName + "_dropdown "
+		- titleAttributes.class += titleClassName +  "_dropdown "
+		- controlAttributes.class += controlClassName + "_dropdown "
+
+	div&attributes(blockAttributes)
+		label&attributes(titleAttributes) #{title}
 			br
-			- var attributes = {}
-			- attributes.placeholder = placeholder
-			- attributes.class = "input__control "
-			case type
-				when "datepicker"
-					- attributes.class += "input__control_type_datepicker "
-					- attributes.type = "select"
-					- attributes.readonly = true;
-				default
-					- attributes.class += "input__control_type_text "
-					- attributes.type = "text"
-			if mask
-				- attributes.class += "input__control_masked "
-			input&attributes(attributes)
+			input&attributes(controlAttributes)

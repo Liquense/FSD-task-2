@@ -29,6 +29,8 @@ import "./blocks/Input/_masked/input_masked.scss"
 import "./blocks/Input/_masked/input_masked.js" //импорт с бэм-лоадера даёт ошибку
 import "./blocks/Input/_type/_datepicker/input_type_datepicker.scss"
 import "./blocks/Input/_type/_datepicker/input_type_datepicker.js"
+import "./blocks/Input/_dropdown/input_dropdown.scss"
+import "./blocks/Input/_dropdown/input_dropdown.js"
 //slider
 import "b:slider"
 import "./blocks/Slider/slider"

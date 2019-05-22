@@ -9,8 +9,8 @@ html(lang="ru")
         include blocks/Input/Input
         div(class="inputsContainer")
             +Input("Text field", "text", "This is pretty awesome", "", "")
-            +Input("Masked Text Field", "text", "ДД.ММ.ГГГГ", "textField_masked", "[0123][0-9].[012][0-9].[0-9]{4}")
-            +Input("DatePicker", "datepicker", "ДД.ММ.ГГГГ", "textField_datepicker", "")
+            +Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
+            +Input("DatePicker", "datepicker dropdown", "ДД.ММ.ГГГГ", "", "")
         hr
         include blocks/Button/Button
         include blocks/Link/Link

@@ -28,9 +28,11 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   border-color: $darkShade50;
   outline: 0;
 }
+
 .input__control::placeholder {
-  @include text(inherit, inherit, inherit, inherit, inherit, inherit);
+  @include text(inherit, inherit, inherit, inherit, $darkShade25, inherit);
 }
+
 .input__control:focus::placeholder, .input__control:hover::placeholder {
   @include text(inherit, inherit, inherit, inherit, $darkShade25, inherit);
 }
