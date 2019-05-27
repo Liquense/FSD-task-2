@@ -9,17 +9,23 @@
     <div class="inputsContainer">
           <div class="input  input_type_text ">
             <label class="text_type_label-CTA input__title input__title_type_text ">Text field<br>
-              <input class="input__control input__control_type_text " placeholder="This is pretty awesome" type="text">
+              <div class="input__controlWrapper input__controlWrapper_type_text ">
+                <input class="input__control input__control_type_text " placeholder="This is pretty awesome" type="text">
+              </div>
             </label>
           </div>
           <div class="input  input_type_text input_masked ">
             <label class="text_type_label-CTA input__title input__title_type_text input__title_masked ">Masked Text Field<br>
-              <input class="input__control input__control_type_text input__control_masked " placeholder="ДД.ММ.ГГГГ" type="text">
+              <div class="input__controlWrapper input__controlWrapper_type_text input__controlWrapper_masked ">
+                <input class="input__control input__control_type_text input__control_masked " placeholder="ДД.ММ.ГГГГ" type="text">
+              </div>
             </label>
           </div>
-          <div class="input  input_type_datepicker input_dropdown ">
-            <label class="text_type_label-CTA input__title input__title_type_datepicker input__title_dropdown ">DatePicker<br>
-              <input class="input__control input__control_type_datepicker input__control_dropdown " placeholder="ДД.ММ.ГГГГ" type="select" readonly>
+          <div class="input  input_type_datepicker input_decoration_expandArrow ">
+            <label class="text_type_label-CTA input__title input__title_type_datepicker input__title_decoration_expandArrow ">DatePicker<br>
+              <div class="input__controlWrapper input__controlWrapper_type_datepicker input__controlWrapper_decoration_expandArrow ">
+                <input class="input__control input__control_type_datepicker input__control_decoration_expandArrow " placeholder="ДД.ММ.ГГГГ" type="select" readonly>
+              </div>
             </label>
           </div>
     </div>

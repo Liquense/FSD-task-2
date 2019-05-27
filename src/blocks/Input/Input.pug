@@ -2,37 +2,59 @@ mixin Input(title, types, placeholder, addClasses, mask)
 	- var blockClassName = "input"
 	- var titleClassName = "input__title"
 	- var controlClassName = "input__control"
+	- var wrapperClassName = "input__controlWrapper"
+	- var classNames = ["input", "input__title", "input__control", "input__controlWrapper"]
+
 	- var blockAttributes = {class: "input " + addClasses + " "}
 	- var titleAttributes = {class: "text_type_label-CTA input__title "}
-	- var controlAttributes = {}
-	- controlAttributes.placeholder = placeholder
-	- controlAttributes.class = controlClassName + " "
+	- var controlAttributes = {class: controlClassName + " ", placeholder: placeholder}
+	- var wrapperAttributes = {class: wrapperClassName + " "}
+	- var attributes = [blockAttributes, titleAttributes, controlAttributes, wrapperAttributes]
 
+
+	- var type
 	if types.includes("datepicker")
-		- blockAttributes.class += blockClassName + "_type_datepicker "
-		- titleAttributes.class += titleClassName +  "_type_datepicker "
-		- controlAttributes.class += controlClassName + "_type_datepicker "
+
+		- type = "_type_datepicker ";
+		- blockAttributes.class += blockClassName + type
+		- titleAttributes.class += titleClassName +  type
+		- controlAttributes.class += controlClassName + type
+		- wrapperAttributes.class += wrapperClassName + type
 
 		- controlAttributes.type = "select"
 		- controlAttributes.readonly = true;
+
 	if types.includes("text")
-		- blockAttributes.class += blockClassName + "_type_text "
-		- titleAttributes.class += titleClassName +  "_type_text "
-		- controlAttributes.class += controlClassName + "_type_text "
+		- type = "_type_text "
+		- blockAttributes.class += blockClassName + type
+		- titleAttributes.class += titleClassName +  type
+		- controlAttributes.class += controlClassName + type
+		- wrapperAttributes.class += wrapperClassName + type
 
 		- controlAttributes.type = "text"
 
 	if types.includes("mask")
-		- blockAttributes.class += blockClassName + "_masked "
-		- titleAttributes.class += titleClassName +  "_masked "
-		- controlAttributes.class += controlClassName + "_masked "
+		- type = "_masked "
+		- blockAttributes.class += blockClassName + type
+		- titleAttributes.class += titleClassName +  type
+		- controlAttributes.class += controlClassName + type
+		- wrapperAttributes.class += wrapperClassName + type
 
 	if types.includes("dropdown")
-		- blockAttributes.class += blockClassName + "_dropdown "
-		- titleAttributes.class += titleClassName +  "_dropdown "
-		- controlAttributes.class += controlClassName + "_dropdown "
+		- type = "_decoration_expandArrow "
+		- blockAttributes.class += blockClassName + type
+		- titleAttributes.class += titleClassName +  type
+		- controlAttributes.class += controlClassName + type
+		- wrapperAttributes.class += wrapperClassName + type
+	else if types.includes("subscription")
+		-type = "_decoration_enterArrow "
+		- blockAttributes.class += blockClassName + type
+		- titleAttributes.class += titleClassName +  type
+		- controlAttributes.class += controlClassName + type
+		- wrapperAttributes.class += wrapperClassName + type
 
 	div&attributes(blockAttributes)
 		label&attributes(titleAttributes) #{title}
 			br
-			input&attributes(controlAttributes)
+			div&attributes(wrapperAttributes)
+				input&attributes(controlAttributes)

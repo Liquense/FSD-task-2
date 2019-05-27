@@ -107,11 +107,23 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   font-weight: bold;
   color: white;
 
-  &.-focus- {
-  }
-
   &.-in-range- {
     color: $green;
+  }
+
+  &.-other-decade-,
+  &.-other-month-,
+  &.-disabled- {
+    color: white;
+    background: linear-gradient(
+                    $gradientDefaultAngle,
+                    rgba($green, 0.25) 0%,
+                    rgba($greenGradientSecond, 0.25) 100%
+    );
+
+    &.-focus- {
+      background: $otherPointsGradient;
+    }
   }
 }
 
@@ -128,10 +140,11 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
 .datepicker--cell.-disabled- {
   cursor: default;
-  color: $darkShade50;
+  color: $darkShade25;
 
   &.-focus- {
-    color: $darkShade75;
+    color: $darkShade25;
+    background: $otherRangeGradient;
   }
 
   &.-in-range- {
@@ -139,7 +152,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   }
 
   &.-current-.-focus- {
-    color: $darkShade5;
+    color: white;
   }
 }
 
@@ -425,6 +438,10 @@ $yearCellsColumnLength: 3;
 /* -------------------------------------------------
     Navigation
    ------------------------------------------------- */
+
+$navActionWidth: 17px;
+$navActionHeight: 18px;
+
 .datepicker--nav {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -441,29 +458,28 @@ $yearCellsColumnLength: 3;
 
 .datepicker--nav-title,
 .datepicker--nav-action {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
   cursor: pointer;
   -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
 }
 
 .datepicker--nav-action {
-  border-radius: 50%;
-  width: 24px;
+  width: $navActionWidth;
   height: 24px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 
-  &:hover {
-    background: #eeeeee;
+  img {
+    display: block;
+    height: 100%;
+    width: 17px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:hover {
+      background-color: #eee;
+    }
   }
 }
 
@@ -471,27 +487,10 @@ $yearCellsColumnLength: 3;
   visibility: hidden;
 }
 
-.datepicker--nav-action svg {
-  width: 32px;
-  height: 32px;
-}
-
-.datepicker--nav-action path {
-  fill: none;
-  stroke: #9c9c9c;
-  stroke-width: 2px;
-}
-
 .datepicker--nav-title {
   border-radius: 4px;
   text-transform: none;
 }
-
-//.datepicker--nav-title i {
-//  font-style: normal;
-//  color: #9c9c9c;
-//  margin-left: 5px;
-//}
 
 .datepicker--nav-title:hover {
   background: #f0f0f0;
@@ -786,16 +785,25 @@ $yearCellsColumnLength: 3;
   left: calc(50% - 1px);
 }
 
-.datepicker--cell-day.-other-month-, .datepicker--cell-year.-other-decade- {
-  color: $darkShade25;
+.datepicker--cell-day.-other-month-,
+.datepicker--cell-year.-other-decade- {
+  color: $darkShade50;
 }
 
-.datepicker--cell-day.-other-month-:hover, .datepicker--cell-year.-other-decade-:hover {
+.datepicker--cell-day.-other-month-:hover,
+.datepicker--cell-year.-other-decade-:hover {
   color: white;
 }
 
-.-disabled-.-focus-.datepicker--cell-day.-other-month-, .-disabled-.-focus-.datepicker--cell-year.-other-decade- {
+.-disabled-.datepicker--cell-day.-other-month-,
+.-disabled-.datepicker--cell-year.-other-decade- {
   color: $darkShade25;
+}
+
+.-disabled-.-focus-.datepicker--cell-day.-other-month-,
+.-disabled-.-focus-.datepicker--cell-year.-other-decade- {
+  color: $darkShade25;
+  background: $otherRangeGradient;
 }
 
 .-selected-.datepicker--cell-day.-other-month-, .-selected-.datepicker--cell-year.-other-decade- {
