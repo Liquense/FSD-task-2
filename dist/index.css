@@ -154,7 +154,12 @@ hr {
   color: rgba(31, 32, 65, 0.5); }
 
 .input__title {
-  border-bottom: 5px solid transparent; }
+  border-bottom: 5px solid transparent;
+  position: relative;
+  line-height: 18px; }
+
+.input__controlWrapper {
+  display: inline-block; }
 
 .input__control {
   border-radius: 4px;
@@ -174,7 +179,9 @@ hr {
   text-decoration: none;
   margin: 4px 0 0 0; }
 
-.input__control:focus, .input__control:hover {
+.input__control:focus,
+.input__control:hover,
+.input__title_decoration_expandArrow img:hover + .input__control {
   border-color: rgba(31, 32, 65, 0.5);
   outline: 0; }
 
@@ -207,8 +214,10 @@ hr {
 .input__control_masked:focus {
   color: rgba(31, 32, 65, 0.75); }
 
+.input__controlWrapper_type_datepicker {
+  position: relative; }
+
 .input__control_type_datepicker {
-  width: 150px;
   color: rgba(31, 32, 65, 0.75); }
   .input__control_type_datepicker::placeholder, .input__control_type_datepicker:focus::placeholder, .input__control_type_datepicker:hover::placeholder {
     color: rgba(31, 32, 65, 0.75); }
@@ -834,15 +843,29 @@ hr {
   background: none;
   border: none; }
 
-.input_dropdown__expand {
-  position: relative;
-  width: 44px;
-  height: 44px;
-  top: 5px;
-  left: -45px;
-  padding: 18px 16px;
-  vertical-align: top;
-  text-align: left; }
+.input__title_decoration_expandArrow img {
+  content: url(images/expand_more.svg);
+  position: absolute;
+  width: 12px;
+  height: 14px;
+  top: 20px;
+  right: 1px;
+  margin-top: 14px;
+  margin-right: 15px;
+  cursor: pointer; }
+  .input__title_decoration_expandArrow img:hover, .input__title_decoration_expandArrow img:focus {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-top: 11px;
+    margin-right: 11px;
+    padding: 3px 3px;
+    border: dotted 1px rgba(31, 32, 65, 0.5); }
+  .input__title_decoration_expandArrow img:focus {
+    outline: none; }
+
+.input__control_width_narrow {
+  width: 150px; }
 
 .slider {
   width: 266px; }

@@ -1,7 +1,6 @@
 @import "styleVariables";
-$inputHeight: 44px;
-$fontSize: 14px;
-$borderWidth: 1px;
+
+$inputWidth: 320px;
 
 $paddingTop: 12px - $borderWidth;
 $paddingRight: 15px - $borderWidth;
@@ -12,13 +11,17 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
 .input__title {
   border-bottom: 5px solid transparent; //чтобы не прерывался хавер между заголовком и элементом
+  position: relative;
+  line-height: $lineHeight;
 }
 
-
+.input__controlWrapper {
+  display: inline-block;
+}
 
 .input__control {
   border-radius: 4px;
-  width: 320px;
+  width: $inputWidth;
   height: $inputHeight;
   border: $borderWidth solid $darkShade25;
   background: $inputBackgroundColor;
@@ -27,7 +30,9 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   margin: $inputTopMargin 0 0 0;
 }
 
-.input__control:focus, .input__control:hover {
+.input__control:focus,
+.input__control:hover,
+.input__title_decoration_expandArrow img:hover + .input__control {
   border-color: $darkShade50;
   outline: 0;
 }

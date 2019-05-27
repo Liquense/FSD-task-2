@@ -2,14 +2,12 @@ mixin Input(title, types, placeholder, addClasses, mask)
 	- var blockClassName = "input"
 	- var titleClassName = "input__title"
 	- var controlClassName = "input__control"
-	- var wrapperClassName = "input__controlWrapper"
-	- var classNames = ["input", "input__title", "input__control", "input__controlWrapper"]
+	- var classNames = ["input", "input__title", "input__control"]
 
-	- var blockAttributes = {class: "input " + addClasses + " "}
-	- var titleAttributes = {class: "text_type_label-CTA input__title "}
+	- var blockAttributes = {class: blockClassName + " " + addClasses + " "}
+	- var titleAttributes = {class: titleClassName + " " + "text_type_label-CTA input__title "}
 	- var controlAttributes = {class: controlClassName + " ", placeholder: placeholder}
-	- var wrapperAttributes = {class: wrapperClassName + " "}
-	- var attributes = [blockAttributes, titleAttributes, controlAttributes, wrapperAttributes]
+	- var attributes = [blockAttributes, titleAttributes, controlAttributes]
 
 	if types.includes("datepicker")
 		each value, index in attributes
@@ -23,7 +21,6 @@ mixin Input(title, types, placeholder, addClasses, mask)
 		- controlAttributes.type = "text"
 
 	if types.includes("mask")
-		- type = "_masked "
 		each value, index in attributes
 			- value.class += classNames[index] + "_masked "
 
@@ -34,8 +31,11 @@ mixin Input(title, types, placeholder, addClasses, mask)
 		each value, index in attributes
 			- value.class += classNames[index] + "_decoration_enterArrow "
 
+	if types.includes("dropdown") || types.includes("narrow")
+		each value, index in attributes
+			- value.class += classNames[index] + "_width_narrow "
+
 	div&attributes(blockAttributes)
 		label&attributes(titleAttributes) #{title}
 			br
-			div&attributes(wrapperAttributes)
-				input&attributes(controlAttributes)
+			input&attributes(controlAttributes)

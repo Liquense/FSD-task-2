@@ -24,6 +24,7 @@ import "b:button m:width=wide"
 //link
 import "b:link m:hovered"
 //input
+//require.context("./blocks/Input");
 import "b:input m:type=text"
 import "./blocks/Input/_masked/input_masked.scss"
 import "./blocks/Input/_masked/input_masked.js" //импорт с бэм-лоадера даёт ошибку
@@ -31,6 +32,7 @@ import "./blocks/Input/_type/_datepicker/input_type_datepicker.scss"
 import "./blocks/Input/_type/_datepicker/input_type_datepicker.js"
 import "./blocks/Input/_decoration/_expandArrow/input_decoration_expandArrow.scss"
 import "./blocks/Input/_decoration/_expandArrow/input_decoration_expandArrow.js"
+import "./blocks/Input/_width/input__width_narrow.scss"
 //slider
 import "b:slider"
 import "./blocks/Slider/slider"

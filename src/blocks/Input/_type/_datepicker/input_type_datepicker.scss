@@ -6,6 +6,7 @@ $cellTextColor: $darkShade50;
 $datepickerContentSidesPadding: 20px;
 $datepickerContentTopPadding: 29px;
 $datepickerContentWidth: $datepickerWidth - $datepickerContentSidesPadding*2;
+
 $actualPointsGradient: linear-gradient($gradientDefaultAngle,
         $purple 0%,
         $purpleGradientSecond 100%);
@@ -22,8 +23,11 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
         rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
         rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%);
 
+.input__controlWrapper_type_datepicker {
+  position: relative;
+}
+
 .input__control_type_datepicker {
-  width: 150px;
   color: $darkShade75;
 
   &::placeholder,

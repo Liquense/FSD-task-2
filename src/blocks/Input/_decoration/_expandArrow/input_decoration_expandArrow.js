@@ -1,3 +1,3 @@
-let expandArrow = '<img src="./images/expand_more.svg" alt="развернуть" class="input_dropdown__expand ">';
+let expandArrowHTML = '<img src="./images/expand_more.svg" alt="развернуть" class="input__arrow_decoration_expandArrow ">';
 
-$(".input__control_decoration_expandArrow").after(expandArrow);
+var expandArrow = $(".input__control_decoration_expandArrow").before(expandArrowHTML);

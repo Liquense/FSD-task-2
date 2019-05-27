@@ -1,19 +1,36 @@
 @import "../../styleVariables";
-$expandHeight: 8px;
+
+$expandHeight: 14px;
 $expandWidth: 12px;
 
-$expandVerticalPadding: ($inputHeight - $expandHeight)/2;
-$expandHorizontalPadding: $expandVerticalPadding - ($expandWidth - $expandHeight)/2;
-$expandFullWidth: $expandWidth + $expandHorizontalPadding*2;
-$expandFullHeight: $expandHeight + $expandVerticalPadding*2;
+$expandVerticalMargin: ($inputHeight - $expandHeight)/2 - $borderWidth;
+$expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/2;
 
-.input_dropdown__expand {
-  position: relative;
-  width: $expandFullWidth;
-  height: $expandFullHeight;
-  top: $inputTopMargin + $borderWidth;
-  left: -$expandFullWidth - $borderWidth;
-  padding: $expandVerticalPadding $expandHorizontalPadding;
-  vertical-align: top;
-  text-align: left;
+//.input__controlWrapper_decoration_expandArrow::after
+.input__title_decoration_expandArrow img {
+  content: url("../../../../assets/images/expand_more.svg");
+  position: absolute;
+  width: $expandWidth;
+  height: $expandHeight;
+  top: $inputTopMargin + $lineHeight + $borderWidth;
+  right: $borderWidth;
+  margin-top: $expandVerticalMargin;
+  margin-right: $expandHorizontalMargin;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    border-radius: 50%;
+    width: $expandHeight + 6px;
+    height: $expandHeight + 6px;
+    margin-top: $expandVerticalMargin - 3px;
+    margin-right: $expandHorizontalMargin - 4px;
+    padding: 3px 3px;
+    border: dotted 1px $darkShade50;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
+
