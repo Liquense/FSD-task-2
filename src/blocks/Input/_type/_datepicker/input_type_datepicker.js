@@ -10,6 +10,7 @@ $(".input__control_type_datepicker").each(function () {
         //range: true,
         //inline: true,
         todayButton: true,
+        showEvent: "",
         offset: 5,
         navTitles: {
             days: '<span class="text_type_itemTitle">MM yyyy</span>',
@@ -20,7 +21,6 @@ $(".input__control_type_datepicker").each(function () {
         nextHtml: '<img src="./images/arrow_back.svg" alt="назад" style="transform: scale(-1, 1)">',
         minDate: new Date(),
     }).data('datepicker');
-    console.log(datepicker);
 
     datepicker.$datepicker.find('.datepicker--button[data-action="today"]').remove();
     datepicker.$datepicker.find(".datepicker--buttons").append(clearButton);
