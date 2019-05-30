@@ -13,7 +13,7 @@ mixin Input(title, types, placeholder, addClasses, mask)
 		each value, index in attributes
 			- value.class += classNames[index] + "_type_datepicker "
 		- controlAttributes.type = "select"
-		- controlAttributes.readonly = true;
+		//- controlAttributes.readonly = true;
 
 	if types.includes("text")
 		each value, index in attributes

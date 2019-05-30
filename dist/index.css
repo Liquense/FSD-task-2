@@ -852,7 +852,8 @@ hr {
   right: 1px;
   margin-top: 14px;
   margin-right: 15px;
-  cursor: pointer; }
+  cursor: pointer;
+  background-color: white; }
   .input__title_decoration_expandArrow img:hover, .input__title_decoration_expandArrow img:focus {
     border-radius: 50%;
     width: 20px;

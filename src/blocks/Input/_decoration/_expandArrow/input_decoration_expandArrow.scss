@@ -17,6 +17,7 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
   margin-top: $expandVerticalMargin;
   margin-right: $expandHorizontalMargin;
   cursor: pointer;
+  background-color: white;
 
   &:hover,
   &:focus {
