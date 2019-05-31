@@ -1,4 +1,4 @@
-export function formatNumber(number, symbol) {
+export function formatNumber(number, symbol) { //добавляет пробелы на каждом третьем разряде числа
     let stringNum = number.toString();
     let formattedNum = [];
 
@@ -12,4 +12,19 @@ export function formatNumber(number, symbol) {
     }
 
     return formattedNum.join("");
+}
+
+export function compareDateArrays(first, second) {
+    let result = true;
+
+    if (first.length !== second.length) return false;
+
+    for (let i = 0; i < first.length; i++) {
+        if (first[i].getTime() !== second[i].getTime()) {
+            result = false;
+            break;
+        }
+    }
+
+    return result;
 }

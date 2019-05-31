@@ -933,6 +933,11 @@ hr {
   font-size: 12px;
   margin: 0; }
 
+.twoCalendarRangePicker {
+  display: flex;
+  width: 320px;
+  justify-content: space-between; }
+
 .pageHeader {
   font-size: 20px; }
 

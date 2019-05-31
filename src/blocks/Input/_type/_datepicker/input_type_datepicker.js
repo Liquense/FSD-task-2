@@ -21,11 +21,6 @@ $(".input__control_type_datepicker").each(function () {
         prevHtml: '<img src="./images/arrow_back.svg" alt="назад"">',
         nextHtml: '<img src="./images/arrow_back.svg" alt="назад" style="transform: scale(-1, 1)">',
         minDate: new Date(),
-        onSelect: function (formattedDate, date, inst) {
-            //console.log(formattedDate, date);
-            let extremeDates = formattedDate.split(',');
-            $(inputControl).val(extremeDates[0]);
-        }
     }).data('datepicker');
 
     datepicker.$datepicker.find('.datepicker--button[data-action="today"]').remove();

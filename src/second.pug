@@ -7,10 +7,12 @@ html(lang="ru")
         br
         hr
         include blocks/Input/Input
+        include blocks/twoCalendarRangePicker/twoCalendarRangePicker
         div(class="inputsContainer")
             +Input("Text field", "text", "This is pretty awesome", "", "")
             +Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
             +Input("DatePicker", "datepicker dropdown", "ДД.ММ.ГГГГ", "", "")
+            +twoCalendarRangePicker()
         hr
         include blocks/Button/Button
         include blocks/Link/Link

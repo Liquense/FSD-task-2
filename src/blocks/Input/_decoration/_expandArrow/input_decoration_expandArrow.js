@@ -42,7 +42,7 @@ $(".input__control_decoration_expandArrow").each(function () {
             });
         })
     }
-    if ($(this).hasClass("input__control_type_dropdown")) {
+    else if ($(this).hasClass("input__control_type_dropdown")) {
         $(this).each(function () {
             console.log("something");
         })
