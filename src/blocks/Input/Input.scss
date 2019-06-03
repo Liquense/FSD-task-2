@@ -18,7 +18,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 }
 
 .input__control {
-  border-radius: 4px;
+  border-radius: $inputBorderRadius;
   width: $inputWidth;
   height: $inputHeight;
   border: $borderWidth solid $darkShade25;
@@ -31,6 +31,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 .input__control:focus,
 .input__control:hover,
 .input__title_decoration_expandArrow img:hover + .input__control {
+  color: $darkShade75;
   border-color: $darkShade50;
   outline: 0;
 }

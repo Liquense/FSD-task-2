@@ -1,0 +1,74 @@
+@import "../../styleVariables";
+
+.input__control_type_dropdown {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input__dropdown_type_dropdown {
+  position: absolute;
+  width: $mediumInputWidth;
+  border: $borderWidth solid $darkShade50;
+  border-top: 0;
+  border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
+  background-color: $inputBackgroundColor;
+  box-shadow: 0 10px 20px $darkShade5;
+  z-index: 10;
+
+  .input__dropdownList_type_dropdown {
+    list-style: none;
+    padding: 7px - $borderWidth 7px - $borderWidth 7px 15px - $borderWidth;
+    margin: 0;
+
+    .input__dropdownListRow_type_dropdown {
+      display: flex;
+      justify-content: space-between;
+      vertical-align: middle;
+      margin: 7px 0 7px 0;
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .input__dropdownText_type_dropdown {
+        line-height: 30px;
+      }
+
+      .input__dropdownValue_type_dropdown {
+        display: inline-block;
+        text-align: center;
+        width: 32px;
+        margin: 0;
+        padding: 0;
+
+        outline: 0;
+      }
+    }
+  }
+
+  .input__dropdownButton_type_dropdown {
+    $buttonSize: 30px;
+
+    border-radius: 50%;
+    border: 1px solid $darkShade25;
+    color: $darkShade50;
+    background-color: $inputBackgroundColor;
+    width: $buttonSize;
+    height: $buttonSize;
+    padding: 0;
+
+    @include text(Montserrat, normal, 18px, 22px, $darkShade50, 0px);
+
+    &:focus {
+      outline: none;
+    }
+    &.focused,
+    &:hover {
+      border-color: $darkShade50;
+      color: $darkShade75;
+      cursor: pointer;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-mixin Input(title, types, placeholder, addClasses, mask)
+mixin Input(title, types, placeholder, addClasses, mask, additional=[])
 	- var blockClassName = "input"
 	- var titleClassName = "input__title"
 	- var controlClassName = "input__control"
@@ -38,8 +38,14 @@ mixin Input(title, types, placeholder, addClasses, mask)
 	if types.includes("narrow")
 		each value, index in attributes
 			- value.class += classNames[index] + "_width_narrow "
+	else if types.includes("medium")
+		each value, index in attributes
+			- value.class += classNames[index] + "_width_medium "
 
+	include ./_type/_dropdown/input__menu_type_dropdown
 	div&attributes(blockAttributes)
 		label&attributes(titleAttributes) #{title}
 			br
 			input&attributes(controlAttributes)
+		if types.includes("dropdown")
+			+dropdownList(additional)

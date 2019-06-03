@@ -44,7 +44,7 @@ $(".input__control_decoration_expandArrow").each(function () {
     }
     else if ($(this).hasClass("input__control_type_dropdown")) {
         $(this).each(function () {
-            console.log("something");
+
         })
     }
     if (expandableElement) {
