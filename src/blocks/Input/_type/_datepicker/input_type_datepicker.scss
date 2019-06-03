@@ -33,19 +33,8 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   &::placeholder,
   &:focus::placeholder,
   &:hover::placeholder {
-    color: $darkShade75;
+    color: $darkShade25;
   }
-
-  //&::after {
-  //  content: "";
-  //  position: absolute;
-  //  top: 0;
-  //  left: 0;
-  //  width: 100px;
-  //  height: 100px;
-  //  //background: url("../../../../assets/images/expand_more.svg") no-repeat;
-  //  //background-size: contain;
-  //}
 }
 
 .input__control_type_datepicker:valid:hover,

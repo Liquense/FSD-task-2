@@ -4,6 +4,8 @@ import {compareDateArrays} from "../../common/functions";
 let assignEnded = true;
 let datepickerAddOnSelect = function (datepicker, otherDatepicker, input, number) {
     datepicker.update({
+        dateFormat: "",
+        multipleDatesSeparator: ",",
         onSelect: function (formattedDate, date, inst) {
             //если дат больше одной, то перезаписываем данные в инпуте, если одна - оставляем дефолтное поведение
             //иначе второй пикер будет очищать оба при фокусе на нём

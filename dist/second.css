@@ -220,7 +220,7 @@ hr {
 .input__control_type_datepicker {
   color: rgba(31, 32, 65, 0.75); }
   .input__control_type_datepicker::placeholder, .input__control_type_datepicker:focus::placeholder, .input__control_type_datepicker:hover::placeholder {
-    color: rgba(31, 32, 65, 0.75); }
+    color: rgba(31, 32, 65, 0.25); }
 
 .input__control_type_datepicker:valid:hover,
 .input__control_type_datepicker:valid:focus {

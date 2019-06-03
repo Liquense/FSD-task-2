@@ -7,6 +7,8 @@ import "jquery-ui/themes/base/slider.css"
 import "air-datepicker"
 //masked input
 import "../vendor/jquery.maskedinput/src/jquery.maskedinput"
+//dropdown
+import "jquery-ui/ui/widgets/selectmenu"
 
 import "./common/functions"
 

@@ -10,6 +10,8 @@ $(".input__control_type_datepicker").each(function () {
     let datepicker = $(this).datepicker({
         range: true,
         //inline: true,
+        dateFormat: "d M",
+        multipleDatesSeparator: " - ",
         todayButton: true,
         showEvent: "",
         offset: 5,
