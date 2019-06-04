@@ -1,0 +1,8 @@
+mixin dropdownList(elementNames)
+	div.input__dropdown_type_dropdown
+		ul.input__dropdownList_type_dropdown
+			each element in elementNames
+				li(class="text_type_label-CTA input__dropdownListRow_type_dropdown")
+					span.input__dropdownText_type_dropdown #{element}
+					div.input__dropdownNumericUpDown
+						input(class= "input__dropdownValue_type_dropdown " data-name=element value="0")

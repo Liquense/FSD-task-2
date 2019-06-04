@@ -42,7 +42,7 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[])
 		each value, index in attributes
 			- value.class += classNames[index] + "_width_medium "
 
-	include ./_type/_dropdown/input__menu_type_dropdown
+	include ./_type/_dropdown/input__list_type_dropdown
 	div&attributes(blockAttributes)
 		label&attributes(titleAttributes) #{title}
 			br
