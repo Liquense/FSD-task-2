@@ -153,6 +153,9 @@ hr {
 .link_hovered.link, .link:hover {
   color: rgba(31, 32, 65, 0.5); }
 
+.input {
+  width: fit-content; }
+
 .input__title {
   border-bottom: 5px solid transparent;
   position: relative;

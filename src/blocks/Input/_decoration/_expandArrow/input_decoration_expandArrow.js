@@ -25,26 +25,17 @@ $(".input__control_decoration_expandArrow").each(function () {
             expandableElement = $(this).data("datepicker");
             expandableElement.update({
                 onHide: function (inst, animationCompleted) {
-                    //console.log("hide " + animationCompleted);
                     if (!animationCompleted) return;
-
                     $(expandArrow).removeClass("expanded");
                     $(ownerLabel).unbind("click", disableLabelClicks); //чтобы лейбловые прокликивания снова заработали - нужно показывать календарь при клике на что-то кроме инпута
                 },
                 onShow: function (inst, animationCompleted) {
-                    //console.log("show " + animationCompleted);
                     if (!animationCompleted) return;
-
                     $(expandArrow).addClass("expanded");
                     $(ownerLabel).click(disableLabelClicks);
                 },
                 todayButton: false,
             });
-        })
-    }
-    else if ($(this).hasClass("input__control_type_dropdown")) {
-        $(this).each(function () {
-
         })
     }
     if (expandableElement) {

@@ -1,5 +1,6 @@
 import "jquery-ui/ui/effects/effect-fade"
 
+//морф, чтобы кнопки были по бокам
 $.widget("ui.spinner", $.ui.spinner, {
     _enhance: function () {
         this.uiSpinner = this.element
@@ -16,18 +17,24 @@ $.widget("ui.spinner", $.ui.spinner, {
             '<button class= "input__dropdownDecrease_type_dropdown input__dropdownButton_type_dropdown ui-spinner-button ui-spinner-down">-</button>',
             '<button class= "input__dropdownIncrease_type_dropdown input__dropdownButton_type_dropdown ui-spinner-button ui-spinner-up">+</button>'];
     },
+    //обёртка своя есть
     _uiSpinnerHtml: function () {
         return "";
     }
 });
 
+const dropdownVisibleClass = "input__dropdown_visible";
 $(".input_type_dropdown").each(function () {
+    let input = $(this);
     let dropdown = $(this).children(".input__dropdown_type_dropdown");
     let control = $(this).find(".input__control_type_dropdown");
     let numericUpDown = $(this).find(".input__dropdownValue_type_dropdown");
     let upDownContainer = $(numericUpDown).parent();
 
-    let spinner = numericUpDown.spinner({});
+    let spinner = numericUpDown.spinner({
+        min: 0,
+        max: 10,
+    });
 
 
     $(dropdown).position({
@@ -36,15 +43,26 @@ $(".input_type_dropdown").each(function () {
         of: control
     });
 
-    $(control).focus(function () {
-        $(this).addClass("input__control_focused");
+    let clickedElement;
+
+    $(document).click(function (event) {
+        clickedElement = $(event.target);
+
+        if (!$.contains($(input).get(0), $(clickedElement).get(0))) {
+            if ($(dropdown).hasClass(dropdownVisibleClass)) {
+                $(dropdown).toggle("fade");
+                $(dropdown).toggleClass(dropdownVisibleClass);
+            }
+            $(control).removeClass("input__control_focused");
+        }
     });
-    $(control).blur(function (eventObject) {
-        console.log($(eventObject));
+
+    $(control).focus(function () {
+        $(control).addClass("input__control_focused");
     });
 
     $(control).click(function () {
         $(dropdown).toggle("fade");
-        console.log("click");
+        $(dropdown).toggleClass(dropdownVisibleClass);
     });
 });

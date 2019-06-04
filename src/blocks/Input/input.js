@@ -21,7 +21,7 @@ import "./_type/_datepicker/input_type_datepicker.js"
 import "./_type/_dropdown/input_type_dropdown.js"
 import "./_type/_dropdown/input_type_dropdown.scss"
 
-//---Decoration
+//---Decoration //todo: избавиться от зависимости в порядке подключения
 import "./_decoration/_expandArrow/input_decoration_expandArrow.scss"
 import "./_decoration/_expandArrow/input_decoration_expandArrow.js"
 

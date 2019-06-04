@@ -7,6 +7,10 @@ $paddingLeft: 15px - $borderWidth;
 
 $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
+.input {
+  width: fit-content;
+}
+
 .input__title {
   border-bottom: 5px solid transparent; //чтобы не прерывался хавер между заголовком и элементом
   position: relative;
