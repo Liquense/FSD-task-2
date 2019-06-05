@@ -17,10 +17,9 @@ html(lang="ru")
             +Input("Dropdown №2", "dropdown medium", "Сколько гостей", "", "", ["Дети", "Взрослые", "Младенцы", "Тест"])
         hr
         include blocks/Button/Button
-        include blocks/Link/Link
         div(class="buttonsContainer")
-            +Link("Click Me", "firstRow__button")
-            +Link("Click Me", "link_hovered firstRow__button")
+            +Button("Click Me", "firstRow__button button_type_text")
+            +Button("Click Me", "button_type_text button_hovered firstRow__button")
             +Button("Click Me", "button_type_filled secondRow__button")
             +Button("Click Me", "button_type_filled button_hovered secondRow__button")
             +Button("Click Me", "button_type_bordered thirdRow__button")

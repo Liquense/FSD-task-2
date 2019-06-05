@@ -4,4 +4,6 @@
 .button_type_bordered:hover::before {
   opacity: 0.5;
 }
-
+.button_hovered.button_type_text, .button_type_text:hover{
+  color: $darkShade50;
+}

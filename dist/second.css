@@ -104,11 +104,25 @@ hr {
   border: none;
   color: white; }
 
+.button_type_text {
+  border: none;
+  background-color: transparent;
+  width: 61px;
+  height: 15px;
+  color: #BC9CFF;
+  cursor: pointer; }
+
+.button_type_text:focus {
+  outline: none; }
+
 .button_hovered.button_type_filled,
 .button_type_filled:hover,
 .button_hovered.button_type_bordered::before,
 .button_type_bordered:hover::before {
   opacity: 0.5; }
+
+.button_hovered.button_type_text, .button_type_text:hover {
+  color: rgba(31, 32, 65, 0.5); }
 
 .button_type_bordered {
   position: relative;
@@ -139,19 +153,6 @@ hr {
 
 .button_width_wide.button_type_bordered:before {
   width: 320px; }
-
-.link {
-  border: none;
-  background-color: transparent;
-  width: 61px;
-  height: 15px;
-  color: #BC9CFF; }
-
-.link:focus {
-  outline: none; }
-
-.link_hovered.link, .link:hover {
-  color: rgba(31, 32, 65, 0.5); }
 
 .input {
   width: fit-content; }

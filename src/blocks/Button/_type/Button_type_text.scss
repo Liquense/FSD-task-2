@@ -1,4 +1,4 @@
-.link {
+.button_type_text {
   border: none;
   background-color: transparent;
 
@@ -6,8 +6,9 @@
   height: 15px;
 
   color: $purple;
+  cursor: pointer;
 }
 
-.link:focus {
+.button_type_text:focus {
   outline: none;
 }
