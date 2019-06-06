@@ -26,7 +26,6 @@ module.exports = {
     output: {
         path: paths.build,
         filename: "js/[name].bundle.js",
-        chunkFilename: "[name].js",
     },
     plugins: [
         new CleanWebpackPlugin(),
@@ -40,19 +39,9 @@ module.exports = {
             "window.jQuery": "jquery"
         }),
     ].concat(pagesMap),
-    // resolve: {
-    //     alias: {
-    //         "jquery-ui": "jquery-ui/build/release.js",
-    //         modules: path.join(__dirname, "node_modules"),
-    //     }
-    // },
 
     module: {
         rules: [
-            // {
-            //     test: /vendor\/.+\.(jsx|js)$/,
-            //     loader: "imports-loader?jQuery=jquery,$=jquery,this=>window"
-            // },
             {
                 test: /[\/\\]src[\/\\]common\.js$/,
                 use: [

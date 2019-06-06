@@ -1,5 +1,3 @@
-let expandArrowHTML = '<img src="./images/expand_more.svg" alt="развернуть" class="input__arrow_decoration_expandArrow ">';
-
 let addClickToArrow = function (arrowElement, expandableElement, controlElement, labelElement) {
     $(controlElement).click(function (event) {
         if ($(arrowElement).hasClass("expanded")) {
@@ -14,14 +12,14 @@ let disableLabelClicks = function (event, label) {
     event.preventDefault(); //при клике на заголовок/стрелку итак происходит анфокус и календарь прячется, лишний клик не нужен
 };
 
-$(".input__control_decoration_expandArrow").each(function () {
-    $(this).before(expandArrowHTML);
-    let expandArrow = $(this).siblings(".input__arrow_decoration_expandArrow");
+$(".input__arrow_decoration_expandArrow").each(function () {
+    let expandArrow = $(this);
+    let control = $(this).siblings(".input__control_decoration_expandArrow");
     let ownerLabel = $(this).parent();
     let expandableElement;
 
-    if ($(this).hasClass("input__control_type_datepicker")) {
-        $(this).each(function () {
+    if ($(control).hasClass("input__control_type_datepicker")) {
+        $(control).each(function () {
             expandableElement = $(this).data("datepicker");
             expandableElement.update({
                 onHide: function (inst, animationCompleted) {

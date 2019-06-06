@@ -45,9 +45,12 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[])
 			- value.class += classNames[index] + "_width_medium "
 
 	include ./_type/_dropdown/input__list_type_dropdown
+	include ./_decoration/_expandArrow/input_decoration_expandArrow
 	div&attributes(blockAttributes)
 		label&attributes(titleAttributes) #{title}
 			br
+			if types.includes("dropdown") || types.includes("datepicker")
+				+expandArrow()
 			input&attributes(controlAttributes)
 		if types.includes("dropdown")
 			+dropdownList(additional, dropdownAttributes)

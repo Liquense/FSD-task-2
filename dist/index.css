@@ -893,7 +893,7 @@ hr {
     .input__dropdownListWrapper_type_dropdown .input__dropdownList_type_dropdown .input__dropdownListRow_type_dropdown .input__dropdownText_type_dropdown {
       line-height: 30px; }
   .input__dropdownListWrapper_type_dropdown .input__controlButtonsContainer {
-    display: flex;
+    display: none;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 6px 12px 14px; }
