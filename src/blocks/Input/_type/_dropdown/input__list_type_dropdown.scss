@@ -48,46 +48,6 @@
       .input__dropdownText_type_dropdown {
         line-height: 30px;
       }
-
-      .input__dropdownNumericUpDown {
-        width: fit-content;
-        float: right;
-
-        .input__dropdownValue_type_dropdown {
-          display: inline-block;
-          text-align: center;
-          width: 32px;
-          margin: 0;
-          padding: 0;
-          border: none;
-          outline: 0;
-        }
-      }
-    }
-  }
-
-  .input__spinnerButton_type_dropdown {
-    $buttonSize: 30px;
-
-    border-radius: 50%;
-    border: 1px solid $darkShade25;
-    color: $darkShade50;
-    background-color: $inputBackgroundColor;
-    width: $buttonSize;
-    height: $buttonSize;
-    padding: 0;
-
-    @include text(Montserrat, normal, 18px, 22px, $darkShade50, 0px);
-
-    &:focus {
-      outline: none;
-    }
-
-    &.focused,
-    &:hover {
-      border-color: $darkShade50;
-      color: $darkShade75;
-      cursor: pointer;
     }
   }
 

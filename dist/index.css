@@ -892,45 +892,47 @@ hr {
       padding-bottom: 0; }
     .input__dropdownListWrapper_type_dropdown .input__dropdownList_type_dropdown .input__dropdownListRow_type_dropdown .input__dropdownText_type_dropdown {
       line-height: 30px; }
-    .input__dropdownListWrapper_type_dropdown .input__dropdownList_type_dropdown .input__dropdownListRow_type_dropdown .input__dropdownNumericUpDown {
-      width: fit-content;
-      float: right; }
-      .input__dropdownListWrapper_type_dropdown .input__dropdownList_type_dropdown .input__dropdownListRow_type_dropdown .input__dropdownNumericUpDown .input__dropdownValue_type_dropdown {
-        display: inline-block;
-        text-align: center;
-        width: 32px;
-        margin: 0;
-        padding: 0;
-        border: none;
-        outline: 0; }
-  .input__dropdownListWrapper_type_dropdown .input__spinnerButton_type_dropdown {
-    border-radius: 50%;
-    border: 1px solid rgba(31, 32, 65, 0.25);
-    color: rgba(31, 32, 65, 0.5);
-    background-color: white;
-    width: 30px;
-    height: 30px;
-    padding: 0;
-    font-family: Montserrat, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 22px;
-    letter-spacing: 0px;
-    vertical-align: middle;
-    color: rgba(31, 32, 65, 0.5);
-    text-decoration: none; }
-    .input__dropdownListWrapper_type_dropdown .input__spinnerButton_type_dropdown:focus {
-      outline: none; }
-    .input__dropdownListWrapper_type_dropdown .input__spinnerButton_type_dropdown.focused, .input__dropdownListWrapper_type_dropdown .input__spinnerButton_type_dropdown:hover {
-      border-color: rgba(31, 32, 65, 0.5);
-      color: rgba(31, 32, 65, 0.75);
-      cursor: pointer; }
   .input__dropdownListWrapper_type_dropdown .input__controlButtonsContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 6px 12px 14px; }
+
+.input_type_spinner {
+  width: fit-content;
+  float: right; }
+  .input_type_spinner .input__value_type_spinner {
+    display: inline-block;
+    text-align: center;
+    width: 32px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 0; }
+
+.input__button_type_spinner {
+  border-radius: 50%;
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  color: rgba(31, 32, 65, 0.5);
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  font-family: Montserrat, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: 0px;
+  vertical-align: middle;
+  color: rgba(31, 32, 65, 0.5);
+  text-decoration: none; }
+  .input__button_type_spinner:focus {
+    outline: none; }
+  .input__button_type_spinner.focused, .input__button_type_spinner:hover {
+    border-color: rgba(31, 32, 65, 0.5);
+    color: rgba(31, 32, 65, 0.75);
+    cursor: pointer; }
 
 .input__title_decoration_expandArrow img {
   content: url(images/expand_more.svg);

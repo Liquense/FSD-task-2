@@ -1,3 +1,5 @@
+include ../_spinner/input_type_spinner
+
 mixin dropdownList(elementNames, attr)
 	div&attributes(attr)
 		table.input__dropdownList_type_dropdown
@@ -6,8 +8,7 @@ mixin dropdownList(elementNames, attr)
 					td
 						span.input__dropdownText_type_dropdown #{element}
 					td
-						div.input__dropdownNumericUpDown
-							input(class= "input__dropdownValue_type_dropdown text_type_label-CTA" data-name=element value="0")
+						+spinner([0, 10], element)
 		include ../../../Button/Button
 		div(class="input__controlButtonsContainer")
 			+Button("Очистить", "button_type_text input__clearButton button_hovered input__controlButton")

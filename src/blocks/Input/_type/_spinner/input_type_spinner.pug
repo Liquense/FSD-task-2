@@ -1,0 +1,5 @@
+mixin spinner(range, element)
+	-var start = range[0]
+	-var end = range[1]
+	div.input_type_spinner
+		input(class= "input__value_type_spinner text_type_label-CTA" data-name=element data-start=range[0] data-end=range[1] value="0" readonly=true)

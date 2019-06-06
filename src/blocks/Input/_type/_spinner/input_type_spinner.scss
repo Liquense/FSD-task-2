@@ -1,0 +1,39 @@
+.input_type_spinner {
+  width: fit-content;
+  float: right;
+
+  .input__value_type_spinner {
+    display: inline-block;
+    text-align: center;
+    width: 32px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: 0;
+  }
+}
+
+.input__button_type_spinner {
+  $buttonSize: 30px;
+
+  border-radius: 50%;
+  border: 1px solid $darkShade25;
+  color: $darkShade50;
+  background-color: $inputBackgroundColor;
+  width: $buttonSize;
+  height: $buttonSize;
+  padding: 0;
+
+  @include text(Montserrat, normal, 18px, 22px, $darkShade50, 0px);
+
+  &:focus {
+    outline: none;
+  }
+
+  &.focused,
+  &:hover {
+    border-color: $darkShade50;
+    color: $darkShade75;
+    cursor: pointer;
+  }
+}

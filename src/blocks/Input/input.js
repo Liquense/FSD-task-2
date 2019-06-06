@@ -18,8 +18,11 @@ import "./_type/input_type_text.scss"
 import "./_type/_datepicker/input_type_datepicker.scss"
 import "./_type/_datepicker/input_type_datepicker.js"
 
-import "./_type/_dropdown/input_type_dropdown.js"
-import "./_type/_dropdown/input_type_dropdown.scss"
+import "./_type/_dropdown/input__list_type_dropdown.js"
+import "./_type/_dropdown/input__list_type_dropdown.scss"
+
+import "./_type/_spinner/input_type_spinner.js"
+import "./_type/_spinner/input_type_spinner.scss"
 
 //---Decoration //todo: избавиться от зависимости в порядке подключения
 import "./_decoration/_expandArrow/input_decoration_expandArrow.scss"
