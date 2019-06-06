@@ -5,9 +5,17 @@
   border-bottom-right-radius: 0;
 }
 
-.input__dropdown_type_dropdown {
+.input__dropdownListWrapper_type_dropdown {
   position: absolute;
-  width: $mediumInputWidth;
+  width: $inputWidth;
+
+  &.input__dropdownListWrapper_width_narrow{
+    width: $narrowInputWidth;
+  }
+  &.input__dropdownListWrapper_width_medium {
+    width: $mediumInputWidth;
+  }
+
   border: $borderWidth solid $darkShade50;
   border-top: 0;
   border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
@@ -21,38 +29,44 @@
 
   .input__dropdownList_type_dropdown {
     list-style: none;
-    padding: 7px - $borderWidth 7px - $borderWidth 7px 15px - $borderWidth;
-    margin: 0;
+    padding: 0;
+    margin: 6px - $borderWidth 7px - $borderWidth 7px 15px - $borderWidth;;
+    width: calc(100% - (14px - #{$borderWidth}) - (7px - #{$borderWidth}));
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    td {
+      padding: 0 0 7px 0;
+      margin: 0;
+    }
 
     .input__dropdownListRow_type_dropdown {
-      display: flex;
-      justify-content: space-between;
-      vertical-align: middle;
-      margin: 7px 0 7px 0;
-      &:first-child {
-        margin-top: 0;
-      }
-      &:last-child {
-        margin-bottom: 0;
+      &:last-child > td {
+        padding-bottom: 0;
       }
 
       .input__dropdownText_type_dropdown {
         line-height: 30px;
       }
 
-      .input__dropdownValue_type_dropdown {
-        display: inline-block;
-        text-align: center;
-        width: 32px;
-        margin: 0;
-        padding: 0;
-        border: none;
-        outline: 0;
+      .input__dropdownNumericUpDown {
+        width: fit-content;
+        float: right;
+
+        .input__dropdownValue_type_dropdown {
+          display: inline-block;
+          text-align: center;
+          width: 32px;
+          margin: 0;
+          padding: 0;
+          border: none;
+          outline: 0;
+        }
       }
     }
   }
 
-  .input__dropdownButton_type_dropdown {
+  .input__spinnerButton_type_dropdown {
     $buttonSize: 30px;
 
     border-radius: 50%;
@@ -68,11 +82,27 @@
     &:focus {
       outline: none;
     }
+
     &.focused,
     &:hover {
       border-color: $darkShade50;
       color: $darkShade75;
       cursor: pointer;
     }
+  }
+
+  .input__controlButtonsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px 6px 12px 14px;
+  }
+
+  .input__clearButton {
+
+  }
+
+  .input__confirmButton {
+
   }
 }

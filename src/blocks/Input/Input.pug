@@ -2,12 +2,14 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[])
 	- var blockClassName = "input"
 	- var titleClassName = "input__title"
 	- var controlClassName = "input__control"
-	- var classNames = [blockClassName, titleClassName, controlClassName]
+	- var dropdownClassName = "input__dropdownListWrapper"
+	- var classNames = [blockClassName, titleClassName, controlClassName, dropdownClassName]
 
 	- var blockAttributes = {class: blockClassName + " " + addClasses + " "}
 	- var titleAttributes = {class: titleClassName + " " + "text_type_label-CTA input__title "}
 	- var controlAttributes = {class: controlClassName + " ", placeholder: placeholder}
-	- var attributes = [blockAttributes, titleAttributes, controlAttributes]
+	- var dropdownAttributes = {class: " "}
+	- var attributes = [blockAttributes, titleAttributes, controlAttributes, dropdownAttributes]
 
 	if types.includes("datepicker")
 		each value, index in attributes
@@ -48,4 +50,4 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[])
 			br
 			input&attributes(controlAttributes)
 		if types.includes("dropdown")
-			+dropdownList(additional)
+			+dropdownList(additional, dropdownAttributes)

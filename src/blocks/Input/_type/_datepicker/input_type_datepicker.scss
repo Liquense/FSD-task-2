@@ -156,6 +156,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
   &.-other-month- {
     color: white;
+    background: $otherPointsGradient;
   }
 
   &.-focus- {

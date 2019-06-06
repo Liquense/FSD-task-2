@@ -1,8 +1,14 @@
-mixin dropdownList(elementNames)
-	div.input__dropdown_type_dropdown
-		ul.input__dropdownList_type_dropdown
+mixin dropdownList(elementNames, attr)
+	div&attributes(attr)
+		table.input__dropdownList_type_dropdown
 			each element in elementNames
-				li(class="text_type_label-CTA input__dropdownListRow_type_dropdown")
-					span.input__dropdownText_type_dropdown #{element}
-					div.input__dropdownNumericUpDown
-						input(class= "input__dropdownValue_type_dropdown text_type_label-CTA" data-name=element value="0")
+				tr(class="text_type_label-CTA input__dropdownListRow_type_dropdown")
+					td
+						span.input__dropdownText_type_dropdown #{element}
+					td
+						div.input__dropdownNumericUpDown
+							input(class= "input__dropdownValue_type_dropdown text_type_label-CTA" data-name=element value="0")
+		include ../../../Button/Button
+		div(class="input__controlButtonsContainer")
+			+Button("Очистить", "button_type_text input__clearButton button_hovered input__controlButton")
+			+Button("Применить", "button_type_text input__confirmButton input__controlButton")

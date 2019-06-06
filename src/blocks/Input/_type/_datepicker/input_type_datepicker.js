@@ -1,8 +1,8 @@
 import "../../../../assets/images/arrow_back.svg"
 import "../../../../assets/images/expand_more.svg"
 
-let confirmButton = '<a class="link text_type_label-CTA input_type_datepicker__confirmButton datepicker--button" data-action="hide" href="#">Применить</link>';
-let clearButton = '<a class="link text_type_label-CTA input_type_datepicker__clearButton link_hovered datepicker--button" data-action="clear" href="#">Очистить</link>';
+let confirmButton = '<a class="button button_type_text text_type_label-CTA input_type_datepicker__confirmButton datepicker--button" data-action="hide" href="#">Применить</link>';
+let clearButton = '<a class="button button_type_text button_hovered text_type_label-CTA input_type_datepicker__clearButton link_hovered datepicker--button" data-action="clear" href="#">Очистить</link>';
 
 export let outerDatepicker;
 $(".input__control_type_datepicker").each(function () {

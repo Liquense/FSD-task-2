@@ -14,8 +14,8 @@ $.widget("ui.spinner", $.ui.spinner, {
     },
     _buttonHtml: function () {
         return [
-            '<button class= "input__dropdownDecrease_type_dropdown input__dropdownButton_type_dropdown ui-spinner-button ui-spinner-down">-</button>',
-            '<button class= "input__dropdownIncrease_type_dropdown input__dropdownButton_type_dropdown ui-spinner-button ui-spinner-up">+</button>'];
+            '<button class= "input__dropdownDecrease_type_dropdown input__spinnerButton_type_dropdown ui-spinner-button ui-spinner-down">-</button>',
+            '<button class= "input__dropdownIncrease_type_dropdown input__spinnerButton_type_dropdown ui-spinner-button ui-spinner-up">+</button>'];
     },
     //обёртка своя есть
     _uiSpinnerHtml: function () {
@@ -23,12 +23,14 @@ $.widget("ui.spinner", $.ui.spinner, {
     }
 });
 
-const dropdownVisibleClass = "input__dropdown_visible";
+const dropdownVisibleClass = "input__dropdownListWrapper_visible";
 $(".input_type_dropdown").each(function () {
     let input = $(this);
-    let dropdown = $(this).children(".input__dropdown_type_dropdown");
+    let dropdown = $(this).children(".input__dropdownListWrapper_type_dropdown");
     let control = $(this).find(".input__control_type_dropdown");
     let numericUpDown = $(this).find(".input__dropdownValue_type_dropdown");
+    let clearButton = $(this).find(".input__clearButton");
+    let confirmButton = $(this).find(".input__confirmButton");
     let upDownContainer = $(numericUpDown).parent();
 
     let spinner = numericUpDown.spinner({
