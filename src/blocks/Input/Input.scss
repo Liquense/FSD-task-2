@@ -30,6 +30,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
   @include text(Montserrat, normal, $fontSize, $lineHeight, $darkShade25, -0.18px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect похоже получилось -0.18px
   margin: $inputTopMargin 0 0 0;
+  text-overflow: ellipsis;
 }
 
 .input__control:focus,

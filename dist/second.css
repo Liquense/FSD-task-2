@@ -181,7 +181,8 @@ hr {
   vertical-align: middle;
   color: rgba(31, 32, 65, 0.25);
   text-decoration: none;
-  margin: 4px 0 0 0; }
+  margin: 4px 0 0 0;
+  text-overflow: ellipsis; }
 
 .input__control:focus,
 .input__control:hover,
@@ -862,7 +863,8 @@ hr {
 
 .input__control_type_dropdown {
   border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0; }
+  border-bottom-right-radius: 0;
+  padding-right: 90px; }
 
 .input__dropdownListWrapper_type_dropdown {
   position: absolute;

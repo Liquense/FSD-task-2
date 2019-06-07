@@ -1,5 +1,11 @@
 import "jquery-ui/ui/effects/effect-fade"
 
+/**
+ * Функция для получения пар имя-значение со всех переданных спиннеров
+ *
+ * @param spinnerElements   массив спиннеров
+ * @returns {Array}
+ */
 let getAllNamesValues = function (spinnerElements) {
     let result = [];
 
@@ -21,21 +27,61 @@ let getDropdownType = function (dropdown) {
     } else return "";
 };
 
-let selectNiceWord = function (itemsCount, itemName) {
-    const knownItems = ["спальни", "кровати", "ванные комнаты"];
+/**
+ * Функция для склонения русских слов
+ * Пример использования: ruDeclination(5,'комментари|й|я|ев')
+ *
+ * @author Павел Белоусов <pafnuty10@gmail.com>
+ *
+ * @param      {number}  number  Число, для которого будет расчитано окончание
+ * @param      {string}  words   Слово и варианты окончаний для 1|2|100 (1 комментарий, 2 комментария, 100 комментариев)
+ * @return     {string}  Cлово с правильным окончанием
+ */
+function ruDeclination(number, words) {
+    'use strict';
+    let w = words.split('|'),
+        n = Math.abs(number * 1); // abs на случай отрицательного значения
+    return n % 10 == 1 && n % 100 != 11 ? w[0] + w[1] : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? w[0] + w[2] : w[0] + w[3]);
+}
 
-    knownItems.forEach(function (element) {
-        //todo: склонения слов
-    });
+let selectNiceWord = function (itemsCount, itemName) {
+    let result = "";
+
+    switch (itemName.toLowerCase()) {
+        case "спальни":
+            result = ruDeclination(itemsCount, "Спал|ьня|ьни|ен");
+            break;
+        case "кровати":
+            result = ruDeclination(itemsCount, "Кроват|ь|и|ей");
+            break;
+        case "ванные комнаты":
+            result = ruDeclination(itemsCount, "Ванн|ая|ых|ых") + " "
+                + ruDeclination(itemsCount, "комнат|а|ы|");
+            break;
+        case "гости":
+            result = ruDeclination(itemsCount, "гост|ь|я|ей");
+            break;
+    }
+
+    return result;
 };
 
+/**
+ * Создание строки, содержащей суммарную информацию по дропдауну.
+ * Формат строки зависит от типа дропдауна
+ *
+ * @param namesValues   массив пар имя-значение, из которых составляется строка
+ * @param dropdownType  тип дропдауна
+ * @returns {string}    результирующая строка
+ */
 let createInputText = function (namesValues, dropdownType) {
     let result = "";
+    if (isAllValuesZero(namesValues)) return result;
 
     switch (dropdownType) {
         case typeRooms: {
             for (let i = 0; i < namesValues.length; i++) {
-                result += `${namesValues[i].value} ${namesValues[i].name}, `;
+                result += `${namesValues[i].value} ${selectNiceWord(namesValues[i].value, namesValues[i].name)}, `;
             }
             result = result.substring(0, result.length - 2);
             break;
@@ -45,7 +91,7 @@ let createInputText = function (namesValues, dropdownType) {
             for (let i = 0; i < namesValues.length; i++) {
                 sum += parseInt(namesValues[i].value);
             }
-            result += `${sum} гостя`;
+            result += `${sum} ${selectNiceWord(sum, "гости")}`;
             break;
         }
         default: {
@@ -60,29 +106,84 @@ let createInputText = function (namesValues, dropdownType) {
     return result;
 };
 
+let changeInputText = function (dropdown, namesValues, input) {
+    let dropdownType = getDropdownType(dropdown);
+    let newInputText = createInputText(namesValues, dropdownType);
+    $(input).val(newInputText);
+};
+
+
 let isAllValuesZero = function (namesValues) {
     for (let i = 0; i < namesValues.length; i++) {
         if (parseInt((namesValues[i].value)) !== 0) {
             return false;
         }
     }
-
     return true;
 };
 
-let isValuesEqual = function (values1, values2) {
-    if (values1.length !== values2.length) return false;
+/**
+ * Поэлементное сравнение двух массивов имя-значение по значениям.
+ * @param namesValues1  первый массив
+ * @param namesValues2  второй массив
+ * @returns {boolean}   равны ли они
+ */
+let isValuesEqual = function (namesValues1, namesValues2) {
+    if (namesValues1.length !== namesValues2.length) return false;
 
-    for (let i = 0; i < values1.length; i++) {
-        if (values1[i].value !== values2[i].value) return false;
+    for (let i = 0; i < namesValues1.length; i++) {
+        if (namesValues1[i].value !== namesValues2[i].value) return false;
     }
 
     return true;
 };
 
-let isButtonsContainerDisplayNeeded = function () {
-  //todo: проверка на нужность отображения контейнера с управляющими кнопками
+let manageControlsVisibility = function (oldNamesValues, namesValues, clearButton, confirmButton, buttonsContainer) {
+    let clearVisibleClass = "input__clearButton_visible",
+        confirmVisibleClass = "input__confirmButton_visible",
+        containerVisibleClass = "input__controlButtonsContainer_visible";
+
+    if (isAllValuesZero(namesValues))
+        $(clearButton).removeClass(clearVisibleClass);
+    else
+        $(clearButton).addClass(clearVisibleClass);
+
+    if (isValuesEqual(namesValues, oldNamesValues))
+        $(confirmButton).removeClass(confirmVisibleClass);
+    else
+        $(confirmButton).addClass(confirmVisibleClass);
+
+    if (!($(clearButton).hasClass(clearVisibleClass) || $(confirmButton).hasClass(confirmVisibleClass)))
+        $(buttonsContainer).removeClass(containerVisibleClass);
+    else
+        $(buttonsContainer).addClass(containerVisibleClass);
 };
+
+let clearSpinnersValues = function (namesValues, spinners) {
+    setSpinnerValues(0, namesValues, spinners, ["value"])
+};
+
+let setSpinnerValues = function (namesValuesToSet, namesValuesToChange, spinners, options) {
+    for (let i = 0; i < spinners.length; i++) {
+        if (options.includes("array")) {
+            namesValuesToChange[i].value = namesValuesToSet[i].value;
+            $(spinners[i]).spinner("value", namesValuesToSet[i].value);
+        }
+        if (options.includes("value")) {
+            namesValuesToChange[i].value = namesValuesToSet;
+            $(spinners[i]).spinner("value", namesValuesToSet);
+        }
+    }
+};
+
+let dropdownOnChange = function (oldNamesValues, namesValues, spinners, clearButton, confirmButton, buttonsContainer, dropdown, input) {
+    setSpinnerValues(oldNamesValues, namesValues,
+        spinners, ["array"]);
+    manageControlsVisibility(oldNamesValues, namesValues,
+        clearButton, confirmButton, buttonsContainer);
+    changeInputText(dropdown, namesValues, input);
+};
+
 
 const dropdownVisibleClass = "input__dropdownListWrapper_visible";
 $(".input_type_dropdown").each(function () {
@@ -100,49 +201,33 @@ $(".input_type_dropdown").each(function () {
     let oldSpinnersNameValue = getAllNamesValues(spinnerValueElements);
 
     $(clearButton).click(function () {
-        $(control).val("");
-        for (let i = 0; i < spinnerValueElements.length; i++) {
-            spinnersNameValue[i].value = 0;
-            $(spinnerValueElements[i]).spinner("value", 0);
-        }
-        $(clearButton).removeClass("input__clearButton_visible");
+        clearSpinnersValues(spinnersNameValue, spinnerValueElements);
+
+        manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
+            clearButton, confirmButton, controlButtonsContainer);
+
+        changeInputText(dropdown, spinnersNameValue, control);
     });
 
     $(confirmButton).click(function () {
         $(dropdown).toggle("fade");
         $(dropdown).toggleClass(dropdownVisibleClass);
-        $(confirmButton).removeClass("input__confirmButton_visible");
 
         oldSpinnersNameValue = getAllNamesValues(spinnerValueElements);
+
+        manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
+            clearButton, confirmButton, controlButtonsContainer);
     });
 
     //on spin
     $(spinnerValueElements).each(function () {
         $(this).on("spin", function (event, ui) {
             spinnersNameValue[$(this).attr("data-index")].value = ui.value;
-            console.log(spinnersNameValue);
-            console.log(oldSpinnersNameValue);
-            if (!isValuesEqual(oldSpinnersNameValue, spinnersNameValue)) {
-                console.log("!eq");
-                confirmButton.addClass("input__confirmButton_visible");
-                $(controlButtonsContainer).addClass("input__controlButtonsContainer_visible");
-            }
-            else {
-                console.log("eq");
-                confirmButton.removeClass("input__confirmButton_visible");
-            }
 
-            if (!isAllValuesZero(spinnersNameValue)) {
-                $(control).val(createInputText(spinnersNameValue, dropdownType));
+            changeInputText(dropdown, spinnersNameValue, control);
 
-                $(controlButtonsContainer).addClass("input__controlButtonsContainer_visible");
-                $(clearButton).addClass("input__clearButton_visible");
-            } else {
-                $(control).val("");
-
-                $(controlButtonsContainer).removeClass("input__controlButtonsContainer_visible");
-                $(clearButton).removeClass("input__clearButton_visible");
-            }
+            manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
+                clearButton, confirmButton, controlButtonsContainer);
         });
     });
 
@@ -158,10 +243,18 @@ $(".input_type_dropdown").each(function () {
     $(document).click(function (event) {
         clickedElement = $(event.target);
 
+        //если клик происходит не в дропдауне
         if (!$.contains($(inputWrapper).get(0), $(clickedElement).get(0))) {
+            //и дропдаун отображается
             if ($(dropdown).hasClass(dropdownVisibleClass)) {
                 $(dropdown).toggle("fade");
                 $(dropdown).toggleClass(dropdownVisibleClass);
+
+                setSpinnerValues(oldSpinnersNameValue, spinnersNameValue,
+                    spinnerValueElements, ["array"]);
+                manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
+                    clearButton, confirmButton, controlButtonsContainer);
+                changeInputText(dropdown, spinnersNameValue, control);
             }
             $(control).removeClass("input__control_focused");
         }
@@ -174,5 +267,11 @@ $(".input_type_dropdown").each(function () {
     $(control).click(function () {
         $(dropdown).toggle("fade");
         $(dropdown).toggleClass(dropdownVisibleClass);
+
+        if (!$(dropdown).hasClass(dropdownVisibleClass)) {
+            dropdownOnChange(oldSpinnersNameValue, spinnersNameValue,
+                spinnerValueElements, clearButton, confirmButton,
+                controlButtonsContainer, dropdown, control);
+        }
     });
 });
