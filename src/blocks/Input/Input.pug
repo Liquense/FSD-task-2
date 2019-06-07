@@ -1,4 +1,4 @@
-mixin Input(title, types, placeholder, addClasses, mask, additional=[])
+mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0, 5])
 	- var blockClassName = "input"
 	- var titleClassName = "input__title"
 	- var controlClassName = "input__control"
@@ -15,8 +15,12 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[])
 		each value, index in attributes
 			- value.class += classNames[index] + "_type_datepicker "
 		- controlAttributes.type = "select"
-		//- controlAttributes.readonly = true;
 	else if types.includes("dropdown")
+		//-подтипы дропдауна
+		if types.includes("rooms")
+			- dropdownAttributes.class += dropdownClassName + "_rooms "
+		else if types.includes("customers")
+			- dropdownAttributes.class += dropdownClassName + "_customers "
 		each value, index in attributes
 			- value.class += classNames[index] + "_type_dropdown "
 		- controlAttributes.type = "select"
@@ -53,4 +57,4 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[])
 				+expandArrow()
 			input&attributes(controlAttributes)
 		if types.includes("dropdown")
-			+dropdownList(additional, dropdownAttributes)
+			+dropdownList(additional, dropdownAttributes, range)

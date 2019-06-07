@@ -56,13 +56,28 @@
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 6px 12px 14px;
-  }
 
-  .input__clearButton {
+    @include clearfix();
 
-  }
+    &.input__controlButtonsContainer_visible {
+      display: block;
+      height: fit-content;
+    }
 
-  .input__confirmButton {
+    .input__clearButton {
+      display: none;
+      &.input__clearButton_visible {
+        display: block;
+        float: left;
+      }
+    }
 
+    .input__confirmButton {
+      display: none;
+      &.input__confirmButton_visible {
+        display: block;
+        float: right;
+      }
+    }
   }
 }

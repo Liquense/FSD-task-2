@@ -14,3 +14,11 @@
   min-width: $minWidth;
   min-height: $minHeight;
 }
+
+@mixin clearfix() {
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+}

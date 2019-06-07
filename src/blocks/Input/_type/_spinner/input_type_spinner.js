@@ -22,10 +22,11 @@ $.widget("ui.spinner", $.ui.spinner, {
 });
 
 $(".input_type_dropdown").each(function () {
-    let numericUpDown = $(this).find(".input__value_type_spinner");
+    let spinnerValue = $(this).find(".input__value_type_spinner");
 
-    let spinner = numericUpDown.spinner({
-        min: 0,
-        max: 5,
+    let spinner = spinnerValue.spinner({
+        min: spinnerValue.attr("data-min"),
+        max: spinnerValue.attr("data-max"),
     });
+    //console.log(spinner);
 });

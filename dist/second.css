@@ -897,6 +897,23 @@ hr {
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 20px 6px 12px 14px; }
+    .input__dropdownListWrapper_type_dropdown .input__controlButtonsContainer:after {
+      content: "";
+      clear: both;
+      display: table; }
+    .input__dropdownListWrapper_type_dropdown .input__controlButtonsContainer.input__controlButtonsContainer_visible {
+      display: block;
+      height: fit-content; }
+    .input__dropdownListWrapper_type_dropdown .input__controlButtonsContainer .input__clearButton {
+      display: none; }
+      .input__dropdownListWrapper_type_dropdown .input__controlButtonsContainer .input__clearButton.input__clearButton_visible {
+        display: block;
+        float: left; }
+    .input__dropdownListWrapper_type_dropdown .input__controlButtonsContainer .input__confirmButton {
+      display: none; }
+      .input__dropdownListWrapper_type_dropdown .input__controlButtonsContainer .input__confirmButton.input__confirmButton_visible {
+        display: block;
+        float: right; }
 
 .input_type_spinner {
   width: fit-content;
