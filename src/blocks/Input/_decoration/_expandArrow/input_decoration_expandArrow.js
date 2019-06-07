@@ -37,6 +37,6 @@ $(".input__arrow_decoration_expandArrow").each(function () {
         })
     }
     if (expandableElement) {
-        addClickToArrow(expandArrow, expandableElement, this, ownerLabel);
+        addClickToArrow(expandArrow, expandableElement, control, ownerLabel);
     }
 });
