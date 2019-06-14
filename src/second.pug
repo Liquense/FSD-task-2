@@ -5,38 +5,32 @@ html(lang="ru")
     body
         a(href="index.html" class="text_type_label-CTA pageHeader") Вернуться на главную
         br
-        //hr
-        div.gridContainer
-            div.containersGrid
-                include blocks/Input/Input
-                include blocks/twoCalendarRangePicker/twoCalendarRangePicker
-                div(class="inputsContainer")
-                    +Input("Text field", "text", "This is pretty awesome", "", "")
-                    +Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
-                    +Input("DatePicker", "datepicker", "ДД.ММ.ГГГГ", "", "")
-                    +twoCalendarRangePicker()
-                    +Input("Dropdown №0", "dropdown narrow", "test", "", "", ["Дети", "Взрослые", "Младенцы", "Тест"], [-2, 2])
-                    +Input("Dropdown", "dropdown medium rooms", "Комплектация номера", "", "", ["Спальни", "Кровати", "Ванные комнаты"])
-                    +Input("Dropdown №2", "dropdown customers", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
-                //hr
-                include blocks/Button/Button
-                div(class="buttonsContainer")
-                    +Button("Click Me", "firstRow__button button_type_text")
-                    +Button("Click Me", "button_type_text button_hovered firstRow__button")
-                    +Button("Click Me", "button_type_filled secondRow__button")
-                    +Button("Click Me", "button_type_filled button_hovered secondRow__button")
-                    +Button("Click Me", "button_type_bordered thirdRow__button")
-                    +Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
-                    +Button("Click Me", "button_type_filled button_width_wide fourthRow")
-                    +Button("Click Me", "button_type_bordered button_width_wide fifthRow")
-                //hr
-                include blocks/Checkbox/Checkbox
-                div.checkboxContainer
-                    +checkbox("Можно курить")
-                    +checkbox("Можно с питомцами")
-                    +checkbox("Можно пригласить гостей (до 10 человек)")
-                //hr
-                include blocks/Slider/Slider
-                div(class="slidersContainer")
-                    +slider(100, 15000, 100, "Range Slider", "", true)
-                    +slider(0, 10, 1, "Range Slider", "", false)
+        include blocks/Input/Input
+        include blocks/twoCalendarRangePicker/twoCalendarRangePicker
+        div(class="inputsContainer")
+            +Input("Text field", "text", "This is pretty awesome", "", "")
+            +Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
+            +Input("DatePicker", "datepicker", "ДД.ММ.ГГГГ", "", "")
+            +twoCalendarRangePicker()
+            +Input("Dropdown №0", "dropdown narrow", "test", "", "", ["Дети", "Взрослые", "Младенцы", "Тест"], [-2, 2])
+            +Input("Dropdown", "dropdown medium rooms", "Комплектация номера", "", "", ["Спальни", "Кровати", "Ванные комнаты"])
+            +Input("Dropdown №2", "dropdown customers", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
+        include blocks/Button/Button
+        div(class="buttonsContainer")
+            +Button("Click Me", "firstRow__button button_type_text")
+            +Button("Click Me", "button_type_text button_hovered firstRow__button")
+            +Button("Click Me", "button_type_filled secondRow__button")
+            +Button("Click Me", "button_type_filled button_hovered secondRow__button")
+            +Button("Click Me", "button_type_bordered thirdRow__button")
+            +Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
+            +Button("Click Me", "button_type_filled button_width_wide fourthRow")
+            +Button("Click Me", "button_type_bordered button_width_wide fifthRow")
+        include blocks/Checkbox/Checkbox
+        div.checkboxContainer
+            +checkbox("Можно курить")
+            +checkbox("Можно с питомцами")
+            +checkbox("Можно пригласить гостей (до 10 человек)")
+        include blocks/Slider/Slider
+        div(class="slidersContainer")
+            +slider(100, 15000, 100, "Range Slider", "", true)
+            +slider(0, 10, 1, "Range Slider", "", false)

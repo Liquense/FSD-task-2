@@ -1,10 +1,6 @@
 * {
   box-sizing: border-box; }
 
-hr {
-  border-color: #BC9CFF;
-  margin: 40px 0; }
-
 @font-face {
   font-family: Montserrat;
   src: url(fonts/Montserrat-Regular.ttf), url(fonts/Montserrat-Regular.svg); }
@@ -1093,27 +1089,15 @@ hr {
 .input__wrapper {
   padding: 5px; }
 
-.gridContainer {
-  width: 80%;
-  margin: 5% 10%; }
-
-.containersGrid {
-  display: grid;
-  grid: auto / auto auto;
-  grid-row-gap: 100px;
-  grid-column-gap: 80px; }
-  .containersGrid div {
-    background-color: white; }
-
-.inputsContainer {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  grid-row-end: 3; }
+.inputsContainer,
+.buttonsContainer,
+.checkboxContainer,
+.slidersContainer {
+  float: left;
+  margin: 50px 20px; }
 
 .buttonsContainer {
-  margin-top: 20px;
   width: 320px;
-  grid-column-start: 2;
   display: grid;
   grid-gap: 15px;
   grid-template-columns: auto auto;

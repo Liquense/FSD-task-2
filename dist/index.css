@@ -1,10 +1,6 @@
 * {
   box-sizing: border-box; }
 
-hr {
-  border-color: #BC9CFF;
-  margin: 40px 0; }
-
 @font-face {
   font-family: Montserrat;
   src: url(fonts/Montserrat-Regular.ttf), url(fonts/Montserrat-Regular.svg); }
