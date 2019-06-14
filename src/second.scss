@@ -8,19 +8,37 @@
   padding: 5px;
 }
 
+.gridContainer {
+  width: 80%;
+  margin: 5% 10%;
+}
+
+.containersGrid {
+  display: grid;
+  grid: auto / auto auto;
+  grid-row-gap: 100px;
+  grid-column-gap: 80px;
+
+  & div {
+    background-color: white;
+  }
+}
+
+.inputsContainer {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
 .buttonsContainer {
   margin-top: 20px;
   width: 320px;
+  grid-column-start: 2;
 
   display: grid;
   grid-gap: 15px;
   grid-template-columns: auto auto;
   justify-items: center;
-}
-
-.firstRow__button,
-.secondRow__button,
-.thirdRow__button {
 }
 
 .fourthRow, .fifthRow {
