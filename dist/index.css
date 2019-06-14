@@ -28,7 +28,7 @@ hr {
   font-weight: bold;
   font-style: normal;
   font-size: 12px;
-  line-height: 15px;
+  line-height: 12px;
   letter-spacing: normal;
   vertical-align: middle;
   color: #1F2041;
@@ -51,7 +51,7 @@ hr {
   font-weight: normal;
   font-style: normal;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 14px;
   letter-spacing: normal;
   vertical-align: middle;
   color: rgba(31, 32, 65, 0.75);
@@ -1018,7 +1018,7 @@ hr {
   font-weight: normal;
   font-style: normal;
   font-size: 10px;
-  line-height: 15px;
+  line-height: 12px;
   letter-spacing: normal;
   vertical-align: middle;
   color: #1F2041;
@@ -1044,4 +1044,46 @@ hr {
   display: flex;
   width: 320px;
   justify-content: space-between; }
+
+.checkbox {
+  width: fit-content;
+  height: fit-content; }
+  .checkbox:after {
+    content: "";
+    clear: both;
+    display: table; }
+  .checkbox .checkbox__hiddenButton {
+    display: none; }
+  .checkbox .checkbox__button {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #000;
+    margin-right: 10px;
+    margin-left: -30px;
+    display: block;
+    float: left;
+    clear: both;
+    cursor: pointer; }
+  .checkbox .checkbox__label {
+    line-height: 18px;
+    display: inline-block;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    max-width: calc(23ch + 20px);
+    cursor: pointer;
+    padding-left: 30px; }
+
+.checkbox_type_default {
+  margin-bottom: 10px; }
+  .checkbox_type_default:last-child {
+    margin-bottom: 0; }
+  .checkbox_type_default .checkbox__button_type_default {
+    border: 1px solid rgba(31, 32, 65, 0.25);
+    border-radius: 4px; }
+    .checkbox_type_default .checkbox__button_type_default:hover, .checkbox_type_default .checkbox__button_type_default.ui-state-checked {
+      border-color: #BC9CFF; }
+    .checkbox_type_default .checkbox__button_type_default.ui-state-checked {
+      background: url(images/checkmark.svg) no-repeat 50% calc(50% - 1px); }
+  .checkbox_type_default .checkbox__label_type_default:hover .checkbox__button_type_default {
+    border-color: #BC9CFF; }
 

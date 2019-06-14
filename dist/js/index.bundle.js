@@ -429,6 +429,63 @@ eval("module.exports = \"images/expand_more.svg\";\n\n//# sourceURL=webpack:///.
 
 /***/ }),
 
+/***/ "./src/blocks/Checkbox/Checkbox.js":
+/*!*****************************************!*\
+  !*** ./src/blocks/Checkbox/Checkbox.js ***!
+  \*****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Checkbox_pug__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkbox.pug */ \"./src/blocks/Checkbox/Checkbox.pug\");\n/* harmony import */ var _Checkbox_pug__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_pug__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Checkbox_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Checkbox.scss */ \"./src/blocks/Checkbox/Checkbox.scss\");\n/* harmony import */ var _Checkbox_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _type_default_Checkbox_type_default__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_type/_default/Checkbox_type_default */ \"./src/blocks/Checkbox/_type/_default/Checkbox_type_default.js\");\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/Checkbox.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/Checkbox/Checkbox.pug":
+/*!******************************************!*\
+  !*** ./src/blocks/Checkbox/Checkbox.pug ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var pug = __webpack_require__(/*! ../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/Checkbox.pug?");
+
+/***/ }),
+
+/***/ "./src/blocks/Checkbox/Checkbox.scss":
+/*!*******************************************!*\
+  !*** ./src/blocks/Checkbox/Checkbox.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/Checkbox.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/Checkbox/_type/_default/Checkbox_type_default.js":
+/*!*********************************************************************!*\
+  !*** ./src/blocks/Checkbox/_type/_default/Checkbox_type_default.js ***!
+  \*********************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _Checkbox_type_default_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkbox_type_default.scss */ \"./src/blocks/Checkbox/_type/_default/Checkbox_type_default.scss\");\n/* harmony import */ var _Checkbox_type_default_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_type_default_scss__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\n$(\".checkbox__hiddenButton\").checkboxradio({\r\n    classes: {\r\n        \"ui-checkboxradio-icon\" : \"checkbox__button checkbox__button_type_default\",\r\n        \"ui-checkboxradio-icon-space\" : \"checkbox__iconSpace checkbox__iconSpace_type_default\"\r\n    }\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/_type/_default/Checkbox_type_default.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/Checkbox/_type/_default/Checkbox_type_default.scss":
+/*!***********************************************************************!*\
+  !*** ./src/blocks/Checkbox/_type/_default/Checkbox_type_default.scss ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/_type/_default/Checkbox_type_default.scss?");
+
+/***/ }),
+
 /***/ "./src/blocks/Input/Input.scss":
 /*!*************************************!*\
   !*** ./src/blocks/Input/Input.scss ***!
@@ -807,7 +864,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! jquery-ui */ \"./node_modules/jquery-ui/ui/widget.js\");\n\n__webpack_require__(/*! jquery-ui/ui/widgets/slider */ \"./node_modules/jquery-ui/ui/widgets/slider.js\");\n\n__webpack_require__(/*! jquery-ui/themes/base/slider.css */ \"./node_modules/jquery-ui/themes/base/slider.css\");\n\n__webpack_require__(/*! air-datepicker */ \"./node_modules/air-datepicker/src/js/air-datepicker.js\");\n\n__webpack_require__(/*! ../vendor/jquery.maskedinput/src/jquery.maskedinput */ \"./vendor/jquery.maskedinput/src/jquery.maskedinput.js\");\n\n__webpack_require__(/*! jquery-ui/ui/widgets/spinner */ \"./node_modules/jquery-ui/ui/widgets/spinner.js\");\n\n__webpack_require__(/*! ./common/functions */ \"./src/common/functions.js\");\n\n__webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n\n__webpack_require__(/*! ./common/fonts.scss */ \"./src/common/fonts.scss\");\n\n[__webpack_require__(/*! ./blocks/text/_type/text_type_label-CTA.scss */ \"./src/blocks/text/_type/text_type_label-CTA.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_itemTitle.scss */ \"./src/blocks/text/_type/text_type_itemTitle.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_regular.scss */ \"./src/blocks/text/_type/text_type_regular.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_widgetTitle.scss */ \"./src/blocks/text/_type/text_type_widgetTitle.scss\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_bordered.scss */ \"./src/blocks/button/_type/button_type_bordered.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_filled.scss */ \"./src/blocks/button/_type/button_type_filled.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_text.scss */ \"./src/blocks/button/_type/button_type_text.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_hovered/button_hovered.scss */ \"./src/blocks/button/_hovered/button_hovered.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_width/button_width_wide.scss */ \"./src/blocks/button/_width/button_width_wide.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[][0];\n\n__webpack_require__(/*! ./blocks/Input/input */ \"./src/blocks/Input/input.js\");\n\n[__webpack_require__(/*! ./blocks/slider/slider.scss */ \"./src/blocks/slider/slider.scss\"),__webpack_require__(/*! ./blocks/slider/slider.pug */ \"./src/blocks/slider/slider.pug\")][0];\n\n__webpack_require__(/*! ./blocks/Slider/slider */ \"./src/blocks/Slider/slider.js\");\n\n__webpack_require__(/*! ./blocks/Slider/_range/Slider_range.js */ \"./src/blocks/Slider/_range/Slider_range.js\");\n\n__webpack_require__(/*! ./blocks/twoCalendarRangePicker/twoCalendarRangePicker */ \"./src/blocks/twoCalendarRangePicker/twoCalendarRangePicker.js\");\n\n//# sourceURL=webpack:///./src/common.js?");
+eval("\n\n__webpack_require__(/*! jquery-ui/ui/widgets/slider */ \"./node_modules/jquery-ui/ui/widgets/slider.js\");\n\n__webpack_require__(/*! jquery-ui/themes/base/slider.css */ \"./node_modules/jquery-ui/themes/base/slider.css\");\n\n__webpack_require__(/*! air-datepicker */ \"./node_modules/air-datepicker/src/js/air-datepicker.js\");\n\n__webpack_require__(/*! ../vendor/jquery.maskedinput/src/jquery.maskedinput */ \"./vendor/jquery.maskedinput/src/jquery.maskedinput.js\");\n\n__webpack_require__(/*! jquery-ui/ui/widgets/spinner */ \"./node_modules/jquery-ui/ui/widgets/spinner.js\");\n\n__webpack_require__(/*! jquery-ui/ui/widgets/checkboxradio */ \"./node_modules/jquery-ui/ui/widgets/checkboxradio.js\");\n\n__webpack_require__(/*! ./common/functions */ \"./src/common/functions.js\");\n\n__webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n\n__webpack_require__(/*! ./common/fonts.scss */ \"./src/common/fonts.scss\");\n\n[__webpack_require__(/*! ./blocks/text/_type/text_type_label-CTA.scss */ \"./src/blocks/text/_type/text_type_label-CTA.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_itemTitle.scss */ \"./src/blocks/text/_type/text_type_itemTitle.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_regular.scss */ \"./src/blocks/text/_type/text_type_regular.scss\"),\n__webpack_require__(/*! ./blocks/text/_type/text_type_widgetTitle.scss */ \"./src/blocks/text/_type/text_type_widgetTitle.scss\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_bordered.scss */ \"./src/blocks/button/_type/button_type_bordered.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_filled.scss */ \"./src/blocks/button/_type/button_type_filled.scss\"),\n__webpack_require__(/*! ./blocks/button/_type/button_type_text.scss */ \"./src/blocks/button/_type/button_type_text.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_hovered/button_hovered.scss */ \"./src/blocks/button/_hovered/button_hovered.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[__webpack_require__(/*! ./blocks/button/button.scss */ \"./src/blocks/button/button.scss\"),\n__webpack_require__(/*! ./blocks/button/_width/button_width_wide.scss */ \"./src/blocks/button/_width/button_width_wide.scss\"),__webpack_require__(/*! ./blocks/button/button.pug */ \"./src/blocks/button/button.pug\")][0];\n\n[][0];\n\n__webpack_require__(/*! ./blocks/Input/input */ \"./src/blocks/Input/input.js\");\n\n[__webpack_require__(/*! ./blocks/slider/slider.scss */ \"./src/blocks/slider/slider.scss\"),__webpack_require__(/*! ./blocks/slider/slider.pug */ \"./src/blocks/slider/slider.pug\")][0];\n\n__webpack_require__(/*! ./blocks/Slider/slider */ \"./src/blocks/Slider/slider.js\");\n\n__webpack_require__(/*! ./blocks/Slider/_range/Slider_range.js */ \"./src/blocks/Slider/_range/Slider_range.js\");\n\n__webpack_require__(/*! ./blocks/twoCalendarRangePicker/twoCalendarRangePicker */ \"./src/blocks/twoCalendarRangePicker/twoCalendarRangePicker.js\");\n\n__webpack_require__(/*! ./blocks/Checkbox/Checkbox */ \"./src/blocks/Checkbox/Checkbox.js\");\n\n//# sourceURL=webpack:///./src/common.js?");
 
 /***/ }),
 

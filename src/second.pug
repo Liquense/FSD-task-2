@@ -27,8 +27,14 @@ html(lang="ru")
             +Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
             +Button("Click Me", "button_type_filled button_width_wide fourthRow")
             +Button("Click Me", "button_type_bordered button_width_wide fifthRow")
-        include blocks/Slider/Slider
         hr
+        include blocks/Checkbox/Checkbox
+        div.checkboxContainer
+            +checkbox("Можно курить")
+            +checkbox("Можно с питомцами")
+            +checkbox("Можно пригласить гостей (до 10 человек)")
+        hr
+        include blocks/Slider/Slider
         div(class="slidersContainer")
             +slider(100, 15000, 100, "Range Slider", "", true)
             +slider(0, 10, 1, "Range Slider", "", false)
