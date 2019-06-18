@@ -1,0 +1,8 @@
+@import "../../../Checkbox/variables";
+
+.list_type_checkbox {
+  .list__input_type_checkbox:not(:last-child) {
+    margin-bottom: 20px;
+    margin-top: 16px - $checkboxButtonBorderWidth;
+  }
+}

@@ -1,41 +1,44 @@
 html(lang="ru")
-    head
-        meta(charset="UTF-8")
-        title UI-Kit
-    body
-        a(href="index.html" class="text_type_label-CTA pageHeader") Вернуться на главную
-        br
-        include blocks/Input/Input
-        include blocks/twoCalendarRangePicker/twoCalendarRangePicker
-        div.inputsContainer.container
-            +Input("Text field", "text", "This is pretty awesome", "", "")
-            +Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
-            +Input("DatePicker", "datepicker", "ДД.ММ.ГГГГ", "", "")
-            +twoCalendarRangePicker()
-            +Input("Dropdown №0", "dropdown narrow", "test", "", "", ["Дети", "Взрослые", "Младенцы", "Тест"], [-2, 2])
-            +Input("Dropdown", "dropdown medium rooms", "Комплектация номера", "", "", ["Спальни", "Кровати", "Ванные комнаты"])
-            +Input("Dropdown №2", "dropdown customers", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
-        include blocks/Button/Button
-        div.buttonsContainer.container
-            +Button("Click Me", "firstRow__button button_type_text")
-            +Button("Click Me", "button_type_text button_hovered firstRow__button")
-            +Button("Click Me", "button_type_filled secondRow__button")
-            +Button("Click Me", "button_type_filled button_hovered secondRow__button")
-            +Button("Click Me", "button_type_bordered thirdRow__button")
-            +Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
-            +Button("Click Me", "button_type_filled button_width_wide fourthRow")
-            +Button("Click Me", "button_type_bordered button_width_wide fifthRow")
-        include blocks/Checkbox/Checkbox
-        div.checkboxContainer.container
-            +checkbox("Можно курить")
-            +checkbox("Можно с питомцами")
-            +checkbox("Можно пригласить гостей (до 10 человек)")
-        div.radioContainer.container
-            +checkbox("radio1", "radio", {name: "test1"})
-            +checkbox("radio2", "radio", {name: "test1"})
-            +checkbox("radio3", "radio", {name: "test1"})
+	head
+		meta(charset="UTF-8")
+		title UI-Kit
+	body
+		a(href="index.html" class="text_type_label-CTA pageHeader") Вернуться на главную
+		br
+		include blocks/Input/Input
+		include blocks/twoCalendarRangePicker/twoCalendarRangePicker
+		div.inputsContainer.container
+			+Input("Text field", "text", "This is pretty awesome", "", "")
+			+Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
+			+Input("DatePicker", "datepicker", "ДД.ММ.ГГГГ", "", "")
+			+twoCalendarRangePicker()
+			+Input("Dropdown №0", "dropdown narrow", "test", "", "", ["Дети", "Взрослые", "Младенцы", "Тест"], [-2, 2])
+			+Input("Dropdown", "dropdown medium rooms", "Комплектация номера", "", "", ["Спальни", "Кровати", "Ванные комнаты"])
+			+Input("Dropdown №2", "dropdown customers", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
+		include blocks/Button/Button
+		div.buttonsContainer.container
+			+Button("Click Me", "firstRow__button button_type_text")
+			+Button("Click Me", "button_type_text button_hovered firstRow__button")
+			+Button("Click Me", "button_type_filled secondRow__button")
+			+Button("Click Me", "button_type_filled button_hovered secondRow__button")
+			+Button("Click Me", "button_type_bordered thirdRow__button")
+			+Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
+			+Button("Click Me", "button_type_filled button_width_wide fourthRow")
+			+Button("Click Me", "button_type_bordered button_width_wide fifthRow")
+		include blocks/Checkbox/Checkbox
+		include blocks/List/_type/_checkbox/List_type_checkbox
+		div.checkboxContainer.container
+			-var radioButtons = [{text: "Можно курить", group: "test1"}]
+			-radioButtons.push({text: "Можно с питомцами", group: "test1"})
+			-radioButtons.push({text: "Можно пригласить гостей (до 10 человек)", group: "test1"})
+			+checkboxList("Radio buttons", radioButtons)
+		include blocks/List/_type/_radio/List_type_radio
+		div.radioContainer.container
+			-var radioButtons = [{text: "Мужчина", group: "gender"}]
+			-radioButtons.push({text: "Женщина", group: "gender"})
+			+radioList("Radio buttons", radioButtons)
 
-        include blocks/Slider/Slider
-        div.slidersContainer.container
-            +slider(100, 15000, 100, "Range Slider", "", true)
-            +slider(0, 10, 1, "Range Slider", "", false)
+		include blocks/Slider/Slider
+		div.slidersContainer.container
+			+slider(100, 15000, 100, "Range Slider", "", true)
+			+slider(0, 10, 1, "Range Slider", "", false)

@@ -3,7 +3,7 @@
 .checkbox {
   @include clearfix();
   width: fit-content;
-  height: fit-content;
+  //height: fit-content;
 
   .checkbox__hiddenButton {
     display: none;

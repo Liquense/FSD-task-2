@@ -1051,8 +1051,7 @@
   justify-content: space-between; }
 
 .checkbox {
-  width: fit-content;
-  height: fit-content; }
+  width: fit-content; }
   .checkbox:after {
     content: "";
     clear: both;
@@ -1114,6 +1113,21 @@
     border-radius: 50%;
     background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
     position: relative; }
+
+.list {
+  padding: 0;
+  margin: 0;
+  border: none; }
+  .list .list__title {
+    padding: 0; }
+
+.list_type_radio .list__input_type_radio:not(:last-child) {
+  margin-right: 20px;
+  margin-top: 15px; }
+
+.list_type_checkbox .list__input_type_checkbox:not(:last-child) {
+  margin-bottom: 20px;
+  margin-top: 15px; }
 
 .pageHeader {
   font-size: 20px; }

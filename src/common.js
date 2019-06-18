@@ -32,7 +32,9 @@ import "./blocks/Input/input"
 import "b:slider"
 import "./blocks/Slider/slider"
 import "./blocks/Slider/_range/Slider_range.js"
-//twoCalendarRangePicker
+
 import "./blocks/twoCalendarRangePicker/twoCalendarRangePicker"
-//checkbox
+
 import "./blocks/Checkbox/Checkbox"
+
+import "./blocks/List/list"

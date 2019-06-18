@@ -1,0 +1,15 @@
+include ../../../Checkbox/Checkbox
+
+mixin radioList(title, radioButtons=[], addClasses="")
+	-var listClassName = "list_type_radio"
+	-var titleClassName = "list__title_type_radio"
+	-var classNames = [listClassName, titleClassName]
+
+	-var listAttrs = {class: "list " + listClassName + " " + addClasses + " "}
+	-var titleAttrs = {class: "list__title " + titleClassName + " text_type_label-CTA "}
+	-var attrs = [listAttrs, titleAttrs]
+
+	fieldset&attributes(listAttrs)
+		legend&attributes(titleAttrs) #{title}
+		each value, index in radioButtons
+			+checkbox(value.text, "radio", {text: value.group}, "list__input_type_radio")

@@ -16,8 +16,8 @@ mixin checkbox(text, types, additional, addClasses="")
 			each value, index in attrs
 				- value.class += classNames[index] + "_type_radio "
 			- inputAttrs.type = "radio"
-			if additional && additional.name
-				- inputAttrs.name = additional.name
+			if additional && additional.text
+				- inputAttrs.name = additional.text
 		else if types.includes("toggle")
 			each value, index in attrs
 				- value.class += classNames[index] + "_type_toggle "
