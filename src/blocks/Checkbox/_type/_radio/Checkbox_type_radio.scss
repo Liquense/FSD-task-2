@@ -1,0 +1,39 @@
+@import "../../variables";
+$radioSelectionPadding: 4px;
+
+.checkbox_type_radio {
+  display: inline-block;
+
+  .checkbox__button_type_radio {
+    border-radius: 50%;
+    border-color: $darkShade25;
+    background-color: #ffffff;
+  }
+
+
+  .checkbox__label_type_radio {
+    &:hover,
+    &.ui-checkboxradio-checked {
+      color: $darkShade75;
+    }
+
+    &:hover .checkbox__button_type_radio,
+    &.ui-checkboxradio-checked .checkbox__button_type_radio {
+      border-color: $purple;
+    }
+    &.ui-checkboxradio-checked .checkbox__button_type_radio {
+      $radioSelectionSize: $checkboxButtonSize - $radioSelectionPadding*2;
+      &::after {
+        content: "";
+        display: block;
+        width: $radioSelectionSize;
+        height: $radioSelectionSize;
+        left: $radioSelectionPadding - $checkboxButtonBorderWidth;
+        top: $radioSelectionPadding - $checkboxButtonBorderWidth;
+        border-radius: 50%;
+        background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+        position: relative;
+      }
+    }
+  }
+}

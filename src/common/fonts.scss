@@ -21,3 +21,10 @@ $fontsPath: "../assets/fonts";
   src: url("#{$fontsPath}/Quicksand-Bold.ttf"), url("#{$fontsPath}/Quicksand-Bold.svg");
   font-weight: bold;
 }
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("#{$fontsPath}/iconfont/MaterialIcons-regular.ttf"), url("#{$fontsPath}/iconfont/MaterialIcons-regular.svg");
+}

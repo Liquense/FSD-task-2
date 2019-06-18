@@ -437,7 +437,7 @@ eval("module.exports = \"images/expand_more.svg\";\n\n//# sourceURL=webpack:///.
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Checkbox_pug__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkbox.pug */ \"./src/blocks/Checkbox/Checkbox.pug\");\n/* harmony import */ var _Checkbox_pug__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_pug__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Checkbox_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Checkbox.scss */ \"./src/blocks/Checkbox/Checkbox.scss\");\n/* harmony import */ var _Checkbox_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _type_default_Checkbox_type_default__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_type/_default/Checkbox_type_default */ \"./src/blocks/Checkbox/_type/_default/Checkbox_type_default.js\");\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/Checkbox.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Checkbox_pug__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkbox.pug */ \"./src/blocks/Checkbox/Checkbox.pug\");\n/* harmony import */ var _Checkbox_pug__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_pug__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Checkbox_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Checkbox.scss */ \"./src/blocks/Checkbox/Checkbox.scss\");\n/* harmony import */ var _Checkbox_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _type_default_Checkbox_type_default__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_type/_default/Checkbox_type_default */ \"./src/blocks/Checkbox/_type/_default/Checkbox_type_default.js\");\n/* harmony import */ var _type_radio_Checkbox_type_radio__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_type/_radio/Checkbox_type_radio */ \"./src/blocks/Checkbox/_type/_radio/Checkbox_type_radio.js\");\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/Checkbox.js?");
 
 /***/ }),
 
@@ -448,7 +448,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Che
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var pug = __webpack_require__(/*! ../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/Checkbox.pug?");
+eval("var pug = __webpack_require__(/*! ../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/Checkbox.pug?");
 
 /***/ }),
 
@@ -471,7 +471,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _Checkbox_type_default_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkbox_type_default.scss */ \"./src/blocks/Checkbox/_type/_default/Checkbox_type_default.scss\");\n/* harmony import */ var _Checkbox_type_default_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_type_default_scss__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\n$(\".checkbox__hiddenButton\").checkboxradio({\r\n    classes: {\r\n        \"ui-checkboxradio-icon\" : \"checkbox__button checkbox__button_type_default\",\r\n        \"ui-checkboxradio-icon-space\" : \"checkbox__iconSpace checkbox__iconSpace_type_default\"\r\n    }\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/_type/_default/Checkbox_type_default.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _Checkbox_type_default_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkbox_type_default.scss */ \"./src/blocks/Checkbox/_type/_default/Checkbox_type_default.scss\");\n/* harmony import */ var _Checkbox_type_default_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_type_default_scss__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\n$(\".checkbox__hiddenButton_type_default\").checkboxradio({\r\n    classes: {\r\n        \"ui-checkboxradio-icon\" : \"checkbox__button checkbox__button_type_default\",\r\n        \"ui-checkboxradio-icon-space\" : \"checkbox__iconSpace checkbox__iconSpace_type_default\"\r\n    }\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/_type/_default/Checkbox_type_default.js?");
 
 /***/ }),
 
@@ -483,6 +483,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/_type/_default/Checkbox_type_default.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/Checkbox/_type/_radio/Checkbox_type_radio.js":
+/*!*****************************************************************!*\
+  !*** ./src/blocks/Checkbox/_type/_radio/Checkbox_type_radio.js ***!
+  \*****************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _Checkbox_type_radio_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Checkbox_type_radio.scss */ \"./src/blocks/Checkbox/_type/_radio/Checkbox_type_radio.scss\");\n/* harmony import */ var _Checkbox_type_radio_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_Checkbox_type_radio_scss__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\r\n$(\".checkbox__hiddenButton_type_radio\").checkboxradio({\r\n    classes: {\r\n        \"ui-checkboxradio-icon\" : \"checkbox__button checkbox__button_type_radio\",\r\n        \"ui-checkboxradio-icon-space\" : \"checkbox__iconSpace checkbox__iconSpace_type_radio\"\r\n    }\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/_type/_radio/Checkbox_type_radio.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/Checkbox/_type/_radio/Checkbox_type_radio.scss":
+/*!*******************************************************************!*\
+  !*** ./src/blocks/Checkbox/_type/_radio/Checkbox_type_radio.scss ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Checkbox/_type/_radio/Checkbox_type_radio.scss?");
 
 /***/ }),
 

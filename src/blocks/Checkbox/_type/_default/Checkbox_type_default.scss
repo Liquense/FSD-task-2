@@ -1,29 +1,24 @@
 @import "../../variables";
 
 .checkbox_type_default {
-  margin-bottom: 10px;
-  &:last-child {
-    margin-bottom: 0;
-  }
-
   .checkbox__button_type_default {
     border: $checkboxButtonBorderWidth solid $darkShade25;
     border-radius: 4px;
-
-    &:hover,
-    &.ui-state-checked {
-      border-color: $purple;
-    }
-
-    &.ui-state-checked {
-      background: url("../../../../assets/images/checkmark.svg") no-repeat 50% calc(50% - #{$checkboxButtonBorderWidth});
-    }
   }
 
 
   .checkbox__label_type_default {
-    &:hover .checkbox__button_type_default {
+    &:hover,
+    &.ui-checkboxradio-checked {
+      color: $darkShade75;
+    }
+
+    &:hover .checkbox__button_type_default,
+    &.ui-checkboxradio-checked .checkbox__button_type_default {
       border-color: $purple;
+    }
+    &.ui-checkboxradio-checked .checkbox__button_type_default {
+      background: url("../../../../assets/images/checkmark.svg") no-repeat 50% calc(50% - #{$checkboxButtonBorderWidth}); //todo: replace with material-icons
     }
   }
 }

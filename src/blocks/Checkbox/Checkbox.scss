@@ -29,6 +29,7 @@
     vertical-align: middle;
     max-width: calc(23ch + #{$checkboxButtonSize});
     cursor: pointer;
+    color: $darkShade50;
 
     padding-left: $checkboxButtonSize + $buttonRightMargin; //для избавления от переноса текста снизу чекбокса
   }

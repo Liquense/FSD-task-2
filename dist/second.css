@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box; }
 
+.icon {
+  font-family: "Material Icons"; }
+
 @font-face {
   font-family: Montserrat;
   src: url(fonts/Montserrat-Regular.ttf), url(fonts/Montserrat-Regular.svg); }
@@ -18,6 +21,12 @@
   font-family: Quicksand;
   src: url(fonts/Quicksand-Bold.ttf), url(fonts/Quicksand-Bold.svg);
   font-weight: bold; }
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(fonts/MaterialIcons-regular.ttf), url(fonts/MaterialIcons-regular.svg); }
 
 .text_type_label-CTA {
   font-family: Montserrat, sans-serif;
@@ -1067,21 +1076,44 @@
     vertical-align: middle;
     max-width: calc(23ch + 20px);
     cursor: pointer;
+    color: rgba(31, 32, 65, 0.5);
     padding-left: 30px; }
 
-.checkbox_type_default {
-  margin-bottom: 10px; }
-  .checkbox_type_default:last-child {
-    margin-bottom: 0; }
-  .checkbox_type_default .checkbox__button_type_default {
-    border: 1px solid rgba(31, 32, 65, 0.25);
-    border-radius: 4px; }
-    .checkbox_type_default .checkbox__button_type_default:hover, .checkbox_type_default .checkbox__button_type_default.ui-state-checked {
-      border-color: #BC9CFF; }
-    .checkbox_type_default .checkbox__button_type_default.ui-state-checked {
-      background: url(images/checkmark.svg) no-repeat 50% calc(50% - 1px); }
-  .checkbox_type_default .checkbox__label_type_default:hover .checkbox__button_type_default {
+.checkbox_type_default .checkbox__button_type_default {
+  border: 1px solid rgba(31, 32, 65, 0.25);
+  border-radius: 4px; }
+
+.checkbox_type_default .checkbox__label_type_default:hover, .checkbox_type_default .checkbox__label_type_default.ui-checkboxradio-checked {
+  color: rgba(31, 32, 65, 0.75); }
+
+.checkbox_type_default .checkbox__label_type_default:hover .checkbox__button_type_default,
+.checkbox_type_default .checkbox__label_type_default.ui-checkboxradio-checked .checkbox__button_type_default {
+  border-color: #BC9CFF; }
+
+.checkbox_type_default .checkbox__label_type_default.ui-checkboxradio-checked .checkbox__button_type_default {
+  background: url(images/checkmark.svg) no-repeat 50% calc(50% - 1px); }
+
+.checkbox_type_radio {
+  display: inline-block; }
+  .checkbox_type_radio .checkbox__button_type_radio {
+    border-radius: 50%;
+    border-color: rgba(31, 32, 65, 0.25);
+    background-color: #ffffff; }
+  .checkbox_type_radio .checkbox__label_type_radio:hover, .checkbox_type_radio .checkbox__label_type_radio.ui-checkboxradio-checked {
+    color: rgba(31, 32, 65, 0.75); }
+  .checkbox_type_radio .checkbox__label_type_radio:hover .checkbox__button_type_radio,
+  .checkbox_type_radio .checkbox__label_type_radio.ui-checkboxradio-checked .checkbox__button_type_radio {
     border-color: #BC9CFF; }
+  .checkbox_type_radio .checkbox__label_type_radio.ui-checkboxradio-checked .checkbox__button_type_radio::after {
+    content: "";
+    display: block;
+    width: 12px;
+    height: 12px;
+    left: 3px;
+    top: 3px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
+    position: relative; }
 
 .pageHeader {
   font-size: 20px; }
@@ -1089,10 +1121,7 @@
 .input__wrapper {
   padding: 5px; }
 
-.inputsContainer,
-.buttonsContainer,
-.checkboxContainer,
-.slidersContainer {
+.container {
   float: left;
   margin: 50px 20px; }
 
