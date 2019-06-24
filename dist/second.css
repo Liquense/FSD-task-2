@@ -1119,7 +1119,10 @@
   margin: 0;
   border: none; }
   .list .list__title {
-    padding: 0; }
+    padding: 0;
+    user-select: none; }
+  .list .list__expandArrow {
+    display: none; }
 
 .list_type_radio .list__input_type_radio:not(:last-child) {
   margin-right: 20px;
@@ -1128,6 +1131,32 @@
 .list_type_checkbox .list__input_type_checkbox:not(:last-child) {
   margin-bottom: 20px;
   margin-top: 15px; }
+
+.list_expandable .list__title_expandable {
+  width: 266px;
+  height: 12px; }
+  .list_expandable .list__title_expandable:after {
+    content: "\e5cf";
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    vertical-align: middle;
+    font-family: "Material Icons";
+    color: rgba(31, 32, 65, 0.5);
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 12px;
+    text-align: center;
+    top: -1px;
+    left: 30px;
+    cursor: pointer; }
+  .list_expandable .list__title_expandable.list__expandArrow_expanded:after {
+    content: "\e5ce"; }
+
+.list_expandable .list__container_expandable {
+  display: none; }
+  .list_expandable .list__container_expandable.list__container_visible {
+    display: block; }
 
 .pageHeader {
   font-size: 20px; }

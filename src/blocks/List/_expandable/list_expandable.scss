@@ -1,0 +1,35 @@
+.list_expandable {
+
+  .list__title_expandable {
+    width: 266px;
+    height: 12px;
+
+    &:after {
+      content: "\e5cf";
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      vertical-align: middle;
+      font-family: "Material Icons";
+      color: $darkShade50;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 12px;
+      text-align: center;
+      top: -1px;
+      left: 30px;
+      cursor: pointer;
+    }
+    &.list__expandArrow_expanded:after {
+      content: "\e5ce";
+    }
+  }
+
+  .list__container_expandable {
+    display: none;
+
+    &.list__container_visible {
+      display: block;
+    }
+  }
+}

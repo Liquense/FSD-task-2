@@ -13,6 +13,12 @@ $greenGradientSecond: adjust_color($green, null, null, null, 45.90909, 25.86207,
 
 $inputBackgroundColor: white;
 
+//TEXT SIZES
+$label-CTASize: 12px;
+$itemTitleSize: 19px;
+$regularTextSize: 14px;
+$widgetTitleSize: 24px;
+
 $gradientDefaultAngle: 180deg;
 //@debug $greenGradientSecond hue($green) - hue($greenGradientSecond) saturation($green) - saturation($greenGradientSecond) lightness($green) - lightness($greenGradientSecond);
 //@debug $greenGradientSecondTest hue($greenGradientSecondTest) saturation($greenGradientSecondTest) lightness($greenGradientSecondTest);

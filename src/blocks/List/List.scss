@@ -5,5 +5,10 @@
 
   .list__title {
     padding: 0;
+    user-select: none;
+  }
+
+  .list__expandArrow {
+    display: none;
   }
 }
