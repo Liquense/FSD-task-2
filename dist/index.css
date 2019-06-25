@@ -1114,6 +1114,86 @@
     background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
     position: relative; }
 
+@keyframes desaturate {
+  from {
+    filter: grayscale(0%);
+    border-color: #BC9CFF;
+    filter: brightness(100%); }
+  to {
+    filter: grayscale(100%);
+    filter: brightness(120%);
+    border-color: #BC9CFF; } }
+
+@keyframes saturate {
+  from {
+    filter: grayscale(100%);
+    filter: brightness(120%);
+    border-color: #BC9CFF; }
+  to {
+    filter: grayscale(0%);
+    filter: brightness(100%);
+    border-color: #BC9CFF; } }
+
+@keyframes moveRight {
+  from {
+    left: 3px;
+    top: 3px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%); }
+  to {
+    left: calc(100% - 12px - 4px + 1px);
+    background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%); } }
+
+@keyframes moveLeft {
+  from {
+    left: calc(100% - 12px - 4px + 1px);
+    background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%); }
+  to {
+    left: 3px;
+    top: 3px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%); } }
+
+.checkbox_type_toggle .checkbox__label_type_toggle {
+  width: fit-content;
+  max-width: none; }
+  .checkbox_type_toggle .checkbox__label_type_toggle:hover {
+    color: rgba(31, 32, 65, 0.75); }
+    .checkbox_type_toggle .checkbox__label_type_toggle:hover .checkbox__button_type_toggle {
+      border-color: #BC9CFF;
+      animation-name: saturate;
+      animation-duration: 0.4s; }
+      .checkbox_type_toggle .checkbox__label_type_toggle:hover .checkbox__button_type_toggle:after {
+        background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%); }
+  .checkbox_type_toggle .checkbox__label_type_toggle .checkbox__button_type_toggle {
+    width: 40px;
+    height: 20px;
+    border-radius: 10px;
+    border-color: rgba(31, 32, 65, 0.25);
+    animation-name: desaturate;
+    animation-duration: 0.4s; }
+    .checkbox_type_toggle .checkbox__label_type_toggle .checkbox__button_type_toggle:after {
+      content: "";
+      display: block;
+      position: relative;
+      left: 3px;
+      top: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgba(31, 32, 65, 0.25);
+      animation-name: moveLeft;
+      animation-duration: 0.4s; }
+  .checkbox_type_toggle .checkbox__label_type_toggle.ui-checkboxradio-checked {
+    color: rgba(31, 32, 65, 0.75); }
+    .checkbox_type_toggle .checkbox__label_type_toggle.ui-checkboxradio-checked .checkbox__button_type_toggle {
+      border-color: #BC9CFF;
+      animation-name: saturate;
+      animation-duration: 1s; }
+      .checkbox_type_toggle .checkbox__label_type_toggle.ui-checkboxradio-checked .checkbox__button_type_toggle:after {
+        background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
+        left: calc(100% - 12px - 4px + 1px);
+        animation-name: moveRight;
+        animation-duration: 0.4s; }
+
 .list {
   padding: 0;
   margin: 0;

@@ -26,7 +26,7 @@ html(lang="ru")
 			+Button("Click Me", "button_type_filled button_width_wide fourthRow")
 			+Button("Click Me", "button_type_bordered button_width_wide fifthRow")
 		include blocks/Checkbox/Checkbox
-		include blocks/List/list.pug
+		include blocks/List/list
 		div.checkboxContainer.container
 			-var checkButtons = [{text: "Можно курить", group: "test1"}]
 			-checkButtons.push({text: "Можно с питомцами", group: "test1"})
@@ -40,7 +40,10 @@ html(lang="ru")
 			+list("radio", "Radio buttons", radioButtons)
 			br
 			+list("radio expandable", "Expandable Radio buttons", radioButtons)
-
+		div.toggleContainer.container
+			+list("toggle ")
+			+checkbox("Получать спецпредложения", "toggle toggled")
+			+checkbox("Получать спецпредложения2", "toggle")
 		include blocks/Slider/Slider
 		div.slidersContainer.container
 			+slider(100, 15000, 100, "Range Slider", "", true)

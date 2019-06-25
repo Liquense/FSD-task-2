@@ -1,5 +1,4 @@
 import "jquery-ui/ui/effects/effect-fade"
-import "jquery-ui/ui/effects/effect-puff"
 import "./list_expandable.scss"
 
 $(".list_expandable").each(function () {
