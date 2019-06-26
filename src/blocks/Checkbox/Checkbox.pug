@@ -22,6 +22,8 @@ mixin checkbox(text, types, additional, addClasses="")
 			each value, index in attrs
 				- value.class += classNames[index] + "_type_toggle "
 			- inputAttrs.type = "checkbox"
+			if types.includes("toggled")
+				- labelAttrs.class += labelClassName + "_toggled "
 		else if types.includes("like")
 			each value, index in attrs
 				- value.class += classNames[index] + "_type_like "

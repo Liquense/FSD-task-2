@@ -1,0 +1,12 @@
+@import "../../../Checkbox/variables";
+
+.list_type_toggle {
+  .list__input_type_toggle {
+    &:first-child {
+      margin-top: 16px - $checkboxButtonBorderWidth;
+    }
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+  }
+}

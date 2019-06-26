@@ -8,7 +8,7 @@ $buttonBorderWidth: 2px;
 
   width: 99px - ($buttonBorderWidth * 2);
   height: 44px - ($buttonBorderWidth * 2);
-  margin: $buttonBorderWidth; //todo: refactor to remove margin (conflicts with component approach)
+  margin: $buttonBorderWidth;
 }
 
 .button_type_bordered::before {

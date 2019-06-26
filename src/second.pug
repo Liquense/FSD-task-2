@@ -28,9 +28,9 @@ html(lang="ru")
 		include blocks/Checkbox/Checkbox
 		include blocks/List/list
 		div.checkboxContainer.container
-			-var checkButtons = [{text: "Можно курить", group: "test1"}]
-			-checkButtons.push({text: "Можно с питомцами", group: "test1"})
-			-checkButtons.push({text: "Можно пригласить гостей (до 10 человек)", group: "test1"})
+			-var checkButtons = [{text: "Можно курить"}]
+			-checkButtons.push({text: "Можно с питомцами"})
+			-checkButtons.push({text: "Можно пригласить гостей (до 10 человек)"})
 			+list("checkbox", "Checkbox List", checkButtons)
 			br
 			+list("checkbox expandable", "Expandable Checkbox List", checkButtons)
@@ -41,9 +41,17 @@ html(lang="ru")
 			br
 			+list("radio expandable", "Expandable Radio buttons", radioButtons)
 		div.toggleContainer.container
-			+list("toggle ")
 			+checkbox("Получать спецпредложения", "toggle toggled")
-			+checkbox("Получать спецпредложения2", "toggle")
+			+checkbox("Получать спецпредложения 2", "toggle")
+			br
+			-var toggleButtons = [{text: "Получать спецпредложения", class: "toggled"}]
+			-toggleButtons.push({text: "Получать спецпредложения 2"})
+			+list("toggle", "toggle", toggleButtons)
+			br
+			+list("toggle expandable", "toggle expandable", toggleButtons)
+		div.container
+			+checkbox("2", "like")
+			+checkbox("10", "like")
 		include blocks/Slider/Slider
 		div.slidersContainer.container
 			+slider(100, 15000, 100, "Range Slider", "", true)

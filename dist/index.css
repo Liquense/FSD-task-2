@@ -1194,6 +1194,63 @@
         animation-name: moveRight;
         animation-duration: 0.4s; }
 
+.checkbox_type_like {
+  width: 40px;
+  height: 20px; }
+  .checkbox_type_like .checkbox__label_type_like {
+    position: relative;
+    color: rgba(31, 32, 65, 0.25);
+    font-size: 10px;
+    width: 40px;
+    padding-left: 11px;
+    text-align: center;
+    line-height: 19px; }
+    .checkbox_type_like .checkbox__label_type_like.ui-checkboxradio-checked {
+      color: #BC9CFF; }
+      .checkbox_type_like .checkbox__label_type_like.ui-checkboxradio-checked .checkbox__buttonBorder_type_like {
+        content: "";
+        display: block;
+        width: 40px;
+        height: 20px;
+        background: linear-gradient(#BC9CFF 0%, #88a4f9 100%);
+        border-radius: 10px;
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        right: 0; }
+    .checkbox_type_like .checkbox__label_type_like .checkbox__button_type_like {
+      width: 40px;
+      height: 20px;
+      margin: 0;
+      background-color: white;
+      border-color: rgba(31, 32, 65, 0.25);
+      border-radius: 10px;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: -1; }
+      .checkbox_type_like .checkbox__label_type_like .checkbox__button_type_like:after {
+        content: "\e87e";
+        color: rgba(31, 32, 65, 0.25);
+        font-family: "Material Icons", sans-serif;
+        font-size: 10px;
+        line-height: 10px;
+        position: absolute;
+        left: 4px;
+        top: 4px; }
+      .checkbox_type_like .checkbox__label_type_like .checkbox__button_type_like.ui-state-checked {
+        height: 18px;
+        width: 38px;
+        border: none;
+        top: 1px;
+        left: 1px; }
+        .checkbox_type_like .checkbox__label_type_like .checkbox__button_type_like.ui-state-checked:after {
+          content: "\e87d";
+          color: #BC9CFF;
+          left: 4px;
+          top: 4px;
+          position: absolute; }
+
 .list {
   padding: 0;
   margin: 0;
@@ -1208,12 +1265,20 @@
   margin-right: 20px;
   margin-top: 15px; }
 
-.list_type_checkbox .list__input_type_checkbox:not(:last-child) {
-  margin-bottom: 20px;
+.list_type_checkbox .list__input_type_checkbox:first-child {
   margin-top: 15px; }
 
+.list_type_checkbox .list__input_type_checkbox:not(:last-child) {
+  margin-bottom: 10px; }
+
+.list_type_toggle .list__input_type_toggle:first-child {
+  margin-top: 15px; }
+
+.list_type_toggle .list__input_type_toggle:not(:last-child) {
+  margin-bottom: 10px; }
+
 .list_expandable .list__title_expandable {
-  width: 266px;
+  max-width: 266px;
   height: 12px; }
   .list_expandable .list__title_expandable:after {
     content: "\e5cf";
