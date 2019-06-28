@@ -8,7 +8,7 @@ $(".list_expandable").each(function () {
     $(expandableTitle).click(function () {
         $(this).toggleClass("list__expandArrow_expanded");
 
-        $(expandableContainer).toggle("fade", [], 500);
+        $(expandableContainer).toggle("fade", [], 200);
         $(expandableContainer).toggleClass("list__container_visible");
     });
 });

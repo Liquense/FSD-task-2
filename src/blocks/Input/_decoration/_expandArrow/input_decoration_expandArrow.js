@@ -23,12 +23,18 @@ $(".input__arrow_decoration_expandArrow").each(function () {
             expandableElement = $(this).data("datepicker");
             expandableElement.update({
                 onHide: function (inst, animationCompleted) {
-                    if (!animationCompleted) return;
+                    if (!animationCompleted) {
+                        $(expandArrow).text("expand_more");
+                        return;
+                    }
                     $(expandArrow).removeClass("expanded");
                     $(ownerLabel).unbind("click", disableLabelClicks); //чтобы лейбловые прокликивания снова заработали - нужно показывать календарь при клике на что-то кроме инпута
                 },
                 onShow: function (inst, animationCompleted) {
-                    if (!animationCompleted) return;
+                    if (!animationCompleted) {
+                        $(expandArrow).text("expand_less");
+                        return;
+                    }
                     $(expandArrow).addClass("expanded");
                     $(ownerLabel).click(disableLabelClicks);
                 },

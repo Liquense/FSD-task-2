@@ -6,3 +6,5 @@ $(".checkbox__hiddenButton_type_default").checkboxradio({
         "ui-checkboxradio-icon-space" : "checkbox__iconSpace checkbox__iconSpace_type_default"
     }
 });
+
+$(".checkbox__button_type_default").text("check");

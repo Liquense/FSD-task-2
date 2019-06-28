@@ -22,3 +22,14 @@
     display: table;
   }
 }
+
+@mixin icon() {
+  font-family: "Material Icons";
+  text-transform: lowercase;
+}
+
+@mixin textGradient($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
