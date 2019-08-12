@@ -26,6 +26,7 @@
 @mixin icon() {
   font-family: "Material Icons";
   text-transform: lowercase;
+  font-size: 24px;
 }
 
 @mixin textGradient($gradient) {

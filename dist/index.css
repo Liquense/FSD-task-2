@@ -958,6 +958,7 @@
 .input__arrow_decoration_expandArrow {
   font-family: "Material Icons";
   text-transform: lowercase;
+  font-size: 24px;
   line-height: 18px;
   vertical-align: middle;
   color: rgba(31, 32, 65, 0.5);
@@ -1091,6 +1092,7 @@
 .checkbox_type_default .checkbox__label_type_default.ui-checkboxradio-checked .checkbox__button_type_default {
   font-family: "Material Icons";
   text-transform: lowercase;
+  font-size: 24px;
   font-size: 14px;
   font-weight: bolder;
   background: linear-gradient(#BC9CFF 22%, #88a4f9 78%);
@@ -1308,4 +1310,14 @@
   display: none; }
   .list_expandable .list__container_expandable.list__container_visible {
     display: block; }
+
+
+.rateButton__star {
+  font-family: "Material Icons";
+  text-transform: lowercase;
+  font-size: 24px;
+  background: linear-gradient(#BC9CFF 0%, #88a4f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none; }
 

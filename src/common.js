@@ -1,4 +1,3 @@
-//import "jquery-ui"
 //slider
 import "jquery-ui/ui/widgets/slider"
 import "jquery-ui/themes/base/slider.css"
@@ -11,6 +10,7 @@ import "jquery-ui/ui/widgets/spinner"
 //checkboxradio
 import "jquery-ui/ui/widgets/checkboxradio"
 
+//common
 import "./common/functions"
 
 import "./styles.scss"
@@ -19,22 +19,23 @@ import "./common/functions"
 
 import "b:text m:type=label-CTA|itemTitle|regular|widgetTitle"
 
-//BLOCKS
 //button
 import "b:button m:type=bordered|filled|text"
 import "b:button m:hovered"
 import "b:button m:width=wide"
-//link
+//
 import "b:link m:hovered"
-//input
+//
 import "./blocks/Input/input"
 //slider
 import "b:slider"
 import "./blocks/Slider/slider"
 import "./blocks/Slider/_range/Slider_range.js"
-
+//
 import "./blocks/twoCalendarRangePicker/twoCalendarRangePicker"
-
+//
 import "./blocks/Checkbox/Checkbox"
-
+//
 import "./blocks/List/list"
+//
+import "./blocks/RateButton/RateButton"
