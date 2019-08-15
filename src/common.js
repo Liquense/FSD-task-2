@@ -39,3 +39,5 @@ import "./blocks/Checkbox/Checkbox"
 import "./blocks/List/list"
 //
 import "./blocks/RateButton/RateButton"
+//
+import "./blocks/Pagination/Pagination"

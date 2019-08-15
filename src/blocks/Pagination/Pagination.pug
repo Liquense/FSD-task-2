@@ -1,0 +1,12 @@
+mixin pagination(addClasses="")
+	-var paginationClassName = "pagination"
+	-var contentContainerClassName = "pagination__contentContainer"
+	-var buttonsContainerClassName = "pagination__buttonsContainer"
+
+	-var paginationAttrs = {class: paginationClassName + " " + addClasses + " "}
+	-var contentAttrs = {class: contentContainerClassName + " "}
+	-var buttonsAttrs =	{class: buttonsContainerClassName + " "}
+
+	div&attributes(paginationAttrs)
+		div&attributes(contentAttrs)
+		div&attributes(buttonsAttrs)

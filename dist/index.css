@@ -1321,3 +1321,53 @@
   -webkit-text-fill-color: transparent;
   user-select: none; }
 
+.pagination .pagination__contentContainer .pagination__content {
+  text-align: center; }
+
+.pagination .pagination__buttonsContainer .paginationjs {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }
+  .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul {
+    padding: 0;
+    margin: 0; }
+    .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li {
+      display: inline-block;
+      border-radius: 50%;
+      font-family: Montserrat, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 12px;
+      line-height: 40px;
+      letter-spacing: 0;
+      vertical-align: middle;
+      color: rgba(31, 32, 65, 0.5);
+      text-decoration: none; }
+      .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li a {
+        color: inherit;
+        text-decoration: none;
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        text-align: center; }
+      .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-previous, .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-next, .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.active {
+        color: white; }
+      .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-previous, .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-next {
+        font-family: "Material Icons";
+        text-transform: lowercase;
+        font-size: 24px;
+        background: linear-gradient(#6FCF97 0%, #66d2ea 100%); }
+      .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.active {
+        font-weight: bold;
+        background: linear-gradient(#BC9CFF 0%, #88a4f9 100%); }
+      .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.disabled {
+        opacity: 0; }
+      .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.paginationjs-ellipsis {
+        opacity: 1; }
+
+.pagination .pagination__buttonsContainer .paginationjs-nav {
+  margin-top: 10px;
+  margin-left: 6px; }
+
