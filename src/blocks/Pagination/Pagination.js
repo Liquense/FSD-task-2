@@ -6,9 +6,9 @@ let pageSize = 12;
 $(".pagination__buttonsContainer").pagination({
 	dataSource: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,],
 	//className: "pagination__pluginButtons",
-	autoHidePrevious: true,
+	//autoHidePrevious: true,
 	prevText: "arrow_back",
-	autoHideNext: true,
+	//autoHideNext: true,
 	nextText: "arrow_forward",
 	pageSize: pageSize,
 	pageRange: 1,
