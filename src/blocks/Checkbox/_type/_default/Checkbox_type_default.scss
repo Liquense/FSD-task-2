@@ -7,7 +7,6 @@
     border-radius: 4px;
   }
 
-
   .checkbox__label_type_default {
     &:hover,
     &.ui-checkboxradio-checked {
@@ -18,8 +17,8 @@
     &.ui-checkboxradio-checked .checkbox__button_type_default {
       border-color: $purple;
     }
+
     &.ui-checkboxradio-checked .checkbox__button_type_default {
-      //background: url("../../../../assets/images/checkmark.svg") no-repeat 50% calc(50% - #{$checkboxButtonBorderWidth});
       @include icon();
       font-size: 14px;
       font-weight: bolder;

@@ -1062,7 +1062,6 @@
     height: 20px;
     border: 1px solid #000;
     margin-right: 10px;
-    margin-left: -30px;
     display: block;
     float: left;
     clear: both;
@@ -1074,8 +1073,7 @@
     vertical-align: middle;
     max-width: calc(23ch + 20px);
     cursor: pointer;
-    color: rgba(31, 32, 65, 0.5);
-    padding-left: 30px; }
+    color: rgba(31, 32, 65, 0.5); }
 
 .checkbox_type_default .checkbox__button_type_default {
   border: 1px solid rgba(31, 32, 65, 0.25);
@@ -1258,6 +1256,20 @@
           left: 4px;
           top: 4px;
           position: absolute; }
+
+.checkbox_rich .checkbox__label_rich {
+  max-width: none;
+  color: rgba(31, 32, 65, 0.75);
+  font-weight: bold; }
+  .checkbox_rich .checkbox__label_rich .checkbox__description_rich {
+    color: rgba(31, 32, 65, 0.5);
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    white-space: pre-line; }
+  .checkbox_rich .checkbox__label_rich .checkbox__description {
+    display: inline-block;
+    padding-left: 30px; }
 
 .list {
   padding: 0;

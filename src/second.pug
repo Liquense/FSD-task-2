@@ -26,15 +26,24 @@ html(lang="ru")
 			+Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
 			+Button("Click Me", "button_type_filled button_width_wide fourthRow")
 			+Button("Click Me", "button_type_bordered button_width_wide fifthRow")
-		include blocks/Checkbox/Checkbox
-		include blocks/List/list
 		div.checkboxContainer.container
+			include blocks/Checkbox/Checkbox
+			include blocks/List/list
+
 			-var checkButtons = [{text: "Можно курить"}]
 			-checkButtons.push({text: "Можно с питомцами"})
 			-checkButtons.push({text: "Можно пригласить гостей (до 10 человек)"})
+			br
 			+list("checkbox", "Checkbox List", checkButtons)
 			br
 			+list("checkbox expandable", "Expandable Checkbox List", checkButtons)
+		div.richCheckboxContainer.container
+			+checkbox("Широкий коридор", "rich", {description: "Ширина коридоров в номере \n не менее 91 см."})
+			+checkbox("Помощник для инвалидов", "rich", {description: "На 1 этаже вас встретит специалист \n и проводит до номера."})
+			br
+			-var richButtons = [{text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."}]
+			-richButtons.push({text: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист \n и проводит до номера."})
+			+list("checkbox rich", "Rich checkbox buttons", richButtons)
 		div.radioContainer.container
 			-var radioButtons = [{text: "Мужчина", group: "gender"}]
 			-radioButtons.push({text: "Женщина", group: "gender"})

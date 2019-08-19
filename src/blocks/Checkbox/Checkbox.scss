@@ -14,13 +14,11 @@
     height: $checkboxButtonSize;
     border: $checkboxButtonBorderWidth solid #000;
     margin-right: $buttonRightMargin;
-    margin-left: -$checkboxButtonSize - $buttonRightMargin; //для избавления от переноса текста снизу чекбокса
     display: block;
     float: left;
     clear: both;
     cursor: pointer;
   }
-
 
   .checkbox__label {
     line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
@@ -30,8 +28,6 @@
     max-width: calc(23ch + #{$checkboxButtonSize});
     cursor: pointer;
     color: $darkShade50;
-
-    padding-left: $checkboxButtonSize + $buttonRightMargin; //для избавления от переноса текста снизу чекбокса
   }
 }
 

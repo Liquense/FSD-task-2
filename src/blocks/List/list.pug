@@ -30,6 +30,8 @@ mixin list(types, title, checkboxes=[], addClasses)
 		each value, index in attrs
 			- value.class += classNames[index] + "_type_toggle "
 		-inputType = "toggle"
+	if types.includes("rich")
+		-inputType += " rich"
 
 	if types.includes("expandable")
 		each value, index in attrs
@@ -39,4 +41,4 @@ mixin list(types, title, checkboxes=[], addClasses)
 		legend&attributes(titleAttrs) #{title}
 		div&attributes(containerAttrs)
 			each value, index in checkboxes
-				+checkbox(value.text, inputType + " " + value.class, {text: value.group}, listClassName + "__input_type_" + inputType)
+				+checkbox(value.text, inputType + " " + value.class, value, listClassName + "__input_type_" + inputType)

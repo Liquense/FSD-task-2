@@ -1,14 +1,21 @@
+//
+	types: checkbox/пусто - чекбокс, toggle - переключатель,
+	additional - структура с дополнительными параметрами (description, text)
 mixin checkbox(text, types, additional, addClasses="")
 	-var checkboxClassName = "checkbox"
 	-var labelClassName = "checkbox__label"
+	-var textClassName = "checkbox__text"
 	-var inputClassName = "checkbox__hiddenButton"
-		-var classNames = [checkboxClassName, labelClassName, inputClassName]
+	-var descriptionClassName = "checkbox__description"
+		-var classNames = [checkboxClassName, labelClassName, inputClassName, descriptionClassName, textClassName]
 
 
 	-var checkboxAttrs = {class: checkboxClassName + " " + addClasses + " "}
 	-var labelAttrs = {class: labelClassName + " text_type_regular "}
 	-var inputAttrs = {class: inputClassName + " "}
-		-var attrs = [checkboxAttrs, labelAttrs, inputAttrs]
+	-var descriptionAttrs = {class: descriptionClassName + " "}
+	-var textAttrs = {class: textClassName + " "}
+		-var attrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
 
 
 	if types
@@ -16,8 +23,8 @@ mixin checkbox(text, types, additional, addClasses="")
 			each value, index in attrs
 				- value.class += classNames[index] + "_type_radio "
 			- inputAttrs.type = "radio"
-			if additional && additional.text
-				- inputAttrs.name = additional.text
+			if additional && additional.group
+				- inputAttrs.name = additional.group
 		else if types.includes("toggle")
 			each value, index in attrs
 				- value.class += classNames[index] + "_type_toggle "
@@ -33,11 +40,22 @@ mixin checkbox(text, types, additional, addClasses="")
 			each value, index in attrs
 				- value.class += classNames[index] + "_type_default "
 			- inputAttrs.type = "checkbox"
+
+		if types.includes("rich")
+			each value, index in attrs
+				- value.class += classNames[index] + "_rich "
+			if additional && additional.description
+				- var description = additional.description
 	else
 		each value, index in attrs
 			- value.class += classNames[index] + "_type_default "
 		- inputAttrs.type = "checkbox"
 
 	div&attributes(checkboxAttrs)
-		label&attributes(labelAttrs) #{text}
+		label&attributes(labelAttrs)
+			span&attributes(textAttrs) #{text}
 			input&attributes(inputAttrs)
+			if types.includes("rich")
+				br
+				span&attributes(descriptionAttrs) #{description}
+

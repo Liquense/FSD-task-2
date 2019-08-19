@@ -12,8 +12,8 @@ $(".pagination__buttonsContainer").pagination({
 	nextText: "arrow_forward",
 	pageSize: pageSize,
 	pageRange: 1,
-	callback: function (data, pagination) {
-		let html = "<div class='pagination__content'>" + data + "</div>";
+	callback: function (arrayData, paginationData) {
+		let html = "<div class='pagination__content'>" + arrayData + "</div>";
 		$(".pagination__contentContainer").html(html);
 	},
 	showNavigator: true,
