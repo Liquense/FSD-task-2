@@ -1,13 +1,13 @@
 @import "../../variables";
 
 .checkbox_type_default {
-  .checkbox__button_type_default {
-    border: $checkboxButtonBorderWidth solid $darkShade25;
-    color: transparent;
-    border-radius: 4px;
-  }
-
   .checkbox__label_type_default {
+    .checkbox__button_type_default {
+      border: $checkboxButtonBorderWidth solid $darkShade25;
+      color: transparent;
+      border-radius: 4px;
+    }
+
     &:hover,
     &.ui-checkboxradio-checked {
       color: $darkShade75;

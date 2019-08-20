@@ -2,32 +2,36 @@
 
 .checkbox {
   @include clearfix();
-  width: fit-content;
+  //width: fit-content;
   //height: fit-content;
 
-  .checkbox__hiddenButton {
-    display: none;
-  }
-
-  .checkbox__button {
-    width: $checkboxButtonSize;
-    height: $checkboxButtonSize;
-    border: $checkboxButtonBorderWidth solid #000;
-    margin-right: $buttonRightMargin;
-    display: block;
-    float: left;
-    clear: both;
-    cursor: pointer;
-  }
-
   .checkbox__label {
-    line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
     display: inline-block;
     -webkit-user-select: none;
+    line-height: $lineHeight;
     vertical-align: middle;
-    max-width: calc(23ch + #{$checkboxButtonSize});
     cursor: pointer;
     color: $darkShade50;
+
+    .checkbox__hiddenButton {
+      display: none;
+    }
+
+    .checkbox__button {
+      width: $checkboxButtonSize;
+      height: $checkboxButtonSize;
+      border: $checkboxButtonBorderWidth solid #000;
+      margin-right: $buttonRightMargin;
+      display: block;
+      float: left;
+      clear: both;
+      cursor: pointer;
+    }
+
+    .checkbox__text {
+      display: inline-block;
+      max-width: calc(23ch);
+    }
   }
 }
 

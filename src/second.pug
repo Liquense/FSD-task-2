@@ -6,70 +6,72 @@ html(lang="ru")
 	body
 		a(href="index.html" class="text_type_label-CTA pageHeader") Вернуться на главную
 		br
-		include blocks/Input/Input
-		include blocks/twoCalendarRangePicker/twoCalendarRangePicker
-		div.inputsContainer.container
-			+Input("Text field", "text", "This is pretty awesome", "", "")
-			+Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
-			+Input("DatePicker", "datepicker", "ДД.ММ.ГГГГ", "", "")
-			+twoCalendarRangePicker()
-			+Input("Dropdown №0", "dropdown narrow", "test", "", "", ["Дети", "Взрослые", "Младенцы", "Тест"], [-2, 2])
-			+Input("Dropdown", "dropdown medium rooms", "Комплектация номера", "", "", ["Спальни", "Кровати", "Ванные комнаты"])
-			+Input("Dropdown №2", "dropdown customers", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
-		include blocks/Button/Button
-		div.buttonsContainer.container
-			+Button("Click Me", "firstRow__button button_type_text")
-			+Button("Click Me", "button_type_text button_hovered firstRow__button")
-			+Button("Click Me", "button_type_filled secondRow__button")
-			+Button("Click Me", "button_type_filled button_hovered secondRow__button")
-			+Button("Click Me", "button_type_bordered thirdRow__button")
-			+Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
-			+Button("Click Me", "button_type_filled button_width_wide fourthRow")
-			+Button("Click Me", "button_type_bordered button_width_wide fifthRow")
-		div.checkboxContainer.container
-			include blocks/Checkbox/Checkbox
-			include blocks/List/list
+		div.bodyContainer
+			div.inputsContainer.container
+				include blocks/Input/Input
+				include blocks/twoCalendarRangePicker/twoCalendarRangePicker
+				+Input("Text field", "text", "This is pretty awesome", "", "")
+				+Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
+				+Input("DatePicker", "datepicker", "ДД.ММ.ГГГГ", "", "")
+				+twoCalendarRangePicker()
+				+Input("Dropdown №0", "dropdown narrow", "test", "", "", ["Дети", "Взрослые", "Младенцы", "Тест"], [-2, 2])
+				+Input("Dropdown", "dropdown medium rooms", "Комплектация номера", "", "", ["Спальни", "Кровати", "Ванные комнаты"])
+				+Input("Dropdown №2", "dropdown customers", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
+			div.buttonsContainer.container
+				include blocks/Button/Button
+				+Button("Click Me", "firstRow__button button_type_text")
+				+Button("Click Me", "button_type_text button_hovered firstRow__button")
+				+Button("Click Me", "button_type_filled secondRow__button")
+				+Button("Click Me", "button_type_filled button_hovered secondRow__button")
+				+Button("Click Me", "button_type_bordered thirdRow__button")
+				+Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
+				+Button("Click Me", "button_type_filled button_width_wide fourthRow")
+				+Button("Click Me", "button_type_bordered button_width_wide fifthRow")
+			div.checkboxContainer.container
+				include blocks/Checkbox/Checkbox
+				include blocks/List/list
 
-			-var checkButtons = [{text: "Можно курить"}]
-			-checkButtons.push({text: "Можно с питомцами"})
-			-checkButtons.push({text: "Можно пригласить гостей (до 10 человек)"})
-			br
-			+list("checkbox", "Checkbox List", checkButtons)
-			br
-			+list("checkbox expandable", "Expandable Checkbox List", checkButtons)
-		div.richCheckboxContainer.container
-			+checkbox("Широкий коридор", "rich", {description: "Ширина коридоров в номере \n не менее 91 см."})
-			+checkbox("Помощник для инвалидов", "rich", {description: "На 1 этаже вас встретит специалист \n и проводит до номера."})
-			br
-			-var richButtons = [{text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."}]
-			-richButtons.push({text: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист \n и проводит до номера."})
-			+list("checkbox rich", "Rich checkbox buttons", richButtons)
-		div.radioContainer.container
-			-var radioButtons = [{text: "Мужчина", group: "gender"}]
-			-radioButtons.push({text: "Женщина", group: "gender"})
-			+list("radio", "Radio buttons", radioButtons)
-			br
-			+list("radio expandable", "Expandable Radio buttons", radioButtons)
-		div.toggleContainer.container
-			+checkbox("Получать спецпредложения", "toggle toggled")
-			+checkbox("Получать спецпредложения 2", "toggle")
-			br
-			-var toggleButtons = [{text: "Получать спецпредложения", class: "toggled"}]
-			-toggleButtons.push({text: "Получать спецпредложения 2"})
-			+list("toggle", "toggle", toggleButtons)
-			br
-			+list("toggle expandable", "toggle expandable", toggleButtons)
-		div.container
-			+checkbox("2", "like")
-			+checkbox("10", "like")
-		include blocks/Slider/Slider
-		div.slidersContainer.container
-			+slider(100, 15000, 100, "Range Slider", "", true)
-			+slider(0, 10, 1, "Range Slider", "", false)
-		div.ratesContainer.container
-			include blocks/RateButton/RateButton
-			+rateButton()
-			+rateButton()
-		div.paginationContainer.container
-			include blocks/Pagination/Pagination
-			+pagination()
+				-var checkButtons = [{text: "Можно курить"}]
+				-checkButtons.push({text: "Можно с питомцами"})
+				-checkButtons.push({text: "Можно пригласить гостей (до 10 человек)"})
+				br
+				+list("checkbox", "Checkbox List", checkButtons)
+				br
+				+list("checkbox expandable", "Expandable Checkbox List", checkButtons)
+			div.richCheckboxContainer.container
+				+checkbox("Широкий коридор", "rich", {description: "Ширина коридоров в номере \n не менее 91 см."})
+				+checkbox("Помощник для инвалидов", "rich", {description: "На 1 этаже вас встретит специалист \n и проводит до номера."})
+				br
+				-var richButtons = [{text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."}]
+				-richButtons.push({text: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист \n и проводит до номера."})
+				+list("rich expandable", "Rich checkbox buttons", richButtons)
+			div.radioContainer.container
+				-var radioButtons = [{text: "Мужчина", group: "gender"}]
+				-radioButtons.push({text: "Женщина", group: "gender"})
+				+list("radio", "Radio buttons", radioButtons)
+				br
+				+list("radio expandable", "Expandable Radio buttons", radioButtons)
+			div.toggleContainer.container
+				+checkbox("Получать спецпредложения", "toggle toggled")
+				+checkbox("Получать спецпредложения 2", "toggle")
+				br
+				-var toggleButtons = [{text: "Получать спецпредложения", class: "toggled"}]
+				-toggleButtons.push({text: "Получать спецпредложения 2"})
+				+list("toggle", "toggle", toggleButtons)
+				br
+				+list("toggle expandable", "toggle expandable", toggleButtons)
+			div.container
+				+checkbox("2", "like")
+				+checkbox("10", "like")
+			div.slidersContainer.container
+				include blocks/Slider/Slider
+				+slider(100, 15000, 100, "Range Slider", "", true)
+				+slider(0, 10, 1, "Range Slider", "", false)
+			div.ratesContainer.container
+				include blocks/RateButton/RateButton
+				+rateButton()
+				+rateButton()
+			div.paginationContainer.container
+				include blocks/Pagination/Pagination
+				+pagination()
+

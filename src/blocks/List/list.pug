@@ -30,8 +30,10 @@ mixin list(types, title, checkboxes=[], addClasses)
 		each value, index in attrs
 			- value.class += classNames[index] + "_type_toggle "
 		-inputType = "toggle"
-	if types.includes("rich")
-		-inputType += " rich"
+	else if types.includes("rich")
+		each value, index in attrs
+			- value.class += classNames[index] + "_type_rich "
+		-inputType = "rich"
 
 	if types.includes("expandable")
 		each value, index in attrs

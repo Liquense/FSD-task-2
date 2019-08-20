@@ -1,17 +1,17 @@
 @import "../../variables";
+
 $radioSelectionPadding: 4px;
 
 .checkbox_type_radio {
   display: inline-block;
 
-  .checkbox__button_type_radio {
-    border-radius: 50%;
-    border-color: $darkShade25;
-    background-color: #ffffff;
-  }
-
-
   .checkbox__label_type_radio {
+    .checkbox__button_type_radio {
+      border-radius: 50%;
+      border-color: $darkShade25;
+      background-color: #ffffff;
+    }
+
     &:hover,
     &.ui-checkboxradio-checked {
       color: $darkShade75;
@@ -21,8 +21,10 @@ $radioSelectionPadding: 4px;
     &.ui-checkboxradio-checked .checkbox__button_type_radio {
       border-color: $purple;
     }
+
     &.ui-checkboxradio-checked .checkbox__button_type_radio {
       $radioSelectionSize: $checkboxButtonSize - $radioSelectionPadding*2;
+
       &::after {
         content: "";
         display: block;

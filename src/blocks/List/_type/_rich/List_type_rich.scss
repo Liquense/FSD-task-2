@@ -1,0 +1,12 @@
+@import "../../../Checkbox/variables";
+//todo: сделать подходящие отступы по PP
+.list_type_rich {
+  .list__input_type_rich {
+    &:first-child {
+      margin-top: 17px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 7px;
+    }
+  }
+}
