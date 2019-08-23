@@ -74,4 +74,8 @@ html(lang="ru")
 			div.paginationContainer.container
 				include blocks/Pagination/Pagination
 				+pagination()
-
+			div.bulletListContainer.container
+				+bulletList(
+					"Bullet List",
+					["Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"]
+					)(isExpandable=false)
