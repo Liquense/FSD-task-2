@@ -83,3 +83,13 @@ html(lang="ru")
 				+featureList([
 					{text: "Шумопоглощающие стены", title: "Комфорт", icon: "insert_emoticon"},
 					{title: "Удобство", text: "Окно в каждой из спален", icon: "location_city"}])
+			div.commentContainer.container
+				include blocks/Comment/Comment
+				+comment({
+					avatar: require("./assets/images/userAvatar.jpg"),
+					author: "Мурад Сарафанов",
+					dateTime: "5 дней назад",
+					text: "Великолепный матрас на кровати в основной спальне! " +
+						"А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. " +
+						"Выкрикивал комплименты повару — никто не жаловался из соседей."
+				})

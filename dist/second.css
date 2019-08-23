@@ -1447,6 +1447,45 @@
   margin-top: 10px;
   margin-left: 6px; }
 
+.comment {
+  max-width: 710px; }
+  .comment .comment__col1 {
+    display: flex;
+    justify-content: center;
+    width: 48px;
+    flex-shrink: 0;
+    margin-right: 10px; }
+  .comment .comment__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px; }
+    .comment .comment__header .comment__avatarWrap {
+      width: 48px;
+      height: 48px;
+      border: 2px solid white;
+      border-radius: 50%;
+      box-shadow: 0 10px 20px rgba(31, 32, 65, 0.1);
+      overflow: hidden; }
+      .comment .comment__header .comment__avatarWrap .comment__avatar {
+        position: relative;
+        bottom: 2px;
+        width: 48px;
+        height: 48px; }
+    .comment .comment__header .comment__infoContainer .comment__author,
+    .comment .comment__header .comment__infoContainer .comment__dateTime {
+      font-size: 14px;
+      line-height: 24px; }
+    .comment .comment__header .comment__infoContainer .comment__author {
+      margin: 0;
+      padding: 0;
+      font-weight: bold; }
+  .comment .comment__content {
+    display: flex;
+    align-items: flex-start; }
+    .comment .comment__content .comment__text {
+      font-size: 14px;
+      line-height: 24px; }
+
 .bodyContainer {
   display: flex;
   flex-wrap: wrap; }
