@@ -10,7 +10,7 @@
     padding: 0;
     list-style: none;
 
-    .list__element_type_bullet {
+    .list__item_type_bullet {
       display: flex;
       align-items: flex-start;
 
@@ -20,7 +20,7 @@
 
       $textLineHeight: 24px;
       $ellipseSize: 10px;
-      .list__elementImage_type_bullet {
+      .list__itemImage_type_bullet {
         width: $ellipseSize;
         height: $ellipseSize;
         -webkit-border-radius: 50%;
@@ -32,7 +32,7 @@
         margin-right: 10px;
       }
 
-      .list__elementText_type_bullet {
+      .list__itemText_type_bullet {
         max-width: calc(25ch);
         line-height: $textLineHeight;
       }

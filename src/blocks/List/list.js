@@ -9,7 +9,8 @@ import "./_type/_toggle/List_type_toggle.scss"
 
 import "./_type/_rich/List_type_rich.scss"
 
-import "./_type/_bullet/List_type_bullet.pug"
 import "./_type/_bullet/List_type_bullet.scss"
+
+import "./_type/_feature/list_type_feature.scss"
 
 import "./_expandable/list_expandable.js"
