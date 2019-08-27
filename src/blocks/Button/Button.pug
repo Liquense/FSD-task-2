@@ -1,2 +1,10 @@
 mixin Button(text, addClasses)
-    button(class="button text_type_label-CTA " + addClasses) #{text}
+    -let decorationText = ""
+    case attributes.decoration
+        when "enterArrow"
+            -decorationText = "arrow_forward"
+            -addClasses += " button_decoration_enterArrow"
+
+    div(class="button " + addClasses)
+        button(class="button__control text_type_label-CTA ") #{text}
+        div.button__decoration.material-icons #{decorationText}

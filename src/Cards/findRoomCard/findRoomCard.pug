@@ -1,0 +1,17 @@
+include  ../../blocks/twoCalendarRangePicker/twoCalendarRangePicker
+include ../../blocks/Input/Input
+include ../../blocks/Button/Button
+
+mixin findRoomCard()
+	div.findRoomCard
+		h3.findRoomCard__title.text_type_widgetTitle Найдём номера под ваши пожелания
+		+twoCalendarRangePicker(["Прибытие", "Выезд"])(addClasses = "findRoomCard__rangePicker")
+		+Input("Гости",
+			"dropdown customers",
+			"Сколько гостей",
+			"findRoomCard__dropDown",
+			"",
+			["Взрослые", "Дети", "Младенцы"])
+		+Button("Подобрать номер",
+			"button_type_filled button_width_wide findRoomCard__button"
+			)(decoration = "enterArrow")

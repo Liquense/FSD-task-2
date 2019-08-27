@@ -1,4 +1,5 @@
 include ../_spinner/input_type_spinner
+include ../../../Button/Button
 
 mixin dropdownList(elementNames, attr, range)
 	div&attributes(attr)
@@ -9,7 +10,6 @@ mixin dropdownList(elementNames, attr, range)
 						span.input__dropdownText_type_dropdown #{element}
 					td
 						+spinner(range, element, index)
-		include ../../../Button/Button
 		div(class="input__controlButtonsContainer")
 			+Button("Очистить", "button_type_text input__clearButton button_hovered input__controlButton")
 			+Button("Применить", "button_type_text input__confirmButton input__controlButton")

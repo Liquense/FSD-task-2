@@ -20,9 +20,7 @@ import "./common/functions"
 import "b:text m:type=label-CTA|itemTitle|regular|widgetTitle"
 
 //button
-import "b:button m:type=bordered|filled|text"
-import "b:button m:hovered"
-import "b:button m:width=wide"
+import "./blocks/Button/button"
 //
 import "b:link m:hovered"
 //
@@ -43,3 +41,5 @@ import "./blocks/RateButton/RateButton"
 import "./blocks/Pagination/Pagination"
 //
 import "./blocks/Comment/Comment"
+//
+import "./Cards/findRoomCard/findRoomCard"

@@ -1,25 +1,27 @@
-$buttonBorderWidth: 2px;
+@import "../variables";
 
 .button_type_bordered {
-  position: relative;
-  border: none;
-  background-color: $inputBackgroundColor;
-  color: $purple;
+  .button__control {
+    &:before {
+      content: '';
+      display: block;
+      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+      left: -$buttonBorderWidth;
+      top: -$buttonBorderWidth;
+      width: 99px;
+      height: 44px;
+      position: absolute;
+      z-index: -1;
+      border-radius: 22px;
+    }
 
-  width: 99px - ($buttonBorderWidth * 2);
-  height: 44px - ($buttonBorderWidth * 2);
-  margin: $buttonBorderWidth;
-}
+    position: relative;
+    border: none;
+    background-color: $inputBackgroundColor;
+    color: $purple;
 
-.button_type_bordered::before {
-  content: '';
-  display: block;
-  background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-  left: -$buttonBorderWidth;
-  top: -$buttonBorderWidth;
-  width: 99px;
-  height: 44px;
-  position: absolute;
-  z-index: -1;
-  border-radius: 22px;
+    width: 99px - ($buttonBorderWidth * 2);
+    height: 44px - ($buttonBorderWidth * 2);
+    margin: $buttonBorderWidth;
+  }
 }

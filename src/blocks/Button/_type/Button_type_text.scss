@@ -1,14 +1,16 @@
 .button_type_text {
-  border: none;
-  background-color: transparent;
+  .button__control {
+    &:focus {
+      outline: none;
+    }
 
-  width: fit-content;
-  height: 15px;
+    border: none;
+    background-color: transparent;
 
-  color: $purple;
-  cursor: pointer;
-}
+    width: fit-content;
+    height: 15px;
 
-.button_type_text:focus {
-  outline: none;
+    color: $purple;
+    cursor: pointer;
+  }
 }

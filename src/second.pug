@@ -27,6 +27,7 @@ html(lang="ru")
 				+Button("Click Me", "button_type_bordered button_hovered thirdRow__button")
 				+Button("Click Me", "button_type_filled button_width_wide fourthRow")
 				+Button("Click Me", "button_type_bordered button_width_wide fifthRow")
+				+Button("Click Me", "button_type_filled button_width_wide sixthRow")(decoration = "enterArrow")
 			div.checkboxContainer.container
 				include blocks/Checkbox/Checkbox
 				include blocks/List/list
@@ -93,3 +94,6 @@ html(lang="ru")
 						"А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. " +
 						"Выкрикивал комплименты повару — никто не жаловался из соседей."
 				})
+			div.findRoomCardContainer.container
+				include Cards/findRoomCard/findRoomCard
+				+findRoomCard()

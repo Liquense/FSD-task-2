@@ -9,17 +9,16 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
 .input__arrow_decoration_expandArrow {
   //content: url("../../../../assets/images/expand_more.svg");
   @include icon();
-  line-height: $expandHeight;
+  line-height: $inputHeight - $borderWidth*2;
   vertical-align: middle;
   color: $darkShade50;
   font-size: 24px;
   font-weight: normal;
   position: absolute;
   width: $expandWidth;
-  height: $expandHeight;
-  top: $inputTopMargin + $lineHeight + $borderWidth;
+  height: $inputHeight - $borderWidth*2;
+  top: $inputHeight/2;
   right: $borderWidth;
-  margin-top: $expandVerticalMargin;
   margin-right: $expandHorizontalMargin;
   -webkit-user-select: none;
   cursor: pointer;
