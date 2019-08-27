@@ -9,16 +9,16 @@ import "../vendor/jquery.maskedinput/src/jquery.maskedinput"
 import "jquery-ui/ui/widgets/spinner"
 //checkboxradio
 import "jquery-ui/ui/widgets/checkboxradio"
-
+//
 //common
 import "./common/functions"
-
+//
 import "./styles.scss"
 import "./common/fonts.scss"
 import "./common/functions"
-
+//
 import "b:text m:type=label-CTA|itemTitle|regular|widgetTitle"
-
+//
 //button
 import "./blocks/Button/button"
 //

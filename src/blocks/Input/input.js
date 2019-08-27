@@ -24,7 +24,6 @@ import "./_type/_dropdown/input__list_type_dropdown.scss"
 import "./_type/_spinner/input_type_spinner.js"
 import "./_type/_spinner/input_type_spinner.scss"
 
-//---Decoration //todo: избавиться от зависимости в порядке подключения
 import "./_decoration/_expandArrow/input_decoration_expandArrow.scss"
 import "./_decoration/_expandArrow/input_decoration_expandArrow.js"
 
