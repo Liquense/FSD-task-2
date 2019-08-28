@@ -28,3 +28,20 @@ export function compareDateArrays(first, second) {
 
     return result;
 }
+
+/**
+ * Функция для склонения русских слов
+ * Пример использования: ruDeclination(5,'комментари|й|я|ев')
+ *
+ * @author Павел Белоусов <pafnuty10@gmail.com>
+ *
+ * @param      {number}  number  Число, для которого будет расчитано окончание
+ * @param      {string}  words   Слово и варианты окончаний для 1|2|100 (1 комментарий, 2 комментария, 100 комментариев)
+ * @return     {string}  Cлово с правильным окончанием
+ */
+export function ruDeclination(number, words) {
+    'use strict';
+    let w = words.split('|'),
+        n = Math.abs(number * 1); // abs на случай отрицательного значения
+    return n % 10 == 1 && n % 100 != 11 ? w[0] + w[1] : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? w[0] + w[2] : w[0] + w[3]);
+}

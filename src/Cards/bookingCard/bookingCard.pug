@@ -1,0 +1,44 @@
+include ../../blocks/twoCalendarRangePicker/twoCalendarRangePicker
+include ../../blocks/Input/Input
+include ../../blocks/Button/Button
+
+mixin bookingCard(data={})
+	div.bookingCard
+		header.bookingCard__header
+			div.bookingCard__roomInfo
+				span.bookingCard__numberText.text_type_widgetTitle №
+				h3.bookingCard__roomNum.text_type_label-CTA #{data.roomNumber}
+				span.bookingCard__roomType.text_type_label-CTA #{data.roomType}
+			div.bookingCard__priceInfo
+				span.bookingCard__dailyPrice.text_type_label-CTA(data-dailyPrice=data.dailyPrice data-currency=data.currency) #{data.dailyPrice}#{data.currency}
+				span.bookingCard__paymentPeriod.text_type_regular  в сутки
+		//-todo: передача конкретных изначальных дат (data.arrivalDate, data.departureDate)
+		+twoCalendarRangePicker(["Прибытие", "Выезд"])(addClasses = "bookingCard__rangePicker")
+		+Input("Dropdown №2",
+			"dropdown customers",
+			"Сколько гостей",
+			"bookingCard__guestsDropdown",
+			"",
+			["Взрослые", "Дети", "Младенцы"])
+		div.bookingCard__checkContainer.text_type_regular()
+			div.bookingCard__stayingCostRow.row
+				span.bookingCard__stayingCostCalculation.col1
+				span.bookingCard__stayingCostSum.col3
+			div.bookingCard__servicesCostRow.row
+				span.bookingCard__services.col1(data-services=data.services)
+				+infoIcon()(addClasses="col2")
+				span.bookingCard__servicesSum.col3
+			div.bookingCard__additionalServicesRow.row
+				span.bookingCard__additionalServicesText.col1 Сбор за дополнительные услуги
+				+infoIcon()(addClasses="col2")
+				span.bookingCard__additionalServicesSum.col3(data-addServices=data.additionalPrice) #{data.additionalPrice}#{data.currency}
+		div.bookingCard__summary.text_type_itemTitle
+			span.bookingCard__summaryText Итого
+			div.bookingCard__summaryDashUnderline
+			span.bookingCard__summaryTotalCost
+		+Button("Забронировать",
+			"button_type_filled button_width_wide bookingCard__bookingButton"
+			)(decoration = "enterArrow")
+
+mixin infoIcon()
+	span(class="bookingCard__infoIcon " + attributes.addClasses) i

@@ -117,8 +117,10 @@
   .button_type_text .button__control:focus {
     outline: none; }
 
-.button_width_wide .button__control {
+.button_width_wide {
   width: 320px; }
+  .button_width_wide .button__control {
+    width: 320px; }
 
 .button_width_wide.button_type_bordered .button__control {
   width: 316px; }
@@ -1511,7 +1513,11 @@
     margin-bottom: 30px; }
 
 .registrationCard {
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 32, 65, 0.12);
   box-shadow: 0 0 25px rgba(31, 32, 65, 0.2);
+  border-radius: 4px;
   padding: 40px 30px 30px 30px; }
   .registrationCard .registrationCard__title {
     margin: 0;
@@ -1558,6 +1564,80 @@
       vertical-align: middle;
       color: black;
       text-decoration: none; }
+
+.bookingCard {
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid rgba(31, 32, 65, 0.12);
+  box-shadow: 0 0 25px rgba(31, 32, 65, 0.2);
+  border-radius: 4px;
+  padding: 50px 30px 30px 30px; }
+  .bookingCard .bookingCard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 20px; }
+    .bookingCard .bookingCard__header .bookingCard__roomInfo {
+      display: flex;
+      align-items: baseline; }
+      .bookingCard .bookingCard__header .bookingCard__roomInfo .bookingCard__numberText {
+        font-size: 14px;
+        line-height: 17px;
+        margin-right: 4px; }
+      .bookingCard .bookingCard__header .bookingCard__roomInfo .bookingCard__roomNum {
+        margin: 0;
+        font-size: 24px;
+        margin-right: 5px; }
+      .bookingCard .bookingCard__header .bookingCard__roomInfo .bookingCard__roomType {
+        color: #BC9CFF; }
+    .bookingCard .bookingCard__header .bookingCard__priceInfo .bookingCard__dailyPrice {
+      color: rgba(31, 32, 65, 0.5);
+      font-size: 14px; }
+  .bookingCard .bookingCard__rangePicker {
+    margin-bottom: 20px; }
+  .bookingCard .bookingCard__guestsDropdown {
+    margin-bottom: 20px; }
+  .bookingCard .bookingCard__checkContainer {
+    margin-bottom: 30px; }
+    .bookingCard .bookingCard__checkContainer .row {
+      max-width: 320px;
+      display: flex;
+      align-items: flex-start; }
+      .bookingCard .bookingCard__checkContainer .row:not(:last-child) {
+        margin-bottom: 16px; }
+      .bookingCard .bookingCard__checkContainer .row .col1 {
+        width: 100%; }
+      .bookingCard .bookingCard__checkContainer .row .col2, .bookingCard .bookingCard__checkContainer .row .col3 {
+        flex-shrink: 0; }
+      .bookingCard .bookingCard__checkContainer .row .col3 {
+        width: 80px;
+        text-align: right; }
+    .bookingCard .bookingCard__checkContainer .bookingCard__infoIcon {
+      width: 20px;
+      height: 20px;
+      line-height: 18px;
+      vertical-align: middle;
+      text-align: center;
+      border-radius: 50%;
+      border: 1px solid rgba(31, 32, 65, 0.25);
+      color: rgba(31, 32, 65, 0.25);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none; }
+  .bookingCard .bookingCard__summary {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline; }
+    .bookingCard .bookingCard__summary .bookingCard__summaryText {
+      flex-shrink: 0;
+      margin-right: 5px; }
+    .bookingCard .bookingCard__summary .bookingCard__summaryDashUnderline {
+      width: 100%;
+      border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
+      margin-right: 5px; }
+    .bookingCard .bookingCard__summary .bookingCard__summaryTotalCost {
+      flex-shrink: 0; }
 
 .bodyContainer {
   display: flex;

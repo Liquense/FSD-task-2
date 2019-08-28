@@ -1,0 +1,132 @@
+.bookingCard {
+  box-sizing: border-box;
+  background: #FFFFFF;
+  border: 1px solid $darkShade12;
+  box-shadow: 0 0 25px $darkShade20;
+  border-radius: 4px;
+
+  padding: 50px 30px 30px 30px;
+
+  .bookingCard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+
+    margin-bottom: 20px;
+
+    .bookingCard__roomInfo {
+      display: flex;
+      align-items: baseline;
+
+      .bookingCard__numberText {
+        font-size: 14px;
+        line-height: 17px;
+        margin-right: 4px;
+      }
+
+      .bookingCard__roomNum {
+        margin: 0;
+        font-size: 24px;
+        margin-right: 5px;
+      }
+
+      .bookingCard__roomType {
+        color: $purple;
+      }
+    }
+
+    .bookingCard__priceInfo {
+      .bookingCard__dailyPrice {
+        color: $darkShade50;
+        font-size: 14px;
+      }
+
+      .bookingCard__paymentPeriod {
+      }
+    }
+  }
+
+  .bookingCard__rangePicker {
+    margin-bottom: 20px;
+  }
+
+  .bookingCard__guestsDropdown {
+    margin-bottom: 20px;
+  }
+
+  .bookingCard__checkContainer {
+    margin-bottom: 30px;
+
+    .row {
+      max-width: 320px;
+      display: flex;
+      align-items: flex-start;
+
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+      .col1 {
+        width: 100%;
+      }
+      .col2, .col3 {
+        flex-shrink: 0;
+      }
+      .col3 {
+        width: 80px;
+        text-align: right;
+      }
+    }
+
+    $iconSize: 20px;
+
+    .bookingCard__infoIcon {
+      width: $iconSize;
+      height: $iconSize;
+      line-height: $iconSize - 2px;
+      vertical-align: middle;
+      text-align: center;
+      border-radius: 50%;
+      border: 1px solid $darkShade25;
+      color: $darkShade25;
+
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .bookingCard__stayingCostRow {
+    }
+
+    .bookingCard__servicesCostRow {
+    }
+
+    .bookingCard__additionalServicesRow {
+    }
+  }
+
+  .bookingCard__summary {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+
+    .bookingCard__summaryText {
+      flex-shrink: 0;
+      margin-right: 5px;
+    }
+
+    .bookingCard__summaryDashUnderline {
+      width: 100%;
+      border-bottom: 1px dotted $darkShade25;
+      margin-right: 5px;
+    }
+
+    .bookingCard__summaryTotalCost {
+      flex-shrink: 0;
+    }
+  }
+
+  .bookingCard__bookingButton {
+
+  }
+}

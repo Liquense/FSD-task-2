@@ -22,6 +22,8 @@ let datepickerAddOnSelect = function (datepicker, otherDatepicker, input, number
             otherDatepicker.clear();
             otherDatepicker.selectDate(datepicker.selectedDates);
             assignEnded = true;
+
+            $(input).change();
         }
     })
 };
