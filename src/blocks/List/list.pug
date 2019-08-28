@@ -8,16 +8,10 @@ mixin list(types, title, checkboxes=[], addClasses)
 	-var containerClassName = "list__container"
 	-var classNames = [listClassName, titleClassName, containerClassName]
 
-	-var listAttrs = {class: listClassName + " "}
+	-var listAttrs = {class: listClassName + " " + addClasses + " "}
 	-var titleAttrs = {class: titleClassName + " " + " text_type_label-CTA "}
 	-var containerAttrs = {class: containerClassName + " "}
 	-var attrs = [listAttrs, titleAttrs, containerAttrs]
-
-	if addClassesArr
-		-var addClassesArr = addClasses.split(' ')
-		each value, index in attrs
-			each inValue, inIndex in addClassesArr
-				- value.class += classNames[index] + "_" + inValue + " "
 
 	-var inputType = ""
 	if types.includes("checkbox")
@@ -42,7 +36,8 @@ mixin list(types, title, checkboxes=[], addClasses)
 			- value.class += classNames[index] + "_expandable "
 
 	fieldset&attributes(listAttrs)
-		legend&attributes(titleAttrs) #{title}
+		if title
+			legend&attributes(titleAttrs) #{title}
 		div&attributes(containerAttrs)
 			each value, index in checkboxes
 				+checkbox(

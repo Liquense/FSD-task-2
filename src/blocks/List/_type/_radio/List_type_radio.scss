@@ -1,8 +1,11 @@
 @import "../../../Checkbox/variables";
 
 .list_type_radio {
+  .list__input_type_radio {
+    margin-top: 16px - $checkboxButtonBorderWidth;
+  }
+
   .list__input_type_radio:not(:last-child) {
     margin-right: 20px;
-    margin-top: 16px - $checkboxButtonBorderWidth;
   }
 }

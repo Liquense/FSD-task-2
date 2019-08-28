@@ -97,3 +97,8 @@ html(lang="ru")
 			div.findRoomCardContainer.container
 				include Cards/findRoomCard/findRoomCard
 				+findRoomCard()
+			div.registrationCardContainer.container
+				include Cards/registrationCard/registrationCard
+				+registrationCard({
+					loginURL: "#",
+				})

@@ -1,7 +1,9 @@
 @import "./variables";
 
 .button {
+  cursor: pointer;
   .button__control {
+    cursor: pointer;
     &:focus {
       outline: none;
     }

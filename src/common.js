@@ -43,3 +43,5 @@ import "./blocks/Pagination/Pagination"
 import "./blocks/Comment/Comment"
 //
 import "./Cards/findRoomCard/findRoomCard"
+//
+import "./Cards/registrationCard/registrationCard"

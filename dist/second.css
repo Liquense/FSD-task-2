@@ -26,7 +26,7 @@
   src: url(fonts/MaterialIcons-regular.ttf), url(fonts/MaterialIcons-regular.svg); }
 
 .text_type_label-CTA {
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat, Montserrat, sans-serif;
   font-weight: bold;
   font-style: normal;
   font-size: 12px;
@@ -38,7 +38,7 @@
   text-transform: uppercase; }
 
 .text_type_itemTitle {
-  font-family: Quicksand, sans-serif;
+  font-family: Quicksand, Montserrat, sans-serif;
   font-weight: bold;
   font-style: normal;
   font-size: 19px;
@@ -49,7 +49,7 @@
   text-decoration: none; }
 
 .text_type_regular {
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat, Montserrat, sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 14px;
@@ -60,7 +60,7 @@
   text-decoration: none; }
 
 .text_type_widgetTitle {
-  font-family: Quicksand, sans-serif;
+  font-family: Quicksand, Montserrat, sans-serif;
   font-weight: bold;
   font-style: normal;
   font-size: 24px;
@@ -70,14 +70,17 @@
   color: #1F2041;
   text-decoration: none; }
 
-.button .button__control {
-  height: 44px;
-  width: 99px;
-  padding: 0;
-  margin: 0;
-  border-radius: 22px; }
-  .button .button__control:focus {
-    outline: none; }
+.button {
+  cursor: pointer; }
+  .button .button__control {
+    cursor: pointer;
+    height: 44px;
+    width: 99px;
+    padding: 0;
+    margin: 0;
+    border-radius: 22px; }
+    .button .button__control:focus {
+      outline: none; }
 
 .button_type_bordered .button__control {
   position: relative;
@@ -177,7 +180,7 @@
   border: 1px solid rgba(31, 32, 65, 0.25);
   background: white;
   padding: 11px 14px 13px 14px;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat, Montserrat, sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 14px;
@@ -197,7 +200,7 @@
   outline: 0; }
 
 .input__control::placeholder {
-  font-family: inherit, sans-serif;
+  font-family: inherit, Montserrat, sans-serif;
   font-weight: inherit;
   font-style: normal;
   font-size: inherit;
@@ -208,7 +211,7 @@
   text-decoration: none; }
 
 .input__control:focus::placeholder, .input__control:hover::placeholder {
-  font-family: inherit, sans-serif;
+  font-family: inherit, Montserrat, sans-serif;
   font-weight: inherit;
   font-style: normal;
   font-size: inherit;
@@ -430,7 +433,7 @@
   box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 4px;
   box-sizing: border-box;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat, Montserrat, sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 12px;
@@ -942,7 +945,7 @@
   width: 30px;
   height: 30px;
   padding: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat, Montserrat, sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 18px;
@@ -1020,7 +1023,7 @@
   background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%); }
 
 .slider .ui-slider-handle.ui-state-focus::before {
-  font-family: Montserrat, sans-serif;
+  font-family: Montserrat, Montserrat, sans-serif;
   font-weight: normal;
   font-style: normal;
   font-size: 10px;
@@ -1286,9 +1289,11 @@
   .list .list__expandArrow {
     display: none; }
 
-.list_type_radio .list__input_type_radio:not(:last-child) {
-  margin-right: 20px;
+.list_type_radio .list__input_type_radio {
   margin-top: 15px; }
+
+.list_type_radio .list__input_type_radio:not(:last-child) {
+  margin-right: 20px; }
 
 .list_type_checkbox .list__input_type_checkbox:first-child {
   margin-top: 16px; }
@@ -1418,7 +1423,7 @@
       width: 40px;
       height: 40px;
       text-align: center;
-      font-family: Montserrat, sans-serif;
+      font-family: Montserrat, Montserrat, sans-serif;
       font-weight: normal;
       font-style: normal;
       font-size: 12px;
@@ -1504,6 +1509,55 @@
     margin-bottom: 17px; }
   .findRoomCard .findRoomCard__dropDown {
     margin-bottom: 30px; }
+
+.registrationCard {
+  box-shadow: 0 0 25px rgba(31, 32, 65, 0.2);
+  padding: 40px 30px 30px 30px; }
+  .registrationCard .registrationCard__title {
+    margin: 0;
+    margin-bottom: 20px;
+    letter-spacing: -0.6px; }
+  .registrationCard .registrationCard__userName .input__control,
+  .registrationCard .registrationCard__userSurname .input__control,
+  .registrationCard .registrationCard__email .input__control,
+  .registrationCard .registrationCard__password .input__control {
+    margin-top: 0; }
+  .registrationCard .registrationCard__userName {
+    margin-bottom: 10px; }
+  .registrationCard .registrationCard__userSurname {
+    margin-bottom: 10px; }
+  .registrationCard .registrationCard__genderList {
+    margin-bottom: 20px; }
+    .registrationCard .registrationCard__genderList > .list__container > .list__input {
+      margin-top: 0; }
+  .registrationCard .registrationCard__birthDay {
+    margin-bottom: 22px; }
+  .registrationCard .registrationCard__loginDataContainer {
+    margin-bottom: 9px; }
+    .registrationCard .registrationCard__loginDataContainer .registrationCard__loginDataTitle {
+      margin: 0;
+      margin-bottom: 6px; }
+    .registrationCard .registrationCard__loginDataContainer .registrationCard__email {
+      margin-bottom: 10px; }
+  .registrationCard .registrationCard__sendOffers {
+    margin-bottom: 24px; }
+  .registrationCard .registrationCard__paymentButton {
+    margin-bottom: 30px; }
+  .registrationCard .registrationCard__actionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .registrationCard .registrationCard__actionContainer .registrationCard__haveAccountLink {
+      text-decoration: none;
+      font-family: Montserrat, Montserrat, sans-serif;
+      font-weight: normal;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: normal;
+      vertical-align: middle;
+      color: black;
+      text-decoration: none; }
 
 .bodyContainer {
   display: flex;

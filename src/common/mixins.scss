@@ -1,5 +1,5 @@
 @mixin text($font, $fontWeight, $size, $lineHeight, $color, $letterSpacing) {
-  font-family: $font, sans-serif;
+  font-family: $font, Montserrat, sans-serif;
   font-weight: $fontWeight;
   font-style: normal;
   font-size: $size;
