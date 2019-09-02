@@ -1571,7 +1571,11 @@
   border: 1px solid rgba(31, 32, 65, 0.12);
   box-shadow: 0 0 25px rgba(31, 32, 65, 0.2);
   border-radius: 4px;
-  padding: 50px 30px 30px 30px; }
+  padding: 49px 29px 29px 29px; }
+  .bookingCard:after {
+    content: "";
+    clear: both;
+    display: table; }
   .bookingCard .bookingCard__header {
     display: flex;
     justify-content: space-between;
@@ -1586,15 +1590,17 @@
         margin-right: 4px; }
       .bookingCard .bookingCard__header .bookingCard__roomInfo .bookingCard__roomNum {
         margin: 0;
-        font-size: 24px;
+        font-size: 22px;
         margin-right: 5px; }
       .bookingCard .bookingCard__header .bookingCard__roomInfo .bookingCard__roomType {
         color: #BC9CFF; }
     .bookingCard .bookingCard__header .bookingCard__priceInfo .bookingCard__dailyPrice {
       color: rgba(31, 32, 65, 0.5);
       font-size: 14px; }
+    .bookingCard .bookingCard__header .bookingCard__priceInfo .bookingCard__paymentPeriod {
+      font-size: 12px; }
   .bookingCard .bookingCard__rangePicker {
-    margin-bottom: 20px; }
+    margin-bottom: 16px; }
   .bookingCard .bookingCard__guestsDropdown {
     margin-bottom: 20px; }
   .bookingCard .bookingCard__checkContainer {
@@ -1602,9 +1608,12 @@
     .bookingCard .bookingCard__checkContainer .row {
       max-width: 320px;
       display: flex;
-      align-items: flex-start; }
+      align-items: flex-start;
+      line-height: 18px; }
       .bookingCard .bookingCard__checkContainer .row:not(:last-child) {
         margin-bottom: 16px; }
+      .bookingCard .bookingCard__checkContainer .row:nth-last-child(2) {
+        margin-bottom: 15px; }
       .bookingCard .bookingCard__checkContainer .row .col1 {
         width: 100%; }
       .bookingCard .bookingCard__checkContainer .row .col2, .bookingCard .bookingCard__checkContainer .row .col3 {

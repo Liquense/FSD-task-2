@@ -4,8 +4,9 @@
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
+  @include clearfix();
 
-  padding: 50px 30px 30px 30px;
+  padding: 49px 29px 29px 29px;
 
   .bookingCard__header {
     display: flex;
@@ -26,7 +27,7 @@
 
       .bookingCard__roomNum {
         margin: 0;
-        font-size: 24px;
+        font-size: 22px;
         margin-right: 5px;
       }
 
@@ -42,12 +43,13 @@
       }
 
       .bookingCard__paymentPeriod {
+        font-size: 12px;
       }
     }
   }
 
   .bookingCard__rangePicker {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .bookingCard__guestsDropdown {
@@ -55,29 +57,36 @@
   }
 
   .bookingCard__checkContainer {
+    $iconSize: 20px;
+
     margin-bottom: 30px;
 
     .row {
       max-width: 320px;
       display: flex;
       align-items: flex-start;
+      line-height: $iconSize - 2px;
 
       &:not(:last-child) {
         margin-bottom: 16px;
       }
+      &:nth-last-child(2) {
+        margin-bottom: 15px;
+      }
+
       .col1 {
         width: 100%;
       }
+
       .col2, .col3 {
         flex-shrink: 0;
       }
+
       .col3 {
         width: 80px;
         text-align: right;
       }
     }
-
-    $iconSize: 20px;
 
     .bookingCard__infoIcon {
       width: $iconSize;
