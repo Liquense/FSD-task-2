@@ -1,0 +1,11 @@
+include ../../blocks/Input/Input
+
+mixin loginCard(data="")
+	div.loginCard
+		h3.loginCard__title.text_type_itemTitle Войти
+		+Input("", "text", "Email", "loginCard__emailInput", "")
+		+Input("", "text", "Пароль", "loginCard__passwordInput", "")
+		+Button("Войти", "button_type_filled button_width_wide loginCard__loginButton")(decoration = "enterArrow")
+		div.loginCard__createAccountContainer
+			span.loginCard__haventAccount.text_type_regular Нет аккаунта на Toxin?
+			+Button("Создать", "button_type_bordered loginCard__createLoginButton")

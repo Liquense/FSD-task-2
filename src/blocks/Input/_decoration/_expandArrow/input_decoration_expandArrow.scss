@@ -22,7 +22,7 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
   margin-right: $expandHorizontalMargin;
   -webkit-user-select: none;
   cursor: pointer;
-  background-color: white;
+  background-color: transparent;
 
   &:hover,
   &:focus {

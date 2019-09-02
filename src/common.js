@@ -47,3 +47,5 @@ import "./Cards/findRoomCard/findRoomCard"
 import "./Cards/registrationCard/registrationCard"
 //
 import "./Cards/bookingCard/bookingCard"
+//
+import "./Cards/loginCard/loginCard"

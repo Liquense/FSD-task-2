@@ -114,3 +114,6 @@ html(lang="ru")
 					services: [{name: "скидка", cost: -2179}],
 					additionalPrice: 300
 				})
+			div.loginCardContainer.container
+				include Cards/loginCard/loginCard
+				+loginCard({regURL: "#"})()
