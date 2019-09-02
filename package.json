@@ -61,6 +61,7 @@
     "item-quantity-dropdown": "^2.0.2",
     "paginationjs": "^2.1.4",
     "react": "^16.8.6",
+    "slick-carousel": "^1.8.1",
     "webpack-merge": "^4.2.1"
   }
 }
