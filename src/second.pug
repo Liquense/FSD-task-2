@@ -99,9 +99,7 @@ html(lang="ru")
 				+findRoomCard()
 			div.registrationCardContainer.container
 				include Cards/registrationCard/registrationCard
-				+registrationCard({
-					loginURL: "#",
-				})
+				+registrationCard()
 			div.bookingCardContainer.container
 				include Cards/bookingCard/bookingCard
 				+bookingCard({
@@ -116,4 +114,4 @@ html(lang="ru")
 				})
 			div.loginCardContainer.container
 				include Cards/loginCard/loginCard
-				+loginCard({regURL: "#"})()
+				+loginCard()()

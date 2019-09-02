@@ -1,19 +1,23 @@
 @import "../variables";
 
 .button_type_bordered {
-  .button__control {
-    &:before {
+  position: relative;
+
+  .button__border {
+    display: none;
+
+    &.button__border_type_bordered {
       content: '';
       display: block;
       background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-      left: -$buttonBorderWidth;
-      top: -$buttonBorderWidth;
       width: 99px;
       height: 44px;
       position: absolute;
-      z-index: -1;
       border-radius: 22px;
     }
+  }
+
+  .button__control {
 
     position: relative;
     border: none;

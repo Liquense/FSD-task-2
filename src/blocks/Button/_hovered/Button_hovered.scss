@@ -1,8 +1,8 @@
 .button_hovered.button_type_filled > .button__control,
 .button_type_filled:hover > .button__control,
 .button_type_filled:hover > .button__decoration,
-.button_hovered.button_type_bordered > .button__control:before,
-.button_type_bordered:hover > .button__control:before,
+.button_hovered.button_type_bordered > .button__border,
+.button_type_bordered:hover > .button__border,
 .button_type_bordered:hover > .button__decoration {
   opacity: 0.5;
 }

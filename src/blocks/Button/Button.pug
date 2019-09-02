@@ -6,5 +6,6 @@ mixin Button(text, addClasses)
             -addClasses += " button_decoration_enterArrow"
 
     div(class="button " + addClasses)
+        div.button__border.button__border_type_bordered
         button(class="button__control text_type_label-CTA ") #{text}
         div.button__decoration.material-icons #{decorationText}

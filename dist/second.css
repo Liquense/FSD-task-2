@@ -82,25 +82,26 @@
     .button .button__control:focus {
       outline: none; }
 
-.button_type_bordered .button__control {
-  position: relative;
-  border: none;
-  background-color: white;
-  color: #BC9CFF;
-  width: 95px;
-  height: 40px;
-  margin: 2px; }
-  .button_type_bordered .button__control:before {
-    content: '';
-    display: block;
-    background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
-    left: -2px;
-    top: -2px;
-    width: 99px;
-    height: 44px;
-    position: absolute;
-    z-index: -1;
-    border-radius: 22px; }
+.button_type_bordered {
+  position: relative; }
+  .button_type_bordered .button__border {
+    display: none; }
+    .button_type_bordered .button__border.button__border_type_bordered {
+      content: '';
+      display: block;
+      background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
+      width: 99px;
+      height: 44px;
+      position: absolute;
+      border-radius: 22px; }
+  .button_type_bordered .button__control {
+    position: relative;
+    border: none;
+    background-color: white;
+    color: #BC9CFF;
+    width: 95px;
+    height: 40px;
+    margin: 2px; }
 
 .button_type_filled .button__control {
   background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
@@ -122,16 +123,17 @@
   .button_width_wide .button__control {
     width: 320px; }
 
+.button_width_wide.button_type_bordered .button__border {
+  width: 320px; }
+
 .button_width_wide.button_type_bordered .button__control {
   width: 316px; }
-  .button_width_wide.button_type_bordered .button__control:before {
-    width: 320px; }
 
 .button_hovered.button_type_filled > .button__control,
 .button_type_filled:hover > .button__control,
 .button_type_filled:hover > .button__decoration,
-.button_hovered.button_type_bordered > .button__control:before,
-.button_type_bordered:hover > .button__control:before,
+.button_hovered.button_type_bordered > .button__border,
+.button_type_bordered:hover > .button__border,
 .button_type_bordered:hover > .button__decoration {
   opacity: 0.5; }
 
@@ -1646,7 +1648,8 @@
       border-bottom: 1px dotted rgba(31, 32, 65, 0.25);
       margin-right: 5px; }
     .bookingCard .bookingCard__summary .bookingCard__summaryTotalCost {
-      flex-shrink: 0; }
+      flex-shrink: 0;
+      font-family: Montserrat, sans-serif; }
 
 .loginCard {
   padding: 39px 29px 29px 29px;

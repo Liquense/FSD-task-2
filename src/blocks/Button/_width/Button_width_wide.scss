@@ -1,18 +1,18 @@
 @import "../variables";
 
 .button_width_wide {
-  width: 320px;
+  width: $wideButtonWidth;
   .button__control {
-    width: 320px;
+    width: $wideButtonWidth;
   }
 }
 
 .button_width_wide.button_type_bordered {
-  .button__control {
-    &:before {
-      width: 320px;
-    }
+  .button__border {
+    width: $wideButtonWidth;
+  }
 
+  .button__control {
     width: $wideButtonWidth - $buttonBorderWidth*2;
   }
 }
