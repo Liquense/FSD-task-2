@@ -79,7 +79,7 @@ html(lang="ru")
 				+bulletList(
 					"Bullet List",
 					["Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"]
-					)(isExpandable=false)
+				)(isExpandable=false)
 			div.featureListContainer.container
 				+featureList([
 					{text: "Шумопоглощающие стены", title: "Комфорт", icon: "insert_emoticon"},
@@ -115,3 +115,29 @@ html(lang="ru")
 			div.loginCardContainer.container
 				include Cards/loginCard/loginCard
 				+loginCard()()
+			div.carouselContainer.container
+				include blocks/carousel/carousel
+				+carousel({
+					content: [
+						{
+							tag: "img",
+							src: require("./assets/images/room-mini-1.jpg")
+						},
+						{
+							tag: "img",
+							src: require("./assets/images/room-mini-2.jpg")
+						},
+						{
+							tag: "img",
+							src: require("./assets/images/room-mini-1.jpg")
+						},
+						{
+							tag: "img",
+							src: require("./assets/images/room-mini-2.jpg")
+						},
+					],
+					carouselParams: {
+						"data-arrows": "false",
+						"data-dots": "true",
+					}
+				})()

@@ -1,6 +1,6 @@
 include ../../blocks/Input/Input
 
-mixin loginCard(data="")
+mixin loginCard(data={})
 	div.loginCard
 		h3.loginCard__title.text_type_itemTitle Войти
 		+Input("", "text", "Email", "loginCard__emailInput", "")

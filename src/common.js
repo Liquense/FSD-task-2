@@ -49,3 +49,5 @@ import "./Cards/registrationCard/registrationCard"
 import "./Cards/bookingCard/bookingCard"
 //
 import "./Cards/loginCard/loginCard"
+//
+import "./blocks/carousel/carousel"
