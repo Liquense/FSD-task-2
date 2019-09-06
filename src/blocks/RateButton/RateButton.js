@@ -20,6 +20,9 @@ export let setRatingVisual = function ($ratingButton, numericRating) {
 };
 
 $(".rateButton").each(function () {
-	let rate = Math.random() * 5;
-	setRatingVisual($(this), rate);
+	const $rateButton = $(this);
+	const maxRating = $rateButton.attr("data-maxRating");
+
+	let rate = Math.random() * maxRating;
+	setRatingVisual($rateButton, rate);
 });

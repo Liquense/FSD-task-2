@@ -70,7 +70,7 @@ html(lang="ru")
 				+slider(0, 10, 1, "Range Slider", "", false)
 			div.ratesContainer.container
 				include blocks/RateButton/RateButton
-				+rateButton()
+				+rateButton({maxRating: 6})
 				+rateButton()
 			div.paginationContainer.container
 				include blocks/Pagination/Pagination
@@ -140,4 +140,31 @@ html(lang="ru")
 						"data-arrows": "false",
 						"data-dots": "true",
 					}
-				})()
+				})
+			div.roomPreviewsContainer.container
+				include Cards/roomPreviewCard/roomPreviewCard
+				+roomPreviewCard({
+					carousel: {
+						content: [
+							{
+								tag: "img",
+								src: require("./assets/images/room-mini-1.jpg")
+							},
+							{
+								tag: "img",
+								src: require("./assets/images/room-mini-2.jpg")
+							},
+							{
+								tag: "img",
+								src: require("./assets/images/room-mini-1.jpg")
+							},
+							{
+								tag: "img",
+								src: require("./assets/images/room-mini-2.jpg")
+							},],
+						carouselParams: {
+							"data-arrows": "true",
+							"data-dots": "true",
+						},
+					}
+				})

@@ -1,0 +1,19 @@
+include ../../blocks/carousel/carousel
+include ../../blocks/RateButton/RateButton
+
+mixin roomPreviewCard(data={room: {}})
+	-if (!data.room)
+	-	data.room = {};
+	div.roomPreviewCard
+		+carousel(data.carousel)(addClasses="roomPreviewCard__photos")
+		div.roomPreviewCard__roomInfo
+			span.roomPreviewCard__roomNumSymbol.text_type_label-CTA №
+			span.roomPreviewCard__roomNumber.text_type_label-CTA #{data.room.roomNumber}
+			span.roomPreviewCard__roomType.text_type_label-CTA #{data.room.roomType}
+			span.roomPreviewCard__costPerPeriod.text_type_regular #{data.room.costPerPeriod}
+			span.roomPreviewCard__period.text_type_regular #{data.room.period}
+		hr.roomPreviewCard__divisionLine
+		div.roomPreviewCard__rateInfo
+			+rateButton()(addClasses="roomPreviewCard__rating")
+			span.roomPreviewCard__reviewsCount.text_type_regular
+			span.roomPreviewCard__reviewsText.text_type_regular

@@ -1,5 +1,5 @@
 mixin carousel(data={content: []})
-	div.carousel&attributes(data.carouselParams)
+	div(class=`carousel ${attributes.addClasses}`)&attributes(data.carouselParams)
 		each element in data.content
 			if element.tag === "img"
 				img(src=element.src alt="Фото комнаты" class="carousel__element")

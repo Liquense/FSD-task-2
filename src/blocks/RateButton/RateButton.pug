@@ -1,13 +1,11 @@
 include ./__star/RateButton__star
 
-mixin rateButton(addClasses="")
-	-var rateButtonClassName = "rateButton"
-	-var classNames = [rateButtonClassName, starClassName]
-
-	-var rateButtonAttrs = {class: rateButtonClassName + " " + addClasses + " "}
-
-	div&attributes(rateButtonAttrs)
+mixin rateButton(data={maxRating: 5})
+	div(
+		class=`rateButton ${attributes.addClasses ? attributes.addClasses : ""}`
+		data-maxRating=data.maxRating
+	)
 		- var i = 1
-		while i <= 5
+		while i <= data.maxRating
 			+star(i)
 			- i++

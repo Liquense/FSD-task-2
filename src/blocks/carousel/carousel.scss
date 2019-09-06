@@ -1,7 +1,9 @@
 $dotSize: 7px;
+$arrowSize: 44px;
 
 .carousel {
   width: 270px;
+
   .slick-list {
     .slick-track {
       .slick-slide {
@@ -14,6 +16,55 @@ $dotSize: 7px;
     }
   }
 
+  .slick-arrow {
+    display: block;
+    height: 100%;
+    width: fit-content;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    vertical-align: middle;
+
+    button {
+      @include icon();
+      outline: none;
+      cursor: pointer;
+      background-color: transparent;
+      color: white;
+      width: $arrowSize;
+      height: $arrowSize;
+      border: 0;
+      position: relative;
+      top: calc(50% - #{$arrowSize} / 2);
+    }
+
+    &.slick-prev {
+      left: 0;
+      top: 0;
+
+      &:hover {
+        background: linear-gradient(90deg, $darkShade50 0%, transparent 100%);
+      }
+
+      button {
+        transform: rotate(90deg);
+      }
+    }
+
+    &.slick-next {
+      right: 0;
+      top: 0;
+
+      &:hover {
+        background: linear-gradient(-90deg, $darkShade50 0%, transparent 100%);
+      }
+
+      button {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
   ul.slick-dots {
     position: absolute;
     right: 15px;
@@ -22,6 +73,7 @@ $dotSize: 7px;
     padding: 0;
     list-style-type: none;
     height: $dotSize;
+
     > li {
       display: inline-block;
       border: 1px solid white;

@@ -1683,6 +1683,41 @@
   width: 270px; }
   .carousel .slick-list .slick-track .slick-slide div .carousel__element {
     display: block !important; }
+  .carousel .slick-arrow {
+    display: block;
+    height: 100%;
+    width: fit-content;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    vertical-align: middle; }
+    .carousel .slick-arrow button {
+      font-family: "Material Icons";
+      text-transform: lowercase;
+      font-size: 24px;
+      outline: none;
+      cursor: pointer;
+      background-color: transparent;
+      color: white;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      position: relative;
+      top: calc(50% - 44px / 2); }
+    .carousel .slick-arrow.slick-prev {
+      left: 0;
+      top: 0; }
+      .carousel .slick-arrow.slick-prev:hover {
+        background: linear-gradient(90deg, rgba(31, 32, 65, 0.5) 0%, transparent 100%); }
+      .carousel .slick-arrow.slick-prev button {
+        transform: rotate(90deg); }
+    .carousel .slick-arrow.slick-next {
+      right: 0;
+      top: 0; }
+      .carousel .slick-arrow.slick-next:hover {
+        background: linear-gradient(-90deg, rgba(31, 32, 65, 0.5) 0%, transparent 100%); }
+      .carousel .slick-arrow.slick-next button {
+        transform: rotate(-90deg); }
   .carousel ul.slick-dots {
     position: absolute;
     right: 15px;
@@ -1713,6 +1748,7 @@
         outline: none;
         color: transparent;
         cursor: pointer; }
+
 
 .bodyContainer {
   display: flex;
