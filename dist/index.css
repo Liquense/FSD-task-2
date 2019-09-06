@@ -1758,8 +1758,47 @@
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 4px;
   overflow: hidden; }
+  .roomPreviewCard .roomPreviewCard__photos {
+    margin-bottom: 20px; }
   .roomPreviewCard .roomPreviewCard__textContent {
     padding: 0px 17px 20px 20px; }
-    .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__photos {
-      margin-bottom: 20px; }
+    .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline; }
+      .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo :not(:last-child) {
+        margin-right: 4px; }
+      .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__roomDescription {
+        display: flex;
+        align-items: baseline; }
+        .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__roomDescription .roomPreviewCard__roomNumSymbol {
+          color: black;
+          font-size: 12px; }
+        .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__roomDescription .roomPreviewCard__roomNumber {
+          color: black;
+          font-size: 16px; }
+        .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__roomDescription .roomPreviewCard__roomType {
+          color: #BC9CFF; }
+      .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__costInfo {
+        display: flex;
+        align-items: baseline; }
+        .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__costInfo .roomPreviewCard__costPerPeriod {
+          color: rgba(31, 32, 65, 0.5);
+          font-size: 14px;
+          font-weight: bold; }
+        .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__costInfo .roomPreviewCard__period {
+          color: rgba(31, 32, 65, 0.5); }
+    .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__divisionLine {
+      border-color: rgba(31, 32, 65, 0.05); }
+    .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline; }
+      .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo .roomPreviewCard__reviewsInfo :not(:last-child) {
+        margin-right: 4px; }
+      .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo .roomPreviewCard__reviewsInfo .roomPreviewCard__reviewsCount {
+        color: rgba(31, 32, 65, 0.5);
+        font-weight: bold; }
+      .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo .roomPreviewCard__reviewsInfo .roomPreviewCard__reviewsText {
+        color: rgba(31, 32, 65, 0.5); }
 

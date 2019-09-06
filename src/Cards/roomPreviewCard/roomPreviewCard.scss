@@ -5,51 +5,83 @@
   border-radius: 4px;
   overflow: hidden;
 
+  .roomPreviewCard__photos {
+    margin-bottom: 20px;
+  }
+
   .roomPreviewCard__textContent {
     padding: 0px 17px 20px 20px;
 
-    .roomPreviewCard__photos {
-      margin-bottom: 20px;
-
-    }
-
     .roomPreviewCard__roomInfo {
-      .roomPreviewCard__roomNumSymbol {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
 
+      :not(:last-child) {
+        margin-right: 4px;
       }
 
-      .roomPreviewCard__roomNumber {
+      .roomPreviewCard__roomDescription {
+        display: flex;
+        align-items: baseline;
 
+        .roomPreviewCard__roomNumSymbol {
+          color: black;
+          font-size: 12px;
+        }
+
+        .roomPreviewCard__roomNumber {
+          color: black;
+          font-size: 16px;
+        }
+
+        .roomPreviewCard__roomType {
+          color: $purple;
+        }
       }
 
-      .roomPreviewCard__roomType {
+      .roomPreviewCard__costInfo {
+        display: flex;
+        align-items: baseline;
 
-      }
+        .roomPreviewCard__costPerPeriod {
+          color: $darkShade50;
+          font-size: 14px;
+          font-weight: bold;
+        }
 
-      .roomPreviewCard__costPerPeriod {
-
-      }
-
-      .roomPreviewCard__period {
-
+        .roomPreviewCard__period {
+          color: $darkShade50;
+        }
       }
     }
 
     .roomPreviewCard__divisionLine {
-
+      border-color: $darkShade5;
     }
 
     .roomPreviewCard__rateInfo {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
       .roomPreviewCard__rating {
 
       }
 
-      .roomPreviewCard__reviewsCount {
+      .roomPreviewCard__reviewsInfo {
+        :not(:last-child) {
+          margin-right: 4px;
+        }
 
-      }
+        .roomPreviewCard__reviewsCount {
+          color: $darkShade50;
+          font-weight: bold;
+        }
 
-      .roomPreviewCard__reviewsText {
-
+        .roomPreviewCard__reviewsText {
+          color: $darkShade50;
+        }
       }
     }
   }

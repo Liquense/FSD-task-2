@@ -8,13 +8,16 @@ mixin roomPreviewCard(data={room: {}})
 		+carousel(data.carousel)(addClasses="roomPreviewCard__photos")
 		div.roomPreviewCard__textContent
 			div.roomPreviewCard__roomInfo
-				span.roomPreviewCard__roomNumSymbol.text_type_label-CTA №
-				span.roomPreviewCard__roomNumber.text_type_label-CTA #{data.room.roomNumber}
-				span.roomPreviewCard__roomType.text_type_label-CTA #{data.room.roomType}
-				span.roomPreviewCard__costPerPeriod.text_type_regular #{data.room.costPerPeriod}
-				span.roomPreviewCard__period.text_type_regular #{data.room.period}
+				div.roomPreviewCard__roomDescription
+					span.roomPreviewCard__roomNumSymbol.text_type_label-CTA №
+					span.roomPreviewCard__roomNumber.text_type_label-CTA #{` ${data.room.roomNumber} `}
+					span.roomPreviewCard__roomType.text_type_label-CTA #{data.room.roomType}
+				div.roomPreviewCard__costInfo
+					span.roomPreviewCard__costPerPeriod.text_type_regular #{data.room.costPerPeriod}#{data.room.currencySymbol}
+					span.roomPreviewCard__period.text_type_regular #{data.room.periodText}
 			hr.roomPreviewCard__divisionLine
 			div.roomPreviewCard__rateInfo
 				+rateButton()(addClasses="roomPreviewCard__rating")
-				span.roomPreviewCard__reviewsCount.text_type_regular
-				span.roomPreviewCard__reviewsText.text_type_regular
+				div.roomPreviewCard__reviewsInfo
+					span.roomPreviewCard__reviewsCount.text_type_regular #{data.room.reviewsCount}
+					span.roomPreviewCard__reviewsText.text_type_regular Отзывов
