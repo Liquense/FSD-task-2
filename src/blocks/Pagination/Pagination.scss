@@ -30,6 +30,7 @@ $pageButtonSize: 40px;
             a {
               color: inherit;
               text-decoration: none;
+              line-height: $pageButtonSize;
             }
 
             &.J-paginationjs-previous, &.J-paginationjs-next, &.active {

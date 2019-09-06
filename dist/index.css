@@ -1399,6 +1399,8 @@
   .list_expandable .list__container_expandable.list__container_visible {
     display: block; }
 
+.rateButton {
+  height: 24px; }
 
 .rateButton__star {
   font-family: "Material Icons";
@@ -1407,7 +1409,8 @@
   background: linear-gradient(#BC9CFF 0%, #88a4f9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  user-select: none; }
+  user-select: none;
+  line-height: 24px; }
 
 .pagination .pagination__contentContainer .pagination__content {
   text-align: center; }
@@ -1438,7 +1441,8 @@
       text-decoration: none; }
       .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li a {
         color: inherit;
-        text-decoration: none; }
+        text-decoration: none;
+        line-height: 40px; }
       .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-previous, .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-next, .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.active {
         color: white; }
       .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-previous, .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-next {
@@ -1706,16 +1710,14 @@
       top: calc(50% - 44px / 2); }
     .carousel .slick-arrow.slick-prev {
       left: 0;
-      top: 0; }
-      .carousel .slick-arrow.slick-prev:hover {
-        background: linear-gradient(90deg, rgba(31, 32, 65, 0.5) 0%, transparent 100%); }
+      top: 0;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%); }
       .carousel .slick-arrow.slick-prev button {
         transform: rotate(90deg); }
     .carousel .slick-arrow.slick-next {
       right: 0;
-      top: 0; }
-      .carousel .slick-arrow.slick-next:hover {
-        background: linear-gradient(-90deg, rgba(31, 32, 65, 0.5) 0%, transparent 100%); }
+      top: 0;
+      background: linear-gradient(-90deg, rgba(31, 32, 65, 0.5) 0%, transparent 100%); }
       .carousel .slick-arrow.slick-next button {
         transform: rotate(-90deg); }
   .carousel ul.slick-dots {
@@ -1725,7 +1727,8 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
-    height: 7px; }
+    height: 7px;
+    z-index: 2; }
     .carousel ul.slick-dots > li {
       display: inline-block;
       border: 1px solid white;
@@ -1749,4 +1752,14 @@
         color: transparent;
         cursor: pointer; }
 
+.roomPreviewCard {
+  width: 270px;
+  background: white;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  border-radius: 4px;
+  overflow: hidden; }
+  .roomPreviewCard .roomPreviewCard__textContent {
+    padding: 0px 17px 20px 20px; }
+    .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__photos {
+      margin-bottom: 20px; }
 

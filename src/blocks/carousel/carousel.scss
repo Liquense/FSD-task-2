@@ -41,10 +41,7 @@ $arrowSize: 44px;
     &.slick-prev {
       left: 0;
       top: 0;
-
-      &:hover {
-        background: linear-gradient(90deg, $darkShade50 0%, transparent 100%);
-      }
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
 
       button {
         transform: rotate(90deg);
@@ -54,10 +51,7 @@ $arrowSize: 44px;
     &.slick-next {
       right: 0;
       top: 0;
-
-      &:hover {
-        background: linear-gradient(-90deg, $darkShade50 0%, transparent 100%);
-      }
+      background: linear-gradient(-90deg, $darkShade50 0%, transparent 100%);
 
       button {
         transform: rotate(-90deg);
@@ -73,6 +67,7 @@ $arrowSize: 44px;
     padding: 0;
     list-style-type: none;
     height: $dotSize;
+    z-index: 2;
 
     > li {
       display: inline-block;

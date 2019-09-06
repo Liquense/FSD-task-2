@@ -1,0 +1,56 @@
+.roomPreviewCard {
+  width: 270px;
+  background: white;
+  box-shadow: 0px 10px 20px $darkShade5;
+  border-radius: 4px;
+  overflow: hidden;
+
+  .roomPreviewCard__textContent {
+    padding: 0px 17px 20px 20px;
+
+    .roomPreviewCard__photos {
+      margin-bottom: 20px;
+
+    }
+
+    .roomPreviewCard__roomInfo {
+      .roomPreviewCard__roomNumSymbol {
+
+      }
+
+      .roomPreviewCard__roomNumber {
+
+      }
+
+      .roomPreviewCard__roomType {
+
+      }
+
+      .roomPreviewCard__costPerPeriod {
+
+      }
+
+      .roomPreviewCard__period {
+
+      }
+    }
+
+    .roomPreviewCard__divisionLine {
+
+    }
+
+    .roomPreviewCard__rateInfo {
+      .roomPreviewCard__rating {
+
+      }
+
+      .roomPreviewCard__reviewsCount {
+
+      }
+
+      .roomPreviewCard__reviewsText {
+
+      }
+    }
+  }
+}
