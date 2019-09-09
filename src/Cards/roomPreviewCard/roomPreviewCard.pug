@@ -4,7 +4,11 @@ include ../../blocks/RateButton/RateButton
 mixin roomPreviewCard(data={room: {}})
 	-if (!data.room)
 	-	data.room = {};
-	div.roomPreviewCard
+	div.roomPreviewCard(
+		data-currency=data.room.currencySymbol
+		data-costPerPeriod=data.room.costPerPeriod
+		data-reviewsCount=data.room.reviewsCount
+		)
 		+carousel(data.carousel)(addClasses="roomPreviewCard__photos")
 		div.roomPreviewCard__textContent
 			div.roomPreviewCard__roomInfo

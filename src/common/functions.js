@@ -1,4 +1,10 @@
-export function formatNumber(number, symbol) { //добавляет пробелы на каждом третьем разряде числа
+/**
+ * добавляет пробелы на каждом третьем разряде числа
+ * @param number форматируемое число
+ * @param {string} symbol символ для вставки между триадами
+ * @returns {string} итоговое число в виде строки
+ */
+export function formatNumber(number, symbol) {
     let stringNum = number.toString();
     let formattedNum = [];
 
