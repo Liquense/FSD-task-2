@@ -19,6 +19,8 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
 .input__controlWrapper {
   display: inline-block;
+  margin-top: $inputTopMargin;
+  position: relative;
 }
 
 .input__control {
@@ -29,7 +31,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   background: $inputBackgroundColor;
   padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
   @include text(Montserrat, normal, $fontSize, $lineHeight, $darkShade25, -0.18px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect похоже получилось -0.18px
-  margin: $inputTopMargin 0 0 0;
+  margin: 0 0 0 0;
   text-overflow: ellipsis;
 }
 

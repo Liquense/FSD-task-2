@@ -23,10 +23,6 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
         rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
         rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%);
 
-.input__controlWrapper_type_datepicker {
-  position: relative;
-}
-
 .input__control_type_datepicker {
   color: $darkShade75;
 

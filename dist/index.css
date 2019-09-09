@@ -175,7 +175,9 @@
   line-height: 18px; }
 
 .input__controlWrapper {
-  display: inline-block; }
+  display: inline-block;
+  margin-top: 4px;
+  position: relative; }
 
 .input__control {
   border-radius: 4px;
@@ -193,7 +195,7 @@
   vertical-align: middle;
   color: rgba(31, 32, 65, 0.25);
   text-decoration: none;
-  margin: 4px 0 0 0;
+  margin: 0 0 0 0;
   text-overflow: ellipsis; }
 
 .input__control:focus,
@@ -242,9 +244,6 @@
 
 .input__control_type_text:focus, .input__control_type_text:hover {
   color: rgba(31, 32, 65, 0.75); }
-
-.input__controlWrapper_type_datepicker {
-  position: relative; }
 
 .input__control_type_datepicker {
   color: rgba(31, 32, 65, 0.75); }
@@ -977,7 +976,7 @@
   position: absolute;
   width: 24px;
   height: 42px;
-  top: 22px;
+  top: 1px;
   right: 1px;
   margin-right: 9px;
   -webkit-user-select: none;

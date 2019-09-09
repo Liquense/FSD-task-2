@@ -3,13 +3,15 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 	- var titleClassName = "input__title"
 	- var controlClassName = "input__control"
 	- var dropdownClassName = "input__dropdownListWrapper"
-	- var classNames = [blockClassName, titleClassName, controlClassName, dropdownClassName]
+	- var controlWrapperCN = "input__controlWrapper"
+	- var classNames = [blockClassName, titleClassName, controlClassName, dropdownClassName, controlWrapperCN]
 
 	- var blockAttributes = {class: blockClassName + " " + addClasses + " "}
 	- var titleAttributes = {class: titleClassName + " " + "text_type_label-CTA input__title "}
 	- var controlAttributes = {class: controlClassName + " ", placeholder: placeholder}
 	- var dropdownAttributes = {class: " "}
-	- var attributes = [blockAttributes, titleAttributes, controlAttributes, dropdownAttributes]
+	- var controlWrapperAttrs = {class: `${controlWrapperCN} `}
+	- var attributes = [blockAttributes, titleAttributes, controlAttributes, dropdownAttributes, controlWrapperAttrs]
 
 	if types.includes("datepicker")
 		each value, index in attributes
@@ -54,12 +56,16 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 		if title
 			label&attributes(titleAttributes) #{title}
 				br
-				if types.includes("dropdown") || types.includes("datepicker")
-					+expandArrow()
-				input&attributes(controlAttributes)
+				div&attributes(controlWrapperAttrs)
+					if types.includes("dropdown") || types.includes("datepicker")
+						+expandArrow()
+					input&attributes(controlAttributes)
 		else
 			if types.includes("dropdown") || types.includes("datepicker")
-				+expandArrow()
-			input&attributes(controlAttributes)
+			label&attributes(titleAttributes)
+				div&attributes(controlWrapperAttrs)
+					if types.includes("dropdown") || types.includes("datepicker")
+						+expandArrow()
+					input&attributes(controlAttributes)
 		if types.includes("dropdown")
 			+dropdownList(additional, dropdownAttributes, range)
