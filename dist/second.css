@@ -1721,8 +1721,8 @@
         transform: rotate(-90deg); }
   .carousel ul.slick-dots {
     position: absolute;
-    right: 15px;
-    bottom: 15px;
+    right: 16px;
+    bottom: 16px;
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -1760,11 +1760,12 @@
   .roomPreviewCard .roomPreviewCard__photos {
     margin-bottom: 20px; }
   .roomPreviewCard .roomPreviewCard__textContent {
-    padding: 0px 17px 20px 20px; }
+    padding: 0px 18px 20px 20px; }
     .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo {
       display: flex;
       justify-content: space-between;
-      align-items: baseline; }
+      align-items: baseline;
+      margin-bottom: 9px; }
       .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo :not(:last-child) {
         margin-right: 4px; }
       .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__roomDescription {
@@ -1772,10 +1773,12 @@
         align-items: baseline; }
         .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__roomDescription .roomPreviewCard__roomNumSymbol {
           color: black;
-          font-size: 12px; }
+          font-size: 14px;
+          line-height: 14px; }
         .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__roomDescription .roomPreviewCard__roomNumber {
           color: black;
-          font-size: 16px; }
+          font-size: 17px;
+          line-height: 24px; }
         .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__roomDescription .roomPreviewCard__roomType {
           color: #BC9CFF; }
       .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__costInfo {
@@ -1786,9 +1789,12 @@
           font-size: 14px;
           font-weight: bold; }
         .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo .roomPreviewCard__costInfo .roomPreviewCard__period {
+          font-size: 12px;
+          line-height: 12px;
           color: rgba(31, 32, 65, 0.5); }
     .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__divisionLine {
-      border-color: rgba(31, 32, 65, 0.05); }
+      border-color: rgba(31, 32, 65, 0.05);
+      margin-bottom: 9px; }
     .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo {
       display: flex;
       justify-content: space-between;
