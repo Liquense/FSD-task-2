@@ -1,10 +1,11 @@
 import "./roomPreviewCard.scss"
-import {formatNumber} from "../../common/functions";
+import {formatNumber, ruDeclination} from "../../common/functions";
 
 $('.roomPreviewCard').each(function () {
 	const $roomPreviewCard = $(this);
 	const $costPerPeriodSpan = $roomPreviewCard.find('.roomPreviewCard__costPerPeriod');
 	const $reviewsCountSpan = $roomPreviewCard.find('.roomPreviewCard__reviewsCount');
+	const $reviewsTextSpan = $roomPreviewCard.find('.roomPreviewCard__reviewsText');
 
 	const cardData = {
 		currency: $roomPreviewCard.attr("data-currency"),
@@ -16,4 +17,6 @@ $('.roomPreviewCard').each(function () {
 	$costPerPeriodSpan.text(formattedCostPerPeriod + cardData.currency);
 	const formattedReviewsCount = formatNumber(cardData.reviewsCount, " ");
 	$reviewsCountSpan.text(formattedReviewsCount);
+	const inclinedReviewsText = ruDeclination(cardData.reviewsCount, "отзыв||а|ов");
+	$reviewsTextSpan.text(inclinedReviewsText);
 });
