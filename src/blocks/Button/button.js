@@ -9,3 +9,5 @@ import "./_width/Button_width_wide.scss"
 import "./_hovered/Button_hovered.scss"
 
 import "./_decoration/_enterArrow/button_decoration_enterArrow.scss"
+
+import "./_textSized/button_textSized.scss"

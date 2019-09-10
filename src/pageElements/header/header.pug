@@ -1,0 +1,14 @@
+include ../../blocks/Button/Button
+
+mixin header(data={}, content=[])
+	header.header
+		img(src=data.logo alt="logo").header__logo
+		div.header__content
+			menu
+				each item, index in content
+					span
+				if (data.isGuest)
+					+Button(data.loginText, "button_type_bordered")
+					+Button(data.registerText, "button_type_filled")
+				else
+					span

@@ -53,3 +53,5 @@ import "./Cards/loginCard/loginCard"
 import "./blocks/carousel/carousel"
 //
 import "./Cards/roomPreviewCard/roomPreviewCard"
+//
+import "./pageElements/header/header"

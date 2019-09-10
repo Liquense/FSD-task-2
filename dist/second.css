@@ -81,6 +81,9 @@
     border-radius: 22px; }
     .button .button__control:focus {
       outline: none; }
+  .button .button__decoration,
+  .button .button__border {
+    display: none; }
 
 .button_type_bordered {
   position: relative; }
@@ -154,6 +157,7 @@
   .button_decoration_enterArrow.button_type_filled > .button__decoration {
     color: white; }
   .button_decoration_enterArrow .button__decoration {
+    display: block;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -165,6 +169,7 @@
     position: absolute;
     width: 44px;
     right: 0; }
+
 
 .input {
   width: fit-content; }
@@ -1806,6 +1811,7 @@
         font-weight: bold; }
       .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo .roomPreviewCard__reviewsInfo .roomPreviewCard__reviewsText {
         color: rgba(31, 32, 65, 0.5); }
+
 
 .bodyContainer {
   display: flex;

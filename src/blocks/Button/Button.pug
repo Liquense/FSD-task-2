@@ -1,11 +1,16 @@
-mixin Button(text, addClasses)
-    -let decorationText = ""
-    case attributes.decoration
-        when "enterArrow"
-            -decorationText = "arrow_forward"
-            -addClasses += " button_decoration_enterArrow"
-
-    div(class="button " + addClasses)
-        div.button__border.button__border_type_bordered
-        button(class="button__control text_type_label-CTA ") #{text}
-        div.button__decoration.material-icons #{decorationText}
+mixin Button(text, addClasses, isTextSized=false)
+	-let decorationText = ""
+	-const decoration = attributes.decoration ? attributes.decoration.toLowerCase() : ""
+	-const arrowDecorationCN = "button_decoration_enterArrow"
+	case decoration
+		when "enterarrow"
+			-decorationText = "arrow_forward"
+			-addClasses += ` ${arrowDecorationCN}`
+	if isTextSized
+		-addClasses += ` button__textSized`
+	div(class="button " + addClasses)
+		if addClasses.includes("bordered")
+			div.button__border.button__border_type_bordered
+		button(class="button__control text_type_label-CTA ") #{text}
+		if addClasses.includes(arrowDecorationCN)
+			div.button__decoration #{decorationText}
