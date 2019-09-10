@@ -26,7 +26,7 @@ mixin roomPreviewCard(data={room: {}})
 						|#{data.room.periodText}
 			hr.roomPreviewCard__divisionLine
 			div.roomPreviewCard__rateInfo
-				+rateButton()(addClasses="roomPreviewCard__rating")
+				+rateButton({maxRating: 5, rating: data.room.rating})(addClasses="roomPreviewCard__rating")
 				div.roomPreviewCard__reviewsInfo
 					span.roomPreviewCard__reviewsCount.text_type_regular
 						|#{data.room.reviewsCount}

@@ -1,5 +1,6 @@
 import "./RateButton.scss"
 import * as star from "./__star/RateButton__star"
+import {formatNumber} from "../../common/functions";
 
 export let setRatingVisual = function ($ratingButton, numericRating) {
 	let wholePart = Math.floor(numericRating);
@@ -22,7 +23,13 @@ export let setRatingVisual = function ($ratingButton, numericRating) {
 $(".rateButton").each(function () {
 	const $rateButton = $(this);
 	const maxRating = $rateButton.attr("data-maxRating");
+	const specifiedRating = $rateButton.attr("data-rating");
 
-	let rate = Math.random() * maxRating;
-	setRatingVisual($rateButton, rate);
+	let rating;
+	if (specifiedRating == -1)
+		 rating = Math.random() * maxRating;
+	else
+		rating = specifiedRating;
+
+	setRatingVisual($rateButton, rating);
 });
