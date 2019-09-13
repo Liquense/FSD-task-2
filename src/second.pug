@@ -183,20 +183,25 @@ html(lang="ru")
 			-const logoPath = require('./assets/images/logo_colored_withText.svg')
 			+header(
 				{
+					logo: logoPath
+				},
+				[
+					{text: "test0"},
+					{
+						text: "test", bold: true,
+						children: [
+							{text: "innerTest", children: [{text: "secondInnerTest"}, {text: "miniInner"}]},
+							{text: "innerTest2", bold: true}
+						]
+					}
+				]
+			)
+			+header(
+				{
 					userLogin: "Cosmin Negoita",
 					logo: logoPath,
 					loginText: "Login",
 					registerText: "register"
 				},
-				[
-					{text: "test", children: []}
-				]
-			)
-			+header(
-				{
-					logo: logoPath
-				},
-				[
-
-				]
+				[{text: "test"}]
 			)

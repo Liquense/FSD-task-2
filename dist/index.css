@@ -1841,9 +1841,65 @@
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: row; }
+    flex-direction: row;
+    list-style: none;
+    align-items: center; }
+    .header .header__contentContainer .header__menu .header__menuItem {
+      display: flex;
+      position: relative;
+      align-items: center; }
+      .header .header__contentContainer .header__menu .header__menuItem:not(:last-child) {
+        margin-right: 2.08333vw; }
+      .header .header__contentContainer .header__menu .header__menuItem .header__expandButton {
+        font-family: "Material Icons";
+        text-transform: lowercase;
+        font-size: 24px;
+        font-size: 14px;
+        line-height: 14px;
+        border: none;
+        margin: 0;
+        padding: 0;
+        background-color: transparent;
+        outline: none;
+        user-select: none;
+        color: rgba(31, 32, 65, 0.75); }
+      .header .header__contentContainer .header__menu .header__menuItem:hover .header__subMenu {
+        display: block;
+        padding: 5px; }
+      .header .header__contentContainer .header__menu .header__menuItem .header__subMenu {
+        display: none;
+        position: absolute;
+        z-index: 1;
+        background: white;
+        border: solid 1px rgba(31, 32, 65, 0.3);
+        border-radius: 5px;
+        top: 100%;
+        right: -50%; }
+        .header .header__contentContainer .header__menu .header__menuItem .header__subMenu .header__subMenuItem {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          min-height: 30px; }
+          .header .header__contentContainer .header__menu .header__menuItem .header__subMenu .header__subMenuItem:not(:last-child) {
+            border-bottom: solid 1px rgba(31, 32, 65, 0.75); }
+          .header .header__contentContainer .header__menu .header__menuItem .header__subMenu .header__subMenuItem > .header__expandButton {
+            transform: rotate(-90deg); }
+          .header .header__contentContainer .header__menu .header__menuItem .header__subMenu .header__subMenuItem:hover .header__subMenu {
+            display: block; }
+          .header .header__contentContainer .header__menu .header__menuItem .header__subMenu .header__subMenuItem > .header__subMenu {
+            display: none;
+            left: 90%;
+            box-shadow: -3px 0px 5px rgba(31, 32, 65, 0.2);
+            right: unset;
+            top: -1px; }
+    .header .header__contentContainer .header__menu .header__divider {
+      flex-shrink: 0;
+      display: block;
+      height: 30px;
+      border: solid 1px rgba(31, 32, 65, 0.1); }
     .header .header__contentContainer .header__menu .header__buttonsContainer {
       display: flex; }
-
+      .header .header__contentContainer .header__menu .header__buttonsContainer .header__loginButton {
+        margin-right: 1.38889vw; }
 
 

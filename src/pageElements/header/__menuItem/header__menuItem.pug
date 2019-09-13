@@ -1,2 +1,16 @@
-mixin header__menuItem()
-	div
+mixin header__menuItem(itemData={})
+	-createChildrenRecursive = function(itemsArray) {
+		if itemsArray
+			div.header__subMenu
+				each child in itemsArray
+					div(class=`header__subMenuItem ${child.bold ? "header__subMenuItem" : ""}`) #{child.text}
+						if child.children
+							button.header__expandButton expand_more
+						-createChildrenRecursive(child.children)
+	-}
+
+	-let itemClasses = `header__menuItem text_type_regular ${itemData.bold ? "header__menuItem_bold" : ""}`
+	li(class=itemClasses) #{itemData.text}
+		if itemData.children
+			button.header__expandButton expand_more
+		-createChildrenRecursive(itemData.children);

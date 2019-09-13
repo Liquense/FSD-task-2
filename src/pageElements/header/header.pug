@@ -5,14 +5,14 @@ mixin header(data={}, content=[])
 	header.header
 		img(src=data.logo alt="logo").header__logo
 		div.header__contentContainer
-			menu.header__menu
+			ul.header__menu
 				each item, index in content
-					span.header__menuItem.text_type_regular
+					+header__menuItem(item)
 				if (data.userLogin)
-					hr.header__divider
-					span.header__userName.text_type_regular #{data.userLogin}
+					li.header__divider.header__menuItem
+					li.header__userName.header__menuItem.text_type_regular #{data.userLogin}
 				else
-					div.header__buttonsContainer
+					li.header__buttonsContainer.header__menuItem
 						+Button(
 							data.loginText ? data.loginText : "Login",
 							"button_type_bordered header__loginButton",
