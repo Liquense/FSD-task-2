@@ -1,9 +1,15 @@
 @import "../variables";
 
 .button_textSized {
-  .button__border.button__border_type_bordered {
-    height: fit-content;
-    width: fit-content;
+  &.button_type_bordered {
+    .button__border {
+      height: fit-content;
+      width: fit-content;
+    }
+
+    .button__control {
+      padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
+    }
   }
 
   .button__control {
