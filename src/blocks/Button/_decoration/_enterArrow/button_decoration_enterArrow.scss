@@ -7,7 +7,7 @@ $arrowSize: 44px;
   align-items: center;
   position: relative;
 
-  &:not(.button_width_wide) {
+  &:not(.button_size_wide) {
     &.button_type_bordered > .button__control:before {
       width: $buttonWidth + $arrowSize + $buttonBorderWidth*2;
     }

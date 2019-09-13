@@ -5,12 +5,14 @@ mixin Button(text, addClasses, isTextSized=false)
 	case decoration
 		when "enterarrow"
 			-decorationText = "arrow_forward"
-			-addClasses += ` ${arrowDecorationCN}`
+			-addClasses += ` ${arrowDecorationCN} `
 	if isTextSized
-		-addClasses += ` button__textSized`
+		-addClasses += ` button_textSized `
 	div(class="button " + addClasses)
 		if addClasses.includes("bordered")
 			div.button__border.button__border_type_bordered
-		button(class="button__control text_type_label-CTA ") #{text}
+				button(class="button__control text_type_label-CTA ") #{text}
+		else
+			button(class="button__control text_type_label-CTA ") #{text}
 		if addClasses.includes(arrowDecorationCN)
 			div.button__decoration #{decorationText}

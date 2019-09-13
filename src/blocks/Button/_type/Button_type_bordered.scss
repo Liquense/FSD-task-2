@@ -2,6 +2,7 @@
 
 .button_type_bordered {
   position: relative;
+  @include clearfix();
 
   .button__border {
     display: none;
@@ -12,13 +13,12 @@
       background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
       width: 99px;
       height: 44px;
-      position: absolute;
       border-radius: 22px;
+      padding: $buttonBorderWidth;
     }
   }
 
   .button__control {
-
     position: relative;
     border: none;
     background-color: $inputBackgroundColor;
@@ -26,6 +26,5 @@
 
     width: 99px - ($buttonBorderWidth * 2);
     height: 44px - ($buttonBorderWidth * 2);
-    margin: $buttonBorderWidth;
   }
 }
