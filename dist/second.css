@@ -87,6 +87,10 @@
 
 .button_type_bordered {
   position: relative; }
+  .button_type_bordered:after {
+    content: "";
+    clear: both;
+    display: table; }
   .button_type_bordered .button__border {
     display: none; }
     .button_type_bordered .button__border.button__border_type_bordered {
@@ -95,16 +99,15 @@
       background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
       width: 99px;
       height: 44px;
-      position: absolute;
-      border-radius: 22px; }
+      border-radius: 22px;
+      padding: 2px; }
   .button_type_bordered .button__control {
     position: relative;
     border: none;
     background-color: white;
     color: #BC9CFF;
     width: 95px;
-    height: 40px;
-    margin: 2px; }
+    height: 40px; }
 
 .button_type_filled .button__control {
   background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
@@ -121,15 +124,15 @@
   .button_type_text .button__control:focus {
     outline: none; }
 
-.button_width_wide {
+.button_size_wide {
   width: 320px; }
-  .button_width_wide .button__control {
+  .button_size_wide .button__control {
     width: 320px; }
 
-.button_width_wide.button_type_bordered .button__border {
+.button_size_wide.button_type_bordered .button__border {
   width: 320px; }
 
-.button_width_wide.button_type_bordered .button__control {
+.button_size_wide.button_type_bordered .button__control {
   width: 316px; }
 
 .button_hovered.button_type_filled > .button__control,
@@ -147,9 +150,9 @@
   display: flex;
   align-items: center;
   position: relative; }
-  .button_decoration_enterArrow:not(.button_width_wide).button_type_bordered > .button__control:before {
+  .button_decoration_enterArrow:not(.button_size_wide).button_type_bordered > .button__control:before {
     width: 147px; }
-  .button_decoration_enterArrow:not(.button_width_wide) .button__control {
+  .button_decoration_enterArrow:not(.button_size_wide) .button__control {
     width: 143px; }
   .button_decoration_enterArrow.button_type_bordered > .button__decoration,
   .button_decoration_enterArrow.button_type_text > .button__decoration {
@@ -170,6 +173,16 @@
     width: 44px;
     right: 0; }
 
+.button_textSized .button__border.button__border_type_bordered {
+  height: fit-content;
+  width: fit-content; }
+
+.button_textSized .button__control {
+  display: block;
+  width: auto;
+  height: auto;
+  line-height: normal;
+  padding: 9px 20px 10px 20px; }
 
 .input {
   width: fit-content; }

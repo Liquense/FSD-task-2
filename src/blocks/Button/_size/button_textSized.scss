@@ -1,0 +1,16 @@
+@import "../variables";
+
+.button_textSized {
+  .button__border.button__border_type_bordered {
+    height: fit-content;
+    width: fit-content;
+  }
+
+  .button__control {
+    display: block;
+    width: auto;
+    height: auto;
+    line-height: normal;
+    padding: 9px 20px 10px 20px;
+  }
+}

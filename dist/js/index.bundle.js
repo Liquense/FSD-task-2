@@ -610,14 +610,25 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 /***/ }),
 
-/***/ "./src/blocks/Button/_textSized/button_textSized.scss":
-/*!************************************************************!*\
-  !*** ./src/blocks/Button/_textSized/button_textSized.scss ***!
-  \************************************************************/
+/***/ "./src/blocks/Button/_size/Button_size_wide.scss":
+/*!*******************************************************!*\
+  !*** ./src/blocks/Button/_size/Button_size_wide.scss ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Button/_textSized/button_textSized.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Button/_size/Button_size_wide.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/Button/_size/button_textSized.scss":
+/*!*******************************************************!*\
+  !*** ./src/blocks/Button/_size/button_textSized.scss ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Button/_size/button_textSized.scss?");
 
 /***/ }),
 
@@ -654,17 +665,6 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 /***/ }),
 
-/***/ "./src/blocks/Button/_width/Button_width_wide.scss":
-/*!*********************************************************!*\
-  !*** ./src/blocks/Button/_width/Button_width_wide.scss ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/Button/_width/Button_width_wide.scss?");
-
-/***/ }),
-
 /***/ "./src/blocks/Button/button.js":
 /*!*************************************!*\
   !*** ./src/blocks/Button/button.js ***!
@@ -673,7 +673,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button.scss */ \"./src/blocks/Button/button.scss\");\n/* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_button_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _type_Button_type_bordered_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_type/Button_type_bordered.scss */ \"./src/blocks/Button/_type/Button_type_bordered.scss\");\n/* harmony import */ var _type_Button_type_bordered_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_type_Button_type_bordered_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _type_Button_type_filled_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_type/Button_type_filled.scss */ \"./src/blocks/Button/_type/Button_type_filled.scss\");\n/* harmony import */ var _type_Button_type_filled_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_type_Button_type_filled_scss__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _type_Button_type_text_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_type/Button_type_text.scss */ \"./src/blocks/Button/_type/Button_type_text.scss\");\n/* harmony import */ var _type_Button_type_text_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_type_Button_type_text_scss__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _width_Button_width_wide_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_width/Button_width_wide.scss */ \"./src/blocks/Button/_width/Button_width_wide.scss\");\n/* harmony import */ var _width_Button_width_wide_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_width_Button_width_wide_scss__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _hovered_Button_hovered_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_hovered/Button_hovered.scss */ \"./src/blocks/Button/_hovered/Button_hovered.scss\");\n/* harmony import */ var _hovered_Button_hovered_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_hovered_Button_hovered_scss__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _decoration_enterArrow_button_decoration_enterArrow_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_decoration/_enterArrow/button_decoration_enterArrow.scss */ \"./src/blocks/Button/_decoration/_enterArrow/button_decoration_enterArrow.scss\");\n/* harmony import */ var _decoration_enterArrow_button_decoration_enterArrow_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_decoration_enterArrow_button_decoration_enterArrow_scss__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _textSized_button_textSized_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_textSized/button_textSized.scss */ \"./src/blocks/Button/_textSized/button_textSized.scss\");\n/* harmony import */ var _textSized_button_textSized_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_textSized_button_textSized_scss__WEBPACK_IMPORTED_MODULE_7__);\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/blocks/Button/button.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./button.scss */ \"./src/blocks/Button/button.scss\");\n/* harmony import */ var _button_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_button_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _type_Button_type_bordered_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_type/Button_type_bordered.scss */ \"./src/blocks/Button/_type/Button_type_bordered.scss\");\n/* harmony import */ var _type_Button_type_bordered_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_type_Button_type_bordered_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _type_Button_type_filled_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_type/Button_type_filled.scss */ \"./src/blocks/Button/_type/Button_type_filled.scss\");\n/* harmony import */ var _type_Button_type_filled_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_type_Button_type_filled_scss__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _type_Button_type_text_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./_type/Button_type_text.scss */ \"./src/blocks/Button/_type/Button_type_text.scss\");\n/* harmony import */ var _type_Button_type_text_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_type_Button_type_text_scss__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _size_Button_size_wide_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./_size/Button_size_wide.scss */ \"./src/blocks/Button/_size/Button_size_wide.scss\");\n/* harmony import */ var _size_Button_size_wide_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_size_Button_size_wide_scss__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var _hovered_Button_hovered_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./_hovered/Button_hovered.scss */ \"./src/blocks/Button/_hovered/Button_hovered.scss\");\n/* harmony import */ var _hovered_Button_hovered_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_hovered_Button_hovered_scss__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _decoration_enterArrow_button_decoration_enterArrow_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./_decoration/_enterArrow/button_decoration_enterArrow.scss */ \"./src/blocks/Button/_decoration/_enterArrow/button_decoration_enterArrow.scss\");\n/* harmony import */ var _decoration_enterArrow_button_decoration_enterArrow_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_decoration_enterArrow_button_decoration_enterArrow_scss__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _size_button_textSized_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./_size/button_textSized.scss */ \"./src/blocks/Button/_size/button_textSized.scss\");\n/* harmony import */ var _size_button_textSized_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_size_button_textSized_scss__WEBPACK_IMPORTED_MODULE_7__);\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/blocks/Button/button.js?");
 
 /***/ }),
 
