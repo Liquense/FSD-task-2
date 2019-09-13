@@ -3,12 +3,22 @@ include ../../blocks/Button/Button
 mixin header(data={}, content=[])
 	header.header
 		img(src=data.logo alt="logo").header__logo
-		div.header__content
-			menu
+		div.header__contentContainer
+			menu.header__menu
 				each item, index in content
-					span
-				if (data.isGuest)
-					+Button(data.loginText, "button_type_bordered", true)
-					+Button(data.registerText, "button_type_filled", true)
+					span.header__menuItem.text_type_regular
+				if (data.userLogin)
+					hr.header__divider
+					span.header__userName.text_type_regular #{data.userLogin}
 				else
-					span
+					div.header__buttonsContainer
+						+Button(
+							data.loginText ? data.loginText : "Login",
+							"button_type_bordered header__loginButton",
+							true
+						)
+						+Button(
+							data.registerText ? data.registerText : "Register",
+							"button_type_filled header__registerButton",
+							true
+						)

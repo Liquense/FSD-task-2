@@ -1825,4 +1825,22 @@
       .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo .roomPreviewCard__reviewsInfo .roomPreviewCard__reviewsText {
         color: rgba(31, 32, 65, 0.5); }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  width: 100%;
+  padding: 1.04167vw 9.72222vw; }
+  .header .header__contentContainer .header__menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row; }
+    .header .header__contentContainer .header__menu .header__buttonsContainer {
+      display: flex; }
+
+
 

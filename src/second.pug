@@ -178,20 +178,25 @@ html(lang="ru")
 						rating: 4,
 					}
 				})
-			div.headersContainer.container
-				include ./pageElements/header/header
-				-const logoPath = require('./assets/images/logo_colored_withText.svg')
-				+header(
-					{
-						isGuest: true,
-						logo: logoPath,
-						loginText: "Login",
-						registerText: "register"
-					}
-				)
-				+header(
-					{
-						logo: logoPath
-					}
-				)
-			div.footersContainer.container
+
+			include ./pageElements/header/header
+			-const logoPath = require('./assets/images/logo_colored_withText.svg')
+			+header(
+				{
+					userLogin: "Cosmin Negoita",
+					logo: logoPath,
+					loginText: "Login",
+					registerText: "register"
+				},
+				[
+					{text: "test", children: []}
+				]
+			)
+			+header(
+				{
+					logo: logoPath
+				},
+				[
+
+				]
+			)
