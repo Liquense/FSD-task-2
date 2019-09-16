@@ -1524,7 +1524,7 @@
       line-height: 24px; }
 
 .findRoomCard {
-  width: 380px;
+  max-width: 380px;
   box-shadow: 0px 0px 25px rgba(31, 32, 65, 0.2);
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.12);
@@ -1539,6 +1539,15 @@
     margin-bottom: 17px; }
   .findRoomCard .findRoomCard__dropDown {
     margin-bottom: 30px; }
+
+@media (max-width: 340px) {
+  .findRoomCard {
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0; }
+    .findRoomCard .findRoomCard__title {
+      text-align: center; } }
 
 .registrationCard {
   box-sizing: border-box;
@@ -1592,6 +1601,25 @@
       vertical-align: middle;
       color: black;
       text-decoration: none; }
+
+@media (max-width: 340px) {
+  .registrationCard {
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0; }
+    .registrationCard .registrationCard__title {
+      text-align: center; }
+    .registrationCard .registrationCard__genderList {
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto; }
+    .registrationCard .registrationCard__sendOffers {
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto; }
+    .registrationCard .registrationCard__actionContainer {
+      justify-content: space-evenly; } }
 
 .bookingCard {
   box-sizing: border-box;
@@ -1677,6 +1705,21 @@
       flex-shrink: 0;
       font-family: Montserrat, sans-serif; }
 
+@media (max-width: 340px) {
+  .bookingCard {
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0; }
+    .bookingCard .bookingCard__header {
+      justify-content: space-evenly; }
+    .bookingCard .bookingCard__checkContainer {
+      padding-left: 10px;
+      padding-right: 10px; }
+    .bookingCard .bookingCard__summary {
+      padding-left: 5px;
+      padding-right: 5px; } }
+
 .loginCard {
   padding: 39px 29px 29px 29px;
   background: white;
@@ -1704,6 +1747,17 @@
     align-items: center; }
     .loginCard .loginCard__createAccountContainer .loginCard__haventAccount {
       color: black; }
+
+@media (max-width: 340px) {
+  .loginCard {
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0; }
+    .loginCard .loginCard__title {
+      text-align: center; }
+    .loginCard .loginCard__createAccountContainer {
+      justify-content: space-evenly; } }
 
 .carousel {
   width: 270px; }

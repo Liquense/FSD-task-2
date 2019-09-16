@@ -45,3 +45,20 @@
     }
   }
 }
+
+@media (max-width: 340px) {
+  .loginCard {
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0;
+
+    .loginCard__title {
+      text-align: center;
+    }
+
+    .loginCard__createAccountContainer {
+      justify-content: space-evenly;
+    }
+  }
+}

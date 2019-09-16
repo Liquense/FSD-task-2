@@ -2,7 +2,7 @@ $cardWidth: 380px;
 $borderWidth: 1px;
 
 .findRoomCard {
-  width: $cardWidth;
+  max-width: $cardWidth;
   box-shadow: 0px 0px 25px $darkShade20;
   background-color: white;
   border: $borderWidth solid rgba(0, 0, 0, 0.12);
@@ -22,5 +22,18 @@ $borderWidth: 1px;
 
   .findRoomCard__dropDown {
     margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 340px) {
+  .findRoomCard {
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0;
+
+    .findRoomCard__title {
+      text-align: center;
+    }
   }
 }

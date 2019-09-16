@@ -81,3 +81,32 @@
     }
   }
 }
+
+@media (max-width: 340px) {
+  .registrationCard {
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0;
+
+    .registrationCard__title {
+      text-align: center;
+    }
+
+    .registrationCard__genderList {
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .registrationCard__sendOffers {
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .registrationCard__actionContainer {
+      justify-content: space-evenly;
+    }
+  }
+}

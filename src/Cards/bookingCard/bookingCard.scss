@@ -70,6 +70,7 @@
       &:not(:last-child) {
         margin-bottom: 16px;
       }
+
       &:nth-last-child(2) {
         margin-bottom: 15px;
       }
@@ -138,5 +139,27 @@
 
   .bookingCard__bookingButton {
 
+  }
+}
+
+@media (max-width: 340px) {
+  .bookingCard {
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0;
+
+    .bookingCard__header {
+      justify-content: space-evenly;
+    }
+
+    .bookingCard__checkContainer {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .bookingCard__summary {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
   }
 }
