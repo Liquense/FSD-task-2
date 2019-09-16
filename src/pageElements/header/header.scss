@@ -11,10 +11,12 @@
   padding: get-vw(15px) get-vw(140px);
 
   .header__logo {
-
   }
 
   .header__contentContainer {
+    display: flex;
+    align-items: center;
+
     .header__menu {
       margin: 0;
       padding: 0;
@@ -27,32 +29,90 @@
         @import "./__menuItem/header__menuItem";
         @include menuItem();
       }
+    }
 
+    :not(:last-child) {
+      margin-right: get-vw(30px);
+    }
 
-      //Если залогинен - вертикальный разделитель и имя пользователя
+    //Если залогинен - вертикальный разделитель и имя пользователя
+    .header__divider {
+      flex-shrink: 0;
+      display: block;
+      height: 30px;
+      border: solid 1px $darkShade10;
+    }
+
+    .header__userName {
+      color: $darkShade50;
+    }
+
+    //Если не залогинен - кнопки логина и регистрации
+    .header__buttonsContainer {
+      display: flex;
+
+      .header__loginButton {
+        margin-right: get-vw(20px);
+      }
+
+      .header__registerButton {
+      }
+    }
+  }
+}
+
+@media (max-width: 1100px) {
+  .header {
+    padding-right: 0;
+    padding-left: 0;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 850px) {
+  .header {
+    flex-direction: column;
+
+    .header__contentContainer {
+      flex-direction: column;
+
+      .header__menu {
+        margin-right: 0;
+      }
+
       .header__divider {
-        flex-shrink: 0;
-        display: block;
+        width: 30px;
+        height: 0px;
+        margin: 5px 0;
+      }
+    }
+  }
+}
 
-        height: 30px;
-        border: solid 1px $darkShade10;
+@media (max-width: 450px) {
+  .header {
+    .header__contentContainer {
+      width: 100%;
+
+      .header__menu {
+        flex-direction: column;
+
+        .header__menuItem {
+          margin: 5px 0;
+        }
       }
 
-      .header__userName {
-
+      .header__divider {
+        width: 100%;
       }
 
-      //Если не залогинен - кнопки логина и регистрации
       .header__buttonsContainer {
-        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+      }
 
-        .header__loginButton {
-          margin-right: get-vw(20px);
-        }
-
-        .header__registerButton {
-
-        }
+      :not(:last-child) {
+        margin-bottom: 10px;
       }
     }
   }

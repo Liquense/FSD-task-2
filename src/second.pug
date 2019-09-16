@@ -5,6 +5,51 @@ html(lang="ru")
 		title UI-Kit
 	body
 		a(href="index.html" class="text_type_label-CTA pageHeader") Вернуться на главную
+		//!----------------------------------------------------------------------------------------------
+		include ./pageElements/header/header
+		-const logoPath = require('./assets/images/logo_colored_withText.svg')
+		+header(
+			{
+				logo: logoPath
+			},
+			[
+				{text: "Home", bold: true},
+				{text: "About Us"},
+				{
+					text: "Services",
+					children: [
+						{text: "service 1", children: [{text: "456", children: [{text: "1231"}]}]},
+						{text: "service 2", children: [{text: "123"}]}
+					]
+				},
+				{text: "Careers"},
+				{text: "News"},
+				{text: "Documentation"},
+			]
+		)
+		+header(
+			{
+				userLogin: "Cosmin Negoita",
+				logo: logoPath,
+				loginText: "Login",
+				registerText: "register"
+			},
+			[
+				{text: "Home", bold: true},
+				{text: "About Us"},
+				{
+					text: "Services",
+					children: [
+						{text: "service 1", children: [{text: "456", children: [{text: "1231"}]}]},
+						{text: "service 2", children: [{text: "123"}]}
+					]
+				},
+				{text: "Careers"},
+				{text: "News"},
+				{text: "Documentation"},
+			]
+		)
+		//!----------------------------------------------------------------------------------------------
 		br
 		div.bodyContainer
 			div.inputsContainer.container
@@ -32,7 +77,6 @@ html(lang="ru")
 			div.checkboxContainer.container
 				include blocks/Checkbox/Checkbox
 				include blocks/List/list
-
 				-var checkButtons = [{text: "Можно курить"}]
 				-checkButtons.push({text: "Можно с питомцами"})
 				-checkButtons.push({text: "Можно пригласить гостей (до 10 человек)"})
@@ -178,30 +222,3 @@ html(lang="ru")
 						rating: 4,
 					}
 				})
-
-			include ./pageElements/header/header
-			-const logoPath = require('./assets/images/logo_colored_withText.svg')
-			+header(
-				{
-					logo: logoPath
-				},
-				[
-					{text: "test0"},
-					{
-						text: "test", bold: true,
-						children: [
-							{text: "innerTest", children: [{text: "secondInnerTest"}, {text: "miniInner"}]},
-							{text: "innerTest2", bold: true}
-						]
-					}
-				]
-			)
-			+header(
-				{
-					userLogin: "Cosmin Negoita",
-					logo: logoPath,
-					loginText: "Login",
-					registerText: "register"
-				},
-				[{text: "test"}]
-			)
