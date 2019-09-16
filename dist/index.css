@@ -71,7 +71,9 @@
   text-decoration: none; }
 
 .button {
-  cursor: pointer; }
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content; }
   .button .button__control {
     cursor: pointer;
     height: 44px;
