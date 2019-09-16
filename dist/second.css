@@ -1935,17 +1935,19 @@
 @media (max-width: 450px) {
   .header .header__contentContainer {
     width: 100%; }
+    .header .header__contentContainer :not(:last-child) {
+      margin-bottom: 10px; }
     .header .header__contentContainer .header__menu {
       flex-direction: column; }
       .header .header__contentContainer .header__menu .header__menuItem {
         margin: 5px 0; }
     .header .header__contentContainer .header__divider {
-      width: 100%; }
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 5px; }
     .header .header__contentContainer .header__buttonsContainer {
       justify-content: space-evenly;
-      width: 100%; }
-    .header .header__contentContainer :not(:last-child) {
-      margin-bottom: 10px; } }
+      width: 100%; } }
 
 
 body {

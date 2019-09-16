@@ -94,6 +94,10 @@
     .header__contentContainer {
       width: 100%;
 
+      :not(:last-child) {
+        margin-bottom: 10px;
+      }
+
       .header__menu {
         flex-direction: column;
 
@@ -104,15 +108,13 @@
 
       .header__divider {
         width: 100%;
+        margin-top: 0;
+        margin-bottom: 5px;
       }
 
       .header__buttonsContainer {
         justify-content: space-evenly;
         width: 100%;
-      }
-
-      :not(:last-child) {
-        margin-bottom: 10px;
       }
     }
   }
