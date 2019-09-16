@@ -1,6 +1,10 @@
 @mixin menuItem() {
   &:not(:last-child) {
     margin-right: get-vw(30px);
+
+    &.header__menuItem_expandable {
+      margin-right: get-vw(20px);
+    }
   }
 
   display: flex;
@@ -9,7 +13,7 @@
   color: $darkShade50;
   text-align: center;
 
-  &.header__menuItem_bold {
+  &.header__menuItem_bold, .header__subMenuItem_bold {
     font-weight: bold;
     color: $darkShade75;
   }

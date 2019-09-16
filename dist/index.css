@@ -1941,7 +1941,9 @@
         text-align: center; }
         .header .header__contentContainer .header__menu .header__menuItem:not(:last-child) {
           margin-right: 2.08333vw; }
-        .header .header__contentContainer .header__menu .header__menuItem.header__menuItem_bold {
+          .header .header__contentContainer .header__menu .header__menuItem:not(:last-child).header__menuItem_expandable {
+            margin-right: 1.38889vw; }
+        .header .header__contentContainer .header__menu .header__menuItem.header__menuItem_bold, .header .header__contentContainer .header__menu .header__menuItem .header__subMenuItem_bold {
           font-weight: bold;
           color: rgba(31, 32, 65, 0.75); }
         .header .header__contentContainer .header__menu .header__menuItem .header__expandButton {
