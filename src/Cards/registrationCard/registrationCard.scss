@@ -1,4 +1,8 @@
 .registrationCard {
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   box-sizing: border-box;
   background: #FFFFFF;
   border: 1px solid $darkShade12;
@@ -7,6 +11,7 @@
   padding: 40px 30px 30px 30px;
 
   .registrationCard__title {
+    align-self: stretch;
     margin: 0;
     margin-bottom: 20px;
     letter-spacing: -0.6px;
@@ -30,6 +35,8 @@
   }
 
   .registrationCard__genderList {
+    align-self: stretch;
+
     > .list__container {
       > .list__input {
         margin-top: 0;
@@ -60,6 +67,7 @@
   }
 
   .registrationCard__sendOffers {
+    align-self: stretch;
     margin-bottom: 24px;
   }
 
@@ -69,6 +77,7 @@
 
   .registrationCard__actionContainer {
     display: flex;
+    align-self: stretch;
     align-items: center;
     justify-content: space-between;
 
@@ -84,6 +93,7 @@
 
 @media (max-width: 380px) {
   .registrationCard {
+    width: 100%;
     padding-left: 0;
     padding-right: 0;
     border-right: 0;

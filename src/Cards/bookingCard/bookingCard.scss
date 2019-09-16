@@ -1,9 +1,13 @@
 .bookingCard {
+  max-width: 380px;
   box-sizing: border-box;
   background: #FFFFFF;
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   @include clearfix();
 
   padding: 49px 29px 29px 29px;
@@ -11,6 +15,7 @@
   .bookingCard__header {
     display: flex;
     justify-content: space-between;
+    align-self: stretch;
     align-items: baseline;
 
     margin-bottom: 20px;
@@ -118,6 +123,7 @@
   .bookingCard__summary {
     margin-bottom: 20px;
     display: flex;
+    align-self: stretch;
     align-items: baseline;
 
     .bookingCard__summaryText {
@@ -148,18 +154,25 @@
     padding-right: 0;
     border-right: 0;
     border-left: 0;
+    width: 100%;
+    min-width: 320px;
 
     .bookingCard__header {
       justify-content: space-evenly;
     }
 
     .bookingCard__checkContainer {
-      padding-left: 10px;
       padding-right: 10px;
+      padding-left: 10px;
+
+      .row {
+        max-width: unset;
+      }
     }
+
     .bookingCard__summary {
-      padding-left: 5px;
       padding-right: 5px;
+      padding-left: 5px;
     }
   }
 }
