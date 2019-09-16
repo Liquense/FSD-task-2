@@ -16,7 +16,7 @@ mixin registrationCard(data={})
 			+Input("", "text", "Email", "registrationCard__email")
 			+Input("", "text", "Пароль", "registrationCard__password")
 		+checkbox("Получать спецпредложения", "toggle", "", "registrationCard__sendOffers")
-		+Button("Перейти к оплате", "button_type_filled button_width_wide registrationCard__paymentButton")(decoration = "enterArrow")
+		+Button("Перейти к оплате", "button_type_filled button_size_wide registrationCard__paymentButton")(decoration = "enterArrow")
 		div.registrationCard__actionContainer
 			a.registrationCard__haveAccountLink(href=data.loginURL) Уже есть аккаунт на Toxin
 			+Button("Войти", "button_type_bordered registrationCard__loginButton")
