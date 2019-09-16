@@ -102,7 +102,13 @@
         flex-direction: column;
 
         .header__menuItem {
-          margin: 5px 0;
+          &:not(:last-child) {
+            margin: 5px 0;
+
+            &.header__menuItem_expandable {
+              margin: 5px 0 5px 12px;
+            }
+          }
         }
       }
 

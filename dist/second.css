@@ -2025,8 +2025,10 @@
       margin-bottom: 10px; }
     .header .header__contentContainer .header__menu {
       flex-direction: column; }
-      .header .header__contentContainer .header__menu .header__menuItem {
+      .header .header__contentContainer .header__menu .header__menuItem:not(:last-child) {
         margin: 5px 0; }
+        .header .header__contentContainer .header__menu .header__menuItem:not(:last-child).header__menuItem_expandable {
+          margin: 5px 0 5px 12px; }
     .header .header__contentContainer .header__divider {
       width: 100%;
       margin-top: 0;
