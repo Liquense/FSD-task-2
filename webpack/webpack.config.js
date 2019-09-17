@@ -31,7 +31,6 @@ module.exports = {
 		filename: "js/[name].bundle.js",
 	},
 	plugins: [
-		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
 			filename: './[id].css',
 		}),
@@ -122,9 +121,9 @@ module.exports = {
 				]
 			},
 			{
-				test: /\.(otf|ttf|svg)$/,
-				include: [
-					path.resolve(paths.source, "assets/fonts")
+				test: /\.(otf|ttf|svg|woff|woff2|eot)$/,
+				exclude: [
+					path.resolve(paths.source, "assets/images")
 				],
 				use: [
 					{

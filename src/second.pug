@@ -5,7 +5,7 @@ html(lang="ru")
 		title UI-Kit
 	body
 		a(href="index.html" class="text_type_label-CTA pageHeader") Вернуться на главную
-		//!----------------------------------------------------------------------------------------------
+		//- Headers
 		include ./pageElements/header/header
 		-const logoPath = require('./assets/images/logo_colored_withText.svg')
 		+header(
@@ -49,7 +49,7 @@ html(lang="ru")
 				{text: "Documentation"},
 			]
 		)
-		//!----------------------------------------------------------------------------------------------
+		//- headers
 		br
 		div.bodyContainer
 			div.inputsContainer.container
@@ -222,3 +222,14 @@ html(lang="ru")
 						rating: 4,
 					}
 				})
+		//- footers
+		include ./pageElements/footer/footer
+		+simpleFooter({
+			logo: logoPath,
+			text: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis."
+		})
+		+largeFooter({
+			logo: logoPath,
+			text: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis."
+		})
+		//- footers

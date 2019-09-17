@@ -2038,3 +2038,33 @@
       width: 100%; } }
 
 
+.footer {
+  width: 100%;
+  box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
+  background-color: white; }
+  .footer .fab {
+    font-size: 24px;
+    background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-underline: none; }
+
+
+.footer_type_simple {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0 110px 0; }
+  .footer_type_simple .footer__logo {
+    margin-bottom: 20px; }
+  .footer_type_simple .footer__text {
+    text-align: center;
+    max-width: 560px;
+    line-height: 24px;
+    margin-bottom: 25px; }
+  .footer_type_simple .footer__socialMedia {
+    width: fit-content; }
+    .footer_type_simple .footer__socialMedia .footer__icon:not(:last-child) {
+      margin-right: 20px; }
+
