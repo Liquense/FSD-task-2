@@ -8,8 +8,8 @@ import "./_masked/input_masked.js"
 import "./_focused/input_focused.scss"
 
 //---Width
-import "./_width/input__width_narrow.scss"
-
+import "./_width/input_width_narrow.scss"
+import "./_width/input_width_preMedium.scss"
 import "./_width/input_width_medium.scss"
 
 //---Type

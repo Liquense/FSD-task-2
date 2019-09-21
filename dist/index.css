@@ -262,6 +262,9 @@
 .input__control_width_narrow {
   width: 150px; }
 
+.input__control_width_preMedium {
+  width: 260px; }
+
 .input__control_width_medium {
   width: 266px; }
 

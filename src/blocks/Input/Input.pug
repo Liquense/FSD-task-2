@@ -46,6 +46,9 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 	if types.includes("narrow")
 		each value, index in attributes
 			- value.class += classNames[index] + "_width_narrow "
+	else if types.includes("premedium")
+		each value, index in attributes
+			- value.class += classNames[index] + "_width_preMedium "
 	else if types.includes("medium")
 		each value, index in attributes
 			- value.class += classNames[index] + "_width_medium "

@@ -21,7 +21,7 @@ mixin largeFooter(data={}, links=[], subscription={})
 			div.footer__subscribeSection
 				h3.footer__subscriptionTitle.text_type_label-CTA #{subscription.title}
 				span.footer__subscriptionText.text_type_regular #{subscription.text}
-				+Input("", "text medium", "Your email address", "footer__subscribeInput", "")
+				+Input("", "text premedium", "Your email address", "footer__subscribeInput", "")
 		div.footer__copyrightBar
 			span.footer__copyrightText.text_type_regular #{data.copyright}
 			+socialMedia()
