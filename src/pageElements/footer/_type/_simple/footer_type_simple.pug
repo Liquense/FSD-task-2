@@ -1,0 +1,5 @@
+mixin simpleFooter(data={})
+	footer.footer.footer_type_simple
+		img(src=data.logo alt="logo").footer__logo
+		span.footer__text.text_type_regular #{data.text}
+		+socialMedia()

@@ -228,8 +228,16 @@ html(lang="ru")
 			logo: logoPath,
 			text: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis."
 		})
-		+largeFooter({
-			logo: logoPath,
-			text: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis."
-		})
+		+largeFooter(
+			{
+				logo: logoPath,
+				text: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+				copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved."
+			},
+			[
+				{title: "navigation", links: [{text: "About Us", url: "#"}, {text: "News", url: "#"}, {text: "Support", url:"#"}, {text: "Products", url: "#"}]},
+				{title: "about us", links: [{text: "Who we are", url: "#"}, {text: "Our team", url:"#"}, {text: "Careers", url:"#"}, {text: "Investors", url:"#"}]},
+				{title: "support", links: [{text: "Documentation", url:"#"}, {text: "Community", url: "#"}, {text: "Get in Touch", url: "#"}]}
+			]
+		)
 		//- footers

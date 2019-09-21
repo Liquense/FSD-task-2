@@ -1613,25 +1613,25 @@ eval("var pug = __webpack_require__(/*! ../node_modules/pug-runtime/index.js */ 
 
 /***/ }),
 
-/***/ "./src/pageElements/footer/_type/footer_type_large.scss":
-/*!**************************************************************!*\
-  !*** ./src/pageElements/footer/_type/footer_type_large.scss ***!
-  \**************************************************************/
+/***/ "./src/pageElements/footer/_type/_large/footer_type_large.scss":
+/*!*********************************************************************!*\
+  !*** ./src/pageElements/footer/_type/_large/footer_type_large.scss ***!
+  \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/pageElements/footer/_type/footer_type_large.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/pageElements/footer/_type/_large/footer_type_large.scss?");
 
 /***/ }),
 
-/***/ "./src/pageElements/footer/_type/footer_type_simple.scss":
-/*!***************************************************************!*\
-  !*** ./src/pageElements/footer/_type/footer_type_simple.scss ***!
-  \***************************************************************/
+/***/ "./src/pageElements/footer/_type/_simple/footer_type_simple.scss":
+/*!***********************************************************************!*\
+  !*** ./src/pageElements/footer/_type/_simple/footer_type_simple.scss ***!
+  \***********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/pageElements/footer/_type/footer_type_simple.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/pageElements/footer/_type/_simple/footer_type_simple.scss?");
 
 /***/ }),
 
@@ -1643,7 +1643,7 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _footer_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./footer.scss */ \"./src/pageElements/footer/footer.scss\");\n/* harmony import */ var _footer_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_footer_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _type_footer_type_large_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_type/footer_type_large.scss */ \"./src/pageElements/footer/_type/footer_type_large.scss\");\n/* harmony import */ var _type_footer_type_large_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_type_footer_type_large_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _type_footer_type_simple_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_type/footer_type_simple.scss */ \"./src/pageElements/footer/_type/footer_type_simple.scss\");\n/* harmony import */ var _type_footer_type_simple_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_type_footer_type_simple_scss__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/pageElements/footer/footer.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _footer_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./footer.scss */ \"./src/pageElements/footer/footer.scss\");\n/* harmony import */ var _footer_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_footer_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _type_large_footer_type_large_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./_type/_large/footer_type_large.scss */ \"./src/pageElements/footer/_type/_large/footer_type_large.scss\");\n/* harmony import */ var _type_large_footer_type_large_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_type_large_footer_type_large_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _type_simple_footer_type_simple_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./_type/_simple/footer_type_simple.scss */ \"./src/pageElements/footer/_type/_simple/footer_type_simple.scss\");\n/* harmony import */ var _type_simple_footer_type_simple_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_type_simple_footer_type_simple_scss__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/pageElements/footer/footer.js?");
 
 /***/ }),
 

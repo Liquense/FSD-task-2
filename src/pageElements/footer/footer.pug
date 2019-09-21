@@ -1,29 +1,3 @@
 include ./__socialMedia/footer__socialMedia
-
-mixin largeFooter(data={}, links={}, subscription={})
-	include ../../blocks/Input/Input
-	-let _subscription = subscription;
-	-_subscription.title = _subscription.title ? _subscription.title : "Subscribe to our newsletter";
-	-_subscription.text = _subscription.text ? _subscription.text : "Receive our latest news and promotions in your inbox!";
-	footer.footer.footer_type_large
-		div.footer__contentSection
-			div.footer__logoSection
-				img(src=data.logo alt="logo").footer__logo
-				span.footer__text #{data.text}
-			div.footer__linksSection
-				div
-			div.footer__subscribeSection
-				h3.footer__subscriptionTitle.text_type_label-CTA #{subscription.title}
-				span.footer__subscriptionText.text_type_regular #{subscription.text}
-				+Input("", "text", "Your email address", "footer__subscribeInput", "")
-		div.footer__copyrightBar
-			span.footer__copyrightText
-			+socialMedia()
-
-
-mixin simpleFooter(data={})
-	footer.footer.footer_type_simple
-		img(src=data.logo alt="logo").footer__logo
-		span.footer__text.text_type_regular #{data.text}
-		+socialMedia()
-
+include ./_type/_large/footer_type_large
+include ./_type/_simple/footer_type_simple
