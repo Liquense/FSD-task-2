@@ -55,6 +55,7 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 
 	include ./_type/_dropdown/input__list_type_dropdown
 	include ./_decoration/_expandArrow/input_decoration_expandArrow
+	include ./_decoration/_enterArrow/input_decoration_enterArrow
 	div&attributes(blockAttributes)
 		if title
 			label&attributes(titleAttributes) #{title}
@@ -62,6 +63,9 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 				div&attributes(controlWrapperAttrs)
 					if types.includes("dropdown") || types.includes("datepicker")
 						+expandArrow()
+					else if types.includes("subscription")
+						+enterArrow()
+
 					input&attributes(controlAttributes)
 		else
 			if types.includes("dropdown") || types.includes("datepicker")
@@ -69,6 +73,8 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 				div&attributes(controlWrapperAttrs)
 					if types.includes("dropdown") || types.includes("datepicker")
 						+expandArrow()
+					else if types.includes("subscription")
+						+enterArrow()
 					input&attributes(controlAttributes)
 		if types.includes("dropdown")
 			+dropdownList(additional, dropdownAttributes, range)

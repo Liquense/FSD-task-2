@@ -21,7 +21,7 @@
       margin-right: get-vw(40px);
 
       .footer__logo {
-        margin-bottom: 20px;
+        margin-bottom: 17px;
       }
 
       .footer__logoText {
@@ -88,7 +88,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: solid 2px $darkShade25;
+    border-top: solid 1px $darkShade25;
     height: 70px;
 
     .footer__copyrightText {
