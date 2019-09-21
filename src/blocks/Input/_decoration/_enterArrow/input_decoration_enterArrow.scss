@@ -4,7 +4,7 @@
   .input__title {
     .input__controlWrapper {
       .input__enterArrow {
-        @include icon()
+        @include icon();
         @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
         display: block;
         width: $inputHeight;

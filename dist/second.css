@@ -1019,6 +1019,23 @@
   .input__arrow_decoration_expandArrow:focus {
     outline: none; }
 
+.input_decoration_enterArrow .input__title .input__controlWrapper .input__enterArrow {
+  font-family: "Material Icons";
+  text-transform: lowercase;
+  font-size: 24px;
+  background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  vertical-align: middle;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  user-select: none; }
+
 .slider {
   width: 266px; }
 
@@ -2070,7 +2087,7 @@
     align-items: flex-start;
     margin-right: 2.77778vw; }
     .footer_type_large .footer__contentSection .footer__logoSection .footer__logo {
-      margin-bottom: 20px; }
+      margin-bottom: 17px; }
     .footer_type_large .footer__contentSection .footer__logoSection .footer__logoText {
       max-width: 260px;
       line-height: 24px; }
@@ -2112,7 +2129,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: solid 2px rgba(31, 32, 65, 0.25);
+  border-top: solid 1px rgba(31, 32, 65, 0.25);
   height: 70px; }
   .footer_type_large .footer__copyrightBar .footer__socialMedia .footer__icon:not(:first-child) {
     margin-left: 1.59722vw; }
