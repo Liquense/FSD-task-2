@@ -1,4 +1,4 @@
-import $ from "jquery"
+import "../../../../vendor/jquery.maskedinput/src/jquery.maskedinput"
 
 $(document).ready(function () {
     $.mask.definitions['m'] = "[012]";

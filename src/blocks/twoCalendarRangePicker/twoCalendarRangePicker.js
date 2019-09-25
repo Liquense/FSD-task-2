@@ -1,3 +1,4 @@
+import "../Input/_type/_datepicker/input_type_datepicker"
 import "./twoCalendarRangePicker.scss"
 import {compareDateArrays} from "../../common/functions";
 

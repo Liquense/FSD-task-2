@@ -1,9 +1,5 @@
 @import "common/variables";
 
-body {
-  margin: 0;
-}
-
 .bodyContainer {
   display: flex;
   flex-wrap: wrap;
@@ -18,7 +14,6 @@ body {
 }
 
 .container {
-  //float: left;
   margin: 50px 20px 0 0;
 }
 

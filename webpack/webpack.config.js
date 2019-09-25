@@ -22,7 +22,7 @@ const sitePages = [
 	return new HtmlWebpackPlugin({
 		template: `./src/sitePages/${name}.pug`,
 		filename: `${name}.html`,
-		chunks: ['landingPage'],
+		chunks: [`${name}`],
 	})
 });
 
@@ -33,7 +33,10 @@ module.exports = {
 	entry: {
 		index: paths.source + '/index.js',
 		second: paths.source + '/second.js',
-		landingPage: paths.source + '/sitePages/landingPage.js'
+		landingPage: paths.source + '/sitePages/landingPage.js',
+		registrationLogin: paths.source + '/sitePages/registration-login.js',
+		roomDetails: paths.source + '/sitePages/roomDetails.js',
+		searchRoom: paths.source + '/sitePages/searchRoom.js',
 	},
 	output: {
 		path: paths.build,

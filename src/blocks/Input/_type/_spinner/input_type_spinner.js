@@ -1,3 +1,4 @@
+import "jquery-ui/ui/widgets/spinner"
 //морф, чтобы кнопки были по бокам
 $.widget("ui.spinner", $.ui.spinner, {
     _enhance: function () {

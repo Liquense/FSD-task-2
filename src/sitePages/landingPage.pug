@@ -1,1 +1,76 @@
-span hello world
+html(lang="ru")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport" content="width=device-width, initial-scale=1.0")
+		link(rel="icon" href=require('../assets/images/icon-colored.png'))
+		title TOXIN
+	body
+		include ../pageElements/header/header
+		-const logoPath = require('../assets/images/logo_colored_withText.svg')
+		+header(
+			{
+				logo: logoPath
+			},
+			[
+				{text: "О нас"},
+				{
+					text: "Услуги",
+					children: [
+						{text: "Услуга 1", children: [{text: "456", children: [{text: "1231"}]}]},
+						{text: "Услуга 2", children: [{text: "123"}]}
+					]
+				},
+				{text: "Вакансии"},
+				{text: "Новости"},
+				{
+					text: "Соглашения",
+					children: [
+						{text: "Соглашение 1", children: [{text: "456", children: [{text: "1231"}]}]},
+						{text: "Соглашение 2", children: [{text: "123"}]}
+					]
+				},
+			]
+		)
+
+		div.landingPage__roomContainer
+			include ../Cards/findRoomCard/findRoomCard
+			+findRoomCard()(classes="landingPage__findRoomCard")
+			span.roomContainer__slogan.text_type_regular Лучшие номера для вашей работы, отдыха и просто вдохновения
+
+		include ../pageElements/footer/footer
+		+largeFooter(
+			{
+				logo: logoPath,
+				text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
+				copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved."
+			},
+			[
+				{title: "Навигация",
+					links:
+						[
+							{text: "О нас", url: "#"},
+							{text: "Новости", url: "#"},
+							{text: "Служба поддержки", url: "#"},
+							{text: "Услуги", url: "#"}
+						]
+				},
+				{title: "О нас",
+					links:
+						[
+							{text: "О сервисе", url: "#"},
+							{text: "Наша команда", url: "#"},
+							{text: "Вакансии", url: "#"},
+							{text: "Инвесторы", url: "#"}
+						]
+				},
+				{title: "Служба поддержки",
+					links:
+						[
+							{text: "Соглашения", url: "#"},
+							{text: "Сообщества", url: "#"},
+							{text: "Связь с нами", url: "#"}
+						]
+				}
+			],
+			{title: "Подписка", text: "Получайте специальные предложения и новости сервиса"}
+		)
