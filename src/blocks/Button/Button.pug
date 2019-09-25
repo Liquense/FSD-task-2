@@ -1,4 +1,4 @@
-mixin Button(text, addClasses, isTextSized=false)
+mixin Button(text, addClasses, params={isTextSized: false, isLink: false})
 	-let decorationText = ""
 	-const decoration = attributes.decoration ? attributes.decoration.toLowerCase() : ""
 	-const arrowDecorationCN = "button_decoration_enterArrow"
@@ -6,13 +6,23 @@ mixin Button(text, addClasses, isTextSized=false)
 		when "enterarrow"
 			-decorationText = "arrow_forward"
 			-addClasses += ` ${arrowDecorationCN} `
-	if isTextSized
+	if params.isTextSized
 		-addClasses += ` button_textSized `
-	div(class="button " + addClasses)
-		if addClasses.includes("bordered")
-			div.button__border.button__border_type_bordered
+	if params.isLink
+		a(class="button " + addClasses)
+			if addClasses.includes("bordered")
+				div.button__border.button__border_type_bordered
+					button(class="button__control text_type_label-CTA ") #{text}
+			else
 				button(class="button__control text_type_label-CTA ") #{text}
-		else
-			button(class="button__control text_type_label-CTA ") #{text}
-		if addClasses.includes(arrowDecorationCN)
-			div.button__decoration #{decorationText}
+			if addClasses.includes(arrowDecorationCN)
+				div.button__decoration #{decorationText}
+	else
+		div(class="button " + addClasses)
+			if addClasses.includes("bordered")
+				div.button__border.button__border_type_bordered
+					button(class="button__control text_type_label-CTA ") #{text}
+			else
+				button(class="button__control text_type_label-CTA ") #{text}
+			if addClasses.includes(arrowDecorationCN)
+				div.button__decoration #{decorationText}

@@ -13,13 +13,13 @@ mixin header(data={}, content=[])
 				div.header__userName.text_type_regular #{data.userLogin}
 			else
 				div.header__buttonsContainer
-					+Button(
-						data.loginText ? data.loginText : "Login",
-						"button_type_bordered header__loginButton",
-						true
-					)
-					+Button(
-						data.registerText ? data.registerText : "Register",
-						"button_type_filled header__registerButton",
-						true
-					)
+						+Button(
+							data.loginText ? data.loginText : "Login",
+							"button_type_bordered header__loginButton",
+							{isTextSized: true, isLink: true}
+						)
+						+Button(
+							data.registerText ? data.registerText : "Register",
+							"button_type_filled header__registerButton",
+							{isTextSized: true, isLink: true}
+						)

@@ -1,10 +1,8 @@
 @mixin menuItem() {
-  &:not(:last-child) {
-    margin-right: get-vw(30px);
+  margin-right: get-vw(30px);
 
-    &.header__menuItem_expandable {
-      margin-right: get-vw(20px);
-    }
+  &.header__menuItem_expandable {
+    margin-right: get-vw(20px);
   }
 
   display: flex;

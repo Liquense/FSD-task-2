@@ -31,9 +31,9 @@
       }
     }
 
-    :not(:last-child) {
-      margin-right: get-vw(30px);
-    }
+    //:not(:last-child) {
+    //  margin-right: get-vw(30px);
+    //}
 
     //Если залогинен - вертикальный разделитель и имя пользователя
     .header__divider {

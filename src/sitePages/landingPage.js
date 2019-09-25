@@ -16,4 +16,6 @@ $('.landingPage__roomContainer').each(function () {
 	$container.css('background-image', `url(${imagePaths[randomNum]})`);
 });
 
+$(".header__registerButton").attr("href", `registrationLogin.html?auth=${false}`);
+$(".header__loginButton").attr("href", `registrationLogin.html?auth=${true}`);
 

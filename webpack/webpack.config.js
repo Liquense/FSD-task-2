@@ -18,7 +18,7 @@ const mainPages = ['index', 'second'].map(name => {
 	})
 });
 const sitePages = [
-	'landingPage', 'registration-login', 'roomDetails', 'searchRoom'].map(name => {
+	'landingPage', 'registrationLogin', 'roomDetails', 'searchRoom'].map(name => {
 	return new HtmlWebpackPlugin({
 		template: `./src/sitePages/${name}.pug`,
 		filename: `${name}.html`,
@@ -34,7 +34,7 @@ module.exports = {
 		index: paths.source + '/index.js',
 		second: paths.source + '/second.js',
 		landingPage: paths.source + '/sitePages/landingPage.js',
-		registrationLogin: paths.source + '/sitePages/registration-login.js',
+		registrationLogin: paths.source + '/sitePages/registrationLogin.js',
 		roomDetails: paths.source + '/sitePages/roomDetails.js',
 		searchRoom: paths.source + '/sitePages/searchRoom.js',
 	},

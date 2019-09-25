@@ -228,15 +228,14 @@ body {
       list-style: none;
       align-items: center; }
       .header .header__contentContainer .header__menu .header__menuItem {
+        margin-right: 2.08333vw;
         display: flex;
         position: relative;
         align-items: center;
         color: rgba(31, 32, 65, 0.5);
         text-align: center; }
-        .header .header__contentContainer .header__menu .header__menuItem:not(:last-child) {
-          margin-right: 2.08333vw; }
-          .header .header__contentContainer .header__menu .header__menuItem:not(:last-child).header__menuItem_expandable {
-            margin-right: 1.38889vw; }
+        .header .header__contentContainer .header__menu .header__menuItem.header__menuItem_expandable {
+          margin-right: 1.38889vw; }
         .header .header__contentContainer .header__menu .header__menuItem.header__menuItem_bold, .header .header__contentContainer .header__menu .header__menuItem .header__subMenuItem_bold {
           font-weight: bold;
           color: rgba(31, 32, 65, 0.75); }
@@ -280,8 +279,6 @@ body {
               box-shadow: -8px 0px 5px -5px rgba(31, 32, 65, 0.2);
               right: unset;
               top: 0; }
-    .header .header__contentContainer :not(:last-child) {
-      margin-right: 2.08333vw; }
     .header .header__contentContainer .header__divider {
       flex-shrink: 0;
       display: block;
@@ -335,7 +332,8 @@ body {
 .button {
   cursor: pointer;
   width: fit-content;
-  height: fit-content; }
+  height: fit-content;
+  text-decoration: none; }
   .button .button__control {
     cursor: pointer;
     height: 44px;
