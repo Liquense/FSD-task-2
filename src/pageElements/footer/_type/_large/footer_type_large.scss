@@ -6,11 +6,26 @@
   .footer__contentSection {
     padding-right: get-vw(140px);
     padding-left: get-vw(140px);
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: get-vw(100px);
+    padding-bottom: get-vw(100px);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+    @media (max-width: 1439px) {
+      align-items: center;
+    }
+    @media (max-width: 1039px) {
+      flex-direction: column;
+
+      > :not(:first-child) {
+        margin: 0;
+        margin-top: 30px;
+      }
+    }
+    @media (max-width: 700px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
 
     .footer__logoSection {
@@ -19,6 +34,12 @@
       flex-shrink: 0;
       align-items: flex-start;
       margin-right: get-vw(40px);
+      @media (max-width: 1439px) {
+        margin-right: 0;
+      }
+      @media (max-width: 1039px) {
+        align-items: center;
+      }
 
       .footer__logo {
         margin-bottom: 17px;
@@ -27,26 +48,36 @@
       .footer__logoText {
         max-width: 260px;
         line-height: 24px;
+        @media (max-width: 1039px) {
+          width: 70%;
+          text-align: center;
+          max-width: unset;
+        }
+        @media (max-width: 700px) {
+          width: 90%;
+        }
+        @media (max-width: 450px) {
+          width: 100%;
+        }
       }
     }
 
     .footer__linksSection {
       display: flex;
-      justify-content: center;
+      justify-content: space-evenly;
       flex-wrap: wrap;
       align-items: flex-start;
       flex-grow: 1;
       padding-top: 6px; //не придумал гибкого варианта, т.к. на макете они не строго по центру контейнера, но и не вровень с логотипом
-      @media (max-width: 1440px) {
-        //align-items: flex-start;
-        justify-content: flex-start;
+      @media (max-width: 1039px) {
+        width: 100%;
       }
 
       .footer__linksColumn {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        width: get-vw(200px);
+        min-width: get-vw(200px);
 
         .footer__linksSectionTitle {
           margin-bottom: 21px;
@@ -91,10 +122,22 @@
     border-top: solid 1px $darkShade25;
     height: 70px;
 
+    @media (max-width: 700px) {
+      padding-left: 0;
+      padding-right: 0;
+      justify-content: space-evenly;
+    }
+    @media (max-width: 450px) {
+      justify-content: space-between;
+    }
+
     .footer__copyrightText {
     }
 
     .footer__socialMedia {
+      @media (max-width: 450px) {
+        min-width: 80px;
+      }
 
       .footer__icon {
         &:not(:first-child) {
