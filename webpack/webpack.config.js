@@ -10,27 +10,37 @@ const paths = {
 };
 
 //Отдельные странички
-const pagesMap = ['index', 'second'].map(name => {
+const mainPages = ['index', 'second'].map(name => {
 	return new HtmlWebpackPlugin({
 		template: `./src/${name}.pug`,
 		filename: `${name}.html`,
 		chunks: [`${name}`],
 	})
 });
+const sitePages = [
+	'landingPage', 'registration-login', 'roomDetails', 'searchRoom'].map(name => {
+	return new HtmlWebpackPlugin({
+		template: `./src/sitePages/${name}.pug`,
+		filename: `${name}.html`,
+		chunks: ['landingPage'],
+	})
+});
 
 module.exports = {
 	node: {
-	    fs: "empty"
+		fs: "empty"
 	},
 	entry: {
 		index: paths.source + '/index.js',
 		second: paths.source + '/second.js',
+		landingPage: paths.source + '/sitePages/landingPage.js'
 	},
 	output: {
 		path: paths.build,
 		filename: "js/[name].bundle.js",
 	},
 	plugins: [
+		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
 			filename: './[id].css',
 		}),
@@ -40,7 +50,7 @@ module.exports = {
 			"window.$": "jquery",
 			"window.jQuery": "jquery",
 		}),
-	].concat(pagesMap),
+	].concat(mainPages, sitePages),
 
 	module: {
 		rules: [
