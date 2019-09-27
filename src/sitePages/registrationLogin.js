@@ -1,6 +1,16 @@
-import "./registrationLogin.scss"
-import "../../node_modules/pug/lib/index"
+const url = new URL(window.location.href);
+let isLogin = url.searchParams.get("login");
+console.log(isLogin);
 
-//console.log("hello");
-//const pugfunction = generate(require('./registrationLogin.pug'));
-//console.log(pugfunction);
+let template = require("./registrationLogin.pug");
+let locals = {
+	login: isLogin
+};
+const templateHTML = template(locals);
+
+$("body").html(templateHTML);
+
+import "./registrationLogin.scss"
+import ("../Cards/registrationCard/registrationCard");
+import ("../Cards/loginCard/loginCard");
+import ("../common");

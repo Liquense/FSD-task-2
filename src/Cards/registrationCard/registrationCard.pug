@@ -1,6 +1,7 @@
 include ../../blocks/Input/Input
 include ../../blocks/Checkbox/Checkbox
 include ../../blocks/Button/Button
+include ../../blocks/List/list
 
 mixin registrationCard(data={})
 	div.registrationCard
@@ -20,4 +21,3 @@ mixin registrationCard(data={})
 		div.registrationCard__actionContainer
 			a.registrationCard__haveAccountLink(href=data.loginURL) Уже есть аккаунт на Toxin
 			+Button("Войти", "button_type_bordered registrationCard__loginButton")
-

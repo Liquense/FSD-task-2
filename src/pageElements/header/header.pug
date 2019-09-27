@@ -2,7 +2,7 @@ include ../../blocks/Button/Button
 include ./__menuItem/header__menuItem
 
 mixin header(data={}, content=[])
-	header.header
+	header(class=`header ${attributes.addClasses}`)
 		img(src=data.logo alt="logo").header__logo
 		div.header__contentContainer
 			ul.header__menu

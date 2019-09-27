@@ -1,4 +1,4 @@
-import "./Checkbox.pug"
+import "jquery-ui/ui/widgets/checkboxradio"
 import "./Checkbox.scss"
 //type
 import "./_type/_default/Checkbox_type_default"

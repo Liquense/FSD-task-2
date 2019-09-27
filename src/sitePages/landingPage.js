@@ -16,6 +16,12 @@ $('.landingPage__roomContainer').each(function () {
 	$container.css('background-image', `url(${imagePaths[randomNum]})`);
 });
 
-$(".header__registerButton").attr("href", `registrationLogin.html?auth=${false}`);
-$(".header__loginButton").attr("href", `registrationLogin.html?auth=${true}`);
+let registrationLoginURL = new URL(`${document.location.origin}/registrationLogin.html`);
+registrationLoginURL.searchParams.set("login", "true");
+const loginURL = new URL(registrationLoginURL);
+registrationLoginURL.searchParams.set("login", "false");
+const registerURL = new URL(registrationLoginURL);
+
+$(".header__registerButton").attr("href", registerURL);
+$(".header__loginButton").attr("href", loginURL);
 

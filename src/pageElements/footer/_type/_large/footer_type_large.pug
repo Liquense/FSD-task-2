@@ -6,7 +6,7 @@ mixin largeFooter(data={}, links=[], subscription={})
 	-let _subscription = subscription;
 	-_subscription.title = _subscription.title ? _subscription.title : "Subscribe to our newsletter";
 	-_subscription.text = _subscription.text ? _subscription.text : "Receive our latest news and promotions in your inbox!";
-	footer.footer.footer_type_large
+	footer(class = `footer footer_type_large ${attributes.addClasses}`)
 		div.footer__contentSection
 			div.footer__logoSection
 				img(src=data.logo alt="logo").footer__logo
