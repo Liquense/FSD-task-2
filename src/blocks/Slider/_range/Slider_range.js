@@ -1,4 +1,3 @@
-import $ from "jquery"
 import {formatNumber} from "../../../common/functions";
 import {sliderHandlerValueChange} from "../slider";
 

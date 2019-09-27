@@ -1,13 +1,6 @@
 import "./common"
 //
-import "jquery-ui/ui/widgets/slider"
-import "jquery-ui/themes/base/slider.css"
-//
-import "air-datepicker"
-//
 import "../vendor/jquery.maskedinput/src/jquery.maskedinput"
-//
-import "jquery-ui/ui/widgets/spinner"
 //
 import "jquery-ui/ui/widgets/checkboxradio"
 //
@@ -18,7 +11,6 @@ import "./blocks/Button/button"
 import "./blocks/Input/input"
 //
 import "./blocks/Slider/slider"
-import "./blocks/Slider/_range/Slider_range.js"
 //
 import "./blocks/twoCalendarRangePicker/twoCalendarRangePicker"
 //

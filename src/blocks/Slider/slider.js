@@ -1,6 +1,10 @@
+import "jquery-ui/ui/widgets/slider"
+import "./_range/Slider_range"
+import "./slider.scss"
+import "jquery-ui/themes/base/slider.css"
 import {formatNumber} from "../../common/functions";
 
-$(".slider__control").each(function () {
+$(".slider__control:not(.slider__control_range)").each(function () {
     const minimalValue = Number($(this).attr("data-min"));
     const maximumValue = Number($(this).attr("data-max"));
     const step = Number($(this).attr("data-step"));

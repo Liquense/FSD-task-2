@@ -5270,18 +5270,7 @@ eval("module.exports = extend\n\nvar hasOwnProperty = Object.prototype.hasOwnPro
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _registrationLogin_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./registrationLogin.scss */ \"./src/sitePages/registrationLogin.scss\");\n/* harmony import */ var _registrationLogin_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_registrationLogin_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var pug__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! pug */ \"./node_modules/pug/lib/index.js\");\n/* harmony import */ var pug__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(pug__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\nconsole.log(\"hello\");\r\nconst pugfunction = pug.compileFile(__webpack_require__(/*! ./registrationLogin.pug */ \"./src/sitePages/registrationLogin.pug\"));\r\n//console.log(pugfunction);\r\n\n\n//# sourceURL=webpack:///./src/sitePages/registrationLogin.js?");
-
-/***/ }),
-
-/***/ "./src/sitePages/registrationLogin.pug":
-/*!*********************************************!*\
-  !*** ./src/sitePages/registrationLogin.pug ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("var pug = __webpack_require__(/*! ../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (webkitURL) {const isAuthed = webkitURL;\npug_html = pug_html + \"\\u003Cspan\\u003E\" + (pug.escape(null == (pug_interp = isAuthed) ? \"\" : pug_interp)) + \"\\u003C\\u002Fspan\\u003E\";}.call(this,\"webkitURL\" in locals_for_with?locals_for_with.webkitURL:typeof webkitURL!==\"undefined\"?webkitURL:undefined));;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/sitePages/registrationLogin.pug?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _registrationLogin_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./registrationLogin.scss */ \"./src/sitePages/registrationLogin.scss\");\n/* harmony import */ var _registrationLogin_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_registrationLogin_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_pug_lib_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../node_modules/pug/lib/index */ \"./node_modules/pug/lib/index.js\");\n/* harmony import */ var _node_modules_pug_lib_index__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_node_modules_pug_lib_index__WEBPACK_IMPORTED_MODULE_1__);\n\r\n\r\n\r\n//console.log(\"hello\");\r\n//const pugfunction = generate(require('./registrationLogin.pug'));\r\n//console.log(pugfunction);\r\n\n\n//# sourceURL=webpack:///./src/sitePages/registrationLogin.js?");
 
 /***/ }),
 
