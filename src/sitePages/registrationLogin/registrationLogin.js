@@ -8,11 +8,10 @@ let locals = {
 const templateHTML = template(locals);
 
 $(".registrationLogin__content").addClass(
-	locals.login ? "registrationLogin__loginContainer" : "registrationLogin__registrationContainer"
+	locals.login === "true" ? "registrationLogin__loginContainer" : "registrationLogin__registrationContainer"
 ).html(templateHTML);
 
 import "./registrationLogin.scss"
 import "../../common";
 import ("../../Cards/registrationCard/registrationCard");
 import ("../../Cards/loginCard/loginCard");
-

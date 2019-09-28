@@ -58,32 +58,6 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /[\/\\]src[\/\\]common\.js$/,
-				use: [
-					{
-						loader: 'webpack-bem-loader',
-						options: {
-							levels: [
-								'./src/blocks'
-							],
-							techs: [/*'js', */'css', 'html'],
-							techMap: {
-								// js: ['js'],
-								css: ['scss'],
-								html: ['pug']
-							}
-						}
-					},
-					{
-						loader: 'babel-loader',
-						options: {
-							babelrc: true,
-							plugins: ['react-hot-loader/babel']
-						}
-					},
-				],
-			},
-			{
 				test: /\.pug$/,
 				use: [
 					{

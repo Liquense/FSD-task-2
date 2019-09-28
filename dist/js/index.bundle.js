@@ -924,11 +924,11 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _typ
 /*!***********************!*\
   !*** ./src/common.js ***!
   \***********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("\n\n__webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n\n__webpack_require__(/*! ./common/fonts.scss */ \"./src/common/fonts.scss\");\n\n__webpack_require__(/*! ./common/functions */ \"./src/common/functions.js\");\n\n__webpack_require__(/*! ./blocks/Text/text */ \"./src/blocks/Text/text.js\");\n\n__webpack_require__(/*! ./pageElements/footer/footer */ \"./src/pageElements/footer/footer.js\");\n\n__webpack_require__(/*! ./pageElements/header/header */ \"./src/pageElements/header/header.js\");\n\n//# sourceURL=webpack:///./src/common.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles.scss */ \"./src/styles.scss\");\n/* harmony import */ var _styles_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_scss__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _common_fonts_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./common/fonts.scss */ \"./src/common/fonts.scss\");\n/* harmony import */ var _common_fonts_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_common_fonts_scss__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _common_functions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./common/functions */ \"./src/common/functions.js\");\n/* harmony import */ var _blocks_Text_text__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./blocks/Text/text */ \"./src/blocks/Text/text.js\");\n/* harmony import */ var _pageElements_footer_footer__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pageElements/footer/footer */ \"./src/pageElements/footer/footer.js\");\n/* harmony import */ var _pageElements_header_header__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pageElements/header/header */ \"./src/pageElements/header/header.js\");\n\r\n\r\n\r\n//\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack:///./src/common.js?");
 
 /***/ }),
 
@@ -963,7 +963,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ \"./src/common.js\");\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_common__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./common */ \"./src/common.js\");\n\r\n\n\n//# sourceURL=webpack:///./src/index.js?");
 
 /***/ }),
 
