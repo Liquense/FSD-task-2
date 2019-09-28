@@ -16,12 +16,5 @@ $('.landingPage__roomContainer').each(function () {
 	$container.css('background-image', `url(${imagePaths[randomNum]})`);
 });
 
-let registrationLoginURL = new URL(`${document.location.origin}/registrationLogin.html`);
-registrationLoginURL.searchParams.set("login", "true");
-const loginURL = new URL(registrationLoginURL);
-registrationLoginURL.searchParams.set("login", "false");
-const registerURL = new URL(registrationLoginURL);
 
-$(".header__registerButton").attr("href", registerURL);
-$(".header__loginButton").attr("href", loginURL);
 

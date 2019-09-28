@@ -1,6 +1,5 @@
 const url = new URL(window.location.href);
 let isLogin = url.searchParams.get("login");
-console.log(isLogin);
 
 let template = require("./registrationLogin.pug");
 let locals = {

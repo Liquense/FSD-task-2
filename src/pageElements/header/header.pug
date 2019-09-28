@@ -3,7 +3,8 @@ include ./__menuItem/header__menuItem
 
 mixin header(data={}, content=[])
 	header(class=`header ${attributes.addClasses}`)
-		img(src=data.logo alt="logo").header__logo
+		a.header__logoLink
+			img(src=data.logo alt="logo").header__logo
 		div.header__contentContainer
 			ul.header__menu
 				each item, index in content
