@@ -1,1 +1,34 @@
+.registrationLogin__loginContainer,
+.registrationLogin__registrationContainer {
+  position: relative;
+  height: 702px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; }
+  .registrationLogin__loginContainer .loginCard.registrationCard,
+  .registrationLogin__loginContainer .registrationCard.registrationCard,
+  .registrationLogin__registrationContainer .loginCard.registrationCard,
+  .registrationLogin__registrationContainer .registrationCard.registrationCard {
+    margin-top: 4px; }
+  .registrationLogin__loginContainer .registrationLogin__loginBackgroundImage,
+  .registrationLogin__registrationContainer .registrationLogin__loginBackgroundImage {
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    min-height: 702px; }
+    @media (max-width: 1300px) {
+      .registrationLogin__loginContainer .registrationLogin__loginBackgroundImage,
+      .registrationLogin__registrationContainer .registrationLogin__loginBackgroundImage {
+        width: unset; } }
+  .registrationLogin__loginContainer.registrationLogin__loginContainer,
+  .registrationLogin__registrationContainer.registrationLogin__loginContainer {
+    height: 48.75vw;
+    min-height: 380px;
+    max-height: 702px; }
+    .registrationLogin__loginContainer.registrationLogin__loginContainer .registrationLogin__loginBackgroundImage,
+    .registrationLogin__registrationContainer.registrationLogin__loginContainer .registrationLogin__loginBackgroundImage {
+      height: unset;
+      min-height: 380px; }
 

@@ -1,5 +1,6 @@
 .registrationCard {
   max-width: 380px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -21,8 +22,10 @@
   .registrationCard__userSurname,
   .registrationCard__email,
   .registrationCard__password {
-    .input__control {
-      margin-top: 0;
+    .input__title {
+      .input__controlWrapper {
+        margin-top: 0;
+      }
     }
   }
 

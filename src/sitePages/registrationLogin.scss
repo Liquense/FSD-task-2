@@ -1,0 +1,47 @@
+$backgroundImageHeight: 702px;
+
+.registrationLogin__header {
+
+}
+
+.registrationLogin__loginContainer,
+.registrationLogin__registrationContainer {
+  position: relative;
+  height: $backgroundImageHeight;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  .loginCard,
+  .registrationCard {
+    &.registrationCard {
+      margin-top: 4px;
+    }
+  }
+
+  .registrationLogin__loginBackgroundImage {
+    bottom: 0;
+    position: absolute;
+    z-index: -1;
+    width: get-vw(1440px);
+    min-height: $backgroundImageHeight;
+    @media (max-width: 1300px) {
+      width: unset;
+    }
+  }
+  &.registrationLogin__loginContainer {
+    height: get-vw($backgroundImageHeight);
+    min-height: 380px;
+    max-height: $backgroundImageHeight;
+
+    .registrationLogin__loginBackgroundImage {
+      height: unset;
+      min-height: 380px;
+    }
+  }
+}
+
+.registrationLogin__footer.footer_type_large {
+
+}

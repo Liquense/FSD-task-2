@@ -38,10 +38,14 @@ body
 		div.registrationLogin__loginContainer
 			include ../Cards/loginCard/loginCard
 			+loginCard()
+			img.registrationLogin__loginBackgroundImage(
+				src=require("../assets/images/registrationLogin-background.jpg") alt="backgroundImage")
 	else
 		div.registrationLogin__registrationContainer
 			include ../Cards/registrationCard/registrationCard
 			+registrationCard()
+			img.registrationLogin__loginBackgroundImage(
+				src=require("../assets/images/registrationLogin-background.jpg") alt="backgroundImage")
 
 	include ../pageElements/footer/footer
 	+largeFooter(

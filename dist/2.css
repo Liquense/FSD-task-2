@@ -1,5 +1,6 @@
 .registrationCard {
   max-width: 380px;
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,10 +15,10 @@
     margin: 0;
     margin-bottom: 20px;
     letter-spacing: -0.6px; }
-  .registrationCard .registrationCard__userName .input__control,
-  .registrationCard .registrationCard__userSurname .input__control,
-  .registrationCard .registrationCard__email .input__control,
-  .registrationCard .registrationCard__password .input__control {
+  .registrationCard .registrationCard__userName .input__title .input__controlWrapper,
+  .registrationCard .registrationCard__userSurname .input__title .input__controlWrapper,
+  .registrationCard .registrationCard__email .input__title .input__controlWrapper,
+  .registrationCard .registrationCard__password .input__title .input__controlWrapper {
     margin-top: 0; }
   .registrationCard .registrationCard__userName {
     margin-bottom: 10px; }
