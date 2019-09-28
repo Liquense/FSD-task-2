@@ -1,11 +1,11 @@
 head
 	meta(charset="UTF-8")
 	meta(name="viewport" content="width=device-width, initial-scale=1.0")
-	link(rel="icon" href=require('../assets/images/icon-colored.png'))
+	link(rel="icon" href=require('../../assets/images/icon-colored.png'))
 	title TOXIN
 body
-	include ../pageElements/header/header
-	-const logoPath = require('../assets/images/logo_colored_withText.svg')
+	include ../../pageElements/header/header
+	-const logoPath = require('../../assets/images/logo_colored_withText.svg')
 	+header(
 		{
 			loginText: "Войти",
@@ -34,20 +34,9 @@ body
 	)(addClasses="registrationLogin__header")
 
 
-	if login==="true"
-		div.registrationLogin__loginContainer
-			include ../Cards/loginCard/loginCard
-			+loginCard()
-			img.registrationLogin__loginBackgroundImage(
-				src=require("../assets/images/registrationLogin-background.jpg") alt="backgroundImage")
-	else
-		div.registrationLogin__registrationContainer
-			include ../Cards/registrationCard/registrationCard
-			+registrationCard()
-			img.registrationLogin__loginBackgroundImage(
-				src=require("../assets/images/registrationLogin-background.jpg") alt="backgroundImage")
+	div.registrationLogin__content
 
-	include ../pageElements/footer/footer
+	include ../../pageElements/footer/footer
 	+largeFooter(
 		{
 			logo: logoPath,

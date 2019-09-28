@@ -81,31 +81,31 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/sitePages/roomDetails.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/sitePages/roomDetails/roomDetails.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/sitePages/roomDetails.js":
-/*!**************************************!*\
-  !*** ./src/sitePages/roomDetails.js ***!
-  \**************************************/
+/***/ "./src/sitePages/roomDetails/roomDetails.js":
+/*!**************************************************!*\
+  !*** ./src/sitePages/roomDetails/roomDetails.js ***!
+  \**************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _roomDetails_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./roomDetails.scss */ \"./src/sitePages/roomDetails.scss\");\n/* harmony import */ var _roomDetails_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_roomDetails_scss__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\n\n//# sourceURL=webpack:///./src/sitePages/roomDetails.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _roomDetails_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./roomDetails.scss */ \"./src/sitePages/roomDetails/roomDetails.scss\");\n/* harmony import */ var _roomDetails_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_roomDetails_scss__WEBPACK_IMPORTED_MODULE_0__);\n\r\n\n\n//# sourceURL=webpack:///./src/sitePages/roomDetails/roomDetails.js?");
 
 /***/ }),
 
-/***/ "./src/sitePages/roomDetails.scss":
-/*!****************************************!*\
-  !*** ./src/sitePages/roomDetails.scss ***!
-  \****************************************/
+/***/ "./src/sitePages/roomDetails/roomDetails.scss":
+/*!****************************************************!*\
+  !*** ./src/sitePages/roomDetails/roomDetails.scss ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/sitePages/roomDetails.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/sitePages/roomDetails/roomDetails.scss?");
 
 /***/ })
 

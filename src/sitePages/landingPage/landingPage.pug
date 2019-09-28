@@ -2,11 +2,11 @@ html(lang="ru")
 	head
 		meta(charset="UTF-8")
 		meta(name="viewport" content="width=device-width, initial-scale=1.0")
-		link(rel="icon" href=require('../assets/images/icon-colored.png'))
+		link(rel="icon" href=require('../../assets/images/icon-colored.png'))
 		title TOXIN
 	body
-		include ../pageElements/header/header
-		-const logoPath = require('../assets/images/logo_colored_withText.svg')
+		include ../../pageElements/header/header
+		-const logoPath = require('../../assets/images/logo_colored_withText.svg')
 		+header(
 			{
 				loginText: "Войти",
@@ -35,11 +35,11 @@ html(lang="ru")
 		)
 
 		div.landingPage__roomContainer
-			include ../Cards/findRoomCard/findRoomCard
+			include ../../Cards/findRoomCard/findRoomCard
 			+findRoomCard()(classes="landingPage__findRoomCard")
 			span.roomContainer__slogan.text_type_regular Лучшие номера для вашей работы, отдыха и просто вдохновения
 
-		include ../pageElements/footer/footer
+		include ../../pageElements/footer/footer
 		+largeFooter(
 			{
 				logo: logoPath,

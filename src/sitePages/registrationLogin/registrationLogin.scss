@@ -4,8 +4,7 @@ $backgroundImageHeight: 702px;
 
 }
 
-.registrationLogin__loginContainer,
-.registrationLogin__registrationContainer {
+.registrationLogin__content {
   position: relative;
   height: $backgroundImageHeight;
   display: flex;
@@ -30,6 +29,7 @@ $backgroundImageHeight: 702px;
       width: unset;
     }
   }
+
   &.registrationLogin__loginContainer {
     height: get-vw($backgroundImageHeight);
     min-height: 380px;

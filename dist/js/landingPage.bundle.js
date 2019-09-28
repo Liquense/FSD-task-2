@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/sitePages/landingPage.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/sitePages/landingPage/landingPage.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -1125,26 +1125,26 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 /***/ }),
 
-/***/ "./src/sitePages/landingPage.js":
-/*!**************************************!*\
-  !*** ./src/sitePages/landingPage.js ***!
-  \**************************************/
+/***/ "./src/sitePages/landingPage/landingPage.js":
+/*!**************************************************!*\
+  !*** ./src/sitePages/landingPage/landingPage.js ***!
+  \**************************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../common */ \"./src/common.js\");\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_common__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Cards_findRoomCard_findRoomCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Cards/findRoomCard/findRoomCard */ \"./src/Cards/findRoomCard/findRoomCard.js\");\n/* harmony import */ var _landingPage_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./landingPage.scss */ \"./src/sitePages/landingPage.scss\");\n/* harmony import */ var _landingPage_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_landingPage_scss__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\n\r\n\r\nconst imagePaths =\r\n\t[\r\n\t\t__webpack_require__(/*! ../assets/images/room-big-1.jpg */ \"./src/assets/images/room-big-1.jpg\"),\r\n\t\t__webpack_require__(/*! ../assets/images/room-big-2.jpg */ \"./src/assets/images/room-big-2.jpg\"),\r\n\t\t__webpack_require__(/*! ../assets/images/room-big-3.jpg */ \"./src/assets/images/room-big-3.jpg\")\r\n\t];\r\n$('.landingPage__roomContainer').each(function () {\r\n\tconst $container = $(this);\r\n\r\n\tconst randomNum = Math.floor(Math.random() * imagePaths.length);\r\n\t$container.css('background-image', `url(${imagePaths[randomNum]})`);\r\n});\r\n\r\n\r\n\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/sitePages/landingPage.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../common */ \"./src/common.js\");\n/* harmony import */ var _common__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_common__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Cards_findRoomCard_findRoomCard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Cards/findRoomCard/findRoomCard */ \"./src/Cards/findRoomCard/findRoomCard.js\");\n/* harmony import */ var _landingPage_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./landingPage.scss */ \"./src/sitePages/landingPage/landingPage.scss\");\n/* harmony import */ var _landingPage_scss__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_landingPage_scss__WEBPACK_IMPORTED_MODULE_2__);\n\r\n\r\n\r\n\r\n\r\nconst imagePaths =\r\n\t[\r\n\t\t__webpack_require__(/*! ../../assets/images/room-big-1.jpg */ \"./src/assets/images/room-big-1.jpg\"),\r\n\t\t__webpack_require__(/*! ../../assets/images/room-big-2.jpg */ \"./src/assets/images/room-big-2.jpg\"),\r\n\t\t__webpack_require__(/*! ../../assets/images/room-big-3.jpg */ \"./src/assets/images/room-big-3.jpg\")\r\n\t];\r\n$('.landingPage__roomContainer').each(function () {\r\n\tconst $container = $(this);\r\n\r\n\tconst randomNum = Math.floor(Math.random() * imagePaths.length);\r\n\t$container.css('background-image', `url(${imagePaths[randomNum]})`);\r\n});\r\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/sitePages/landingPage/landingPage.js?");
 
 /***/ }),
 
-/***/ "./src/sitePages/landingPage.scss":
-/*!****************************************!*\
-  !*** ./src/sitePages/landingPage.scss ***!
-  \****************************************/
+/***/ "./src/sitePages/landingPage/landingPage.scss":
+/*!****************************************************!*\
+  !*** ./src/sitePages/landingPage/landingPage.scss ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/sitePages/landingPage.scss?");
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/sitePages/landingPage/landingPage.scss?");
 
 /***/ }),
 

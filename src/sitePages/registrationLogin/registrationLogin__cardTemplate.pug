@@ -1,0 +1,10 @@
+if login==="true"
+	include ../../Cards/loginCard/loginCard
+	+loginCard()
+	img.registrationLogin__loginBackgroundImage(
+		src=require("../../assets/images/registrationLogin-background.jpg") alt="backgroundImage")
+else
+	include ../../Cards/registrationCard/registrationCard
+	+registrationCard()
+	img.registrationLogin__loginBackgroundImage(
+		src=require("../../assets/images/registrationLogin-background.jpg") alt="backgroundImage")
