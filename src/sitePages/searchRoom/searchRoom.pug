@@ -35,11 +35,11 @@ html(lang="ru")
 			]
 		)(addClasses="searchRoom__header")
 		//- CONTENT
-		div.searchRoom__Content
+		div.searchRoom__content
 			div.searchRoom__sideBar
 				include ../../blocks/Input/Input
 				+Input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "", "")
-				+Input("Гости", "dropdown customers", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
+				+Input("Гости", "dropdown customers medium", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
 				//- todo: у дропдауна нижние углы нужно скруглить, когда он не раскрыт
 				include ../../blocks/Slider/Slider
 				+slider(100, 15000, 100, "Range Slider", "", true)
@@ -60,6 +60,7 @@ html(lang="ru")
 				-checkButtons.push({text: "Шампунь"})
 				+list("checkbox expandable", "Дополнительные удобства", checkButtons)
 			div.searchRoom__rooms
+				h2.searchRoom__roomsTitle.text_type_widgetTitle Номера, которые мы для вас подобрали
 				include ../../blocks/Pagination/Pagination
 				include ../../Cards/roomPreviewCard/roomPreviewCard
 				+pagination(12)

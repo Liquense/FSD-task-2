@@ -1,0 +1,49 @@
+$roomCardWidth: 270px;
+
+.searchRoom__header {
+
+}
+
+.searchRoom__content {
+  display: flex;
+  padding: 30px get-vw(140px) 69px;
+  border-bottom: solid 1px $darkShade25;
+
+  .searchRoom__sideBar {
+    width: 266px;
+    margin-right: get-vw(60px);
+
+    > * {
+      margin-bottom: 30px;
+      &:first-child {
+        margin-bottom: 20px;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .searchRoom__rooms {
+    width: 100%;
+    .searchRoom__roomsTitle {
+      margin-top: 0;
+      margin-bottom: 20px;
+    }
+
+    .pagination {
+      .pagination__contentContainer {
+        display: grid;
+        justify-content: space-between;
+        row-gap: 20px;
+        grid-template-columns: repeat(auto-fill, $roomCardWidth);
+
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+.searchRoom__footer {
+
+}
