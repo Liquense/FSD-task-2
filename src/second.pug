@@ -188,8 +188,17 @@ html(lang="ru")
 				})
 			div.roomPreviewsContainer.container
 				include Cards/roomPreviewCard/roomPreviewCard
-				+roomPreviewCard({
-					carousel: {
+				+roomPreviewCard(
+					{
+						roomNumber: "888",
+						roomType: "люкс",
+						costPerPeriod: 9990,
+						currencySymbol: "₽",
+						periodText: "в сутки",
+						reviewsCount: "145",
+						rating: [4, 5],
+					},
+					{
 						content: [
 							{
 								tag: "img",
@@ -211,17 +220,8 @@ html(lang="ru")
 							"data-arrows": "true",
 							"data-dots": "true",
 						},
-					},
-					room: {
-						roomNumber: "888",
-						roomType: "люкс",
-						costPerPeriod: 9990,
-						currencySymbol: "₽",
-						periodText: "в сутки",
-						reviewsCount: "145",
-						rating: 4,
 					}
-				})
+				)
 		//- footers
 		include ./pageElements/footer/footer
 		+simpleFooter({

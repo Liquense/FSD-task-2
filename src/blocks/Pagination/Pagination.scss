@@ -47,7 +47,7 @@ $pageButtonSize: 40px;
               background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
             }
 
-            &.disabled {
+            &.disabled:not(.paginationjs-ellipsis) {
               a {
                 display: none;
               }
