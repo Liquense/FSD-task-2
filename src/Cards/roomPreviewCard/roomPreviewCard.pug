@@ -1,15 +1,32 @@
 include ../../blocks/carousel/carousel
 include ../../blocks/RateButton/RateButton
-//- room {
-	currencySymbol: string
-	costPerPeriod: int
-	reviewsCount: int
-	roomNumber: string
-	roomType: string
-	periodText: string
-	rating: [int, int] сколько из скольки
+//- room
+	{
+		currencySymbol: string
+		costPerPeriod: int
+		reviewsCount: int
+		roomNumber: string
+		roomType: string
+		periodText: string
+		rating: [int, int] | [rating, maxRating]
+	}
+//- carousel
+	{
+		content:
+		[
+			{
+				tag: string | HTML tag
+				src: string | path to image
+			}
+		]
+		carouselParams:
+		{
+			"data-arrows": bool
+			"data-dots": bool
+		}
+	}
 
-mixin roomPreviewCard(room = {})
+mixin roomPreviewCard(room = {}, carousel = {content: [], carouselParams: {}})
 	-if (!room)
 	-	room = {};
 	-room.currencySymbol = room.currencySymbol ? room.currencySymbol : "₽";
