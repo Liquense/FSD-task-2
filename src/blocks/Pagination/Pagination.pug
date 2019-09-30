@@ -1,4 +1,4 @@
-mixin pagination(roomCardsData=[])
+mixin pagination(pageSize=12)
 	-var paginationClassName = "pagination"
 	-var contentContainerClassName = "pagination__contentContainer"
 	-var buttonsContainerClassName = "pagination__buttonsContainer"
@@ -8,9 +8,7 @@ mixin pagination(roomCardsData=[])
 	-var contentAttrs = {class: contentContainerClassName + " "}
 	-var buttonsAttrs =	{class: buttonsContainerClassName + " "}
 
-	div&attributes(paginationAttrs)
+	div&attributes(paginationAttrs)(data-pageSize=pageSize)
 		div&attributes(contentAttrs)
-			each roomCardData in roomCardsData
-				include ../../Cards/roomPreviewCard/roomPreviewCard
-				+roomPreviewCard(roomCardData)
+			block
 		div&attributes(buttonsAttrs)

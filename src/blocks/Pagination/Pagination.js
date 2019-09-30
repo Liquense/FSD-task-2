@@ -1,15 +1,13 @@
 import "paginationjs"
 //
 import "./Pagination.scss"
-
-let pageSize = 12;
+import {initCarouselPlugin} from "../carousel/carousel";
 
 function getPaginationContent($contentContainer) {
 	let contentHTMLArray = [];
 
 	$contentContainer.children().each(function () {
-		contentHTMLArray.push($(this).html());
-		console.log($(this).outerHTML());
+		contentHTMLArray.push($(this).outerHTML());
 	});
 
 	return contentHTMLArray;
@@ -20,20 +18,19 @@ $(".pagination").each(function () {
 	const $paginationContent = $paginationBlock.children(".pagination__contentContainer");
 	const $paginationButtons = $paginationBlock.children(".pagination__buttonsContainer");
 
+	const pageSize = $paginationBlock.attr("data-pageSize");
 	const contentHTMLArray = getPaginationContent($paginationContent);
-	console.log(contentHTMLArray);
 
 	$paginationButtons.pagination({
 		dataSource: contentHTMLArray,
-		//className: "pagination__pluginButtons",
-		//autoHidePrevious: true,
 		prevText: "arrow_back",
-		//autoHideNext: true,
 		nextText: "arrow_forward",
 		pageSize: pageSize,
 		pageRange: 1,
 		callback: function (arrayData, paginationData) {
 			$(".pagination__contentContainer").html(arrayData);
+			initCarouselPlugin($paginationBlock);
+			console.log(paginationData);
 		},
 		showNavigator: true,
 		formatNavigator: function (currentPage, totalPage, totalNumber) {
