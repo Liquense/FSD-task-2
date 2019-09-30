@@ -1,3 +1,5 @@
+import "../Checkbox/Checkbox"
+
 import "./list.pug"
 import "./List.scss"
 
