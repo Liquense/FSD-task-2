@@ -79,7 +79,7 @@ body {
   width: fit-content; }
 
 .input__title {
-  border-bottom: 5px solid transparent;
+  display: block;
   position: relative;
   line-height: 18px; }
 
@@ -2026,11 +2026,16 @@ body {
     width: 266px;
     margin-right: 4.16667vw; }
     .searchRoom__content .searchRoom__sideBar > * {
-      margin-bottom: 30px; }
+      margin-bottom: 31px; }
       .searchRoom__content .searchRoom__sideBar > *:first-child {
-        margin-bottom: 20px; }
+        margin-bottom: 18px; }
       .searchRoom__content .searchRoom__sideBar > *:last-child {
         margin-bottom: 0; }
+    .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDaySlider {
+      margin-bottom: 10px; }
+    .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDayText {
+      font-size: 12px;
+      margin: 0; }
   .searchRoom__content .searchRoom__rooms {
     width: 100%; }
     .searchRoom__content .searchRoom__rooms .searchRoom__roomsTitle {

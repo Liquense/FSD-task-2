@@ -14,12 +14,22 @@ $roomCardWidth: 270px;
     margin-right: get-vw(60px);
 
     > * {
-      margin-bottom: 30px;
+      margin-bottom: 31px; //todo: PixelPerfect
       &:first-child {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
       &:last-child {
         margin-bottom: 0;
+      }
+    }
+
+    .searchRoom__pricePerDaySliderContainer {
+      .searchRoom__pricePerDaySlider {
+        margin-bottom: 10px;
+      }
+      .searchRoom__pricePerDayText {
+        font-size: 12px;
+        margin: 0;
       }
     }
   }

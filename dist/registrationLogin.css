@@ -106,7 +106,7 @@ body {
   width: fit-content; }
 
 .input__title {
-  border-bottom: 5px solid transparent;
+  display: block;
   position: relative;
   line-height: 18px; }
 

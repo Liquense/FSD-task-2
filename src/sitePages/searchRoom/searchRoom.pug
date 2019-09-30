@@ -41,15 +41,22 @@ html(lang="ru")
 				+Input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "", "")
 				+Input("Гости", "dropdown customers medium", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
 				//- todo: у дропдауна нижние углы нужно скруглить, когда он не раскрыт
-				include ../../blocks/Slider/Slider
-				+slider(100, 15000, 100, "Range Slider", "", true)
+				div.searchRoom__pricePerDaySliderContainer
+					include ../../blocks/Slider/Slider
+					+slider(100, 15000, 100, "Диапазон цены", "searchRoom__pricePerDaySlider ", true)
+					p.searchRoom__pricePerDayText.text_type_regular Стоимость за сутки пребывания в номере
 				include ../../blocks/List/list
+				-let checkButtons = []
+				-checkButtons.push({text: "Можно курить"});
+				-checkButtons.push({text: "Можно с питомцами"});
+				-checkButtons.push({text: "Можно приглашать гостей (до 10 человек)"});
+				+list("checkbox", "Checkbox buttons", checkButtons)
 				-const richButtons = []
 				-richButtons.push({text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."});
 				-richButtons.push({text: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист и проводит до номера"});
-				+list("rich", "Rich checkbox buttons", richButtons)
+				+list("rich", "Доступность", richButtons)
 				+Input("Удобства номера", "dropdown medium rooms", "Комплектация номера", "", "", ["Спальни", "Кровати", "Ванные комнаты"])
-				-const checkButtons = []
+				-checkButtons = []
 				-checkButtons.push({text: "Завтрак"})
 				-checkButtons.push({text: "Письменный стол"})
 				-checkButtons.push({text: "Стул для кормления"})
