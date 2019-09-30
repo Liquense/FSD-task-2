@@ -6,6 +6,6 @@
   .fab {
     font-size: 24px;
     @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
-    text-underline: none;
+    text-decoration: none;
   }
 }
