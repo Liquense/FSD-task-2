@@ -15,3 +15,7 @@ $('.landingPage__roomContainer').each(function () {
 	const randomNum = Math.floor(Math.random() * imagePaths.length);
 	$container.css('background-image', `url(${imagePaths[randomNum]})`);
 });
+
+$(".findRoomCard__button").click(function () {
+	window.location.href = "searchRoom.html";
+});
