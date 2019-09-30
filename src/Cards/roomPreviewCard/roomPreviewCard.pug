@@ -1,34 +1,46 @@
 include ../../blocks/carousel/carousel
 include ../../blocks/RateButton/RateButton
+//- room {
+	currencySymbol: string
+	costPerPeriod: int
+	reviewsCount: int
+	roomNumber: string
+	roomType: string
+	periodText: string
+	rating: [int, int] сколько из скольки
 
-mixin roomPreviewCard(data={room: {}})
-	-if (!data.room)
-	-	data.room = {};
+mixin roomPreviewCard(room = {})
+	-if (!room)
+	-	room = {};
+	-room.currencySymbol = room.currencySymbol ? room.currencySymbol : "₽";
+	-room.periodText = room.periodText ? room.periodText : "в сутки";
+	-room.rating = room.rating ? room.rating : [5, 5];
+
 	div.roomPreviewCard(
-		data-currency=data.room.currencySymbol
-		data-costPerPeriod=data.room.costPerPeriod
-		data-reviewsCount=data.room.reviewsCount
+		data-currency=room.currencySymbol
+		data-costPerPeriod=room.costPerPeriod
+		data-reviewsCount=room.reviewsCount
 		)
-		+carousel(data.carousel)(addClasses="roomPreviewCard__photos")
+		+carousel(carousel)(addClasses="roomPreviewCard__photos")
 		div.roomPreviewCard__textContent
 			div.roomPreviewCard__roomInfo
 				div.roomPreviewCard__roomDescription
 					span.roomPreviewCard__roomNumSymbol.text_type_label-CTA
 						|№
 					span.roomPreviewCard__roomNumber.text_type_label-CTA
-						|#{` ${data.room.roomNumber} `}
+						|#{` ${room.roomNumber} `}
 					span.roomPreviewCard__roomType.text_type_label-CTA
-						|#{data.room.roomType}
+						|#{room.roomType}
 				div.roomPreviewCard__costInfo
 					span.roomPreviewCard__costPerPeriod.text_type_regular
-						|#{data.room.costPerPeriod}#{data.room.currencySymbol}
+						|#{room.costPerPeriod}#{room.currencySymbol}
 					span.roomPreviewCard__period.text_type_regular
-						|#{data.room.periodText}
+						|#{room.periodText}
 			hr.roomPreviewCard__divisionLine
 			div.roomPreviewCard__rateInfo
-				+rateButton({maxRating: 5, rating: data.room.rating})(addClasses="roomPreviewCard__rating")
+				+rateButton({maxRating: room.rating[1], rating: room.rating[0]})(addClasses="roomPreviewCard__rating")
 				div.roomPreviewCard__reviewsInfo
 					span.roomPreviewCard__reviewsCount.text_type_regular
-						|#{data.room.reviewsCount}
+						|#{room.reviewsCount}
 					span.roomPreviewCard__reviewsText.text_type_regular
 						|Отзывов
