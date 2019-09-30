@@ -12,7 +12,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 }
 
 .input__title {
-  border-bottom: 5px solid transparent; //чтобы не прерывался хавер между заголовком и элементом
+  display: block;
   position: relative;
   line-height: $lineHeight;
 }
