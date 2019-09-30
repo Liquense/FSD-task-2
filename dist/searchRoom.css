@@ -1866,7 +1866,7 @@ body {
       .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.active {
         font-weight: bold;
         background: linear-gradient(#BC9CFF 0%, #88a4f9 100%); }
-      .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.disabled:not(.paginationjs-ellipsis) a {
+      .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.disabled:not(.paginationjs-ellipsis) {
         display: none; }
       .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.paginationjs-ellipsis {
         opacity: 1; }
