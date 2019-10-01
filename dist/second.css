@@ -1896,77 +1896,6 @@ body {
   margin-top: 10px;
   margin-left: 6px; }
 
-.carousel {
-  width: 270px; }
-  .carousel .slick-list .slick-track .slick-slide div .carousel__element {
-    display: block !important; }
-  .carousel .slick-arrow {
-    display: block;
-    height: 100%;
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
-    position: absolute;
-    z-index: 1;
-    cursor: pointer;
-    vertical-align: middle; }
-    .carousel .slick-arrow button {
-      font-family: "Material Icons";
-      text-transform: lowercase;
-      font-size: 24px;
-      outline: none;
-      cursor: pointer;
-      background-color: transparent;
-      color: white;
-      width: 44px;
-      height: 44px;
-      border: 0;
-      position: relative;
-      top: calc(50% - 44px / 2); }
-    .carousel .slick-arrow.slick-prev {
-      left: 0;
-      top: 0;
-      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%); }
-      .carousel .slick-arrow.slick-prev button {
-        transform: rotate(90deg); }
-    .carousel .slick-arrow.slick-next {
-      right: 0;
-      top: 0;
-      background: linear-gradient(-90deg, rgba(31, 32, 65, 0.5) 0%, transparent 100%); }
-      .carousel .slick-arrow.slick-next button {
-        transform: rotate(-90deg); }
-  .carousel ul.slick-dots {
-    position: absolute;
-    right: 16px;
-    bottom: 16px;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    height: 7px;
-    z-index: 2; }
-    .carousel ul.slick-dots > li {
-      display: inline-block;
-      border: 1px solid white;
-      border-radius: 50%;
-      width: 7px;
-      height: 7px;
-      box-shadow: 0px 5px 5px rgba(31, 32, 65, 0.3); }
-      .carousel ul.slick-dots > li:not(:last-child) {
-        margin-right: 3.75px; }
-      .carousel ul.slick-dots > li.slick-active {
-        background-color: white; }
-      .carousel ul.slick-dots > li > button {
-        background: transparent;
-        border: none;
-        margin: 0;
-        padding: 0;
-        display: block;
-        height: 100%;
-        width: 100%;
-        outline: none;
-        color: transparent;
-        cursor: pointer; }
-
 .comment {
   max-width: 710px; }
   .comment .comment__col1 {
@@ -2279,6 +2208,77 @@ body {
     .loginCard .loginCard__createAccountContainer {
       justify-content: space-evenly; } }
 
+.carousel {
+  width: 270px; }
+  .carousel .slick-list .slick-track .slick-slide div .carousel__element {
+    display: block !important; }
+  .carousel .slick-arrow {
+    display: block;
+    height: 100%;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    position: absolute;
+    z-index: 1;
+    cursor: pointer;
+    vertical-align: middle; }
+    .carousel .slick-arrow button {
+      font-family: "Material Icons";
+      text-transform: lowercase;
+      font-size: 24px;
+      outline: none;
+      cursor: pointer;
+      background-color: transparent;
+      color: white;
+      width: 44px;
+      height: 44px;
+      border: 0;
+      position: relative;
+      top: calc(50% - 44px / 2); }
+    .carousel .slick-arrow.slick-prev {
+      left: 0;
+      top: 0;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%); }
+      .carousel .slick-arrow.slick-prev button {
+        transform: rotate(90deg); }
+    .carousel .slick-arrow.slick-next {
+      right: 0;
+      top: 0;
+      background: linear-gradient(-90deg, rgba(31, 32, 65, 0.5) 0%, transparent 100%); }
+      .carousel .slick-arrow.slick-next button {
+        transform: rotate(-90deg); }
+  .carousel ul.slick-dots {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    height: 7px;
+    z-index: 2; }
+    .carousel ul.slick-dots > li {
+      display: inline-block;
+      border: 1px solid white;
+      border-radius: 50%;
+      width: 7px;
+      height: 7px;
+      box-shadow: 0px 5px 5px rgba(31, 32, 65, 0.3); }
+      .carousel ul.slick-dots > li:not(:last-child) {
+        margin-right: 3.75px; }
+      .carousel ul.slick-dots > li.slick-active {
+        background-color: white; }
+      .carousel ul.slick-dots > li > button {
+        background: transparent;
+        border: none;
+        margin: 0;
+        padding: 0;
+        display: block;
+        height: 100%;
+        width: 100%;
+        outline: none;
+        color: transparent;
+        cursor: pointer; }
+
 .roomPreviewCard {
   width: 270px;
   background: white;
@@ -2286,7 +2286,8 @@ body {
   border-radius: 4px;
   overflow: hidden; }
   .roomPreviewCard .roomPreviewCard__photos {
-    margin-bottom: 20px; }
+    margin-bottom: 20px;
+    width: 100%; }
   .roomPreviewCard .roomPreviewCard__textContent {
     padding: 0px 18px 20px 20px; }
     .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo {

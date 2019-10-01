@@ -70,7 +70,7 @@ html(lang="ru")
 				h2.searchRoom__roomsTitle.text_type_widgetTitle Номера, которые мы для вас подобрали
 				include ../../blocks/Pagination/Pagination
 				include ../../Cards/roomPreviewCard/roomPreviewCard
-				+pagination(12)
+				+pagination(12)(addClasses="searchRoom__roomsPagination")
 					-let i = 0;
 					while i < 15
 						+roomPreviewCard(

@@ -5,34 +5,36 @@
  * @returns {string} итоговое число в виде строки
  */
 export function formatNumber(number, symbol) {
-    let stringNum = number.toString();
-    let formattedNum = [];
+	if (!number)
+		return "";
 
-    for (let i = stringNum.length - 1; i >= 0; i--) {
-        if (((stringNum.length - i) % 3) === 0 && (stringNum.length - i) > 0) {
-            formattedNum[i] = `${symbol}${stringNum[i]}`;
-        }
-        else {
-            formattedNum[i] = stringNum[i];
-        }
-    }
+	let stringNum = number.toString();
+	let formattedNum = [];
 
-    return formattedNum.join("");
+	for (let i = stringNum.length - 1; i >= 0; i--) {
+		if (((stringNum.length - i) % 3) === 0 && (stringNum.length - i) > 0) {
+			formattedNum[i] = `${symbol}${stringNum[i]}`;
+		} else {
+			formattedNum[i] = stringNum[i];
+		}
+	}
+
+	return formattedNum.join("");
 }
 
 export function compareDateArrays(first, second) {
-    let result = true;
+	let result = true;
 
-    if (first.length !== second.length) return false;
+	if (first.length !== second.length) return false;
 
-    for (let i = 0; i < first.length; i++) {
-        if (first[i].getTime() !== second[i].getTime()) {
-            result = false;
-            break;
-        }
-    }
+	for (let i = 0; i < first.length; i++) {
+		if (first[i].getTime() !== second[i].getTime()) {
+			result = false;
+			break;
+		}
+	}
 
-    return result;
+	return result;
 }
 
 /**
@@ -46,12 +48,12 @@ export function compareDateArrays(first, second) {
  * @return     {string}  Cлово с правильным окончанием
  */
 export function ruDeclination(number, words) {
-    'use strict';
-    let w = words.split('|'),
-        n = Math.abs(number * 1); // abs на случай отрицательного значения
-    return n % 10 == 1 && n % 100 != 11 ? w[0] + w[1] : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? w[0] + w[2] : w[0] + w[3]);
+	'use strict';
+	let w = words.split('|'),
+		n = Math.abs(number * 1); // abs на случай отрицательного значения
+	return n % 10 == 1 && n % 100 != 11 ? w[0] + w[1] : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? w[0] + w[2] : w[0] + w[3]);
 }
 
-jQuery.fn.outerHTML = function() {
-    return jQuery('<div />').append(this.eq(0).clone()).html();
+jQuery.fn.outerHTML = function () {
+	return jQuery('<div />').append(this.eq(0).clone()).html();
 };

@@ -46,7 +46,8 @@ $roomCardWidth: 270px;
         display: grid;
         justify-content: space-between;
         row-gap: 20px;
-        grid-template-columns: repeat(auto-fill, $roomCardWidth);
+        column-gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax($roomCardWidth, 1fr));
 
         margin-bottom: 40px;
       }

@@ -1,7 +1,6 @@
 import "paginationjs"
 //
 import "./Pagination.scss"
-import {initCarouselPlugin} from "../carousel/carousel";
 
 function getPaginationContent($contentContainer) {
 	let contentHTMLArray = [];
@@ -29,8 +28,6 @@ $(".pagination").each(function () {
 		pageRange: 1,
 		callback: function (arrayData, paginationData) {
 			$(".pagination__contentContainer").html(arrayData);
-			initCarouselPlugin($paginationBlock);
-			console.log(paginationData);
 		},
 		showNavigator: true,
 		formatNavigator: function (currentPage, totalPage, totalNumber) {

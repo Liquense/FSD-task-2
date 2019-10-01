@@ -1,8 +1,26 @@
 import "./RateButton.scss"
 import * as star from "./__star/RateButton__star"
-import {formatNumber} from "../../common/functions";
 
-export let setRatingVisual = function ($ratingButton, numericRating) {
+$(".rateButton").each(function () {
+	const $rateButton = $(this);
+
+	setRatingToRateButton($rateButton);
+});
+
+export function setRatingToRateButton($rateButton) {
+	const maxRating = $rateButton.attr("data-maxRating");
+	const specifiedRating = $rateButton.attr("data-rating");
+
+	let rating;
+	if (specifiedRating == -1)
+		rating = Math.random() * maxRating;
+	else
+		rating = specifiedRating;
+
+	setRatingVisual($rateButton, rating);
+}
+
+function setRatingVisual($ratingButton, numericRating) {
 	let wholePart = Math.floor(numericRating);
 	let fraction = numericRating - wholePart;
 
@@ -18,18 +36,4 @@ export let setRatingVisual = function ($ratingButton, numericRating) {
 
 		star.setState($(this), stateIndex);
 	});
-};
-
-$(".rateButton").each(function () {
-	const $rateButton = $(this);
-	const maxRating = $rateButton.attr("data-maxRating");
-	const specifiedRating = $rateButton.attr("data-rating");
-
-	let rating;
-	if (specifiedRating == -1)
-		 rating = Math.random() * maxRating;
-	else
-		rating = specifiedRating;
-
-	setRatingVisual($rateButton, rating);
-});
+}
