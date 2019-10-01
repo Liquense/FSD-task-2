@@ -1358,6 +1358,12 @@ body {
   padding: 9px 20px 10px 20px; }
 
 .slider {
+  width: 280px;
+  padding-left: 6px;
+  padding-right: 7px;
+  padding-bottom: 6px; }
+
+.slider__pluginContainer {
   width: 266px; }
 
 .slider__control {
@@ -2050,6 +2056,10 @@ body {
     font-family: "Material Icons";
     text-transform: lowercase;
     font-size: 24px;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
     display: none;
     width: 40px;
     height: 40px;
@@ -2099,7 +2109,7 @@ body {
           margin-bottom: 0;
           margin-left: auto;
           margin-right: auto;
-          max-width: 266px; }
+          max-width: 280px; }
           .searchRoom__content .searchRoom__sideBar > *:first-child {
             margin-bottom: 0; } }
     .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDaySliderFilter {
