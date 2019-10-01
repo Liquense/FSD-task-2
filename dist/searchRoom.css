@@ -2032,7 +2032,7 @@ body {
         margin-bottom: 18px; }
       .searchRoom__content .searchRoom__sideBar > *:last-child {
         margin-bottom: 0; }
-    .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDaySlider {
+    .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDaySliderFilter {
       margin-bottom: 10px; }
     .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDayText {
       font-size: 12px;
@@ -2050,4 +2050,6 @@ body {
            column-gap: 12px;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       margin-bottom: 40px; }
+      .searchRoom__content .searchRoom__rooms .pagination .pagination__contentContainer .pagination__item {
+        width: 100%; }
 

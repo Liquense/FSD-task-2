@@ -43,19 +43,19 @@ html(lang="ru")
 				//- todo: у дропдауна нижние углы нужно скруглить, когда он не раскрыт
 				div.searchRoom__pricePerDaySliderContainer
 					include ../../blocks/Slider/Slider
-					+slider(100, 15000, 100, "Диапазон цены", "searchRoom__pricePerDaySlider ", true)
+					+slider(100, 15000, 100, "Диапазон цены", "searchRoom__pricePerDaySliderFilter ", true)
 					p.searchRoom__pricePerDayText.text_type_regular Стоимость за сутки пребывания в номере
 				include ../../blocks/List/list
 				-let checkButtons = []
 				-checkButtons.push({text: "Можно курить"});
 				-checkButtons.push({text: "Можно с питомцами"});
 				-checkButtons.push({text: "Можно приглашать гостей (до 10 человек)"});
-				+list("checkbox", "Checkbox buttons", checkButtons)
+				+list("checkbox", "Checkbox buttons", checkButtons, "searchRoom__benefitsFilter")
 				-const richButtons = []
 				-richButtons.push({text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."});
 				-richButtons.push({text: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист и проводит до номера"});
-				+list("rich", "Доступность", richButtons)
-				+Input("Удобства номера", "dropdown medium rooms", "Комплектация номера", "", "", ["Спальни", "Кровати", "Ванные комнаты"])
+				+list("rich", "Доступность", richButtons, "searchRoom__availabilityFilter")
+				+Input("Удобства номера", "dropdown medium rooms", "Комплектация номера", "searchRoom__roomEquipmentFilter", "", ["Спальни", "Кровати", "Ванные комнаты"])
 				-checkButtons = []
 				-checkButtons.push({text: "Завтрак"})
 				-checkButtons.push({text: "Письменный стол"})
@@ -65,7 +65,7 @@ html(lang="ru")
 				-checkButtons.push({text: "Шампунь"})
 				-checkButtons.push({text: "Телевизор"})
 				-checkButtons.push({text: "Шампунь"})
-				+list("checkbox expandable", "Дополнительные удобства", checkButtons)
+				+list("checkbox expandable", "Дополнительные удобства", checkButtons, "searchRoom__additionalFeaturesFilter")
 			div.searchRoom__rooms
 				h2.searchRoom__roomsTitle.text_type_widgetTitle Номера, которые мы для вас подобрали
 				include ../../blocks/Pagination/Pagination
