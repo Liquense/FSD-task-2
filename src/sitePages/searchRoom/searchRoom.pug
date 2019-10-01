@@ -36,6 +36,7 @@ html(lang="ru")
 		)(addClasses="searchRoom__header")
 		//- CONTENT
 		div.searchRoom__content
+			div.searchRoom__showSidebarButton filter_list
 			div.searchRoom__sideBar
 				include ../../blocks/Input/Input
 				+Input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "searchRoom__stayingDates", "")

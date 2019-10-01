@@ -1852,10 +1852,22 @@ body {
       vertical-align: middle;
       color: rgba(31, 32, 65, 0.5);
       text-decoration: none; }
+      @media (max-width: 450px) {
+        .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li {
+          position: relative;
+          width: 25px;
+          height: 25px; } }
       .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li a {
         color: inherit;
         text-decoration: none;
         line-height: 40px; }
+        @media (max-width: 450px) {
+          .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li a {
+            position: absolute;
+            left: 0;
+            line-height: 25px;
+            width: 25px;
+            vertical-align: middle; } }
       .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-previous, .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-next, .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.active {
         color: white; }
       .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-previous, .pagination .pagination__buttonsContainer .paginationjs .paginationjs-pages ul li.J-paginationjs-next {
@@ -1881,6 +1893,9 @@ body {
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   border-radius: 4px;
   overflow: hidden; }
+  @media (max-width: 551px) {
+    .roomPreviewCard {
+      border-radius: 0; } }
   .roomPreviewCard .roomPreviewCard__photos {
     margin-bottom: 20px;
     width: 100%; }
@@ -2023,15 +2038,70 @@ body {
   display: flex;
   padding: 30px 9.72222vw 69px;
   border-bottom: solid 1px rgba(31, 32, 65, 0.25); }
+  @media (max-width: 1070px) {
+    .searchRoom__content {
+      flex-direction: column;
+      align-items: center; } }
+  @media (max-width: 810px) {
+    .searchRoom__content {
+      padding-right: 0;
+      padding-left: 0; } }
+  .searchRoom__content .searchRoom__showSidebarButton {
+    font-family: "Material Icons";
+    text-transform: lowercase;
+    font-size: 24px;
+    display: none;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: rgba(31, 32, 65, 0.5); }
+    @media (max-width: 810px) {
+      .searchRoom__content .searchRoom__showSidebarButton {
+        display: block; }
+        .searchRoom__content .searchRoom__showSidebarButton + .searchRoom__sideBar {
+          display: none; }
+        .searchRoom__content .searchRoom__showSidebarButton.searchRoom__showSidebarButton_active {
+          color: #1F2041;
+          border-radius: 50%;
+          border: solid #1F2041 1px;
+          margin-bottom: 10px; }
+        .searchRoom__content .searchRoom__showSidebarButton.searchRoom__showSidebarButton_active + .searchRoom__sideBar {
+          border-top: solid rgba(31, 32, 65, 0.75) 1px;
+          border-bottom: solid rgba(31, 32, 65, 0.1) 1px;
+          padding-top: 20px;
+          padding-bottom: 20px;
+          -webkit-animation-duration: 2s;
+                  animation-duration: 2s;
+          display: grid; } }
   .searchRoom__content .searchRoom__sideBar {
     width: 266px;
     margin-right: 4.16667vw; }
+    @media (max-width: 1070px) {
+      .searchRoom__content .searchRoom__sideBar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 40px;
+        display: grid;
+        align-items: center;
+        row-gap: 30px;
+        -moz-column-gap: 15px;
+             column-gap: 15px;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); } }
     .searchRoom__content .searchRoom__sideBar > * {
       margin-bottom: 31px; }
       .searchRoom__content .searchRoom__sideBar > *:first-child {
         margin-bottom: 18px; }
       .searchRoom__content .searchRoom__sideBar > *:last-child {
         margin-bottom: 0; }
+      @media (max-width: 1070px) {
+        .searchRoom__content .searchRoom__sideBar > * {
+          margin-bottom: 0;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 266px; }
+          .searchRoom__content .searchRoom__sideBar > *:first-child {
+            margin-bottom: 0; } }
     .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDaySliderFilter {
       margin-bottom: 10px; }
     .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDayText {
@@ -2042,6 +2112,11 @@ body {
     .searchRoom__content .searchRoom__rooms .searchRoom__roomsTitle {
       margin-top: 0;
       margin-bottom: 20px; }
+      @media (max-width: 1070px) {
+        .searchRoom__content .searchRoom__rooms .searchRoom__roomsTitle {
+          text-align: center;
+          margin-left: 5px;
+          margin-right: 5px; } }
     .searchRoom__content .searchRoom__rooms .pagination .pagination__contentContainer {
       display: grid;
       justify-content: space-between;
@@ -2050,6 +2125,9 @@ body {
            column-gap: 12px;
       grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
       margin-bottom: 40px; }
+      @media (max-width: 810px) {
+        .searchRoom__content .searchRoom__rooms .pagination .pagination__contentContainer {
+          row-gap: 0.69444vw; } }
       .searchRoom__content .searchRoom__rooms .pagination .pagination__contentContainer .pagination__item {
         width: 100%; }
 

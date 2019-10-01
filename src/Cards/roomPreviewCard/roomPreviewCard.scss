@@ -4,6 +4,9 @@
   box-shadow: 0px 10px 20px $darkShade5;
   border-radius: 4px;
   overflow: hidden;
+  @media (max-width: 551px) {
+    border-radius: 0;
+  }
 
   .roomPreviewCard__photos {
     margin-bottom: 20px;
