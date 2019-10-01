@@ -48,8 +48,11 @@ $roomCardWidth: 270px;
         row-gap: 20px;
         column-gap: 12px;
         grid-template-columns: repeat(auto-fit, minmax($roomCardWidth, 1fr));
-
         margin-bottom: 40px;
+
+        .pagination__item {
+          width: 100%;
+        }
       }
     }
   }

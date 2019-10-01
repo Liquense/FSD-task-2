@@ -33,7 +33,8 @@ mixin roomPreviewCard(room = {}, carousel = {content: [], carouselParams: {}})
 	-room.periodText = room.periodText ? room.periodText : "в сутки";
 	-room.rating = room.rating ? room.rating : [5, 5];
 
-	div.roomPreviewCard(
+	div(
+		class=`roomPreviewCard ${attributes.addClasses ? attributes.addClasses : ""}`
 		data-currency=room.currencySymbol
 		data-costPerPeriod=room.costPerPeriod
 		data-reviewsCount=room.reviewsCount

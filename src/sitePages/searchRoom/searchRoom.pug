@@ -38,8 +38,8 @@ html(lang="ru")
 		div.searchRoom__content
 			div.searchRoom__sideBar
 				include ../../blocks/Input/Input
-				+Input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "", "")
-				+Input("Гости", "dropdown customers medium", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
+				+Input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "searchRoom__stayingDates", "")
+				+Input("Гости", "dropdown customers medium", "Сколько гостей", "searchRoom__guests", "", ["Взрослые", "Дети", "Младенцы"])
 				//- todo: у дропдауна нижние углы нужно скруглить, когда он не раскрыт
 				div.searchRoom__pricePerDaySliderContainer
 					include ../../blocks/Slider/Slider
@@ -87,7 +87,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 9900, reviewsCount: 65, roomNumber: "840", rating: [4, 5]},
 							{
@@ -102,7 +102,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 8500, reviewsCount: 35, roomNumber: "980", rating: [3, 5]},
 							{
@@ -117,7 +117,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 7300, reviewsCount: 19, roomNumber: "856", rating: [5, 5]},
 							{
@@ -132,7 +132,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 6000, reviewsCount: 44, roomNumber: "740", rating: [4, 5]},
 							{
@@ -147,7 +147,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 5800, reviewsCount: 56, roomNumber: "982", rating: [3, 5]},
 							{
@@ -162,7 +162,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 5500, reviewsCount: 45, roomNumber: "678", rating: [5, 5]},
 							{
@@ -177,7 +177,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 5300, reviewsCount: 39, roomNumber: "450", rating: [4, 5]},
 							{
@@ -192,7 +192,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 5000, reviewsCount: 77, roomNumber: "350", rating: [3, 5]},
 							{
@@ -207,7 +207,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 5000, reviewsCount: 25, roomNumber: "666", rating: [5, 5]},
 							{
@@ -222,7 +222,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 500, reviewsCount: 15, roomNumber: "444", rating: [3, 5]},
 							{
@@ -237,7 +237,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						+roomPreviewCard(
 							{costPerPeriod: 5000, reviewsCount: 55, roomNumber: "352", rating: [3, 5]},
 							{
@@ -252,7 +252,7 @@ html(lang="ru")
 									"data-dots": "true",
 								},
 							}
-						)
+						)(addClasses="pagination__item")
 						-i++
 
 
