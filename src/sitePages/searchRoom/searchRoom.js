@@ -32,6 +32,18 @@ $(".searchRoom__showSidebarButton").each(function () {
 	//documentAddOnClickFilterCheck($showSideBarButton, $nextElement);
 });
 
+$(".roomPreviewCard__textContent").click(function () {
+	window.location.href = "roomDetails.html";
+});
+
+//FUNCTIONS
+function initAllRoomPreviewCardsInContainer($container) {
+	$container.find(".roomPreviewCard").each(function () {
+			initRoomPreviewCard($(this));
+		}
+	);
+}
+
 function documentAddOnClickFilterCheck($showSidebarButton, $filterContainer) {
 	$(document).click(function (event) {
 		const $clickedElement = $(event.target);
@@ -48,13 +60,3 @@ function documentAddOnClickFilterCheck($showSidebarButton, $filterContainer) {
 		}
 	});
 }
-
-//FUNCTIONS
-
-function initAllRoomPreviewCardsInContainer($container) {
-	$container.find(".roomPreviewCard").each(function () {
-			initRoomPreviewCard($(this));
-		}
-	);
-}
-

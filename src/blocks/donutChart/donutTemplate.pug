@@ -1,0 +1,15 @@
+div.donutChart__imageContainer
+	svg(class="donutChart__svg" width="200" height="200" preserveAspectRatio="xMidYMid meet")
+		defs
+			each arc, index in arcs
+				linearGradient(id=`grad${index}` x1="0%" y1="0%" x2="0%" y2="100%")
+					stop(stop-color=arc.firstColor)
+					stop(offset="100%" stop-color=arc.secondColor)
+		each arc, index in arcs
+			path(stroke=`url(#grad${index})` fill="transparent" class="donutChart__svgArc")
+	div.donutChart__activeData
+		span.donutChart__activeValue.text_type_widgetTitle 123
+		span.donutChart__valueText.text_type_widgetTitle 260
+ul.donutChart__legend
+	each arc in arcs
+		li.donutChart__legendItem.text_type_regular(style=`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%);`) #{arc.caption}

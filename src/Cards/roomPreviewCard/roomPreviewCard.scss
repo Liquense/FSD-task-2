@@ -15,6 +15,7 @@
 
   .roomPreviewCard__textContent {
     padding: 0px 18px 20px 20px;
+    cursor: pointer;
 
     .roomPreviewCard__roomInfo {
       display: flex;
@@ -76,7 +77,9 @@
       align-items: baseline;
 
       .roomPreviewCard__rating {
-
+        .rateButton__star {
+          cursor: pointer;
+        }
       }
 
       .roomPreviewCard__reviewsInfo {

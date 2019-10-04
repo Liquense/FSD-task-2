@@ -1906,7 +1906,8 @@ body {
     margin-bottom: 20px;
     width: 100%; }
   .roomPreviewCard .roomPreviewCard__textContent {
-    padding: 0px 18px 20px 20px; }
+    padding: 0px 18px 20px 20px;
+    cursor: pointer; }
     .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__roomInfo {
       display: flex;
       justify-content: space-between;
@@ -1945,6 +1946,8 @@ body {
       display: flex;
       justify-content: space-between;
       align-items: baseline; }
+      .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo .roomPreviewCard__rating .rateButton__star {
+        cursor: pointer; }
       .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo .roomPreviewCard__reviewsInfo :not(:last-child) {
         margin-right: 4px; }
       .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo .roomPreviewCard__reviewsInfo .roomPreviewCard__reviewsCount {

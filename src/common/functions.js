@@ -54,6 +54,25 @@ export function ruDeclination(number, words) {
 	return n % 10 == 1 && n % 100 != 11 ? w[0] + w[1] : (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20) ? w[0] + w[2] : w[0] + w[3]);
 }
 
+/**
+ * Возвращает HTML-код, включая сам объект, а не только его содержимое
+ * @returns {jQuery}
+ */
 jQuery.fn.outerHTML = function () {
 	return jQuery('<div />').append(this.eq(0).clone()).html();
 };
+
+/**
+ * Копирует простые объекты (без вложенных ссылочных типов) в новый экземпляр
+ * @param arrayOfObj [{}, {}...] исходный массив объектов
+ * @returns {[]} новый массив объектов
+ */
+export function copyArrayOfObjects(arrayOfObj) {
+	let resultArray = [];
+
+	for (let obj of arrayOfObj) {
+		resultArray.push(Object.assign({}, obj));
+	}
+
+	return resultArray;
+}
