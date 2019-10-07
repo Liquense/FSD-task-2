@@ -47,22 +47,47 @@
 .donutChart {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  height: 100%; }
-  .donutChart .donutChart__svg {
+  align-items: flex-end;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content; }
+  .donutChart .donutChart__imageContainer {
+    width: 120px;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     margin-right: 30px;
     position: relative; }
+    .donutChart .donutChart__imageContainer .donutChart__svg {
+      width: 100%;
+      height: auto; }
+    .donutChart .donutChart__imageContainer .donutChart__activeData {
+      width: inherit;
+      height: 45px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: calc(50% - 45px/2); }
+      .donutChart .donutChart__imageContainer .donutChart__activeData .donutChart__activeValue {
+        font-size: 24px;
+        line-height: 30px; }
+      .donutChart .donutChart__imageContainer .donutChart__activeData .donutChart__valueText {
+        font-size: 12px;
+        line-height: 15px; }
   .donutChart .donutChart__legend {
     list-style: none;
     margin: 0;
     padding: 0; }
     .donutChart .donutChart__legend .donutChart__legendItem {
       display: flex;
-      align-items: baseline;
-      margin-bottom: 14px; }
+      align-items: baseline; }
+      .donutChart .donutChart__legend .donutChart__legendItem:not(:last-child) {
+        margin-bottom: 14px; }
       .donutChart .donutChart__legend .donutChart__legendItem:before {
         content: "";
         display: block;

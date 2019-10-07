@@ -62,7 +62,7 @@ function addOnClickHandlerToArcs(arcsArray, params, $dataTextContainer) {
 			if (arc.$Arc.hasClass(donutArcActiveClass))
 				changeDataText($dataTextContainer, arc.value, arc.firstColor);
 			else
-				changeDataText($dataTextContainer, 0, arc.firstColor);
+				changeDataText($dataTextContainer, 0);
 		});
 	}
 }
