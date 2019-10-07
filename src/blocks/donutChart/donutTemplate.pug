@@ -9,7 +9,7 @@ div.donutChart__imageContainer
 			path(stroke=`url(#grad${index})` fill="transparent" class="donutChart__svgArc")
 	div.donutChart__activeData
 		span.donutChart__activeValue.text_type_widgetTitle 123
-		span.donutChart__valueText.text_type_widgetTitle 260
+		span.donutChart__valueText.text_type_widgetTitle голос
 ul.donutChart__legend
 	each arc in arcs
 		li.donutChart__legendItem.text_type_regular(style=`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%);`) #{arc.caption}

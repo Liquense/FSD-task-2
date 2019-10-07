@@ -1,6 +1,6 @@
 import "../Text/text"
 import "./donutChart.scss"
-import {copyArrayOfObjects} from "../../common/functions";
+import {copyArrayOfObjects, ruDeclination} from "../../common/functions";
 
 jQuery.fn.extend({
 	donutChart: createDonut
@@ -27,9 +27,9 @@ function createDonut(params = {
 	arcsGap: 5
 }) {
 	const $donutContainer = $(this);
-	const $dataTextContainer = getDataTextContainer($donutContainer);
 	let arcsData = copyArrayOfObjects(params.data);
 	$donutContainer.html(donutHTML({arcs: arcsData}));
+	const $dataTextContainer = getDataTextContainer($donutContainer);
 	const $donutCanvas = $donutContainer.find(".donutChart__svg");
 	const $donutArcs = $donutCanvas.find(".donutChart__svgArc");
 	const $donutLegend = $donutContainer.find(".donutChart__legend");
@@ -45,11 +45,10 @@ function createDonut(params = {
 
 function getDataTextContainer($donutContainer) {
 	const $imageContainer = $donutContainer.find(".donutChart__imageContainer");
-	const $dataTextContainer = $imageContainer.find(".donutChart__activeData");
+	return $imageContainer.find(".donutChart__activeData");
 }
 
 function addOnClickHandlerToArcs(arcsArray, params, $dataTextContainer) {
-	console.log(arcsArray);
 	let activeArcIndex;
 
 	for (let i = 0; i < arcsArray.length; i++) {
@@ -60,7 +59,10 @@ function addOnClickHandlerToArcs(arcsArray, params, $dataTextContainer) {
 			arc.$Arc.toggleClass(donutArcActiveClass);
 			initDrawArc(arc, params);
 
-			changeDataText($dataTextContainer);
+			if (arc.$Arc.hasClass(donutArcActiveClass))
+				changeDataText($dataTextContainer, arc.value, arc.firstColor);
+			else
+				changeDataText($dataTextContainer, 0, arc.firstColor);
 		});
 	}
 }
@@ -74,11 +76,26 @@ function clearArcsActivity(arcsArray, currentArc, params) {
 	}
 }
 
+/**
+ * Функция выводит в текстовое поле значение выбранной дуги и меняет его цвет
+ * Если передать 0, то текст очистится
+ * @param $dataTextContainer
+ * @param value
+ * @param color
+ */
 function changeDataText($dataTextContainer, value, color) {
 	const $activeValue = $dataTextContainer.find(".donutChart__activeValue");
 	const $valueText = $dataTextContainer.find(".donutChart__valueText");
 
-	$activeValue.text("test");
+	if (value === 0) {
+		$activeValue.text("");
+		$valueText.text("");
+	} else {
+		$activeValue.text(value);
+		$activeValue.css("color", color);
+		$valueText.text(ruDeclination(value, "голос||а|ов"));
+		$valueText.css("color", color);
+	}
 }
 
 function getRatesWithGaps(rates, gapAngle, arcsCount) {
@@ -168,8 +185,6 @@ function getArcStyle(arc, params) {
 function getArcDrawData(arc, style, ratesCount, canvasSize) {
 	const startingAngle = arc.$Arc.data("startingAngle");
 	const endingAngle = getSecondAngle(startingAngle, arc.value, ratesCount);
-	console.log(startingAngle);
-	console.log(endingAngle);
 	const startX = canvasSize.width / 2;
 	const startY = canvasSize.height / 2;
 	const strokeWidth = style.outerRadius - style.innerRadius;

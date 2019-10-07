@@ -1,16 +1,22 @@
 .donutChart {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
-  height: 100%;
+  height: fit-content;
 
-  .donutChart__svg {
-    //width: 100%;
+  .donutChart__imageContainer {
+    width: 100%;
     height: fit-content;
-    margin-right: 30px;
-    position: relative;
 
-    .donutChart__svgArc {
+    .donutChart__svg {
+      width: 100%;
+      height: auto;
+      margin-right: 30px;
+      position: relative;
+
+      .donutChart__svgArc {
+      }
     }
   }
 
@@ -22,7 +28,9 @@
     .donutChart__legendItem {
       display: flex;
       align-items: baseline;
-      margin-bottom: 14px;
+      &:not(:last-child) {
+        margin-bottom: 14px;
+      }
 
       &:before {
         content: "";
