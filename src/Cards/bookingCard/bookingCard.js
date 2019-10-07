@@ -1,4 +1,6 @@
 import "./bookingCard.scss"
+import "../../blocks/Input/input"
+import "../../blocks/twoCalendarRangePicker/twoCalendarRangePicker"
 import {formatNumber, ruDeclination} from "../../common/functions";
 
 $(".bookingCard").each(function () {

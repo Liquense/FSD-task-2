@@ -415,59 +415,67 @@
 .list_type_rich .list__input:not(:last-child) {
   margin-bottom: 7px; }
 
-.list_type_bullet .list__title_type_bullet {
-  margin: 0;
-  margin-bottom: 15px;
-  padding: 0; }
+.list_type_bullet {
+  width: 280px; }
+  .list_type_bullet .list__title_type_bullet {
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0; }
+  .list_type_bullet .list__container_type_bullet {
+    margin: 0;
+    padding: 0;
+    list-style: none; }
+    .list_type_bullet .list__container_type_bullet .list__item_type_bullet {
+      display: flex;
+      align-items: flex-start; }
+      .list_type_bullet .list__container_type_bullet .list__item_type_bullet:not(:last-child) {
+        margin-bottom: 10px; }
+      .list_type_bullet .list__container_type_bullet .list__item_type_bullet .list__itemImage_type_bullet {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: rgba(31, 32, 65, 0.25);
+        margin-top: 7px;
+        margin-right: 10px; }
+      .list_type_bullet .list__container_type_bullet .list__item_type_bullet .list__itemText_type_bullet {
+        max-width: calc(25ch);
+        line-height: 24px; }
 
-.list_type_bullet .list__container_type_bullet {
-  margin: 0;
-  padding: 0;
-  list-style: none; }
-  .list_type_bullet .list__container_type_bullet .list__item_type_bullet {
-    display: flex;
-    align-items: flex-start; }
-    .list_type_bullet .list__container_type_bullet .list__item_type_bullet:not(:last-child) {
-      margin-bottom: 10px; }
-    .list_type_bullet .list__container_type_bullet .list__item_type_bullet .list__itemImage_type_bullet {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background-color: rgba(31, 32, 65, 0.25);
-      margin-top: 7px;
-      margin-right: 10px; }
-    .list_type_bullet .list__container_type_bullet .list__item_type_bullet .list__itemText_type_bullet {
-      max-width: calc(25ch);
-      line-height: 24px; }
-
-.list_type_feature .list__container_type_feature {
-  list-style: none;
-  margin: 0;
-  padding: 0; }
-  .list_type_feature .list__container_type_feature .list__item_type_feature {
-    display: flex;
-    align-items: center;
-    padding-bottom: 20px;
-    border-bottom: 1px solid rgba(31, 32, 65, 0.1); }
-    .list_type_feature .list__container_type_feature .list__item_type_feature:not(:first-child) {
-      margin-top: 20px; }
-    .list_type_feature .list__container_type_feature .list__item_type_feature .list__itemImage_type_feature {
-      font-family: "Material Icons";
-      text-transform: lowercase;
-      font-size: 24px;
-      background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-size: 48px;
-      margin-right: 10px; }
-    .list_type_feature .list__container_type_feature .list__item_type_feature .list__itemTextContainer_type_feature .list__itemTitle_type_feature,
-    .list_type_feature .list__container_type_feature .list__item_type_feature .list__itemTextContainer_type_feature .list__itemText_type_feature {
-      font-size: 14px;
-      line-height: 24px; }
-    .list_type_feature .list__container_type_feature .list__item_type_feature .list__itemTextContainer_type_feature .list__itemTitle_type_feature {
-      margin: 0;
-      padding: 0;
-      font-weight: bold; }
+.list_type_feature {
+  width: 280px; }
+  .list_type_feature .list__container_type_feature {
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+    .list_type_feature .list__container_type_feature .list__item_type_feature {
+      display: flex;
+      align-items: center; }
+      .list_type_feature .list__container_type_feature .list__item_type_feature:not(:last-child) {
+        border-bottom: 1px solid rgba(31, 32, 65, 0.1);
+        padding-bottom: 20px; }
+      .list_type_feature .list__container_type_feature .list__item_type_feature:not(:first-child) {
+        margin-top: 20px; }
+      .list_type_feature .list__container_type_feature .list__item_type_feature .list__itemImage_type_feature {
+        font-family: "Material Icons";
+        text-transform: lowercase;
+        font-size: 24px;
+        background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-user-select: none;
+           -moz-user-select: none;
+            -ms-user-select: none;
+                user-select: none;
+        font-size: 48px;
+        margin-right: 10px; }
+      .list_type_feature .list__container_type_feature .list__item_type_feature .list__itemTextContainer_type_feature .list__itemTitle_type_feature,
+      .list_type_feature .list__container_type_feature .list__item_type_feature .list__itemTextContainer_type_feature .list__itemText_type_feature {
+        font-size: 14px;
+        line-height: 24px; }
+      .list_type_feature .list__container_type_feature .list__item_type_feature .list__itemTextContainer_type_feature .list__itemTitle_type_feature {
+        margin: 0;
+        padding: 0;
+        font-weight: bold; }
 
 .list_expandable .list__title_expandable {
   max-width: 266px;
