@@ -9,10 +9,10 @@
     .list__item_type_feature {
       display: flex;
       align-items: center;
-      padding-bottom: 20px;
 
       &:not(:last-child) {
         border-bottom: 1px solid $darkShade10;
+        padding-bottom: 20px;
       }
       &:not(:first-child) {
         margin-top: 20px;
