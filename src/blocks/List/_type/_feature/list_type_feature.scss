@@ -7,10 +7,11 @@
     .list__item_type_feature {
       display: flex;
       align-items: center;
-
       padding-bottom: 20px;
-      border-bottom: 1px solid $darkShade10;
 
+      &:not(:last-child) {
+        border-bottom: 1px solid $darkShade10;
+      }
       &:not(:first-child) {
         margin-top: 20px;
       }
@@ -18,7 +19,7 @@
       .list__itemImage_type_feature {
         @include icon();
         @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
-
+        user-select: none;
         font-size: 48px;
         margin-right: 10px;
       }
