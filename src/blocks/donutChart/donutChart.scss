@@ -21,14 +21,15 @@
 
     .donutChart__activeData {
       $activeDataHeight: 45px;
-      width: inherit;
-      height: $activeDataHeight;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       position: absolute;
-      top: calc(50% - #{$activeDataHeight}/2);
+      height: $activeDataHeight;
+      top: calc(50% - #{$activeDataHeight} / 2);
+      width: 70%;
+      left: 15%;
 
       .donutChart__activeValue {
         font-size: 24px;

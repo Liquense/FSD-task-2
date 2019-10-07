@@ -77,7 +77,7 @@ function clearArcsActivity(arcsArray, currentArc, params) {
 }
 
 /**
- * Функция выводит в текстовое поле значение выбранной дуги и меняет его цвет
+ * Выводит в текстовое поле значение выбранной дуги и меняет его цвет
  * Если передать 0, то текст очистится
  * @param $dataTextContainer
  * @param value
