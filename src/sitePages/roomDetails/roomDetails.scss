@@ -1,0 +1,158 @@
+.roomDetails__header {
+}
+
+.roomDetails__photos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  background-color: $darkShade50;
+
+  @include clearfix();
+
+  .roomDetails__mainPhoto {
+    width: auto;
+    height: auto;
+    @media (max-width: 1439px) {
+      width: 100%;
+    }
+  }
+
+  .roomDetails__sidePhotos {
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media (max-width: 1439px) {
+      width: 100%;
+      flex-direction: row;
+    }
+
+    .roomDetails__upperSidePhoto {
+      height: 50%;
+      @media (max-width: 1439px) {
+        width: 50%;
+        height: auto;
+      }
+    }
+
+    .roomDetails__lowerSidePhoto {
+      height: 50%;
+      @media (max-width: 1439px) {
+        width: 50%;
+        height: auto;
+      }
+    }
+  }
+}
+
+$horizontalGap: 70px;
+$verticalGap: 30px;
+.roomDetails__content {
+  padding: get-vw(70px) get-vw(140px);
+  display: flex;
+  justify-content: center;
+
+  .roomDetails__InfoContainer {
+    display: flex;
+    flex-direction: column;
+    margin-right: get-vw($horizontalGap);
+
+    h2 {
+      margin: 0;
+      margin-bottom: 20px;
+      padding: 0;
+      width: fit-content;
+    }
+
+    .roomDetails__mainInfo {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: get-vw($verticalGap);
+
+      .roomDetails__featuresContainer {
+        margin-right: get-vw($horizontalGap);
+
+        .roomDetails__featuresTitle {
+
+        }
+
+        .roomDetails__featuresContent {
+
+        }
+      }
+
+      .roomDetails__expressionsContainer {
+        .roomDetails__expressionsTitle {
+        }
+
+        .roomDetails__donutChart {
+        }
+      }
+    }
+
+    .roomDetails__reviewsContainer {
+      margin-bottom: get-vw($verticalGap);
+
+      .roomDetails__reviewsTitleContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        .roomDetails__reviewsTitle {
+        }
+
+        .roomDetails__reviewsCount {
+        }
+      }
+
+      .roomDetails__reviewsContent {
+
+        .roomDetails__comment {
+
+
+          &:not(:last-child) {
+            margin-bottom: 22px;
+          }
+        }
+      }
+    }
+
+    .roomDetails__additionalInfo {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      .roomDetails__rulesContainer {
+        margin-right: get-vw($horizontalGap);
+
+        .roomDetails__rulesTitle {
+          margin-left: 20px;
+        }
+
+        .roomDetails__rulesList {
+          .list__title {
+            display: none;
+          }
+        }
+      }
+
+      .roomDetails__cancellationContainer {
+        max-width: get-vw(340px);
+
+        .roomDetails__cancellationTitle {
+        }
+
+        .roomDetails__cancellationText {
+          line-height: 24px;
+        }
+      }
+    }
+  }
+
+  .roomDetails__bookingCard {
+  }
+}
+
+.roomDetails__footer {
+}
