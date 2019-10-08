@@ -4,7 +4,7 @@
   "description": "My implementation of second task in FDS's training program (part 1 - CV)",
   "private": true,
   "scripts": {
-    "prod": "webpack --mode production --config webpack/webpack.config.js",
+    "prod": "webpack --mode production --config webpack/webpack.prod.js",
     "build": "webpack --mode development --config webpack/webpack.config.js",
     "dev-server": "webpack-dev-server --config ./webpack/webpack.dev.js",
     "stats": "webpack --json --profile > stats.json"

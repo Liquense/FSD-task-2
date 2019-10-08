@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const devMode = process.env.NODE_ENV !== 'production';
 
 const paths = {
 	source: path.join(__dirname, '../src'),
@@ -45,7 +46,8 @@ module.exports = {
 	plugins: [
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
-			filename: './[id].css',
+			filename: '[name].css',
+			chunkFilename: '[name]',
 		}),
 		new webpack.ProvidePlugin({
 			$: "jquery",
@@ -75,7 +77,12 @@ module.exports = {
 			{
 				test: /\.scss$/,
 				use: [
-					MiniCssExtractPlugin.loader,
+					{
+						loader: MiniCssExtractPlugin.loader,
+						options: {
+							hmr: process.env.NODE_ENV === 'development'
+						}
+					},
 					{
 						loader: "css-loader",
 					},
