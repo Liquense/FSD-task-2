@@ -3,16 +3,17 @@
 
 .roomDetails__photos {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
   background-color: $darkShade50;
-
-  @include clearfix();
+  @media (max-width: 1439px) {
+    flex-wrap: wrap;
+  }
 
   .roomDetails__mainPhoto {
     width: auto;
     height: auto;
+    object-fit: cover;
     @media (max-width: 1439px) {
       width: 100%;
     }
@@ -30,6 +31,7 @@
 
     .roomDetails__upperSidePhoto {
       height: 50%;
+      object-fit: cover;
       @media (max-width: 1439px) {
         width: 50%;
         height: auto;
@@ -38,6 +40,7 @@
 
     .roomDetails__lowerSidePhoto {
       height: 50%;
+      object-fit: cover;
       @media (max-width: 1439px) {
         width: 50%;
         height: auto;
@@ -49,14 +52,27 @@
 $horizontalGap: 70px;
 $verticalGap: 30px;
 .roomDetails__content {
-  padding: get-vw(70px) get-vw(140px);
+  padding: get-vw(70px) 0;
   display: flex;
   justify-content: center;
+  @media (max-width: 1439px) {
+    align-items: center;
+  }
+  @media (max-width: 1250px) {
+    flex-wrap: wrap-reverse;
+  }
 
   .roomDetails__InfoContainer {
     display: flex;
     flex-direction: column;
     margin-right: get-vw($horizontalGap);
+    @media (max-width: 1250px) {
+      margin-left: get-vw($horizontalGap);
+    }
+    @media (max-width: 850px) {
+      margin-right: 5px;
+      margin-left: 5px;
+    }
 
     h2 {
       margin: 0;
@@ -68,17 +84,28 @@ $verticalGap: 30px;
     .roomDetails__mainInfo {
       display: flex;
       flex-wrap: wrap;
-      margin-bottom: get-vw($verticalGap);
+      margin-bottom: get-vw(33px); //PP
+      @media (max-width: 1250px) {
+        justify-content: space-between;
+      }
+      @media (max-width: 610px) {
+        justify-content: space-evenly;
+        margin-bottom: $verticalGap;
+      }
 
       .roomDetails__featuresContainer {
-        margin-right: get-vw($horizontalGap);
+        margin-right: get-vw(82px); //PP
+        @media (max-width: 1250px) {
+          margin-right: 0;
+        }
+        @media (max-width: 610px) {
+          margin-bottom: $verticalGap;
+        }
 
         .roomDetails__featuresTitle {
-
         }
 
         .roomDetails__featuresContent {
-
         }
       }
 
@@ -87,12 +114,19 @@ $verticalGap: 30px;
         }
 
         .roomDetails__donutChart {
+          @media (max-width: 610px) {
+            align-items: center;
+          }
         }
       }
     }
 
     .roomDetails__reviewsContainer {
-      margin-bottom: get-vw($verticalGap);
+      margin-bottom: get-vw(33px); //PP
+      max-width: 710px;
+      @media (max-width: 610px) {
+        margin-bottom: $verticalGap;
+      }
 
       .roomDetails__reviewsTitleContainer {
         display: flex;
@@ -103,6 +137,7 @@ $verticalGap: 30px;
         }
 
         .roomDetails__reviewsCount {
+          flex-shrink: 0;
         }
       }
 
@@ -112,7 +147,7 @@ $verticalGap: 30px;
 
 
           &:not(:last-child) {
-            margin-bottom: 22px;
+            margin-bottom: 23px;
           }
         }
       }
@@ -120,14 +155,21 @@ $verticalGap: 30px;
 
     .roomDetails__additionalInfo {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between;
+      @media (max-width: 850px) {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
 
       .roomDetails__rulesContainer {
-        margin-right: get-vw($horizontalGap);
-
+        @media (max-width: 610px) {
+          margin-bottom: $verticalGap;
+        }
         .roomDetails__rulesTitle {
           margin-left: 20px;
+          @media (max-width: 610px) {
+            margin-left: 0;
+          }
         }
 
         .roomDetails__rulesList {
@@ -138,7 +180,11 @@ $verticalGap: 30px;
       }
 
       .roomDetails__cancellationContainer {
-        max-width: get-vw(340px);
+        min-width: 280px;
+        max-width: 340px;
+        @media (max-width: 550px) {
+          max-width: 280px;
+        }
 
         .roomDetails__cancellationTitle {
         }
@@ -151,6 +197,9 @@ $verticalGap: 30px;
   }
 
   .roomDetails__bookingCard {
+    @media (max-width: 1250px) {
+      margin-bottom: $verticalGap*2;
+    }
   }
 }
 

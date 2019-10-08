@@ -994,7 +994,8 @@ body {
 .footer {
   width: 100%;
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
-  background-color: white; }
+  background-color: white;
+  border-top: 1px solid rgba(31, 32, 65, 0.5); }
   .footer .fab {
     font-size: 24px;
     background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
@@ -1055,20 +1056,27 @@ body {
         .footer_type_large .footer__contentSection .footer__logoSection .footer__logoText {
           width: 100%; } }
   .footer_type_large .footer__contentSection .footer__linksSection {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    flex-grow: 1;
+    display: grid;
+    width: 100%;
+    row-gap: 40px;
+    -moz-column-gap: 0.69444vw;
+         column-gap: 0.69444vw;
+    grid-template-columns: repeat(auto-fit, minmax(13.19444vw, 1fr));
     padding-top: 6px; }
-    @media (max-width: 1039px) {
+    @media (max-width: 1439px) {
       .footer_type_large .footer__contentSection .footer__linksSection {
-        width: 100%; } }
+        justify-items: center; } }
     .footer_type_large .footer__contentSection .footer__linksSection .footer__linksColumn {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      min-width: 13.88889vw; }
+      min-width: 13.19444vw; }
+      @media (max-width: 1439px) {
+        .footer_type_large .footer__contentSection .footer__linksSection .footer__linksColumn {
+          min-width: unset;
+          width: -webkit-fit-content;
+          width: -moz-fit-content;
+          width: fit-content; } }
       .footer_type_large .footer__contentSection .footer__linksSection .footer__linksColumn .footer__linksSectionTitle {
         margin-bottom: 21px; }
       .footer_type_large .footer__contentSection .footer__linksSection .footer__linksColumn .footer__link {
@@ -1139,6 +1147,8 @@ body {
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   width: 100%;
   padding: 1.04167vw 9.72222vw; }
+  .header .header__logo {
+    display: block; }
   .header .header__contentContainer {
     display: flex;
     align-items: center; }

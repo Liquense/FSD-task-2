@@ -13,11 +13,10 @@ $(".roomDetails__donutChart").each(function () {
 	const $donutContainer = $(this);
 	$donutContainer.donutChart({
 		data: [
-			{caption: "Великолепно", value: 1300, firstColor: "#FFE39C", secondColor: "#FFBA9C"},
-			{caption: "Хорошо", value: 1300, firstColor: "#6FCF97", secondColor: "#66D2EA"},
-			{caption: "Удовлетворительно", value: 2600, firstColor: "#BC9CFF", secondColor: "#8BA4F9"},
-			{caption: "Разочарован", value: 300, firstColor: "#919191", secondColor: "#3D4975"},
-			{caption: "Что-нибудь ещё", value: 4000, firstColor: "#8BA4F9", secondColor: "#66D2EA"},
+			{caption: "Великолепно", value: 520, firstColor: "#FFE39C", secondColor: "#FFBA9C"},
+			{caption: "Хорошо", value: 260, firstColor: "#6FCF97", secondColor: "#66D2EA"},
+			{caption: "Удовлетворительно", value: 260, firstColor: "#BC9CFF", secondColor: "#8BA4F9"},
+			{caption: "Разочарован", value: 0, firstColor: "#919191", secondColor: "#3D4975"},
 		],
 		defaultStyle: {
 			outerRadius: 120,
