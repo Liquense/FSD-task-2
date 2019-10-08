@@ -16,7 +16,7 @@ $(".roomDetails__donutChart").each(function () {
 			{caption: "Великолепно", value: 520, firstColor: "#FFE39C", secondColor: "#FFBA9C"},
 			{caption: "Хорошо", value: 260, firstColor: "#6FCF97", secondColor: "#66D2EA"},
 			{caption: "Удовлетворительно", value: 260, firstColor: "#BC9CFF", secondColor: "#8BA4F9", isActive: true},
-			{caption: "Разочарован", value: 10, firstColor: "#919191", secondColor: "#3D4975"},
+			{caption: "Разочарован", value: 0, firstColor: "#919191", secondColor: "#3D4975"},
 		],
 		defaultStyle: {
 			outerRadius: 120,
