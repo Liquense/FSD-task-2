@@ -27,7 +27,7 @@
       align-items: center;
       position: absolute;
       height: $activeDataHeight;
-      top: calc(50% - #{$activeDataHeight} / 2);
+      top: calc(50% - (#{$activeDataHeight} + 9px) / 2);
       width: 70%;
       left: 15%;
 
@@ -37,7 +37,7 @@
       }
 
       .donutChart__valueText {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 15px;
       }
     }
@@ -53,7 +53,10 @@
       align-items: baseline;
 
       &:not(:last-child) {
-        margin-bottom: 14px;
+        margin-bottom: 10px;
+      }
+      &:last-child {
+        margin-bottom: 7px;
       }
 
       &:before {

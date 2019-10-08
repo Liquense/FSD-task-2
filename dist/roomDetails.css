@@ -1,16 +1,16 @@
 .roomDetails__photos {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
   width: 100%;
   background-color: rgba(31, 32, 65, 0.5); }
-  .roomDetails__photos:after {
-    content: "";
-    clear: both;
-    display: table; }
+  @media (max-width: 1439px) {
+    .roomDetails__photos {
+      flex-wrap: wrap; } }
   .roomDetails__photos .roomDetails__mainPhoto {
     width: auto;
-    height: auto; }
+    height: auto;
+    -o-object-fit: cover;
+       object-fit: cover; }
     @media (max-width: 1439px) {
       .roomDetails__photos .roomDetails__mainPhoto {
         width: 100%; } }
@@ -24,13 +24,17 @@
         width: 100%;
         flex-direction: row; } }
     .roomDetails__photos .roomDetails__sidePhotos .roomDetails__upperSidePhoto {
-      height: 50%; }
+      height: 50%;
+      -o-object-fit: cover;
+         object-fit: cover; }
       @media (max-width: 1439px) {
         .roomDetails__photos .roomDetails__sidePhotos .roomDetails__upperSidePhoto {
           width: 50%;
           height: auto; } }
     .roomDetails__photos .roomDetails__sidePhotos .roomDetails__lowerSidePhoto {
-      height: 50%; }
+      height: 50%;
+      -o-object-fit: cover;
+         object-fit: cover; }
       @media (max-width: 1439px) {
         .roomDetails__photos .roomDetails__sidePhotos .roomDetails__lowerSidePhoto {
           width: 50%;
@@ -67,7 +71,6 @@
         margin-bottom: 22px; }
     .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo {
       display: flex;
-      flex-wrap: wrap;
       justify-content: space-between; }
       .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__rulesContainer {
         margin-right: 4.86111vw; }
@@ -76,6 +79,7 @@
         .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__rulesContainer .roomDetails__rulesList .list__title {
           display: none; }
       .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__cancellationContainer {
+        min-width: 280px;
         max-width: 23.61111vw; }
         .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__cancellationContainer .roomDetails__cancellationText {
           line-height: 24px; }
@@ -1466,14 +1470,14 @@ body {
       align-items: center;
       position: absolute;
       height: 45px;
-      top: calc(50% - 45px / 2);
+      top: calc(50% - (45px + 9px) / 2);
       width: 70%;
       left: 15%; }
       .donutChart .donutChart__imageContainer .donutChart__activeData .donutChart__activeValue {
         font-size: 24px;
         line-height: 30px; }
       .donutChart .donutChart__imageContainer .donutChart__activeData .donutChart__valueText {
-        font-size: 12px;
+        font-size: 14px;
         line-height: 15px; }
   .donutChart .donutChart__legend {
     list-style: none;
@@ -1483,7 +1487,9 @@ body {
       display: flex;
       align-items: baseline; }
       .donutChart .donutChart__legend .donutChart__legendItem:not(:last-child) {
-        margin-bottom: 14px; }
+        margin-bottom: 10px; }
+      .donutChart .donutChart__legend .donutChart__legendItem:last-child {
+        margin-bottom: 7px; }
       .donutChart .donutChart__legend .donutChart__legendItem:before {
         content: "";
         display: block;
