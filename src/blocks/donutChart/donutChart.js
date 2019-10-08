@@ -37,7 +37,7 @@ function createDonut(params = {
 
 	setAdditionalParams(params);
 	addJQLinksToArcs(arcsData, $donutArcs, $legendItems);
-	drawArcsOnSVGCanvas(arcsData, params);
+	drawArcsOnSVGCanvas(arcsData, params, $dataTextContainer);
 
 	$donutCanvas.attr("viewBox", `0 0 ${params.canvasWidth} ${params.canvasHeight}`);
 	addOnClickHandlerToArcs(arcsData, params, $dataTextContainer);
@@ -62,7 +62,7 @@ function addOnClickHandlerToArcs(arcsArray, params, $dataTextContainer) {
 			if (arc.$Arc.hasClass(donutArcActiveClass))
 				changeDataText($dataTextContainer, arc.value, arc.firstColor);
 			else
-				changeDataText($dataTextContainer, 0);
+				changeDataText($dataTextContainer, 0, undefined, params.ratesCount);
 		});
 	}
 }
@@ -82,14 +82,17 @@ function clearArcsActivity(arcsArray, currentArc, params) {
  * @param $dataTextContainer
  * @param value
  * @param color
+ * @param overallCount
  */
-function changeDataText($dataTextContainer, value, color) {
+function changeDataText($dataTextContainer, value, color, overallCount) {
 	const $activeValue = $dataTextContainer.find(".donutChart__activeValue");
 	const $valueText = $dataTextContainer.find(".donutChart__valueText");
 
 	if (value === 0) {
-		$activeValue.text("");
-		$valueText.text("");
+		$activeValue.text(overallCount);
+		$activeValue.css("color", "grey");
+		$valueText.text(ruDeclination(overallCount, "голос||а|ов"));
+		$valueText.css("color", "grey");
 	} else {
 		$activeValue.text(value);
 		$activeValue.css("color", color);
@@ -124,24 +127,36 @@ function setAdditionalParams(params) {
 	params.gapsAngle = getAngleFromArcLength(params.arcsGap, arcDefaultRadius);
 	params.startingAngle = 90 + params.gapsAngle / 2;
 	params.notZeroArcs = arcsAndRatesCount.arcs;
-	params.ratesCount = getRatesWithGaps(arcsAndRatesCount.rates, params.gapsAngle, arcsAndRatesCount.arcs);
+	params.ratesCount = arcsAndRatesCount.rates;
+	params.ratesCountWithGaps = getRatesWithGaps(arcsAndRatesCount.rates, params.gapsAngle, arcsAndRatesCount.arcs);
 }
 
-function drawArcsOnSVGCanvas(arcsArray, params) {
+function drawArcsOnSVGCanvas(arcsArray, params, $dataTextContainer) {
 	arcsArray[0].$Arc.data("startingAngle", params.startingAngle);
 
+	let activeArc;
 	for (let i = 0; i < arcsArray.length; i++) {
 		if (arcsArray[i].value === 0) {
 			if (i + 1 < arcsArray.length)
 				arcsArray[i + 1].$Arc.data("startingAngle", params.startingAngle);
 			continue;
 		}
-
+		//добавляем класс, если в параметрах передано, что дуга активная
+		if (arcsArray[i].isActive) {
+			arcsArray[i].$Arc.addClass(donutArcActiveClass);
+			activeArc = arcsArray[i];
+		}
+		//узнаём данные о нарисованной дуге
 		const arcDrawData = initDrawArc(arcsArray[i], params);
-
 		if (i + 1 < arcsArray.length)
+			//записываем в следующую дугу угол, с которого она должна начинаться
 			arcsArray[i + 1].$Arc.data("startingAngle", arcDrawData.endingAngle + params.gapsAngle);
 	}
+
+	if (activeArc.$Arc.hasClass(donutArcActiveClass))
+		changeDataText($dataTextContainer, activeArc.value, activeArc.firstColor);
+	else
+		changeDataText($dataTextContainer, 0);
 }
 
 function initDrawArc(arc, params) {
@@ -149,7 +164,7 @@ function initDrawArc(arc, params) {
 	const arcDrawData = getArcDrawData(
 		arc,
 		currentStyle,
-		params.ratesCount,
+		params.ratesCountWithGaps,
 		{width: params.canvasWidth, height: params.canvasHeight}
 	);
 	drawArc(arc, arcDrawData);
