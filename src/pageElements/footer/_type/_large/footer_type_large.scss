@@ -63,21 +63,25 @@
     }
 
     .footer__linksSection {
-      display: flex;
-      justify-content: space-evenly;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      flex-grow: 1;
+      display: grid;
+      width: 100%;
+      row-gap: 40px;
+      column-gap: get-vw(10px);
+      grid-template-columns: repeat(auto-fit, minmax(get-vw(190px), 1fr));
       padding-top: 6px; //не придумал гибкого варианта, т.к. на макете они не строго по центру контейнера, но и не вровень с логотипом
-      @media (max-width: 1039px) {
-        width: 100%;
+      @media (max-width: 1439px) {
+        justify-items: center;
       }
 
       .footer__linksColumn {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        min-width: get-vw(200px);
+        min-width: get-vw(190px);
+        @media (max-width: 1439px) {
+          min-width: unset;
+          width: fit-content;
+        }
 
         .footer__linksSectionTitle {
           margin-bottom: 21px;
