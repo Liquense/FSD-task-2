@@ -3,7 +3,7 @@ include ../../blocks/Input/Input
 include ../../blocks/Button/Button
 
 mixin bookingCard(data={})
-	div.bookingCard
+	div(class = `bookingCard + ${attributes.addClasses ? attributes.addClasses : ""}`)
 		header.bookingCard__header
 			div.bookingCard__roomInfo
 				span.bookingCard__numberText.text_type_widgetTitle №
@@ -41,4 +41,4 @@ mixin bookingCard(data={})
 			)(decoration = "enterArrow")
 
 mixin infoIcon()
-	span(class="bookingCard__infoIcon " + attributes.addClasses) i
+	span(class="bookingCard__infoIcon ") i
