@@ -5,8 +5,9 @@
  * @returns {string} итоговое число в виде строки
  */
 export function formatNumber(number, symbol) {
-	if (!number)
-		return "";
+	if (isNaN(number*1)) {
+		return "not number";
+	}
 
 	let stringNum = number.toString();
 	let formattedNum = [];

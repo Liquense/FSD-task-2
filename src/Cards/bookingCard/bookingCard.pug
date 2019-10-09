@@ -41,4 +41,4 @@ mixin bookingCard(data={})
 			)(decoration = "enterArrow")
 
 mixin infoIcon()
-	span(class="bookingCard__infoIcon ") i
+	span(class=`bookingCard__infoIcon ${attributes.addClasses ? attributes.addClasses : ""}`) i
