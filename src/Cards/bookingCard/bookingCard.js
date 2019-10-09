@@ -10,15 +10,11 @@ $(".bookingCard").each(function () {
 	const priceAmount = $dailyPrice.attr("data-dailyprice");
 	const currency = $dailyPrice.attr("data-currency");
 	const priceToShow = formatNumber(priceAmount, " ");
-	console.log(priceAmount);
 	writeFormattedDailyPrice($dailyPrice, priceToShow, currency);
 
-	const $firstDatepicker = $bookingCard.find(".bookingCard__rangePicker " +
-		".twoCalendarRangePicker__firstDatepicker " +
-		".input__control_type_datepicker");
-	const $secondDatepicker = $bookingCard.find(".bookingCard__rangePicker " +
-		".twoCalendarRangePicker__secondDatepicker " +
-		".input__control_type_datepicker");
+	const $rangePicker = $bookingCard.find(".bookingCard__rangePicker");
+	const $firstDatepicker = $rangePicker.find(".twoCalendarRangePicker__firstDatepicker .input__control_type_datepicker");
+	const $secondDatepicker = $rangePicker.find(".twoCalendarRangePicker__secondDatepicker .input__control_type_datepicker");
 	const $stayingCostRow = $bookingCard.find(".bookingCard__stayingCostRow");
 
 	let priceData = {
@@ -38,7 +34,8 @@ $(".bookingCard").each(function () {
 		priceData
 	);
 
-	setCurrentDate($firstDatepicker, $secondDatepicker);
+	const initDates = getInitDates($rangePicker);
+	setDates($firstDatepicker, initDates);
 
 	let $servicesEnumSpan = $bookingCard.find(".bookingCard__services");
 	let $servicesSumSpan = $bookingCard.find(".bookingCard__servicesSum");
@@ -50,6 +47,27 @@ $(".bookingCard").each(function () {
 	writeServicesToSpans($servicesEnumSpan, $servicesSumSpan, currency, servicesData);
 	writeTotalCost($totalCostSpan, priceData);
 });
+
+function getInitDates($rangePicker) {
+	let dates = [];
+
+	if ($rangePicker.attr("data-firstdate"))
+		dates.push(parseAttrToDate($rangePicker.attr("data-firstdate")));
+	if ($rangePicker.attr("data-seconddate"))
+		dates.push(parseAttrToDate($rangePicker.attr("data-seconddate")));
+
+	return dates.length === 0 ? undefined : dates;
+}
+
+function parseAttrToDate(attrDate) {
+	const dateParts = attrDate.split(".");
+	const day = dateParts[0],
+		month = dateParts[1],
+		year = dateParts[2];
+	const dateString = `${year}-${month}-${day}`;
+
+	return new Date(dateString);
+}
 
 function getTotalCost(priceData) {
 	let totalCost = Number(priceData.stayingSum) + Number(priceData.servicesSum) + Number(priceData.addServicesSum);
@@ -63,15 +81,17 @@ function writeTotalCost($totalCostSpan, priceData) {
 	$totalCostSpan.text(`${formattedTotalBookingCost}${priceData.currency}`);
 }
 
-function setCurrentDate($firstDatePicker, $secondDatePicker) {
-	const firstDatepickerData = $firstDatePicker.data("datepicker");
-	const secondDatepickerData = $secondDatePicker.data("datepicker");
-
-	let today = new Date();
-	today = new Date(today.setHours(0, 0, 0, 0));
-
-	firstDatepickerData.selectDate(today);
-	secondDatepickerData.selectDate(today);
+/**
+ * Устанавливает даты в первый календарь (второй подцепляет это значение в логике twoCalendarRangePicker)
+ * Если даты не переданы, используется сегодняшняя
+ * @param $datePicker
+ * @param dates
+ */
+function setDates($datePicker, dates = [new Date(new Date().setHours(0, 0, 0, 0))]) {
+	const datepickerData = $datePicker.data("datepicker");
+	console.log(dates[0]);
+	datepickerData.clear();
+	datepickerData.selectDate(dates);
 }
 
 function writeFormattedDailyPrice($dailyPriceSpan, priceToShow, currency) {
@@ -132,6 +152,7 @@ function addRefreshCheckOnInputChange($firstDatePicker, $secondDatePicker, $stay
 		);
 		writeTotalCost($totalCostSpan, priceData);
 	}
+
 	$firstDatePicker.change(refreshCheckValuesOnDateChange);
 	$secondDatePicker.change(refreshCheckValuesOnDateChange);
 }

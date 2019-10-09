@@ -2,8 +2,12 @@ include ../../blocks/twoCalendarRangePicker/twoCalendarRangePicker
 include ../../blocks/Input/Input
 include ../../blocks/Button/Button
 
+//- data = {
+	arrivalDate: string("dd.MM.yyyyy") - дата въезда
+	departureDate: string("dd.MM.yyyy") - дата выезда
+	}
 mixin bookingCard(data={})
-	div(class = `bookingCard + ${attributes.addClasses ? attributes.addClasses : ""}`)
+	div(class = `bookingCard ${attributes.addClasses ? attributes.addClasses : ""}`)
 		header.bookingCard__header
 			div.bookingCard__roomInfo
 				span.bookingCard__numberText.text_type_widgetTitle №
@@ -12,8 +16,7 @@ mixin bookingCard(data={})
 			div.bookingCard__priceInfo
 				span.bookingCard__dailyPrice.text_type_label-CTA(data-dailyPrice=data.dailyPrice data-currency=data.currency) #{data.dailyPrice}#{data.currency}
 				span.bookingCard__paymentPeriod.text_type_regular  в сутки
-		//-todo: передача конкретных изначальных дат (data.arrivalDate, data.departureDate)
-		+twoCalendarRangePicker(["Прибытие", "Выезд"])(addClasses = "bookingCard__rangePicker")
+		+twoCalendarRangePicker({labels: ["Прибытие", "Выезд"], firstDate: data.arrivalDate, secondDate: data.departureDate})(addClasses = "bookingCard__rangePicker")
 		+Input("Гости",
 			"dropdown customers",
 			"Сколько гостей",

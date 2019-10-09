@@ -1,4 +1,4 @@
-mixin twoCalendarRangePicker(titles=[])
-	div(class = "twoCalendarRangePicker " + attributes.addClasses)
-		+Input(titles[0], "datepicker narrow", "ДД.ММ.ГГГГ", "twoCalendarRangePicker__datepicker twoCalendarRangePicker__firstDatepicker", "")
-		+Input(titles[1], "datepicker narrow", "ДД.ММ.ГГГГ", "twoCalendarRangePicker__datepicker twoCalendarRangePicker__secondDatepicker", "")
+mixin twoCalendarRangePicker(data={})
+	div(class = "twoCalendarRangePicker " + attributes.addClasses data-firstDate=data.firstDate data-secondDate=data.secondDate)
+		+Input(data.labels ? data.labels[0] : "", "datepicker narrow", "ДД.ММ.ГГГГ", "twoCalendarRangePicker__datepicker twoCalendarRangePicker__firstDatepicker", "")
+		+Input(data.labels ? data.labels[1] : "", "datepicker narrow", "ДД.ММ.ГГГГ", "twoCalendarRangePicker__datepicker twoCalendarRangePicker__secondDatepicker", "")
