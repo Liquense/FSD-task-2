@@ -66,7 +66,7 @@ module.exports = {
 			cacheGroups: {
 				common: {
 					name: 'commons',
-					chunks: 'initial',
+					chunks: 'all',
 					priority: 0
 				},
 				vendor: {
