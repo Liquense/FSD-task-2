@@ -45,7 +45,7 @@ module.exports = {
 		filename: "js/[name].bundle.js",
 	},
 	plugins: [
-		new BundleAnalyzerPlugin(),
+		//new BundleAnalyzerPlugin(),
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
