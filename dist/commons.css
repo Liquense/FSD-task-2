@@ -982,9 +982,10 @@ body {
   border: none; }
 
 .input__control_type_dropdown {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
   padding-right: 90px; }
+  .input__control_type_dropdown.input__control_focused {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
 
 .input__dropdownListWrapper_type_dropdown {
   position: absolute;
@@ -2239,19 +2240,6 @@ body {
       .landingPage__roomContainer .roomContainer__slogan {
         align-self: unset; } }
 
-.rateButton__star {
-  font-family: "Material Icons";
-  text-transform: lowercase;
-  font-size: 24px;
-  background: linear-gradient(#BC9CFF 0%, #88a4f9 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  line-height: 24px; }
-
 .registrationCard {
   max-width: 380px;
   height: -webkit-fit-content;
@@ -2497,6 +2485,19 @@ body {
       text-align: center; }
     .loginCard .loginCard__createAccountContainer {
       justify-content: space-evenly; } }
+
+.rateButton__star {
+  font-family: "Material Icons";
+  text-transform: lowercase;
+  font-size: 24px;
+  background: linear-gradient(#BC9CFF 0%, #88a4f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  line-height: 24px; }
 
 .carousel {
   width: 270px; }

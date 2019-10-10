@@ -194,6 +194,7 @@ $(".input_type_dropdown").each(function () {
     });
 
     $(confirmButton).click(function () {
+        $(control).removeClass("input__control_focused");
         $(dropdown).toggle("fade");
         $(dropdown).toggleClass(dropdownVisibleClass);
 
@@ -245,10 +246,11 @@ $(".input_type_dropdown").each(function () {
     });
 
     $(control).focus(function () {
-        $(control).addClass("input__control_focused");
+        //$(control).addClass("input__control_focused");
     });
 
     $(control).click(function () {
+        $(control).toggleClass("input__control_focused");
         $(dropdown).toggle("fade");
         $(dropdown).toggleClass(dropdownVisibleClass);
 

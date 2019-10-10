@@ -1,22 +1,16 @@
 @import "../../styleVariables";
 
 .input__control_type_dropdown {
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  &.input__control_focused {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
   padding-right: 91px - $borderWidth;
 }
 
 .input__dropdownListWrapper_type_dropdown {
   position: absolute;
   width: $inputWidth;
-
-  &.input__dropdownListWrapper_width_narrow{
-    width: $narrowInputWidth;
-  }
-  &.input__dropdownListWrapper_width_medium {
-    width: $mediumInputWidth;
-  }
-
   border: $borderWidth solid $darkShade50;
   border-top: 0;
   border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
@@ -27,6 +21,13 @@
   //toggle в jquery делает изменения через более приоритетные style в html,
   //поэтому по дефолту элемент невидим
   display: none;
+
+  &.input__dropdownListWrapper_width_narrow{
+    width: $narrowInputWidth;
+  }
+  &.input__dropdownListWrapper_width_medium {
+    width: $mediumInputWidth;
+  }
 
   .input__dropdownList_type_dropdown {
     list-style: none;
