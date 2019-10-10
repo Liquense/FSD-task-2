@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const paths = {
 	source: path.join(__dirname, '../src'),
@@ -15,7 +16,7 @@ const mainPages = ['index', 'second'].map(name => {
 	return new HtmlWebpackPlugin({
 		template: `./src/${name}.pug`,
 		filename: `${name}.html`,
-		chunks: [`${name}`],
+		chunks: [`${name}`, 'commons', 'vendors'],
 	})
 });
 const sitePages = [
@@ -23,7 +24,7 @@ const sitePages = [
 	return new HtmlWebpackPlugin({
 		template: `./src/sitePages/${name}/${name}.pug`,
 		filename: `${name}.html`,
-		chunks: [`${name}`],
+		chunks: [`${name}`, 'commons', 'vendors'],
 	})
 });
 
@@ -44,10 +45,12 @@ module.exports = {
 		filename: "js/[name].bundle.js",
 	},
 	plugins: [
+		new BundleAnalyzerPlugin(),
 		new CleanWebpackPlugin(),
 		new MiniCssExtractPlugin({
 			filename: '[name].css',
-			chunkFilename: '[name]',
+			chunkFilename: '[name].css',
+			ignoreOrder: true,
 		}),
 		new webpack.ProvidePlugin({
 			$: "jquery",
@@ -57,6 +60,24 @@ module.exports = {
 		}),
 	].concat(mainPages, sitePages),
 
+	optimization: {
+		splitChunks: {
+			name: true,
+			cacheGroups: {
+				common: {
+					name: 'commons',
+					chunks: 'initial',
+					priority: 0
+				},
+				vendor: {
+					test: /[\\/]node_modules[\\/]/,
+					name: 'vendors',
+					chunks: 'all',
+					priority: 1
+				}
+			}
+		}
+	},
 	module: {
 		rules: [
 			{

@@ -57,6 +57,7 @@
     "tar": "^4.4.8",
     "webpack": "^4.29.6",
     "webpack-bem-loader": "^0.8.0",
+    "webpack-bundle-analyzer": "^3.5.2",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.1"
   },
