@@ -45,6 +45,8 @@ let selectNiceWord = function (itemsCount, itemName) {
         case "гости":
             result = ruDeclination(itemsCount, "гост|ь|я|ей");
             break;
+        case "младенцы":
+            result = ruDeclination(itemsCount, "младен|ец|ца|цев")
     }
 
     return result;
@@ -72,10 +74,17 @@ let createInputText = function (namesValues, dropdownType) {
         }
         case typeCustomers: {
             let sum = 0;
+            let infants = 0;
             for (let i = 0; i < namesValues.length; i++) {
+                if (namesValues[i].name.toLowerCase() === "младенцы") {
+                    infants = namesValues[i].value;
+                    continue;
+                }
                 sum += parseInt(namesValues[i].value);
             }
-            result += `${sum} ${selectNiceWord(sum, "гости")}`;
+            result +=
+                `${sum} ${selectNiceWord(sum, "гости")}, ` +
+                `${infants} ${selectNiceWord(infants, "младенцы")}`;
             break;
         }
         default: {
