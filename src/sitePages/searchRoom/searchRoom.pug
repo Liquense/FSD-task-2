@@ -39,7 +39,7 @@ html(lang="ru")
 			div.searchRoom__showSidebarButton filter_list
 			div.searchRoom__sideBar
 				include ../../blocks/Input/Input
-				+Input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "searchRoom__stayingDates", "")
+				+Input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "searchRoom__stayingDates", "", ["19.08.2019", "23.08.2019"])
 				+Input(
 					"Гости", "dropdown customers medium", "Сколько гостей", "searchRoom__guests", "",
 					[{name: "Взрослые", value: 3}, {name: "Дети", value: 0}, {name: "Младенцы", value: 1}]
