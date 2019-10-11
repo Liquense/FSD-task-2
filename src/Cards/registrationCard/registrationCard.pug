@@ -8,7 +8,7 @@ mixin registrationCard(data={})
 		h3.registrationCard__title.text_type_widgetTitle Регистрация аккаунта
 		+Input("", "text", "Имя", "registrationCard__userName", "")
 		+Input("", "text", "Фамилия", "registrationCard__userSurname", "")
-		-var radioButtons = [{text: "Мужчина", group: "registrationGender", state: true}]
+		-var radioButtons = [{text: "Мужчина", group: "registrationGender", isChecked: true}]
 		-radioButtons.push({text: "Женщина", group: "registrationGender"})
 		+list("radio", "", radioButtons, "registrationCard__genderList")
 		+Input("Дата рождения", "text mask", "ДД.ММ.ГГГГ", "registrationCard__birthDay", "[0123][0-9].[012][0-9].[0-9]{4}")

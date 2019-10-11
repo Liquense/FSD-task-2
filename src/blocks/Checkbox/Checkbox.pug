@@ -1,7 +1,7 @@
 //
 	types: checkbox/пусто - чекбокс, toggle - переключатель,
 	additional - структура с дополнительными параметрами (description, text)
-mixin checkbox(text, types, additional, addClasses="")
+mixin checkbox(text, types, additional, addClasses="", isChecked="false")
 	-var checkboxClassName = "checkbox"
 	-var labelClassName = "checkbox__label"
 	-var textClassName = "checkbox__text"
@@ -51,10 +51,10 @@ mixin checkbox(text, types, additional, addClasses="")
 			- value.class += classNames[index] + "_type_default "
 		- inputAttrs.type = "checkbox"
 
+	-inputAttrs["data-isChecked"] = `${isChecked}`
 	div&attributes(checkboxAttrs)
 		label&attributes(labelAttrs)
 			span&attributes(textAttrs) #{text}
 			input&attributes(inputAttrs)
 			if types.includes("rich")
-				br
 				span&attributes(descriptionAttrs) #{description}

@@ -51,8 +51,8 @@ html(lang="ru")
 				include ../../blocks/List/list
 				-let checkButtons = []
 				-checkButtons.push({text: "Можно курить"});
-				-checkButtons.push({text: "Можно с питомцами"});
-				-checkButtons.push({text: "Можно приглашать гостей (до 10 человек)"});
+				-checkButtons.push({text: "Можно с питомцами", isChecked: true});
+				-checkButtons.push({text: "Можно приглашать гостей (до 10 человек)", isChecked: true});
 				+list("checkbox", "Checkbox buttons", checkButtons, "searchRoom__benefitsFilter")
 				-const richButtons = []
 				-richButtons.push({text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."});
@@ -60,12 +60,12 @@ html(lang="ru")
 				+list("rich", "Доступность", richButtons, "searchRoom__availabilityFilter")
 				+Input(
 					"Удобства номера", "dropdown medium rooms", "Комплектация номера", "searchRoom__roomEquipmentFilter", "",
-					[{name: "Спальни", value: 2}, {name: "Кровати", value: 2}, {name: "Ванные комнаты", value: 1}])
+					[{name: "Спальни", value: 2}, {name: "Кровати", value: 2}, {name: "Ванные комнаты", value: 0}])
 				-checkButtons = []
 				-checkButtons.push({text: "Завтрак"})
-				-checkButtons.push({text: "Письменный стол"})
-				-checkButtons.push({text: "Стул для кормления"})
-				-checkButtons.push({text: "Кроватка"})
+				-checkButtons.push({text: "Письменный стол", isChecked: true})
+				-checkButtons.push({text: "Стул для кормления", isChecked: true})
+				-checkButtons.push({text: "Кроватка", isChecked: true})
 				-checkButtons.push({text: "Телевизор"})
 				-checkButtons.push({text: "Шампунь"})
 				-checkButtons.push({text: "Телевизор"})

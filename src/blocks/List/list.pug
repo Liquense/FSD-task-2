@@ -44,4 +44,6 @@ mixin list(types, title, checkboxes=[], addClasses)
 					value.text,
 					`${inputType} ${value.class}`,
 					value,
-					`${listClassName}__input ${listClassName}__input_type_${inputType}`)
+					`${listClassName}__input ${listClassName}__input_type_${inputType}`,
+					value.isChecked
+				)

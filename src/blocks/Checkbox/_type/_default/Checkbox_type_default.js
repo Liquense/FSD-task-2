@@ -1,10 +1,9 @@
 import "./Checkbox_type_default.scss"
+import {initCheckbox} from "../../Checkbox";
 
-$(".checkbox__hiddenButton_type_default").checkboxradio({
-    classes: {
-        "ui-checkboxradio-icon" : "checkbox__button checkbox__button_type_default",
-        "ui-checkboxradio-icon-space" : "checkbox__iconSpace checkbox__iconSpace_type_default"
-    }
+initCheckbox(".checkbox__hiddenButton_type_default", {
+    icon: "checkbox__button checkbox__button_type_default",
+    iconSpace: "checkbox__iconSpace checkbox__iconSpace_type_default"
 });
 
 $(".checkbox__button_type_default").text("check");
