@@ -40,8 +40,10 @@ html(lang="ru")
 			div.searchRoom__sideBar
 				include ../../blocks/Input/Input
 				+Input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "searchRoom__stayingDates", "")
-				+Input("Гости", "dropdown customers medium", "Сколько гостей", "searchRoom__guests", "", ["Взрослые", "Дети", "Младенцы"])
-				//- todo: у дропдауна нижние углы нужно скруглить, когда он не раскрыт
+				+Input(
+					"Гости", "dropdown customers medium", "Сколько гостей", "searchRoom__guests", "",
+					[{name: "Взрослые", value: 3}, {name: "Дети", value: 0}, {name: "Младенцы", value: 1}]
+				)
 				div.searchRoom__pricePerDaySliderContainer
 					include ../../blocks/Slider/Slider
 					+slider(100, 15000, 100, "Диапазон цены", "searchRoom__pricePerDaySliderFilter ", true)
@@ -56,7 +58,9 @@ html(lang="ru")
 				-richButtons.push({text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."});
 				-richButtons.push({text: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист и проводит до номера"});
 				+list("rich", "Доступность", richButtons, "searchRoom__availabilityFilter")
-				+Input("Удобства номера", "dropdown medium rooms", "Комплектация номера", "searchRoom__roomEquipmentFilter", "", ["Спальни", "Кровати", "Ванные комнаты"])
+				+Input(
+					"Удобства номера", "dropdown medium rooms", "Комплектация номера", "searchRoom__roomEquipmentFilter", "",
+					[{name: "Спальни", value: 2}, {name: "Кровати", value: 2}, {name: "Ванные комнаты", value: 1}])
 				-checkButtons = []
 				-checkButtons.push({text: "Завтрак"})
 				-checkButtons.push({text: "Письменный стол"})
@@ -75,7 +79,13 @@ html(lang="ru")
 					-let i = 0;
 					while i < 15
 						+roomPreviewCard(
-							{costPerPeriod: 9990, reviewsCount: 145, roomNumber: "888", roomType: "Люкс", rating: [5, 5]},
+							{
+								costPerPeriod: 9990,
+								reviewsCount: 145,
+								roomNumber: "888",
+								roomType: "Люкс",
+								rating: [5, 5]
+							},
 							{
 								content: [
 									{tag: "img", src: require("../../assets/images/room-mini-1.jpg")},
@@ -266,7 +276,8 @@ html(lang="ru")
 				copyright: "Copyright © 2018 Toxin отель. Все права зачищены."
 			},
 			[
-				{title: "Навигация",
+				{
+					title: "Навигация",
 					links:
 						[
 							{text: "О нас", url: "#"},
@@ -275,7 +286,8 @@ html(lang="ru")
 							{text: "Услуги", url: "#"}
 						]
 				},
-				{title: "О нас",
+				{
+					title: "О нас",
 					links:
 						[
 							{text: "О сервисе", url: "#"},
@@ -284,7 +296,8 @@ html(lang="ru")
 							{text: "Инвесторы", url: "#"}
 						]
 				},
-				{title: "Служба поддержки",
+				{
+					title: "Служба поддержки",
 					links:
 						[
 							{text: "Соглашения", url: "#"},

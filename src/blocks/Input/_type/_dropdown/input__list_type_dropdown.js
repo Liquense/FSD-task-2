@@ -7,7 +7,7 @@ import {ruDeclination} from "../../../../common/functions";
  * @param spinnerElements   массив спиннеров
  * @returns {Array}
  */
-let getAllNamesValues = function (spinnerElements) {
+function getCurrentNamesValues (spinnerElements) {
     let result = [];
 
     $(spinnerElements).each(function () {
@@ -17,7 +17,7 @@ let getAllNamesValues = function (spinnerElements) {
         });
     });
     return result;
-};
+}
 
 const typeRooms = "rooms", typeCustomers = "customers";
 let getDropdownType = function (dropdown) {
@@ -28,7 +28,7 @@ let getDropdownType = function (dropdown) {
     } else return "";
 };
 
-let selectNiceWord = function (itemsCount, itemName) {
+function selectNiceWord (itemsCount, itemName) {
     let result = "";
 
     switch (itemName.toLowerCase()) {
@@ -50,7 +50,7 @@ let selectNiceWord = function (itemsCount, itemName) {
     }
 
     return result;
-};
+}
 
 /**
  * Создание строки, содержащей суммарную информацию по дропдауну.
@@ -60,7 +60,7 @@ let selectNiceWord = function (itemsCount, itemName) {
  * @param dropdownType  тип дропдауна
  * @returns {string}    результирующая строка
  */
-let createInputText = function (namesValues, dropdownType) {
+function createInputText (namesValues, dropdownType) {
     let result = "";
     if (isAllValuesZero(namesValues)) return result;
 
@@ -97,23 +97,23 @@ let createInputText = function (namesValues, dropdownType) {
         }
     }
     return result;
-};
+}
 
-let changeInputText = function (dropdown, namesValues, input) {
+function changeInputText (dropdown, namesValues, input) {
     let dropdownType = getDropdownType(dropdown);
     let newInputText = createInputText(namesValues, dropdownType);
     $(input).val(newInputText);
-};
+}
 
 
-let isAllValuesZero = function (namesValues) {
+function isAllValuesZero (namesValues) {
     for (let i = 0; i < namesValues.length; i++) {
         if (parseInt((namesValues[i].value)) !== 0) {
             return false;
         }
     }
     return true;
-};
+}
 
 /**
  * Поэлементное сравнение двух массивов имя-значение по значениям.
@@ -121,7 +121,7 @@ let isAllValuesZero = function (namesValues) {
  * @param namesValues2  второй массив
  * @returns {boolean}   равны ли они
  */
-let isValuesEqual = function (namesValues1, namesValues2) {
+function isValuesEqual (namesValues1, namesValues2) {
     if (namesValues1.length !== namesValues2.length) return false;
 
     for (let i = 0; i < namesValues1.length; i++) {
@@ -129,9 +129,9 @@ let isValuesEqual = function (namesValues1, namesValues2) {
     }
 
     return true;
-};
+}
 
-let manageControlsVisibility = function (oldNamesValues, namesValues, clearButton, confirmButton, buttonsContainer) {
+function manageControlsVisibility (oldNamesValues, namesValues, clearButton, confirmButton, buttonsContainer) {
     let clearVisibleClass = "input__clearButton_visible",
         confirmVisibleClass = "input__confirmButton_visible",
         containerVisibleClass = "input__controlButtonsContainer_visible";
@@ -152,11 +152,11 @@ let manageControlsVisibility = function (oldNamesValues, namesValues, clearButto
         $(buttonsContainer).addClass(containerVisibleClass);
 };
 
-let clearSpinnersValues = function (namesValues, spinners) {
+function clearSpinnersValues (namesValues, spinners) {
     setSpinnerValues(0, namesValues, spinners, ["value"])
 };
 
-let setSpinnerValues = function (namesValuesToSet, namesValuesToChange, spinners, options) {
+function setSpinnerValues (namesValuesToSet, namesValuesToChange, spinners, options) {
     for (let i = 0; i < spinners.length; i++) {
         if (options.includes("array")) {
             namesValuesToChange[i].value = namesValuesToSet[i].value;
@@ -169,7 +169,7 @@ let setSpinnerValues = function (namesValuesToSet, namesValuesToChange, spinners
     }
 };
 
-let dropdownOnChange = function (oldNamesValues, namesValues, spinners, clearButton, confirmButton, buttonsContainer, dropdown, input) {
+function dropdownOnChange (oldNamesValues, namesValues, spinners, clearButton, confirmButton, buttonsContainer, dropdown, input) {
     setSpinnerValues(oldNamesValues, namesValues,
         spinners, ["array"]);
     manageControlsVisibility(oldNamesValues, namesValues,
@@ -177,59 +177,71 @@ let dropdownOnChange = function (oldNamesValues, namesValues, spinners, clearBut
     changeInputText(dropdown, namesValues, input);
 };
 
+function getInitialNamesValues($spinnerElements) {
+    let result = [];
+
+    $($spinnerElements).each(function () {
+        const $spinnerElement = $(this);
+        result.push({
+            name: $spinnerElement.attr("data-name"),
+            value: parseInt($spinnerElement.attr("value") ? $spinnerElement.attr("value") : 0),
+        });
+    });
+    console.log(result);
+    return result;
+}
 
 const dropdownVisibleClass = "input__dropdownListWrapper_visible";
 $(".input_type_dropdown").each(function () {
-    let inputWrapper = $(this);
-    let dropdown = $(this).children(".input__dropdownListWrapper_type_dropdown");
-    let control = $(this).find(".input__control_type_dropdown");
-    let spinnerValueElements = $(this).find(".input__value_type_spinner");
-    let controlButtonsContainer = $(this).find(".input__controlButtonsContainer");
-    let clearButton = $(this).find(".input__clearButton");
-    let confirmButton = $(this).find(".input__confirmButton");
+    const $inputWrapper = $(this);
+    const $dropdown = $(this).children(".input__dropdownListWrapper_type_dropdown");
+    const $control = $(this).find(".input__control_type_dropdown");
+    const $spinnerValueElements = $(this).find(".input__value_type_spinner");
+    const $controlButtonsContainer = $(this).find(".input__controlButtonsContainer");
+    const $clearButton = $(this).find(".input__clearButton");
+    const $confirmButton = $(this).find(".input__confirmButton");
 
-    const dropdownType = getDropdownType(dropdown);
+    let spinnersNameValue = getInitialNamesValues($spinnerValueElements);
+    let oldSpinnersNameValue = getInitialNamesValues($spinnerValueElements);
+    changeInputText($dropdown, spinnersNameValue, $control);
 
-    let spinnersNameValue = getAllNamesValues(spinnerValueElements);
-    let oldSpinnersNameValue = getAllNamesValues(spinnerValueElements);
-
-    $(clearButton).click(function () {
-        clearSpinnersValues(spinnersNameValue, spinnerValueElements);
+    $($clearButton).click(function () {
+        clearSpinnersValues(spinnersNameValue, $spinnerValueElements);
 
         manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-            clearButton, confirmButton, controlButtonsContainer);
+            $clearButton, $confirmButton, $controlButtonsContainer);
 
-        changeInputText(dropdown, spinnersNameValue, control);
+        changeInputText($dropdown, spinnersNameValue, $control);
     });
 
-    $(confirmButton).click(function () {
-        $(control).removeClass("input__control_focused");
-        $(dropdown).toggle("fade");
-        $(dropdown).toggleClass(dropdownVisibleClass);
+    $($confirmButton).click(function () {
+        $($control).removeClass("input__control_focused");
+        $($dropdown).toggle("fade");
+        $($dropdown).toggleClass(dropdownVisibleClass);
 
-        oldSpinnersNameValue = getAllNamesValues(spinnerValueElements);
+        oldSpinnersNameValue = getCurrentNamesValues($spinnerValueElements);
 
         manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-            clearButton, confirmButton, controlButtonsContainer);
+            $clearButton, $confirmButton, $controlButtonsContainer);
     });
 
     //on spin
-    $(spinnerValueElements).each(function () {
+    $($spinnerValueElements).each(function () {
         $(this).on("spin", function (event, ui) {
             spinnersNameValue[$(this).attr("data-index")].value = ui.value;
 
-            changeInputText(dropdown, spinnersNameValue, control);
+            changeInputText($dropdown, spinnersNameValue, $control);
 
             manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-                clearButton, confirmButton, controlButtonsContainer);
+                $clearButton, $confirmButton, $controlButtonsContainer);
         });
     });
 
 
-    $(dropdown).position({
+    $($dropdown).position({
         my: "center",
         at: "center",
-        of: control
+        of: $control
     });
 
     let clickedElement;
@@ -238,35 +250,35 @@ $(".input_type_dropdown").each(function () {
         clickedElement = $(event.target);
 
         //если клик происходит не в дропдауне
-        if (!$.contains($(inputWrapper).get(0), $(clickedElement).get(0))) {
+        if (!$.contains($($inputWrapper).get(0), $(clickedElement).get(0))) {
             //и дропдаун отображается
-            if ($(dropdown).hasClass(dropdownVisibleClass)) {
-                $(dropdown).toggle("fade");
-                $(dropdown).toggleClass(dropdownVisibleClass);
+            if ($($dropdown).hasClass(dropdownVisibleClass)) {
+                $($dropdown).toggle("fade");
+                $($dropdown).toggleClass(dropdownVisibleClass);
 
                 setSpinnerValues(oldSpinnersNameValue, spinnersNameValue,
-                    spinnerValueElements, ["array"]);
+                    $spinnerValueElements, ["array"]);
                 manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-                    clearButton, confirmButton, controlButtonsContainer);
-                changeInputText(dropdown, spinnersNameValue, control);
+                    $clearButton, $confirmButton, $controlButtonsContainer);
+                changeInputText($dropdown, spinnersNameValue, $control);
             }
-            $(control).removeClass("input__control_focused");
+            $($control).removeClass("input__control_focused");
         }
     });
 
-    $(control).focus(function () {
+    $($control).focus(function () {
         //$(control).addClass("input__control_focused");
     });
 
-    $(control).click(function () {
-        $(control).toggleClass("input__control_focused");
-        $(dropdown).toggle("fade");
-        $(dropdown).toggleClass(dropdownVisibleClass);
+    $($control).click(function () {
+        $($control).toggleClass("input__control_focused");
+        $($dropdown).toggle("fade");
+        $($dropdown).toggleClass(dropdownVisibleClass);
 
-        if (!$(dropdown).hasClass(dropdownVisibleClass)) {
+        if (!$($dropdown).hasClass(dropdownVisibleClass)) {
             dropdownOnChange(oldSpinnersNameValue, spinnersNameValue,
-                spinnerValueElements, clearButton, confirmButton,
-                controlButtonsContainer, dropdown, control);
+                $spinnerValueElements, $clearButton, $confirmButton,
+                $controlButtonsContainer, $dropdown, $control);
         }
     });
 });

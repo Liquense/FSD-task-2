@@ -59,9 +59,19 @@ html(lang="ru")
 				+Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
 				+Input("DatePicker", "datepicker medium", "ДД.ММ.ГГГГ", "", "")
 				+twoCalendarRangePicker()
-				+Input("Dropdown №0", "dropdown narrow", "test", "", "", ["Дети", "Взрослые", "Младенцы", "Тест"], [-2, 2])
-				+Input("Dropdown", "dropdown medium rooms", "Комплектация номера", "", "", ["Спальни", "Кровати", "Ванные комнаты"])
-				+Input("Dropdown №2", "dropdown customers", "Сколько гостей", "", "", ["Взрослые", "Дети", "Младенцы"])
+				+Input(
+					"Dropdown №0", "dropdown narrow", "test", "", "",
+					[{name: "Дети", value: 0}, {name: "Взрослые", value: 0}, {name: "Младенцы", value: 0}, {name: "Тест", value: 0}],
+					[-2, 2]
+				)
+				+Input(
+					"Dropdown", "dropdown medium rooms", "Комплектация номера", "", "",
+					[{name: "Спальни", value: 0}, {name: "Кровати", value: 0}, {name: "Ванные комнаты", value: 0}]
+				)
+				+Input(
+					"Dropdown №2", "dropdown customers", "Сколько гостей", "", "",
+					[{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}]
+				)
 			div.buttonsContainer.container
 				include blocks/Button/Button
 				+Button("Click Me", "firstRow__button button_type_text")
@@ -236,9 +246,9 @@ html(lang="ru")
 				copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved."
 			},
 			[
-				{title: "navigation", links: [{text: "About Us", url: "#"}, {text: "News", url: "#"}, {text: "Support", url:"#"}, {text: "Products", url: "#"}]},
-				{title: "about us", links: [{text: "Who we are", url: "#"}, {text: "Our team", url:"#"}, {text: "Careers", url:"#"}, {text: "Investors", url:"#"}]},
-				{title: "support", links: [{text: "Documentation", url:"#"}, {text: "Community", url: "#"}, {text: "Get in Touch", url: "#"}]}
+				{title: "navigation", links: [{text: "About Us", url: "#"}, {text: "News", url: "#"}, {text: "Support", url: "#"}, {text: "Products", url: "#"}]},
+				{title: "about us", links: [{text: "Who we are", url: "#"}, {text: "Our team", url: "#"}, {text: "Careers", url: "#"}, {text: "Investors", url: "#"}]},
+				{title: "support", links: [{text: "Documentation", url: "#"}, {text: "Community", url: "#"}, {text: "Get in Touch", url: "#"}]}
 			]
 		)
 		//- footers

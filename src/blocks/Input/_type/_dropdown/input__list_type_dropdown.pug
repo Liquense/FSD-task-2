@@ -1,15 +1,15 @@
 include ../_spinner/input_type_spinner
 include ../../../Button/Button
 
-mixin dropdownList(elementNames, attr, range)
+mixin dropdownList(elementNames = {}, attr, range)
 	div&attributes(attr)
 		table.input__dropdownList_type_dropdown
 			each element, index in elementNames
 				tr(class="text_type_label-CTA input__dropdownListRow_type_dropdown")
 					td
-						span.input__dropdownText_type_dropdown #{element}
+						span.input__dropdownText_type_dropdown #{element.name}
 					td
-						+spinner(range, element, index)
+						+spinner(range, element.name, index, element.value)
 		div(class="input__controlButtonsContainer")
 			+Button("Очистить", "button_type_text input__clearButton button_hovered input__controlButton")
 			+Button("Применить", "button_type_text input__confirmButton input__controlButton")

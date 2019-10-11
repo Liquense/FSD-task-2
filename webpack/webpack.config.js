@@ -62,7 +62,7 @@ module.exports = {
 
 	optimization: {
 		splitChunks: {
-			name: true,
+			name: false,
 			cacheGroups: {
 				common: {
 					name: 'commons',
