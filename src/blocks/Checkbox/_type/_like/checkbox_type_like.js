@@ -11,6 +11,9 @@ $(".checkbox__label_type_like").each(function () {
 		iconSpace: "checkbox__buttonBorder_type_like"
 	});
 
+	if (!$likeLabel.attr("data-likes-count"))
+		return;
+
 	let likesCount = $likeLabel.attr("data-likes-count").trim();
 	$likeLabel.click(function (e) {
 		if ($(e.target)[0] === $($likeLabel)[0]) {
@@ -18,7 +21,7 @@ $(".checkbox__label_type_like").each(function () {
 				likesCount--;
 			else
 				likesCount++;
-			console.log(likesCount);
+
 			$($likeButton).checkboxradio("option", "label", likesCount);
 			$($likeLabel).attr("data-likes-count", likesCount);
 		}
