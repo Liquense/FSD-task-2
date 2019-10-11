@@ -1,6 +1,7 @@
 import "../Input/_type/_datepicker/input_type_datepicker"
 import "./twoCalendarRangePicker.scss"
 import {compareDateArrays} from "../../common/functions";
+import {parseAttrToDate, setDates} from "../Input/_type/_datepicker/input_type_datepicker";
 
 let assignEnded = true;
 let datepickerAddOnSelect = function (datepicker, otherDatepicker, input, number) {
@@ -30,14 +31,30 @@ let datepickerAddOnSelect = function (datepicker, otherDatepicker, input, number
 };
 
 $(".twoCalendarRangePicker").each(function () {
-	let firstInput = $(this).find(".twoCalendarRangePicker__firstDatepicker").find(".input__control_type_datepicker");
-	let firstDatepicker = $(firstInput).data("datepicker");
+	const $rangePicker = $(this);
+	let $firstInput = $(this).find(".twoCalendarRangePicker__firstDatepicker").find(".input__control_type_datepicker");
+	let $firstDatepicker = $firstInput.data("datepicker");
 	let secondInput = $(this).find(".twoCalendarRangePicker__secondDatepicker").find(".input__control_type_datepicker");
 	let secondDatepicker = $(secondInput).data("datepicker");
 
 	secondDatepicker.update({
 		position: "bottom right"
 	});
-	datepickerAddOnSelect(firstDatepicker, secondDatepicker, firstInput, 0);
-	datepickerAddOnSelect(secondDatepicker, firstDatepicker, secondInput, 1);
+	datepickerAddOnSelect($firstDatepicker, secondDatepicker, $firstInput, 0);
+	datepickerAddOnSelect(secondDatepicker, $firstDatepicker, secondInput, 1);
+
+	const initDates = getInitDates($rangePicker);
+	setDates($firstInput, initDates);
 });
+
+function getInitDates($rangePicker) {
+	let dates = [];
+
+	if ($rangePicker.attr("data-firstdate"))
+		dates.push(parseAttrToDate($rangePicker.attr("data-firstdate")));
+	if ($rangePicker.attr("data-seconddate"))
+		dates.push(parseAttrToDate($rangePicker.attr("data-seconddate")));
+
+	return dates.length === 0 ? undefined : dates;
+}
+

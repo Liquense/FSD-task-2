@@ -17,6 +17,8 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 		each value, index in attributes
 			- value.class += classNames[index] + "_type_datepicker "
 		- controlAttributes.type = "select"
+		- controlAttributes["data-firstDate"] = additional[0]
+		- controlAttributes["data-secondDate"] = additional[1]
 	else if types.includes("dropdown")
 		//-подтипы дропдауна
 		if types.includes("rooms")

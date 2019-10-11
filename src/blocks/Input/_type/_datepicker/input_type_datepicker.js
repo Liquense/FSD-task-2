@@ -11,8 +11,8 @@ let clearButton = '<div class="button button_type_text button_hovered input_type
 
 export let outerDatepicker;
 $(".input__control_type_datepicker").each(function () {
-    let inputControl = this;
-    let datepicker = $(this).datepicker({
+    let $inputControl = $(this);
+    let datepicker = $inputControl.datepicker({
         range: true,
         //inline: true,
         dateFormat: "d M",
@@ -34,5 +34,43 @@ $(".input__control_type_datepicker").each(function () {
     datepicker.$datepicker.find(".datepicker--buttons").append(clearButton);
     datepicker.$datepicker.find(".datepicker--buttons").append(confirmButton);
     outerDatepicker = datepicker;
+
+    const initDates = getInitDates($inputControl);
+    setDates($inputControl, initDates);
 });
 
+function getInitDates($datepickerControl) {
+    let dates = [];
+
+    if ($datepickerControl.attr("data-firstdate"))
+        dates.push(parseAttrToDate($datepickerControl.attr("data-firstDate")));
+    if ($datepickerControl.attr("data-seconddate"))
+        dates.push(parseAttrToDate($datepickerControl.attr("data-secondDate")));
+
+    return dates.length === 0 ? undefined : dates;
+}
+
+/**
+ * Устанавливает даты в первый календарь (второй подцепляет это значение в логике twoCalendarRangePicker)
+ * Если даты не переданы, используется сегодняшняя
+ * @param $datePicker
+ * @param dates
+ */
+export function setDates($datePicker, dates) {
+    if (!dates)
+        return;
+    console.log(dates);
+    const datepickerData = $datePicker.data("datepicker");
+    datepickerData.clear();
+    datepickerData.selectDate(dates);
+}
+
+export function parseAttrToDate(attrDate) {
+    const dateParts = attrDate.split(".");
+    const day = dateParts[0],
+        month = dateParts[1],
+        year = dateParts[2];
+    const dateString = `${year}-${month}-${day}`;
+
+    return new Date(dateString);
+}
