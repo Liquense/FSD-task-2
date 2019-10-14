@@ -5,7 +5,7 @@ include ../../blocks/Button/Button
 mixin findRoomCard()
 	div(class=`findRoomCard ${attributes.classes}`)
 		h3.findRoomCard__title.text_type_widgetTitle Найдём номера под ваши пожелания
-		+twoCalendarRangePicker(["Прибытие", "Выезд"])(addClasses = "findRoomCard__rangePicker")
+		+twoCalendarRangePicker({labels: ["Прибытие", "Выезд"]})(addClasses = "findRoomCard__rangePicker")
 		+Input("Гости",
 			"dropdown customers",
 			"Сколько гостей",
