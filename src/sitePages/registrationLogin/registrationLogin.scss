@@ -28,7 +28,8 @@ $backgroundImageHeight: 702px;
     width: get-vw(1440px);
     min-height: $backgroundImageHeight;
     @media (max-width: 1300px) {
-      width: unset;
+      width: 100%;
+      object-position: 0;
     }
   }
 

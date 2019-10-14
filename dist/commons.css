@@ -20,7 +20,9 @@
     min-height: 702px; }
     @media (max-width: 1300px) {
       .registrationLogin__content .registrationLogin__loginBackgroundImage {
-        width: unset; } }
+        width: 100%;
+        -o-object-position: 0;
+           object-position: 0; } }
   .registrationLogin__content.registrationLogin__loginContainer {
     height: 48.75vw;
     min-height: 380px;
@@ -2224,7 +2226,7 @@ body {
 .landingPage__roomContainer {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: -70px;
+  background-position-y: -4.86111vw;
   width: 100%;
   height: 57.63889vw;
   display: flex;
@@ -2236,7 +2238,8 @@ body {
       align-items: center;
       height: -webkit-fit-content;
       height: -moz-fit-content;
-      height: fit-content; } }
+      height: fit-content;
+      background-position-y: 0; } }
   @media (max-width: 380px) {
     .landingPage__roomContainer {
       padding: 0; } }

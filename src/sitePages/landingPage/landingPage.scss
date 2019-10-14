@@ -1,7 +1,7 @@
 .landingPage__roomContainer {
   background-size: cover;
   background-repeat: no-repeat;
-  background-position-y: -70px;
+  background-position-y: get-vw(-70px);
   width: 100%;
   height: get-vw(830px);
   display: flex;
@@ -12,6 +12,7 @@
   @media (max-width: 850px) {
     align-items: center;
     height: fit-content;
+    background-position-y: 0;
   }
   @media (max-width: 380px) {
     padding: 0;
