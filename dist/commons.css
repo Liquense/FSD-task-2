@@ -982,6 +982,7 @@ body {
   border: none; }
 
 .input__control_type_dropdown {
+  color: rgba(31, 32, 65, 0.75);
   padding-right: 90px; }
   .input__control_type_dropdown.input__control_focused {
     border-bottom-left-radius: 0;

@@ -1,11 +1,13 @@
 @import "../../styleVariables";
 
 .input__control_type_dropdown {
+  color: $darkShade75;
+  padding-right: 91px - $borderWidth;
+
   &.input__control_focused {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
   }
-  padding-right: 91px - $borderWidth;
 }
 
 .input__dropdownListWrapper_type_dropdown {
