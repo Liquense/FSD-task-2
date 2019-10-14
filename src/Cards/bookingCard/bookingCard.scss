@@ -19,7 +19,7 @@
     align-self: stretch;
     align-items: baseline;
 
-    margin-bottom: 20px;
+    margin-bottom: 21px;
 
     .bookingCard__roomInfo {
       display: flex;
@@ -55,7 +55,7 @@
   }
 
   .bookingCard__rangePicker {
-    margin-bottom: 16px;
+    margin-bottom: 19px;
   }
 
   .bookingCard__guestsDropdown {
@@ -66,6 +66,7 @@
     $iconSize: 20px;
 
     margin-bottom: 30px;
+    padding-left: 1px;
 
     .row {
       max-width: 320px;
@@ -122,7 +123,8 @@
   }
 
   .bookingCard__summary {
-    margin-bottom: 20px;
+    margin-bottom: 19px;
+    padding-left: 1px;
     display: flex;
     align-self: stretch;
     align-items: baseline;
@@ -141,6 +143,8 @@
     .bookingCard__summaryTotalCost {
       flex-shrink: 0;
       font-family: Montserrat, sans-serif;
+      font-size: 18px;
+      letter-spacing: -0.7px;
     }
   }
 

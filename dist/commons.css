@@ -2367,7 +2367,7 @@ body {
     justify-content: space-between;
     align-self: stretch;
     align-items: baseline;
-    margin-bottom: 20px; }
+    margin-bottom: 21px; }
     .bookingCard .bookingCard__header .bookingCard__roomInfo {
       display: flex;
       align-items: baseline; }
@@ -2387,11 +2387,12 @@ body {
     .bookingCard .bookingCard__header .bookingCard__priceInfo .bookingCard__paymentPeriod {
       font-size: 12px; }
   .bookingCard .bookingCard__rangePicker {
-    margin-bottom: 16px; }
+    margin-bottom: 19px; }
   .bookingCard .bookingCard__guestsDropdown {
     margin-bottom: 20px; }
   .bookingCard .bookingCard__checkContainer {
-    margin-bottom: 30px; }
+    margin-bottom: 30px;
+    padding-left: 1px; }
     .bookingCard .bookingCard__checkContainer .row {
       max-width: 320px;
       display: flex;
@@ -2422,7 +2423,8 @@ body {
       -ms-user-select: none;
       user-select: none; }
   .bookingCard .bookingCard__summary {
-    margin-bottom: 20px;
+    margin-bottom: 19px;
+    padding-left: 1px;
     display: flex;
     align-self: stretch;
     align-items: baseline; }
@@ -2435,7 +2437,9 @@ body {
       margin-right: 5px; }
     .bookingCard .bookingCard__summary .bookingCard__summaryTotalCost {
       flex-shrink: 0;
-      font-family: Montserrat, sans-serif; }
+      font-family: Montserrat, sans-serif;
+      font-size: 18px;
+      letter-spacing: -0.7px; }
 
 @media (max-width: 380px) {
   .bookingCard {
