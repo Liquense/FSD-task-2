@@ -4,10 +4,6 @@
   }
 
   .footer__contentSection {
-    padding-right: get-vw(140px);
-    padding-left: get-vw(140px);
-    padding-top: get-vw(100px);
-    padding-bottom: get-vw(100px);
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -26,7 +22,6 @@
       padding-left: 0;
       padding-right: 0;
     }
-
 
     .footer__logoSection {
       display: flex;
@@ -66,11 +61,11 @@
       display: grid;
       width: 100%;
       row-gap: 40px;
-      column-gap: get-vw(10px);
-      grid-template-columns: repeat(auto-fit, minmax(get-vw(190px), 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(get-vw(200px), 1fr));
       padding-top: 6px; //не придумал гибкого варианта, т.к. на макете они не строго по центру контейнера, но и не вровень с логотипом
       @media (max-width: 1439px) {
         justify-items: center;
+        column-gap: get-vw(10px);
       }
 
       .footer__linksColumn {
@@ -101,15 +96,15 @@
       width: min-content;
       display: flex;
       flex-direction: column;
-      padding-top: 5px;
+      padding-top: 6px;
 
       .footer__subscriptionTitle {
-        margin-bottom: 21px;
+        margin-bottom: 20px;
       }
 
       .footer__subscriptionText {
         line-height: 24px;
-        margin-bottom: 20px;
+        margin-bottom: 18px;
       }
 
       .footer__subscribeInput {

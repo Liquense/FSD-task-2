@@ -9,6 +9,10 @@
   .registrationLogin__content .registrationCard.registrationCard {
     margin-top: 4px; }
   .registrationLogin__content .registrationLogin__loginBackgroundImage {
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: 0 -3.61111vw;
+       object-position: 0 -3.61111vw;
     bottom: 0;
     position: absolute;
     z-index: -1;
@@ -22,7 +26,7 @@
     min-height: 380px;
     max-height: 702px; }
     .registrationLogin__content.registrationLogin__loginContainer .registrationLogin__loginBackgroundImage {
-      height: unset;
+      height: 100%;
       min-height: 380px; }
 
 .roomDetails__photos {
@@ -1137,6 +1141,11 @@ body {
   box-shadow: 0px 10px 20px rgba(31, 32, 65, 0.05);
   background-color: white;
   border-top: 1px solid rgba(31, 32, 65, 0.5); }
+  .footer .footer__contentSection {
+    padding-right: 9.72222vw;
+    padding-left: 9.72222vw;
+    padding-top: 6.875vw;
+    padding-bottom: 6.66667vw; }
   .footer .fab {
     font-size: 24px;
     background: linear-gradient(180deg, #BC9CFF 0%, #88a4f9 100%);
@@ -1148,10 +1157,6 @@ body {
   margin: 0; }
 
 .footer_type_large .footer__contentSection {
-  padding-right: 9.72222vw;
-  padding-left: 9.72222vw;
-  padding-top: 6.94444vw;
-  padding-bottom: 6.94444vw;
   display: flex;
   justify-content: space-between;
   align-items: flex-start; }
@@ -1200,13 +1205,13 @@ body {
     display: grid;
     width: 100%;
     row-gap: 40px;
-    -moz-column-gap: 0.69444vw;
-         column-gap: 0.69444vw;
-    grid-template-columns: repeat(auto-fit, minmax(13.19444vw, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(13.88889vw, 1fr));
     padding-top: 6px; }
     @media (max-width: 1439px) {
       .footer_type_large .footer__contentSection .footer__linksSection {
-        justify-items: center; } }
+        justify-items: center;
+        -moz-column-gap: 0.69444vw;
+             column-gap: 0.69444vw; } }
     .footer_type_large .footer__contentSection .footer__linksSection .footer__linksColumn {
       display: flex;
       flex-direction: column;
@@ -1230,12 +1235,12 @@ body {
     width: min-content;
     display: flex;
     flex-direction: column;
-    padding-top: 5px; }
+    padding-top: 6px; }
     .footer_type_large .footer__contentSection .footer__subscribeSection .footer__subscriptionTitle {
-      margin-bottom: 21px; }
+      margin-bottom: 20px; }
     .footer_type_large .footer__contentSection .footer__subscribeSection .footer__subscriptionText {
       line-height: 24px;
-      margin-bottom: 20px; }
+      margin-bottom: 18px; }
 
 .footer_type_large .footer__copyrightBar {
   padding-right: 9.72222vw;
@@ -2453,7 +2458,7 @@ body {
   flex-direction: column;
   align-items: center;
   max-width: 380px;
-  padding: 39px 29px 29px 29px;
+  padding: 38px 29px 31px 29px;
   background: white;
   border: 1px solid rgba(31, 32, 65, 0.12);
   box-sizing: border-box;
@@ -2462,14 +2467,14 @@ body {
   .loginCard .loginCard__title {
     align-self: stretch;
     margin: 0;
-    margin-bottom: 20px;
+    margin-bottom: 17px;
     font-size: 24px;
     line-height: 30px; }
   .loginCard .loginCard__emailInput .input__control,
   .loginCard .loginCard__passwordInput .input__control {
     margin: 0; }
   .loginCard .loginCard__emailInput {
-    margin-bottom: 10px; }
+    margin-bottom: 6px; }
   .loginCard .loginCard__passwordInput {
     margin-bottom: 20px; }
   .loginCard .loginCard__loginButton {

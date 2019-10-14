@@ -1,8 +1,15 @@
+$borderWidth: 1px;
 .footer {
   width: 100%;
   box-shadow: 0px 10px 20px $darkShade5;
   background-color: white;
-  border-top: 1px solid $darkShade50;
+  border-top: $borderWidth solid $darkShade50;
+  .footer__contentSection {
+    padding-right: get-vw(140px);
+    padding-left: get-vw(140px);
+    padding-top: get-vw(100px - $borderWidth);
+    padding-bottom: get-vw(100px - $borderWidth - 3px);
+  }
 
   .fab {
     font-size: 24px;
