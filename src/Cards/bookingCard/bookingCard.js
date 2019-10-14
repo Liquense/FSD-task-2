@@ -2,6 +2,7 @@ import "./bookingCard.scss"
 import "../../blocks/Input/input"
 import "../../blocks/twoCalendarRangePicker/twoCalendarRangePicker"
 import {formatNumber, ruDeclination} from "../../common/functions";
+import {setInitialDates} from "../../blocks/twoCalendarRangePicker/twoCalendarRangePicker";
 
 $(".bookingCard").each(function () {
 	const $bookingCard = $(this);
@@ -33,6 +34,8 @@ $(".bookingCard").each(function () {
 		$totalCostSpan,
 		priceData
 	);
+
+	setInitialDates($rangePicker, $firstDatepicker);
 
 	let $servicesEnumSpan = $bookingCard.find(".bookingCard__services");
 	let $servicesSumSpan = $bookingCard.find(".bookingCard__servicesSum");
@@ -70,7 +73,7 @@ function getDaysFromDateRange(dateRange) {
 }
 
 function writeStayingCostsToSpans($calculatingStayingCostSpan, $stayingSumSpan, priceData, daysCount) {
-	let declinedPeriod = ruDeclination(daysCount, "Сут|ки|ок|ок");
+	let declinedPeriod = ruDeclination(daysCount, "сут|ки|ок|ок");
 	$calculatingStayingCostSpan.text(
 		`${priceData.priceToShow}${priceData.currency}` +
 		` х ${daysCount} ${declinedPeriod}`
@@ -88,7 +91,10 @@ function getOverallServicesData($servicesEnumSpan, $servicesSumSpan, priceData) 
 	let servicesString = "Сбор за услуги: ";
 	for (const service of services) {
 		overallServicesCost += service.cost;
-		servicesString += `${service.name} ${Math.abs(service.cost)}${priceData.currency}, `
+		servicesString +=
+			`${service.name} ` +
+			`${formatNumber(Math.abs(service.cost), " ")}` +
+			`${priceData.currency}, `;
 	}
 	servicesString = servicesString.substring(0, servicesString.length - 2);
 	priceData.servicesSum = overallServicesCost;

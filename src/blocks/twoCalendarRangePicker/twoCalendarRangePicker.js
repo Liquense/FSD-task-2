@@ -42,10 +42,12 @@ $(".twoCalendarRangePicker").each(function () {
 	});
 	datepickerAddOnSelect($firstDatepicker, secondDatepicker, $firstInput, 0);
 	datepickerAddOnSelect(secondDatepicker, $firstDatepicker, secondInput, 1);
-
-	const initDates = getInitDates($rangePicker);
-	setDates($firstInput, initDates);
 });
+
+export function setInitialDates($rangePicker, $Input) {
+	const initDates = getInitDates($rangePicker);
+	setDates($Input, initDates);
+}
 
 function getInitDates($rangePicker) {
 	let dates = [];
