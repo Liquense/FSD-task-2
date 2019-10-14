@@ -3,7 +3,7 @@ include ../../blocks/Input/Input
 include ../../blocks/Button/Button
 
 //- data = {
-	arrivalDate: string("dd.MM.yyyyy") - дата въезда
+	arrivalDate: string("dd.MM.yyyy") - дата въезда
 	departureDate: string("dd.MM.yyyy") - дата выезда
 	}
 mixin bookingCard(data={})
@@ -25,8 +25,8 @@ mixin bookingCard(data={})
 			data.dropdownItems)
 		div.bookingCard__checkContainer.text_type_regular()
 			div.bookingCard__stayingCostRow.row
-				span.bookingCard__stayingCostCalculation.col1
-				span.bookingCard__stayingCostSum.col3
+				span.bookingCard__stayingCostCalculation.col1 test
+				span.bookingCard__stayingCostSum.col3 test
 			div.bookingCard__servicesCostRow.row
 				span.bookingCard__services.col1(data-services=data.services)
 				+infoIcon()(addClasses="col2")
