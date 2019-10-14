@@ -57,8 +57,6 @@ export function disableButtonsAtExtremum($spinner, currentValue) {
 	const $decreaseButton = $spinner.siblings(".input__dropdownDecrease_type_dropdown");
 	const $increaseButton = $spinner.siblings(".input__dropdownIncrease_type_dropdown");
 
-	console.log(`min: ${min} curr: ${currentValue} max: ${max}`);
-
 	if (currentValue <= min) {
 		$decreaseButton.addClass(disabledButtonClass);
 	} else {

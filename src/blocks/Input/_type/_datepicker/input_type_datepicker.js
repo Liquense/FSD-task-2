@@ -59,7 +59,6 @@ function getInitDates($datepickerControl) {
 export function setDates($datePicker, dates) {
     if (!dates)
         return;
-    console.log(dates);
     const datepickerData = $datePicker.data("datepicker");
     datepickerData.clear();
     datepickerData.selectDate(dates);
