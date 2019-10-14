@@ -35,10 +35,12 @@
     outline: none;
   }
 
-  &.focused,
-  &:hover {
-    border-color: $darkShade75;
-    color: $darkShade75;
-    cursor: pointer;
+  &:not(.input__button_disabled) {
+    &.focused,
+    &:hover {
+      border-color: $darkShade75;
+      color: $darkShade75;
+      cursor: pointer;
+    }
   }
 }

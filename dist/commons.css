@@ -1077,7 +1077,7 @@ body {
     border-color: rgba(31, 32, 65, 0.25); }
   .input__button_type_spinner:focus {
     outline: none; }
-  .input__button_type_spinner.focused, .input__button_type_spinner:hover {
+  .input__button_type_spinner:not(.input__button_disabled).focused, .input__button_type_spinner:not(.input__button_disabled):hover {
     border-color: rgba(31, 32, 65, 0.75);
     color: rgba(31, 32, 65, 0.75);
     cursor: pointer; }
