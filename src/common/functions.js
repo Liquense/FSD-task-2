@@ -77,3 +77,7 @@ export function copyArrayOfObjects(arrayOfObj) {
 
 	return resultArray;
 }
+
+export function clamp(value, min, max) {
+	return Math.min(Math.max(value, min), max);
+}

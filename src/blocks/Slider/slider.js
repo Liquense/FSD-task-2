@@ -8,24 +8,24 @@ $(".slider__control:not(.slider__control_range)").each(function () {
     const minimalValue = Number($(this).attr("data-min"));
     const maximumValue = Number($(this).attr("data-max"));
     const step = Number($(this).attr("data-step"));
+    const initialValue = Number($(this).attr("data-firstValue"));
 
     $(this).slider({
         min: minimalValue,
         max: maximumValue,
+        value: initialValue,
         step: step,
         animate: "fast",
         change: sliderValuesChange,
         slide: sliderHandlerValueChange,
     });
 
-    //установка начальных значений (через инициализацию не триггерился change, а как получить UI из ивентов плагина (кроме воссоздания самому) я не знаю)
-    $(this).slider("value", maximumValue/2);
-    $(this).children(".ui-slider-handle").first().attr("sliderHandleValue", maximumValue/2);
+    $(this).children(".ui-slider-handle").first().attr("sliderHandleValue", initialValue);
 });
 
 function sliderValuesChange(event, ui) {
     $(ui.handle).closest(".slider").find(".slider__value").text(
-        `${formatNumber(ui.value, "")}₽`
+        `${formatNumber(ui.value, " ")}₽`
     );
 }
 

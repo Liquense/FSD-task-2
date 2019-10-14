@@ -2736,11 +2736,16 @@ body {
           max-width: 280px; }
           .searchRoom__content .searchRoom__sideBar > *:first-child {
             margin-bottom: 0; } }
-    .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDaySliderFilter {
-      margin-bottom: 10px; }
-    .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDayText {
-      font-size: 12px;
-      margin: 0; }
+    .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer {
+      width: -webkit-fit-content;
+      width: -moz-fit-content;
+      width: fit-content; }
+      .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDaySliderFilter {
+        margin-bottom: 9px; }
+      .searchRoom__content .searchRoom__sideBar .searchRoom__pricePerDaySliderContainer .searchRoom__pricePerDayText {
+        font-size: 12px;
+        padding-left: 6px;
+        margin: 0; }
   .searchRoom__content .searchRoom__rooms {
     width: 100%; }
     .searchRoom__content .searchRoom__rooms .searchRoom__roomsTitle {

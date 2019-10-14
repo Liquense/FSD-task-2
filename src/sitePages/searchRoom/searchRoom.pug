@@ -46,7 +46,7 @@ html(lang="ru")
 				)
 				div.searchRoom__pricePerDaySliderContainer
 					include ../../blocks/Slider/Slider
-					+slider(100, 15000, 100, "Диапазон цены", "searchRoom__pricePerDaySliderFilter ", true)
+					+slider(0, 16000, 100, "Диапазон цены", "searchRoom__pricePerDaySliderFilter ", true, [5000, 10000])
 					p.searchRoom__pricePerDayText.text_type_regular Стоимость за сутки пребывания в номере
 				include ../../blocks/List/list
 				-let checkButtons = []

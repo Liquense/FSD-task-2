@@ -1,33 +1,36 @@
-import {formatNumber} from "../../../common/functions";
+import {clamp, formatNumber} from "../../../common/functions";
 import {sliderHandlerValueChange} from "../slider";
 
 $(".slider__control_range").each(function () {
-    const minimalValue = Number($(this).attr("data-min"));
-    const maximumValue = Number($(this).attr("data-max"));
-    const step = Number($(this).attr("data-step"));
+	const $slider = $(this);
+	const minimalValue = Number($slider.attr("data-min"));
+	const maximumValue = Number($slider.attr("data-max"));
+	const step = Number($slider.attr("data-step"));
 
-    $(this).removeAttr("data-min");
-    $(this).removeAttr("data-max");
-    $(this).removeAttr("data-step");
+	$slider.slider({
+		min: minimalValue,
+		max: maximumValue,
+		step: step,
+		range: true,
+		animate: "fast",
+		change: sliderValuesChange,
+		slide: sliderHandlerValueChange,
+	});
 
-    $(this).slider({
-        min: minimalValue,
-        max: maximumValue,
-        step: step,
-        range: true,
-        animate: "fast",
-        change: sliderValuesChange,
-        slide: sliderHandlerValueChange,
-    });
+	let initialValues = [];
+	const
+		firstValue = $slider.attr("data-firstValue"),
+		secondValue = $slider.attr("data-secondValue");
+	initialValues.push(clamp(firstValue, minimalValue, maximumValue));
+	initialValues.push(clamp(secondValue, minimalValue, maximumValue));
 
-    //установка начальных значений (через инициализацию не триггерился change, а как получить UI из ивентов плагина (кроме воссоздания самому) я не знаю)
-    $(this).slider("values", [minimalValue, maximumValue]);
-    $(this).children(".ui-slider-handle").first().attr("sliderHandleValue", minimalValue);
-    $(this).children(".ui-slider-handle").last().attr("sliderHandleValue", maximumValue);
+	$slider.slider("values", initialValues);
+	$slider.children(".ui-slider-handle").first().attr("sliderHandleValue", initialValues[0]);
+	$slider.children(".ui-slider-handle").last().attr("sliderHandleValue", initialValues[1]);
 });
 
 function sliderValuesChange(event, ui) {
-    $(ui.handle).closest(".slider").find(".slider__value").text(
-        `${formatNumber(ui.values[0], "")}₽ - ${formatNumber(ui.values[1], "")}₽`
-    );
+	$(ui.handle).closest(".slider").find(".slider__value").text(
+		`${formatNumber(ui.values[0], " ")}₽ - ${formatNumber(ui.values[1], " ")}₽`
+	);
 }
