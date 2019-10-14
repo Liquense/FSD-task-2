@@ -20,6 +20,7 @@
     .checkbox__button {
       width: $checkboxButtonSize;
       height: $checkboxButtonSize;
+      line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
       border: $checkboxButtonBorderWidth solid #000;
       margin-right: $buttonRightMargin;
       display: block;

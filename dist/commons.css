@@ -1672,6 +1672,7 @@ body {
   .checkbox .checkbox__label .checkbox__button {
     width: 20px;
     height: 20px;
+    line-height: 18px;
     border: 1px solid #000;
     margin-right: 10px;
     display: block;
