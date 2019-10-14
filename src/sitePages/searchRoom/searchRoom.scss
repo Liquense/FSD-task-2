@@ -5,7 +5,7 @@ $roomCardWidth: 270px;
 
 .searchRoom__content {
   display: flex;
-  padding: 30px get-vw(140px) 69px;
+  padding: 29px get-vw(140px) 69px;
   border-bottom: solid 1px $darkShade25;
 
   @media (max-width: 1070px) {
@@ -55,7 +55,6 @@ $roomCardWidth: 270px;
   .searchRoom__sideBar {
     width: 266px;
     margin-right: get-vw(60px);
-
     @media (max-width: 1070px) {
       width: 100%;
       margin-right: 0;
@@ -68,10 +67,7 @@ $roomCardWidth: 270px;
     }
 
     > * {
-      margin-bottom: 31px; //todo: PixelPerfect
-      &:first-child {
-        margin-bottom: 18px;
-      }
+      margin-bottom: 32px;
 
       &:last-child {
         margin-bottom: 0;
@@ -89,18 +85,33 @@ $roomCardWidth: 270px;
       }
     }
 
+    .searchRoom__stayingDates {
+      margin-bottom: 18px;
+    }
+
+    .searchRoom__guests {
+      margin-bottom: 32px;
+    }
+
     .searchRoom__pricePerDaySliderContainer {
       width: fit-content;
 
       .searchRoom__pricePerDaySliderFilter {
-        margin-bottom: 9px;
+        margin-bottom: 14px;
       }
 
       .searchRoom__pricePerDayText {
         font-size: 12px;
-        padding-left: 6px;
         margin: 0;
       }
+    }
+
+    .searchRoom__benefitsFilter {
+      margin-bottom: 34px;
+    }
+
+    .searchRoom__availabilityFilter {
+      margin-bottom: 26px;
     }
   }
 
