@@ -13,14 +13,19 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 	- var controlWrapperAttrs = {class: `${controlWrapperCN} `}
 	- var attributes = [blockAttributes, titleAttributes, controlAttributes, dropdownAttributes, controlWrapperAttrs]
 
+	//-календарь
 	if types.includes("datepicker")
 		each value, index in attributes
 			- value.class += classNames[index] + "_type_datepicker "
 		- controlAttributes.type = "select"
 		- controlAttributes["data-firstDate"] = additional[0]
 		- controlAttributes["data-secondDate"] = additional[1]
+	//-дропдаун
 	else if types.includes("dropdown")
 		//-подтипы дропдауна
+		if types.includes("unified")
+			- dropdownAttributes.class += dropdownClassName + "_unified "
+		//
 		if types.includes("rooms")
 			- dropdownAttributes.class += dropdownClassName + "_rooms "
 		else if types.includes("customers")
@@ -28,23 +33,24 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 		each value, index in attributes
 			- value.class += classNames[index] + "_type_dropdown "
 		- controlAttributes.type = "select"
-
+	//-Просто текст
 	if types.includes("text")
 		each value, index in attributes
 			- value.class += classNames[index] + "_type_text "
 		- controlAttributes.type = "text"
-
+	//-Текст с маской
 	if types.includes("mask")
 		each value, index in attributes
 			- value.class += classNames[index] + "_masked "
-
+	//-если раскрывающийся - добавляем декорацию-стрелочку вниз
 	if types.includes("dropdown") || types.includes("datepicker")
 		each value, index in attributes
 			- value.class += classNames[index] + "_decoration_expandArrow "
+	//-если подписка, то декорация-стрелочка вправо
 	else if types.includes("subscription")
 		each value, index in attributes
 			- value.class += classNames[index] + "_decoration_enterArrow "
-
+	//-ширина
 	if types.includes("narrow")
 		each value, index in attributes
 			- value.class += classNames[index] + "_width_narrow "

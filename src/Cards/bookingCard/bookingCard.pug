@@ -18,11 +18,11 @@ mixin bookingCard(data={})
 				span.bookingCard__paymentPeriod.text_type_regular  в сутки
 		+twoCalendarRangePicker({labels: ["Прибытие", "Выезд"], firstDate: data.arrivalDate, secondDate: data.departureDate})(addClasses = "bookingCard__rangePicker")
 		+Input("Гости",
-			"dropdown customers",
+			"dropdown customers unified",
 			"Сколько гостей",
 			"bookingCard__guestsDropdown",
 			"",
-			[{name: "Взрослые"}, {name: "Дети"}, {name: "Младенцы"}])
+			data.dropdownItems)
 		div.bookingCard__checkContainer.text_type_regular()
 			div.bookingCard__stayingCostRow.row
 				span.bookingCard__stayingCostCalculation.col1

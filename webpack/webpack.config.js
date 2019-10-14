@@ -59,7 +59,6 @@ module.exports = {
 			"window.jQuery": "jquery",
 		}),
 	].concat(mainPages, sitePages),
-
 	optimization: {
 		splitChunks: {
 			name: false,
