@@ -1,5 +1,6 @@
 import "jquery-ui/ui/effects/effect-fade"
 import {ruDeclination} from "../../../../common/functions";
+import {disableButtonsAtExtremum} from "../_spinner/input_type_spinner";
 
 /**
  * Функция для получения пар имя-значение со всех переданных спиннеров
@@ -92,29 +93,29 @@ function createInputText(namesValues, dropdownType) {
 }
 
 function createUnifiedString(namesValues, declinationsString) {
-    let sum = 0;
+	let sum = 0;
 
-    for (let i = 0; i < namesValues.length; i++) {
-        sum += parseInt(namesValues[i].value);
-    }
+	for (let i = 0; i < namesValues.length; i++) {
+		sum += parseInt(namesValues[i].value);
+	}
 
-    return `${sum} ${ruDeclination(sum, declinationsString)}`;
+	return `${sum} ${ruDeclination(sum, declinationsString)}`;
 }
 
 function createRoomsString(namesValues, isUnified) {
-    let result;
+	let result;
 
 	if (isUnified) {
-        result = createUnifiedString(namesValues, "комнаты")
+		result = createUnifiedString(namesValues, "комнаты")
 	} else {
-        result = createSeparateRoomsString(namesValues);
+		result = createSeparateRoomsString(namesValues);
 	}
 
 	return result;
 }
 
 function createSeparateRoomsString(namesValues) {
-    let result = "";
+	let result = "";
 
 	for (let i = 0; i < namesValues.length; i++) {
 		result += `${namesValues[i].value} ${selectNiceWord(namesValues[i].value, namesValues[i].name)}, `;
@@ -203,24 +204,28 @@ function manageControlsVisibility(oldNamesValues, namesValues, clearButton, conf
 		$(buttonsContainer).removeClass(containerVisibleClass);
 	else
 		$(buttonsContainer).addClass(containerVisibleClass);
-};
+}
 
 function clearSpinnersValues(namesValues, spinners) {
 	setSpinnerValues(0, namesValues, spinners, ["value"])
-};
+}
 
-function setSpinnerValues(namesValuesToSet, namesValuesToChange, spinners, options) {
-	for (let i = 0; i < spinners.length; i++) {
+function setSpinnerValues(namesValuesToSet, namesValuesToChange, $spinners, options) {
+	for (let i = 0; i < $spinners.length; i++) {
+		const $currentSpinner = $($spinners[i]);
+
 		if (options.includes("array")) {
 			namesValuesToChange[i].value = namesValuesToSet[i].value;
-			$(spinners[i]).spinner("value", namesValuesToSet[i].value);
+			$($currentSpinner).spinner("value", namesValuesToSet[i].value);
+			disableButtonsAtExtremum($currentSpinner, namesValuesToSet[i].value)
 		}
 		if (options.includes("value")) {
 			namesValuesToChange[i].value = namesValuesToSet;
-			$(spinners[i]).spinner("value", namesValuesToSet);
+			$($currentSpinner).spinner("value", namesValuesToSet);
+			disableButtonsAtExtremum($currentSpinner, namesValuesToSet)
 		}
 	}
-};
+}
 
 function dropdownOnChange(oldNamesValues, namesValues, spinners, clearButton, confirmButton, buttonsContainer, dropdown, input) {
 	setSpinnerValues(oldNamesValues, namesValues,
@@ -228,7 +233,7 @@ function dropdownOnChange(oldNamesValues, namesValues, spinners, clearButton, co
 	manageControlsVisibility(oldNamesValues, namesValues,
 		clearButton, confirmButton, buttonsContainer);
 	changeInputText(dropdown, namesValues, input);
-};
+}
 
 function getInitialNamesValues($spinnerElements) {
 	let result = [];
@@ -240,7 +245,7 @@ function getInitialNamesValues($spinnerElements) {
 			value: parseInt($spinnerElement.attr("value") ? $spinnerElement.attr("value") : 0),
 		});
 	});
-	console.log(result);
+
 	return result;
 }
 
@@ -280,16 +285,25 @@ $(".input_type_dropdown").each(function () {
 
 	//on spin
 	$($spinnerValueElements).each(function () {
-		$(this).on("spin", function (event, ui) {
-			spinnersNameValue[$(this).attr("data-index")].value = ui.value;
+		const $spinner = $(this);
 
-			changeInputText($dropdown, spinnersNameValue, $control);
+		$spinner.on("spin", function (event, ui) {
+			spinnersNameValue[$spinner.attr("data-index")].value = ui.value;
 
-			manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-				$clearButton, $confirmButton, $controlButtonsContainer);
+			changeInputText(
+				$dropdown,
+				spinnersNameValue,
+				$control
+			);
+			manageControlsVisibility(
+				oldSpinnersNameValue,
+				spinnersNameValue,
+				$clearButton,
+				$confirmButton,
+				$controlButtonsContainer
+			);
 		});
 	});
-
 
 	$($dropdown).position({
 		my: "center",
@@ -319,10 +333,6 @@ $(".input_type_dropdown").each(function () {
 		}
 	});
 
-	$($control).focus(function () {
-		//$(control).addClass("input__control_focused");
-	});
-
 	$($control).click(function () {
 		$($control).toggleClass("input__control_focused");
 		$($dropdown).toggle("fade");
@@ -335,3 +345,4 @@ $(".input_type_dropdown").each(function () {
 		}
 	});
 });
+
