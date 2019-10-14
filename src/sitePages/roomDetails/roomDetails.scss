@@ -156,6 +156,7 @@ $verticalGap: 30px;
     .roomDetails__additionalInfo {
       display: flex;
       justify-content: space-between;
+
       @media (max-width: 850px) {
         flex-wrap: wrap;
         justify-content: space-evenly;
@@ -165,7 +166,9 @@ $verticalGap: 30px;
         @media (max-width: 610px) {
           margin-bottom: $verticalGap;
         }
+
         .roomDetails__rulesTitle {
+          margin-bottom: 17px;
           margin-left: 20px;
           @media (max-width: 610px) {
             margin-left: 0;
@@ -180,13 +183,16 @@ $verticalGap: 30px;
       }
 
       .roomDetails__cancellationContainer {
+        margin-right: 10px;
         min-width: 280px;
         max-width: 340px;
         @media (max-width: 550px) {
           max-width: 280px;
+          margin-right: 0;
         }
 
         .roomDetails__cancellationTitle {
+          margin-bottom: 17px;
         }
 
         .roomDetails__cancellationText {

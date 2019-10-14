@@ -146,6 +146,7 @@
         .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__rulesContainer {
           margin-bottom: 30px; } }
       .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__rulesContainer .roomDetails__rulesTitle {
+        margin-bottom: 17px;
         margin-left: 20px; }
         @media (max-width: 610px) {
           .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__rulesContainer .roomDetails__rulesTitle {
@@ -153,11 +154,15 @@
       .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__rulesContainer .roomDetails__rulesList .list__title {
         display: none; }
       .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__cancellationContainer {
+        margin-right: 10px;
         min-width: 280px;
         max-width: 340px; }
         @media (max-width: 550px) {
           .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__cancellationContainer {
-            max-width: 280px; } }
+            max-width: 280px;
+            margin-right: 0; } }
+        .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__cancellationContainer .roomDetails__cancellationTitle {
+          margin-bottom: 17px; }
         .roomDetails__content .roomDetails__InfoContainer .roomDetails__additionalInfo .roomDetails__cancellationContainer .roomDetails__cancellationText {
           line-height: 24px; }
   @media (max-width: 1250px) {
