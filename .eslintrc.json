@@ -4,6 +4,7 @@
         "es6": true
     },
     "extends": [
+        "airbnb-base",
         "eslint:recommended",
         "plugin:fsd/all"
     ],
