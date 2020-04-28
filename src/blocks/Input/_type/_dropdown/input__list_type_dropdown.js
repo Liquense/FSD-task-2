@@ -2,6 +2,16 @@ import "jquery-ui/ui/effects/effect-fade"
 import {ruDeclination} from "../../../../common/functions";
 import {disableButtonsAtExtremum} from "../_spinner/input_type_spinner";
 
+/*
+
+* @startuml
+
+
+
+* @enduml
+
+*/
+
 /**
  * Функция для получения пар имя-значение со всех переданных спиннеров
  *
