@@ -4,7 +4,7 @@ import "../../blocks/RateButton/RateButton"
 
 import {formatNumber, ruDeclination} from "../../common/functions";
 import {setRatingToRateButton} from "../../blocks/RateButton/RateButton";
-import {initCarouselPlugin} from "../../blocks/carousel/carousel";
+import initCarouselPlugin from "../../blocks/carousel/carousel";
 
 $(document).ready(function () {
 	$('.roomPreviewCard').each(function () {

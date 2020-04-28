@@ -1,3 +1,3 @@
 import "./registrationCard.scss"
-import "../../blocks/Checkbox/Checkbox"
+import "../../blocks/Checkbox/Dependencies"
 import "../../blocks/List/list"

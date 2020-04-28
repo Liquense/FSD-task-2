@@ -1,44 +1,44 @@
-import "./common"
+import './common';
 //
-import "../vendor/jquery.maskedinput/src/jquery.maskedinput"
+import '../vendor/jquery.maskedinput/src/jquery.maskedinput';
 //
-import "jquery-ui/ui/widgets/checkboxradio"
+import 'jquery-ui/ui/widgets/checkboxradio';
 //
-import "@fortawesome/fontawesome-free/css/all.css"
+import '@fortawesome/fontawesome-free/css/all.css';
 //
-import "./blocks/Button/button"
+import './blocks/Button/button';
 //
-import "./blocks/Input/input"
+import './blocks/Input/input';
 //
-import "./blocks/Slider/slider"
+import './blocks/Slider/slider';
 //
-import "./blocks/twoCalendarRangePicker/twoCalendarRangePicker"
+import './blocks/twoCalendarRangePicker/twoCalendarRangePicker';
 //
-import "./blocks/Checkbox/Checkbox"
+import './blocks/Checkbox/Dependencies';
 //
-import "./blocks/List/list"
+import './blocks/List/list';
 //
-import "./blocks/RateButton/RateButton"
+import './blocks/RateButton/RateButton';
 //
-import "./blocks/Pagination/Pagination"
+import './blocks/Pagination/Pagination';
 //
-import "./blocks/Comment/Comment"
+import './blocks/Comment/Comment';
 //
-import "./Cards/findRoomCard/findRoomCard"
+import './Cards/findRoomCard/findRoomCard';
 //
-import "./Cards/registrationCard/registrationCard"
+import './Cards/registrationCard/registrationCard';
 //
-import "./Cards/bookingCard/bookingCard"
+import './Cards/bookingCard/bookingCard';
 //
-import "./Cards/loginCard/loginCard"
+import './Cards/loginCard/loginCard';
 //
-import "./blocks/carousel/carousel"
+import './blocks/carousel/carousel';
 //
-import "./Cards/roomPreviewCard/roomPreviewCard"
+import './Cards/roomPreviewCard/roomPreviewCard';
 //
-import "./pageElements/header/header"
+import './pageElements/header/header';
 //
-import "./pageElements/footer/footer"
+import './pageElements/footer/footer';
 
-import './second.pug'
-import './second.scss'
+import './second.pug';
+import './second.scss';
