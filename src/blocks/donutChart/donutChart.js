@@ -14,7 +14,7 @@ function getDataTextContainer($donutContainer) {
 }
 
 function getArcStyle(arc, params) {
-  if (arc.$Arc.hasClass(donutArcActiveClass)) { return params.activeStyle; }
+  if (arc.$arc.hasClass(donutArcActiveClass)) { return params.activeStyle; }
   return params.defaultStyle;
 }
 
@@ -57,7 +57,7 @@ function toCartesian(length, angle, x0 = 0, y0 = 0) {
  * {secondPoint, strokeWidth, firstPoint, arcRadius, endingAngle, startY, startX, arcAngle}
  */
 function getArcDrawData(arc, style, ratesCount, canvasSize) {
-  const startingAngle = arc.$Arc.data('startingAngle');
+  const startingAngle = arc.$arc.data('startingAngle');
   const endingAngle = getSecondAngle(
     startingAngle, arc.value, ratesCount,
   );
@@ -86,8 +86,8 @@ function drawArc(arc, arcDrawData) {
   let isLargeArc = 0;
   if (arcDrawData.arcAngle > 180) { isLargeArc = 1; }
 
-  arc.$Arc.attr('stroke-width', arcDrawData.strokeWidth);
-  arc.$Arc.attr(
+  arc.$arc.attr('stroke-width', arcDrawData.strokeWidth);
+  arc.$arc.attr(
     'd', `M ${arcDrawData.firstPoint.x},${arcDrawData.firstPoint.y}
   A ${arcDrawData.arcRadius} ${arcDrawData.arcRadius}
   0 ${isLargeArc}
@@ -111,7 +111,7 @@ function initDrawArc(arc, params) {
 function clearArcsActivity(arcsArray, currentArc, params) {
   arcsArray.forEach((arc) => {
     if (arc === currentArc) { return; }
-    arc.$Arc.removeClass(donutArcActiveClass);
+    arc.$arc.removeClass(donutArcActiveClass);
     initDrawArc(arc, params);
   });
 }
@@ -143,13 +143,13 @@ function changeDataText($dataTextContainer, value, color, overallCount) {
 
 function addOnClickHandlerToArcs(arcsArray, params, $dataTextContainer) {
   arcsArray.forEach((arc) => {
-    arc.$Arc.click(() => {
+    arc.$arc.click(() => {
       clearArcsActivity(arcsArray, arc, params);
 
-      arc.$Arc.toggleClass(donutArcActiveClass);
+      arc.$arc.toggleClass(donutArcActiveClass);
       initDrawArc(arc, params);
 
-      if (arc.$Arc.hasClass(donutArcActiveClass)) {
+      if (arc.$arc.hasClass(donutArcActiveClass)) {
         changeDataText(
           $dataTextContainer, arc.value, arc.firstColor,
         );
@@ -207,28 +207,28 @@ function getAdditionalParams(params) {
 }
 
 function drawArcsOnSVGCanvas(arcsArray, params, $dataTextContainer) {
-  arcsArray[0].$Arc.data('startingAngle', params.startingAngle);
+  arcsArray[0].$arc.data('startingAngle', params.startingAngle);
 
   let activeArc = null;
   arcsArray.forEach((arc, i) => {
     if (arc.value === 0) {
-      if (i + 1 < arcsArray.length) { arcsArray[i + 1].$Arc.data('startingAngle', params.startingAngle); }
+      if (i + 1 < arcsArray.length) { arcsArray[i + 1].$arc.data('startingAngle', params.startingAngle); }
       return;
     }
     // добавляем класс, если в параметрах передано, что дуга активная
     if (arcsArray[i].isActive) {
-      arc.$Arc.addClass(donutArcActiveClass);
+      arc.$arc.addClass(donutArcActiveClass);
       activeArc = arc;
     }
     // узнаём данные о нарисованной дуге
     const arcDrawData = initDrawArc(arcsArray[i], params);
     if (i + 1 < arcsArray.length) {
       // записываем в следующую дугу угол, с которого она должна начинаться
-      arcsArray[i + 1].$Arc.data('startingAngle', arcDrawData.endingAngle + params.gapsAngle);
+      arcsArray[i + 1].$arc.data('startingAngle', arcDrawData.endingAngle + params.gapsAngle);
     }
   });
 
-  if (activeArc.$Arc.hasClass(donutArcActiveClass)) {
+  if (activeArc.$arc.hasClass(donutArcActiveClass)) {
     changeDataText(
       $dataTextContainer, activeArc.value, activeArc.firstColor,
     );
@@ -241,8 +241,8 @@ function drawArcsOnSVGCanvas(arcsArray, params, $dataTextContainer) {
 
 function addJQLinksToArcs(arcsObjArray, $arcs, $legendItems) {
   arcsObjArray.forEach((arcObj, i) => {
-    arcObj.$Arc = $($arcs[i]);
-    arcObj.$Legend = $($legendItems[i]);
+    arcObj.$arc = $($arcs[i]);
+    arcObj.$legend = $($legendItems[i]);
   });
 }
 
