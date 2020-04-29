@@ -1,1 +1,1 @@
-import "./Comment.scss"
+import './Comment.scss';
