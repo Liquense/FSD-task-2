@@ -1,59 +1,34 @@
-import "../../common"
-import "../../blocks/Slider/sliderDependencies"
-import "../../blocks/List/list"
-import "../../blocks/Pagination/Pagination"
-import "../../Cards/roomPreviewCard/roomPreviewCard"
+/* eslint-disable no-undef */
+// jquery импортирована вебпаком
+import '../../common';
+import '../../blocks/Slider/sliderDependencies';
+import '../../blocks/List/list';
+import '../../blocks/Pagination/Pagination';
+import Checkbox from '../../blocks/Checkbox/Checkbox';
+import initRoomPreviewCard from '../../Cards/roomPreviewCard/roomPreviewCard';
 
-import "./searchRoom.pug"
-import "./searchRoom.scss"
+import './searchRoom.pug';
+import './searchRoom.scss';
 
-import initRoomPreviewCard from "../../Cards/roomPreviewCard/roomPreviewCard";
-
-//ON PAGE LOAD
-$(".pagination").each(function () {
-	const $paginationBlock = $(this);
-	const $paginationContent = $paginationBlock.children(".pagination__contentContainer");
-	const $paginationButtons = $paginationBlock.children(".pagination__buttonsContainer");
-
-	$paginationButtons.addHook("afterPaging", function () {
-		initAllRoomPreviewCardsInContainer($paginationContent);
-	})
-});
-
-$(".searchRoom__showSidebarButton").each(function () {
-	const $showSideBarButton = $(this);
-	const $nextElement = $showSideBarButton.next();
-
-	$showSideBarButton.click(function () {
-		$showSideBarButton.toggleClass("searchRoom__showSidebarButton_active");
-	});
-
-	//air-datepicker не относится к контейнеру, где лежит элемент, его инициирующий, из-за этого проблема с "кликом снаружи"
-	//documentAddOnClickFilterCheck($showSideBarButton, $nextElement);
-});
-
-$(".roomPreviewCard__textContent").click(function () {
-	window.location.href = "roomDetails.html";
-});
-
-//FUNCTIONS
 function initAllRoomPreviewCardsInContainer($container) {
-	$container.find(".roomPreviewCard").each(initRoomPreviewCard);
+  $container.find('.roomPreviewCard').each(initRoomPreviewCard);
 }
 
-function documentAddOnClickFilterCheck($showSidebarButton, $filterContainer) {
-	$(document).click(function (event) {
-		const $clickedElement = $(event.target);
+const $paginations = $('.pagination');
+function initLinksInPagination() {
+  const $pagination = $(this);
+  const $paginationContent = $pagination.children('.pagination__contentContainer');
+  const $paginationButtons = $pagination.children('.pagination__buttonsContainer');
 
-		if (
-			!(
-				($.contains($filterContainer.get(0), $clickedElement.get(0)))
-				|| ($filterContainer.get(0) === $clickedElement.get(0))
-				|| ($showSidebarButton.get(0) === $clickedElement.get(0))
-			)
-		) {
-			console.log("hmm");
-			$showSidebarButton.removeClass("searchRoom__showSidebarButton_active");
-		}
-	});
+  $paginationButtons.addHook('afterPaging', () => {
+    initAllRoomPreviewCardsInContainer($paginationContent);
+  });
 }
+$paginations.each(initLinksInPagination);
+
+const $roomPreviewCardsTextContent = $('.roomPreviewCard__textContent');
+$roomPreviewCardsTextContent.click(() => {
+  window.location.href = 'roomDetails.html';
+});
+
+Checkbox.initDefault();
