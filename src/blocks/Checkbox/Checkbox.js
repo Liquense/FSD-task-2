@@ -1,27 +1,31 @@
 /* eslint-disable no-undef */
 // jQuery объявлена глобально вебпаком
-/**
- * Инициирует чекбокс и возвращает его
- * @param jquerySelector можно передавать как селектор, так и JQ-объект
- * @param classes
- * @returns {*|jQuery}
- */
-export default function initCheckbox(jquerySelector, classes) {
-  const $hiddenInput = $(jquerySelector);
-  function initialization() {
-    const $singleInput = $(this);
-    const checkbox = $singleInput.checkboxradio({
-      classes: {
-        'ui-checkboxradio-icon': classes.icon,
-        'ui-checkboxradio-icon-space': classes.iconSpace,
-      },
-    });
-    const isChecked = $singleInput.attr('data-isChecked');
+// eslint-disable-next-line import/no-extraneous-dependencies
+import 'jquery-ui/ui/widgets/checkboxradio';
+import './Checkbox.scss';
+// type
+import initDefaultCheckboxes from './_type/_default/Checkbox_type_default';
+import initRadioCheckboxes from './_type/_radio/Checkbox_type_radio';
+import initToggleCheckboxes from './_type/_toggle/Checkbox_type_toggle';
+import initLikeCheckboxes from './_type/_like/checkbox_type_like';
+// rich
+import './_rich/Checkbox_rich.scss';
 
-    if (isChecked === 'true') {
-      checkbox.attr('checked', 'checked').change();
-    }
+
+export default class Checkbox {
+  static initDefault() {
+    initDefaultCheckboxes();
   }
 
-  $hiddenInput.each(initialization);
+  static initLike() {
+    initLikeCheckboxes();
+  }
+
+  static initRadio() {
+    initRadioCheckboxes();
+  }
+
+  static initToggle() {
+    initToggleCheckboxes();
+  }
 }

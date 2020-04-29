@@ -1,17 +1,24 @@
-const url = new URL(window.location.href);
-let isLogin = url.searchParams.get("login");
+/* eslint-disable no-undef */
+// jquery импортирована вебпаком
+import './registrationLogin.scss';
+import '../../common';
+import initRegistrationCard from '../../Cards/registrationCard/registrationCard';
+import '../../Cards/loginCard/loginCard';
 
-let template = require("./registrationLogin__cardTemplate.pug");
-let locals = {
-	login: isLogin
+
+const url = new URL(window.location.href);
+const isLogin = url.searchParams.get('login');
+
+const template = require('./registrationLogin__cardTemplate.pug');
+
+const locals = {
+  login: isLogin,
 };
 const templateHTML = template(locals);
 
-$(".registrationLogin__content").addClass(
-	locals.login === "true" ? "registrationLogin__loginContainer" : "registrationLogin__registrationContainer"
+const $registrationLoginContent = $('.registrationLogin__content');
+$registrationLoginContent.addClass(
+  locals.login === 'true' ? 'registrationLogin__loginContainer' : 'registrationLogin__registrationContainer',
 ).html(templateHTML);
 
-import "./registrationLogin.scss"
-import "../../common";
-import ("../../Cards/registrationCard/registrationCard");
-import ("../../Cards/loginCard/loginCard");
+initRegistrationCard();

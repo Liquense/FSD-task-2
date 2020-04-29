@@ -14,7 +14,7 @@ import './blocks/Slider/sliderDependencies';
 //
 import './blocks/twoCalendarRangePicker/twoCalendarRangePicker';
 //
-import './blocks/Checkbox/CheckboxDependencies';
+import './blocks/Checkbox/Checkbox';
 //
 import './blocks/List/list';
 //
