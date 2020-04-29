@@ -1,35 +1,33 @@
-import "./roomPreviewCard.scss"
-import "../../blocks/carousel/carousel"
-import "../../blocks/RateButton/RateButton"
+/* eslint-disable no-undef */
+// jquery подключена вебпаком
+import './roomPreviewCard.scss';
+import initCarouselPlugin from '../../blocks/carousel/carousel';
+import setRatingToRateButton from '../../blocks/RateButton/RateButton';
+import { formatNumber, ruDeclination } from '../../common/functions';
 
-import {formatNumber, ruDeclination} from "../../common/functions";
-import setRatingToRateButton from "../../blocks/RateButton/RateButton";
-import initCarouselPlugin from "../../blocks/carousel/carousel";
+export default function initRoomPreviewCard() {
+  const $costPerPeriodSpan = this.find('.roomPreviewCard__costPerPeriod');
+  const $reviewsCountSpan = this.find('.roomPreviewCard__reviewsCount');
+  const $reviewsTextSpan = this.find('.roomPreviewCard__reviewsText');
+  const $ratingElement = this.find('.roomPreviewCard__rating');
 
-$(document).ready(function () {
-	$('.roomPreviewCard').each(function () {
-		initRoomPreviewCard($(this));
-	});
-});
+  const cardData = {
+    currency: this.attr('data-currency'),
+    costPerPeriod: this.attr('data-costPerPeriod'),
+    reviewsCount: this.attr('data-reviewsCount'),
+  };
 
-export function initRoomPreviewCard($roomPreviewCard) {
-	const $costPerPeriodSpan = $roomPreviewCard.find('.roomPreviewCard__costPerPeriod');
-	const $reviewsCountSpan = $roomPreviewCard.find('.roomPreviewCard__reviewsCount');
-	const $reviewsTextSpan = $roomPreviewCard.find('.roomPreviewCard__reviewsText');
-	const $ratingElement = $roomPreviewCard.find(".roomPreviewCard__rating");
-
-	const cardData = {
-		currency: $roomPreviewCard.attr("data-currency"),
-		costPerPeriod: $roomPreviewCard.attr("data-costPerPeriod"),
-		reviewsCount: $roomPreviewCard.attr("data-reviewsCount")
-	};
-
-	initCarouselPlugin($roomPreviewCard);
-	const formattedCostPerPeriod = formatNumber(cardData.costPerPeriod, " ");
-	$costPerPeriodSpan.text(formattedCostPerPeriod + cardData.currency);
-	const formattedReviewsCount = formatNumber(cardData.reviewsCount, " ");
-	$reviewsCountSpan.text(formattedReviewsCount);
-	setRatingToRateButton($ratingElement);
-	const inclinedReviewsText = ruDeclination(cardData.reviewsCount, "отзыв||а|ов");
-	$reviewsTextSpan.text(inclinedReviewsText);
+  initCarouselPlugin(this);
+  const formattedCostPerPeriod = formatNumber(cardData.costPerPeriod, ' ');
+  $costPerPeriodSpan.text(formattedCostPerPeriod + cardData.currency);
+  const formattedReviewsCount = formatNumber(cardData.reviewsCount, ' ');
+  $reviewsCountSpan.text(formattedReviewsCount);
+  setRatingToRateButton($ratingElement);
+  const inclinedReviewsText = ruDeclination(cardData.reviewsCount, 'отзыв||а|ов');
+  $reviewsTextSpan.text(inclinedReviewsText);
 }
+
+$(document).ready(() => {
+  const $roomPreviewCard = $('.roomPreviewCard');
+  $roomPreviewCard.each(initRoomPreviewCard);
+});

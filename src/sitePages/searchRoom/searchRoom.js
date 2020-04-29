@@ -7,7 +7,7 @@ import "../../Cards/roomPreviewCard/roomPreviewCard"
 import "./searchRoom.pug"
 import "./searchRoom.scss"
 
-import {initRoomPreviewCard} from "../../Cards/roomPreviewCard/roomPreviewCard";
+import initRoomPreviewCard from "../../Cards/roomPreviewCard/roomPreviewCard";
 
 //ON PAGE LOAD
 $(".pagination").each(function () {
@@ -38,10 +38,7 @@ $(".roomPreviewCard__textContent").click(function () {
 
 //FUNCTIONS
 function initAllRoomPreviewCardsInContainer($container) {
-	$container.find(".roomPreviewCard").each(function () {
-			initRoomPreviewCard($(this));
-		}
-	);
+	$container.find(".roomPreviewCard").each(initRoomPreviewCard);
 }
 
 function documentAddOnClickFilterCheck($showSidebarButton, $filterContainer) {
