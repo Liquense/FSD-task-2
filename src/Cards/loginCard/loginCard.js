@@ -1,1 +1,1 @@
-import "./loginCard.scss"
+import './loginCard.scss';
