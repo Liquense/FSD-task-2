@@ -10,7 +10,7 @@ import './blocks/Button/button';
 //
 import './blocks/Input/input';
 //
-import './blocks/Slider/slider';
+import './blocks/Slider/sliderDependencies';
 //
 import './blocks/twoCalendarRangePicker/twoCalendarRangePicker';
 //

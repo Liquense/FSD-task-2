@@ -1,5 +1,5 @@
 import "../../common"
-import "../../blocks/Slider/slider"
+import "../../blocks/Slider/sliderDependencies"
 import "../../blocks/List/list"
 import "../../blocks/Pagination/Pagination"
 import "../../Cards/roomPreviewCard/roomPreviewCard"
