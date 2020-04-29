@@ -1,4 +1,4 @@
-import "../Checkbox/Dependencies"
+import "../Checkbox/CheckboxDependencies"
 
 import "./list.pug"
 import "./List.scss"
