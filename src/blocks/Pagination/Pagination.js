@@ -1,49 +1,58 @@
-import "paginationjs"
+/* eslint-disable no-undef */
+// jquery объявлена глобально вебпаком
+import 'paginationjs';
 //
-import "./Pagination.scss"
+import './Pagination.scss';
 
 function getPaginationContent($contentContainer) {
-	let contentHTMLArray = [];
+  const HTMLContent = [];
 
-	$contentContainer.children().each(function () {
-		contentHTMLArray.push($(this).outerHTML());
-	});
+  function addHTMLContentToArray() { HTMLContent.push($(this).outerHTML()); }
+  $contentContainer.children().each(addHTMLContentToArray);
 
-	return contentHTMLArray;
+  return HTMLContent;
 }
 
-$(".pagination").each(function () {
-	const $paginationBlock = $(this);
-	const $paginationContent = $paginationBlock.children(".pagination__contentContainer");
-	const $paginationButtons = $paginationBlock.children(".pagination__buttonsContainer");
+const $paginations = $('.pagination');
+function initPagination() {
+  const $paginationBlock = $(this);
+  const $paginationContent = $paginationBlock.children('.pagination__contentContainer');
+  const $paginationButtons = $paginationBlock.children('.pagination__buttonsContainer');
 
-	const pageSize = $paginationBlock.attr("data-pageSize");
-	const contentHTMLArray = getPaginationContent($paginationContent);
+  const pageSize = $paginationBlock.attr('data-pageSize');
+  const contentHTMLArray = getPaginationContent($paginationContent);
 
-	$paginationButtons.pagination({
-		dataSource: contentHTMLArray,
-		prevText: "arrow_back",
-		nextText: "arrow_forward",
-		pageSize: pageSize,
-		pageRange: 1,
-		callback: function (arrayData, paginationData) {
-			$(".pagination__contentContainer").html(arrayData);
-		},
-		showNavigator: true,
-		formatNavigator: function (currentPage, totalPage, totalNumber) {
-			let totalCount = totalNumber.toString();
-			if (totalNumber > 100)
-				totalCount = "100+"; //так в макете
+  const $paginationContainer = $('.pagination__contentContainer');
+  $paginationButtons.pagination({
+    dataSource: contentHTMLArray,
+    prevText: 'arrow_back',
+    nextText: 'arrow_forward',
+    pageSize,
+    pageRange: 1,
+    callback(arrayData) {
+      $paginationContainer.html(arrayData);
+    },
+    showNavigator: true,
+    formatNavigator(currentPage, totalPage, totalNumber) {
+      let totalCount = totalNumber.toString();
+      if (totalNumber > 100) {
+        totalCount = '100+';
+      } // так в макете
 
-			let startCount = 1;
-			if (currentPage > 1)
-				startCount = (currentPage - 1) * pageSize + 1;
+      let startCount = 1;
+      if (currentPage > 1) {
+        startCount = (currentPage - 1) * pageSize + 1;
+      }
 
-			let endCount = pageSize * currentPage;
-			if (endCount > totalNumber)
-				endCount = totalNumber;
+      let endCount = pageSize * currentPage;
+      if (endCount > totalNumber) {
+        endCount = totalNumber;
+      }
 
-			return `<span class='text_type_regular'> ${startCount} – ${endCount} из ${totalCount} вариантов аренды</span>`;
-		},
-	})
-});
+      return '<span class=\'text_type_regular\'>'
+        + ` ${startCount} – ${endCount} из ${totalCount} вариантов аренды</span>`;
+    },
+  });
+}
+
+$paginations.each(initPagination);
