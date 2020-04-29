@@ -1,6 +1,6 @@
-import "./RateButton__star.scss"
+import './RateButton__star.scss';
 
-let states = {1: "star_border", 2: "star_half", 3: "star"};
-export let setState = function ($star, stateIndex) {
-	$star.text(states[stateIndex]);
-};
+const states = { 1: 'star_border', 2: 'star_half', 3: 'star' };
+export default function setState($star, stateIndex) {
+  $star.text(states[stateIndex]);
+}

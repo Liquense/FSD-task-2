@@ -3,7 +3,7 @@ import "../../blocks/carousel/carousel"
 import "../../blocks/RateButton/RateButton"
 
 import {formatNumber, ruDeclination} from "../../common/functions";
-import {setRatingToRateButton} from "../../blocks/RateButton/RateButton";
+import setRatingToRateButton from "../../blocks/RateButton/RateButton";
 import initCarouselPlugin from "../../blocks/carousel/carousel";
 
 $(document).ready(function () {
