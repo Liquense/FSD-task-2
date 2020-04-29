@@ -21,6 +21,9 @@
   },
   "homepage": "https://github.com/Liquense/FSD-task-2.1#readme",
   "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
     "@fortawesome/fontawesome-free": "^5.13.0",
     "air-datepicker": "^2.2.3",
     "autoprefixer": "^9.7.6",

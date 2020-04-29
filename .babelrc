@@ -1,16 +1,12 @@
 {
   "presets": [
-    "env",
-    "stage-2",
-    "react"
-  ],
-  "plugins": [
-    "transform-runtime",
-    "transform-decorators-legacy"
+    "@babel/preset-env"
   ],
   "env": {
     "production": {
-      "plugins": ["transform-react-remove-prop-types", "transform-react-constant-elements"]
+      "plugins": [
+        "@babel/plugin-proposal-optional-chaining"
+      ]
     }
   }
 }
