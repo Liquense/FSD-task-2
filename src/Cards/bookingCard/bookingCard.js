@@ -2,7 +2,7 @@ import "./bookingCard.scss"
 import "../../blocks/Input/input"
 import "../../blocks/twoCalendarRangePicker/twoCalendarRangePicker"
 import {formatNumber, ruDeclination} from "../../common/functions";
-import {setInitialDates} from "../../blocks/twoCalendarRangePicker/twoCalendarRangePicker";
+import setInitialDates from "../../blocks/twoCalendarRangePicker/twoCalendarRangePicker";
 
 $(".bookingCard").each(function () {
 	const $bookingCard = $(this);
