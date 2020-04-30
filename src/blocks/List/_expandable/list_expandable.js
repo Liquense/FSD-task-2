@@ -1,4 +1,4 @@
-/* eslint-disable import/no-extraneous-dependencies,no-undef */
+/* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
 import 'jquery-ui/ui/effects/effect-fade';
 import './list_expandable.scss';
