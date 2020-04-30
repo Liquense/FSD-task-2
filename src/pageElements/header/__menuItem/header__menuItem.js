@@ -1,1 +1,1 @@
-import "./header__menuItem.scss"
+import './header__menuItem.scss';
