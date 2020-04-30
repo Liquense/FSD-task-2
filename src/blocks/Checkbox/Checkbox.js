@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 // jQuery объявлена глобально вебпаком
-// eslint-disable-next-line import/no-extraneous-dependencies
 import 'jquery-ui/ui/widgets/checkboxradio';
 import './Checkbox.scss';
 // type

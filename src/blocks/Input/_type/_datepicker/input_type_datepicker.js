@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
-// eslint-disable-next-line import/no-extraneous-dependencies
 import 'air-datepicker';
 import '../../../../assets/images/arrow_back.svg';
 import '../../../../assets/images/expand_more.svg';
