@@ -24,7 +24,6 @@
     "@babel/core": "^7.9.0",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
-    "@fortawesome/fontawesome-free": "^5.13.0",
     "air-datepicker": "^2.2.3",
     "autoprefixer": "^9.7.6",
     "babel-core": "^7.0.0-bridge.0",
@@ -60,6 +59,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
     "paginationjs": "^2.1.5",
     "slick-carousel": "^1.8.1",
     "webpack-merge": "^4.2.2"
