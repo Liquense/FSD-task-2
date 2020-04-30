@@ -14,14 +14,11 @@ function initLikeCheckbox() {
 
   if (!$likeLabel.attr('data-likes-count')) { return; }
 
-  let likesCount = $likeLabel.attr('data-likes-count').trim();
-  $likeLabel.click((e) => {
-    if ($(e.target)[0] === $($likeLabel)[0]) {
-      if ($($likeLabel).hasClass('ui-checkboxradio-checked')) {
-        likesCount -= 1;
-      } else {
-        likesCount += 1;
-      }
+  let likesCount = Number.parseInt($likeLabel.attr('data-likes-count'), 10);
+  $likeLabel.click((event) => {
+    if ($(event.target)[0] === $likeLabel[0]) {
+      likesCount = $($likeLabel).hasClass('ui-checkboxradio-checked')
+        ? likesCount - 1 : likesCount + 1;
 
       $($likeButton).checkboxradio('option', 'label', likesCount);
       $($likeLabel).attr('data-likes-count', likesCount);
