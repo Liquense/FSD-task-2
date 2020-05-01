@@ -1,17 +1,13 @@
 /* eslint-disable no-undef */
 // jquery объявлена вебпаком
-import 'jquery-ui/ui/widgets/slider';
-import 'jquery-ui/themes/base/slider.css';
+import './_range/Slider_range';
+import './slider.scss';
 import { formatNumber } from '../../common/functions';
 
 function sliderValuesChange(event, ui) {
   $(ui.handle).closest('.slider').find('.slider__value').text(
     `${formatNumber(ui.value, ' ')}₽`,
   );
-}
-
-export default function sliderHandlerValueChange(event, ui) {
-  $(ui.handle).attr('sliderHandleValue', ui.value);
 }
 
 // ищем слайдер, но не с диапазоном, а только одиночным значением

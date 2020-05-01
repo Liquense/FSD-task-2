@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
 import '../../common';
-import '../../blocks/Slider/sliderDependencies';
+import '../../blocks/Slider/slider';
 import '../../blocks/List/list';
 import '../../blocks/Pagination/Pagination';
 import Checkbox from '../../blocks/Checkbox/Checkbox';

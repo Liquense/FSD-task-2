@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 // jquery объявлена вебпаком
 import { clamp, formatNumber } from '../../../common/functions';
-import sliderHandlerValueChange from '../slider';
+import sliderHandlerValueChange from '../slider-common';
 
 function sliderValuesChange(event, ui) {
   $(ui.handle).closest('.slider').find('.slider__value').text(
