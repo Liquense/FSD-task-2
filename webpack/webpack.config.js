@@ -12,13 +12,13 @@ const paths = {
 };
 
 // Отдельные странички
-const mainPages = ['index', 'ui-kit'].map((name) => new HtmlWebpackPlugin({
+const mainPages = ['index'].map((name) => new HtmlWebpackPlugin({
   template: `./src/${name}.pug`,
   filename: `${name}.html`,
   chunks: [`${name}`, 'commons', 'vendors'],
 }));
 const sitePages = [
-  'landingPage', 'registrationLogin', 'roomDetails', 'searchRoom'].map((name) => new HtmlWebpackPlugin({
+  'ui-kit', 'landingPage', 'registrationLogin', 'roomDetails', 'searchRoom'].map((name) => new HtmlWebpackPlugin({
   template: `./src/sitePages/${name}/${name}.pug`,
   filename: `${name}.html`,
   chunks: [`${name}`, 'commons', 'vendors'],
@@ -31,7 +31,7 @@ module.exports = {
   // названия чанков должны совпадать с названиями страниц для привязки
   entry: {
     index: `${paths.source}/index.js`,
-    'ui-kit': `${paths.source}/ui-kit.js`,
+    'ui-kit': `${paths.source}/sitePages/ui-kit/ui-kit.js`,
     landingPage: `${paths.source}/sitePages/landingPage/landingPage.js`,
     registrationLogin: `${paths.source}/sitePages/registrationLogin/registrationLogin.js`,
     roomDetails: `${paths.source}/sitePages/roomDetails/roomDetails.js`,

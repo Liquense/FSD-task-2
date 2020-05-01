@@ -1,11 +1,25 @@
-@import "common/variables";
+@import "../../common/variables";
+
+body {
+  background-color: #eeeeee;
+  //display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  background-color: #FFFFFF;
+  margin: 20px;
+  width: 1440px;
+  min-height: 1350px;
+}
 
 .bodyContainer {
   display: flex;
   flex-wrap: wrap;
 }
 
-.pageHeader {
+.page-header {
   font-size: 20px;
 }
 

@@ -5,10 +5,19 @@ html(lang="ru")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title UI-Kit
   body
-    a(href="index.html" class="text_type_label-CTA pageHeader") Вернуться на главную
+    include ./ui-kit__colors-type/ui-kit__colors-type
+    section.cards
+    section.form-elements
+    section.headers-footers
+
+
+
+
+
+    a(href="index.html" class="text_type_label-CTA page-header") Вернуться на главную
     //- Headers
-    include ./pageElements/header/header
-    -const logoPath = require('./assets/images/logo_colored_withText.svg')
+    include ../../pageElements/header/header
+    -var logoPath = require('../../assets/images/logo_colored_withText.svg')
     +header(
       {logo: logoPath},
       [
@@ -52,8 +61,8 @@ html(lang="ru")
     br
     div.bodyContainer
       div.inputsContainer.container
-        include blocks/Input/Input
-        include blocks/twoCalendarRangePicker/twoCalendarRangePicker
+        include ../../blocks/Input/Input
+        include ../../blocks/twoCalendarRangePicker/twoCalendarRangePicker
         +Input("Text field", "text", "This is pretty awesome", "", "")
         +Input("Masked Text Field", "text mask", "ДД.ММ.ГГГГ", "", "[0123][0-9].[012][0-9].[0-9]{4}")
         +Input("DatePicker", "datepicker medium", "ДД.ММ.ГГГГ", "", "")
@@ -72,7 +81,7 @@ html(lang="ru")
           [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}]
         )
       div.buttonsContainer.container
-        include blocks/Button/Button
+        include ../../blocks/Button/Button
         +Button("Click Me", "firstRow__button button_type_text")
         +Button("Click Me", "button_type_text button_hovered firstRow__button")
         +Button("Click Me", "button_type_filled secondRow__button")
@@ -84,8 +93,8 @@ html(lang="ru")
         +Button("Click Me", "button_type_filled button_size_wide sixthRow")(decoration = "enterArrow")
         +Button("Login", "button_type_bordered sixthRow",{isTextSized: true})
       div.checkboxContainer.container
-        include blocks/Checkbox/Checkbox
-        include blocks/List/list
+        include ../../blocks/Checkbox/Checkbox
+        include ../../blocks/List/list
         -var checkButtons = [{text: "Можно курить"}]
         -checkButtons.push({text: "Можно с питомцами"})
         -checkButtons.push({text: "Можно пригласить гостей (до 10 человек)"})
@@ -119,15 +128,15 @@ html(lang="ru")
         +checkbox("2", "like")
         +checkbox("10", "like")
       div.slidersContainer.container
-        include blocks/Slider/Slider
+        include ../../blocks/Slider/Slider
         +slider(100, 15000, 100, "Range Slider", "", true)
         +slider(0, 10, 1, "Range Slider", "", false)
       div.ratesContainer.container
-        include blocks/RateButton/RateButton
+        include ../../blocks/RateButton/RateButton
         +rateButton({maxRating: 6})
         +rateButton()
       div.paginationContainer.container
-        include blocks/Pagination/Pagination
+        include ../../blocks/Pagination/Pagination
         +pagination()
       div.bulletListContainer.container
         +bulletList(
@@ -140,9 +149,9 @@ html(lang="ru")
           {title: "Удобство", text: "Окно в каждой из спален", icon: "location_city"},
         ])
       div.commentContainer.container
-        include blocks/Comment/Comment
+        include ../../blocks/Comment/Comment
         +comment({
-          avatar: require("./assets/images/userAvatar.jpg"),
+          avatar: require("../../assets/images/userAvatar.jpg"),
           author: "Мурад Сарафанов",
           dateTime: "5 дней назад",
           text: "Великолепный матрас на кровати в основной спальне! " +
@@ -150,13 +159,13 @@ html(lang="ru")
             "Выкрикивал комплименты повару — никто не жаловался из соседей."
         })
       div.findRoomCardContainer.container
-        include Cards/findRoomCard/findRoomCard
+        include ../../Cards/findRoomCard/findRoomCard
         +findRoomCard()
       div.registrationCardContainer.container
-        include Cards/registrationCard/registrationCard
+        include ../../Cards/registrationCard/registrationCard
         +registrationCard()
       div.bookingCardContainer.container
-        include Cards/bookingCard/bookingCard
+        include ../../Cards/bookingCard/bookingCard
         +bookingCard({
           roomNumber: "888",
           roomType: "люкс",
@@ -168,27 +177,27 @@ html(lang="ru")
           additionalPrice: 300
         })
       div.loginCardContainer.container
-        include Cards/loginCard/loginCard
+        include ../../Cards/loginCard/loginCard
         +loginCard()()
       div.carouselContainer.container
-        include blocks/carousel/carousel
+        include ../../blocks/carousel/carousel
         +carousel({
           content: [
             {
               tag: "img",
-              src: require("./assets/images/room-mini-1.jpg")
+              src: require("../../assets/images/room-mini-1.jpg")
             },
             {
               tag: "img",
-              src: require("./assets/images/room-mini-2.jpg")
+              src: require("../../assets/images/room-mini-2.jpg")
             },
             {
               tag: "img",
-              src: require("./assets/images/room-mini-1.jpg")
+              src: require("../../assets/images/room-mini-1.jpg")
             },
             {
               tag: "img",
-              src: require("./assets/images/room-mini-2.jpg")
+              src: require("../../assets/images/room-mini-2.jpg")
             },
           ],
           carouselParams: {
@@ -197,7 +206,7 @@ html(lang="ru")
           }
         })
       div.roomPreviewsContainer.container
-        include Cards/roomPreviewCard/roomPreviewCard
+        include ../../Cards/roomPreviewCard/roomPreviewCard
         +roomPreviewCard(
           {
             roomNumber: "888",
@@ -212,19 +221,19 @@ html(lang="ru")
             content: [
               {
                 tag: "img",
-                src: require("./assets/images/room-mini-1.jpg")
+                src: require("../../assets/images/room-mini-1.jpg")
               },
               {
                 tag: "img",
-                src: require("./assets/images/room-mini-2.jpg")
+                src: require("../../assets/images/room-mini-2.jpg")
               },
               {
                 tag: "img",
-                src: require("./assets/images/room-mini-1.jpg")
+                src: require("../../assets/images/room-mini-1.jpg")
               },
               {
                 tag: "img",
-                src: require("./assets/images/room-mini-2.jpg")
+                src: require("../../assets/images/room-mini-2.jpg")
               },],
             carouselParams: {
               "data-arrows": "true",
@@ -233,7 +242,7 @@ html(lang="ru")
           }
         )
     //- footers
-    include ./pageElements/footer/footer
+    include ../../pageElements/footer/footer
     +simpleFooter({
       logo: logoPath,
       text: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis."
