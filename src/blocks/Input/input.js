@@ -1,17 +1,13 @@
 import './Input.scss';
-
 // ---Masked
 import './_masked/input_masked.scss';
 import './_masked/input_masked';
-
 // ---Focused
 import './_focused/input_focused.scss';
-
 // ---Width
 import './_width/input_width_narrow.scss';
 import './_width/input_width_preMedium.scss';
 import './_width/input_width_medium.scss';
-
 // ---Type
 import './_type/input_type_text.scss';
 
