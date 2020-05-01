@@ -1,0 +1,132 @@
+@import "../../common/variables";
+
+body {
+  background-color: #eeeeee;
+  //display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+section {
+  background-color: #FFFFFF;
+  margin: 20px;
+  width: 1440px;
+  min-height: 1350px;
+}
+
+.colors-type {
+  .colors-type__colors {
+    padding: 145px 191px 0 150px;
+
+    .color-block {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin-bottom: 20px;
+
+      .color-block__square {
+        width: 70px;
+        height: 70px;
+        border-radius: 6px;
+        margin-right: 40px;
+
+        &[data-color='Dark Shade 100%'] {
+          background-color: $darkShade100;
+        }
+
+        &[data-color='Dark Shade 75%'] {
+          background-color: $darkShade75;
+        }
+
+        &[data-color='Dark Shade 50%'] {
+          background-color: $darkShade50;
+        }
+
+        &[data-color='Dark Shade 25%'] {
+          background-color: $darkShade25;
+        }
+
+        &[data-color='Dark Shade 5%'] {
+          background-color: $darkShade5;
+        }
+
+        &[data-color='Purple'] {
+          background-color: $purple;
+        }
+
+        &[data-color='Green'] {
+          background-color: $green;
+        }
+      }
+
+      .color-block__description {
+        display: flex;
+        flex-direction: column;
+
+        .color-block__name, .color-block__code {
+          margin: 0;
+          line-height: 29px;
+          font-size: 19px;
+        }
+
+        .color-block__code {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  .colors-type__type {
+    .type-block {
+      .type-block__header {
+
+      }
+      .type-block__text {
+
+      }
+    }
+
+    .type-block[data-text-type='H1'] {
+      .type-block__header {
+
+      }
+      .type-block__text {
+
+      }
+    }
+  }
+}
+
+.bodyContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page-header {
+  font-size: 20px;
+}
+
+.input__wrapper {
+  padding: 5px;
+}
+
+.container {
+  margin: 50px 20px 0 0;
+}
+
+.buttonsContainer {
+  width: 320px;
+
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: auto auto;
+  justify-items: center;
+}
+
+.fourthRow, .fifthRow, .sixthRow {
+  grid-column: 1 / span 2;
+}
+
+.slider:first-child {
+  margin-bottom: 20px;
+}
