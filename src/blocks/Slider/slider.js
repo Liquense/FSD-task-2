@@ -3,6 +3,7 @@
 import './_range/Slider_range';
 import './slider.scss';
 import { formatNumber } from '../../common/functions';
+import sliderHandlerValueChange from './slider-common';
 
 function sliderValuesChange(event, ui) {
   $(ui.handle).closest('.slider').find('.slider__value').text(
