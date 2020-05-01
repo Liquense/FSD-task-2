@@ -17,7 +17,6 @@ function disableLabelClicks(event) {
   event.preventDefault();
 }
 
-const $expandArrowInput = $('.input__arrow_decoration_expandArrow');
 function initExpandableElement() {
   const $expandArrow = $(this);
   const $control = $(this).siblings('.input__control_decoration_expandArrow');
@@ -57,4 +56,5 @@ function initExpandableElement() {
   }
 }
 
-$expandArrowInput.each(initExpandableElement);
+const $expandArrowInputs = $('.input__arrow_decoration_expandArrow');
+$expandArrowInputs.each(initExpandableElement);
