@@ -15,13 +15,13 @@ const paths = {
 const mainPages = ['index'].map((name) => new HtmlWebpackPlugin({
   template: `./src/${name}.pug`,
   filename: `${name}.html`,
-  chunks: [`${name}`, 'commons', 'vendors'],
+  chunks: [`${name}`, 'vendors'],
 }));
 const sitePages = [
   'ui-kit', 'landingPage', 'registrationLogin', 'roomDetails', 'searchRoom'].map((name) => new HtmlWebpackPlugin({
   template: `./src/sitePages/${name}/${name}.pug`,
   filename: `${name}.html`,
-  chunks: [`${name}`, 'commons', 'vendors'],
+  chunks: [`${name}`, 'vendors'],
 }));
 
 module.exports = {
@@ -60,11 +60,6 @@ module.exports = {
     splitChunks: {
       name: false,
       cacheGroups: {
-        common: {
-          name: 'commons',
-          chunks: 'all',
-          priority: 0,
-        },
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
