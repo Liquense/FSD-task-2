@@ -1,3 +1,12 @@
+//- title - заголовок
+//- types - типы инпута: (datepicker, dropdown, text, mask, subscription)
+//- 	размеры: (medium, premedium, narrow),
+//- 	модификаторы дропдауна (unified, rooms, customers)
+//- placeholder - плейсхолдер в инпуте
+//- addClasses - дополнительные классы, применяемые на все элементы
+//- mask - маска для текстового инпута с маской
+//- additional - значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
+//- range - диапазон выбора значений спиннерами у дропдауна
 mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0, 5])
 	- var blockClassName = "input"
 	- var titleClassName = "input__title"
@@ -11,15 +20,24 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 	- var controlAttributes = {class: controlClassName + " ", placeholder: placeholder}
 	- var dropdownAttributes = {class: " "}
 	- var controlWrapperAttrs = {class: `${controlWrapperCN} `}
-	- var attributes = [blockAttributes, titleAttributes, controlAttributes, dropdownAttributes, controlWrapperAttrs]
+	- var attributes = {blockAttributes, titleAttributes, controlAttributes, dropdownAttributes, controlWrapperAttrs}
+
+
+	//-ширина
+	if types.includes("narrow")
+		each value, index in Object.values(attributes)
+			- value.class += classNames[index] + "_width_narrow "
+	else if types.includes("premedium")
+		each value, index in Object.values(attributes)
+			- value.class += classNames[index] + "_width_preMedium "
+	else if types.includes("medium")
+		each value, index in Object.values(attributes)
+			- value.class += classNames[index] + "_width_medium "
 
 	//-календарь
 	if types.includes("datepicker")
-		each value, index in attributes
-			- value.class += classNames[index] + "_type_datepicker "
-		- controlAttributes.type = "select"
-		- controlAttributes["data-firstDate"] = additional[0]
-		- controlAttributes["data-secondDate"] = additional[1]
+		include ./_type/_datepicker/input_type_datepicker
+		+addDatepicker(attributes, additional)
 	//-дропдаун
 	else if types.includes("dropdown")
 		//-подтипы дропдауна
@@ -50,16 +68,6 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 	else if types.includes("subscription")
 		each value, index in attributes
 			- value.class += classNames[index] + "_decoration_enterArrow "
-	//-ширина
-	if types.includes("narrow")
-		each value, index in attributes
-			- value.class += classNames[index] + "_width_narrow "
-	else if types.includes("premedium")
-		each value, index in attributes
-			- value.class += classNames[index] + "_width_preMedium "
-	else if types.includes("medium")
-		each value, index in attributes
-			- value.class += classNames[index] + "_width_medium "
 
 	include ./_type/_dropdown/input__list_type_dropdown
 	include ./_decoration/_expandArrow/input_decoration_expandArrow
@@ -69,18 +77,18 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 			label&attributes(titleAttributes) #{title}
 				br
 				div&attributes(controlWrapperAttrs)
-					if types.includes("dropdown") || types.includes("datepicker")
+					if types.includes("dropdown")
 						+expandArrow()
 					else if types.includes("subscription")
 						+enterArrow()
 
 					input&attributes(controlAttributes)
 		else
-			if types.includes("dropdown") || types.includes("datepicker")
+			if types.includes("dropdown")
 			label&attributes(titleAttributes)
 				div&attributes(controlWrapperAttrs)
 					input&attributes(controlAttributes)
-					if types.includes("dropdown") || types.includes("datepicker")
+					if types.includes("dropdown")
 						+expandArrow()
 					else if types.includes("subscription")
 						+enterArrow()
