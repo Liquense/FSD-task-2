@@ -1,8 +1,19 @@
+body {
+  background-color: #eeeeee;
+  align-items: center;
+  flex-direction: column; }
+
+section {
+  background-color: #FFFFFF;
+  margin: 20px;
+  width: 1440px;
+  min-height: 1350px; }
+
 .bodyContainer {
   display: flex;
   flex-wrap: wrap; }
 
-.pageHeader {
+.page-header {
   font-size: 20px; }
 
 .input__wrapper {
@@ -23,6 +34,91 @@
 
 .slider:first-child {
   margin-bottom: 20px; }
+
+.colors-type {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 145px 191px 0 150px; }
+  .colors-type .colors-type__colors .color-block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px; }
+    .colors-type .colors-type__colors .color-block .color-block__square {
+      width: 70px;
+      height: 70px;
+      border-radius: 6px;
+      margin-right: 40px; }
+      .colors-type .colors-type__colors .color-block .color-block__square[data-color='Dark Shade 100%'] {
+        background-color: #1F2041; }
+      .colors-type .colors-type__colors .color-block .color-block__square[data-color='Dark Shade 75%'] {
+        background-color: rgba(31, 32, 65, 0.75); }
+      .colors-type .colors-type__colors .color-block .color-block__square[data-color='Dark Shade 50%'] {
+        background-color: rgba(31, 32, 65, 0.5); }
+      .colors-type .colors-type__colors .color-block .color-block__square[data-color='Dark Shade 25%'] {
+        background-color: rgba(31, 32, 65, 0.25); }
+      .colors-type .colors-type__colors .color-block .color-block__square[data-color='Dark Shade 5%'] {
+        background-color: rgba(31, 32, 65, 0.05); }
+      .colors-type .colors-type__colors .color-block .color-block__square[data-color='Purple'] {
+        background-color: #BC9CFF; }
+      .colors-type .colors-type__colors .color-block .color-block__square[data-color='Green'] {
+        background-color: #6FCF97; }
+    .colors-type .colors-type__colors .color-block .color-block__description {
+      display: flex;
+      flex-direction: column; }
+      .colors-type .colors-type__colors .color-block .color-block__description .color-block__name, .colors-type .colors-type__colors .color-block .color-block__description .color-block__code {
+        letter-spacing: -0.2px;
+        margin: 0;
+        line-height: 29px;
+        font-size: 19px; }
+      .colors-type .colors-type__colors .color-block .color-block__description .color-block__code {
+        letter-spacing: -1px;
+        font-weight: normal; }
+  .colors-type .colors-type__type {
+    width: 403px;
+    display: grid;
+    grid-template-columns: 37px 1fr;
+    grid-auto-rows: -webkit-min-content;
+    grid-auto-rows: min-content;
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+    row-gap: 50px; }
+    .colors-type .colors-type__type .type__header {
+      color: rgba(31, 32, 65, 0.25);
+      justify-self: flex-end;
+      margin: 0;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content; }
+    .colors-type .colors-type__type .type__text {
+      margin: 0;
+      height: -webkit-fit-content;
+      height: -moz-fit-content;
+      height: fit-content; }
+    .colors-type .colors-type__type .type__header[data-text-type='H1'] {
+      font-size: 24px;
+      line-height: 29px; }
+      .colors-type .colors-type__type .type__header[data-text-type='H1'] + .type__text {
+        letter-spacing: -0.5px; }
+    .colors-type .colors-type__type .type__header[data-text-type='H2'] {
+      font-size: 19px;
+      line-height: 23px; }
+      .colors-type .colors-type__type .type__header[data-text-type='H2'] + .type__text {
+        letter-spacing: -0.36px; }
+    .colors-type .colors-type__type .type__header[data-text-type='H3'] {
+      font-size: 12px;
+      line-height: 15px; }
+      .colors-type .colors-type__type .type__header[data-text-type='H3'] + .type__text {
+        line-height: 15px; }
+    .colors-type .colors-type__type .type__header[data-text-type='Body'] {
+      margin-top: -2px;
+      font-size: 14px;
+      line-height: 24px; }
+      .colors-type .colors-type__type .type__header[data-text-type='Body'] + .type__text {
+        max-width: 33ch;
+        margin-top: -2px;
+        line-height: 24px; }
 
 .registrationLogin__content {
   position: relative;

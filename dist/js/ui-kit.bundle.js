@@ -148,7 +148,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./src/ui-kit.js","vendors","commons"]);
+/******/ 	deferredModules.push(["./src/sitePages/ui-kit/ui-kit.js","vendors","commons"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
