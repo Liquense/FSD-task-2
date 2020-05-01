@@ -5,56 +5,10 @@ html(lang="ru")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     title UI-Kit
   body
-    mixin colorBlock(params={color: 'fffff', colorName: 'white'})
-      div.color-block
-        div.color-block__square(data-color=params.colorName)
-        div.color-block__description
-          p.color-block__name.text_type_widgetTitle #{params.colorName}
-          p.color-block__code.text_type_widgetTitle #{params.color}
-
-    mixin typeBlock(params={headerText: 'Header', text: 'Lorem Ipsum dolor set amet....'})
-      article.type-block(data-text-type=params.headerText)
-      -var textTypeClass;
-      -switch (params.headerText) {
-      -
-        case "Body":
-          textTypeClass = 'text_type_widgetTitle'
-          break;
-        case "H1":
-          textTypeClass = 'text_type_widgetTitle'
-          break;
-        case "H2":
-          textTypeClass = 'text_type_widgetTitle'
-          break;
-        case "H3":
-          textTypeClass = 'text_type_widgetTitle'
-          break;
-      -}
-        header.type-block__header #{params.headerText}
-        p.type-block__text #{params.text}
-
-    section.colors-type
-      div.colors-type__colors
-        +colorBlock({color: '#1F2041', colorName: 'Dark Shade 100%'})
-        +colorBlock({color: '#1F2041', colorName: 'Dark Shade 75%'})
-        +colorBlock({color: '#1F2041', colorName: 'Dark Shade 50%'})
-        +colorBlock({color: '#1F2041', colorName: 'Dark Shade 25%'})
-        +colorBlock({color: '#1F2041', colorName: 'Dark Shade 5%'})
-        +colorBlock({color: '#BC9CFF', colorName: 'Purple'})
-        +colorBlock({color: '#6FCF97', colorName: 'Green'})
-      div.colors-type__type
-        +typeBlock({headerText: 'H1', text: 'This one is the sub-section or widget title'})
-        +typeBlock({headerText: 'H2', text: 'Next one is the item title inside widgets'})
-        +typeBlock({headerText: 'H3', text: 'this is a label or CTA text'})
-        +typeBlock({headerText: 'Body', text: 'This is the body text which is used for most of the design,' +
-            ' like paragraphs, lists, etc.'})
-
+    include ./ui-kit__colors-type/ui-kit__colors-type
     section.cards
     section.form-elements
     section.headers-footers
-
-
-
 
 
 

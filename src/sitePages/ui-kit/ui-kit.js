@@ -5,6 +5,7 @@ import '../../../vendor/jquery.maskedinput/src/jquery.maskedinput';
 
 import './ui-kit.pug';
 import './ui-kit.scss';
+import './ui-kit__colors-type/ui-kit__colors-type.scss';
 import '../../common';
 import '../../blocks/Button/button';
 import '../../blocks/Input/input';
