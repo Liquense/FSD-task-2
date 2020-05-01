@@ -12,7 +12,7 @@ const paths = {
 };
 
 // Отдельные странички
-const mainPages = ['index', 'second'].map((name) => new HtmlWebpackPlugin({
+const mainPages = ['index', 'ui-kit'].map((name) => new HtmlWebpackPlugin({
   template: `./src/${name}.pug`,
   filename: `${name}.html`,
   chunks: [`${name}`, 'commons', 'vendors'],
@@ -28,9 +28,10 @@ module.exports = {
   node: {
     fs: 'empty',
   },
+  // названия чанков должны совпадать с названиями страниц для привязки
   entry: {
     index: `${paths.source}/index.js`,
-    second: `${paths.source}/second.js`,
+    'ui-kit': `${paths.source}/ui-kit.js`,
     landingPage: `${paths.source}/sitePages/landingPage/landingPage.js`,
     registrationLogin: `${paths.source}/sitePages/registrationLogin/registrationLogin.js`,
     roomDetails: `${paths.source}/sitePages/roomDetails/roomDetails.js`,
