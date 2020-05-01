@@ -1,3 +1,10 @@
-*
-!dist
-
+.idea/
+node_modules/
+src/
+vendor/
+webpack/
+.babelrc
+.eslintrc.json
+package.json
+package-lock.json
+README.md

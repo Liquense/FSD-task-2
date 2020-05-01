@@ -1,3 +1,29 @@
+.bodyContainer {
+  display: flex;
+  flex-wrap: wrap; }
+
+.pageHeader {
+  font-size: 20px; }
+
+.input__wrapper {
+  padding: 5px; }
+
+.container {
+  margin: 50px 20px 0 0; }
+
+.buttonsContainer {
+  width: 320px;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: auto auto;
+  justify-items: center; }
+
+.fourthRow, .fifthRow, .sixthRow {
+  grid-column: 1 / span 2; }
+
+.slider:first-child {
+  margin-bottom: 20px; }
+
 .registrationLogin__content {
   position: relative;
   height: 702px;
@@ -2658,32 +2684,6 @@ body {
         font-weight: bold; }
       .roomPreviewCard .roomPreviewCard__textContent .roomPreviewCard__rateInfo .roomPreviewCard__reviewsInfo .roomPreviewCard__reviewsText {
         color: rgba(31, 32, 65, 0.5); }
-
-.bodyContainer {
-  display: flex;
-  flex-wrap: wrap; }
-
-.pageHeader {
-  font-size: 20px; }
-
-.input__wrapper {
-  padding: 5px; }
-
-.container {
-  margin: 50px 20px 0 0; }
-
-.buttonsContainer {
-  width: 320px;
-  display: grid;
-  grid-gap: 15px;
-  grid-template-columns: auto auto;
-  justify-items: center; }
-
-.fourthRow, .fifthRow, .sixthRow {
-  grid-column: 1 / span 2; }
-
-.slider:first-child {
-  margin-bottom: 20px; }
 
 .searchRoom__content {
   display: flex;
