@@ -258,7 +258,6 @@ function getInitialNamesValues($spinnerElements) {
 }
 
 const dropdownVisibleClass = 'input__dropdownListWrapper_visible';
-const $dropdownInputs = $('.input_type_dropdown');
 
 function initDropdownInput() {
   const $inputWrapper = $(this);
@@ -349,6 +348,7 @@ function initDropdownInput() {
   });
 
   $($control).click(() => {
+    console.log($dropdown);
     $($control).toggleClass('input__control_focused');
     $($dropdown).toggle('fade');
     $($dropdown).toggleClass(dropdownVisibleClass);
@@ -361,4 +361,5 @@ function initDropdownInput() {
   });
 }
 
+const $dropdownInputs = $('.input_type_dropdown');
 $dropdownInputs.each(initDropdownInput);

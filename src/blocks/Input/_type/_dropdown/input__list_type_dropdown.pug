@@ -2,14 +2,38 @@ include ../_spinner/input_type_spinner
 include ../../../Button/Button
 
 mixin dropdownList(elementNames = {}, attr, range)
-	div&attributes(attr)
-		table.input__dropdownList_type_dropdown
-			each element, index in elementNames
-				tr(class="text_type_label-CTA input__dropdownListRow_type_dropdown")
-					td
-						span.input__dropdownText_type_dropdown #{element.name}
-					td
-						+spinner(range, element.name, index, element.value)
-		div(class="input__controlButtonsContainer")
-			+Button("Очистить", "button_type_text input__clearButton button_hovered input__controlButton")
-			+Button("Применить", "button_type_text input__confirmButton input__controlButton")
+  div&attributes(attr)
+    div.input__dropdownList_type_dropdown
+      each element, index in elementNames
+        div(class="text_type_label-CTA input__dropdownListRow_type_dropdown")
+            p.input__dropdownText_type_dropdown #{element.name}
+            +spinner(range, element.name, index, element.value)
+    div(class="input__controlButtonsContainer")
+      +Button("Очистить", "button_type_text input__clearButton button_hovered input__controlButton")
+      +Button("Применить", "button_type_text input__confirmButton input__controlButton")
+
+mixin addDropdown(ddAttributes, ddTypes, ddAdditional)
+  each value, index in Object.values(ddAttributes)
+    - value.class += classNames[index] + "_type_dropdown "
+  - controlAttributes.type = "select"
+  //-подтипы дропдауна
+  if ddTypes.includes("unified")
+    - ddAttributes.dropdownAttributes.class += dropdownClassName + "_unified "
+  if ddTypes.includes("rooms")
+    - ddAttributes.dropdownAttributes.class += dropdownClassName + "_rooms "
+  else if ddTypes.includes("customers")
+    - ddAttributes.dropdownAttributes.class += dropdownClassName + "_customers "
+
+  div&attributes(ddAttributes.blockAttributes)
+    if title
+      label&attributes(ddAttributes.titleAttributes) #{title}
+        br
+        div&attributes(ddAttributes.controlWrapperAttrs)
+          +expandArrow()
+          input&attributes(ddAttributes.controlAttributes)
+    else
+      label&attributes(ddAttributes.titleAttributes)
+        div&attributes(ddAttributes.controlWrapperAttrs)
+          input&attributes(ddAttributes.controlAttributes)
+          +expandArrow()
+    +dropdownList(ddAdditional, ddAttributes.dropdownAttributes, range)

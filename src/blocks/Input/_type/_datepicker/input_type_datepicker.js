@@ -44,12 +44,11 @@ export function setDates($datePicker, dates) {
   datepickerData.selectDate(dates);
 }
 
-const $datepickerInput = $('.input__control_type_datepicker');
-function initDatepickerInput() {
+function initDatepickerInput(index, input, isInline = false) {
   const $inputControl = $(this);
   const datepicker = $inputControl.datepicker({
     range: true,
-    // inline: true,
+    inline: isInline,
     dateFormat: 'd M',
     multipleDatesSeparator: ' - ',
     todayButton: true,
@@ -74,4 +73,5 @@ function initDatepickerInput() {
   setDates($inputControl, initDates);
 }
 
+const $datepickerInput = $('.input__control_type_datepicker');
 $datepickerInput.each(initDatepickerInput);
