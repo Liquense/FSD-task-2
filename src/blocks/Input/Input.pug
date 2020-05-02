@@ -38,8 +38,8 @@ mixin Input(title, types, placeholder, addClasses, mask, additional="", range=[0
 	- var attributes = {blockAttributes, titleAttributes, controlAttributes, dropdownAttributes, controlWrapperAttrs}
 
 
-	//-ширина
 	each value, index in Object.values(attributes)
+		//-ширина
 		if types.includes("narrow")
 			- value.class += classNames[index] + "_width_narrow "
 		else if types.includes("premedium")
