@@ -1,3 +1,18 @@
+mixin addTextInput(tiAttributes, tiAdditional, tiClassNames, tiTitle, tiTypes)
+	each value, index in Object.values(tiAttributes)
+		- value.class += tiClassNames[index] + "_type_text "
+	- tiAttributes.controlAttributes.type = "text"
+	div&attributes(tiAttributes.blockAttributes)
+		if tiTitle
+			label&attributes(tiAttributes.titleAttributes) #{tiTitle}
+				br
+				div&attributes(tiAttributes.controlWrapperAttrs)
+					input&attributes(tiAttributes.controlAttributes)(value=tiAdditional)
+		else
+			label&attributes(tiAttributes.titleAttributes)
+				div&attributes(tiAttributes.controlWrapperAttrs)
+					input&attributes(tiAttributes.controlAttributes)(value=imAdditional)
+
 //- title - заголовок
 //- types - типы инпута: (datepicker, dropdown, text, mask, subscription)
 //- 	размеры: (medium, premedium, narrow),
@@ -7,7 +22,7 @@
 //- mask - маска для текстового инпута с маской
 //- additional - значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
 //- range - диапазон выбора значений спиннерами у дропдауна
-mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0, 5])
+mixin Input(title, types, placeholder, addClasses, mask, additional="", range=[0, 5])
 	- var blockClassName = "input"
 	- var titleClassName = "input__title"
 	- var controlClassName = "input__control"
@@ -46,10 +61,8 @@ mixin Input(title, types, placeholder, addClasses, mask, additional=[], range=[0
 		include ./_type/_dropdown/input__list_type_dropdown
 		+addDropdown(attributes, types, additional)
 	//-Просто текст
-	if types.includes("text")
-		each value, index in attributes
-			- value.class += classNames[index] + "_type_text "
-		- controlAttributes.type = "text"
+	else if types.includes("text")
+		+addTextInput(attributes, additional, classNames, title, tiTypes)
 	//-Текст с маской
 	if types.includes("mask")
 		each value, index in attributes
