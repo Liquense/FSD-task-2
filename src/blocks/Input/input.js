@@ -1,7 +1,7 @@
 import './Input.scss';
 // ---Masked
-import './_masked/input_masked.scss';
-import './_masked/input_masked';
+import './_type/_masked/input_masked.scss';
+import './_type/_masked/input_masked';
 // ---Focused
 import './_focused/input_focused.scss';
 // ---Width

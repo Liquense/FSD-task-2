@@ -64,24 +64,6 @@ mixin Input(title, types, placeholder, addClasses, mask, additional="", range=[0
 	else if types.includes("text")
 		+addTextInput(attributes, additional, classNames, title, tiTypes)
 	//-Текст с маской
-	if types.includes("mask")
-		each value, index in attributes
-			- value.class += classNames[index] + "_masked "
-
-	include ./_type/_dropdown/input__list_type_dropdown
-	include ./_decoration/_expandArrow/input_decoration_expandArrow
-	include ./_decoration/_enterArrow/input_decoration_enterArrow
-	div&attributes(blockAttributes)
-		if title
-			label&attributes(titleAttributes) #{title}
-				br
-				div&attributes(controlWrapperAttrs)
-					if types.includes("subscription")
-						+enterArrow()
-					input&attributes(controlAttributes)
-		else
-			label&attributes(titleAttributes)
-				div&attributes(controlWrapperAttrs)
-					input&attributes(controlAttributes)
-					if types.includes("subscription")
-						+enterArrow()
+	else if types.includes("mask")
+		include _type/_masked/input_masked
+		+addMaskedInput(attributes, additional, additional, tiTypes)
