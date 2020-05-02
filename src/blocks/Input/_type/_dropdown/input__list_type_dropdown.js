@@ -348,7 +348,6 @@ function initDropdownInput() {
   });
 
   $($control).click(() => {
-    console.log($dropdown);
     $($control).toggleClass('input__control_focused');
     $($dropdown).toggle('fade');
     $($dropdown).toggleClass(dropdownVisibleClass);
