@@ -34,17 +34,16 @@ function getInitDates($datepickerControl) {
  * Устанавливает даты в первый календарь
  * (второй подцепляет это значение в логике twoCalendarRangePicker)
  * Если даты не переданы, используется сегодняшняя
- * @param $datePicker
+ * @param $datepickerInput
  * @param dates
  */
-export function setDates($datePicker, dates) {
+export function setDates($datepickerInput, dates) {
   if (!dates) { return; }
-  const datepickerData = $datePicker.data('datepicker');
-  datepickerData.clear();
+  const datepickerData = $datepickerInput.data('datepicker');
   datepickerData.selectDate(dates);
 }
 
-function initDatepickerInput(index, input, isInline = false) {
+export function initDatepickerInput(index, input, isInline = false) {
   const $inputControl = $(this);
   const datepicker = $inputControl.datepicker({
     range: true,
@@ -62,6 +61,9 @@ function initDatepickerInput(index, input, isInline = false) {
     prevHtml: '<img src="./images/arrow_back.svg" alt="назад"">',
     nextHtml: '<img src="./images/arrow_back.svg" alt="назад" style="transform: scale(-1, 1)">',
     minDate: new Date(),
+    onSelect: (formattedDate) => {
+      $inputControl.val(formattedDate.toLowerCase());
+    },
   }).data('datepicker');
 
   // замена кнопок на свои в элементе календаря
@@ -70,7 +72,7 @@ function initDatepickerInput(index, input, isInline = false) {
   datepicker.$datepicker.find('.datepicker--buttons').append(confirmButton);
 
   const initDates = getInitDates($inputControl);
-  setDates($inputControl, initDates);
+  datepicker.selectDate(initDates);
 }
 
 const $datepickerInput = $('.input__control_type_datepicker');
