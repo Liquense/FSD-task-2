@@ -17,7 +17,7 @@ function disableLabelClicks(event) {
   event.preventDefault();
 }
 
-function initExpandableElement() {
+export default function initExpandableElement() {
   const $expandArrow = $(this);
   const $control = $(this).siblings('.input__control_decoration_expandArrow');
   const $ownerLabel = $(this).parent();
@@ -49,6 +49,9 @@ function initExpandableElement() {
         },
         todayButton: false,
       });
+      // чтобы вызвать onSelect для обновления данных в инпуте
+      // (поскольку форматирование переопределено)
+      expandableElement.selectDate(expandableElement.selectedDates);
     });
   }
   if (expandableElement) {
