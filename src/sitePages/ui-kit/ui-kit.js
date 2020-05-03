@@ -1,6 +1,3 @@
-import 'jquery-ui/ui/widgets/checkboxradio';
-import '@fortawesome/fontawesome-free/css/all.css';
-
 import './ui-kit.pug';
 import './ui-kit.scss';
 import './ui-kit__colors-type/ui-kit__colors-type.scss';
