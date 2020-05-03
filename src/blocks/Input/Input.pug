@@ -7,10 +7,14 @@ mixin addTextInput(tiAttributes, tiAdditional, tiClassNames, tiTitle, tiTypes)
 			label&attributes(tiAttributes.titleAttributes) #{tiTitle}
 				br
 				div&attributes(tiAttributes.controlWrapperAttrs)
+					if tiTypes.includes("subscription")
+						+enterArrow()
 					input&attributes(tiAttributes.controlAttributes)(value=tiAdditional)
 		else
 			label&attributes(tiAttributes.titleAttributes)
 				div&attributes(tiAttributes.controlWrapperAttrs)
+					if tiTypes.includes("subscription")
+						+enterArrow()
 					input&attributes(tiAttributes.controlAttributes)(value=imAdditional)
 
 //- title - заголовок
@@ -48,9 +52,11 @@ mixin Input(title, types, placeholder, addClasses, mask, additional="", range=[0
 			- value.class += classNames[index] + "_width_medium "
 		//-если раскрывающийся - добавляем декорацию-стрелочку вниз
 		if types.includes("dropdown") || types.includes("datepicker")
+			include ./_decoration/_expandArrow/input_decoration_expandArrow
 			- value.class += classNames[index] + "_decoration_expandArrow "
 		//-если подписка, то декорация-стрелочка вправо
 		else if types.includes("subscription")
+			include ./_decoration/_enterArrow/input_decoration_enterArrow
 			- value.class += classNames[index] + "_decoration_enterArrow "
 	//-календарь
 	if types.includes("datepicker")
@@ -62,8 +68,8 @@ mixin Input(title, types, placeholder, addClasses, mask, additional="", range=[0
 		+addDropdown(attributes, types, additional)
 	//-Просто текст
 	else if types.includes("text")
-		+addTextInput(attributes, additional, classNames, title, tiTypes)
+		+addTextInput(attributes, additional, classNames, title, types)
 	//-Текст с маской
 	else if types.includes("mask")
 		include _type/_masked/input_masked
-		+addMaskedInput(attributes, additional, additional, tiTypes)
+		+addMaskedInput(attributes, additional, additional, types)

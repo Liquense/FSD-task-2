@@ -5,19 +5,17 @@ mixin addDatepicker(dpAttributes, dpAdditional)
   - dpAttributes.controlAttributes["data-firstDate"] = dpAdditional[0]
   - dpAttributes.controlAttributes["data-secondDate"] = additional[1]
   - dpAttributes.controlAttributes.class += 'input__control_decoration_expandArrow '
-  include ../../_decoration/_expandArrow/input_decoration_expandArrow
   //-
   div&attributes(dpAttributes.blockAttributes)
-      div&attributes(blockAttributes)
-        //- пока не нашел способа сделать отступ в начале внутренностей лейбла, поэтому условие с двумя вариантами
-        if title
-          label&attributes(titleAttributes) #{title}
-            br
-            div&attributes(controlWrapperAttrs)
-              +expandArrow()
-              input&attributes(controlAttributes)
-        else
-          label&attributes(titleAttributes)
-            div&attributes(controlWrapperAttrs)
-              input&attributes(controlAttributes)
-              +expandArrow()
+    //- пока не нашел способа сделать отступ в начале внутренностей лейбла, поэтому условие с двумя вариантами
+    if title
+      label&attributes(dpAttributes.titleAttributes) #{title}
+        br
+        div&attributes(dpAttributes.controlWrapperAttrs)
+          +expandArrow()
+          input&attributes(dpAttributes.controlAttributes)
+    else
+      label&attributes(dpAttributes.titleAttributes)
+        div&attributes(dpAttributes.controlWrapperAttrs)
+          input&attributes(dpAttributes.controlAttributes)
+          +expandArrow()
