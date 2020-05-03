@@ -9,8 +9,11 @@ function initLikeCheckbox() {
   const $likeButton = $($likeLabel.find('.checkbox__hiddenButton_type_like')[0]);
   initCheckboxes($likeButton, {
     icon: 'checkbox__button checkbox__button_type_like',
-    iconSpace: 'checkbox__buttonBorder_type_like',
   });
+
+  const gradientBorderElement = document.createElement('div');
+  gradientBorderElement.classList.add('checkbox__buttonBorder_type_like');
+  $likeLabel.prepend(gradientBorderElement);
 
   if (!$likeLabel.attr('data-likes-count')) { return; }
 
