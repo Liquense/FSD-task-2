@@ -14,7 +14,6 @@ function initAllRoomPreviewCardsInContainer($container) {
   $container.find('.roomPreviewCard').each(initRoomPreviewCard);
 }
 
-const $paginations = $('.pagination');
 function initLinksInPagination() {
   const $pagination = $(this);
   const $paginationContent = $pagination.children('.pagination__contentContainer');
@@ -22,8 +21,14 @@ function initLinksInPagination() {
 
   $paginationButtons.addHook('afterPaging', () => {
     initAllRoomPreviewCardsInContainer($paginationContent);
+    const $roomPreviewCardsTextContent = $('.roomPreviewCard__textContent');
+    $roomPreviewCardsTextContent.click(() => {
+      window.location.href = 'roomDetails.html';
+    });
   });
 }
+
+const $paginations = $('.pagination');
 $paginations.each(initLinksInPagination);
 
 const $roomPreviewCardsTextContent = $('.roomPreviewCard__textContent');
