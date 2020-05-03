@@ -28,8 +28,6 @@ function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, numbe
   otherDatepicker.clear();
   otherDatepicker.selectDate(datepicker.selectedDates);
   isSecondAssignStarted = false;
-
-  $(input).change();
 }
 
 function datepickerAddOnSelect(datepicker, otherDatepicker, input, number) {
