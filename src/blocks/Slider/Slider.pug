@@ -1,4 +1,6 @@
-mixin slider(minValue, maxValue, step, title, addClasses, isRange, initialValues=[])
+mixin slider(minValue, maxValue, step, title, addClasses, isRange, initialValues)
+	if (!initialValues)
+		-initialValues = [minValue, maxValue];
 	if isRange
 		div(class="slider slider_range " + addClasses)
 			div(class="slider__text")
