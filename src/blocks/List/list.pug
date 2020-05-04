@@ -3,47 +3,51 @@ include ./_type/_bullet/List_type_bullet
 include ./_type/_feature/list_type_feature
 
 mixin list(types, title, checkboxes=[], addClasses="")
-	-var listClassName = "list"
-	-var titleClassName = "list__title"
-	-var containerClassName = "list__container"
-	-var classNames = [listClassName, titleClassName, containerClassName]
+  -var listClassName = "list"
+  -var titleClassName = "list__title"
+  -var containerClassName = "list__container"
+  -var classNames = [listClassName, titleClassName, containerClassName]
 
-	-var listAttrs = {class: listClassName + " " + addClasses + " "}
-	-var titleAttrs = {class: titleClassName + " " + " text_type_label-CTA "}
-	-var containerAttrs = {class: containerClassName + " "}
-	-var attrs = [listAttrs, titleAttrs, containerAttrs]
+  -var listAttrs = {class: listClassName + " " + addClasses + " "}
+  -var titleAttrs = {class: titleClassName + " " + " text_type_label-CTA "}
+  -var containerAttrs = {class: containerClassName + " "}
+  -var attrs = [listAttrs, titleAttrs, containerAttrs]
 
-	-var inputType = ""
-	if types.includes("checkbox")
-		each value, index in attrs
-			- value.class += classNames[index] + "_type_checkbox "
-		-inputType = "checkbox"
-	else if types.includes("radio")
-		each value, index in attrs
-			- value.class += classNames[index] + "_type_radio "
-		-inputType = "radio"
-	else if types.includes("toggle")
-		each value, index in attrs
-			- value.class += classNames[index] + "_type_toggle "
-		-inputType = "toggle"
-	else if types.includes("rich")
-		each value, index in attrs
-			- value.class += classNames[index] + "_type_rich "
-		-inputType = "rich"
+  -var inputType = ""
+  //- типы чекбоксов
+  if types.includes("checkbox")
+    each value, index in attrs
+      - value.class += classNames[index] + "_type_checkbox "
+    -inputType = "checkbox"
+  else if types.includes("radio")
+    each value, index in attrs
+      - value.class += classNames[index] + "_type_radio "
+    -inputType = "radio"
+  else if types.includes("toggle")
+    each value, index in attrs
+      - value.class += classNames[index] + "_type_toggle "
+    -inputType = "toggle"
+  else if types.includes("rich")
+    each value, index in attrs
+      - value.class += classNames[index] + "_type_rich "
+    -inputType = "rich"
+  //- модификаторы списка
+  if types.includes("expandable")
+    each value, index in attrs
+      - value.class += classNames[index] + "_expandable "
+    if types.includes("opened")
+      each value, index in attrs
+        - value.class += classNames[index] + "_expandable-opened "
 
-	if types.includes("expandable")
-		each value, index in attrs
-			- value.class += classNames[index] + "_expandable "
-
-	fieldset&attributes(listAttrs)
-		if title
-			legend&attributes(titleAttrs) #{title}
-		div&attributes(containerAttrs)
-			each value, index in checkboxes
-				+checkbox(
-					value.text,
-					`${inputType} ${value.class}`,
-					value,
-					`${listClassName}__input ${listClassName}__input_type_${inputType}`,
-					value.isChecked
-				)
+  fieldset&attributes(listAttrs)
+    if title
+      legend&attributes(titleAttrs) #{title}
+    div&attributes(containerAttrs)
+      each value, index in checkboxes
+        +checkbox(
+          value.text,
+          `${inputType} ${value.class}`,
+          value,
+          `${listClassName}__input ${listClassName}__input_type_${inputType}`,
+          value.isChecked
+        )
