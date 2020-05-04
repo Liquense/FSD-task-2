@@ -30,6 +30,62 @@ function getInitDates($datepickerControl) {
   return dates.length === 0 ? undefined : dates;
 }
 
+function addClickHandler(arrowElement, expandableElement, controlElement) {
+  $(controlElement).click(() => {
+    if ($(arrowElement).hasClass('expanded')) {
+      expandableElement.hide();
+    } else {
+      expandableElement.show();
+    }
+  });
+}
+
+function disableLabelClicks(event) {
+  // при клике на заголовок/стрелку итак происходит анфокус и календарь прячется,
+  // лишний клик не нужен
+  event.preventDefault();
+}
+
+function setExpandArrowEventHandlers($expandArrow, $inputControl, $ownerLabel) {
+  let expandableElement = null;
+
+  $inputControl.each(() => {
+    expandableElement = $inputControl.data('datepicker');
+    expandableElement.update({
+      onHide(inst, animationCompleted) {
+        if (!animationCompleted) {
+          $expandArrow.text('expand_more');
+          return;
+        }
+        $($expandArrow).removeClass('expanded');
+        // чтобы лейбловые прокликивания снова заработали
+        // нужно показывать календарь при клике на что-то кроме инпута
+        $($ownerLabel).unbind('click', disableLabelClicks);
+      },
+      onShow(inst, animationCompleted) {
+        if (!animationCompleted) {
+          $expandArrow.text('expand_less');
+          return;
+        }
+        $expandArrow.addClass('expanded');
+        $ownerLabel.click(disableLabelClicks);
+      },
+      todayButton: false,
+    });
+  });
+
+  return expandableElement;
+}
+
+function initExpandableEvents($expandArrow, $control) {
+  const $ownerLabel = $(this).parent();
+  const expandableElement = setExpandArrowEventHandlers($expandArrow, $control, $ownerLabel);
+
+  if (expandableElement) {
+    addClickHandler($expandArrow, expandableElement, $control, $ownerLabel);
+  }
+}
+
 /**
  * Устанавливает даты в первый календарь
  * (второй подцепляет это значение в логике twoCalendarRangePicker)
@@ -44,7 +100,8 @@ export function setDates($datepickerInput, dates) {
 }
 
 export function initDatepickerInput(index, input, isInline = false) {
-  const $inputControl = $(this);
+  const $input = $(input);
+  const $inputControl = $input.find('.input__control_type_datepicker');
   const datepicker = $inputControl.datepicker({
     range: true,
     inline: isInline,
@@ -71,9 +128,10 @@ export function initDatepickerInput(index, input, isInline = false) {
   datepicker.$datepicker.find('.datepicker--buttons').append(clearButton);
   datepicker.$datepicker.find('.datepicker--buttons').append(confirmButton);
 
+  // установка ивентов отображения/исчезновения
+  const $expandArrow = $($input.find('.input__arrow_decoration_expandArrow')[0]);
+  initExpandableEvents($expandArrow, $inputControl);
+
   const initDates = getInitDates($inputControl);
   datepicker.selectDate(initDates);
 }
-
-const $datepickerInput = $('.input__control_type_datepicker');
-$datepickerInput.each(initDatepickerInput);
