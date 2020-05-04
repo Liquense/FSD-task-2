@@ -4,6 +4,10 @@
   color: $darkShade75;
   padding-right: 91px - $borderWidth;
 
+  &::placeholder {
+    color: $darkShade75;
+  }
+
   &.input__control_focused {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
