@@ -45,13 +45,13 @@ function selectNiceWord(itemsCount, itemName) {
 
   switch (itemName.toLowerCase()) {
     case 'спальни':
-      result = ruDeclination(itemsCount, 'Спал|ьня|ьни|ен');
+      result = ruDeclination(itemsCount, 'спал|ьня|ьни|ен');
       break;
     case 'кровати':
-      result = ruDeclination(itemsCount, 'Кроват|ь|и|ей');
+      result = ruDeclination(itemsCount, 'кроват|ь|и|ей');
       break;
     case 'ванные комнаты':
-      result = `${ruDeclination(itemsCount, 'Ванн|ая|ых|ых')} ${
+      result = `${ruDeclination(itemsCount, 'ванн|ая|ых|ых')} ${
         ruDeclination(itemsCount, 'комнат|а|ы|')}`;
       break;
     case 'гости':
@@ -67,7 +67,7 @@ function selectNiceWord(itemsCount, itemName) {
   return result;
 }
 
-function isAllValuesZero(namesValues) {
+function areAllValuesZero(namesValues) {
   return !namesValues.some((nameValue) => parseInt((nameValue.value), 10) !== 0);
 }
 
@@ -87,7 +87,7 @@ function createSeparateRoomsString(namesValues) {
       + `${selectNiceWord(currentNameValue.value, currentNameValue.name)}, `,
     '',
   );
-  result = result.substring(0, result.length - 2);
+  result = result.substring(0, result.length - 2).trim();
 
   return result;
 }
@@ -142,7 +142,7 @@ function createCustomersString(namesValues, isUnified) {
  */
 function createInputText(namesValues, dropdownType) {
   let result = '';
-  if (isAllValuesZero(namesValues)) return result;
+  if (areAllValuesZero(namesValues)) return result;
 
   switch (dropdownType.name) {
     case typeRooms: {
@@ -176,26 +176,27 @@ function changeInputText(dropdown, namesValues, input) {
  * @param namesValues2  второй массив
  * @returns {boolean}   одинаковы ли они
  */
-function isValuesEqual(namesValues1, namesValues2) {
-  if (namesValues1.length !== namesValues2.length) return false;
-
+function areValuesEqual(namesValues1, namesValues2) {
   return !namesValues2.some((nameValue, index) => namesValues1[index].value !== nameValue.value);
 }
 
 function manageControlsVisibility(
   oldNamesValues, namesValues, clearButton, confirmButton, buttonsContainer,
+  areControlsEnabled, areValuesConfirmed,
 ) {
   const clearVisibleClass = 'input__clearButton_visible';
   const confirmVisibleClass = 'input__confirmButton_visible';
   const containerVisibleClass = 'input__controlButtonsContainer_visible';
 
-  if (isAllValuesZero(namesValues)) {
+  const areEmpty = areAllValuesZero(namesValues);
+  if (areEmpty) {
     $(clearButton).removeClass(clearVisibleClass);
   } else {
     $(clearButton).addClass(clearVisibleClass);
   }
 
-  if (isValuesEqual(namesValues, oldNamesValues)) {
+  const areEqual = areValuesEqual(namesValues, oldNamesValues);
+  if (areEqual && areValuesConfirmed) {
     $(confirmButton).removeClass(confirmVisibleClass);
   } else {
     $(confirmButton).addClass(confirmVisibleClass);
@@ -203,7 +204,8 @@ function manageControlsVisibility(
 
   const hasClearVisibleClass = $(clearButton).hasClass(clearVisibleClass);
   const hasConfirmVisibleClass = $(confirmButton).hasClass(confirmVisibleClass);
-  if (hasClearVisibleClass || hasConfirmVisibleClass) {
+  const areControlsVisible = hasClearVisibleClass || hasConfirmVisibleClass;
+  if (areControlsVisible && areControlsEnabled) {
     $(buttonsContainer).addClass(containerVisibleClass);
   } else {
     $(buttonsContainer).removeClass(containerVisibleClass);
@@ -216,12 +218,12 @@ function setSpinnerValues(namesValuesToSet, namesValuesToChange, $spinners, opti
 
     if (options.includes('array')) {
       namesValuesToChange[i].value = namesValuesToSet[i].value;
-      $($currentSpinner).spinner('value', namesValuesToSet[i].value);
+      $currentSpinner.spinner('value', namesValuesToSet[i].value);
       disableButtonsAtExtremum($currentSpinner, namesValuesToSet[i].value);
     }
     if (options.includes('value')) {
       namesValuesToChange[i].value = namesValuesToSet;
-      $($currentSpinner).spinner('value', namesValuesToSet);
+      $currentSpinner.spinner('value', namesValuesToSet);
       disableButtonsAtExtremum($currentSpinner, namesValuesToSet);
     }
   });
@@ -233,12 +235,13 @@ function clearSpinnersValues(namesValues, spinners) {
 
 function dropdownOnChange(
   oldNamesValues, namesValues, spinners, clearButton,
-  confirmButton, buttonsContainer, dropdown, input,
+  confirmButton, buttonsContainer, dropdown, input, areControlsEnabled, areValuesConfirmed,
 ) {
   setSpinnerValues(oldNamesValues, namesValues,
     spinners, ['array']);
   manageControlsVisibility(oldNamesValues, namesValues,
-    clearButton, confirmButton, buttonsContainer);
+    clearButton, confirmButton, buttonsContainer,
+    areControlsEnabled, areValuesConfirmed);
   changeInputText(dropdown, namesValues, input);
 }
 
@@ -252,53 +255,65 @@ function getInitialNamesValues($spinnerElements) {
       value: parseInt($spinnerElement.attr('value') ? $spinnerElement.attr('value') : 0, 10),
     });
   }
-  $($spinnerElements).each(getNameValueFromSpinner);
+  $spinnerElements.each(getNameValueFromSpinner);
 
   return result;
 }
 
 const dropdownVisibleClass = 'input__dropdownListWrapper_visible';
-const $dropdownInputs = $('.input_type_dropdown');
+export default function initDropdownInput(index, rootElement) {
+  const $inputWrapper = $(rootElement);
+  const $dropdown = $inputWrapper.children('.input__dropdownListWrapper_type_dropdown');
+  const $control = $inputWrapper.find('.input__control_type_dropdown');
+  const $spinnerValueElements = $inputWrapper.find('.input__value_type_spinner');
+  const $controlButtonsContainer = $inputWrapper.find('.input__controlButtonsContainer');
+  const $clearButton = $inputWrapper.find('.input__clearButton');
+  const $confirmButton = $inputWrapper.find('.input__confirmButton');
 
-function initDropdownInput() {
-  const $inputWrapper = $(this);
-  const $dropdown = $(this).children('.input__dropdownListWrapper_type_dropdown');
-  const $control = $(this).find('.input__control_type_dropdown');
-  const $spinnerValueElements = $(this).find('.input__value_type_spinner');
-  const $controlButtonsContainer = $(this).find('.input__controlButtonsContainer');
-  const $clearButton = $(this).find('.input__clearButton');
-  const $confirmButton = $(this).find('.input__confirmButton');
+  let areValuesConfirmed = !$inputWrapper.hasClass('input_type_dropdown-unaccepted');
+  const isOpened = $inputWrapper.hasClass('input_type_dropdown-opened');
+  if (isOpened) {
+    $dropdown.toggle('fade');
+    $dropdown.toggleClass(dropdownVisibleClass);
+  }
+  const areControlsEnabled = !$inputWrapper.hasClass('input_type_dropdown-pure');
 
   const spinnersNameValue = getInitialNamesValues($spinnerValueElements);
   let oldSpinnersNameValue = getInitialNamesValues($spinnerValueElements);
   changeInputText($dropdown, spinnersNameValue, $control);
 
+  manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
+    $clearButton, $confirmButton, $controlButtonsContainer,
+    areControlsEnabled, areValuesConfirmed);
+
   function handleClearButtonClick() {
     clearSpinnersValues(spinnersNameValue, $spinnerValueElements);
 
     manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-      $clearButton, $confirmButton, $controlButtonsContainer);
+      $clearButton, $confirmButton, $controlButtonsContainer,
+      areControlsEnabled, areValuesConfirmed);
 
     changeInputText($dropdown, spinnersNameValue, $control);
   }
-
-  $($clearButton).click(handleClearButtonClick);
+  $clearButton.click(handleClearButtonClick);
 
   function handleConfirmButtonClick() {
-    $($control).removeClass('input__control_focused');
-    $($dropdown).toggle('fade');
-    $($dropdown).toggleClass(dropdownVisibleClass);
-
+    if (!isOpened) {
+      $control.removeClass('input__control_focused');
+      $dropdown.toggle('fade');
+      $dropdown.toggleClass(dropdownVisibleClass);
+    }
+    areValuesConfirmed = true;
     oldSpinnersNameValue = getCurrentNamesValues($spinnerValueElements);
 
     manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-      $clearButton, $confirmButton, $controlButtonsContainer);
+      $clearButton, $confirmButton, $controlButtonsContainer,
+      areControlsEnabled, areValuesConfirmed);
   }
-
-  $($confirmButton).click(handleConfirmButtonClick);
+  $confirmButton.click(handleConfirmButtonClick);
 
   // on spin
-  $($spinnerValueElements).each((i) => {
+  $spinnerValueElements.each((i) => {
     const $spinner = $($spinnerValueElements[i]);
     function handleSpin(event, ui) {
       spinnersNameValue[$spinner.attr('data-index')].value = ui.value;
@@ -314,13 +329,14 @@ function initDropdownInput() {
         $clearButton,
         $confirmButton,
         $controlButtonsContainer,
+        areControlsEnabled, areValuesConfirmed,
       );
     }
 
     $spinner.on('spin', handleSpin);
   });
 
-  $($dropdown).position({
+  $dropdown.position({
     my: 'center',
     at: 'center',
     of: $control,
@@ -332,33 +348,41 @@ function initDropdownInput() {
     clickedElement = $(event.target);
 
     // если клик происходит не в дропдауне
-    if (!$.contains($($inputWrapper).get(0), $(clickedElement).get(0))) {
+    if (!$.contains($inputWrapper.get(0), clickedElement.get(0))) {
       // и дропдаун отображается
-      if ($($dropdown).hasClass(dropdownVisibleClass)) {
-        $($dropdown).toggle('fade');
-        $($dropdown).toggleClass(dropdownVisibleClass);
+      if ($dropdown.hasClass(dropdownVisibleClass)) {
+        if (!isOpened) {
+          $dropdown.toggle('fade');
+          $dropdown.toggleClass(dropdownVisibleClass);
+          $control.removeClass('input__control_focused');
+        }
 
         setSpinnerValues(oldSpinnersNameValue, spinnersNameValue,
           $spinnerValueElements, ['array']);
-        manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-          $clearButton, $confirmButton, $controlButtonsContainer);
+
+        manageControlsVisibility(
+          oldSpinnersNameValue, spinnersNameValue,
+          $clearButton, $confirmButton,
+          $controlButtonsContainer, areControlsEnabled,
+          areValuesConfirmed,
+        );
         changeInputText($dropdown, spinnersNameValue, $control);
       }
-      $($control).removeClass('input__control_focused');
     }
   });
 
-  $($control).click(() => {
-    $($control).toggleClass('input__control_focused');
-    $($dropdown).toggle('fade');
-    $($dropdown).toggleClass(dropdownVisibleClass);
+  $control.click(() => {
+    if (!isOpened) {
+      $control.toggleClass('input__control_focused');
+      $dropdown.toggle('fade');
+      $dropdown.toggleClass(dropdownVisibleClass);
+    }
 
-    if (!$($dropdown).hasClass(dropdownVisibleClass)) {
+    if (!$dropdown.hasClass(dropdownVisibleClass)) {
       dropdownOnChange(oldSpinnersNameValue, spinnersNameValue,
         $spinnerValueElements, $clearButton, $confirmButton,
-        $controlButtonsContainer, $dropdown, $control);
+        $controlButtonsContainer, $dropdown, $control,
+        areControlsEnabled, areValuesConfirmed);
     }
   });
 }
-
-$dropdownInputs.each(initDropdownInput);

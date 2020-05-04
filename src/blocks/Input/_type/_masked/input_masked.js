@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
-import '../../../../vendor/jquery.maskedinput/src/jquery.maskedinput';
+import '../../../../../vendor/jquery.maskedinput/src/jquery.maskedinput';
 
 const $document = $(document);
 $document.ready(() => {

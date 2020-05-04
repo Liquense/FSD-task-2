@@ -27,6 +27,7 @@
 
   .list__container_expandable {
     display: none;
+    padding-top: 3px;
 
     &.list__container_visible {
       display: block;

@@ -44,9 +44,9 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 }
 
 .input__control::placeholder {
-  @include text(inherit, inherit, inherit, inherit, $darkShade25, inherit);
+  @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
 }
 
 .input__control:focus::placeholder, .input__control:hover::placeholder {
-  @include text(inherit, inherit, inherit, inherit, $darkShade25, inherit);
+  @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
 }

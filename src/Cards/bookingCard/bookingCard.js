@@ -2,7 +2,7 @@
 // jquery объявлена вебпаком
 import './bookingCard.scss';
 import '../../blocks/Input/input';
-import setInitialDates from '../../blocks/twoCalendarRangePicker/twoCalendarRangePicker';
+import { setInitialDates } from '../../blocks/twoCalendarRangePicker/twoCalendarRangePicker';
 import { formatNumber, ruDeclination } from '../../common/functions';
 
 function getTotalCost(priceData) {

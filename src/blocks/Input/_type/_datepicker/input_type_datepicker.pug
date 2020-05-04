@@ -1,0 +1,21 @@
+mixin addDatepicker(dpAttributes, dpAdditional)
+  each value, index in Object.values(dpAttributes)
+    - value.class += classNames[index] + "_type_datepicker "
+  - dpAttributes.controlAttributes.type = "select"
+  - dpAttributes.controlAttributes["data-firstDate"] = dpAdditional[0]
+  - dpAttributes.controlAttributes["data-secondDate"] = additional[1]
+  - dpAttributes.controlAttributes.class += 'input__control_decoration_expandArrow '
+  //-
+  div&attributes(dpAttributes.blockAttributes)
+    //- пока не нашел способа сделать отступ в начале внутренностей лейбла, поэтому условие с двумя вариантами
+    if title
+      label&attributes(dpAttributes.titleAttributes) #{title}
+        br
+        div&attributes(dpAttributes.controlWrapperAttrs)
+          +expandArrow()
+          input&attributes(dpAttributes.controlAttributes)
+    else
+      label&attributes(dpAttributes.titleAttributes)
+        div&attributes(dpAttributes.controlWrapperAttrs)
+          input&attributes(dpAttributes.controlAttributes)
+          +expandArrow()

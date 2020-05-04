@@ -2,7 +2,7 @@
 
 .checkbox_rich {
   .checkbox__label_rich {
-    max-width: none; //по логике наверное должна быть фиксированная, но в макете в разных местах разная, поэтому переносы ставятся руками
+    max-width: 320px;
     color: $darkShade75;
     font-weight: bold;
     line-height: 20px;

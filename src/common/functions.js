@@ -25,7 +25,7 @@ export function formatNumber(number, symbol) {
   return formattedNum.join('');
 }
 
-export function compareDateArrays(first, second) {
+export function checkDateArraysEquality(first, second) {
   if (first.length !== second.length) return false;
   return !first.some((value, index) => value.getTime() !== second[index]?.getTime());
 }

@@ -7,8 +7,11 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
 .checkbox_type_like {
   width: $likeWidth;
   height: $likeHeight;
+  @include clearfix;
 
   .checkbox__label_type_like {
+    width: $likeWidth;
+    height: $likeHeight;
     position: relative;
     color: $darkShade25;
     font-size: 10px;
@@ -28,7 +31,6 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
         background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
         border-radius: $likeHeight/2;
         position: absolute;
-        z-index: -2;
         top: 0;
         right: 0;
       }
@@ -44,7 +46,6 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
       position: absolute;
       top: 0;
       right: 0;
-      z-index: -1;
 
       &:after {
         content: "\e87e";
@@ -72,6 +73,10 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
           position: absolute;
         }
       }
+    }
+
+    .checkbox__text_type_like {
+      position: relative;
     }
   }
 }

@@ -2,7 +2,7 @@
 
 .input__control_type_dropdown {
   color: $darkShade75;
-  padding-right: 91px - $borderWidth;
+  padding-right: 9.6ch;
 
   &.input__control_focused {
     border-bottom-left-radius: 0;
@@ -32,24 +32,20 @@
   }
 
   .input__dropdownList_type_dropdown {
-    list-style: none;
     padding: 0;
     margin: 6px - $borderWidth 7px - $borderWidth 7px 15px - $borderWidth;;
     width: calc(100% - (14px - #{$borderWidth}) - (7px - #{$borderWidth}));
     border-spacing: 0;
     border-collapse: collapse;
 
-    td {
-      padding: 0 0 7px 0;
-      margin: 0;
-    }
-
     .input__dropdownListRow_type_dropdown {
-      &:last-child > td {
-        padding-bottom: 0;
-      }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 7px;
 
       .input__dropdownText_type_dropdown {
+        margin: 0;
         line-height: 30px;
       }
     }
@@ -59,7 +55,7 @@
     display: none;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 20px 6px 12px 14px;
+    margin: 18px 6px 12px 14px;
 
     @include clearfix();
 
