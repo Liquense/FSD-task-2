@@ -54,7 +54,7 @@ mixin checkbox(text, types, additional, addClasses="", isChecked=false)
   -inputAttrs["data-isChecked"] = `${isChecked}`
   div&attributes(checkboxAttrs)
     label&attributes(labelAttrs)
+      span&attributes(textAttrs) #{text}
       input&attributes(inputAttrs)
       if types.includes("rich")
         span&attributes(descriptionAttrs) #{description}
-      span&attributes(textAttrs) #{text}
