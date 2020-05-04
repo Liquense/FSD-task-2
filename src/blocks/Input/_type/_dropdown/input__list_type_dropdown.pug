@@ -1,6 +1,9 @@
 include ../_spinner/input_type_spinner
 include ../../../Button/Button
 
+//- input__dropdownListWrapper_rooms - комнаты и кровати
+//- input__dropdownListWrapper_customers - гости и младенцы
+//- input__dropdownListWrapper_unified - одним словом
 mixin dropdownList(elementNames = {}, attr, range)
   div&attributes(attr)
     div.input__dropdownList_type_dropdown
@@ -12,6 +15,9 @@ mixin dropdownList(elementNames = {}, attr, range)
       +Button("Очистить", "button_type_text input__clearButton button_hovered input__controlButton")
       +Button("Применить", "button_type_text input__confirmButton input__controlButton")
 
+//- 'input_type_dropdown-unaccepted' - для отображения кнопки "применить" при инициализации
+//- 'input_type_dropdown-pure' - для отсутствия контролирующих кнопок постоянно
+//- 'input_type_dropdown-opened' - для постоянно открытого дропдауна
 mixin addDropdown(ddAttributes, ddTypes, ddAdditional)
   each value, index in Object.values(ddAttributes)
     - value.class += classNames[index] + "_type_dropdown "
@@ -23,6 +29,12 @@ mixin addDropdown(ddAttributes, ddTypes, ddAdditional)
     - ddAttributes.dropdownAttributes.class += dropdownClassName + "_rooms "
   else if ddTypes.includes("customers")
     - ddAttributes.dropdownAttributes.class += dropdownClassName + "_customers "
+  if ddTypes.includes("opened")
+    - ddAttributes.blockAttributes.class += blockClassName + "_type_dropdown-opened "
+  if ddTypes.includes("pure")
+    - ddAttributes.blockAttributes.class += blockClassName + "_type_dropdown-pure "
+  if ddTypes.includes("unaccepted")
+    - ddAttributes.blockAttributes.class += blockClassName + "_type_dropdown-unaccepted "
 
   div&attributes(ddAttributes.blockAttributes)
     if title
