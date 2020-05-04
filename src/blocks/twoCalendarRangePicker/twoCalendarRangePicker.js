@@ -2,35 +2,34 @@
 // jquery подключена вебпаком
 import { parseAttrToDate, setDates } from '../Input/_type/_datepicker/input_type_datepicker';
 import './twoCalendarRangePicker.scss';
-import { checkDateArraysEquality } from '../../common/functions';
-
 
 let isSecondAssignStarted = false;
-function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, number) {
+function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, otherInput, number) {
+  if (isSecondAssignStarted) return;
+  const otherNumber = 1 - number;
+  const newDates = datepicker.selectedDates;
+
   // если дат в пикере больше одной, то перезаписываем данные в инпуте,
   // если одна - оставляем дефолтное поведение
   // иначе второй пикер будет очищать оба при фокусе на нём
   if (datepicker.selectedDates.length > 1) {
-    const extremeDates = formattedDate.split(',');
-    $(input).val(extremeDates[number]);
-  } else if (isSecondAssignStarted) {
-    $(input).val('');
+    $(input).val(newDates[number].toLocaleDateString());
+  } else {
+    datepicker.update({ dateFormat: '' });
+    otherDatepicker.update({ dateFormat: 'ДД.ММ.ГГГГ' });
   }
-
-  // проверка, чтобы не возникало бесконечной рекурсии при clear и selectDate на другом пикере
-  // и не делалось ничего лишнего при одинаковых датах
-  if (
-    checkDateArraysEquality(datepicker.selectedDates, otherDatepicker.selectedDates)
-    || isSecondAssignStarted
-  ) return;
 
   isSecondAssignStarted = true;
   otherDatepicker.clear();
   otherDatepicker.selectDate(datepicker.selectedDates);
   isSecondAssignStarted = false;
+
+  if (datepicker.selectedDates.length > 1) {
+    $(otherInput).val(newDates[otherNumber].toLocaleDateString());
+  }
 }
 
-function datepickerAddOnSelect(datepicker, otherDatepicker, input, number) {
+function datepickerAddOnSelect(datepicker, otherDatepicker, input, otherInput, number) {
   datepicker.update({
     dateFormat: '',
     multipleDatesSeparator: ',',
@@ -38,7 +37,7 @@ function datepickerAddOnSelect(datepicker, otherDatepicker, input, number) {
       handleOnSelect(
         formattedDate,
         datepicker, otherDatepicker,
-        input, number,
+        input, otherInput, number,
       );
     },
   });
@@ -57,27 +56,26 @@ function getInitDates($rangePicker) {
   return dates;
 }
 
-export default function setInitialDates($rangePicker, $input) {
+export function setInitialDates($rangePicker, $input) {
   const initDates = getInitDates($rangePicker);
   setDates($input, Object.values(initDates));
 }
 
-const $twoCalendarPickers = $('.twoCalendarRangePicker');
-function initTwoCalendarPicker() {
-  const $thisRange = $(this);
-  const $firstInput = $thisRange.find('.twoCalendarRangePicker__firstDatepicker').find('.input__control_type_datepicker');
+export function initTwoCalendarPicker(index, element) {
+  const $twoCalendarRange = $(element);
+  const $firstInput = $twoCalendarRange.find('.twoCalendarRangePicker__firstDatepicker').find('.input__control_type_datepicker');
   const firstDatepicker = $firstInput.data('datepicker');
-  const $secondInput = $thisRange.find('.twoCalendarRangePicker__secondDatepicker').find('.input__control_type_datepicker');
+  const $secondInput = $twoCalendarRange.find('.twoCalendarRangePicker__secondDatepicker').find('.input__control_type_datepicker');
   const secondDatepicker = $($secondInput).data('datepicker');
 
-  secondDatepicker.update({
-    position: 'bottom right',
-  });
+  if (!(firstDatepicker && secondDatepicker)) return;
 
-  datepickerAddOnSelect(firstDatepicker, secondDatepicker, $firstInput, 0);
-  datepickerAddOnSelect(secondDatepicker, firstDatepicker, $secondInput, 1);
+  secondDatepicker.update({ position: 'bottom right' });
 
-  const initDates = getInitDates($thisRange);
+  datepickerAddOnSelect(firstDatepicker, secondDatepicker, $firstInput, $secondInput, 0);
+  datepickerAddOnSelect(secondDatepicker, firstDatepicker, $secondInput, $firstInput, 1);
+
+  const initDates = getInitDates($twoCalendarRange);
   if (initDates.firstDate) {
     firstDatepicker.selectDate(initDates.firstDate);
   }
@@ -85,5 +83,3 @@ function initTwoCalendarPicker() {
     secondDatepicker.selectDate(initDates.secondDate);
   }
 }
-
-$twoCalendarPickers.each(initTwoCalendarPicker);
