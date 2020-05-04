@@ -99,9 +99,10 @@ export function setDates($datepickerInput, dates) {
   datepickerData.selectDate(dates);
 }
 
-export function initDatepickerInput(index, input, isInline = false) {
+export function initDatepickerInput(index, input) {
   const $input = $(input);
   const $inputControl = $input.find('.input__control_type_datepicker');
+  const isInline = $input.hasClass('input_type_inline-datepicker');
   const datepicker = $inputControl.datepicker({
     range: true,
     inline: isInline,
