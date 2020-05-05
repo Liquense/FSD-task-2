@@ -118,7 +118,6 @@ export function initDatepickerInput(index, input) {
     },
     prevHtml: '<img src="./images/arrow_back.svg" alt="назад"">',
     nextHtml: '<img src="./images/arrow_back.svg" alt="назад" style="transform: scale(-1, 1)">',
-    minDate: new Date(),
     onSelect: (formattedDate) => {
       $inputControl.val(formattedDate.toLowerCase());
     },
