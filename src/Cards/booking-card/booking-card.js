@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 // jquery объявлена вебпаком
-import './bookingCard.scss';
+import './booking-card.scss';
 import '../../blocks/Input/input';
 import { setInitialDates } from '../../blocks/twoCalendarRangePicker/twoCalendarRangePicker';
 import { formatNumber, ruDeclination } from '../../common/functions';
@@ -25,6 +25,7 @@ function writeFormattedDailyPrice($dailyPriceSpan, priceToShow, currency) {
 }
 
 function getDaysFromDateRange(dateRange) {
+  console.log(dateRange);
   if (dateRange[0]) {
     return dateRange[1] ? (dateRange[1] - dateRange[0]) / (24 * 60 * 60 * 1000) : 0;
   }
@@ -76,8 +77,8 @@ function addRefreshCheckOnInputChange(
   $firstDatePicker, $secondDatePicker, $stayingCostRow, $totalCostSpan, priceData,
 ) {
   function refreshCheckValuesOnDateChange(event) {
-    const $calculatingStayingCostSpan = $stayingCostRow.children('.bookingCard__stayingCostCalculation');
-    const $stayingSumSpan = $stayingCostRow.children('.bookingCard__stayingCostSum');
+    const $calculatingStayingCostSpan = $stayingCostRow.children('.booking-card__staying-cost-calculation');
+    const $stayingSumSpan = $stayingCostRow.children('.booking-card__staying-cost-sum');
     const datePickerData = $(event.target).data('datepicker');
     const daysCount = getDaysFromDateRange(datePickerData.selectedDates);
 
@@ -94,20 +95,19 @@ function addRefreshCheckOnInputChange(
   $secondDatePicker.change(refreshCheckValuesOnDateChange);
 }
 
-const $bookingCards = $('.bookingCard');
 function initBookingCard() {
   const $bookingCard = $(this);
 
-  const $dailyPrice = $bookingCard.find('.bookingCard__dailyPrice');
-  const priceAmount = $dailyPrice.attr('data-dailyprice');
+  const $dailyPrice = $bookingCard.find('.booking-card__daily-price');
+  const priceAmount = $dailyPrice.attr('data-dailyPrice');
   const currency = $dailyPrice.attr('data-currency');
   const priceToShow = formatNumber(priceAmount, ' ');
   writeFormattedDailyPrice($dailyPrice, priceToShow, currency);
 
-  const $rangePicker = $bookingCard.find('.bookingCard__rangePicker');
+  const $rangePicker = $bookingCard.find('.booking-card__range-picker');
   const $firstDatepicker = $rangePicker.find('.twoCalendarRangePicker__firstDatepicker .input__control_type_datepicker');
   const $secondDatepicker = $rangePicker.find('.twoCalendarRangePicker__secondDatepicker .input__control_type_datepicker');
-  const $stayingCostRow = $bookingCard.find('.bookingCard__stayingCostRow');
+  const $stayingCostRow = $bookingCard.find('.booking-card__staying-cost-row');
 
   const priceData = {
     price: priceAmount,
@@ -117,7 +117,7 @@ function initBookingCard() {
     addServicesSum: 0,
     stayingSum: 0,
   };
-  const $totalCostSpan = $bookingCard.find('.bookingCard__summaryTotalCost');
+  const $totalCostSpan = $bookingCard.find('.booking-card__summary-total-cost');
   addRefreshCheckOnInputChange(
     $firstDatepicker,
     $secondDatepicker,
@@ -128,14 +128,16 @@ function initBookingCard() {
 
   setInitialDates($rangePicker, $firstDatepicker);
 
-  const $servicesEnumSpan = $bookingCard.find('.bookingCard__services');
-  const $servicesSumSpan = $bookingCard.find('.bookingCard__servicesSum');
+  const $servicesEnumSpan = $bookingCard.find('.booking-card__services');
+  const $servicesSumSpan = $bookingCard.find('.booking-card__services-sum');
 
   const servicesData = getOverallServicesData($servicesEnumSpan, $servicesSumSpan, priceData);
-  const $addServicesSumSpan = $bookingCard.find('.bookingCard__additionalServicesSum');
+  const $addServicesSumSpan = $bookingCard.find('.booking-card__additional-services-sum');
   priceData.addServicesSum = $addServicesSumSpan.attr('data-addServices');
 
   writeServicesToSpans($servicesEnumSpan, $servicesSumSpan, currency, servicesData);
   writeTotalCost($totalCostSpan, priceData);
 }
+
+const $bookingCards = $('.booking-card');
 $bookingCards.each(initBookingCard);

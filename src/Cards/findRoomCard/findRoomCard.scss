@@ -1,7 +1,8 @@
 $cardWidth: 380px;
 $borderWidth: 1px;
 
-.findRoomCard {
+.find-room-card {
+  height: fit-content;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,31 +13,31 @@ $borderWidth: 1px;
   border-radius: 4px;
   padding: (40px - $borderWidth) (30px - $borderWidth) (30px - $borderWidth);
 
-  .findRoomCard__title {
+  .find-room-card__title {
     margin: 0;
     padding: 0;
     letter-spacing: 1.1px;
     margin-bottom: 19px;
   }
 
-  .findRoomCard__rangePicker {
+  .find-room-card__range-picker {
     margin-bottom: 19px;
   }
 
-  .findRoomCard__dropDown {
+  .find-room-card__dropdown {
     margin-bottom: 30px;
   }
 }
 
 @media (max-width: 380px) {
-  .findRoomCard {
+  .find-room-card {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
     border-right: 0;
     border-left: 0;
 
-    .findRoomCard__title {
+    .find-room-card__title {
       text-align: center;
     }
   }

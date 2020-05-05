@@ -32,7 +32,7 @@ mixin addTextInput(tiAttributes, tiAdditional, tiClassNames, tiTitle, tiTypes)
 //- mask - маска для текстового инпута с маской
 //- additional - значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
 //- range - диапазон выбора значений спиннерами у дропдауна
-mixin Input(title, types, placeholder, addClasses, mask, additional="", range=[0, 5])
+mixin input(title, types="", placeholder, addClasses, mask, additional="", range=[0, 5])
 	- var blockClassName = "input"
 	- var titleClassName = "input__title"
 	- var controlWrapperCN = "input__controlWrapper"
@@ -67,7 +67,7 @@ mixin Input(title, types, placeholder, addClasses, mask, additional="", range=[0
 	//-календарь
 	if types.includes("datepicker")
 		include ./_type/_datepicker/input_type_datepicker
-		+addDatepicker(attributes, additional)
+		+addDatepicker(attributes, types, additional)
 	//-дропдаун
 	else if types.includes("dropdown")
 		include ./_type/_dropdown/input__list_type_dropdown
