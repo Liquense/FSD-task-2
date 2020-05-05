@@ -25,7 +25,6 @@ function writeFormattedDailyPrice($dailyPriceSpan, priceToShow, currency) {
 }
 
 function getDaysFromDateRange(dateRange) {
-  console.log(dateRange);
   if (dateRange[0]) {
     return dateRange[1] ? (dateRange[1] - dateRange[0]) / (24 * 60 * 60 * 1000) : 0;
   }
