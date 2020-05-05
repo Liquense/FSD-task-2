@@ -9,7 +9,7 @@ import '../../blocks/Comment/Comment';
 import '../../pageElements/header/header';
 import '../../pageElements/footer/footer';
 import '../../blocks/List/list';
-import '../../Cards/bookingCard/bookingCard';
+import '../../Cards/booking-card/booking-card';
 
 const $donutCharts = $('.roomDetails__donutChart');
 function initDonutChart() {
