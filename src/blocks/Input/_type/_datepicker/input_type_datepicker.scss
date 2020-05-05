@@ -147,6 +147,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
 .datepicker--cell.-range-from-,
 .datepicker--cell.-range-to- {
+  z-index: 1; // чинит падение псевдоэлементов под календарь при inline-отображении
   background: $actualPointsGradient;
   color: white;
 
