@@ -27,6 +27,10 @@ function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, other
   if (datepicker.selectedDates.length > 1) {
     $(otherInput).val(newDates[otherNumber].toLocaleDateString());
   }
+
+  // вызов ивента вручную, поскольку автоматически этого не происходит
+  // (отслеживание изменения инпута используется в booking-card)
+  $(input).change();
 }
 
 function datepickerAddOnSelect(datepicker, otherDatepicker, input, otherInput, number) {
