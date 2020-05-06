@@ -8,6 +8,9 @@ $pageButtonSize: 40px;
   }
 
   .pagination__buttonsContainer {
+    width: fit-content;
+    margin: 0 auto;
+
     .paginationjs {
       display: flex;
       flex-wrap: wrap;
@@ -77,8 +80,7 @@ $pageButtonSize: 40px;
 
     .paginationjs-nav {
       align-self: flex-start;
-      margin-top: 10px;
-      margin-left: 6px;
+      margin: 10px auto 0 auto;
     }
   }
 }
