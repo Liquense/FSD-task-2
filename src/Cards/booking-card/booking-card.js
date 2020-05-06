@@ -1,9 +1,14 @@
 /* eslint-disable no-undef */
 // jquery объявлена вебпаком
-import './booking-card.scss';
 import '../../blocks/Input/input';
-import { setInitialDates } from '../../blocks/twoCalendarRangePicker/twoCalendarRangePicker';
+import {
+  initTwoCalendarPicker,
+  setInitialDates,
+} from '../../blocks/twoCalendarRangePicker/twoCalendarRangePicker';
 import { formatNumber, ruDeclination } from '../../common/functions';
+import { initDropdownInput } from '../../blocks/Input/_type/_dropdown/input__list_type_dropdown';
+
+import './booking-card.scss';
 
 function getTotalCost(priceData) {
   const totalCost = Number.parseFloat(priceData.stayingSum)
@@ -104,8 +109,15 @@ function initBookingCard() {
   writeFormattedDailyPrice($dailyPrice, priceToShow, currency);
 
   const $rangePicker = $bookingCard.find('.booking-card__range-picker');
-  const $firstDatepicker = $rangePicker.find('.twoCalendarRangePicker__firstDatepicker .input__control_type_datepicker');
-  const $secondDatepicker = $rangePicker.find('.twoCalendarRangePicker__secondDatepicker .input__control_type_datepicker');
+  initTwoCalendarPicker(0, $rangePicker);
+  const $firstDatepicker = $rangePicker.find('.twoCalendarRangePicker__firstDatepicker');
+  const $firstDatepickerControl = $firstDatepicker.find('.input__control_type_datepicker');
+  const $secondDatepicker = $rangePicker.find('.twoCalendarRangePicker__secondDatepicker');
+  const $secondDatepickerControl = $secondDatepicker.find('.input__control_type_datepicker');
+
+  const $guestsDropdown = $bookingCard.find('.booking-card__guests-dropdown');
+  initDropdownInput(0, $guestsDropdown);
+
   const $stayingCostRow = $bookingCard.find('.booking-card__staying-cost-row');
 
   const priceData = {
@@ -118,14 +130,14 @@ function initBookingCard() {
   };
   const $totalCostSpan = $bookingCard.find('.booking-card__summary-total-cost');
   addRefreshCheckOnInputChange(
-    $firstDatepicker,
-    $secondDatepicker,
+    $firstDatepickerControl,
+    $secondDatepickerControl,
     $stayingCostRow,
     $totalCostSpan,
     priceData,
   );
 
-  setInitialDates($rangePicker, $firstDatepicker);
+  setInitialDates($rangePicker, $firstDatepickerControl);
 
   const $servicesEnumSpan = $bookingCard.find('.booking-card__services');
   const $servicesSumSpan = $bookingCard.find('.booking-card__services-sum');
@@ -138,5 +150,7 @@ function initBookingCard() {
   writeTotalCost($totalCostSpan, priceData);
 }
 
-const $bookingCards = $('.booking-card');
-$bookingCards.each(initBookingCard);
+export default function initBookingCards() {
+  const $bookingCards = $('.booking-card');
+  $bookingCards.each(initBookingCard);
+}
