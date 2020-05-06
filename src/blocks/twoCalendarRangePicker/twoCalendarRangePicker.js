@@ -1,6 +1,10 @@
 /* eslint-disable no-undef */
 // jquery подключена вебпаком
-import { parseAttrToDate, setDates } from '../Input/_type/_datepicker/input_type_datepicker';
+import {
+  initDatepickerInput,
+  parseAttrToDate,
+  setDates,
+} from '../Input/_type/_datepicker/input_type_datepicker';
 import './twoCalendarRangePicker.scss';
 
 let isSecondAssignStarted = false;
@@ -67,17 +71,35 @@ export function setInitialDates($rangePicker, $input) {
 
 export function initTwoCalendarPicker(index, element) {
   const $twoCalendarRange = $(element);
-  const $firstInput = $twoCalendarRange.find('.twoCalendarRangePicker__firstDatepicker').find('.input__control_type_datepicker');
-  const firstDatepicker = $firstInput.data('datepicker');
-  const $secondInput = $twoCalendarRange.find('.twoCalendarRangePicker__secondDatepicker').find('.input__control_type_datepicker');
-  const secondDatepicker = $($secondInput).data('datepicker');
+
+  const $firstInput = $($twoCalendarRange.find('.twoCalendarRangePicker__firstDatepicker')[0]);
+  const $firstInputControl = $($firstInput.find('.input__control_type_datepicker')[0]);
+  let firstDatepicker = $firstInputControl.data('datepicker');
+  if (!firstDatepicker) {
+    $firstInput.each(initDatepickerInput);
+    firstDatepicker = $firstInputControl.data('datepicker');
+  }
+
+  const $secondInput = $($twoCalendarRange.find('.twoCalendarRangePicker__secondDatepicker')[0]);
+  const $secondInputControl = $($secondInput.find('.input__control_type_datepicker')[0]);
+  let secondDatepicker = $($secondInputControl).data('datepicker');
+  if (!secondDatepicker) {
+    $secondInput.each(initDatepickerInput);
+    secondDatepicker = $secondInputControl.data('datepicker');
+  }
 
   if (!(firstDatepicker && secondDatepicker)) return;
 
   secondDatepicker.update({ position: 'bottom right' });
 
-  datepickerAddOnSelect(firstDatepicker, secondDatepicker, $firstInput, $secondInput, 0);
-  datepickerAddOnSelect(secondDatepicker, firstDatepicker, $secondInput, $firstInput, 1);
+  datepickerAddOnSelect(
+    firstDatepicker, secondDatepicker,
+    $firstInputControl, $secondInputControl, 0,
+  );
+  datepickerAddOnSelect(
+    secondDatepicker, firstDatepicker,
+    $secondInputControl, $firstInputControl, 1,
+  );
 
   const initDates = getInitDates($twoCalendarRange);
   if (initDates.firstDate) {
