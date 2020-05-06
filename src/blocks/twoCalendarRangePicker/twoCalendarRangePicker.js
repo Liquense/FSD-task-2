@@ -69,24 +69,28 @@ export function setInitialDates($rangePicker, $input) {
   setDates($input, Object.values(initDates));
 }
 
+function safeDatepickerInit($datepicker, $datepickerControl) {
+  if (!$datepickerControl.data('datepicker')) {
+    $datepicker.each(initDatepickerInput);
+    return $datepickerControl.data('datepicker');
+  }
+  return null;
+}
+
 export function initTwoCalendarPicker(index, element) {
   const $twoCalendarRange = $(element);
 
   const $firstInput = $($twoCalendarRange.find('.twoCalendarRangePicker__firstDatepicker')[0]);
   const $firstInputControl = $($firstInput.find('.input__control_type_datepicker')[0]);
-  let firstDatepicker = $firstInputControl.data('datepicker');
-  if (!firstDatepicker) {
-    $firstInput.each(initDatepickerInput);
-    firstDatepicker = $firstInputControl.data('datepicker');
-  }
+  const firstDatepicker = safeDatepickerInit(
+    $firstInput, $firstInputControl,
+  );
 
   const $secondInput = $($twoCalendarRange.find('.twoCalendarRangePicker__secondDatepicker')[0]);
   const $secondInputControl = $($secondInput.find('.input__control_type_datepicker')[0]);
-  let secondDatepicker = $($secondInputControl).data('datepicker');
-  if (!secondDatepicker) {
-    $secondInput.each(initDatepickerInput);
-    secondDatepicker = $secondInputControl.data('datepicker');
-  }
+  const secondDatepicker = safeDatepickerInit(
+    $secondInput, $secondInputControl,
+  );
 
   if (!(firstDatepicker && secondDatepicker)) return;
 
