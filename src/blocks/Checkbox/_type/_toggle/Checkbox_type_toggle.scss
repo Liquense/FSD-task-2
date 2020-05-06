@@ -55,7 +55,6 @@ $toggleCircleMargin: 4px;
 
 
 .checkbox_type_toggle {
-
   .checkbox__label_type_toggle {
     width: fit-content;
     max-width: none;
@@ -72,7 +71,6 @@ $toggleCircleMargin: 4px;
           background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
         }
       }
-
     }
 
     .checkbox__button_type_toggle {
@@ -97,6 +95,10 @@ $toggleCircleMargin: 4px;
         animation-name: moveLeft;
         animation-duration: 0.4s;
       }
+    }
+
+    .checkbox__text_type_toggle {
+      color: $darkShade75;
     }
 
     &.ui-checkboxradio-checked {
