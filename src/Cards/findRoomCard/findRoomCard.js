@@ -3,7 +3,7 @@
 import './findRoomCard.scss';
 import '../../blocks/Input/input';
 import { initTwoCalendarPicker } from '../../blocks/twoCalendarRangePicker/twoCalendarRangePicker';
-import initDropdownInput from '../../blocks/Input/_type/_dropdown/input__list_type_dropdown';
+import { initDropdownInput } from '../../blocks/Input/_type/_dropdown/input__list_type_dropdown';
 
 export default function initFindRoomCard(index, cardElement) {
   const $card = $(cardElement);

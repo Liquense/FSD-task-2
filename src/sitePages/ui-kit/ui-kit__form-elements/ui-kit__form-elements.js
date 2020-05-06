@@ -10,8 +10,8 @@ import '../../../blocks/Comment/Comment';
 import Checkbox from '../../../blocks/Checkbox/Checkbox';
 import { initTwoCalendarPicker } from '../../../blocks/twoCalendarRangePicker/twoCalendarRangePicker';
 import { initDatepickerInput } from '../../../blocks/Input/_type/_datepicker/input_type_datepicker';
-import initDropdownInput from '../../../blocks/Input/_type/_dropdown/input__list_type_dropdown';
-import initExpandableList from '../../../blocks/List/_expandable/list_expandable';
+import { initDropdownInput } from '../../../blocks/Input/_type/_dropdown/input__list_type_dropdown';
+import { initExpandableList } from '../../../blocks/List/_expandable/list_expandable';
 
 import './ui-kit__form-elements.scss';
 

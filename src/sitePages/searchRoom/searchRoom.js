@@ -9,6 +9,9 @@ import initRoomPreviewCard from '../../Cards/roomPreviewCard/roomPreviewCard';
 
 import './searchRoom.pug';
 import './searchRoom.scss';
+import { initDatepickerInputs } from '../../blocks/Input/_type/_datepicker/input_type_datepicker';
+import { initExpandableLists } from '../../blocks/List/_expandable/list_expandable';
+import { initDropdowns } from '../../blocks/Input/_type/_dropdown/input__list_type_dropdown';
 
 function initAllRoomPreviewCardsInContainer($container) {
   $container.find('.roomPreviewCard').each(initRoomPreviewCard);
@@ -37,3 +40,7 @@ $roomPreviewCardsTextContent.click(() => {
 });
 
 Checkbox.initDefault();
+
+initDatepickerInputs();
+initExpandableLists();
+initDropdowns();

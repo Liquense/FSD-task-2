@@ -135,3 +135,8 @@ export function initDatepickerInput(index, input) {
   const initDates = getInitDates($inputControl);
   datepicker.selectDate(initDates);
 }
+
+export function initDatepickerInputs() {
+  const $datepickers = $('.input_type_datepicker');
+  $datepickers.each(initDatepickerInput);
+}

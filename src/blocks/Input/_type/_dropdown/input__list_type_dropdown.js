@@ -261,7 +261,7 @@ function getInitialNamesValues($spinnerElements) {
 }
 
 const dropdownVisibleClass = 'input__dropdownListWrapper_visible';
-export default function initDropdownInput(index, rootElement) {
+export function initDropdownInput(index, rootElement) {
   const $inputWrapper = $(rootElement);
   const $dropdown = $inputWrapper.children('.input__dropdownListWrapper_type_dropdown');
   const $control = $inputWrapper.find('.input__control_type_dropdown');
@@ -385,4 +385,9 @@ export default function initDropdownInput(index, rootElement) {
         areControlsEnabled, areValuesConfirmed);
     }
   });
+}
+
+export function initDropdowns() {
+  const $dropdowns = $('.input_type_dropdown');
+  $dropdowns.each(initDropdownInput);
 }
