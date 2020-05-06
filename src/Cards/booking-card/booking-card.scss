@@ -1,4 +1,4 @@
-.bookingCard {
+.booking-card {
   max-width: 380px;
   height: fit-content;
   box-sizing: border-box;
@@ -13,7 +13,7 @@
 
   padding: 49px 29px 29px 29px;
 
-  .bookingCard__header {
+  .booking-card__header {
     display: flex;
     justify-content: space-between;
     align-self: stretch;
@@ -21,48 +21,48 @@
 
     margin-bottom: 21px;
 
-    .bookingCard__roomInfo {
+    .booking-card__room-info {
       display: flex;
       align-items: baseline;
 
-      .bookingCard__numberText {
+      .booking-card__number-text {
         font-size: 14px;
         line-height: 17px;
         margin-right: 4px;
       }
 
-      .bookingCard__roomNum {
+      .booking-card__room-num {
         margin: 0;
         font-size: 22px;
         margin-right: 5px;
       }
 
-      .bookingCard__roomType {
+      .booking-card__room-type {
         color: $purple;
       }
     }
 
-    .bookingCard__priceInfo {
-      .bookingCard__dailyPrice {
+    .booking-card__price-info {
+      .booking-card__daily-price {
         color: $darkShade50;
         font-size: 14px;
       }
 
-      .bookingCard__paymentPeriod {
+      .booking-card__payment-period {
         font-size: 12px;
       }
     }
   }
 
-  .bookingCard__rangePicker {
+  .booking-card__range-picker {
     margin-bottom: 19px;
   }
 
-  .bookingCard__guestsDropdown {
+  .booking-card__guests-dropdown {
     margin-bottom: 20px;
   }
 
-  .bookingCard__checkContainer {
+  .booking-card__check-container {
     $iconSize: 20px;
 
     margin-bottom: 30px;
@@ -96,7 +96,7 @@
       }
     }
 
-    .bookingCard__infoIcon {
+    .booking-card__info-icon {
       width: $iconSize;
       height: $iconSize;
       line-height: $iconSize - 2px;
@@ -112,35 +112,35 @@
       user-select: none;
     }
 
-    .bookingCard__stayingCostRow {
+    .booking-card__staying-cost-row {
     }
 
-    .bookingCard__servicesCostRow {
+    .booking-card__services-cost-row {
     }
 
-    .bookingCard__additionalServicesRow {
+    .booking-card__additional-services-row {
     }
   }
 
-  .bookingCard__summary {
+  .booking-card__summary {
     margin-bottom: 19px;
     padding-left: 1px;
     display: flex;
     align-self: stretch;
     align-items: baseline;
 
-    .bookingCard__summaryText {
+    .booking-card__summary-text {
       flex-shrink: 0;
       margin-right: 5px;
     }
 
-    .bookingCard__summaryDashUnderline {
+    .booking-card__summary-dash-underline {
       width: 100%;
       border-bottom: 1px dotted $darkShade25;
       margin-right: 5px;
     }
 
-    .bookingCard__summaryTotalCost {
+    .booking-card__summary-total-cost {
       flex-shrink: 0;
       font-family: Montserrat, sans-serif;
       font-size: 18px;
@@ -148,13 +148,13 @@
     }
   }
 
-  .bookingCard__bookingButton {
+  .booking-card__booking-button {
 
   }
 }
 
 @media (max-width: 380px) {
-  .bookingCard {
+  .booking-card {
     padding-left: 0;
     padding-right: 0;
     border-right: 0;
@@ -162,11 +162,11 @@
     width: 100%;
     min-width: 320px;
 
-    .bookingCard__header {
+    .booking-card__header {
       justify-content: space-evenly;
     }
 
-    .bookingCard__checkContainer {
+    .booking-card__check-container {
       padding-right: 10px;
       padding-left: 10px;
 
@@ -175,7 +175,7 @@
       }
     }
 
-    .bookingCard__summary {
+    .booking-card__summary {
       padding-right: 5px;
       padding-left: 5px;
     }

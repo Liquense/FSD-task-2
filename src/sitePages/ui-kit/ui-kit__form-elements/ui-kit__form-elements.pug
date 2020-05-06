@@ -3,17 +3,17 @@ section.form-elements
     div.form-elements__basic-inputs
       include ../../../blocks/Input/Input
       include ../../../blocks/twoCalendarRangePicker/twoCalendarRangePicker
-      +Input("Text field", "text", "Email", "form-elements__text-input")
-      +Input("Text field", "text", "This is pretty awesome", "input_focused form-elements__focused-text-input", "", "This is pretty awesome")
-      +Input("Dropdown", "dropdown customers", "Сколько гостей", "form-elements__dropdown", "",
+      +input("Text field", "text", "Email", "form-elements__text-input")
+      +input("Text field", "text", "This is pretty awesome", "input_focused form-elements__focused-text-input", "", "This is pretty awesome")
+      +input("Dropdown", "dropdown customers", "Сколько гостей", "form-elements__dropdown", "",
         [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}])
-      +Input("Masked Text Field", "mask", "ДД.ММ.ГГГГ", "form-elements__masked-input", "[0123][0-9].[012][0-9].[0-9]{4}")
+      +input("Masked Text Field", "mask", "ДД.ММ.ГГГГ", "form-elements__masked-input", "[0123][0-9].[012][0-9].[0-9]{4}")
 
     div.form-elements__datepickers
       include ../../../blocks/twoCalendarRangePicker/twoCalendarRangePicker
       +twoCalendarRangePicker({secondDate: "19.08.2019", labels: ["date dropdown", "date dropdown"]})
-      +Input("filter date dropdown", "datepicker medium", "ДД.ММ.ГГГГ", "", "", ["19.08.2019", "23.08.2019"])
-      +Input("subscription text field", "text medium subscription", "Email")
+      +input("filter date dropdown", "datepicker medium", "ДД.ММ.ГГГГ", "", "", ["19.08.2019", "23.08.2019"])
+      +input("subscription text field", "text medium subscription", "Email")
 
     div.form-elements__checkboxes-ratings
       include ../../../blocks/Checkbox/Checkbox
@@ -70,13 +70,13 @@ section.form-elements
     div.form-elements__dropdowns
       div.form-elements__room-dropdowns
         -var rooms = [{name: "Спальни", value: 2}, {name: "Кровати", value: 2}, {name: "Ванные комнаты", value: 0}];
-        +Input("Dropdown", "dropdown rooms medium", "Сколько убранства", "form-elements__rooms-dropdown", "",
+        +input("Dropdown", "dropdown rooms medium", "Сколько убранства", "form-elements__rooms-dropdown", "",
           rooms)
-        +Input("Dropdown", "dropdown rooms medium pure opened", "Сколько убранства", "form-elements__rooms-dropdown", "",
+        +input("Dropdown", "dropdown rooms medium pure opened", "Сколько убранства", "form-elements__rooms-dropdown", "",
           rooms)
-      +Input("Dropdown", "dropdown customers opened unaccepted", "Сколько гостей", "form-elements__guest-dropdown-unaccepted", "",
+      +input("Dropdown", "dropdown customers opened unaccepted", "Сколько гостей", "form-elements__guest-dropdown-unaccepted", "",
         [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}])
-      +Input("Dropdown", "dropdown unified customers opened unaccepted", "Сколько гостей", "form-elements__guest-dropdown", "",
+      +input("Dropdown", "dropdown unified customers opened unaccepted", "Сколько гостей", "form-elements__guest-dropdown", "",
         [{name: "Взрослые", value: 2}, {name: "Дети", value: 1}, {name: "Младенцы", value: 0}])
     div.form-elements__lists
       div.form-elements__expandable-lists

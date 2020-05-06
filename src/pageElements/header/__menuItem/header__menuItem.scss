@@ -1,5 +1,7 @@
 @mixin menuItem() {
-  margin-right: get-vw(30px);
+  &:not(:last-child) {
+    margin-right: get-vw(29px);
+  }
 
   &.header__menuItem_expandable {
     margin-right: get-vw(20px);

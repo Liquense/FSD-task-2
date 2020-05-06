@@ -4,18 +4,19 @@ include ../../blocks/Button/Button
 include ../../blocks/List/list
 
 mixin registrationCard(data={})
-	div.registrationCard
+	-var addClasses = attributes.addClasses ? attributes.addClasses : ""
+	div.registrationCard(class=addClasses)
 		h3.registrationCard__title.text_type_widgetTitle Регистрация аккаунта
-		+Input("", "text", "Имя", "registrationCard__userName", "")
-		+Input("", "text", "Фамилия", "registrationCard__userSurname", "")
+		+input("", "text", "Имя", "registrationCard__userName", "")
+		+input("", "text", "Фамилия", "registrationCard__userSurname", "")
 		-var radioButtons = [{text: "Мужчина", group: "registrationGender", isChecked: true}]
 		-radioButtons.push({text: "Женщина", group: "registrationGender"})
 		+list("radio", "", radioButtons, "registrationCard__genderList")
-		+Input("Дата рождения", "text mask", "ДД.ММ.ГГГГ", "registrationCard__birthDay", "[0123][0-9].[012][0-9].[0-9]{4}")
+		+input("Дата рождения", "text mask", "ДД.ММ.ГГГГ", "registrationCard__birthDay", "[0123][0-9].[012][0-9].[0-9]{4}")
 		div.registrationCard__loginDataContainer
 			p.text_type_label-CTA.registrationCard__loginDataTitle Данные для входа в сервис
-			+Input("", "text", "Email", "registrationCard__email")
-			+Input("", "text", "Пароль", "registrationCard__password")
+			+input("", "text", "Email", "registrationCard__email")
+			+input("", "text", "Пароль", "registrationCard__password")
 		+checkbox("Получать спецпредложения", "toggle", "", "registrationCard__sendOffers")
 		+Button("Перейти к оплате", "button_type_filled button_size_wide registrationCard__paymentButton")(decoration = "enterArrow")
 		div.registrationCard__actionContainer

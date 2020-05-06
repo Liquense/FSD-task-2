@@ -24,7 +24,7 @@ export default function initRoomPreviewCard() {
   const formattedReviewsCount = formatNumber(cardData.reviewsCount, ' ');
   $reviewsCountSpan.text(formattedReviewsCount);
   setRatingToRateButton($ratingElement);
-  const inclinedReviewsText = ruDeclination(cardData.reviewsCount, 'отзыв||а|ов');
+  const inclinedReviewsText = ruDeclination(cardData.reviewsCount, 'Отзыв||а|ов');
   $reviewsTextSpan.text(inclinedReviewsText);
 }
 

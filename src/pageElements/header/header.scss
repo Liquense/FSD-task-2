@@ -32,15 +32,12 @@
       }
     }
 
-    //:not(:last-child) {
-    //  margin-right: get-vw(30px);
-    //}
-
     //Если залогинен - вертикальный разделитель и имя пользователя
     .header__divider {
       flex-shrink: 0;
       display: block;
       height: 30px;
+      margin: 0 get-vw(30px);
       border: solid 1px $darkShade10;
     }
 
@@ -51,6 +48,7 @@
     //Если не залогинен - кнопки логина и регистрации
     .header__buttonsContainer {
       display: flex;
+      margin-left: get-vw(27px);
 
       .header__loginButton {
         margin-right: get-vw(20px);

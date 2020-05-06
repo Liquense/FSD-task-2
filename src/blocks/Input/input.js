@@ -13,6 +13,7 @@ import './_type/input_type_text.scss';
 
 import './_type/_datepicker/input_type_datepicker';
 import './_type/_datepicker/input_type_datepicker.scss';
+import './_type/_datepicker/_inline/datepicker_inline.scss';
 
 import './_type/_dropdown/input__list_type_dropdown';
 import './_type/_dropdown/input__list_type_dropdown.scss';

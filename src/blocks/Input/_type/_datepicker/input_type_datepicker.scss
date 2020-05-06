@@ -147,6 +147,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
 .datepicker--cell.-range-from-,
 .datepicker--cell.-range-to- {
+  z-index: 1; // чинит падение псевдоэлементов под календарь при inline-отображении
   background: $actualPointsGradient;
   color: white;
 
@@ -439,7 +440,7 @@ $navActionHeight: 18px;
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 20px 20px 0 20px;
+  padding: 19px 20px 0 20px;
 }
 
 .-only-timepicker- .datepicker--nav {
@@ -450,6 +451,10 @@ $navActionHeight: 18px;
 .datepicker--nav-action {
   cursor: pointer;
   -webkit-align-items: center;
+
+  span {
+    letter-spacing: -0.8px;
+  }
 }
 
 .datepicker--nav-action {

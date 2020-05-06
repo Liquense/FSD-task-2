@@ -1,5 +1,5 @@
 mixin twoCalendarRangePicker(data={})
 	-var addClasses = attributes.addClasses ? attributes.addClasses : "";
 	div(class = "twoCalendarRangePicker " + addClasses data-firstDate=data.firstDate data-secondDate=data.secondDate)
-		+Input(data.labels ? data.labels[0] : "", "datepicker narrow", "ДД.ММ.ГГГГ", "twoCalendarRangePicker__datepicker twoCalendarRangePicker__firstDatepicker", "")
-		+Input(data.labels ? data.labels[1] : "", "datepicker narrow", "ДД.ММ.ГГГГ", "twoCalendarRangePicker__datepicker twoCalendarRangePicker__secondDatepicker", "")
+		+input(data.labels ? data.labels[0] : "", "datepicker narrow", "ДД.ММ.ГГГГ", "twoCalendarRangePicker__datepicker twoCalendarRangePicker__firstDatepicker", "")
+		+input(data.labels ? data.labels[1] : "", "datepicker narrow", "ДД.ММ.ГГГГ", "twoCalendarRangePicker__datepicker twoCalendarRangePicker__secondDatepicker", "")

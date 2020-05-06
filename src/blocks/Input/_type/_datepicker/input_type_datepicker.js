@@ -102,7 +102,7 @@ export function setDates($datepickerInput, dates) {
 export function initDatepickerInput(index, input) {
   const $input = $(input);
   const $inputControl = $input.find('.input__control_type_datepicker');
-  const isInline = $input.hasClass('input_type_inline-datepicker');
+  const isInline = $input.hasClass('datepicker_inline');
   const datepicker = $inputControl.datepicker({
     range: true,
     inline: isInline,
@@ -118,7 +118,6 @@ export function initDatepickerInput(index, input) {
     },
     prevHtml: '<img src="./images/arrow_back.svg" alt="назад"">',
     nextHtml: '<img src="./images/arrow_back.svg" alt="назад" style="transform: scale(-1, 1)">',
-    minDate: new Date(),
     onSelect: (formattedDate) => {
       $inputControl.val(formattedDate.toLowerCase());
     },
