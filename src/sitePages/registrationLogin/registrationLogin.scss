@@ -1,4 +1,4 @@
-$backgroundImageHeight: 702px;
+$backgroundImageHeight: 685px;
 
 .registration-login__header {
 
@@ -12,8 +12,12 @@ $backgroundImageHeight: 702px;
   justify-content: center;
   overflow: hidden;
 
-  .loginCard,
-  .registrationCard {
+  .registration-login__login-card,
+  .registration-login__registration-card {
+    &.login-card {
+      margin-bottom: 1px;
+    }
+
     &.registrationCard {
       margin-top: 4px;
     }
@@ -21,6 +25,7 @@ $backgroundImageHeight: 702px;
 
   .registration-login__login-background-image {
     object-fit: cover;
+    object-position: 0 get-vw(-70px);
     bottom: 0;
     position: absolute;
     z-index: -1;
