@@ -44,6 +44,12 @@ $backgroundImageHeight: 702px;
   }
 }
 
-.registrationLogin__footer.footer_type_large {
+.registration-login__registration-footer.footer {
+  .footer__contentSection {
+    padding-top: 99px;
+  }
 
+  .footer__copyrightBar {
+    height: 64px;
+  }
 }
