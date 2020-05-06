@@ -33,34 +33,35 @@ html(lang="ru")
 						{text: "Соглашение 2", children: [{text: "123"}]}
 					]
 				},
-			]
-		)(addClasses="searchRoom__header")
+			],
+		"narrow"
+		)(addClasses="search-room__header")
 		//- CONTENT
-		div.searchRoom__content
-			div.searchRoom__showSidebarButton filter_list
-			div.searchRoom__sideBar
+		div.search-room__content
+			div.search-room__showSidebarButton filter_list
+			div.search-room__sideBar
 				include ../../blocks/Input/Input
-				+input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "searchRoom__stayingDates", "", ["19.08.2019", "23.08.2019"])
+				+input("Даты пребывания в отеле", "datepicker medium", "ДД.ММ.ГГГГ", "search-room__stayingDates", "", ["19.08.2019", "23.08.2019"])
 				+input(
-					"Гости", "dropdown customers medium", "Сколько гостей", "searchRoom__guests", "",
+					"Гости", "dropdown customers medium", "Сколько гостей", "search-room__guests", "",
 					[{name: "Взрослые", value: 3}, {name: "Дети", value: 0}, {name: "Младенцы", value: 1}]
 				)
-				div.searchRoom__pricePerDaySliderContainer
+				div.search-room__pricePerDaySliderContainer
 					include ../../blocks/Slider/Slider
-					+slider(0, 16000, 100, "Диапазон цены", "searchRoom__pricePerDaySliderFilter ", true, [5000, 10000])
-					p.searchRoom__pricePerDayText.text_type_regular Стоимость за сутки пребывания в номере
+					+slider(0, 16000, 100, "Диапазон цены", "search-room__pricePerDaySliderFilter ", true, [5000, 10000])
+					p.search-room__pricePerDayText.text_type_regular Стоимость за сутки пребывания в номере
 				include ../../blocks/List/list
 				-let checkButtons = []
 				-checkButtons.push({text: "Можно курить"});
 				-checkButtons.push({text: "Можно с питомцами", isChecked: true});
 				-checkButtons.push({text: "Можно приглашать гостей (до 10 человек)", isChecked: true});
-				+list("checkbox", "Checkbox buttons", checkButtons, "searchRoom__benefitsFilter")
+				+list("checkbox", "Checkbox buttons", checkButtons, "search-room__benefitsFilter")
 				-const richButtons = []
 				-richButtons.push({text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."});
-				-richButtons.push({text: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист и проводит до номера"});
-				+list("rich", "Доступность", richButtons, "searchRoom__availabilityFilter")
+				-richButtons.push({text: "Помощник для инвалидов", description: "На 1 этаже вас встретит специалист \n и проводит до номера"});
+				+list("rich", "Доступность", richButtons, "search-room__availabilityFilter")
 				+input(
-					"Удобства номера", "dropdown medium rooms", "Комплектация номера", "searchRoom__roomEquipmentFilter", "",
+					"Удобства номера", "dropdown medium rooms", "Комплектация номера", "search-room__roomEquipmentFilter", "",
 					[{name: "Спальни", value: 2}, {name: "Кровати", value: 2}, {name: "Ванные комнаты", value: 0}])
 				-checkButtons = []
 				-checkButtons.push({text: "Завтрак"})
@@ -71,12 +72,12 @@ html(lang="ru")
 				-checkButtons.push({text: "Шампунь"})
 				-checkButtons.push({text: "Телевизор"})
 				-checkButtons.push({text: "Шампунь"})
-				+list("checkbox expandable", "Дополнительные удобства", checkButtons, "searchRoom__additionalFeaturesFilter")
-			div.searchRoom__rooms
-				h2.searchRoom__roomsTitle.text_type_widgetTitle Номера, которые мы для вас подобрали
+				+list("checkbox expandable narrow", "Дополнительные удобства", checkButtons, "search-room__additionalFeaturesFilter")
+			div.search-room__rooms
+				h2.search-room__roomsTitle.text_type_widgetTitle Номера, которые мы для вас подобрали
 				include ../../blocks/Pagination/Pagination
 				include ../../Cards/roomPreviewCard/roomPreviewCard
-				+pagination(12)(addClasses="searchRoom__roomsPagination")
+				+pagination(12)(addClasses="search-room__roomsPagination")
 					-let i = 0;
 					while i < 15
 						+roomPreviewCard(
@@ -110,7 +111,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-2.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -125,7 +126,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-3.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -140,7 +141,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-4.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -155,7 +156,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-5.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -170,7 +171,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-6.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -185,7 +186,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-7.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -200,7 +201,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-8.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -215,7 +216,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-9.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -230,7 +231,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-10.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -245,7 +246,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-11.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -260,7 +261,7 @@ html(lang="ru")
 									{tag: "img", src: require("../../assets/images/room-mini-12.jpg")},
 								],
 								carouselParams: {
-									"data-arrows": "true",
+									"data-arrows": "false",
 									"data-dots": "true",
 								},
 							}
@@ -307,5 +308,5 @@ html(lang="ru")
 						]
 				}
 			],
-			{title: "Подписка", text: "Получайте специальные предложения и новости сервиса"}
-		)(addClasses="searchRoom__footer")
+			{title: "Подписка", text: "Получайте специальные предложения и новости сервиса", emailPlaceholder: "Email"}
+		)(addClasses="search-room__footer")
