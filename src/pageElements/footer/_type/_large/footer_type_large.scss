@@ -4,6 +4,7 @@
   }
 
   .footer__contentSection {
+    min-height: 372px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -41,6 +42,7 @@
       }
 
       .footer__logoText {
+        letter-spacing: -0.1px;
         max-width: 260px;
         line-height: 24px;
         @media (max-width: 1039px) {
@@ -64,6 +66,7 @@
       grid-template-columns: repeat(auto-fit, minmax(get-vw(200px), 1fr));
       padding-top: 6px; //не придумал гибкого варианта, т.к. на макете они не строго по центру контейнера, но и не вровень с логотипом
       @media (max-width: 1439px) {
+        grid-template-columns: repeat(auto-fit, 1fr);
         justify-items: center;
         column-gap: get-vw(10px);
       }
@@ -79,12 +82,13 @@
         }
 
         .footer__linksSectionTitle {
-          margin-bottom: 21px;
+          margin-bottom: 21.8px;
+          letter-spacing: -0.15px;
         }
 
         .footer__link {
           &:not(:last-child) {
-            margin-bottom: 22px; //высота строки как в макете, но отступ всё равно на 2 пикселя больше
+            margin-bottom: 21px;
           }
 
           line-height: 17px;
@@ -99,10 +103,12 @@
       padding-top: 6px;
 
       .footer__subscriptionTitle {
+        letter-spacing: -0.32px;
         margin-bottom: 20px;
       }
 
       .footer__subscriptionText {
+        letter-spacing: -0.14px;
         line-height: 24px;
         margin-bottom: 18px;
       }
@@ -131,6 +137,7 @@
     }
 
     .footer__copyrightText {
+      letter-spacing: -0.1px;
     }
 
     .footer__socialMedia {

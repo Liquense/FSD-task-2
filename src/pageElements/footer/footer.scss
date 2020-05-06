@@ -1,14 +1,10 @@
-$borderWidth: 1px;
+
 .footer {
   width: 100%;
   box-shadow: 0px 10px 20px $darkShade5;
   background-color: white;
-  border-top: $borderWidth solid $darkShade50;
   .footer__contentSection {
-    padding-right: get-vw(140px);
-    padding-left: get-vw(140px);
-    padding-top: get-vw(100px - $borderWidth);
-    padding-bottom: get-vw(100px - $borderWidth - 3px);
+    padding: get-vw(100px) get-vw(140px) get-vw(99px);
   }
 
   .fab {
