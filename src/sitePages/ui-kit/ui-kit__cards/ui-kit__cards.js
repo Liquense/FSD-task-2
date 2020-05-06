@@ -3,7 +3,7 @@
 import './ui-kit__cards.scss';
 import '../../../Cards/findRoomCard/findRoomCard';
 import '../../../Cards/booking-card/booking-card';
-import '../../../Cards/loginCard/loginCard';
+import '../../../Cards/login-card/login-card';
 import initRegistrationCard from '../../../Cards/registrationCard/registrationCard';
 import '../../../Cards/roomPreviewCard/roomPreviewCard';
 import '../../../blocks/Input/_type/_datepicker/input_type_datepicker';

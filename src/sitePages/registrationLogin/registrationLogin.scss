@@ -1,10 +1,10 @@
 $backgroundImageHeight: 702px;
 
-.registrationLogin__header {
+.registration-login__header {
 
 }
 
-.registrationLogin__content {
+.registration-login__content {
   position: relative;
   height: $backgroundImageHeight;
   display: flex;
@@ -19,9 +19,8 @@ $backgroundImageHeight: 702px;
     }
   }
 
-  .registrationLogin__loginBackgroundImage {
+  .registration-login__login-background-image {
     object-fit: cover;
-    object-position: 0 get-vw(-52px);
     bottom: 0;
     position: absolute;
     z-index: -1;
@@ -33,12 +32,12 @@ $backgroundImageHeight: 702px;
     }
   }
 
-  &.registrationLogin__loginContainer {
+  &.registration-login__login-container {
     height: get-vw($backgroundImageHeight);
     min-height: 380px;
     max-height: $backgroundImageHeight;
 
-    .registrationLogin__loginBackgroundImage {
+    .registration-login__login-background-image {
       height: 100%;
       min-height: 380px;
     }

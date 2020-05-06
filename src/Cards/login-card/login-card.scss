@@ -1,4 +1,4 @@
-.loginCard {
+.login-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
 
-  .loginCard__title {
+  .login-card__title {
     align-self: stretch;
     margin: 0;
     margin-bottom: 17px;
@@ -19,53 +19,53 @@
     line-height: 30px;
   }
 
-  .loginCard__emailInput,
-  .loginCard__passwordInput {
+  .login-card__email-input,
+  .login-card__password-input {
     .input__control {
       margin: 0;
     }
   }
 
-  .loginCard__emailInput {
+  .login-card__email-input {
     margin-bottom: 6px;
   }
 
-  .loginCard__passwordInput {
+  .login-card__password-input {
     margin-bottom: 20px;
   }
 
-  .loginCard__loginButton {
+  .login-card__login-button {
     margin-bottom: 30px;
   }
 
-  .loginCard__createAccountContainer {
+  .login-card__create-account-container {
     display: flex;
     justify-content: space-between;
     align-self: stretch;
     align-items: center;
 
-    .loginCard__haventAccount {
+    .login-card__havent-account {
       color: black;
     }
 
-    .loginCard__createLoginButton {
+    .login-card__create-login-button {
     }
   }
 }
 
 @media (max-width: 380px) {
-  .loginCard {
+  .login-card {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
     border-right: 0;
     border-left: 0;
 
-    .loginCard__title {
+    .login-card__title {
       text-align: center;
     }
 
-    .loginCard__createAccountContainer {
+    .login-card__create-account-container {
       justify-content: space-evenly;
     }
   }

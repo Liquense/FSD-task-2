@@ -31,11 +31,12 @@ body
 					{text: "Соглашение 2", children: [{text: "123"}]}
 				]
 			},
-		]
-	)(addClasses="registrationLogin__header")
+		],
+	"narrow"
+	)(addClasses="registration-login__header")
 
 
-	div.registrationLogin__content
+	div.registration-login__content
 	include ../../pageElements/footer/footer
 	+largeFooter(
 		{
@@ -74,5 +75,5 @@ body
 					]
 			}
 		],
-		{title: "Подписка", text: "Получайте специальные предложения и новости сервиса"}
-	)(addClasses="registrationLogin__footer")
+		{title: "Подписка", text: "Получайте специальные предложения и новости сервиса", emailPlaceholder: "Email"}
+	)(addClasses="registration-login__footer")
