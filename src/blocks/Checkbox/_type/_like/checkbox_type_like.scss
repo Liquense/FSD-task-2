@@ -4,7 +4,7 @@ $likeHeight: 20px;
 $likeWidth: 40px;
 $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
 
-.checkbox_type_like {
+.checkbox.checkbox_type_like {
   width: $likeWidth;
   height: $likeHeight;
   @include clearfix;
@@ -15,7 +15,6 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
     position: relative;
     color: $darkShade25;
     font-size: 10px;
-    width: $likeWidth;
     padding-left: $likeCountLeftPadding;
     text-align: center;
     line-height: 19px;
