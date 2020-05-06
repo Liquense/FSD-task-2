@@ -9,9 +9,13 @@ body {
 
 section {
   background-color: #FFFFFF;
-  margin: 20px;
+  margin: 20px auto;
   width: 1440px;
   min-height: 1350px;
+}
+
+.ui-kit__note {
+  text-align: center;
 }
 
 .bodyContainer {
