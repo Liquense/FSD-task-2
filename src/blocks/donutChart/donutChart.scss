@@ -14,9 +14,7 @@
     .donutChart__svg {
       width: 100%;
       height: auto;
-
-      .donutChart__svgArc {
-      }
+      overflow: visible;
     }
 
     .donutChart__activeData {
