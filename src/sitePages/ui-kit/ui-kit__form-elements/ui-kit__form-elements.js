@@ -3,17 +3,17 @@
 import '../../../blocks/Button/button';
 import '../../../blocks/Input/input';
 import '../../../blocks/Slider/slider';
-import { initTwoCalendarPicker } from '../../../blocks/twoCalendarRangePicker/twoCalendarRangePicker';
 import '../../../blocks/List/list';
 import '../../../blocks/RateButton/RateButton';
 import '../../../blocks/Pagination/Pagination';
 import '../../../blocks/Comment/Comment';
 import Checkbox from '../../../blocks/Checkbox/Checkbox';
+import { initTwoCalendarPicker } from '../../../blocks/twoCalendarRangePicker/twoCalendarRangePicker';
 import { initDatepickerInput } from '../../../blocks/Input/_type/_datepicker/input_type_datepicker';
 import initDropdownInput from '../../../blocks/Input/_type/_dropdown/input__list_type_dropdown';
+import initExpandableList from '../../../blocks/List/_expandable/list_expandable';
 
 import './ui-kit__form-elements.scss';
-import initExpandableList from '../../../blocks/List/_expandable/list_expandable';
 
 Checkbox.initDefault();
 Checkbox.initRadio();

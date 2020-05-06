@@ -1,8 +1,11 @@
 include ../../blocks/Button/Button
 include ./__menuItem/header__menuItem
 
-mixin header(data={}, content=[])
-	-var addClasses = attributes.addClasses ? attributes.addClasses : '';
+mixin header(data={}, content=[], type="")
+	-var addClasses = "";
+	if type.includes("narrow")
+		-addClasses += "header_narrow"
+	-addClasses += attributes.addClasses ? attributes.addClasses : '';
 	header(class=`header ${addClasses}`)
 		a.header__logoLink
 			img(src=data.logo alt="logo").header__logo

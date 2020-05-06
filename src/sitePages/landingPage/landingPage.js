@@ -1,7 +1,8 @@
 /* eslint-disable no-undef */
 // jquery подключена вебпаком
 import '../../common';
-import '../../Cards/findRoomCard/findRoomCard';
+import initFindRoomCard from '../../Cards/findRoomCard/findRoomCard';
+
 import './landingPage.scss';
 
 const imagePaths = [];
@@ -19,5 +20,8 @@ function initRoomContainer() {
 
 $roomContainers.each(initRoomContainer);
 
-const $findRoomCardButton = $('.findRoomCard__button');
+const $findRoomCardButton = $('.find-room-card__button');
 $findRoomCardButton.click(() => { window.location.href = 'searchRoom.html'; });
+
+const $findRoomCards = $('.find-room-card');
+$findRoomCards.each(initFindRoomCard);

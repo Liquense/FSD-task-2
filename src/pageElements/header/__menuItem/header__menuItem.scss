@@ -3,7 +3,7 @@
     margin-right: get-vw(29px);
   }
 
-  &.header__menuItem_expandable {
+  &.header__menuItem_expandable:not(:last-child) {
     margin-right: get-vw(20px);
   }
 

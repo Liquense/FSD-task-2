@@ -25,6 +25,7 @@
     }
 
     .footer__logoSection {
+      align-self: flex-start;
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
@@ -97,18 +98,17 @@
     }
 
     .footer__subscribeSection {
+      align-self: flex-start;
       width: min-content;
       display: flex;
       flex-direction: column;
       padding-top: 6px;
 
       .footer__subscriptionTitle {
-        letter-spacing: -0.32px;
         margin-bottom: 20px;
       }
 
       .footer__subscriptionText {
-        letter-spacing: -0.14px;
         line-height: 24px;
         margin-bottom: 18px;
       }
@@ -137,7 +137,6 @@
     }
 
     .footer__copyrightText {
-      letter-spacing: -0.1px;
     }
 
     .footer__socialMedia {
