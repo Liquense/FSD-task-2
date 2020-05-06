@@ -1,15 +1,16 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
-import './roomDetails.pug';
-import './roomDetails.scss';
-
 import '../../common';
 import '../../blocks/donutChart/donutChart';
 import '../../blocks/Comment/Comment';
 import '../../pageElements/header/header';
 import '../../pageElements/footer/footer';
 import '../../blocks/List/list';
-import '../../Cards/booking-card/booking-card';
+import initBookingCards from '../../Cards/booking-card/booking-card';
+
+import './roomDetails.pug';
+import './roomDetails.scss';
+
 
 const $donutCharts = $('.roomDetails__donutChart');
 function initDonutChart() {
@@ -35,10 +36,11 @@ function initDonutChart() {
     },
     activeStyle: {
       outerRadius: 120,
-      innerRadius: 110,
+      innerRadius: 116,
     },
     arcsGap: 2,
   });
 }
 
 $donutCharts.each(initDonutChart);
+initBookingCards();
