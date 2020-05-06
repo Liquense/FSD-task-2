@@ -12,31 +12,28 @@ mixin list(types, title, checkboxes=[], addClasses="")
   -var titleAttrs = {class: titleClassName + " " + " text_type_label-CTA "}
   -var containerAttrs = {class: containerClassName + " "}
   -var attrs = [listAttrs, titleAttrs, containerAttrs]
-
   -var inputType = ""
-  //- типы чекбоксов
-  if types.includes("checkbox")
-    each value, index in attrs
+
+  each value, index in attrs
+    //- типы чекбоксов
+    if types.includes("checkbox")
       - value.class += classNames[index] + "_type_checkbox "
-    -inputType = "checkbox"
-  else if types.includes("radio")
-    each value, index in attrs
+      -inputType = "checkbox"
+    else if types.includes("radio")
       - value.class += classNames[index] + "_type_radio "
-    -inputType = "radio"
-  else if types.includes("toggle")
-    each value, index in attrs
+      -inputType = "radio"
+    else if types.includes("toggle")
       - value.class += classNames[index] + "_type_toggle "
-    -inputType = "toggle"
-  else if types.includes("rich")
-    each value, index in attrs
+      -inputType = "toggle"
+    else if types.includes("rich")
       - value.class += classNames[index] + "_type_rich "
-    -inputType = "rich"
-  //- модификаторы списка
-  if types.includes("expandable")
-    each value, index in attrs
+      -inputType = "rich"
+    //- модификаторы списка
+    if types.includes("expandable")
       - value.class += classNames[index] + "_expandable "
-    if types.includes("opened")
-      each value, index in attrs
+      if types.includes("narrow")
+        - value.class += classNames[index] + "_expandable-narrow "
+      if types.includes("opened")
         - value.class += classNames[index] + "_expandable-opened "
 
   fieldset&attributes(listAttrs)
