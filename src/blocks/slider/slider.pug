@@ -1,0 +1,17 @@
+mixin slider(minValue, maxValue, step, title, addClasses, isRange, initialValues)
+	if (!initialValues)
+		-initialValues = [minValue, maxValue];
+	if isRange
+		div(class="slider slider_range " + addClasses)
+			div(class="slider__text")
+				p(class="slider__title text_type_label-CTA") #{title}
+				p(class="slider__value text_type_regular") ₽
+			div.slider__plugin-container
+				div(class="slider__control slider__control_range" data-min=minValue data-max=maxValue data-step=step data-firstValue=initialValues[0] data-secondValue=initialValues[1])
+	else
+		div(class="slider " + addClasses)
+			div(class="slider__text")
+				p(class="slider__title text_type_label-CTA") #{title}
+				p(class="slider__value text_type_regular") ₽
+			div.slider__plugin-container
+				div(class="slider__control" data-min=minValue data-max=maxValue data-step=step data-firstValue=initialValues[0] data-secondValue=initialValues[1])

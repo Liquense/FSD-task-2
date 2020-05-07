@@ -1,0 +1,3 @@
+.text_type_item-title {
+  @include text(Quicksand, bold, $itemTitleSize, 24px, $darkShade100, normal);
+}

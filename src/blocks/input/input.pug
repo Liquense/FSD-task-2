@@ -1,0 +1,81 @@
+mixin addTextInput(tiAttributes, tiAdditional, tiClassNames, tiTitle, tiTypes)
+	each value, index in Object.values(tiAttributes)
+		- value.class += tiClassNames[index] + "_type_text "
+	- tiAttributes.controlAttributes.type = "text"
+	div&attributes(tiAttributes.blockAttributes)
+		if tiTitle
+			label&attributes(tiAttributes.titleAttributes) #{tiTitle}
+				br
+				div&attributes(tiAttributes.controlWrapperAttrs)
+					if tiTypes.includes("subscription")
+						+enter-arrow()
+					input&attributes(tiAttributes.controlAttributes)(value=tiAdditional)
+		else
+			label&attributes(tiAttributes.titleAttributes)
+				div&attributes(tiAttributes.controlWrapperAttrs)
+					if tiTypes.includes("subscription")
+						+enter-arrow()
+					input&attributes(tiAttributes.controlAttributes)(value=imAdditional)
+
+//- title - заголовок
+//- types - типы инпута: (datepicker, dropdown, text, mask, subscription)
+//- 	размеры: (medium, premedium, narrow),
+//- 	модификаторы дропдауна
+//-			unified - вывод одним словом (сочетается с rooms & customers),
+//- 		rooms - комнаты и кровати
+//- 		customers - гости и младенцы
+//- 		opened - постоянно открыт
+//- 		pure - без кнопок управления
+//- 		unaccepted - изначально данные не приняты
+//- placeholder - плейсхолдер в инпуте
+//- addClasses - дополнительные классы, применяемые на все элементы
+//- mask - маска для текстового инпута с маской
+//- additional - значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
+//- range - диапазон выбора значений спиннерами у дропдауна
+mixin input(title, types="", placeholder, addClasses, mask, additional="", range=[0, 5])
+	- var blockClassName = "input"
+	- var titleClassName = "input__title"
+	- var controlWrapperCN = "input__control-wrapper"
+	- var controlClassName = "input__control"
+	- var dropdownClassName = "input__dropdown-list-wrapper"
+	- var classNames = [blockClassName, titleClassName, controlClassName, dropdownClassName, controlWrapperCN]
+
+	- var blockAttributes = {class: blockClassName + " " + addClasses + " "}
+	- var titleAttributes = {class: titleClassName + " " + "text_type_label-CTA input__title "}
+	- var dropdownAttributes = {class: " "}
+	- var controlWrapperAttrs = {class: `${controlWrapperCN} `}
+	- var controlAttributes = {class: controlClassName + " ", placeholder: placeholder}
+	- var attributes = {blockAttributes, titleAttributes, controlAttributes, dropdownAttributes, controlWrapperAttrs}
+
+
+	each value, index in Object.values(attributes)
+		//-ширина
+		if types.includes("narrow")
+			- value.class += classNames[index] + "_width_narrow "
+		else if types.includes("premedium")
+			- value.class += classNames[index] + "_width_premedium "
+		else if types.includes("medium")
+			- value.class += classNames[index] + "_width_medium "
+		//-если раскрывающийся - добавляем декорацию-стрелочку вниз
+		if types.includes("dropdown") || types.includes("datepicker")
+			include _decoration/_expand-arrow/input_decoration_expand-arrow
+			- value.class += classNames[index] + "_decoration_expand-arrow "
+		//-если подписка, то декорация-стрелочка вправо
+		else if types.includes("subscription")
+			include _decoration/_enter-arrow/input_decoration_enter-arrow
+			- value.class += classNames[index] + "_decoration_enter-arrow "
+	//-календарь
+	if types.includes("datepicker")
+		include ./_type/_datepicker/input_type_datepicker
+		+addDatepicker(attributes, types, additional)
+	//-дропдаун
+	else if types.includes("dropdown")
+		include ./_type/_dropdown/input__list_type_dropdown
+		+addDropdown(attributes, types, additional)
+	//-Просто текст
+	else if types.includes("text")
+		+addTextInput(attributes, additional, classNames, title, types)
+	//-Текст с маской
+	else if types.includes("mask")
+		include _type/_masked/input_masked
+		+addMaskedInput(attributes, additional, additional, types)

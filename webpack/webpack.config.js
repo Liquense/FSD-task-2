@@ -18,8 +18,8 @@ const mainPages = ['index'].map((name) => new HtmlWebpackPlugin({
   chunks: [`${name}`, 'vendors'],
 }));
 const sitePages = [
-  'ui-kit', 'landingPage', 'registrationLogin', 'roomDetails', 'searchRoom'].map((name) => new HtmlWebpackPlugin({
-  template: `./src/sitePages/${name}/${name}.pug`,
+  'ui-kit', 'landing-page', 'registration-login', 'room-details', 'search-room'].map((name) => new HtmlWebpackPlugin({
+  template: `./src/site-pages/${name}/${name}.pug`,
   filename: `${name}.html`,
   chunks: [`${name}`, 'vendors'],
 }));
@@ -31,11 +31,11 @@ module.exports = {
   // названия чанков должны совпадать с названиями страниц для привязки
   entry: {
     index: `${paths.source}/index.js`,
-    'ui-kit': `${paths.source}/sitePages/ui-kit/ui-kit.js`,
-    landingPage: `${paths.source}/sitePages/landingPage/landingPage.js`,
-    registrationLogin: `${paths.source}/sitePages/registrationLogin/registrationLogin.js`,
-    roomDetails: `${paths.source}/sitePages/roomDetails/roomDetails.js`,
-    searchRoom: `${paths.source}/sitePages/searchRoom/searchRoom.js`,
+    'ui-kit': `${paths.source}/site-pages/ui-kit/ui-kit.js`,
+    'landing-page': `${paths.source}/site-pages/landing-page/landing-page.js`,
+    'registration-login': `${paths.source}/site-pages/registration-login/registration-login.js`,
+    'room-details': `${paths.source}/site-pages/room-details/room-details.js`,
+    'search-room': `${paths.source}/site-pages/search-room/search-room.js`,
   },
   output: {
     path: paths.build,

@@ -1,0 +1,167 @@
+.footer_type_large {
+  h3 {
+    margin: 0;
+  }
+
+  .footer__content-section {
+    min-height: 372px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    @media (max-width: 1439px) {
+      align-items: center;
+    }
+    @media (max-width: 1039px) {
+      flex-direction: column;
+
+      > :not(:first-child) {
+        margin: 0;
+        margin-top: 30px;
+      }
+    }
+    @media (max-width: 700px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .footer__logo-section {
+      align-self: flex-start;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+      align-items: flex-start;
+      margin-right: get-vw(40px);
+      @media (max-width: 1439px) {
+        margin-right: 0;
+      }
+      @media (max-width: 1039px) {
+        align-items: center;
+      }
+
+      .footer__logo {
+        margin-bottom: 17px;
+      }
+
+      .footer__logo-text {
+        letter-spacing: -0.1px;
+        max-width: 260px;
+        line-height: 24px;
+        @media (max-width: 1039px) {
+          width: 70%;
+          text-align: center;
+          max-width: unset;
+        }
+        @media (max-width: 700px) {
+          width: 90%;
+        }
+        @media (max-width: 450px) {
+          width: 100%;
+        }
+      }
+    }
+
+    .footer__links-section {
+      display: grid;
+      width: 100%;
+      row-gap: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(get-vw(200px), 1fr));
+      padding-top: 6px; //не придумал гибкого варианта, т.к. на макете они не строго по центру контейнера, но и не вровень с логотипом
+      @media (max-width: 1439px) {
+        grid-template-columns: repeat(auto-fit, 1fr);
+        justify-items: center;
+        column-gap: get-vw(10px);
+      }
+
+      .footer__links-column {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: get-vw(190px);
+        @media (max-width: 1439px) {
+          min-width: unset;
+          width: fit-content;
+        }
+
+        .footer__links-section-title {
+          margin-bottom: 21.8px;
+          letter-spacing: -0.15px;
+        }
+
+        .footer__link {
+          &:not(:last-child) {
+            margin-bottom: 21px;
+          }
+
+          line-height: 17px;
+        }
+      }
+    }
+
+    .footer__subscribe-section {
+      align-self: flex-start;
+      width: min-content;
+      display: flex;
+      flex-direction: column;
+      padding-top: 6px;
+
+      @media (max-width: 1039px) {
+        align-self: center;
+      }
+
+      .footer__subscription-title {
+        margin-bottom: 20px;
+      }
+
+      .footer__subscription-text {
+        line-height: 24px;
+        margin-bottom: 18px;
+      }
+
+      .footer__subscribe-input {
+      }
+    }
+  }
+
+  .footer__copyright-bar {
+    padding-right: get-vw(140px);
+    padding-left: get-vw(140px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: solid 1px $darkShade25;
+    height: 70px;
+
+    @media (max-width: 700px) {
+      padding-left: 0;
+      padding-right: 0;
+      justify-content: space-evenly;
+    }
+    @media (max-width: 450px) {
+      justify-content: space-between;
+    }
+
+    .footer__copyright-text {
+    }
+
+    .footer__social-media {
+      @media (max-width: 450px) {
+        min-width: 80px;
+      }
+
+      .footer__icon {
+        &:not(:first-child) {
+          margin-left: get-vw(23px); //в макете 20, а по ПП - 23
+        }
+
+        &.footer__twitter-icon {
+        }
+
+        &.footer__facebook-icon {
+        }
+
+        &.footer__instagram-icon {
+        }
+      }
+    }
+  }
+}

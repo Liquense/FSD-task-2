@@ -1,0 +1,18 @@
+include  ../../blocks/two-calendar-range-picker/two-calendar-range-picker
+include ../../blocks/input/input
+include ../../blocks/button/button
+
+mixin findRoomCard()
+	-var addClasses = attributes.addClasses ? attributes.addClasses : '';
+	div(class=`find-room-card ${addClasses}`)
+		h3.find-room-card__title.text_type_widget-title Найдём номера под ваши пожелания
+		+twoCalendarRangePicker({labels: ["Прибытие", "Выезд"]})(addClasses = "find-room-card__range-picker")
+		+input("Гости",
+			"dropdown customers",
+			"Сколько гостей",
+			"find-room-card__dropdown",
+			"",
+			[{name: "Взрослые"}, {name: "Дети"}, {name: "Младенцы"}])
+		+Button("Подобрать номер",
+			"button_type_filled button_size_wide find-room-card__button"
+			)(decoration = "enterArrow")

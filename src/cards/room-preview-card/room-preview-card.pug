@@ -1,0 +1,64 @@
+include ../../blocks/carousel/carousel
+include ../../blocks/rate-button/rate-button
+//- room
+	{
+		currencySymbol: string
+		costPerPeriod: int
+		reviewsCount: int
+		roomNumber: string
+		roomType: string
+		periodText: string
+		rating: [int, int] | [rating, maxRating]
+	}
+//- carousel
+	{
+		content:
+		[
+			{
+				tag: string | HTML tag
+				src: string | path to image
+			}
+		]
+		carouselParams:
+		{
+			"data-arrows": bool
+			"data-dots": bool
+		}
+	}
+
+mixin roomPreviewCard(room = {}, carousel = {content: [], carouselParams: {}})
+	-if (!room)
+	-	room = {};
+	-room.currencySymbol = room.currencySymbol ? room.currencySymbol : "₽";
+	-room.periodText = room.periodText ? room.periodText : "в сутки";
+	-room.rating = room.rating ? room.rating : [5, 5];
+
+	div(
+		class=`room-preview-card ${attributes.addClasses ? attributes.addClasses : ""}`
+		data-currency=room.currencySymbol
+		data-cost-per-period=room.costPerPeriod
+		data-reviews-count=room.reviewsCount
+		)
+		+carousel(carousel)(addClasses="room-preview-card__photos")
+		div.room-preview-card__text-content
+			div.room-preview-card__room-info
+				div.room-preview-card__room-description
+					span.room-preview-card__room-num-symbol.text_type_label-CTA
+						|№
+					span.room-preview-card__room-number.text_type_label-CTA
+						|#{` ${room.roomNumber} `}
+					span.room-preview-card__room-type.text_type_label-CTA
+						|#{room.roomType}
+				div.room-preview-card__cost-info
+					span.room-preview-card__cost-per-period.text_type_regular
+						|#{room.costPerPeriod}#{room.currencySymbol}
+					span.room-preview-card__period.text_type_regular
+						|#{room.periodText}
+			hr.room-preview-card__division-line
+			div.room-preview-card__rate-info
+				+rateButton({maxRating: room.rating[1], rating: room.rating[0]})(addClasses="room-preview-card__rating")
+				div.room-preview-card__reviews-info
+					span.room-preview-card__reviews-count.text_type_regular
+						|#{room.reviewsCount}
+					span.room-preview-card__reviews-text.text_type_regular
+						|Отзывов

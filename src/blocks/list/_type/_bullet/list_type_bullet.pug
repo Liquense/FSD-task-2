@@ -1,0 +1,32 @@
+mixin bulletList(title="", contentStrings = [])
+	//- CN - className
+	-const blockModifier = "_type_bullet"
+	-const addClasses = attributes.addClasses ? attributes.addClasses : ""
+
+	-const listCN = "list"
+	-const listTitleCN = "list__title"
+	-const listContainerCN = "list__container"
+	-const listElementCN = "list__item"
+	-const listElementImageCN = "list__item-image"
+	-const listElementTextCN = "list__item-text"
+	-const classNames = [listCN, listTitleCN, listContainerCN, listElementCN, listElementImageCN, listElementTextCN]
+
+	-let listAttrs = {class: `${listCN} ${listCN}${blockModifier} ${addClasses} `}
+	-let listTitleAttrs = {class: `${listTitleCN} ${listTitleCN}${blockModifier} text_type_label-CTA `}
+	-let listContainerAttrs = {class: `${listContainerCN} ${listContainerCN}${blockModifier} `}
+	-let listElementAttrs = {class: `${listElementCN} ${listElementCN}${blockModifier} `}
+	-let listElementImageAttrs = {class: `${listElementImageCN} ${listElementImageCN}${blockModifier} `}
+	-let listElementTextAttrs = {class: `${listElementTextCN} ${listElementTextCN}${blockModifier} text_type_regular `}
+	-const blAttributes = [listAttrs, listTitleAttrs, listContainerAttrs, listElementAttrs, listElementImageAttrs, listElementTextAttrs]
+
+	if attributes.isExpandable
+		each value, index in blAttributes
+			- value.class += classNames[index] + "_expandable "
+
+	div&attributes(listAttrs)
+		h4&attributes(listTitleAttrs) #{title}
+		ul&attributes(listContainerAttrs)
+			each string, index in contentStrings
+				li&attributes(listElementAttrs)
+					div&attributes(listElementImageAttrs)
+					span&attributes(listElementTextAttrs) #{string}
