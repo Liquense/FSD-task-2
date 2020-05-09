@@ -6,10 +6,13 @@
  * @param classes
  * @returns {*|jQuery}
  */
-export default function initCheckboxes(jquerySelector, classes) {
+export default function initCheckbox(jquerySelector, classes) {
   const $hiddenInput = $(jquerySelector);
   function initialization() {
     const $singleInput = $(this);
+
+    if ($singleInput.data('uiCheckboxradio')) return; // чтобы не инициализировать лишнего
+
     const checkbox = $singleInput.checkboxradio({
       classes: {
         'ui-checkboxradio-icon': classes.icon,

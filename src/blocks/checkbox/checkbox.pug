@@ -35,7 +35,7 @@ mixin checkbox(text, types, additional, addClasses="", isChecked=false)
       each value, index in attrs
         - value.class += classNames[index] + "_type_like "
       - inputAttrs.type = "checkbox"
-      - labelAttrs["data-likes-count"] = isChecked ? Number.parseInt(text) - 1 : text
+      - labelAttrs["data-likes-count"] = text
     else
       each value, index in attrs
         - value.class += classNames[index] + "_type_default "
