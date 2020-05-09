@@ -31,10 +31,12 @@
       flex-shrink: 0;
       align-items: flex-start;
       margin-right: get-vw(40px);
+
       @media (max-width: 1439px) {
         margin-right: 0;
       }
       @media (max-width: 1039px) {
+        align-self: unset;
         align-items: center;
       }
 

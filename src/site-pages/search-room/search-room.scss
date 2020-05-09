@@ -27,7 +27,7 @@ $roomCardWidth: 270px;
     text-align: center;
     color: $darkShade50;
 
-    @media (max-width: 810px) {
+    @media (max-width: 654px) {
       display: block;
 
       & + .search-room__sidebar {
