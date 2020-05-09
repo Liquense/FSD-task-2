@@ -57,7 +57,7 @@
 /******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
 /******/ 	// Promise = chunk loading, 0 = chunk loaded
 /******/ 	var installedChunks = {
-/******/ 		"index": 0
+/******/ 		"landing-page": 0
 /******/ 	};
 /******/
 /******/ 	var deferredModules = [];
@@ -148,7 +148,7 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./src/index.js","vendors"]);
+/******/ 	deferredModules.push(["./src/site-pages/landing-page/landing-page.js","vendors"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
@@ -174,6 +174,39 @@ eval("module.exports = \"images/arrow_back.svg\";\n\n//# sourceURL=webpack:///./
 /***/ (function(module, exports) {
 
 eval("module.exports = \"images/expand_more.svg\";\n\n//# sourceURL=webpack:///./src/assets/images/expand_more.svg?");
+
+/***/ }),
+
+/***/ "./src/assets/images/room-big-1.jpg":
+/*!******************************************!*\
+  !*** ./src/assets/images/room-big-1.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"images/room-big-1.jpg\";\n\n//# sourceURL=webpack:///./src/assets/images/room-big-1.jpg?");
+
+/***/ }),
+
+/***/ "./src/assets/images/room-big-2.jpg":
+/*!******************************************!*\
+  !*** ./src/assets/images/room-big-2.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"images/room-big-2.jpg\";\n\n//# sourceURL=webpack:///./src/assets/images/room-big-2.jpg?");
+
+/***/ }),
+
+/***/ "./src/assets/images/room-big-3.jpg":
+/*!******************************************!*\
+  !*** ./src/assets/images/room-big-3.jpg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"images/room-big-3.jpg\";\n\n//# sourceURL=webpack:///./src/assets/images/room-big-3.jpg?");
 
 /***/ }),
 
@@ -536,6 +569,52 @@ eval("\n\n__webpack_require__(/*! ./_type/text_type_item-title.scss */ \"./src/b
 
 /***/ }),
 
+/***/ "./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js":
+/*!***************************************************************************!*\
+  !*** ./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.setInitialDates = setInitialDates;\nexports.initTwoCalendarPicker = initTwoCalendarPicker;\n\nvar _input_type_datepicker = __webpack_require__(/*! ../input/_type/_datepicker/input_type_datepicker */ \"./src/blocks/input/_type/_datepicker/input_type_datepicker.js\");\n\n__webpack_require__(/*! ./two-calendar-range-picker.scss */ \"./src/blocks/two-calendar-range-picker/two-calendar-range-picker.scss\");\n\n/* eslint-disable no-undef */\n// jquery подключена вебпаком\nvar isSecondAssignStarted = false;\n\nfunction handleOnSelect(formattedDate, datepicker, otherDatepicker, input, otherInput, number) {\n  if (isSecondAssignStarted) return;\n  var otherNumber = 1 - number;\n  var newDates = datepicker.selectedDates; // если дат в пикере больше одной, то перезаписываем данные в инпуте,\n  // если одна - оставляем дефолтное поведение\n  // иначе второй пикер будет очищать оба при фокусе на нём\n\n  if (datepicker.selectedDates.length > 1) {\n    $(input).val(newDates[number].toLocaleDateString());\n  } else {\n    datepicker.update({\n      dateFormat: ''\n    });\n    otherDatepicker.update({\n      dateFormat: 'ДД.ММ.ГГГГ'\n    });\n  }\n\n  isSecondAssignStarted = true;\n  otherDatepicker.clear();\n  otherDatepicker.selectDate(datepicker.selectedDates);\n  isSecondAssignStarted = false;\n\n  if (datepicker.selectedDates.length > 1) {\n    $(otherInput).val(newDates[otherNumber].toLocaleDateString());\n  } // вызов ивента вручную, поскольку автоматически этого не происходит\n  // (отслеживание изменения инпута используется в booking-card)\n\n\n  $(input).change();\n}\n\nfunction datepickerAddOnSelect(datepicker, otherDatepicker, input, otherInput, number) {\n  datepicker.update({\n    dateFormat: '',\n    multipleDatesSeparator: ',',\n    onSelect: function onSelect(formattedDate) {\n      handleOnSelect(formattedDate, datepicker, otherDatepicker, input, otherInput, number);\n    }\n  });\n}\n\nfunction getInitDates($rangePicker) {\n  var dates = {};\n\n  if ($rangePicker.attr('data-firstdate')) {\n    dates.firstDate = (0, _input_type_datepicker.parseAttrToDate)($rangePicker.attr('data-firstdate'));\n  }\n\n  if ($rangePicker.attr('data-seconddate')) {\n    dates.secondDate = (0, _input_type_datepicker.parseAttrToDate)($rangePicker.attr('data-seconddate'));\n  }\n\n  return dates;\n}\n\nfunction setInitialDates($rangePicker, $input) {\n  var initDates = getInitDates($rangePicker);\n  (0, _input_type_datepicker.setDates)($input, Object.values(initDates));\n}\n\nfunction safeDatepickerInit($datepicker, $datepickerControl) {\n  if (!$datepickerControl.data('datepicker')) {\n    $datepicker.each(_input_type_datepicker.initDatepickerInput);\n    return $datepickerControl.data('datepicker');\n  }\n\n  return $datepickerControl.data('datepicker');\n}\n\nfunction initTwoCalendarPicker(index, element) {\n  var $twoCalendarRange = $(element);\n  var $firstInput = $($twoCalendarRange.find('.two-calendar-range-picker__first-datepicker')[0]);\n  var $firstInputControl = $($firstInput.find('.input__control_type_datepicker')[0]);\n  var firstDatepicker = safeDatepickerInit($firstInput, $firstInputControl);\n  var $secondInput = $($twoCalendarRange.find('.two-calendar-range-picker__second-datepicker')[0]);\n  var $secondInputControl = $($secondInput.find('.input__control_type_datepicker')[0]);\n  var secondDatepicker = safeDatepickerInit($secondInput, $secondInputControl);\n  if (!(firstDatepicker && secondDatepicker)) return;\n  firstDatepicker.update({\n    position: 'bottom left'\n  });\n  secondDatepicker.update({\n    position: 'bottom right'\n  });\n  datepickerAddOnSelect(firstDatepicker, secondDatepicker, $firstInputControl, $secondInputControl, 0);\n  datepickerAddOnSelect(secondDatepicker, firstDatepicker, $secondInputControl, $firstInputControl, 1);\n  var initDates = getInitDates($twoCalendarRange);\n\n  if (initDates.firstDate) {\n    firstDatepicker.selectDate(initDates.firstDate);\n  }\n\n  if (initDates.secondDate) {\n    secondDatepicker.selectDate(initDates.secondDate);\n  }\n}\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/two-calendar-range-picker/two-calendar-range-picker.scss":
+/*!*****************************************************************************!*\
+  !*** ./src/blocks/two-calendar-range-picker/two-calendar-range-picker.scss ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/two-calendar-range-picker/two-calendar-range-picker.scss?");
+
+/***/ }),
+
+/***/ "./src/cards/find-room-card/find-room-card.js":
+/*!****************************************************!*\
+  !*** ./src/cards/find-room-card/find-room-card.js ***!
+  \****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = initFindRoomCard;\n\n__webpack_require__(/*! ./find-room-card.scss */ \"./src/cards/find-room-card/find-room-card.scss\");\n\n__webpack_require__(/*! ../../blocks/input/input */ \"./src/blocks/input/input.js\");\n\nvar _twoCalendarRangePicker = __webpack_require__(/*! ../../blocks/two-calendar-range-picker/two-calendar-range-picker */ \"./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js\");\n\nvar _input__list_type_dropdown = __webpack_require__(/*! ../../blocks/input/_type/_dropdown/input__list_type_dropdown */ \"./src/blocks/input/_type/_dropdown/input__list_type_dropdown.js\");\n\n/* eslint-disable no-undef */\n// jquery подключена вебпаком\nfunction initFindRoomCard(index, cardElement) {\n  var $card = $(cardElement);\n  var $twoCalendarPickers = $card.find('.two-calendar-range-picker');\n  $twoCalendarPickers.each(_twoCalendarRangePicker.initTwoCalendarPicker);\n  var $dropdowns = $card.find('.input_type_dropdown');\n  $dropdowns.each(_input__list_type_dropdown.initDropdownInput);\n}\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/cards/find-room-card/find-room-card.js?");
+
+/***/ }),
+
+/***/ "./src/cards/find-room-card/find-room-card.scss":
+/*!******************************************************!*\
+  !*** ./src/cards/find-room-card/find-room-card.scss ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/cards/find-room-card/find-room-card.scss?");
+
+/***/ }),
+
 /***/ "./src/common.js":
 /*!***********************!*\
   !*** ./src/common.js ***!
@@ -568,29 +647,6 @@ eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/
 
 "use strict";
 eval("/* WEBPACK VAR INJECTION */(function(jQuery) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.formatNumber = formatNumber;\nexports.checkDateArraysEquality = checkDateArraysEquality;\nexports.ruDeclination = ruDeclination;\nexports.copyArrayOfObjects = copyArrayOfObjects;\nexports.clamp = clamp;\n\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n/* eslint-disable no-undef */\n// jquery объявлена вебпаком\n\n/**\r\n * добавляет пробелы на каждом третьем разряде числа\r\n * @param number форматируемое число\r\n * @param {string} symbol символ для вставки между триадами\r\n * @returns {string} итоговое число в виде строки\r\n */\nfunction formatNumber(number, symbol) {\n  if (Number.isNaN(number * 1)) {\n    return 'not number';\n  }\n\n  var stringNum = number.toString();\n  var formattedNum = [];\n\n  for (var i = stringNum.length - 1; i >= 0; i -= 1) {\n    if ((stringNum.length - i) % 3 === 0 && stringNum.length - i > 0) {\n      formattedNum[i] = \"\".concat(symbol).concat(stringNum[i]);\n    } else {\n      formattedNum[i] = stringNum[i];\n    }\n  }\n\n  return formattedNum.join('');\n}\n\nfunction checkDateArraysEquality(first, second) {\n  if (first.length !== second.length) return false;\n  return !first.some(function (value, index) {\n    var _second$index;\n\n    return value.getTime() !== ((_second$index = second[index]) === null || _second$index === void 0 ? void 0 : _second$index.getTime());\n  });\n}\n/**\r\n * Функция для склонения русских слов\r\n * Пример использования: ruDeclination(5,'комментари|й|я|ев')\r\n *\r\n * @author Павел Белоусов <pafnuty10@gmail.com>\r\n *\r\n * @param      {number}  number  Число, для которого будет расчитано окончание\r\n * @param      {string}  words   Слово и варианты окончаний для 1|2|100\r\n * (1 комментарий, 2 комментария, 100 комментариев)\r\n * @return     {string}  Cлово с правильным окончанием\r\n */\n\n\nfunction ruDeclination(number, words) {\n  var w = words.split('|');\n  var n = Math.abs(number); // abs на случай отрицательного значения\n\n  var firstEndingCondition = n % 10 === 1 && n % 100 !== 11;\n  var secondEndingCondition = n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20);\n\n  if (firstEndingCondition) {\n    return w[0] + w[1];\n  }\n\n  if (secondEndingCondition) {\n    return w[0] + w[2];\n  }\n\n  return w[0] + w[3];\n}\n/**\r\n * Возвращает HTML-код, включая сам объект, а не только его содержимое\r\n * @returns {jQuery}\r\n */\n\n\nfunction outerHTML() {\n  return jQuery('<div />').append(this.eq(0).clone()).html();\n} // eslint-disable-next-line no-undef\n\n\njQuery.fn.outerHTML = outerHTML;\n/**\r\n * Копирует простые объекты (без вложенных ссылочных типов) в новый экземпляр\r\n * @param arrayOfObj [{}, {}...] исходный массив объектов\r\n * @returns {[]} новый массив объектов\r\n */\n\nfunction copyArrayOfObjects(arrayOfObj) {\n  return arrayOfObj.map(function (obj) {\n    return _objectSpread({}, obj);\n  });\n}\n\nfunction clamp(value, min, max) {\n  return Math.min(Math.max(value, min), max);\n}\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/common/functions.js?");
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-eval("\n\n__webpack_require__(/*! ./common */ \"./src/common.js\");\n\n__webpack_require__(/*! ./index.scss */ \"./src/index.scss\");\n\n//# sourceURL=webpack:///./src/index.js?");
-
-/***/ }),
-
-/***/ "./src/index.scss":
-/*!************************!*\
-  !*** ./src/index.scss ***!
-  \************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/index.scss?");
 
 /***/ }),
 
@@ -693,6 +749,29 @@ eval("/* WEBPACK VAR INJECTION */(function($) {\n\n__webpack_require__(/*! ../..
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/page-elements/header/header.scss?");
+
+/***/ }),
+
+/***/ "./src/site-pages/landing-page/landing-page.js":
+/*!*****************************************************!*\
+  !*** ./src/site-pages/landing-page/landing-page.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\n__webpack_require__(/*! ../../common */ \"./src/common.js\");\n\nvar _findRoomCard = _interopRequireDefault(__webpack_require__(/*! ../../cards/find-room-card/find-room-card */ \"./src/cards/find-room-card/find-room-card.js\"));\n\n__webpack_require__(/*! ./landing-page.scss */ \"./src/site-pages/landing-page/landing-page.scss\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n/* eslint-disable no-undef */\n// jquery подключена вебпаком\nvar imagePaths = [];\nimagePaths.push(__webpack_require__(/*! ../../assets/images/room-big-1.jpg */ \"./src/assets/images/room-big-1.jpg\"));\nimagePaths.push(__webpack_require__(/*! ../../assets/images/room-big-2.jpg */ \"./src/assets/images/room-big-2.jpg\"));\nimagePaths.push(__webpack_require__(/*! ../../assets/images/room-big-3.jpg */ \"./src/assets/images/room-big-3.jpg\"));\nvar $roomContainers = $('.landing-page__room-container');\n\nfunction initRoomContainer() {\n  var $container = $(this);\n  var randomNum = Math.floor(Math.random() * imagePaths.length);\n  $container.css('background-image', \"url(\".concat(imagePaths[randomNum], \")\"));\n}\n\n$roomContainers.each(initRoomContainer);\nvar $findRoomCardButton = $('.find-room-card__button');\n$findRoomCardButton.click(function () {\n  window.location.href = 'search-room.html';\n});\nvar $findRoomCards = $('.find-room-card');\n$findRoomCards.each(_findRoomCard[\"default\"]);\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/site-pages/landing-page/landing-page.js?");
+
+/***/ }),
+
+/***/ "./src/site-pages/landing-page/landing-page.scss":
+/*!*******************************************************!*\
+  !*** ./src/site-pages/landing-page/landing-page.scss ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/site-pages/landing-page/landing-page.scss?");
 
 /***/ }),
 
