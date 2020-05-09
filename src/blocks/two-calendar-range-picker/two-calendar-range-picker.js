@@ -12,12 +12,13 @@ function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, other
   if (isSecondAssignStarted) return;
   const otherNumber = 1 - number;
   const newDates = datepicker.selectedDates;
+  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
 
   // если дат в пикере больше одной, то перезаписываем данные в инпуте,
   // если одна - оставляем дефолтное поведение
   // иначе второй пикер будет очищать оба при фокусе на нём
   if (datepicker.selectedDates.length > 1) {
-    $(input).val(newDates[number].toLocaleDateString());
+    $(input).val(newDates[number].toLocaleDateString('ru-RU', options));
   } else {
     datepicker.update({ dateFormat: '' });
     otherDatepicker.update({ dateFormat: 'ДД.ММ.ГГГГ' });
@@ -29,7 +30,7 @@ function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, other
   isSecondAssignStarted = false;
 
   if (datepicker.selectedDates.length > 1) {
-    $(otherInput).val(newDates[otherNumber].toLocaleDateString());
+    $(otherInput).val(newDates[otherNumber].toLocaleDateString('ru-RU', options));
   }
 
   // вызов ивента вручную, поскольку автоматически этого не происходит
@@ -39,8 +40,6 @@ function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, other
 
 function datepickerAddOnSelect(datepicker, otherDatepicker, input, otherInput, number) {
   datepicker.update({
-    dateFormat: '',
-    multipleDatesSeparator: ',',
     onSelect: (formattedDate) => {
       handleOnSelect(
         formattedDate,
