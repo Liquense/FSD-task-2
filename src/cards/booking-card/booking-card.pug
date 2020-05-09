@@ -1,0 +1,47 @@
+include ../../blocks/two-calendar-range-picker/two-calendar-range-picker
+include ../../blocks/input/input
+include ../../blocks/button/button
+
+//- data = {
+	arrivalDate: string("dd.MM.yyyy") - дата въезда
+	departureDate: string("dd.MM.yyyy") - дата выезда
+	}
+mixin bookingCard(data={})
+	div(class = `booking-card ${attributes.addClasses ? attributes.addClasses : ""}`)
+		header.booking-card__header
+			div.booking-card__room-info
+				span.booking-card__number-text.text_type_widget-title №
+				h3.booking-card__room-num.text_type_label-CTA #{data.roomNumber}
+				span.booking-card__room-type.text_type_label-CTA #{data.roomType}
+			div.booking-card__price-info
+				span.booking-card__daily-price.text_type_label-CTA(data-dailyPrice=data.dailyPrice data-currency=data.currency) #{data.dailyPrice}#{data.currency}
+				span.booking-card__payment-period.text_type_regular  в сутки
+		+twoCalendarRangePicker({labels: ["Прибытие", "Выезд"], firstDate: data.arrivalDate, secondDate: data.departureDate})(addClasses = "booking-card__range-picker")
+		+input("Гости",
+			"dropdown customers unified",
+			"Сколько гостей",
+			"booking-card__guests-dropdown",
+			"",
+			data.dropdownItems)
+		div.booking-card__check-container.text_type_regular()
+			div.booking-card__staying-cost-row.row
+				span.booking-card__staying-cost-calculation.col1 test
+				span.booking-card__staying-cost-sum.col3 test
+			div.booking-card__services-cost-row.row
+				span.booking-card__services.col1(data-services=data.services)
+				+infoIcon()(addClasses="col2")
+				span.booking-card__services-sum.col3
+			div.booking-card__additional-services-row.row
+				span.booking-card__additional-services-text.col1 Сбор за дополнительные услуги
+				+infoIcon()(addClasses="col2")
+				span.booking-card__additional-services-sum.col3(data-addServices=data.additionalPrice) #{data.additionalPrice}#{data.currency}
+		div.booking-card__summary.text_type_item-title
+			span.booking-card__summary-text Итого
+			div.booking-card__summary-dash-underline
+			span.booking-card__summary-total-cost
+		+Button("Забронировать",
+			"button_type_filled button_size_wide booking-card__booking-button"
+			)(decoration = "enterArrow")
+
+mixin infoIcon()
+	span(class=`booking-card__info-icon ${attributes.addClasses ? attributes.addClasses : ""}`) i

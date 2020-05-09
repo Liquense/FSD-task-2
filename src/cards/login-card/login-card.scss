@@ -1,0 +1,72 @@
+.login-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: fit-content;
+  max-width: 380px;
+  padding: 38px 29px 31px 29px;
+  background: white;
+  border: 1px solid $darkShade12;
+  box-sizing: border-box;
+  box-shadow: 0 0 25px $darkShade20;
+  border-radius: 4px;
+
+  .login-card__title {
+    align-self: stretch;
+    margin: 0;
+    margin-bottom: 17px;
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .login-card__email-input,
+  .login-card__password-input {
+    .input__control {
+      margin: 0;
+    }
+  }
+
+  .login-card__email-input {
+    margin-bottom: 6px;
+  }
+
+  .login-card__password-input {
+    margin-bottom: 20px;
+  }
+
+  .login-card__login-button {
+    margin-bottom: 30px;
+  }
+
+  .login-card__create-account-container {
+    display: flex;
+    justify-content: space-between;
+    align-self: stretch;
+    align-items: center;
+
+    .login-card__havent-account {
+      color: black;
+    }
+
+    .login-card__create-login-button {
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .login-card {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0;
+
+    .login-card__title {
+      text-align: center;
+    }
+
+    .login-card__create-account-container {
+      justify-content: space-evenly;
+    }
+  }
+}

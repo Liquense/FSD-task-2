@@ -1,0 +1,83 @@
+@import "../../style-variables";
+
+.input__control_type_dropdown {
+  color: $darkShade75;
+  padding-right: 9.6ch;
+
+  &.input__control_focused {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.input__dropdown-list-wrapper_type_dropdown {
+  position: absolute;
+  width: $inputWidth;
+  border: $borderWidth solid $darkShade50;
+  border-top: 0;
+  border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
+  background-color: $inputBackgroundColor;
+  box-shadow: 0 10px 20px $darkShade5;
+  z-index: 10;
+
+  //toggle в jquery делает изменения через более приоритетные style в html,
+  //поэтому по дефолту элемент невидим
+  display: none;
+
+  &.input__dropdown-list-wrapper_width_narrow{
+    width: $narrowInputWidth;
+  }
+  &.input__dropdown-list-wrapper_width_medium {
+    width: $mediumInputWidth;
+  }
+
+  .input__dropdown-list_type_dropdown {
+    padding: 0;
+    margin: 6px - $borderWidth 7px - $borderWidth 7px 15px - $borderWidth;;
+    width: calc(100% - (14px - #{$borderWidth}) - (7px - #{$borderWidth}));
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    .input__dropdown-list-row_type_dropdown {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 7px;
+
+      .input__dropdown-text_type_dropdown {
+        margin: 0;
+        line-height: 30px;
+      }
+    }
+  }
+
+  .input__control-buttons-container {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 18px 6px 12px 14px;
+
+    @include clearfix();
+
+    &.input__control-buttons-container_visible {
+      display: block;
+      height: fit-content;
+    }
+
+    .input__clear-button {
+      display: none;
+      &.input__clear-button_visible {
+        display: block;
+        float: left;
+      }
+    }
+
+    .input__confirm-button {
+      display: none;
+      &.input__confirm-button_visible {
+        display: block;
+        float: right;
+      }
+    }
+  }
+}

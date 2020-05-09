@@ -1,0 +1,102 @@
+.room-preview-card {
+  height: fit-content;
+  width: 270px;
+  background: white;
+  box-shadow: 0px 10px 20px $darkShade5;
+  border-radius: 4px;
+  overflow: hidden;
+  @media (max-width: 551px) {
+    border-radius: 0;
+  }
+
+  .room-preview-card__photos {
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .room-preview-card__text-content {
+    padding: 0px 18px 20px 20px;
+    cursor: pointer;
+
+    .room-preview-card__room-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 9px;
+
+      :not(:last-child) {
+        margin-right: 4px;
+      }
+
+      .room-preview-card__room-description {
+        display: flex;
+        align-items: baseline;
+
+        .room-preview-card__room-num-symbol {
+          color: black;
+          font-size: 14px;
+          line-height: 14px;
+        }
+
+        .room-preview-card__room-number {
+          color: black;
+          font-size: 17px;
+          line-height: 24px;
+        }
+
+        .room-preview-card__room-type {
+          color: $purple;
+        }
+      }
+
+      .room-preview-card__cost-info {
+        display: flex;
+        align-items: baseline;
+
+        .room-preview-card__cost-per-period {
+          color: $darkShade50;
+          font-size: 14px;
+          font-weight: bold;
+        }
+
+        .room-preview-card__period {
+          font-size: 12px;
+          line-height: 12px;
+          color: $darkShade50;
+        }
+      }
+    }
+
+    .room-preview-card__division-line {
+      border-color: $darkShade5;
+      margin-bottom: 8px;
+    }
+
+    .room-preview-card__rate-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      .room-preview-card__rating {
+        .rateButton__star {
+          cursor: pointer;
+        }
+      }
+
+      .room-preview-card__reviews-info {
+        :not(:last-child) {
+          margin-right: 4px;
+        }
+
+        .room-preview-card__reviews-count {
+          color: $darkShade50;
+          font-weight: bold;
+        }
+
+        .room-preview-card__reviews-text {
+          color: $darkShade50;
+        }
+      }
+    }
+  }
+}

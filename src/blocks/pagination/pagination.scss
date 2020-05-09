@@ -1,0 +1,86 @@
+$pageButtonSize: 40px;
+
+.pagination {
+  .pagination__content-container {
+    .pagination__content {
+      text-align: center;
+    }
+  }
+
+  .pagination__buttons-container {
+    width: fit-content;
+    margin: 0 auto;
+
+    .paginationjs {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .paginationjs-pages {
+        ul {
+          padding: 0;
+          margin: 0;
+
+          li {
+            display: inline-block;
+            border-radius: 50%;
+            width: $pageButtonSize;
+            height: $pageButtonSize;
+            text-align: center;
+
+            @media (max-width: 450px) {
+              position: relative;
+              width: 25px;
+              height: 25px;
+            }
+
+            a {
+              color: inherit;
+              text-decoration: none;
+              line-height: $pageButtonSize;
+
+              @media (max-width: 450px) {
+                position: absolute;
+                left: 0;
+                line-height: 25px;
+                width: 25px;
+                vertical-align: middle;
+              }
+            }
+
+            &.J-paginationjs-previous, &.J-paginationjs-next, &.active {
+              color: white;
+            }
+
+            &.J-paginationjs-previous, &.J-paginationjs-next {
+              @include icon();
+              background: linear-gradient($green 0%, $greenGradientSecond 100%);
+            }
+
+            &.active {
+              font-weight: bold;
+              background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
+            }
+
+            &.disabled:not(.paginationjs-ellipsis) {
+                display: none;
+            }
+
+            &.paginationjs-ellipsis {
+              opacity: 1;
+            }
+
+            @include text(Montserrat, normal, 12px, $pageButtonSize, $darkShade50, 0);
+          }
+        }
+      }
+    }
+
+    .paginationjs-nav {
+      align-self: flex-start;
+      margin: 10px auto 0 auto;
+    }
+  }
+}

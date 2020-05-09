@@ -1,0 +1,37 @@
+mixin featureList(items = [])
+	//- CN - className
+	-const blockModifier = "_type_feature"
+	-const addClasses = attributes.addClasses ? attributes.addClasses : ""
+
+	-const listCN = "list"
+	-const listContainerCN = "list__container"
+	-const listItemCN = "list__item"
+	-const listItemImageCN = "list__item-image"
+	-const listItemTextContainerCN = "list__item-text-container"
+	-const listItemTitleCN = "list__item-title"
+	-const listItemTextCN = "list__item-text"
+	-const classNames = [listCN, listContainerCN, listItemCN, listItemImageCN, listItemTextContainerCN, listItemTitleCN, listItemTextCN]
+
+	-let listAttrs = {class: `${listCN} ${listCN}${blockModifier} ${addClasses} `}
+	-let listContainerAttrs = {class: `${listContainerCN} ${listContainerCN}${blockModifier} `}
+	-let listElementAttrs = {class: `${listItemCN} ${listItemCN}${blockModifier} `}
+	-let listElementImageAttrs = {class: `${listItemImageCN} ${listItemImageCN}${blockModifier} `}
+	-let listItemTextContainerAttrs = {class: `${listItemTextContainerCN} ${listItemTextContainerCN}${blockModifier}`}
+	-let listItemTitleAttrs = {class: `${listItemTitleCN} ${listItemTitleCN}${blockModifier} text_type_regular `}
+	-let listElementTextAttrs = {class: `${listItemTextCN} ${listItemTextCN}${blockModifier} text_type_regular `}
+	-const blAttributes =
+	-	[listAttrs, listContainerAttrs, listElementAttrs, listElementImageAttrs,
+	-	listItemTextContainerAttrs, listItemTitleAttrs, listElementTextAttrs]
+
+	if attributes.isExpandable
+		each value, index in blAttributes
+			- value.class += classNames[index] + "_expandable "
+
+	div&attributes(listAttrs)
+		ul&attributes(listContainerAttrs)
+			each item, index in items
+				li&attributes(listElementAttrs)
+					span&attributes(listElementImageAttrs) #{item.icon}
+					div&attributes(listItemTextContainerAttrs)
+						h4&attributes(listItemTitleAttrs) #{item.title}
+						span&attributes(listElementTextAttrs) #{item.text}

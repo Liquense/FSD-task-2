@@ -1,0 +1,81 @@
+@import "../../variables";
+
+$likeHeight: 20px;
+$likeWidth: 40px;
+$likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
+
+.checkbox.checkbox_type_like {
+  width: $likeWidth;
+  height: $likeHeight;
+  @include clearfix;
+
+  .checkbox__label_type_like {
+    width: $likeWidth;
+    height: $likeHeight;
+    position: relative;
+    color: $darkShade25;
+    font-size: 10px;
+    padding-left: $likeCountLeftPadding;
+    text-align: center;
+    line-height: 19px;
+
+    &.ui-checkboxradio-checked {
+      color: $purple;
+
+      .checkbox__button-border_type_like {
+        content: "";
+        display: block;
+        width: $likeWidth;
+        height: $likeHeight;
+        background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
+        border-radius: $likeHeight/2;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
+
+    .checkbox__button_type_like {
+      width: $likeWidth;
+      height: $likeHeight;
+      margin: 0;
+      background-color: $inputBackgroundColor;
+      border-color: $darkShade25;
+      border-radius: $likeHeight/2;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      &:after {
+        content: "\e87e";
+        color: $darkShade25;
+        font-family: "Material Icons", sans-serif;
+        font-size: 10px;
+        line-height: 10px;
+        position: absolute;
+        left: 5px - $checkboxButtonBorderWidth;
+        top: 5px - $checkboxButtonBorderWidth;
+      }
+
+      &.ui-state-checked {
+        height: $likeHeight - 2*$checkboxButtonBorderWidth;
+        width: $likeWidth - 2*$checkboxButtonBorderWidth;
+        border: none;
+        top: $checkboxButtonBorderWidth;
+        left: $checkboxButtonBorderWidth;
+
+        &:after {
+          content: "\e87d";
+          color: $purple;
+          left: 5px - $checkboxButtonBorderWidth;
+          top: 5px - $checkboxButtonBorderWidth;
+          position: absolute;
+        }
+      }
+    }
+
+    .checkbox__text_type_like {
+      position: relative;
+    }
+  }
+}

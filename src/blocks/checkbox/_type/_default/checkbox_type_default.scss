@@ -1,0 +1,30 @@
+@import "../../variables";
+
+.checkbox_type_default {
+  .checkbox__label_type_default {
+    .checkbox__button_type_default {
+      border: $checkboxButtonBorderWidth solid $darkShade25;
+      color: transparent;
+      border-radius: 4px;
+    }
+
+    &:hover,
+    &.ui-checkboxradio-checked {
+      color: $darkShade50;
+    }
+
+    &:hover .checkbox__button_type_default,
+    &.ui-checkboxradio-checked .checkbox__button_type_default {
+      border-color: $purple;
+    }
+
+    &.ui-checkboxradio-checked .checkbox__button_type_default {
+      @include icon();
+      font-size: 14px;
+      font-weight: bolder;
+      @include textGradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
+      text-align: center;
+    }
+  }
+}
+

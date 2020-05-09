@@ -1,0 +1,15 @@
+include ../checkbox/checkbox
+
+mixin comment(commentData={})
+	-const addClasses = attributes.addClasses ? attributes.addClasses : ""
+	article(class=`comment ${addClasses}`)
+		div.comment__header
+			div.comment__col1.comment__avatar-wrap
+				img.comment__avatar(src=commentData.avatar, alt="user avatar")
+			div.comment__info-container.comment__col2
+				h4.comment__author.text_type_regular #{commentData.author}
+				span.comment__date-time.text_type_regular #{commentData.dateTime}
+		div.comment__content
+			div.comment__col1
+				+checkbox(commentData.likesCount, "like", "", "comment__like", commentData.isLiked)
+			span.comment__text.text_type_regular.comment__col2 #{commentData.text}
