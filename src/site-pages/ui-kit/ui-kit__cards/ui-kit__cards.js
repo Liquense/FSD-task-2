@@ -7,6 +7,7 @@ import '../../../cards/login-card/login-card';
 import initRegistrationCard from '../../../cards/registration-card/registration-card';
 import '../../../cards/room-preview-card/room-preview-card';
 import '../../../blocks/input/_type/_datepicker/input_type_datepicker';
+import initBookingCards from "../../../cards/booking-card/booking-card";
 
 
 const $datepickerCells = $('.datepicker--cell.datepicker--cell-day');
@@ -22,3 +23,4 @@ $datepickerCells.each((index, element) => {
 });
 
 initRegistrationCard();
+initBookingCards();

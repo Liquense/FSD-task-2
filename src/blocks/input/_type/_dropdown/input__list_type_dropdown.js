@@ -372,7 +372,6 @@ export function initDropdownInput(index, rootElement) {
 
   $control.click(() => {
     if (!isOpened) {
-      console.log('hey');
       $control.toggleClass('input__control_focused');
       $dropdown.toggle('fade');
       $dropdown.toggleClass(dropdownVisibleClass);
