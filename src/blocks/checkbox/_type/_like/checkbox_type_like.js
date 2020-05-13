@@ -8,11 +8,9 @@ function initLikeCheckbox() {
   const $likeButton = $($likeLabel.find('.checkbox__hidden-button_type_like')[0]);
 
   const checkboxRadioData = $likeButton.data('uiCheckboxradio');
-  console.log("before:" + $likeLabel.attr('data-likes-count'));
   initCheckbox($likeButton, {
     icon: 'checkbox__button checkbox__button_type_like',
   });
-  console.log("after:" + $likeLabel.attr('data-likes-count'));
 
   const gradientBorderElement = document.createElement('div');
   gradientBorderElement.classList.add('checkbox__button-border_type_like');
@@ -28,7 +26,6 @@ function initLikeCheckbox() {
 
   let likesCount = Number.parseInt($likeLabel.attr('data-likes-count'), 10);
   $likeButton.change(() => {
-    console.log(likesCount);
     const $likeText = $($likeLabel.find('.checkbox__text_type_like')[0]);
 
     likesCount = $likeLabel.hasClass('ui-checkboxradio-checked') ? likesCount + 1 : likesCount - 1;

@@ -4,8 +4,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-
 const paths = {
   source: path.join(__dirname, '../src'),
   build: path.join(__dirname, '../dist'),
@@ -42,7 +40,6 @@ module.exports = {
     filename: 'js/[name].bundle.js',
   },
   plugins: [
-    new BundleAnalyzerPlugin(),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',

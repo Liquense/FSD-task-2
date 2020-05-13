@@ -7,7 +7,7 @@
     "prod": "webpack --mode production --config webpack/webpack.prod.js",
     "build": "webpack --mode development --config webpack/webpack.config.js",
     "dev-server": "webpack-dev-server --config ./webpack/webpack.dev.js",
-    "stats": "webpack --json --profile > stats.json"
+    "eslint": "eslint --ext .js src/"
   },
   "repository": {
     "type": "git",

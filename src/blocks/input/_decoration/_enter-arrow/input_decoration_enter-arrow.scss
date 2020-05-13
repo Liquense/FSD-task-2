@@ -2,7 +2,10 @@
 
 .input_decoration_enter-arrow {
   .input__title {
-    .input__control-wrapper {
+    .input__control-wrapper_decoration_enter-arrow {
+      .input__control_decoration_enter-arrow {
+        padding-right: $inputHeight;
+      }
       .input__enter-arrow {
         @include icon();
         @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
