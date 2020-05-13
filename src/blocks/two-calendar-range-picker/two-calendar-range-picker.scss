@@ -1,8 +1,0 @@
-@import "../input/style-variables";
-$spaceBetweenInputs: 20px;
-
-.two-calendar-range-picker {
-  display: flex;
-  width: $narrowInputWidth*2 + $spaceBetweenInputs;
-  justify-content: space-between;
-}
