@@ -1,22 +1,22 @@
 mixin header__menuItem(itemData={})
-	-createChildrenRecursive = function(itemsArray) {
-		if itemsArray
-			div.header__submenu
-				each child in itemsArray
-					-let itemClasses =
-					-`header__submenu-item text_type_regular` +
-					-`${itemData.bold ? " header__submenu-item_bold" : ""}` +
-					-`${child.children ? " header__submenu-item_expandable" : ""}`
-					div(class=itemClasses) #{child.text}
-						if child.children
-							button.header__expand-button expand_more
-						-createChildrenRecursive(child.children)
-	-}
+  -function createChildrenRecursive (itemsArray) {
+    if itemsArray
+      div.header__submenu
+        each child in itemsArray
+          -let itemClasses =
+          -`header__submenu-item text_type_regular` +
+          -`${itemData.bold ? " header__submenu-item_bold" : ""}` +
+          -`${child.children ? " header__submenu-item_expandable" : ""}`
+          div(class=itemClasses) #{child.text}
+            if child.children
+              button.header__expand-button expand_more
+            -createChildrenRecursive(child.children)
+  -}
 
-	-let itemClasses = `header__menu-item text_type_regular` +
-	-`${itemData.bold ? " header__menu-item_bold" : ""}` +
-	-`${itemData.children ? " header__menu-item_expandable" : ""}`
-	li(class=itemClasses) #{itemData.text}
-		if itemData.children
-			button.header__expand-button expand_more
-		-createChildrenRecursive(itemData.children);
+  -let itemClasses = `header__menu-item text_type_regular` +
+  -`${itemData.bold ? " header__menu-item_bold" : ""}` +
+  -`${itemData.children ? " header__menu-item_expandable" : ""}`
+  li(class=itemClasses) #{itemData.text}
+    if itemData.children
+      button.header__expand-button expand_more
+    -createChildrenRecursive(itemData.children);

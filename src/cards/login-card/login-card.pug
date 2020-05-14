@@ -2,12 +2,12 @@ include ../../blocks/input/input
 include ../../blocks/button/button
 
 mixin loginCard(data={})
-	-var addClasses = attributes.addClasses ? attributes.addClasses : ''
-	div.login-card(class = addClasses)
-		h3.login-card__title.text_type_item-title Войти
-		+input("", "text", "Email", "login-card__email-input", "")
-		+input("", "text", "Пароль", "login-card__password-input", "")
-		+Button("Войти", "button_type_filled button_size_wide login-card__login-button")(decoration = "enterArrow")
-		div.login-card__create-account-container
-			span.login-card__havent-account.text_type_regular Нет аккаунта на Toxin?
-			+Button("Создать", "button_type_bordered login-card__create-login-button")
+  -var addClasses = attributes.addClasses ? attributes.addClasses : ''
+  div.login-card(class = addClasses)
+    h3.login-card__title.text_type_item-title Войти
+    +input("", "text", "Email", "login-card__email-input", "")
+    +input("", "text", "Пароль", "login-card__password-input", "")
+    +Button("Войти", "button_type_filled button_size_wide login-card__login-button")(decoration = "enterArrow")
+    div.login-card__create-account-container
+      span.login-card__havent-account.text_type_regular Нет аккаунта на Toxin?
+      +Button("Создать", "button_type_bordered login-card__create-login-button")

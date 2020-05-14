@@ -2,29 +2,29 @@ include ../../blocks/button/button
 include __menu-item/header__menu-item
 
 mixin header(data={}, content=[], type="")
-	-var addClasses = "";
-	if type.includes("narrow")
-		-addClasses += "header_narrow "
-	-addClasses += attributes.addClasses ? attributes.addClasses : '';
-	header(class=`header ${addClasses}`)
-		a.header__logo-link
-			img(src=data.logo alt="logo").header__logo
-		div.header__content-container
-			ul.header__menu
-				each item, index in content
-					+header__menuItem(item)
-			if (data.userLogin)
-				div.header__divider
-				div.header__user-name.text_type_regular #{data.userLogin}
-			else
-				div.header__buttons-container
-						+Button(
-							data.loginText ? data.loginText : "Login",
-							"button_type_bordered header__login-button",
-							{isTextSized: true, isLink: true}
-						)
-						+Button(
-							data.registerText ? data.registerText : "Register",
-							"button_type_filled header__register-button",
-							{isTextSized: true, isLink: true}
-						)
+  -var addClasses = "";
+  if type.includes("narrow")
+    -addClasses += "header_narrow "
+  -addClasses += attributes.addClasses ? attributes.addClasses : '';
+  header(class=`header ${addClasses}`)
+    a.header__logo-link
+      img(src=data.logo alt="logo").header__logo
+    div.header__content-container
+      ul.header__menu
+        each item, index in content
+          +header__menuItem(item)
+      if (data.userLogin)
+        div.header__divider
+        div.header__user-name.text_type_regular #{data.userLogin}
+      else
+        div.header__buttons-container
+          +Button(
+            data.loginText ? data.loginText : "Login",
+            "button_type_bordered header__login-button",
+            {isTextSized: true, isLink: true}
+          )
+          +Button(
+            data.registerText ? data.registerText : "Register",
+            "button_type_filled header__register-button",
+            {isTextSized: true, isLink: true}
+          )
