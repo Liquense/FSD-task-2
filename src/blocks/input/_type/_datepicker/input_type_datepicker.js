@@ -1,8 +1,13 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
 import 'air-datepicker';
+
 import '../../../../assets/images/arrow-back.svg';
 import '../../../../assets/images/expand-more.svg';
+
+import './input_type_datepicker.scss';
+
+import './_inline/datepicker_inline.scss';
 
 const confirmButton = '<div class="button button_type_text input_type_datepicker__confirm-button">'
     + '<button class="button__control text_type_label-CTA datepicker--button" data-action="hide">Применить'

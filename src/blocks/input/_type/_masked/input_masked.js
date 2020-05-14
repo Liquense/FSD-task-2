@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
+import './input_masked.scss';
 import 'jquery.maskedinput/src/jquery.maskedinput';
 
 const $document = $(document);

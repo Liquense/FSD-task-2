@@ -2,6 +2,8 @@
 // jquery импортирована вебпаком, функции с подчеркиванием - часть плагина
 import 'jquery-ui/ui/widgets/spinner';
 
+import './input_type_spinner.scss';
+
 export const decreaseButtonClasses = 'input__dropdown-decrease_type_dropdown input__button_type_spinner ui-spinner-button ui-spinner-down';
 export const increaseButtonClasses = 'input__dropdown-increase_type_dropdown input__button_type_spinner ui-spinner-button ui-spinner-up';
 // морф, чтобы кнопки были по бокам
