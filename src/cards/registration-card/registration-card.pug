@@ -12,7 +12,7 @@ mixin registrationCard(data={})
     -var radioButtons = [{text: "Мужчина", group: "registrationGender", isChecked: true}]
     -radioButtons.push({text: "Женщина", group: "registrationGender"})
     +list("radio", "", radioButtons, "registration-card__gender-list")
-    +input("Дата рождения", "text mask", "ДД.ММ.ГГГГ", "registration-card__birthday", "[0123][0-9].[012][0-9].[0-9]{4}")
+    +input("Дата рождения", "mask", "ДД.ММ.ГГГГ", "registration-card__birthday", "[0123][0-9].[012][0-9].[0-9]{4}")
     div.registration-card__login-data-container
       p.text_type_label-CTA.registration-card__login-data-title Данные для входа в сервис
       +input("", "text", "Email", "registration-card__email")
