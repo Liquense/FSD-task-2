@@ -5,11 +5,11 @@ html(lang="ru")
     meta(name="viewport" content="width=device-width, initial-scale=1.0")
     meta(name="keywords" content="details")
     meta(name="description" content="room details page")
-    link(rel="icon" href=require('../../assets/images/icon-colored.png'))
+    link(rel="icon" href=require('../../assets/images/logo-colored.png'))
     title Информация о номере
   body
     include ../../page-elements/header/header
-    -const logoPath = require('../../assets/images/logo_colored_withText.svg')
+    -const logoPath = require('../../assets/images/logo-colored-withText.svg')
     +header(
       {
         loginText: "Войти",
@@ -65,7 +65,7 @@ html(lang="ru")
           div.room-details__reviews-content
             include ../../blocks/comment/comment
             +comment({
-              avatar: require("../../assets/images/userAvatar.jpg"),
+              avatar: require("../../assets/images/user-avatar.jpg"),
               author: "Мурад Сарафанов",
               dateTime: "5 дней назад",
               text: "Великолепный матрас на кровати в основной спальне! " +
@@ -75,7 +75,7 @@ html(lang="ru")
               likesCount: 12
             })(addClasses="room-details__comment")
             +comment({
-              avatar: require("../../assets/images/userAvatar-2.jpg"),
+              avatar: require("../../assets/images/user-avatar-2.jpg"),
               author: "Патрисия Стёклышкова",
               dateTime: "Неделю назад",
               text: "Обслуживание на высоте! Всё аккуратно, чисто. Завтраки в номер советую заказать, " +

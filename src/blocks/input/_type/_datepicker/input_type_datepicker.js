@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
 import 'air-datepicker';
-import '../../../../assets/images/arrow_back.svg';
-import '../../../../assets/images/expand_more.svg';
+import '../../../../assets/images/arrow-back.svg';
+import '../../../../assets/images/expand-more.svg';
 
 const confirmButton = '<div class="button button_type_text input_type_datepicker__confirm-button">'
     + '<button class="button__control text_type_label-CTA datepicker--button" data-action="hide">Применить'
@@ -117,8 +117,8 @@ export function initDatepickerInput(index, input) {
       months: '<span class="text_type_item-title">yyyy</span>',
       years: '<span class="text_type_item-title">yyyy1 - yyyy2</span>',
     },
-    prevHtml: '<img src="./images/arrow_back.svg" alt="назад"">',
-    nextHtml: '<img src="./images/arrow_back.svg" alt="назад" style="transform: scale(-1, 1)">',
+    prevHtml: '<img src="./images/arrow-back.svg" alt="назад"">',
+    nextHtml: '<img src="./images/arrow-back.svg" alt="назад" style="transform: scale(-1, 1)">',
     onSelect: (formattedDate) => {
       $inputControl.val(formattedDate.toLowerCase());
     },
