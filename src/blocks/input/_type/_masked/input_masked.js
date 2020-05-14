@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
-import '../../../../../vendor/jquery.maskedinput/src/jquery.maskedinput';
+import 'jquery.maskedinput/src/jquery.maskedinput';
 
 const $document = $(document);
-$document.ready(() => {
+$document.ready(($) => {
   $.mask.definitions.m = '[012]';
   $.mask.definitions.d = '[0123]';
 
