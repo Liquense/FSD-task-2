@@ -5,15 +5,15 @@ import initCheckbox from '../../checkbox-common';
 
 function initLikeCheckbox() {
   const $likeLabel = $(this);
-  const $likeButton = $($likeLabel.find('.checkbox__hidden-button_type_like')[0]);
+  const $likeButton = $($likeLabel.find('.checkbox_type_like__hidden-button')[0]);
 
   const checkboxRadioData = $likeButton.data('uiCheckboxradio');
   initCheckbox($likeButton, {
-    icon: 'checkbox__button checkbox__button_type_like',
+    icon: 'checkbox__button checkbox_type_like__button',
   });
 
   const gradientBorderElement = document.createElement('div');
-  gradientBorderElement.classList.add('checkbox__button-border_type_like');
+  gradientBorderElement.classList.add('checkbox_type_like__button-border');
   $likeLabel.prepend(gradientBorderElement);
 
   if (Number.isNaN(
@@ -26,7 +26,7 @@ function initLikeCheckbox() {
 
   let likesCount = Number.parseInt($likeLabel.attr('data-likes-count'), 10);
   $likeButton.change(() => {
-    const $likeText = $($likeLabel.find('.checkbox__text_type_like')[0]);
+    const $likeText = $($likeLabel.find('.checkbox_type_like__text')[0]);
 
     likesCount = $likeLabel.hasClass('ui-checkboxradio-checked') ? likesCount + 1 : likesCount - 1;
 
@@ -36,6 +36,6 @@ function initLikeCheckbox() {
 }
 
 export default function initLikeCheckboxes() {
-  const $likeCheckboxes = $('.checkbox__label_type_like');
+  const $likeCheckboxes = $('.checkbox_type_like__label');
   $likeCheckboxes.each(initLikeCheckbox);
 }

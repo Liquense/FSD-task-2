@@ -4,12 +4,12 @@ $likeHeight: 20px;
 $likeWidth: 40px;
 $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
 
-.checkbox.checkbox_type_like {
+.checkbox_type_like {
   width: $likeWidth;
   height: $likeHeight;
   @include clearfix;
 
-  .checkbox__label_type_like {
+  &__label {
     width: $likeWidth;
     height: $likeHeight;
     position: relative;
@@ -22,7 +22,7 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
     &.ui-checkboxradio-checked {
       color: $purple;
 
-      .checkbox__button-border_type_like {
+      .checkbox_type_like__button-border {
         content: "";
         display: block;
         width: $likeWidth;
@@ -35,7 +35,7 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
       }
     }
 
-    .checkbox__button_type_like {
+    .checkbox_type_like__button {
       width: $likeWidth;
       height: $likeHeight;
       margin: 0;
@@ -74,7 +74,7 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
       }
     }
 
-    .checkbox__text_type_like {
+    .checkbox_type_like__text {
       position: relative;
     }
   }

@@ -1,60 +1,81 @@
 //-
   types: checkbox/пусто - чекбокс, toggle - переключатель,
   additional - структура с дополнительными параметрами (description, text)
-mixin checkbox(text, types, additional, addClasses="", isChecked=false)
+mixin checkbox(data={})
+  -var defaultData = {isChecked: false, text, type, isRich: false, additional};
+  -data = Object.assign({}, defaultData, data);
+
   -var checkboxClassName = "checkbox"
-  -var labelClassName = "checkbox__label"
-  -var textClassName = "checkbox__text"
-  -var inputClassName = "checkbox__hidden-button"
-  -var descriptionClassName = "checkbox__description"
+  -var labelClassName = "__label"
+  -var textClassName = "__text"
+  -var inputClassName = "__hidden-button"
+  -var descriptionClassName = "__description"
     -var classNames = [checkboxClassName, labelClassName, inputClassName, descriptionClassName, textClassName]
 
 
-  -var checkboxAttrs = {class: checkboxClassName + " " + addClasses + " "}
-  -var labelAttrs = {class: labelClassName + " text_type_regular "}
-  -var inputAttrs = {class: inputClassName + " "}
-  -var descriptionAttrs = {class: descriptionClassName + " "}
-  -var textAttrs = {class: textClassName + " "}
+  -var checkboxAttrs = {class: checkboxClassName + " "}
+  -var labelAttrs = {class: checkboxClassName + labelClassName + " text_type_regular "}
+  -var inputAttrs = {class: checkboxClassName + inputClassName + " "}
+  -var descriptionAttrs = {class: checkboxClassName + descriptionClassName + " "}
+  -var textAttrs = {class: checkboxClassName + textClassName + " "}
     -var attrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
 
 
-  if types
-    if types.includes("radio")
+  if data.type
+    if data.type.includes("radio")
       each value, index in attrs
-        - value.class += classNames[index] + "_type_radio "
+        if index === 0
+          - value.class += classNames[index] + "_type_radio "
+        else
+          - value.class += checkboxClassName + "_type_radio" + classNames[index] + " "
       - inputAttrs.type = "radio"
-      if additional && additional.group
-        - inputAttrs.name = additional.group
-    else if types.includes("toggle")
+      if data.additional && data.additional.group
+        - inputAttrs.name = data.additional.group
+    else if data.type.includes("toggle")
       each value, index in attrs
-        - value.class += classNames[index] + "_type_toggle "
+        if index === 0
+          - value.class += classNames[index] + "_type_toggle "
+        else
+          - value.class += checkboxClassName + "_type_toggle" + classNames[index] + " "
       - inputAttrs.type = "checkbox"
-      if types.includes("toggled")
-        - labelAttrs.class += labelClassName + "_toggled "
-    else if types.includes("like")
+      if data.isChecked
+        - labelAttrs.class += checkboxClassName + labelClassName + "_toggled "
+    else if data.type.includes("like")
       each value, index in attrs
-        - value.class += classNames[index] + "_type_like "
+        if index === 0
+          - value.class += classNames[index] + "_type_like "
+        else
+          - value.class += checkboxClassName + "_type_like" + classNames[index] + " "
       - inputAttrs.type = "checkbox"
-      - labelAttrs["data-likes-count"] = text
+      - labelAttrs["data-likes-count"] = data.text
     else
       each value, index in attrs
-        - value.class += classNames[index] + "_type_default "
+        if index === 0
+          - value.class += classNames[index] + "_type_default "
+        else
+          - value.class += checkboxClassName + "_type_default" + classNames[index] + " "
       - inputAttrs.type = "checkbox"
 
-    if types.includes("rich")
+    if data.isRich
       each value, index in attrs
-        - value.class += classNames[index] + "_rich "
+        if index === 0
+          - value.class += classNames[index] + "_rich "
+        else
+          - value.class += checkboxClassName + "_rich" + classNames[index] + " "
       if additional && additional.description
         - var description = additional.description
   else
     each value, index in attrs
-      - value.class += classNames[index] + "_type_default "
+      if index === 0
+        - value.class += classNames[index] + "_type_default "
+      else
+        - value.class += checkboxClassName + "_type_default" + classNames[index] + " "
     - inputAttrs.type = "checkbox"
 
-  -inputAttrs["data-isChecked"] = `${isChecked}`
+  -inputAttrs["data-isChecked"] = `${data.isChecked}`
   div&attributes(checkboxAttrs)
     label&attributes(labelAttrs)
-      span&attributes(textAttrs) #{text}
+      span&attributes(textAttrs) #{data.text}
       input&attributes(inputAttrs)
-      if types.includes("rich")
+      if data.isRich
         span&attributes(descriptionAttrs) #{description}

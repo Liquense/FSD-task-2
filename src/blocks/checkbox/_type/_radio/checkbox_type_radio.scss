@@ -5,24 +5,18 @@ $radioSelectionPadding: 4px;
 .checkbox_type_radio {
   display: inline-block;
 
-  .checkbox__label_type_radio {
-    .checkbox__button_type_radio {
-      border-radius: 50%;
-      border-color: $darkShade25;
-      background-color: #ffffff;
-    }
-
+  &__label {
     &:hover,
     &.ui-checkboxradio-checked {
       color: $darkShade75;
     }
 
-    &:hover .checkbox__button_type_radio,
-    &.ui-checkboxradio-checked .checkbox__button_type_radio {
+    &:hover .checkbox_type_radio__button,
+    &.ui-checkboxradio-checked .checkbox_type_radio__button {
       border-color: $purple;
     }
 
-    &.ui-checkboxradio-checked .checkbox__button_type_radio {
+    &.ui-checkboxradio-checked .checkbox_type_radio__button {
       $radioSelectionSize: $checkboxButtonSize - $radioSelectionPadding*2;
 
       &::after {
@@ -36,6 +30,12 @@ $radioSelectionPadding: 4px;
         background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
         position: relative;
       }
+    }
+
+    .checkbox_type_radio__button {
+      border-radius: 50%;
+      border-color: $darkShade25;
+      background-color: #ffffff;
     }
   }
 }

@@ -2,10 +2,12 @@
 
 .checkbox {
   @include clearfix();
-  //width: fit-content;
-  //height: fit-content;
 
-  .checkbox__label {
+  * {
+    box-sizing: border-box;
+  }
+
+  &__label {
     display: inline-block;
     -webkit-user-select: none;
     line-height: $lineHeight;
@@ -13,25 +15,27 @@
     cursor: pointer;
     color: $darkShade50;
 
-    .checkbox__hidden-button {
-      display: none;
-    }
+    .checkbox {
+      &__hidden-button {
+        display: none;
+      }
 
-    .checkbox__button {
-      width: $checkboxButtonSize;
-      height: $checkboxButtonSize;
-      line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
-      border: $checkboxButtonBorderWidth solid #000;
-      margin-right: $buttonRightMargin;
-      display: block;
-      float: left;
-      clear: both;
-      cursor: pointer;
-    }
+      &__button {
+        width: $checkboxButtonSize;
+        height: $checkboxButtonSize;
+        line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
+        border: $checkboxButtonBorderWidth solid #000;
+        margin-right: $buttonRightMargin;
+        display: block;
+        float: left;
+        clear: both;
+        cursor: pointer;
+      }
 
-    .checkbox__text {
-      display: inline-block;
-      max-width: calc(23ch);
+      &__text {
+        display: inline-block;
+        max-width: calc(23ch);
+      }
     }
   }
 }
