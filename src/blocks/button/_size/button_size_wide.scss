@@ -2,17 +2,18 @@
 
 .button_size_wide {
   width: $wideButtonWidth;
-  .button__control {
-    width: $wideButtonWidth;
-  }
-}
 
-.button_size_wide.button_type_bordered {
-  .button__border {
+  &__control {
     width: $wideButtonWidth;
   }
 
-  .button__control {
-    width: $wideButtonWidth - $buttonBorderWidth*2;
+  .button_type_bordered {
+    &__border {
+      width: $wideButtonWidth;
+    }
+
+    &__control {
+      width: $wideButtonWidth - $buttonBorderWidth*2;
+    }
   }
 }

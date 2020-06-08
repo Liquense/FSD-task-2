@@ -6,7 +6,11 @@
   height: fit-content;
   text-decoration: none;
 
-  .button__control {
+  * {
+    box-sizing: border-box;
+  }
+
+  &__control {
     cursor: pointer;
 
     &:focus {
@@ -20,8 +24,8 @@
     border-radius: 22px;
   }
 
-  .button__decoration,
-  .button__border {
+  &__decoration,
+  &__border {
     display: none;
   }
 }

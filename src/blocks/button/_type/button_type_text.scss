@@ -1,5 +1,5 @@
 .button_type_text {
-  .button__control {
+  &__control {
     &:focus {
       outline: none;
     }

@@ -1,18 +1,18 @@
 @import "../variables";
 
 .button_text-sized {
-  &.button_type_bordered {
-    .button__border {
+  & .button_type_bordered {
+    &__border {
       height: fit-content;
       width: fit-content;
     }
 
-    .button__control {
-      padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
+    &__control {
+      padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth; // на хэдере почему-то высота кнопки логина изменилась
     }
   }
 
-  .button__control {
+  &__control {
     display: block;
     width: auto;
     height: auto;

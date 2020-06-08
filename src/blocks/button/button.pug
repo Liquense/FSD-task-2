@@ -1,28 +1,49 @@
-mixin Button(text, addClasses, params={isTextSized: false, isLink: false})
-  -let decorationText = ""
-  -const decoration = attributes.decoration ? attributes.decoration.toLowerCase() : ""
-  -const arrowDecorationCN = "button_decoration_enter-arrow"
-  case decoration
-    when "enterarrow"
+//- types: filled, bordered, text
+mixin Button(text, params={})
+  - var defaultParams = {isTextSized: false, isLink: false, type: "filled", size: "", decoration: "", isHovered: false}
+  - var resultParams = Object.assign({}, defaultParams, params)
+
+  - var blockClassName = "button"
+  - var borderClassName = "__border"
+  - var controlClassName = "__control"
+  - var classNames = [blockClassName, borderClassName, controlClassName]
+
+  - var blockAttributes = {class: `${blockClassName} ${blockClassName}_type_${resultParams.type}`}
+  - var borderAttributes = {class: `${blockClassName}${borderClassName} ${blockClassName}_type_${resultParams.type}${borderClassName}`}
+  - var controlAttributes = {class: `${blockClassName}${controlClassName} ${blockClassName}_type_${resultParams.type}${controlClassName}`}
+  - var attributes = {blockAttributes, borderAttributes, controlAttributes}
+
+  - var decorationText = ""
+  - var arrowDecorationCN = `${blockClassName}_decoration_enter-arrow`
+  - var enterArrowDecoration = "enter-arrow"
+
+  case resultParams.decoration.toLowerCase()
+    when enterArrowDecoration
       -decorationText = "arrow_forward"
-      -addClasses += ` ${arrowDecorationCN} `
-  if params.isTextSized
-    -addClasses += ` button_text-sized `
-  if params.isLink
-    a(class="button " + addClasses)
-      if addClasses.includes("bordered")
-        div.button__border.button__border_type_bordered
-          button(class="button__control text_type_label-CTA ") #{text}
+      -blockAttributes.class += ` ${arrowDecorationCN} `
+  each value, index in Object.values(attributes)
+    if resultParams.isTextSized
+      -value.class += ` ${blockClassName}_text-sized${index ? classNames[index] : ""} `
+    if resultParams.isHovered
+      -value.class += ` ${blockClassName}_hovered ${index ? classNames[index] : ""} `
+    if resultParams.size
+      -value.class += ` ${blockClassName}_size_${resultParams.size}${index ? classNames[index] : ""} `
+
+  if resultParams.isLink
+    a(class=blockAttributes.class)
+      if resultParams.type === "bordered"
+        div(class=borderAttributes.class)
+          button(class=`${controlAttributes.class} text_type_label-CTA`) #{text}
       else
-        button(class="button__control text_type_label-CTA ") #{text}
-      if addClasses.includes(arrowDecorationCN)
+        button(class=`${controlAttributes.class} text_type_label-CTA`) #{text}
+      if resultParams.decoration === enterArrowDecoration
         div.button__decoration #{decorationText}
   else
-    div(class="button " + addClasses)
-      if addClasses.includes("bordered")
-        div.button__border.button__border_type_bordered
-          button(class="button__control text_type_label-CTA ") #{text}
+    div(class=blockAttributes.class)
+      if resultParams.type === "bordered"
+        div(class=borderAttributes.class)
+          button(class=`${controlAttributes.class} text_type_label-CTA`) #{text}
       else
-        button(class="button__control text_type_label-CTA ") #{text}
-      if addClasses.includes(arrowDecorationCN)
+        button(class=`${controlAttributes.class} text_type_label-CTA`) #{text}
+      if resultParams.decoration === enterArrowDecoration
         div.button__decoration #{decorationText}

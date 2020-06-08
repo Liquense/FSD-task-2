@@ -4,21 +4,17 @@
   position: relative;
   @include clearfix();
 
-  .button__border {
-    display: none;
-
-    &.button__border_type_bordered {
-      content: '';
-      display: block;
-      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-      width: 99px;
-      height: 44px;
-      border-radius: 22px;
-      padding: $buttonBorderWidth;
-    }
+  &__border {
+    content: '';
+    display: block;
+    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+    width: 99px;
+    height: 44px;
+    border-radius: 22px;
+    padding: $buttonBorderWidth;
   }
 
-  .button__control {
+  &__control {
     position: relative;
     border: none;
     background-color: $inputBackgroundColor;
