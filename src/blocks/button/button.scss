@@ -5,10 +5,7 @@
   width: fit-content;
   height: fit-content;
   text-decoration: none;
-
-  * {
-    box-sizing: border-box;
-  }
+  @include boxSizingBorderBox();
 
   &__control {
     cursor: pointer;

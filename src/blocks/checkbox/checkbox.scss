@@ -2,10 +2,7 @@
 
 .checkbox {
   @include clearfix();
-
-  * {
-    box-sizing: border-box;
-  }
+  @include boxSizingBorderBox();
 
   &__label {
     display: inline-block;
@@ -14,29 +11,28 @@
     vertical-align: middle;
     cursor: pointer;
     color: $darkShade50;
-
-    .checkbox {
-      &__hidden-button {
-        display: none;
-      }
-
-      &__button {
-        width: $checkboxButtonSize;
-        height: $checkboxButtonSize;
-        line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
-        border: $checkboxButtonBorderWidth solid #000;
-        margin-right: $buttonRightMargin;
-        display: block;
-        float: left;
-        clear: both;
-        cursor: pointer;
-      }
-
-      &__text {
-        display: inline-block;
-        max-width: calc(23ch);
-      }
-    }
   }
+
+  &__hidden-button {
+    display: none;
+  }
+
+  &__button {
+    width: $checkboxButtonSize;
+    height: $checkboxButtonSize;
+    line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
+    border: $checkboxButtonBorderWidth solid #000;
+    margin-right: $buttonRightMargin;
+    display: block;
+    float: left;
+    clear: both;
+    cursor: pointer;
+  }
+
+  &__text {
+    display: inline-block;
+    max-width: calc(23ch);
+  }
+
 }
 

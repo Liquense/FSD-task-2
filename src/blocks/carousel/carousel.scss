@@ -2,9 +2,7 @@ $dotSize: 7px;
 $arrowSize: 44px;
 
 .carousel {
-  * {
-    box-sizing: border-box;
-  }
+  @include boxSizingBorderBox();
 
   .slick {
     &-list {
