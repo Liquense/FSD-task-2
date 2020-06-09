@@ -6,7 +6,7 @@ import { copyArrayOfObjects, ruDeclination } from '../../common/functions';
 
 const donutHTML = require('./donut-template.pug');
 
-const donutArcActiveClass = 'donut-chart__svg-arc_active';
+const donutArcActiveClass = 'donut-chart__svg-active-arc';
 
 function getDataTextContainer($donutContainer) {
   const $imageContainer = $donutContainer.find('.donut-chart__image-container');
