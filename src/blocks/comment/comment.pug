@@ -11,5 +11,6 @@ mixin comment(commentData={})
         span.comment__date-time.text_type_regular #{commentData.dateTime}
     div.comment__content
       div.comment__col1
-        +checkbox(commentData.likesCount, "like", "", "comment__like", commentData.isLiked)
+        div.comment__like
+          +checkbox({text: commentData.likesCount, type: "like", isChecked: commentData.isLiked})
       span.comment__text.text_type_regular.comment__col2 #{commentData.text}
