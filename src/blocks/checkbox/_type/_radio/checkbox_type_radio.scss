@@ -31,11 +31,11 @@ $radioSelectionPadding: 4px;
         position: relative;
       }
     }
+  }
 
-    .checkbox_type_radio__button {
-      border-radius: 50%;
-      border-color: $darkShade25;
-      background-color: #ffffff;
-    }
+  &__button {
+    border-radius: 50%;
+    border-color: $darkShade25;
+    background-color: #ffffff;
   }
 }

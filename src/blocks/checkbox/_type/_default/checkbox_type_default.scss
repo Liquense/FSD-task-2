@@ -19,12 +19,12 @@
       @include textGradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
       text-align: center;
     }
+  }
 
-    .checkbox_type_default__button {
-      border: $checkboxButtonBorderWidth solid $darkShade25;
-      color: transparent;
-      border-radius: 4px;
-    }
+  &__button {
+    border: $checkboxButtonBorderWidth solid $darkShade25;
+    color: transparent;
+    border-radius: 4px;
   }
 }
 

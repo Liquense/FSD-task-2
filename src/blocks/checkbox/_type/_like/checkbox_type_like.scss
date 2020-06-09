@@ -73,9 +73,9 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
         }
       }
     }
+  }
 
-    .checkbox_type_like__text {
-      position: relative;
-    }
+  &__text {
+    position: relative;
   }
 }
