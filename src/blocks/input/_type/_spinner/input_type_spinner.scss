@@ -2,7 +2,7 @@
   width: fit-content;
   float: right;
 
-  .input__value_type_spinner {
+  &__value {
     display: inline-block;
     text-align: center;
     width: 32px;
@@ -13,7 +13,7 @@
   }
 }
 
-.input__button_type_spinner {
+.input_type_spinner__button {
   $buttonSize: 30px;
 
   border-radius: 50%;
@@ -26,7 +26,7 @@
 
   @include text(Montserrat, normal, 18px, 22px, $darkShade50, 0px);
 
-  &.input__button_disabled {
+  &.input_disabled__button {
     color: $darkShade25;
     border-color: $darkShade25;
   }
@@ -35,7 +35,7 @@
     outline: none;
   }
 
-  &:not(.input__button_disabled) {
+  &:not(.input_disabled__button) {
     &.focused,
     &:hover {
       border-color: $darkShade75;

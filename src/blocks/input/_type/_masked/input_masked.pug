@@ -1,18 +1,18 @@
-mixin addMaskedInput(imAttributes, imAdditional, miTypes)
+mixin addMaskedInput(imAttributes, imData)
   include ../../_decoration/_enter-arrow/input_decoration_enter-arrow
   each value, index in Object.values(imAttributes)
     - value.class += classNames[index] + "_masked "
   div&attributes(imAttributes.blockAttributes)
-    if title
-      label&attributes(imAttributes.titleAttributes) #{title}
+    if imData.title
+      label&attributes(imAttributes.titleAttributes) #{imData.title}
         br
         div&attributes(imAttributes.controlWrapperAttrs)
-          if miTypes.includes("subscription")
+          if imData.withSubscription
             +enterArrow()
-          input&attributes(imAttributes.controlAttributes)(value=imAdditional)
+          input&attributes(imAttributes.controlAttributes)(value=imData.data)
     else
       label&attributes(imAttributes.titleAttributes)
         div&attributes(imAttributes.controlWrapperAttrs)
-          input&attributes(imAttributes.controlAttributes)(value=imAdditional)
-          if miTypes.includes("subscription")
+          input&attributes(imAttributes.controlAttributes)(value=imData.data)
+          if imData.withSubscription
             +enterArrow()

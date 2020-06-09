@@ -4,8 +4,8 @@ import 'jquery-ui/ui/widgets/spinner';
 
 import './input_type_spinner.scss';
 
-export const decreaseButtonClasses = 'input__dropdown-decrease_type_dropdown input__button_type_spinner ui-spinner-button ui-spinner-down';
-export const increaseButtonClasses = 'input__dropdown-increase_type_dropdown input__button_type_spinner ui-spinner-button ui-spinner-up';
+export const decreaseButtonClasses = 'input_type_dropdown__dropdown-decrease input_type_spinner__button ui-spinner-button ui-spinner-down';
+export const increaseButtonClasses = 'input_type_dropdown__dropdown-increase input_type_spinner__button ui-spinner-button ui-spinner-up';
 // морф, чтобы кнопки были по бокам
 $.widget('ui.spinner', $.ui.spinner, {
   _enhance() {
@@ -30,11 +30,11 @@ $.widget('ui.spinner', $.ui.spinner, {
 });
 
 export function disableButtonsAtExtremum($spinner, currentValue) {
-  const disabledButtonClass = 'input__button_disabled';
+  const disabledButtonClass = 'input_disabled__button';
   const min = $spinner.attr('data-min');
   const max = $spinner.attr('data-max');
-  const $decreaseButton = $spinner.siblings('.input__dropdown-decrease_type_dropdown');
-  const $increaseButton = $spinner.siblings('.input__dropdown-increase_type_dropdown');
+  const $decreaseButton = $spinner.siblings('.input_type_dropdown__dropdown-decrease');
+  const $increaseButton = $spinner.siblings('.input_type_dropdown__dropdown-increase');
 
   if (currentValue <= min) {
     $decreaseButton.addClass(disabledButtonClass);
@@ -51,7 +51,7 @@ export function disableButtonsAtExtremum($spinner, currentValue) {
 const $dropdowns = $('.input_type_dropdown');
 
 function findSpinnersAndPassData(whereToSearch) {
-  const $spinners = $(whereToSearch).find('.input__value_type_spinner');
+  const $spinners = $(whereToSearch).find('.input_type_spinner__value');
 
   $spinners.spinner({
     min: $spinners.attr('data-min'),

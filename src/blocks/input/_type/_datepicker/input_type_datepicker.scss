@@ -8,24 +8,26 @@ $datepickerContentTopPadding: 29px;
 $datepickerContentWidth: $datepickerWidth - $datepickerContentSidesPadding*2;
 
 $actualPointsGradient: linear-gradient($gradientDefaultAngle,
-        $purple 0%,
-        $purpleGradientSecond 100%);
+    $purple 0%,
+    $purpleGradientSecond 100%);
 
 $actualRangeGradient: linear-gradient($gradientDefaultAngle,
-        rgba($purple, 0.25) 0%,
-        rgba($purpleGradientSecond, 0.25) 100%);
+    rgba($purple, 0.25) 0%,
+    rgba($purpleGradientSecond, 0.25) 100%);
 
 $otherPointsGradient: linear-gradient($gradientDefaultAngle,
-        scale-color($purple, $lightness: 50%) 0%,
-        scale-color($purpleGradientSecond, $lightness: 50%) 100%);
+    scale-color($purple, $lightness: 50%) 0%,
+    scale-color($purpleGradientSecond, $lightness: 50%) 100%);
 
 $otherRangeGradient: linear-gradient($gradientDefaultAngle,
-        rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
-        rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%);
+    rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
+    rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%);
 
-.input__control_type_datepicker {
+.input_type_datepicker__control {
   color: $darkShade75;
 
+  &:valid:hover,
+  &:valid:focus,
   &::placeholder,
   &:focus::placeholder,
   &:hover::placeholder {
@@ -33,25 +35,20 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   }
 }
 
-.input__control_type_datepicker:valid:hover,
-.input__control_type_datepicker:valid:focus {
-  color: $darkShade75;
-}
-
 .input_type_datepicker__confirm-button,
 .input_type_datepicker__clear-button {
   width: fit-content;
   height: fit-content;
+}
 
-  &.input_type_datepicker__confirm-button {
-    text-align: right;
-    margin-left: auto;
-  }
+.input_type_datepicker__confirm-button {
+  text-align: right;
+  margin-left: auto;
+}
 
-  &.input_type_datepicker__clear-button {
-    text-align: left;
-    margin-right: auto;
-  }
+.input_type_datepicker__clear-button {
+  text-align: left;
+  margin-right: auto;
 }
 
 /* -------------------------------------------------
@@ -105,9 +102,9 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   &.-disabled- {
     color: white;
     background: linear-gradient(
-                    $gradientDefaultAngle,
-                    rgba($green, 0.25) 0%,
-                    rgba($greenGradientSecond, 0.25) 100%
+            $gradientDefaultAngle,
+            rgba($green, 0.25) 0%,
+            rgba($greenGradientSecond, 0.25) 100%
     );
 
     &.-focus- {

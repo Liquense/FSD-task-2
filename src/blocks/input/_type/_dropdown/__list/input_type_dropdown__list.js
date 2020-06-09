@@ -2,11 +2,11 @@
 // jquery объявлена глобально вебпаком
 import 'jquery-ui/ui/effects/effect-fade';
 
-import { ruDeclination } from '../../../../common/functions';
+import { ruDeclination } from '../../../../../common/functions';
 
-import { disableButtonsAtExtremum } from '../_spinner/input_type_spinner';
+import { disableButtonsAtExtremum } from '../../_spinner/input_type_spinner';
 
-import './input__list_type_dropdown.scss';
+import './input_type_dropdown__list.scss';
 
 /**
  * Функция для получения пар имя-значение со всех переданных спиннеров
@@ -32,12 +32,12 @@ const typeRooms = 'rooms';
 const typeCustomers = 'customers';
 function getDropdownType(dropdown) {
   const dropdownType = {};
-  if ($(dropdown).hasClass('input__dropdown-list-wrapper_unified')) {
+  if ($(dropdown).hasClass('input_unified__dropdown-list-wrapper')) {
     dropdownType.isUnified = true;
   }
-  if ($(dropdown).hasClass('input__dropdown-list-wrapper_rooms')) {
+  if ($(dropdown).hasClass('input_rooms__dropdown-list-wrapper')) {
     dropdownType.name = typeRooms;
-  } else if ($(dropdown).hasClass('input__dropdown-list-wrapper_customers')) {
+  } else if ($(dropdown).hasClass('input_customers__dropdown-list-wrapper')) {
     dropdownType.name = typeCustomers;
   } else return false;
 
@@ -188,9 +188,9 @@ function manageControlsVisibility(
   oldNamesValues, namesValues, clearButton, confirmButton, buttonsContainer,
   areControlsEnabled, areValuesConfirmed,
 ) {
-  const clearVisibleClass = 'input__clear-button_visible';
-  const confirmVisibleClass = 'input__confirm-button_visible';
-  const containerVisibleClass = 'input__control-buttons-container_visible';
+  const clearVisibleClass = 'input_visible__clear-button';
+  const confirmVisibleClass = 'input_visible__confirm-button';
+  const containerVisibleClass = 'input_visible__control-buttons-container';
 
   const areEmpty = areAllValuesZero(namesValues);
   if (areEmpty) {
@@ -267,10 +267,12 @@ function getInitialNamesValues($spinnerElements) {
 const dropdownVisibleClass = 'input__dropdown-list-wrapper_visible';
 export function initDropdownInput(index, rootElement) {
   const $inputWrapper = $(rootElement);
-  const $dropdown = $inputWrapper.children('.input__dropdown-list-wrapper_type_dropdown');
-  const $control = $inputWrapper.find('.input__control_type_dropdown');
-  const $spinnerValueElements = $inputWrapper.find('.input__value_type_spinner');
-  const $controlButtonsContainer = $inputWrapper.find('.input__control-buttons-container');
+  const $dropdown = $inputWrapper.children('.input_type_dropdown__dropdown-list-wrapper');
+  const $control = $inputWrapper.find('.input_type_dropdown__control');
+  const $spinnerValueElements = $inputWrapper.find('.input_type_spinner__value');
+  const $controlButtonsContainer = $inputWrapper.find(
+    '.input_type_dropdown__control-buttons-container',
+  );
   const $clearButton = $inputWrapper.find('.input__clear-button');
   const $confirmButton = $inputWrapper.find('.input__confirm-button');
 
@@ -357,7 +359,7 @@ export function initDropdownInput(index, rootElement) {
         if (!isOpened) {
           $dropdown.toggle('fade');
           $dropdown.toggleClass(dropdownVisibleClass);
-          $control.removeClass('input__control_focused');
+          $control.removeClass('input_focused__control');
         }
 
         setSpinnerValues(oldSpinnersNameValue, spinnersNameValue,
@@ -376,7 +378,7 @@ export function initDropdownInput(index, rootElement) {
 
   $control.click(() => {
     if (!isOpened) {
-      $control.toggleClass('input__control_focused');
+      $control.toggleClass('input_focused__control');
       $dropdown.toggle('fade');
       $dropdown.toggleClass(dropdownVisibleClass);
     }

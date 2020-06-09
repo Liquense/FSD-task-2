@@ -4,10 +4,6 @@
   outline: 0;
 }
 
-.input_focused .input__control {
-  @include focused;
-}
-
-.input__control_focused {
+.input_focused__control {
   @include focused;
 }

@@ -6,11 +6,11 @@ $expandWidth: 24px;
 $expandVerticalMargin: ($inputHeight - $expandHeight)/2 - $borderWidth;
 $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/2;
 
-.input__control_decoration_expand-arrow {
+.input_decoration_expand-arrow__control {
   padding-right: $inputHeight;
 }
 
-.input__arrow_decoration_expand-arrow {
+.input_decoration_expand-arrow__arrow {
   @include icon();
   line-height: $inputHeight - $borderWidth*2;
   vertical-align: middle;

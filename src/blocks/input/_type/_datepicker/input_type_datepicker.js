@@ -10,10 +10,10 @@ import './input_type_datepicker.scss';
 import './_inline/datepicker_inline.scss';
 
 const confirmButton = '<div class="button button_type_text input_type_datepicker__confirm-button">'
-    + '<button class="button__control text_type_label-CTA datepicker--button" data-action="hide">Применить'
+    + '<button class="button__control button_type_text__control text_type_label-CTA datepicker--button" data-action="hide">Применить'
     + '</button><div class="button__decoration material-icons"></div></div>';
 const clearButton = '<div class="button button_type_text button_hovered input_type_datepicker__clear-button">'
-    + '<button class="button__control text_type_label-CTA datepicker--button" data-action="clear">Очистить'
+    + '<button class="button__control button_type_text__control text_type_label-CTA datepicker--button" data-action="clear">Очистить'
     + '</button><div class="button__decoration material-icons"></div></div>';
 
 export function parseAttrToDate(attrDate) {
@@ -106,7 +106,7 @@ export function setDates($datepickerInput, dates) {
 
 export function initDatepickerInput(index, input) {
   const $input = $(input);
-  const $inputControl = $input.find('.input__control_type_datepicker');
+  const $inputControl = $input.find('.input_type_datepicker__control');
   const isInline = $input.hasClass('datepicker_inline');
   const datepicker = $inputControl.datepicker({
     range: true,
@@ -135,7 +135,7 @@ export function initDatepickerInput(index, input) {
   datepicker.$datepicker.find('.datepicker--buttons').append(confirmButton);
 
   // установка ивентов отображения/исчезновения
-  const $expandArrow = $($input.find('.input__arrow_decoration_expand-arrow')[0]);
+  const $expandArrow = $($input.find('.input_decoration_expand-arrow__arrow')[0]);
   initExpandableEvents($expandArrow, $inputControl);
 
   const initDates = getInitDates($inputControl);

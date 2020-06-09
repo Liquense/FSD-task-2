@@ -8,7 +8,7 @@ $document.ready(($) => {
   $.mask.definitions.m = '[012]';
   $.mask.definitions.d = '[0123]';
 
-  const $maskedInput = $('.input__control_masked');
+  const $maskedInput = $('.input_masked__control');
   $maskedInput.mask('99.99.9999',
     {
       placeholder: 'ДД.ММ.ГГГГ',

@@ -1,28 +1,25 @@
-mixin addDatepicker(dpAttributes={}, dpTypes="", dpAdditional=[])
+mixin addDatepicker(dpAttributes={}, dpData={})
   each value, index in Object.values(dpAttributes)
-    - value.class += classNames[index] + "_type_datepicker "
+    - value.class += index === 0 ? blockClassName + "_type_datepicker " : blockClassName + "_type_datepicker" + classNames[index] + " "
   - dpAttributes.controlAttributes.type = "select"
-  - dpAttributes.controlAttributes["data-firstDate"] = dpAdditional[0]
-  - dpAttributes.controlAttributes["data-secondDate"] = additional[1]
-  - dpAttributes.controlAttributes.class += 'input__control_decoration_expand-arrow '
-  if dpTypes.includes("inline")
+  - dpAttributes.controlAttributes["data-firstDate"] = dpData.data[0]
+  - dpAttributes.controlAttributes["data-secondDate"] = dpData.data[1]
+  - dpAttributes.controlAttributes.class += 'input_decoration_expand-arrow__control '
+  if dpData.isInline
     include ./_inline/datepicker_inline
     - dpAttributes.blockAttributes.class += "datepicker_inline "
-    +createInlineDatepicker(dpAttributes, dpTypes, dpAdditional)
+    +createInlineDatepicker(dpAttributes)
   else
-    +createDatepicker(dpAttributes, dpTypes, dpAdditional)
-
-mixin createDatepicker(dpAttributes={}, dpTypes="", dpAdditional=[])
-  div&attributes(dpAttributes.blockAttributes)
-    //- пока не нашел способа сделать отступ в начале внутренностей лейбла, поэтому условие с двумя вариантами
-    if title
-      label&attributes(dpAttributes.titleAttributes) #{title}
-        br
-        div&attributes(dpAttributes.controlWrapperAttrs)
-          +expand-arrow()
-          input&attributes(dpAttributes.controlAttributes)
-    else
-      label&attributes(dpAttributes.titleAttributes)
-        div&attributes(dpAttributes.controlWrapperAttrs)
-          input&attributes(dpAttributes.controlAttributes)
-          +expand-arrow()
+    div&attributes(dpAttributes.blockAttributes)
+      //- пока не нашел способа сделать отступ в начале внутренностей лейбла, поэтому условие с двумя вариантами
+      if dpData.title
+        label&attributes(dpAttributes.titleAttributes) #{dpData.title}
+          br
+          div&attributes(dpAttributes.controlWrapperAttrs)
+            +expand-arrow()
+            input&attributes(dpAttributes.controlAttributes)
+      else
+        label&attributes(dpAttributes.titleAttributes)
+          div&attributes(dpAttributes.controlWrapperAttrs)
+            input&attributes(dpAttributes.controlAttributes)
+            +expand-arrow()
