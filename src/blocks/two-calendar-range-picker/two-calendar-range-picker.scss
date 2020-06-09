@@ -5,4 +5,5 @@ $spaceBetweenInputs: 20px;
   display: flex;
   width: $narrowInputWidth*2 + $spaceBetweenInputs;
   justify-content: space-between;
+  @include boxSizingBorderBox();
 }

@@ -12,6 +12,7 @@ $borderWidth: 1px;
   border: $borderWidth solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   padding: (40px - $borderWidth) (30px - $borderWidth) (30px - $borderWidth);
+  @include boxSizingBorderBox();
 
   .find-room-card__title {
     margin: 0;

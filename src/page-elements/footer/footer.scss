@@ -1,8 +1,9 @@
-
 .footer {
   width: 100%;
   box-shadow: 0px 10px 20px $darkShade5;
   background-color: white;
+  @include boxSizingBorderBox();
+
   .footer__content-section {
     padding: get-vw(100px) get-vw(140px) get-vw(99px);
   }

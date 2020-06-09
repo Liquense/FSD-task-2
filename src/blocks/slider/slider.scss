@@ -8,9 +8,7 @@ $sliderHandleSize: 12px;
 .slider {
   width: 266px + ($sliderHandleSize + $sliderHandleBorderWidth);
   padding-right: 14px;
-  //padding-left: ($sliderHandleSize)/2;
-  //padding-right: ($sliderHandleSize + $sliderHandleBorderWidth)/2;
-  //padding-bottom: $sliderHandleSize/2;
+  @include boxSizingBorderBox();
 }
 
 .slider__plugin-container {

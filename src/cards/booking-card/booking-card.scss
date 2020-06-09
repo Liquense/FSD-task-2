@@ -1,7 +1,6 @@
 .booking-card {
   max-width: 380px;
   height: fit-content;
-  box-sizing: border-box;
   background: #FFFFFF;
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
@@ -9,9 +8,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  @include clearfix();
-
   padding: 49px 29px 29px 29px;
+  @include clearfix();
+  @include boxSizingBorderBox();
 
   .booking-card__header {
     display: flex;

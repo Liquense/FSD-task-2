@@ -7,9 +7,9 @@
   padding: 38px 29px 31px 29px;
   background: white;
   border: 1px solid $darkShade12;
-  box-sizing: border-box;
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
+  @include boxSizingBorderBox();
 
   .login-card__title {
     align-self: stretch;

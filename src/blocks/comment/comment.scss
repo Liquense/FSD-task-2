@@ -2,8 +2,9 @@ $avatarSize: 48px;
 
 .comment {
   max-width: 710px;
+  @include boxSizingBorderBox();
 
-  .comment__col1 {
+  &__col1 {
     display: flex;
     justify-content: center;
     width: $avatarSize;
@@ -12,58 +13,51 @@ $avatarSize: 48px;
     margin-right: 10px;
   }
 
-  .comment__header {
+  &__header {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
-
-    .comment__avatar-wrap {
-      width: $avatarSize;
-      height: $avatarSize;
-      border: 2px solid white;
-      border-radius: 50%;
-
-      box-shadow: 0 10px 20px rgba(31, 32, 65, 0.1);
-      overflow: hidden;
-
-      .comment__avatar {
-        position: relative;
-        bottom: 2px;
-        width: $avatarSize;
-        height: $avatarSize;
-      }
-    }
-
-    .comment__info-container {
-      .comment__author,
-      .comment__date-time {
-        font-size: 14px;
-        line-height: 24px;
-      }
-
-      .comment__author {
-        margin: 0;
-        padding: 0;
-        font-weight: bold;
-      }
-
-      .comment__date-time {
-
-      }
-    }
   }
 
-  .comment__content {
+  &__avatar-wrap {
+    width: $avatarSize;
+    height: $avatarSize;
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(31, 32, 65, 0.1);
+    overflow: hidden;
+  }
+
+  &__avatar {
+    position: relative;
+    bottom: 2px;
+    width: $avatarSize;
+    height: $avatarSize;
+  }
+
+  &__author,
+  &__date-time {
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  &__author {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+
+  &__content {
     display: flex;
     align-items: flex-start;
+  }
 
-    .comment__like {
-      margin-top: 1px;
-    }
+  &__like {
+    margin-top: 1px;
+  }
 
-    .comment__text {
-      font-size: 14px;
-      line-height: 24px;
-    }
+  &__text {
+    font-size: 14px;
+    line-height: 24px;
   }
 }

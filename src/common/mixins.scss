@@ -35,6 +35,13 @@
   -webkit-text-fill-color: transparent;
 }
 
+@mixin boxSizingBorderBox() {
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+}
+
 @function get-vw($pixels) {
   $vw-context: (1440*.01) * 1px; //1440 - изначальная ширина макета
   @return ($pixels/$vw-context) * 1vw;

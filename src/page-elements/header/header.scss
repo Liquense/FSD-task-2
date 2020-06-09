@@ -3,12 +3,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
   background: white;
   box-shadow: 0px 10px 20px $darkShade5;
-
   width: 100%;
   padding: get-vw(15px) get-vw(140px);
+  @include boxSizingBorderBox();
 
   .header__logo {
     display: block;

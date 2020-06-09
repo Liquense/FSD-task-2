@@ -1,8 +1,8 @@
 .list {
-  box-sizing: border-box;
   padding: 0;
   margin: 0;
   border: none;
+  @include boxSizingBorderBox();
 
   .list__title {
     margin: 0;
