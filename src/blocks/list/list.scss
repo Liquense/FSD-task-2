@@ -4,17 +4,21 @@
   border: none;
   @include boxSizingBorderBox();
 
-  .list__title {
+  p {
+    margin: 0;
+  }
+
+  &__title {
     margin: 0;
     padding: 0;
     user-select: none;
   }
 
-  .list__container {
+  &__container {
     padding-top: 1px;
   }
 
-  .list__expand-arrow {
+  &__expand-arrow {
     display: none;
   }
 }

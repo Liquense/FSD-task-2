@@ -1,7 +1,7 @@
 @import "../../../checkbox/variables";
 
 .list_type_rich {
-  .list__input {
+  &__input {
     &:first-child {
       margin-top: 17px;
     }

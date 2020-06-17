@@ -1,7 +1,7 @@
 @import "../../../checkbox/variables";
 
 .list_type_toggle {
-  .list__input_type_toggle {
+  &__input {
     &:first-child {
       margin-top: 16px - $checkboxButtonBorderWidth;
     }

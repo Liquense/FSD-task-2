@@ -5,14 +5,14 @@ import './list_expandable.scss';
 
 export function initExpandableList(index, rootElement) {
   const $expandable = $(rootElement);
-  const $expandableTitle = $($expandable.find('.list__title_expandable')[0]);
-  const $expandableContainer = $($expandable.find('.list__container_expandable')[0]);
+  const $expandableTitle = $($expandable.find('.list_expandable__title')[0]);
+  const $expandableContainer = $($expandable.find('.list_expandable__container')[0]);
   const isOpened = $expandable.hasClass('list_expandable-opened');
 
   function handleExpandableTitleClick() {
-    $expandable.toggleClass('list__expand-arrow_expanded');
+    $expandable.toggleClass('list_expanded__expand-arrow');
     $expandableContainer.toggle('fade', [], 200);
-    $expandableContainer.toggleClass('list__container_visible');
+    $expandableContainer.toggleClass('list_visible__container');
   }
   $expandableTitle.click(handleExpandableTitleClick);
 

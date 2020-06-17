@@ -1,7 +1,8 @@
 @import "../../../checkbox/variables";
 
 .list_type_checkbox {
-  .list__input_type_checkbox {
+  &__input {
+    content: "text";
     &:first-child {
       margin-top: 16px;
     }

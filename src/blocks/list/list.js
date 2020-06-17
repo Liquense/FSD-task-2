@@ -9,5 +9,5 @@ import './_type/_toggle/list_type_toggle.scss';
 import './_type/_rich/list_type_rich.scss';
 import './_type/_bullet/list_type_bullet.scss';
 import './_type/_feature/list_type_feature.scss';
-import './_expandable-narrow/list_expandable-narrow.scss';
 import './_expandable/list_expandable';
+import './_expandable-narrow/list_expandable-narrow.scss';

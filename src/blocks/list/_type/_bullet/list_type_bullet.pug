@@ -1,32 +1,35 @@
-mixin bulletList(title="", contentStrings = [])
+mixin bulletList(data={})
+  -var defaultData = {title: "", contentStrings: [], isExpandable: false}
+  -data = Object.assign(defaultData, data);
+
   //- CN - className
-  -const blockModifier = "_type_bullet"
-  -const addClasses = attributes.addClasses ? attributes.addClasses : ""
+  -var blockModifier = "_type_bullet"
+  -var addClasses = attributes.addClasses ? attributes.addClasses : ""
 
-  -const listCN = "list"
-  -const listTitleCN = "list__title"
-  -const listContainerCN = "list__container"
-  -const listElementCN = "list__item"
-  -const listElementImageCN = "list__item-image"
-  -const listElementTextCN = "list__item-text"
-  -const classNames = [listCN, listTitleCN, listContainerCN, listElementCN, listElementImageCN, listElementTextCN]
+  -var listCN = "list"
+  -var listTitleCN = "__title"
+  -var listContainerCN = "__container"
+  -var listElementCN = "__item"
+  -var listElementImageCN = "__item-image"
+  -var listElementTextCN = "__item-text"
+  -var classNames = [listCN, listTitleCN, listContainerCN, listElementCN, listElementImageCN, listElementTextCN]
 
-  -let listAttrs = {class: `${listCN} ${listCN}${blockModifier} ${addClasses} `}
-  -let listTitleAttrs = {class: `${listTitleCN} ${listTitleCN}${blockModifier} text_type_label-CTA `}
-  -let listContainerAttrs = {class: `${listContainerCN} ${listContainerCN}${blockModifier} `}
-  -let listElementAttrs = {class: `${listElementCN} ${listElementCN}${blockModifier} `}
-  -let listElementImageAttrs = {class: `${listElementImageCN} ${listElementImageCN}${blockModifier} `}
-  -let listElementTextAttrs = {class: `${listElementTextCN} ${listElementTextCN}${blockModifier} text_type_regular `}
-  -const blAttributes = [listAttrs, listTitleAttrs, listContainerAttrs, listElementAttrs, listElementImageAttrs, listElementTextAttrs]
+  -var listAttrs = {class: `${listCN} ${listCN}${blockModifier} ${addClasses} `}
+  -var listTitleAttrs = {class: `${listCN}${listTitleCN} ${listCN}${blockModifier}${listTitleCN} text_type_label-CTA `}
+  -var listContainerAttrs = {class: `${listCN}${listContainerCN} ${listCN}${blockModifier}${listContainerCN} `}
+  -var listElementAttrs = {class: `${listCN}${listElementCN} ${listCN}${blockModifier}${listElementCN} `}
+  -var listElementImageAttrs = {class: `${listCN}${listElementImageCN} ${listCN}${blockModifier}${listElementImageCN} `}
+  -var listElementTextAttrs = {class: `${listCN}${listElementTextCN} ${listCN}${blockModifier}${listElementTextCN} text_type_regular `}
+  -var blAttributes = [listAttrs, listTitleAttrs, listContainerAttrs, listElementAttrs, listElementImageAttrs, listElementTextAttrs]
 
-  if attributes.isExpandable
+  if data.isExpandable
     each value, index in blAttributes
-      - value.class += classNames[index] + "_expandable "
+      - value.class += index === 0 ? classNames[index] + "_expandable " : listCN + "_expandable" + classNames[index] + " "
 
   div&attributes(listAttrs)
-    h4&attributes(listTitleAttrs) #{title}
+    h4&attributes(listTitleAttrs) #{data.title}
     ul&attributes(listContainerAttrs)
-      each string, index in contentStrings
+      each string, index in data.contentStrings
         li&attributes(listElementAttrs)
           div&attributes(listElementImageAttrs)
           span&attributes(listElementTextAttrs) #{string}

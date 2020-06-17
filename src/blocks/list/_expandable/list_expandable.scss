@@ -1,6 +1,6 @@
 .list_expandable {
 
-  .list__title_expandable {
+  &__title {
     max-width: 266px;
     height: 12px;
 
@@ -20,16 +20,17 @@
       left: 30px;
       cursor: pointer;
     }
-    &.list__expand-arrow_expanded:after {
-      content: "\e5ce";
-    }
   }
 
-  .list__container_expandable {
+  &__expand-arrow:after {
+    content: "\e5ce";
+  }
+
+  &__container {
     display: none;
     padding-top: 3px;
 
-    &.list__container_visible {
+    &.list_visible__container {
       display: block;
     }
   }
