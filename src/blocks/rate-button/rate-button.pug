@@ -1,6 +1,9 @@
 include __star/rate-button__star
 
-mixin rateButton(data={maxRating: 5, rating: -1})
+mixin rateButton(data={})
+  -var defaultData = {maxRating: 5, rating: -1}
+  -data = Object.assign(defaultData, data)
+
   div(
     class=`rate-button ${attributes.addClasses ? attributes.addClasses : ""}`
     data-maxRating=data.maxRating
