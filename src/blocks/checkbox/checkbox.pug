@@ -62,8 +62,8 @@ mixin checkbox(data={})
           - value.class += classNames[index] + "_rich "
         else
           - value.class += checkboxClassName + "_rich" + classNames[index] + " "
-      if additional && additional.description
-        - var description = additional.description
+      if data.additional && data.additional.description
+        - var description = data.additional.description
   else
     each value, index in attrs
       if index === 0
@@ -75,7 +75,7 @@ mixin checkbox(data={})
   -inputAttrs["data-isChecked"] = `${data.isChecked}`
   div&attributes(checkboxAttrs)
     label&attributes(labelAttrs)
-      span&attributes(textAttrs) #{data.text}
+      p&attributes(textAttrs) #{data.text}
       input&attributes(inputAttrs)
       if data.isRich
-        span&attributes(descriptionAttrs) #{description}
+        p&attributes(descriptionAttrs) #{description}
