@@ -3,13 +3,11 @@ $pageButtonSize: 40px;
 .pagination {
   @include boxSizingBorderBox();
 
-  .pagination__content-container {
-    .pagination__content {
-      text-align: center;
-    }
+  &__content {
+    text-align: center;
   }
 
-  .pagination__buttons-container {
+  &__buttons-container {
     width: fit-content;
     margin: 0 auto;
 
