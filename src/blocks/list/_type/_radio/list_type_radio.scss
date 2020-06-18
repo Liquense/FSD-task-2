@@ -2,6 +2,7 @@
 
 .list_type_radio {
   &__input {
+    display: inline-block;
     margin-top: 16px - $checkboxButtonBorderWidth;
   }
 
