@@ -2,8 +2,8 @@ mixin addDatepicker(dpAttributes={}, dpData={})
   each value, index in Object.values(dpAttributes)
     - value.class += index === 0 ? blockClassName + "_type_datepicker " : blockClassName + "_type_datepicker" + classNames[index] + " "
   - dpAttributes.controlAttributes.type = "select"
-  - dpAttributes.controlAttributes["data-firstDate"] = dpData.data[0]
-  - dpAttributes.controlAttributes["data-secondDate"] = dpData.data[1]
+  - dpAttributes.controlAttributes["data-firstDate"] = dpData.data ? dpData.data[0] : ""
+  - dpAttributes.controlAttributes["data-secondDate"] = dpData.data ? dpData.data[1] : ""
   - dpAttributes.controlAttributes.class += 'input_decoration_expand-arrow__control '
   if dpData.isInline
     include ./_inline/datepicker_inline

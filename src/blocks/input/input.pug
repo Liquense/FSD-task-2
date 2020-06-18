@@ -16,7 +16,7 @@
 mixin input(data={})
   - var defaultData = {title, type, width, dropdownType, placeholder, mask, range: [0, 5],
   -   isUnified: false, isPure: false, isInline: false, isOpened: false, isUnaccepted: false, isFocused: false, data: undefined, withSubscription: false}
-  - data = Object.assign({}, defaultData, data)
+  - data = Object.assign(defaultData, data)
 
   - var blockClassName = "input"
   - var titleClassName = "__title"
