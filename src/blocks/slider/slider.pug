@@ -1,17 +1,22 @@
-mixin slider(minValue, maxValue, step, title, addClasses, isRange, initialValues)
+mixin slider(data={})
+  -var defaultData = {minValue: 0, maxValue: 10, step: 1, title: "", isRange: false, initialValues: [5]}
+  -data = Object.assign(defaultData, data)
+
   if (!initialValues)
-    -initialValues = [minValue, maxValue];
-  if isRange
-    div(class="slider slider_range " + addClasses)
+    -initialValues = [data.minValue, data.maxValue];
+  if data.isRange
+    div(class="slider slider_range ")
       div(class="slider__text")
-        p(class="slider__title text_type_label-CTA") #{title}
+        p(class="slider__title text_type_label-CTA") #{data.title}
         p(class="slider__value text_type_regular") ₽
       div.slider__plugin-container
-        div(class="slider__control slider__control_range" data-min=minValue data-max=maxValue data-step=step data-firstValue=initialValues[0] data-secondValue=initialValues[1])
+        div(class="slider__control slider__control_range"
+          data-min=data.minValue data-max=data.maxValue data-step=data.step
+          data-firstValue=data.initialValues[0] data-secondValue=data.initialValues[1])
   else
-    div(class="slider " + addClasses)
+    div(class="slider ")
       div(class="slider__text")
-        p(class="slider__title text_type_label-CTA") #{title}
+        p(class="slider__title text_type_label-CTA") #{data.title}
         p(class="slider__value text_type_regular") ₽
       div.slider__plugin-container
-        div(class="slider__control" data-min=minValue data-max=maxValue data-step=step data-firstValue=initialValues[0] data-secondValue=initialValues[1])
+        div(class="slider__control" data-min=data.minValue data-max=data.maxValue data-step=data.step data-firstValue=data.initialValues[0])
