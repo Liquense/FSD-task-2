@@ -1,49 +1,49 @@
 //- types: filled, bordered, text
-mixin Button(text, params={})
-  - var defaultParams = {isTextSized: false, isLink: false, type: "filled", size: "", decoration: "", isHovered: false}
-  - var resultParams = Object.assign({}, defaultParams, params)
+mixin Button(params={})
+  - var defaultParams = {text: "", isTextSized: false, isLink: false, type: "filled", size: "", decoration: "", isHovered: false}
+  - params = Object.assign(defaultParams, params)
 
   - var blockClassName = "button"
   - var borderClassName = "__border"
   - var controlClassName = "__control"
   - var classNames = [blockClassName, borderClassName, controlClassName]
 
-  - var blockAttributes = {class: `${blockClassName} ${blockClassName}_type_${resultParams.type}`}
-  - var borderAttributes = {class: `${blockClassName}${borderClassName} ${blockClassName}_type_${resultParams.type}${borderClassName}`}
-  - var controlAttributes = {class: `${blockClassName}${controlClassName} ${blockClassName}_type_${resultParams.type}${controlClassName}`}
+  - var blockAttributes = {class: `${blockClassName} ${blockClassName}_type_${params.type}`}
+  - var borderAttributes = {class: `${blockClassName}${borderClassName} ${blockClassName}_type_${params.type}${borderClassName}`}
+  - var controlAttributes = {class: `${blockClassName}${controlClassName} ${blockClassName}_type_${params.type}${controlClassName}`}
   - var attributes = {blockAttributes, borderAttributes, controlAttributes}
 
   - var decorationText = ""
   - var arrowDecorationCN = `${blockClassName}_decoration_enter-arrow`
   - var enterArrowDecoration = "enter-arrow"
 
-  case resultParams.decoration.toLowerCase()
+  case params.decoration.toLowerCase()
     when enterArrowDecoration
       -decorationText = "arrow_forward"
       -blockAttributes.class += ` ${arrowDecorationCN} `
   each value, index in Object.values(attributes)
-    if resultParams.isTextSized
+    if params.isTextSized
       -value.class += ` ${blockClassName}_text-sized${index ? classNames[index] : ""} `
-    if resultParams.isHovered
+    if params.isHovered
       -value.class += ` ${blockClassName}_hovered ${index ? classNames[index] : ""} `
-    if resultParams.size
-      -value.class += ` ${blockClassName}_size_${resultParams.size}${index ? classNames[index] : ""} `
+    if params.size
+      -value.class += ` ${blockClassName}_size_${params.size}${index ? classNames[index] : ""} `
 
-  if resultParams.isLink
+  if params.isLink
     a(class=blockAttributes.class)
-      if resultParams.type === "bordered"
+      if params.type === "bordered"
         div(class=borderAttributes.class)
-          button(class=`${controlAttributes.class} text_type_label-CTA`) #{text}
+          button(class=`${controlAttributes.class} text_type_label-CTA`) #{params.text}
       else
-        button(class=`${controlAttributes.class} text_type_label-CTA`) #{text}
-      if resultParams.decoration === enterArrowDecoration
+        button(class=`${controlAttributes.class} text_type_label-CTA`) #{params.text}
+      if params.decoration === enterArrowDecoration
         div.button__decoration #{decorationText}
   else
     div(class=blockAttributes.class)
-      if resultParams.type === "bordered"
+      if params.type === "bordered"
         div(class=borderAttributes.class)
-          button(class=`${controlAttributes.class} text_type_label-CTA`) #{text}
+          button(class=`${controlAttributes.class} text_type_label-CTA`) #{params.text}
       else
-        button(class=`${controlAttributes.class} text_type_label-CTA`) #{text}
-      if resultParams.decoration === enterArrowDecoration
+        button(class=`${controlAttributes.class} text_type_label-CTA`) #{params.text}
+      if params.decoration === enterArrowDecoration
         div.button__decoration #{decorationText}
