@@ -76,6 +76,7 @@ function safeDatepickerInit($datepicker, $datepickerControl) {
   return $datepickerControl.data('datepicker');
 }
 
+// index, поскольку вызов может происходить и через each от jQuery
 export function initTwoCalendarPicker(index, element) {
   const $twoCalendarRange = $(element);
 
@@ -108,8 +109,7 @@ export function initTwoCalendarPicker(index, element) {
   const initDates = getInitDates($twoCalendarRange);
   if (initDates.firstDate) {
     firstDatepicker.selectDate(initDates.firstDate);
-  }
-  if (initDates.secondDate) {
+  } if (initDates.secondDate) {
     secondDatepicker.selectDate(initDates.secondDate);
   }
 }
