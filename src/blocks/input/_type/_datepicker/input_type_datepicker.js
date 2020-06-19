@@ -99,7 +99,7 @@ function initExpandableEvents($expandArrow, $control) {
  * @param dates
  */
 export function setDates($datepickerInput, dates) {
-  if (!dates) { return; }
+  if (!dates || dates.length === 0) { return; }
   const datepickerData = $datepickerInput.data('datepicker');
   datepickerData.selectDate(dates);
 }

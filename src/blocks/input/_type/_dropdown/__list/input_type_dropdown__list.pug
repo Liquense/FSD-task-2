@@ -13,9 +13,9 @@ mixin dropdownList(elementNames = {}, attr, range)
             +spinner(range, element.name, index, element.value)
     div(class="input_type_dropdown__control-buttons-container")
       div.input__control-button.input__clear-button
-        +Button("Очистить", {type: "text", isHovered: true})
+        +Button({text: "Очистить", type: "text", isHovered: true})
       div.input__confirm-button.input__control-button
-        +Button("Применить", {type: "text"})
+        +Button({text: "Применить", type: "text"})
 
 //- 'input_type_dropdown-unaccepted' - для отображения кнопки "применить" при инициализации
 //- 'input_type_dropdown-pure' - для отсутствия контролирующих кнопок постоянно
@@ -26,12 +26,12 @@ mixin addDropdown(ddAttributes, ddData)
   - controlAttributes.type = "select"
   //-подтипы дропдауна
   if ddData.dropdownType === "rooms"
-    - ddAttributes.dropdownAttributes.class += blockClassName + dropdownClassName + "_rooms "
+    - ddAttributes.dropdownAttributes.class += blockClassName + "_rooms" + dropdownClassName + " "
   else if ddData.dropdownType === "customers"
-    - ddAttributes.dropdownAttributes.class += blockClassName + dropdownClassName + "_customers "
+    - ddAttributes.dropdownAttributes.class += blockClassName + "_customers" + dropdownClassName + " "
   //-модификаторы дропдауна
   if ddData.isUnified
-    - ddAttributes.dropdownAttributes.class += blockClassName + dropdownClassName + "_unified "
+    - ddAttributes.dropdownAttributes.class += blockClassName + "_unified" + dropdownClassName + " "
   if ddData.isOpened
     - ddAttributes.blockAttributes.class += blockClassName + "_type_dropdown-opened "
   if ddData.isPure

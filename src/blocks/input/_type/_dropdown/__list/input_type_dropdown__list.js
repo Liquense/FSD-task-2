@@ -32,6 +32,7 @@ const typeRooms = 'rooms';
 const typeCustomers = 'customers';
 function getDropdownType(dropdown) {
   const dropdownType = {};
+
   if ($(dropdown).hasClass('input_unified__dropdown-list-wrapper')) {
     dropdownType.isUnified = true;
   }
@@ -171,6 +172,7 @@ function createInputText(namesValues, dropdownType) {
 function changeInputText(dropdown, namesValues, input) {
   const dropdownType = getDropdownType(dropdown);
   const newInputText = createInputText(namesValues, dropdownType);
+
   $(input).val(newInputText);
 }
 
