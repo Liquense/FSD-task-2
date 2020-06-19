@@ -6,7 +6,7 @@ import {
   setInitialDates,
 } from '../../blocks/two-calendar-range-picker/two-calendar-range-picker';
 import { formatNumber, ruDeclination } from '../../common/functions';
-import { initDropdownInput } from '../../blocks/input/_type/_dropdown/input__list_type_dropdown';
+import { initDropdownInput } from '../../blocks/input/_type/_dropdown/__list/input_type_dropdown__list';
 
 import './booking-card.scss';
 
@@ -108,14 +108,14 @@ function initBookingCard() {
   const priceToShow = formatNumber(priceAmount, ' ');
   writeFormattedDailyPrice($dailyPrice, priceToShow, currency);
 
-  const $rangePicker = $bookingCard.find('.booking-card__range-picker');
+  const $rangePicker = $bookingCard.find('.booking-card__range-picker > .two-calendar-range-picker');
   initTwoCalendarPicker(0, $rangePicker);
-  const $firstDatepicker = $rangePicker.find('.two-calendar-range-picker__first-datepicker');
-  const $firstDatepickerControl = $firstDatepicker.find('.input__control_type_datepicker');
-  const $secondDatepicker = $rangePicker.find('.two-calendar-range-picker__second-datepicker');
-  const $secondDatepickerControl = $secondDatepicker.find('.input__control_type_datepicker');
+  const $firstDatepicker = $($rangePicker.find('.two-calendar-range-picker__first-datepicker')[0]);
+  const $firstDatepickerControl = $($firstDatepicker.find('.input_type_datepicker__control')[0]);
+  const $secondDatepicker = $($rangePicker.find('.two-calendar-range-picker__second-datepicker')[0]);
+  const $secondDatepickerControl = $($secondDatepicker.find('.input_type_datepicker__control')[0]);
 
-  const $guestsDropdown = $bookingCard.find('.booking-card__guests-dropdown');
+  const $guestsDropdown = $($bookingCard.find('.booking-card__guests-dropdown > input_type_dropdown')[0]);
   initDropdownInput(0, $guestsDropdown);
 
   const $stayingCostRow = $bookingCard.find('.booking-card__staying-cost-row');
@@ -128,6 +128,7 @@ function initBookingCard() {
     addServicesSum: 0,
     stayingSum: 0,
   };
+
   const $totalCostSpan = $bookingCard.find('.booking-card__summary-total-cost');
   addRefreshCheckOnInputChange(
     $firstDatepickerControl,

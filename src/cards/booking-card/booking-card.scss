@@ -98,6 +98,7 @@
     .booking-card__info-icon {
       width: $iconSize;
       height: $iconSize;
+      display: block;
       line-height: $iconSize - 2px;
       vertical-align: middle;
       text-align: center;
@@ -109,15 +110,6 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
-    }
-
-    .booking-card__staying-cost-row {
-    }
-
-    .booking-card__services-cost-row {
-    }
-
-    .booking-card__additional-services-row {
     }
   }
 
@@ -145,9 +137,6 @@
       font-size: 18px;
       letter-spacing: -0.7px;
     }
-  }
-
-  .booking-card__booking-button {
   }
 }
 

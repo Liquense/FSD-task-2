@@ -16,32 +16,30 @@ mixin bookingCard(data={})
       div.booking-card__price-info
         span.booking-card__daily-price.text_type_label-CTA(data-dailyPrice=data.dailyPrice data-currency=data.currency) #{data.dailyPrice}#{data.currency}
         span.booking-card__payment-period.text_type_regular  в сутки
-    +twoCalendarRangePicker({labels: ["Прибытие", "Выезд"], firstDate: data.arrivalDate, secondDate: data.departureDate})(addClasses = "booking-card__range-picker")
-    +input("Гости",
-      "dropdown customers unified",
-      "Сколько гостей",
-      "booking-card__guests-dropdown",
-      "",
-      data.dropdownItems)
+    div.booking-card__range-picker
+      +twoCalendarRangePicker({labels: ["Прибытие", "Выезд"], firstDate: data.arrivalDate, secondDate: data.departureDate})
+    div.booking-card__guests-dropdown
+      +input({title: "Гости", type: "dropdown", dropdownType: "customers", isUnified: true, placeholder: "Сколько гостей", data: data.dropdownItems})
     div.booking-card__check-container.text_type_regular()
       div.booking-card__staying-cost-row.row
         span.booking-card__staying-cost-calculation.col1 test
         span.booking-card__staying-cost-sum.col3 test
       div.booking-card__services-cost-row.row
         span.booking-card__services.col1(data-services=data.services)
-        +infoIcon()(addClasses="col2")
+        div.col2
+          +infoIcon()
         span.booking-card__services-sum.col3
       div.booking-card__additional-services-row.row
         span.booking-card__additional-services-text.col1 Сбор за дополнительные услуги
-        +infoIcon()(addClasses="col2")
+        div.col2
+          +infoIcon()
         span.booking-card__additional-services-sum.col3(data-addServices=data.additionalPrice) #{data.additionalPrice}#{data.currency}
     div.booking-card__summary.text_type_item-title
       span.booking-card__summary-text Итого
       div.booking-card__summary-dash-underline
       span.booking-card__summary-total-cost
-    +Button("Забронировать",
-      "button_type_filled button_size_wide booking-card__booking-button"
-    )(decoration = "enterArrow")
+    div.booking-card__booking-button
+      +Button({text: "Забронировать", type: "filled", size: "wide", decoration: "enter-arrow"})
 
 mixin infoIcon()
-  span(class=`booking-card__info-icon ${attributes.addClasses ? attributes.addClasses : ""}`) i
+  span(class=`booking-card__info-icon`) i
