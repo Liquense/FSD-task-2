@@ -7,18 +7,27 @@ mixin registrationCard(data={})
   -var addClasses = attributes.addClasses ? attributes.addClasses : ""
   div.registration-card(class=addClasses)
     h3.registration-card__title.text_type_widget-title Регистрация аккаунта
-    +input("", "text", "Имя", "registration-card__user-name", "")
-    +input("", "text", "Фамилия", "registration-card__user-surname", "")
+    div.registration-card__user-name
+      +input({type: "text", placeholder: "Имя"})
+    div.registration-card__user-surname
+      +input({type: "text", placeholder: "Фамилия"})
     -var radioButtons = [{text: "Мужчина", group: "registrationGender", isChecked: true}]
     -radioButtons.push({text: "Женщина", group: "registrationGender"})
-    +list("radio", "", radioButtons, "registration-card__gender-list")
-    +input("Дата рождения", "mask", "ДД.ММ.ГГГГ", "registration-card__birthday", "[0123][0-9].[012][0-9].[0-9]{4}")
+    div.registration-card__gender-list
+      +list({type: "radio", elements: radioButtons})
+    div.registration-card__birthday
+      +input({title: "Дата рождения", type: "mask", placeholder: "ДД.ММ.ГГГГ", mask: "[0123][0-9].[012][0-9].[0-9]{4}"})
     div.registration-card__login-data-container
       p.text_type_label-CTA.registration-card__login-data-title Данные для входа в сервис
-      +input("", "text", "Email", "registration-card__email")
-      +input("", "text", "Пароль", "registration-card__password")
-    +checkbox("Получать спецпредложения", "toggle", "", "registration-card__send-offers")
-    +Button("Перейти к оплате", "button_type_filled button_size_wide registration-card__payment-button")(decoration = "enterArrow")
+      div.registration-card__email
+        +input({type: "text", placeholder: "Email"})
+      div.registration-card__password
+        +input({type: "text", placeholder: "Пароль"})
+    div.registration-card__send-offers
+      +checkbox({text: "Получать спецпредложения", type: "toggle"})
+    div.registration-card__payment-button
+      +Button({text: "Перейти к оплате", type: "filled", size: "wide", decoration: "enter-arrow"})
     div.registration-card__action-container
       a.registration-card__have-account-link(href=data.loginURL) Уже есть аккаунт на Toxin
-      +Button("Войти", "button_type_bordered registration-card__login-button")
+      div.registration-card__login-button
+        +Button({text: "Войти", type: "bordered"})

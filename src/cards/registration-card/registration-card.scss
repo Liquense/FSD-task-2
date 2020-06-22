@@ -12,17 +12,17 @@ $borderWidth: 1px;
   padding: 40px - $borderWidth 30px 30px - $borderWidth 30px;
   @include boxSizingBorderBox();
 
-  .registration-card__title {
+  &__title {
     align-self: stretch;
     margin: 0;
     margin-bottom: 20px;
     letter-spacing: -0.6px;
   }
 
-  .registration-card__user-name,
-  .registration-card__user-surname,
-  .registration-card__email,
-  .registration-card__password {
+  &__user-name,
+  &__user-surname,
+  &__email,
+  &__password {
     .input__title {
       .input__control-wrapper {
         margin-top: 0;
@@ -30,69 +30,61 @@ $borderWidth: 1px;
     }
   }
 
-  .registration-card__user-name {
+  &__user-name {
     margin-bottom: 10px;
   }
 
-  .registration-card__user-surname {
+  &__user-surname {
     margin-bottom: 10px;
   }
 
-  .registration-card__gender-list {
+  &__gender-list {
     align-self: stretch;
+    margin-bottom: 23px;
 
-    > .list__container {
-      > .list__input {
+    .list__container {
+      .list__input {
         margin-top: 0;
       }
     }
-
-    margin-bottom: 23px;
   }
 
-  .registration-card__birthday {
+  &__birthday {
     margin-bottom: 21px;
   }
 
-  .registration-card__login-data-container {
+  &__login-data-container {
     margin-bottom: 10px;
-
-    .registration-card__login-data-title {
-      margin: 0;
-      margin-bottom: 6px;
-    }
-
-    .registration-card__email {
-      margin-bottom: 10px;
-    }
-
-    .registration-card__password {
-    }
   }
 
-  .registration-card__send-offers {
+  &__login-data-title {
+    margin: 0 0 6px;
+  }
+
+  &__email {
+    margin-bottom: 10px;
+  }
+
+  &__send-offers {
     align-self: stretch;
     margin-bottom: 24px;
   }
 
-  .registration-card__payment-button {
+  &__payment-button {
     margin-bottom: 30px;
   }
 
-  .registration-card__action-container {
+  &__action-container {
     display: flex;
     align-self: stretch;
     align-items: center;
     justify-content: space-between;
+  }
 
-    .registration-card__have-account-link {
-      margin-bottom: 2px;
-      text-decoration: none;
-      @include text(Montserrat, normal, 14px, 18px, black, normal);
-    }
-
-    .registration-card__login-button {
-    }
+  &__have-account-link {
+    margin-bottom: 2px;
+    text-decoration: none;
+    @include text(Montserrat, normal, 14px, 18px, black, normal);
   }
 }
 
@@ -104,23 +96,23 @@ $borderWidth: 1px;
     border-right: 0;
     border-left: 0;
 
-    .registration-card__title {
+    &__title {
       text-align: center;
     }
 
-    .registration-card__gender-list {
+    &__gender-list {
       width: fit-content;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .registration-card__send-offers {
+    &__send-offers {
       width: fit-content;
       margin-left: auto;
       margin-right: auto;
     }
 
-    .registration-card__action-container {
+    &__action-container {
       justify-content: space-evenly;
     }
   }
