@@ -11,7 +11,7 @@
   border-radius: 4px;
   @include boxSizingBorderBox();
 
-  .login-card__title {
+  &__title {
     align-self: stretch;
     margin: 0;
     margin-bottom: 17px;
@@ -19,37 +19,34 @@
     line-height: 30px;
   }
 
-  .login-card__email-input,
-  .login-card__password-input {
+  &__email-input,
+  &__password-input {
     .input__control {
       margin: 0;
     }
   }
 
-  .login-card__email-input {
+  &__email-input {
     margin-bottom: 6px;
   }
 
-  .login-card__password-input {
+  &__password-input {
     margin-bottom: 20px;
   }
 
-  .login-card__login-button {
+  &__login-button {
     margin-bottom: 30px;
   }
 
-  .login-card__create-account-container {
+  &__create-account-container {
     display: flex;
     justify-content: space-between;
     align-self: stretch;
     align-items: center;
+  }
 
-    .login-card__havent-account {
-      color: black;
-    }
-
-    .login-card__create-login-button {
-    }
+  &__havent-account {
+    color: black;
   }
 }
 
@@ -61,11 +58,11 @@
     border-right: 0;
     border-left: 0;
 
-    .login-card__title {
+    &__title {
       text-align: center;
     }
 
-    .login-card__create-account-container {
+    &__create-account-container {
       justify-content: space-evenly;
     }
   }
