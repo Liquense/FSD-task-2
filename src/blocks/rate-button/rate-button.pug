@@ -5,7 +5,7 @@ mixin rateButton(data={})
   -data = Object.assign(defaultData, data)
 
   div(
-    class=`rate-button ${attributes.addClasses ? attributes.addClasses : ""}`
+    class=`rate-button`
     data-maxRating=data.maxRating
     data-rating=data.rating
   )
