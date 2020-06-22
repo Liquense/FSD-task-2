@@ -3,16 +3,11 @@ include ../../blocks/input/input
 include ../../blocks/button/button
 
 mixin findRoomCard()
-  -var addClasses = attributes.addClasses ? attributes.addClasses : '';
-  div(class=`find-room-card ${addClasses}`)
+  div.find-room-card
     h3.find-room-card__title.text_type_widget-title Найдём номера под ваши пожелания
-    +twoCalendarRangePicker({labels: ["Прибытие", "Выезд"]})(addClasses = "find-room-card__range-picker")
-    +input("Гости",
-      "dropdown customers",
-      "Сколько гостей",
-      "find-room-card__dropdown",
-      "",
-      [{name: "Взрослые"}, {name: "Дети"}, {name: "Младенцы"}])
-    +Button("Подобрать номер",
-      "button_type_filled button_size_wide find-room-card__button"
-    )(decoration = "enterArrow")
+    div.find-room-card__range-picker
+      +twoCalendarRangePicker({labels: ["Прибытие", "Выезд"]})
+    div.find-room-card__dropdown
+      +input({title: "Гости", type: "dropdown", dropdownType: "customers", placeholder: "Сколько гостей", data: [{name: "Взрослые"}, {name: "Дети"}, {name: "Младенцы"}]})
+    div.find-room-card__button
+      +Button({text: "Подобрать номер", type: "filled", size: "wide", decoration: "enter-arrow"})

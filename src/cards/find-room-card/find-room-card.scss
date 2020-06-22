@@ -14,18 +14,18 @@ $borderWidth: 1px;
   padding: (40px - $borderWidth) (30px - $borderWidth) (30px - $borderWidth);
   @include boxSizingBorderBox();
 
-  .find-room-card__title {
+  &__title {
     margin: 0;
     padding: 0;
     letter-spacing: -0.4px;
     margin-bottom: 19px;
   }
 
-  .find-room-card__range-picker {
+  &__range-picker {
     margin-bottom: 19px;
   }
 
-  .find-room-card__dropdown {
+  &__dropdown {
     margin-bottom: 30px;
   }
 }
@@ -38,7 +38,7 @@ $borderWidth: 1px;
     border-right: 0;
     border-left: 0;
 
-    .find-room-card__title {
+    &__title {
       text-align: center;
     }
   }
