@@ -3,36 +3,48 @@ section.form-elements
     div.form-elements__basic-inputs
       include ../../../blocks/input/input
       include ../../../blocks/two-calendar-range-picker/two-calendar-range-picker
-      +input("Text field", "text", "Email", "form-elements__text-input")
-      +input("Text field", "text", "This is pretty awesome", "input_focused form-elements__focused-text-input", "", "This is pretty awesome")
-      +input("Dropdown", "dropdown customers", "Сколько гостей", "form-elements__dropdown", "",
-        [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}])
-      +input("Masked Text Field", "mask", "ДД.ММ.ГГГГ", "form-elements__masked-input", "[0123][0-9].[012][0-9].[0-9]{4}")
+      div.form-elements__text-input
+        +input({title: "Text field", type: "text", placeholder: "Email"})
+      div.form-elements__focused-text-input
+        +input({title: "Text field", type: "text", placeholder: "This is pretty awesome", data: "This is pretty awesome", isFocused: true})
+      div.form-elements__dropdown
+        +input({title: "Dropdown", type: "dropdown", dropdownType: "customers", placeholder: "Сколько гостей",
+          data: [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}]})
+      div.form-elements__masked-input
+        +input({title: "Masked Text Field", type: "mask", placeholder: "ДД.ММ.ГГГГ", mask: "[0123][0-9].[012][0-9].[0-9]{4}"})
 
     div.form-elements__datepickers
       include ../../../blocks/two-calendar-range-picker/two-calendar-range-picker
       +twoCalendarRangePicker({secondDate: "19.08.2019", labels: ["date dropdown", "date dropdown"]})
-      +input("filter date dropdown", "datepicker medium", "ДД.ММ.ГГГГ", "", "", ["19.08.2019", "23.08.2019"])
-      +input("subscription text field", "text medium subscription", "Email")
+      +input({title: "filter date dropdown", type: "datepicker", width: "medium", placeholder: "ДД.ММ.ГГГГ", data: ["19.08.2019", "23.08.2019"]})
+      +input({title: "subscription text field", type: "text", width: "medium", withSubscription: true, placeholder: "Email"})
 
     div.form-elements__checkboxes-ratings
       include ../../../blocks/checkbox/checkbox
       include ../../../blocks/list/list
+
       -var checkButtons = [{text: "Можно курить"}]
         -checkButtons.push({text: "Можно с питомцами", isChecked: true})
         -checkButtons.push({text: "Можно пригласить гостей (до 10 человек)", isChecked: true})
-      +list("checkbox", "Checkbox Buttons", checkButtons, "form-elements__checkboxes")
+      div.form-elements__checkboxes
+        +list({type: "checkbox", title: "Checkbox Buttons", elements: checkButtons})
+
       -var radioButtons = [{text: "Мужчина", group: "gender", isChecked: true}]
         -radioButtons.push({text: "Женщина", group: "gender", isChecked: false})
-      +list("radio", "Radio buttons", radioButtons, "form-elements__radios")
+      div.form-elements__radios
+        +list({type: "radio", title: "Radio buttons", elements: radioButtons})
+
       -var toggleButtons = [{text: "Получать спецпредложения", isChecked: true}]
       -toggleButtons.push({text: "Получать спецпредложения", isChecked: false})
-      +list("toggle", "toggle", toggleButtons, "form-elements__toggles")
+      div.form-elements__toggles
+        +list({type: "toggle", title: "toggle", elements: toggleButtons})
       div.form-elements__likes
         H2.form-elements__likes-header.text_type_label-CTA Like button
         div.form-elements__likes-body
-          +checkbox("2", "like", "", "form-elements__like")
-          +checkbox("12", "like", "", "form-elements__like", true)
+          div.form-elements__like
+            +checkbox({text: "2", type: "like"})
+          div.form-elements__like
+            +checkbox({text: "12", type: "like", isChecked: true})
       div.form-elements__rates
         H2.form-elements__rates-header.text_type_label-CTA rate button
         div.form-elements__rates-body
@@ -42,20 +54,22 @@ section.form-elements
 
     div.form-elements__slider-buttons-pagination
       include ../../../blocks/slider/slider
-      +slider(0, 16000, 100, "Range slider", "form-elements__slider ", true, [5000, 10000])
+      div.form-elements__slider
+        +slider({minValue: 0, maxValue: 16000, step: 100, title: "Range slider", isRange: true, initialValues: [5000, 10000]})
       div.form-elements__buttons
         H2.form-elements__buttons-header.text_type_label-CTA buttons
         include ../../../blocks/button/button
         div.form-elements__filled-buttons.buttons-row
-          +Button("Click Me", "button_type_filled")
-          +Button("Click Me", "button_type_filled button_hovered")
+          +Button({text: "Click Me", type: "filled"})
+          +Button({text: "Click Me", type: "filled", isHovered: true})
         div.form-elements__bordered-buttons.buttons-row
-          +Button("Click Me", "button_type_bordered")
-          +Button("Click Me", "button_type_bordered button_hovered")
+          +Button({text: "Click Me", type: "bordered"})
+          +Button({text: "Click Me", type: "bordered", isHovered: true})
         div.form-elements__text-buttons.buttons-row
-          +Button("Click Me", "button_type_text")
-          +Button("Click Me", "button_type_text button_hovered")
-        +Button("Перейти к оплате", "button_type_filled button_size_wide form-elements__wide-button")(decoration = "enterArrow")
+          +Button({text: "Click Me", type: "text"})
+          +Button({text: "Click Me", type: "text", isHovered: true})
+        div.form-elements__wide-button
+          +Button({text: "Перейти к оплате", type: "filled", size: "wide", decoration: "enter-arrow"})
         div.form-elements__pagination
           include ../../../blocks/pagination/pagination
           H2.form-elements__pagination-title.text_type_label-CTA pagination
@@ -70,40 +84,48 @@ section.form-elements
     div.form-elements__dropdowns
       div.form-elements__room-dropdowns
         -var rooms = [{name: "Спальни", value: 2}, {name: "Кровати", value: 2}, {name: "Ванные комнаты", value: 0}];
-        +input("Dropdown", "dropdown rooms medium", "Сколько убранства", "form-elements__rooms-dropdown", "",
-          rooms)
-        +input("Dropdown", "dropdown rooms medium pure opened", "Сколько убранства", "form-elements__rooms-dropdown", "",
-          rooms)
-      +input("Dropdown", "dropdown customers opened unaccepted", "Сколько гостей", "form-elements__guest-dropdown-unaccepted", "",
-        [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}])
-      +input("Dropdown", "dropdown unified customers opened unaccepted", "Сколько гостей", "form-elements__guest-dropdown", "",
-        [{name: "Взрослые", value: 2}, {name: "Дети", value: 1}, {name: "Младенцы", value: 0}])
+        div.form-elements__rooms-dropdown
+          +input({title: "Dropdown", type: "dropdown", width: "medium", dropdownType: "rooms", placeholder: "Сколько убранства", data: rooms})
+        div.form-elements__rooms-dropdown
+          +input({title: "Dropdown", type: "dropdown", dropdownType: "rooms", width: "medium", isPure: true, isOpened: true, placeholder: "Сколько убранства", data: rooms})
+      div.form-elements__guest-dropdown-unaccepted
+        +input({title: "Dropdown", type: "dropdown", dropdownType: "customers",  isOpened: true, isUnaccepted: true, placeholder: "Сколько гостей",
+          data: [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}]})
+      div.form-elements__guest-dropdown
+        +input({title: "Dropdown", type: "dropdown", isUnified: true, dropdownType: "customers", isOpened: true, isUnaccepted: true, placeholder: "Сколько гостей",
+          data: [{name: "Взрослые", value: 2}, {name: "Дети", value: 1}, {name: "Младенцы", value: 0}]})
     div.form-elements__lists
       div.form-elements__expandable-lists
         -var checkButtons = [{text: "Завтрак"}, {text: "Письменный стол", isChecked: true},
         -{text: "Стул для кормления", isChecked: true}, {text: "Кроватка", isChecked: true},
         -{text: "Телевизор"}, {text: "Шампунь"}
         -]
-        +list("checkbox expandable", "Expandable Checkbox List", checkButtons, "form-elements__expandable-list")
-        +list("checkbox expandable opened", "Expandable Checkbox List", checkButtons, "form-elements__expanded-list")
+        div.form-elements__expandable-list
+          +list({type: "checkbox", isExpandable: true, title: "Expandable Checkbox List", elements: checkButtons})
+        div.form-elements__expanded-list
+          +list({type: "checkbox", isExpandable: true, isOpened: true, title: "Expandable Checkbox List", elements: checkButtons})
 
       -var richButtons = [{
       -text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."}]
       -richButtons.push({text: "Помощник для инвалидов",
       -description: "На 1 этаже вас встретит специалист \n и проводит до номера."})
-      +list("rich", "Rich checkbox buttons", richButtons, "form-elements__rich-list")
+      div.form-elements__rich-list
+        +list({type: "rich", title: "Rich checkbox buttons", elements: richButtons})
 
-      +bulletList(
-        "Bullet List",
-        ["Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"]
-      )(addClasses="form-elements__bullet-list")
+      div.form-elements__bullet-list
+        +bulletList({
+          title: "Bullet List",
+          contentStrings: ["Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"]
+          }
+        )
 
 
   div.form-elements__bottom-area
-    +featureList([
-      {title: "Комфорт", text: "Шумопоглощающие стены", icon: "insert_emoticon"},
-      {title: "Удобство", text: "Окно в каждой из спален", icon: "location_city"},
-    ])(addClasses = "form-elements__feature-list")
+    div.form-elements__feature-list
+      +featureList({items: [
+        {title: "Комфорт", text: "Шумопоглощающие стены", icon: "insert_emoticon"},
+        {title: "Удобство", text: "Окно в каждой из спален", icon: "location_city"},
+      ]})
     include ../../../blocks/comment/comment
     +comment({
       avatar: require("../../assets/images/user-avatar.jpg"),
