@@ -1,23 +1,22 @@
 $roomCardWidth: 270px;
 
-.search-room__header {
-}
+.search-room {
+  &__content {
+    display: flex;
+    padding: 29px get-vw(140px) 76px;
+    border-bottom: solid 1px $darkShade25;
 
-.search-room__content {
-  display: flex;
-  padding: 29px get-vw(140px) 76px;
-  border-bottom: solid 1px $darkShade25;
-
-  @media (max-width: 1070px) {
-    flex-direction: column;
-    align-items: center;
+    @media (max-width: 1070px) {
+      flex-direction: column;
+      align-items: center;
+    }
+    @media (max-width: 810px) {
+      padding-right: 0;
+      padding-left: 0;
+    }
   }
-  @media (max-width: 810px) {
-    padding-right: 0;
-    padding-left: 0;
-  }
 
-  .search-room__show-sidebar-button {
+  &__show-sidebar-button {
     @include icon();
     user-select: none;
     display: none;
@@ -52,7 +51,7 @@ $roomCardWidth: 270px;
     }
   }
 
-  .search-room__sidebar {
+  &__sidebar {
     width: 266px;
     margin-right: get-vw(60px);
     @media (max-width: 1070px) {
@@ -84,79 +83,77 @@ $roomCardWidth: 270px;
         }
       }
     }
+  }
 
-    .search-room__staying-dates {
-      margin-bottom: 18px;
-    }
+  &__staying-dates {
+    margin-bottom: 18px;
+  }
 
-    .search-room__guests {
-      margin-bottom: 32px;
-    }
+  &__guests {
+    margin-bottom: 32px;
+  }
 
-    .search-room__price-per-day-slider-container {
-      width: fit-content;
+  &__price-per-day-slider-container {
+    width: fit-content;
+  }
 
-      .search-room__price-per-day-slider-filter {
-        margin-bottom: 14px;
-      }
+  &__price-per-day-slider-filter {
+    margin-bottom: 14px;
+  }
 
-      .search-room__price-per-day-text {
-        font-size: 12px;
-        margin: 0;
-      }
-    }
+  &__price-per-day-text {
+    font-size: 12px;
+    margin: 0;
+  }
 
-    .search-room__benefits-filter {
-      margin-bottom: 34px;
-    }
+  &__benefits-filter {
+    margin-bottom: 34px;
+  }
 
-    .search-room__availability-filter {
-      margin-bottom: 26px;
+  &__availability-filter {
+    margin-bottom: 26px;
+  }
+
+  &__rooms {
+    width: 100%;
+  }
+
+  &__rooms-title {
+    margin-top: 0;
+    margin-bottom: 22px;
+    letter-spacing: -0.5px;
+
+    @media (max-width: 1070px) {
+      text-align: center;
+      margin-left: 5px;
+      margin-right: 5px;
     }
   }
 
-  .search-room__rooms {
-    width: 100%;
+  &__rooms-pagination {
+    .pagination__content-container {
+      display: grid;
+      justify-content: space-between;
+      row-gap: 18px;
+      column-gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax($roomCardWidth, 1fr));
+      margin-bottom: 35px;
 
-    .search-room__rooms-title {
-      margin-top: 0;
-      margin-bottom: 22px;
-      letter-spacing: -0.5px;
-
-      @media (max-width: 1070px) {
-        text-align: center;
-        margin-left: 5px;
-        margin-right: 5px;
+      @media (max-width: 810px) {
+        row-gap: get-vw(10px);
       }
-    }
 
-    .search-room__rooms-pagination {
-      .pagination__content-container {
-        display: grid;
-        justify-content: space-between;
-        row-gap: 18px;
-        column-gap: 12px;
-        grid-template-columns: repeat(auto-fit, minmax($roomCardWidth, 1fr));
-        margin-bottom: 35px;
-
-        @media (max-width: 810px) {
-          row-gap: get-vw(10px);
-        }
-
-        .pagination__item {
+      .pagination__item {
+        .room-preview-card {
           width: 100%;
         }
       }
+    }
 
-      .pagination__buttons-container {
-        .paginationjs {
-          margin-right: get-vw(15px); //
-        }
+    .pagination__buttons-container {
+      .paginationjs {
+        margin-right: get-vw(15px); //
       }
     }
   }
-}
-
-.search-room__footer {
-
 }

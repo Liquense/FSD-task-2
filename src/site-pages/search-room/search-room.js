@@ -11,7 +11,7 @@ import './search-room.pug';
 import './search-room.scss';
 import { initDatepickerInputs } from '../../blocks/input/_type/_datepicker/input_type_datepicker';
 import { initExpandableLists } from '../../blocks/list/_expandable/list_expandable';
-import { initDropdowns } from '../../blocks/input/_type/_dropdown/input__list_type_dropdown';
+import { initDropdowns } from '../../blocks/input/_type/_dropdown/__list/input_type_dropdown__list';
 
 function initAllRoomPreviewCardsInContainer($container) {
   $container.find('.room-preview-card').each(initRoomPreviewCard);
