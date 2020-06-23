@@ -4,7 +4,7 @@
   background-color: white;
   @include boxSizingBorderBox();
 
-  .footer__content-section {
+  &__content-section {
     padding: get-vw(100px) get-vw(140px) get-vw(99px);
   }
 
