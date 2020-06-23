@@ -36,7 +36,7 @@ $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
     }
   }
 
-  .checkbox_type_like__button {
+  &__button {
     width: $likeWidth;
     height: $likeHeight;
     margin: 0;
