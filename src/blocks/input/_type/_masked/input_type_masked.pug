@@ -1,7 +1,7 @@
 mixin addMaskedInput(imAttributes, imData)
   include ../../_decoration/_enter-arrow/input_decoration_enter-arrow
   each value, index in Object.values(imAttributes)
-    - value.class += classNames[index] + "_masked "
+    - value.class += index === 0 ? classNames[index] + "_type_masked " : classNames[0] + "_type_masked" + classNames[index] + " "
   div&attributes(imAttributes.blockAttributes)
     if imData.title
       label&attributes(imAttributes.titleAttributes) #{imData.title}
