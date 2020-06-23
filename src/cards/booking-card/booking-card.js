@@ -115,7 +115,7 @@ function initBookingCard() {
   const $secondDatepicker = $($rangePicker.find('.two-calendar-range-picker__second-datepicker')[0]);
   const $secondDatepickerControl = $($secondDatepicker.find('.input_type_datepicker__control')[0]);
 
-  const $guestsDropdown = $($bookingCard.find('.booking-card__guests-dropdown > input_type_dropdown')[0]);
+  const $guestsDropdown = $($bookingCard.find('.booking-card__guests-dropdown > .input_type_dropdown')[0]);
   initDropdownInput(0, $guestsDropdown);
 
   const $stayingCostRow = $bookingCard.find('.booking-card__staying-cost-row');
