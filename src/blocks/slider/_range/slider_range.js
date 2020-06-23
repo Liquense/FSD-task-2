@@ -1,10 +1,13 @@
 /* eslint-disable no-undef */
 // jquery объявлена вебпаком
-import { clamp } from '../../../common/functions';
-import {
-  sliderHandlerValueChange,
-  sliderValuesChange,
-} from '../slider-common';
+import { clamp, formatNumber } from '../../../common/functions';
+import sliderHandlerValueChange from '../slider-common';
+
+function sliderValuesChange(event, ui) {
+  $(ui.handle).closest('.slider').find('.slider__value').text(
+    `${formatNumber(ui.values[0], ' ')}₽ - ${formatNumber(ui.values[1], ' ')}₽`,
+  );
+}
 
 const $rangeSlider = $('.slider__control_range');
 function initRangeSlider() {

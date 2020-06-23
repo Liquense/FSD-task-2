@@ -2,10 +2,14 @@
 // jquery объявлена вебпаком
 import './_range/slider_range';
 import './slider.scss';
-import {
-  sliderHandlerValueChange,
-  sliderValuesChange,
-} from './slider-common';
+import sliderHandlerValueChange from './slider-common';
+import { formatNumber } from '../../common/functions';
+
+function sliderValueChange(event, ui) {
+  $(ui.handle).closest('.slider').find('.slider__value').text(
+    `${formatNumber(ui.value, ' ')}₽`,
+  );
+}
 
 // ищем слайдер, но не с диапазоном, а только одиночным значением
 const $sliderControl = $('.slider__control:not(.slider__control_range)');
@@ -21,7 +25,7 @@ function initSlider() {
     max: maximumValue,
     step,
     animate: 'fast',
-    change: sliderValuesChange,
+    change: sliderValueChange,
     slide: sliderHandlerValueChange,
   });
   $slider.slider('value', initialValue);
