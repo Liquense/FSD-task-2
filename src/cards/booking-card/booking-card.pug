@@ -7,7 +7,7 @@ include ../../blocks/button/button
   departureDate: string("dd.MM.yyyy") - дата выезда
   }
 mixin bookingCard(data={})
-  div(class = `booking-card ${attributes.addClasses ? attributes.addClasses : ""}`)
+  div(class = `booking-card`)
     header.booking-card__header
       div.booking-card__room-info
         span.booking-card__number-text.text_type_widget-title №
