@@ -11,7 +11,7 @@
   &__description {
     display: inline-block; //чтобы применить паддинг ко всему блоку, а не первой строке
     padding-left: $checkboxButtonSize + $buttonRightMargin; //для избавления от переноса текста снизу чекбокса
-    margin-top: 5px;
+    margin: 5px 0 0 0;
     color: $darkShade50;
     font-weight: normal;
     font-size: 12px;

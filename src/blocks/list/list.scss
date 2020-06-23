@@ -4,10 +4,6 @@
   border: none;
   @include boxSizingBorderBox();
 
-  p {
-    margin: 0;
-  }
-
   &__title {
     margin: 0;
     padding: 0;
