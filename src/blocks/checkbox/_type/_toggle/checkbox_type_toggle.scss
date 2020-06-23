@@ -5,26 +5,22 @@ $toggleCircleMargin: 4px;
 
 @keyframes desaturate {
   from {
-    filter: grayscale(0%);
     border-color: $purple;
-    filter: brightness(100%);
+    filter: grayscale(0%) brightness(100%);
   }
   to {
-    filter: grayscale(100%);
-    filter: brightness(120%);
+    filter: grayscale(100%) brightness(120%);
     border-color: $purple;
   }
 }
 
 @keyframes saturate {
   from {
-    filter: grayscale(100%);
-    filter: brightness(120%);
+    filter: grayscale(100%) brightness(120%);
     border-color: $purple;
   }
   to {
-    filter: grayscale(0%);
-    filter: brightness(100%);
+    filter: grayscale(0%) brightness(100%);
     border-color: $purple;
   }
 }
