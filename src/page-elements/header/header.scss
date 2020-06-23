@@ -9,53 +9,50 @@
   padding: get-vw(15px) get-vw(140px);
   @include boxSizingBorderBox();
 
-  .header__logo {
+  &__logo {
     display: block;
   }
 
-  .header__content-container {
+  &__content-container {
     display: flex;
     align-items: center;
+  }
 
-    .header__menu {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      list-style: none;
-      align-items: center;
+  .header__menu {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    align-items: center;
 
-      .header__menu-item {
-        @import "__menu-item/header__menu-item";
-        @include menuItem();
-      }
+    .header__menu-item {
+      @import "__menu-item/header__menu-item";
+      @include menuItem();
     }
+  }
 
-    //Если залогинен - вертикальный разделитель и имя пользователя
-    .header__divider {
-      flex-shrink: 0;
-      display: block;
-      height: 30px;
-      margin: 0 get-vw(30px);
-      border: solid 1px $darkShade10;
-    }
+  //Если залогинен - вертикальный разделитель и имя пользователя
+  &__divider {
+    flex-shrink: 0;
+    display: block;
+    height: 30px;
+    margin: 0 get-vw(30px);
+    border: solid 1px $darkShade10;
+  }
 
-    .header__user-name {
-      color: $darkShade50;
-    }
+  &__user-name {
+    color: $darkShade50;
+  }
 
-    //Если не залогинен - кнопки логина и регистрации
-    .header__buttons-container {
-      display: flex;
-      margin-left: get-vw(27px);
+  //Если не залогинен - кнопки логина и регистрации
+  &__buttons-container {
+    display: flex;
+    margin-left: get-vw(27px);
+  }
 
-      .header__login-button {
-        margin-right: get-vw(20px);
-      }
-
-      .header__register-button {
-      }
-    }
+  &__login-button {
+    margin-right: get-vw(20px);
   }
 }
 
@@ -71,55 +68,55 @@
   .header {
     flex-direction: column;
 
-    .header__content-container {
+    &__content-container {
       flex-direction: column;
+    }
 
-      .header__menu {
-        margin-right: 0;
-      }
+    &__menu {
+      margin-right: 0;
+    }
 
-      .header__divider {
-        width: 30px;
-        height: 0px;
-        margin: 5px 0;
-      }
+    &__divider {
+      width: 30px;
+      height: 0px;
+      margin: 5px 0;
     }
   }
 }
 
 @media (max-width: 450px) {
   .header {
-    .header__content-container {
+    &__content-container {
       width: 100%;
 
       :not(:last-child) {
         margin-bottom: 10px;
       }
+    }
 
-      .header__menu {
-        flex-direction: column;
+    &__menu {
+      flex-direction: column;
+    }
 
-        .header__menu-item {
-          &:not(:last-child) {
-            margin: 5px 0;
+    &__menu-item {
+      &:not(:last-child) {
+        margin: 5px 0;
 
-            &.header__menu-item_expandable {
-              margin: 5px 0 5px 12px;
-            }
-          }
+        &.header__menu-item_expandable {
+          margin: 5px 0 5px 12px;
         }
       }
+    }
 
-      .header__divider {
-        width: 100%;
-        margin-top: 0;
-        margin-bottom: 5px;
-      }
+    &__divider {
+      width: 100%;
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
 
-      .header__buttons-container {
-        justify-content: space-evenly;
-        width: 100%;
-      }
+    &__buttons-container {
+      justify-content: space-evenly;
+      width: 100%;
     }
   }
 }

@@ -1,15 +1,11 @@
 .header_narrow {
-  .header__content-container {
-    .header__menu {
-      .header__menu-item {
-        &:not(:last-child) {
-          margin-right: get-vw(21px);
-        }
-      }
+  &__menu-item {
+    &:not(:last-child) {
+      margin-right: get-vw(21px);
     }
+  }
 
-    .header__buttons-container {
-      margin-left: get-vw(20px);
-    }
+  &__buttons-container {
+    margin-left: get-vw(20px);
   }
 }
