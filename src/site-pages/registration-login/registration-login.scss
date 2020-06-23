@@ -1,34 +1,39 @@
 $backgroundImageHeight: 685px;
 
-.registration-login__header {
+.registration-login {
+  &__content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 
-}
+    &.registration-login__registration-container {
+      height: 702px;
+    }
 
-.registration-login__content {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+    &.registration-login__login-container {
+      height: $backgroundImageHeight;
+      min-height: 380px;
+      max-height: $backgroundImageHeight;
 
-  &.registration-login__login-container {
-    height: $backgroundImageHeight;
+      .registration-login__login-background-image {
+        height: 100%;
+        min-height: 380px;
+      }
+    }
   }
 
-  &.registration-login__registration-container {
-    height: 702px;
+  &__login-card {
+    margin-bottom: 1px;
   }
 
-  .registration-login__login-card {
-      margin-bottom: 1px;
+  &__registration-card {
+    margin-top: 4px;
   }
 
-  .registration-login__registration-card {
-      margin-top: 4px;
-  }
-
-  .registration-login__registration-background-image,
-  .registration-login__login-background-image {
+  &__registration-background-image,
+  &__login-background-image {
     object-fit: cover;
     bottom: 0;
     width: get-vw(1440px);
@@ -41,27 +46,16 @@ $backgroundImageHeight: 685px;
     }
   }
 
-  .registration-login__login-background-image {
+  &__login-background-image {
     object-position: 0 get-vw(-70px);
   }
 
-  &.registration-login__login-container {
-    min-height: 380px;
-    max-height: $backgroundImageHeight;
-
-    .registration-login__login-background-image {
-      height: 100%;
-      min-height: 380px;
+  &__registration-footer {
+    .footer {
+      &__content-section {
+        padding-top: 99px;
+        min-height: unset;
+      }
     }
-  }
-}
-
-.registration-login__registration-footer.footer {
-  .footer__content-section {
-    padding-top: 99px;
-    min-height: unset;
-  }
-
-  .footer__copyright-bar {
   }
 }
