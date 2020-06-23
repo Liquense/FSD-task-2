@@ -18,18 +18,18 @@
     align-items: center;
   }
 
-  .header__menu {
+  &__menu {
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row;
     list-style: none;
     align-items: center;
+  }
 
-    .header__menu-item {
-      @import "__menu-item/header__menu-item";
-      @include menuItem();
-    }
+  &__menu-item {
+    @import "__menu-item/header__menu-item";
+    @include menuItem();
   }
 
   //Если залогинен - вертикальный разделитель и имя пользователя

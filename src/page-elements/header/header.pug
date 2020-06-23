@@ -5,7 +5,7 @@ mixin header(data={})
   -var defaultData = {userLogin: "", logo: "", loginText: "Login", registerText: "register", content: [], isNarrow: false}
   -data = Object.assign(defaultData, data)
 
-  -var narrowClass = "header_narrow";
+  -var narrowClass = "header_narrow"
 
   header(class=`header ${data.isNarrow ? narrowClass : ""}`)
     a(class=`header__logo-link ${data.isNarrow ? narrowClass + "__logo-link" : ""}`)
@@ -13,6 +13,7 @@ mixin header(data={})
     div(class=`header__content-container ${data.isNarrow ? narrowClass + "__content-container" : ""}`)
       ul(class=`header__menu ${data.isNarrow ? narrowClass + "__menu" : ""}`)
         each item, index in data.content
+          -item.isNarrow = data.isNarrow
           +header__menuItem(item)
       if (data.userLogin)
         div(class=`header__divider ${data.isNarrow ? narrowClass + "__divider" : ""}`)
