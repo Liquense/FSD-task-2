@@ -1,27 +1,27 @@
 //- data = {logo: path to image, text: string, copyright: string}
 //- links = [{title: string, links: [string, string]},]
 //- subscription = {title: string, text: string}
-mixin largeFooter(data={}, links=[], subscription={})
+mixin largeFooter(data={})
+  -var defaultData = {logo: "", text: "", copyright: "", links: [], subscription: {}}
+  -data = Object.assign(defaultData, data);
   include ../../../../blocks/input/input
-  -let _subscription = subscription;
-  -_subscription.title = _subscription.title ? _subscription.title : "Subscribe to our newsletter";
-  -_subscription.text = _subscription.text ? _subscription.text : "Receive our latest news and promotions in your inbox!";
-  footer(class = `footer footer_type_large ${attributes.addClasses}`)
-    div.footer__content-section
-      div.footer__logo-section
-        img(src=data.logo alt="logo").footer__logo
-        span.footer__logo-text.text_type_regular #{data.text}
-      div.footer__links-section
-        each column in links
-          div.footer__links-column
-            h3.footer__links-section-title.text_type_label-CTA #{column.title}
+  footer(class = `footer footer_type_large`)
+    div.footer__content-section.footer_type_large__content-section
+      div.footer__logo-section.footer_type_large__logo-section
+        img(src=data.logo alt="logo").footer__logo.footer_type_large__logo
+        span.footer__logo-text.text_type_regular.footer_type_large__logo-text #{data.text}
+      div.footer__links-section.footer_type_large__links-section
+        each column in data.links
+          div.footer__links-column.footer_type_large__links-column
+            h3.footer__title.footer_type_large__title.footer__links-section-title.footer_type_large__links-section-title.text_type_label-CTA #{column.title}
             if column.links
               each link in column.links
-                a.footer__link.text_type_regular(href=link.url) #{link.text}
-      div.footer__subscribe-section
-        h3.footer__subscription-title.text_type_label-CTA #{subscription.title}
-        span.footer__subscription-text.text_type_regular #{subscription.text}
-        +input("", "text premedium subscription", subscription.emailPlaceholder, "footer__subscribeInput", "")
-    div.footer__copyright-bar
-      span.footer__copyright-text.text_type_regular #{data.copyright}
+                a.footer__link.footer_type_large__link.text_type_regular(href=link.url) #{link.text}
+      div.footer__subscribe-section.footer_type_large__subscribe-section
+        h3.footer__title.footer_type_large__title.footer__subscription-title.footer_type_large__subscription-title.text_type_label-CTA #{data.subscription.title}
+        span.footer__subscription-text.footer_type_large__subscription-text.text_type_regular #{data.subscription.text}
+        div.footer__subscribe-input
+          +input({type: "text", width: "premedium", withSubscription: true, placeholder: data.subscription.emailPlaceholder})
+    div.footer__copyright-bar.footer_type_large__copyright-bar
+      span.footer__copyright-text.footer_type_large__copyright-text.text_type_regular #{data.copyright}
       +socialMedia()
