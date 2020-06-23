@@ -12,7 +12,7 @@ import './room-details.pug';
 import './room-details.scss';
 
 
-const $donutCharts = $('.room-details__donut-chart');
+const $donutCharts = $('.room-details__donut-chart > .donut-chart');
 function initDonutChart() {
   const $donutContainer = $(this);
   $donutContainer.donutChart({

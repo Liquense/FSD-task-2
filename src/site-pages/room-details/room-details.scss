@@ -1,16 +1,15 @@
-.room-details__header {
-}
-
-.room-details__photos {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  background-color: $darkShade50;
-  @media (max-width: 1439px) {
-    flex-wrap: wrap;
+.room-details {
+  &__photos {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: $darkShade50;
+    @media (max-width: 1439px) {
+      flex-wrap: wrap;
+    }
   }
 
-  .room-details__main-photo {
+  &__main-photo {
     width: auto;
     height: auto;
     object-fit: cover;
@@ -19,7 +18,7 @@
     }
   }
 
-  .room-details__side-photos {
+  &__side-photos {
     width: auto;
     display: flex;
     flex-direction: column;
@@ -28,42 +27,43 @@
       width: 100%;
       flex-direction: row;
     }
+  }
 
-    .room-details__upper-side-photo {
-      height: 50%;
-      object-fit: cover;
-      @media (max-width: 1439px) {
-        width: 50%;
-        height: auto;
-      }
-    }
-
-    .room-details__lower-side-photo {
-      height: 50%;
-      object-fit: cover;
-      @media (max-width: 1439px) {
-        width: 50%;
-        height: auto;
-      }
+  &__upper-side-photo {
+    height: 50%;
+    object-fit: cover;
+    @media (max-width: 1439px) {
+      width: 50%;
+      height: auto;
     }
   }
-}
 
-$horizontalGap: 70px;
-$verticalGap: 30px;
-.room-details__content {
-  padding: get-vw(70px) 0 get-vw(72px);
-  border-bottom: 1px solid $darkShade25;
-  display: flex;
-  justify-content: center;
-  @media (max-width: 1439px) {
-    align-items: center;
-  }
-  @media (max-width: 1250px) {
-    flex-wrap: wrap-reverse;
+  &__lower-side-photo {
+    height: 50%;
+    object-fit: cover;
+    @media (max-width: 1439px) {
+      width: 50%;
+      height: auto;
+    }
   }
 
-  .room-details__info-container {
+  $horizontalGap: 70px;
+  $verticalGap: 30px;
+
+  &__content {
+    padding: get-vw(70px) 0 get-vw(72px);
+    border-bottom: 1px solid $darkShade25;
+    display: flex;
+    justify-content: center;
+    @media (max-width: 1439px) {
+      align-items: center;
+    }
+    @media (max-width: 1250px) {
+      flex-wrap: wrap-reverse;
+    }
+  }
+
+  &__info-container {
     display: flex;
     flex-direction: column;
     margin-right: get-vw($horizontalGap);
@@ -80,53 +80,6 @@ $verticalGap: 30px;
       margin-bottom: 20px;
       padding: 0;
       width: fit-content;
-    }
-
-    .room-details__main-info {
-      display: flex;
-      flex-wrap: wrap;
-      margin-bottom: get-vw(33px); //PP
-      @media (max-width: 1250px) {
-        justify-content: space-between;
-      }
-      @media (max-width: 610px) {
-        justify-content: space-evenly;
-        margin-bottom: $verticalGap;
-      }
-
-      .room-details__features-container {
-        margin-right: get-vw(82px); //PP
-        @media (max-width: 1250px) {
-          margin-right: 0;
-        }
-        @media (max-width: 610px) {
-          margin-bottom: $verticalGap;
-        }
-
-        .room-details__features-title {
-          letter-spacing: -0.6px;
-        }
-
-        .room-details__features-content {
-        }
-      }
-
-      .room-details__expressions-container {
-        .room-details__expressions-title {
-          letter-spacing: -0.4px;
-        }
-
-        .room-details__donut-chart {
-          .donut-chart__svg-arc:hover {
-            stroke-width: 10px;
-            cursor: pointer;
-          }
-
-          @media (max-width: 610px) {
-            align-items: center;
-          }
-        }
-      }
     }
 
     .room-details__reviews-container {
@@ -208,12 +161,51 @@ $verticalGap: 30px;
     }
   }
 
-  .room-details__booking-card {
+  &__main-info {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: get-vw(33px); //PP
+    @media (max-width: 1250px) {
+      justify-content: space-between;
+    }
+    @media (max-width: 610px) {
+      justify-content: space-evenly;
+      margin-bottom: $verticalGap;
+    }
+  }
+
+  &__features-container {
+    margin-right: get-vw(82px); //PP
+    @media (max-width: 1250px) {
+      margin-right: 0;
+    }
+    @media (max-width: 610px) {
+      margin-bottom: $verticalGap;
+    }
+  }
+
+  &__features-title {
+    letter-spacing: -0.6px;
+  }
+
+  &__expressions-title {
+    letter-spacing: -0.4px;
+  }
+
+  &__donut-chart {
+    .donut-chart__svg-arc:hover {
+      stroke-width: 10px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 610px) {
+      align-items: center;
+    }
+  }
+
+  &__booking-card {
     @media (max-width: 1250px) {
       margin-bottom: $verticalGap*2;
     }
   }
-}
-
-.room-details__footer {
 }
