@@ -14,7 +14,7 @@
 //- additional - значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
 //- range - диапазон выбора значений спиннерами у дропдауна
 mixin input(data={})
-  - var defaultData = {title, type, width, dropdownType, placeholder, mask, range: [0, 5],
+  - var defaultData = {title, type, width, dropdownType, placeholder, range: [0, 5],
   -   isUnified: false, isPure: false, isInline: false, isOpened: false, isUnaccepted: false, isFocused: false, data: undefined, withSubscription: false}
   - data = Object.assign(defaultData, data)
 
@@ -67,5 +67,5 @@ mixin input(data={})
     +addTextInput(attributes, classNames, data)
   //-Текст с маской
   else if data.type === "mask"
-    include _type/_masked/input_masked
+    include _type/_masked/input_type_masked
     +addMaskedInput(attributes, data)

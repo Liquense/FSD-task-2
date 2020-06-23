@@ -11,7 +11,7 @@ section.form-elements
         +input({title: "Dropdown", type: "dropdown", dropdownType: "customers", placeholder: "Сколько гостей",
           data: [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}]})
       div.form-elements__masked-input
-        +input({title: "Masked Text Field", type: "mask", placeholder: "ДД.ММ.ГГГГ", mask: "[0123][0-9].[012][0-9].[0-9]{4}"})
+        +input({title: "Masked Text Field", type: "mask", placeholder: "ДД.ММ.ГГГГ"})
 
     div.form-elements__datepickers
       include ../../../blocks/two-calendar-range-picker/two-calendar-range-picker

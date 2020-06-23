@@ -16,7 +16,7 @@ mixin registrationCard(data={})
     div.registration-card__gender-list
       +list({type: "radio", elements: radioButtons})
     div.registration-card__birthday
-      +input({title: "Дата рождения", type: "mask", placeholder: "ДД.ММ.ГГГГ", mask: "[0123][0-9].[012][0-9].[0-9]{4}"})
+      +input({title: "Дата рождения", type: "mask", placeholder: "ДД.ММ.ГГГГ"})
     div.registration-card__login-data-container
       p.text_type_label-CTA.registration-card__login-data-title Данные для входа в сервис
       div.registration-card__email
