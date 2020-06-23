@@ -49,8 +49,10 @@ section.form-elements
         H2.form-elements__rates-header.text_type_label-CTA rate button
         div.form-elements__rates-body
           include ../../../blocks/rate-button/rate-button
-          +rateButton({maxRating: 5, rating: 4})(addClasses = "form-elements__rate")
-          +rateButton({maxRating: 5, rating: 5})(addClasses = "form-elements__rate")
+          div.form-elements__rate
+            +rateButton({maxRating: 5, rating: 4})
+          div.form-elements__rate
+            +rateButton({maxRating: 5, rating: 5})
 
     div.form-elements__slider-buttons-pagination
       include ../../../blocks/slider/slider
