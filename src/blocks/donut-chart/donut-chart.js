@@ -1,7 +1,5 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
-import '../text/text';
-import './donut-chart.scss';
 import { copyArrayOfObjects, ruDeclination } from '../../common/functions';
 
 const donutHTML = require('./donut-template.pug');
