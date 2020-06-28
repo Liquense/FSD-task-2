@@ -1,0 +1,14 @@
+mixin spinner(attrs={})
+  -var defaultAttrs = {range: [], name, index, initValue}
+  -attrs = Object.assign(defaultAttrs, attrs);
+
+  div.spinner
+    input(
+      class="spinner__value"
+      data-name=attrs.name
+      data-min=attrs.range[0]
+      data-max=attrs.range[1]
+      data-index=attrs.index
+      value=attrs.initValue ? attrs.initValue : 0
+      readonly=true
+    )

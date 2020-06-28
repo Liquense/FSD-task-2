@@ -2,10 +2,8 @@
 // jquery импортирована вебпаком, функции с подчеркиванием - часть плагина
 import 'jquery-ui/ui/widgets/spinner';
 
-import './input_type_spinner.scss';
-
-export const decreaseButtonClasses = 'input_type_dropdown__dropdown-decrease input_type_spinner__button ui-spinner-button ui-spinner-down';
-export const increaseButtonClasses = 'input_type_dropdown__dropdown-increase input_type_spinner__button ui-spinner-button ui-spinner-up';
+export const decreaseButtonClasses = 'spinner__decrease spinner__button ui-spinner-button ui-spinner-down';
+export const increaseButtonClasses = 'spinner__increase spinner__button ui-spinner-button ui-spinner-up';
 // морф, чтобы кнопки были по бокам
 $.widget('ui.spinner', $.ui.spinner, {
   _enhance() {
@@ -30,11 +28,11 @@ $.widget('ui.spinner', $.ui.spinner, {
 });
 
 export function disableButtonsAtExtremum($spinner, currentValue) {
-  const disabledButtonClass = 'input_disabled__button';
+  const disabledButtonClass = 'spinner__button_disabled';
   const min = $spinner.attr('data-min');
   const max = $spinner.attr('data-max');
-  const $decreaseButton = $spinner.siblings('.input_type_dropdown__dropdown-decrease');
-  const $increaseButton = $spinner.siblings('.input_type_dropdown__dropdown-increase');
+  const $decreaseButton = $spinner.siblings('.spinner__decrease');
+  const $increaseButton = $spinner.siblings('.spinner__increase');
 
   if (currentValue <= min) {
     $decreaseButton.addClass(disabledButtonClass);
@@ -48,10 +46,12 @@ export function disableButtonsAtExtremum($spinner, currentValue) {
   }
 }
 
-const $dropdowns = $('.input_type_dropdown');
+const $allSpinners = $('.spinner');
 
 function findSpinnersAndPassData(whereToSearch) {
-  const $spinners = $(whereToSearch).find('.input_type_spinner__value');
+  const $spinners = whereToSearch
+    ? $(whereToSearch).find('.spinner__value')
+    : $('.spinner__value');
 
   $spinners.spinner({
     min: $spinners.attr('data-min'),
@@ -84,4 +84,4 @@ function findAndInitSpinners() {
   $spinners.each(initSpinner);
 }
 
-$dropdowns.each(findAndInitSpinners);
+$allSpinners.each(findAndInitSpinners);
