@@ -1,0 +1,26 @@
+include ../../blocks/arrow/arrow
+include ../../blocks/input/input
+
+mixin datepicker(attrs = {})
+  - var defaultAttrs = {title, type, width, placeholder, isInline: false, data: undefined}
+  - attrs = Object.assign(defaultAttrs, attrs)
+
+  - var inputWrapAttributes = {class: `datepicker-block__input-wrap ${attrs.isInline ? "datepicker-block_inline__input-wrap " : ""}`}
+  - inputWrapAttributes["data-first-date"] = attrs.data ? attrs.data[0] : ""
+  - inputWrapAttributes["data-second-date"] = attrs.data ? attrs.data[1] : ""
+
+  div.datepicker-block
+    if attrs.isInline
+      div&attributes(inputWrapAttributes)
+        +input({width: attrs.width, placeholder: attrs.placeholder})
+    else
+      //- пока не нашел способа сделать отступ в начале внутренностей лейбла, поэтому условие с двумя вариантами
+      if attrs.title
+        label.datepicker-block__label #{attrs.title}
+          br.datepicker-block__line-break
+          div&attributes(inputWrapAttributes)
+            +input({width: attrs.width, placeholder: attrs.placeholder, isExpandable: true})
+      else
+        label.datepicker-block__label
+          div&attributes(inputWrapAttributes)
+            +input({width: attrs.width, placeholder: attrs.placeholder, isExpandable: true})
