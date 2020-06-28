@@ -17,13 +17,16 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
   text-align: center;
 
   &_enter {
-    font-weight: bold;
-    width: $arrowSize;
     @include icon();
     @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
+
+    font-weight: bold;
+    width: $arrowSize;
   }
 
   &_expand {
+    @include icon();
+
     color: $darkShade50;
     font-weight: normal;
     vertical-align: middle;
@@ -31,7 +34,6 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
     -webkit-user-select: none;
     cursor: pointer;
     background-color: transparent;
-    @include icon();
 
     &:hover,
     &:focus {
