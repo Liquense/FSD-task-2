@@ -1,14 +1,15 @@
+include ../datepicker/datepicker
 mixin twoCalendarRangePicker(data={})
   div(class = "two-calendar-range-picker " data-firstDate=data.firstDate data-secondDate=data.secondDate)
     div.two-calendar-range-picker__datepicker.two-calendar-range-picker__first-datepicker
-      +input({
+      +datepicker({
         title: data.labels ? data.labels[0] : "",
         type: "datepicker",
         width: "narrow",
         placeholder: "ДД.ММ.ГГГГ",
       })
     div.two-calendar-range-picker__datepicker.two-calendar-range-picker__second-datepicker
-      +input({
+      +datepicker({
         title: data.labels ? data.labels[1] : "",
         type: "datepicker",
         width: "narrow",

@@ -4,8 +4,7 @@ import {
   initDatepickerInput,
   parseAttrToDate,
   setDates,
-} from '../input/_type/_datepicker/input_type_datepicker';
-import './two-calendar-range-picker.scss';
+} from '../datepicker/datepicker';
 
 let isSecondAssignStarted = false;
 function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, otherInput, number) {
@@ -80,14 +79,15 @@ function safeDatepickerInit($datepicker, $datepickerControl) {
 export function initTwoCalendarPicker(index, element) {
   const $twoCalendarRange = $(element);
 
-  const $firstInput = $($twoCalendarRange.find('.two-calendar-range-picker__first-datepicker > .input_type_datepicker')[0]);
-  const $firstInputControl = $($firstInput.find('.input_type_datepicker__control')[0]);
+  const $firstInput = $($twoCalendarRange.find('.two-calendar-range-picker__first-datepicker > .datepicker-block')[0]);
+  const $firstInputControl = $($firstInput.find('.datepicker-block__input-wrap .input__control')[0]);
+  console.log($firstInputControl);
   const firstDatepicker = safeDatepickerInit(
     $firstInput, $firstInputControl,
   );
 
-  const $secondInput = $($twoCalendarRange.find('.two-calendar-range-picker__second-datepicker > .input_type_datepicker')[0]);
-  const $secondInputControl = $($secondInput.find('.input_type_datepicker__control')[0]);
+  const $secondInput = $($twoCalendarRange.find('.two-calendar-range-picker__second-datepicker > .datepicker-block')[0]);
+  const $secondInputControl = $($secondInput.find('.datepicker-block__input-wrap .input__control')[0]);
   const secondDatepicker = safeDatepickerInit(
     $secondInput, $secondInputControl,
   );
