@@ -3,8 +3,6 @@
 import 'slick-carousel';
 import '../../../node_modules/slick-carousel/slick/slick.css';
 
-import './carousel.scss';
-
 function getCarouselParams($carousel) {
   return {
     arrows: ($carousel.attr('data-arrows').toLowerCase() === 'true'),
