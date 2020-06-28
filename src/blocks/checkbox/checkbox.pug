@@ -12,14 +12,12 @@ mixin checkbox(data={})
   -var descriptionClassName = "__description"
     -var classNames = [checkboxClassName, labelClassName, inputClassName, descriptionClassName, textClassName]
 
-
   -var checkboxAttrs = {class: checkboxClassName + " "}
   -var labelAttrs = {class: checkboxClassName + labelClassName + " text_type_regular "}
   -var inputAttrs = {class: checkboxClassName + inputClassName + " "}
   -var descriptionAttrs = {class: checkboxClassName + descriptionClassName + " "}
   -var textAttrs = {class: checkboxClassName + textClassName + " "}
     -var attrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
-
 
   if data.type
     if data.type.includes("radio")

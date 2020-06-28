@@ -1,4 +1,7 @@
-@import "variables";
+$checkboxButtonSize: 20px;
+$checkboxButtonBorderWidth: 1px;
+$lineHeight: 18px;
+$buttonRightMargin: 10px;
 
 .checkbox {
   @include clearfix();
@@ -34,5 +37,289 @@
     display: inline-block;
     max-width: calc(23ch);
   }
-}
 
+  //default
+  &_type_default {
+    &__label {
+      &:hover,
+      &.ui-checkboxradio-checked {
+        color: $darkShade50;
+      }
+
+      &:hover .checkbox_type_default__button,
+      &.ui-checkboxradio-checked .checkbox_type_default__button {
+        border-color: $purple;
+      }
+
+      &.ui-checkboxradio-checked .checkbox_type_default__button {
+        @include icon();
+        font-size: 14px;
+        font-weight: bolder;
+        @include textGradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
+        text-align: center;
+      }
+    }
+
+    &__button {
+      border: $checkboxButtonBorderWidth solid $darkShade25;
+      color: transparent;
+      border-radius: 4px;
+    }
+  }
+
+  //like
+  $likeHeight: 20px;
+  $likeWidth: 40px;
+  $likeCountLeftPadding: 12px - $checkboxButtonBorderWidth;
+  &_type_like {
+    width: $likeWidth;
+    height: $likeHeight;
+    @include clearfix;
+
+    &__label {
+      width: $likeWidth;
+      height: $likeHeight;
+      position: relative;
+      color: $darkShade25;
+      font-size: 10px;
+      padding-left: $likeCountLeftPadding;
+      text-align: center;
+      line-height: 19px;
+
+      &.ui-checkboxradio-checked {
+        color: $purple;
+
+        .checkbox_type_like__button-border {
+          content: "";
+          display: block;
+          width: $likeWidth;
+          height: $likeHeight;
+          background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
+          border-radius: $likeHeight/2;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+    }
+
+    &__button {
+      width: $likeWidth;
+      height: $likeHeight;
+      margin: 0;
+      background-color: $inputBackgroundColor;
+      border-color: $darkShade25;
+      border-radius: $likeHeight/2;
+      position: absolute;
+      top: 0;
+      right: 0;
+
+      &:after {
+        content: "\e87e";
+        color: $darkShade25;
+        font-family: "Material Icons", sans-serif;
+        font-size: 10px;
+        line-height: 10px;
+        position: absolute;
+        left: 5px - $checkboxButtonBorderWidth;
+        top: 5px - $checkboxButtonBorderWidth;
+      }
+
+      &.ui-state-checked {
+        height: $likeHeight - 2*$checkboxButtonBorderWidth;
+        width: $likeWidth - 2*$checkboxButtonBorderWidth;
+        border: none;
+        top: $checkboxButtonBorderWidth;
+        left: $checkboxButtonBorderWidth;
+
+        &:after {
+          content: "\e87d";
+          color: $purple;
+          left: 5px - $checkboxButtonBorderWidth;
+          top: 5px - $checkboxButtonBorderWidth;
+          position: absolute;
+        }
+      }
+    }
+
+    &__text {
+      position: relative;
+    }
+  }
+
+  //radio
+  $radioSelectionPadding: 4px;
+  &_type_radio {
+    &__label {
+      &:hover,
+      &.ui-checkboxradio-checked {
+        color: $darkShade75;
+      }
+
+      &:hover .checkbox_type_radio__button,
+      &.ui-checkboxradio-checked .checkbox_type_radio__button {
+        border-color: $purple;
+      }
+
+      &.ui-checkboxradio-checked .checkbox_type_radio__button {
+        $radioSelectionSize: $checkboxButtonSize - $radioSelectionPadding*2;
+
+        &::after {
+          content: "";
+          display: block;
+          width: $radioSelectionSize;
+          height: $radioSelectionSize;
+          left: $radioSelectionPadding - $checkboxButtonBorderWidth;
+          top: $radioSelectionPadding - $checkboxButtonBorderWidth;
+          border-radius: 50%;
+          background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+          position: relative;
+        }
+      }
+    }
+
+    &__button {
+      border-radius: 50%;
+      border-color: $darkShade25;
+      background-color: #ffffff;
+    }
+  }
+
+  $toggleCircleSize: 12px;
+  $toggleCircleMargin: 4px;
+
+  @keyframes desaturate {
+    from {
+      border-color: $purple;
+      filter: grayscale(0%) brightness(100%);
+    }
+    to {
+      filter: grayscale(100%) brightness(120%);
+      border-color: $purple;
+    }
+  }
+
+  @keyframes saturate {
+    from {
+      filter: grayscale(100%) brightness(120%);
+      border-color: $purple;
+    }
+    to {
+      filter: grayscale(0%) brightness(100%);
+      border-color: $purple;
+    }
+  }
+
+  @keyframes moveRight {
+    from {
+      left: $toggleCircleMargin - $checkboxButtonBorderWidth;
+      top: $toggleCircleMargin - $checkboxButtonBorderWidth;
+      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+    }
+    to {
+      left: calc(100% - #{$toggleCircleSize} - #{$toggleCircleMargin} + #{$checkboxButtonBorderWidth});
+      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+    }
+  }
+
+  @keyframes moveLeft {
+    from {
+      left: calc(100% - #{$toggleCircleSize} - #{$toggleCircleMargin} + #{$checkboxButtonBorderWidth});
+      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+    }
+    to {
+      left: $toggleCircleMargin - $checkboxButtonBorderWidth;
+      top: $toggleCircleMargin - $checkboxButtonBorderWidth;
+      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+    }
+  }
+
+  //type toggle
+  &_type_toggle {
+    &__label {
+      width: fit-content;
+      max-width: none;
+
+      &:hover {
+        color: $darkShade75;
+
+        .checkbox_type_toggle__button {
+          border-color: $purple;
+          animation-name: saturate;
+          animation-duration: 0.4s;
+
+          &:after {
+            background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+          }
+        }
+      }
+
+      .checkbox_type_toggle {
+        &__button {
+          width: 40px;
+          height: 20px;
+          border-radius: 10px;
+          border-color: $darkShade25;
+          animation-name: desaturate;
+          animation-duration: 0.4s;
+
+          &:after {
+            content: "";
+            display: block;
+            position: relative;
+            left: $toggleCircleMargin - $checkboxButtonBorderWidth;
+            top: $toggleCircleMargin - $checkboxButtonBorderWidth;
+            width: $toggleCircleSize;
+            height: $toggleCircleSize;
+            border-radius: 50%;
+            background-color: $darkShade25;
+
+            animation-name: moveLeft;
+            animation-duration: 0.4s;
+          }
+        }
+
+        &__text {
+          color: $darkShade75;
+        }
+      }
+
+      &.ui-checkboxradio-checked {
+        color: $darkShade75;
+
+        .checkbox_type_toggle__button {
+          border-color: $purple;
+          animation-name: saturate;
+          animation-duration: 1s;
+
+          &:after {
+            background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+            left: calc(100% - #{$toggleCircleSize} - #{$toggleCircleMargin} + #{$checkboxButtonBorderWidth});
+            animation-name: moveRight;
+            animation-duration: 0.4s;
+          }
+        }
+      }
+    }
+  }
+
+  &_rich {
+    &__label {
+      max-width: 320px;
+      color: $darkShade75;
+      font-weight: bold;
+      line-height: 20px;
+    }
+
+    &__description {
+      display: inline-block; //чтобы применить паддинг ко всему блоку, а не первой строке
+      padding-left: $checkboxButtonSize + $buttonRightMargin; //для избавления от переноса текста снизу чекбокса
+      margin: 5px 0 0 0;
+      color: $darkShade50;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 14px;
+      white-space: pre-line;
+    }
+  }
+}
