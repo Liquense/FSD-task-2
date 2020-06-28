@@ -2,10 +2,10 @@
 // jquery объявлена глобально вебпаком
 import 'air-datepicker';
 
-const confirmButton = '<div class="button button_type_text datepicker__confirm-button">'
+const confirmButton = '<div class="button button_type_text datepicker-block__confirm-button">'
     + '<button class="button__control button_type_text__control datepicker--button" data-action="hide">Применить'
     + '</button><div class="button__decoration material-icons"></div></div>';
-const clearButton = '<div class="button button_type_text button_hovered datepicker__clear-button">'
+const clearButton = '<div class="button button_type_text button_hovered datepicker-block__clear-button">'
     + '<button class="button__control button_type_text__control datepicker--button" data-action="clear">Очистить'
     + '</button><div class="button__decoration material-icons"></div></div>';
 
