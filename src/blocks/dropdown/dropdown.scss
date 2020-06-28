@@ -1,0 +1,95 @@
+$inputWidth: 320px;
+$narrowInputWidth: 150px;
+$preMedInputWidth: 260px;
+$mediumInputWidth: 266px;
+$borderWidth: 1px;
+$inputBorderRadius: 4px;
+
+.dropdown {
+  @include boxSizingBorderBox();
+
+  &__input {
+    .input__control {
+      color: $darkShade75;
+      padding-right: 9.6ch;
+
+      &.input_focused__control {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
+  &__list-wrapper {
+    position: absolute;
+    width: $inputWidth;
+    border: $borderWidth solid $darkShade50;
+    border-top: 0;
+    border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
+    background-color: $inputBackgroundColor;
+    box-shadow: 0 10px 20px $darkShade5;
+    z-index: 10;
+    //toggle в jquery делает изменения через более приоритетные style в html,
+    //поэтому по дефолту элемент невидим
+    display: none;
+
+    &_width_narrow {
+      width: $narrowInputWidth;
+    }
+
+    &_width_medium {
+      width: $mediumInputWidth;
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin: 6px - $borderWidth 7px - $borderWidth 7px 15px - $borderWidth;;
+    width: calc(100% - (14px - #{$borderWidth}) - (7px - #{$borderWidth}));
+    border-spacing: 0;
+    border-collapse: collapse;
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 7px;
+    }
+  }
+
+  &__list-row-text {
+    margin: 0;
+    line-height: 30px;
+  }
+
+  &__buttons-container {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 18px 6px 12px 14px;
+    @include clearfix();
+
+    &_visible {
+      display: block;
+      height: fit-content;
+    }
+  }
+
+  &__clear-button {
+    display: none;
+
+    &_visible {
+      display: block;
+      float: left;
+    }
+  }
+
+  &__confirm-button {
+    display: none;
+
+    &_visible {
+      display: block;
+      float: right;
+    }
+  }
+}

@@ -2,11 +2,9 @@
 // jquery объявлена глобально вебпаком
 import 'jquery-ui/ui/effects/effect-fade';
 
-import { ruDeclination } from '../../../../../common/functions';
+import { ruDeclination } from '../../common/functions';
 
-import { disableButtonsAtExtremum } from '../../_spinner/input_type_spinner';
-
-import './input_type_dropdown__list.scss';
+import { disableButtonsAtExtremum } from '../spinner/spinner';
 
 /**
  * Функция для получения пар имя-значение со всех переданных спиннеров
@@ -30,15 +28,15 @@ function getCurrentNamesValues(spinnerElements) {
 
 const typeRooms = 'rooms';
 const typeCustomers = 'customers';
-function getDropdownType(dropdown) {
+function getDropdownType($list) {
   const dropdownType = {};
+  const listClassPrefix = 'dropdown__list_';
 
-  if ($(dropdown).hasClass('input_unified__dropdown-list-wrapper')) {
-    dropdownType.isUnified = true;
-  }
-  if ($(dropdown).hasClass('input_rooms__dropdown-list-wrapper')) {
+  if ($($list).hasClass(`${listClassPrefix}unified`)) { dropdownType.isUnified = true; }
+
+  if ($($list).hasClass(`${listClassPrefix}type_rooms`)) {
     dropdownType.name = typeRooms;
-  } else if ($(dropdown).hasClass('input_customers__dropdown-list-wrapper')) {
+  } else if ($($list).hasClass(`${listClassPrefix}type_customers`)) {
     dropdownType.name = typeCustomers;
   } else return false;
 
@@ -73,7 +71,7 @@ function selectNiceWord(itemsCount, itemName) {
 }
 
 function areAllValuesZero(namesValues) {
-  return !namesValues.some((nameValue) => parseInt((nameValue.value), 10) !== 0);
+  return !namesValues?.some((nameValue) => parseInt((nameValue.value), 10) !== 0);
 }
 
 function createUnifiedString(namesValues, declinationsString) {
@@ -169,8 +167,9 @@ function createInputText(namesValues, dropdownType) {
   return result;
 }
 
-function changeInputText(dropdown, namesValues, input) {
-  const dropdownType = getDropdownType(dropdown);
+function changeInputText($listWrapper, namesValues, input) {
+  const $list = $listWrapper.find('.dropdown__list');
+  const dropdownType = getDropdownType($list);
   const newInputText = createInputText(namesValues, dropdownType);
 
   $(input).val(newInputText);
@@ -183,38 +182,38 @@ function changeInputText(dropdown, namesValues, input) {
  * @returns {boolean}   одинаковы ли они
  */
 function areValuesEqual(namesValues1, namesValues2) {
-  return !namesValues2.some((nameValue, index) => namesValues1[index].value !== nameValue.value);
+  return !namesValues2?.some((nameValue, index) => namesValues1?.[index].value !== nameValue.value);
 }
 
-function manageControlsVisibility(
-  oldNamesValues, namesValues, clearButton, confirmButton, buttonsContainer,
+function manageControlsVisibility({
+  oldNamesValues, namesValues, $clearButton, $confirmButton, $buttonsContainer,
   areControlsEnabled, areValuesConfirmed,
-) {
-  const clearVisibleClass = 'input_visible__clear-button';
-  const confirmVisibleClass = 'input_visible__confirm-button';
-  const containerVisibleClass = 'input_visible__control-buttons-container';
+}) {
+  const clearVisibleClass = 'dropdown__clear-button_visible';
+  const confirmVisibleClass = 'dropdown__confirm-button_visible';
+  const containerVisibleClass = 'dropdown__buttons-container_visible';
 
   const areEmpty = areAllValuesZero(namesValues);
   if (areEmpty) {
-    $(clearButton).removeClass(clearVisibleClass);
+    $clearButton.removeClass(clearVisibleClass);
   } else {
-    $(clearButton).addClass(clearVisibleClass);
+    $clearButton.addClass(clearVisibleClass);
   }
 
   const areEqual = areValuesEqual(namesValues, oldNamesValues);
   if (areEqual && areValuesConfirmed) {
-    $(confirmButton).removeClass(confirmVisibleClass);
+    $confirmButton.removeClass(confirmVisibleClass);
   } else {
-    $(confirmButton).addClass(confirmVisibleClass);
+    $confirmButton.addClass(confirmVisibleClass);
   }
 
-  const hasClearVisibleClass = $(clearButton).hasClass(clearVisibleClass);
-  const hasConfirmVisibleClass = $(confirmButton).hasClass(confirmVisibleClass);
-  const areControlsVisible = hasClearVisibleClass || hasConfirmVisibleClass;
-  if (areControlsVisible && areControlsEnabled) {
-    $(buttonsContainer).addClass(containerVisibleClass);
+  const hasClearVisibleClass = $clearButton.hasClass(clearVisibleClass);
+  const hasConfirmVisibleClass = $confirmButton.hasClass(confirmVisibleClass);
+  const areSomeControlsVisible = hasClearVisibleClass || hasConfirmVisibleClass;
+  if (areSomeControlsVisible && areControlsEnabled) {
+    $buttonsContainer.addClass(containerVisibleClass);
   } else {
-    $(buttonsContainer).removeClass(containerVisibleClass);
+    $buttonsContainer.removeClass(containerVisibleClass);
   }
 }
 
@@ -239,16 +238,24 @@ function clearSpinnersValues(namesValues, spinners) {
   setSpinnerValues(0, namesValues, spinners, ['value']);
 }
 
-function dropdownOnChange(
-  oldNamesValues, namesValues, spinners, clearButton,
-  confirmButton, buttonsContainer, dropdown, input, areControlsEnabled, areValuesConfirmed,
-) {
-  setSpinnerValues(oldNamesValues, namesValues,
-    spinners, ['array']);
-  manageControlsVisibility(oldNamesValues, namesValues,
-    clearButton, confirmButton, buttonsContainer,
-    areControlsEnabled, areValuesConfirmed);
-  changeInputText(dropdown, namesValues, input);
+function dropdownOnChange({
+  oldNamesValues, namesValues, $spinners, $clearButton,
+  $confirmButton, $buttonsContainer, $listWrapper, $input, areControlsEnabled, areValuesConfirmed,
+}) {
+  setSpinnerValues(
+    oldNamesValues, namesValues,
+    $spinners, ['array'],
+  );
+  manageControlsVisibility({
+    oldNamesValues,
+    namesValues,
+    $clearButton,
+    $confirmButton,
+    $buttonsContainer,
+    areControlsEnabled,
+    areValuesConfirmed,
+  });
+  changeInputText($listWrapper, namesValues, $input);
 }
 
 function getInitialNamesValues($spinnerElements) {
@@ -266,57 +273,71 @@ function getInitialNamesValues($spinnerElements) {
   return result;
 }
 
-const dropdownVisibleClass = 'input__dropdown-list-wrapper_visible';
-export function initDropdownInput(index, rootElement) {
+const dropdownVisibleClass = 'dropdown__list-wrapper_visible';
+export function initDropdown(index, rootElement) {
   const $inputWrapper = $(rootElement);
-  const $dropdown = $inputWrapper.children('.input_type_dropdown__dropdown-list-wrapper');
-  const $control = $inputWrapper.find('.input_type_dropdown__control');
-  const $spinnerValueElements = $inputWrapper.find('.input_type_spinner__value');
-  const $controlButtonsContainer = $inputWrapper.find(
-    '.input_type_dropdown__control-buttons-container',
-  );
-  const $clearButton = $inputWrapper.find('.input__clear-button');
-  const $confirmButton = $inputWrapper.find('.input__confirm-button');
+  const $listWrapper = $inputWrapper.children('.dropdown__list-wrapper');
+  const $inputControl = $inputWrapper.find('.dropdown__input .input__control');
+  const $spinnerValueElements = $inputWrapper.find('.spinner__value');
+  const $buttonsContainer = $inputWrapper.find('.dropdown__buttons-container');
+  const $clearButton = $inputWrapper.find('.dropdown__clear-button');
+  const $confirmButton = $inputWrapper.find('.dropdown__confirm-button');
 
-  let areValuesConfirmed = !$inputWrapper.hasClass('input_type_dropdown-unaccepted');
-  const isOpened = $inputWrapper.hasClass('input_type_dropdown-opened');
+  let areValuesConfirmed = !$inputWrapper.hasClass('dropdown_unaccepted');
+  const isOpened = $inputWrapper.hasClass('dropdown_opened');
   if (isOpened) {
-    $dropdown.toggle('fade');
-    $dropdown.toggleClass(dropdownVisibleClass);
+    $listWrapper.toggle('fade');
+    $listWrapper.toggleClass(dropdownVisibleClass);
   }
-  const areControlsEnabled = !$inputWrapper.hasClass('input_type_dropdown-pure');
+  const areControlsEnabled = !$inputWrapper.hasClass('dropdown_pure');
 
-  const spinnersNameValue = getInitialNamesValues($spinnerValueElements);
-  let oldSpinnersNameValue = getInitialNamesValues($spinnerValueElements);
-  changeInputText($dropdown, spinnersNameValue, $control);
+  const namesValues = getInitialNamesValues($spinnerValueElements);
+  let oldNamesValues = getInitialNamesValues($spinnerValueElements);
+  changeInputText($listWrapper, namesValues, $inputControl);
 
-  manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-    $clearButton, $confirmButton, $controlButtonsContainer,
-    areControlsEnabled, areValuesConfirmed);
+  manageControlsVisibility({
+    oldNamesValues,
+    namesValues,
+    $clearButton,
+    $confirmButton,
+    $buttonsContainer,
+    areControlsEnabled,
+    areValuesConfirmed,
+  });
 
   function handleClearButtonClick() {
-    clearSpinnersValues(spinnersNameValue, $spinnerValueElements);
-
-    manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-      $clearButton, $confirmButton, $controlButtonsContainer,
-      areControlsEnabled, areValuesConfirmed);
-
-    changeInputText($dropdown, spinnersNameValue, $control);
+    clearSpinnersValues(namesValues, $spinnerValueElements);
+    manageControlsVisibility({
+      oldNamesValues,
+      namesValues,
+      $clearButton,
+      $confirmButton,
+      $buttonsContainer,
+      areControlsEnabled,
+      areValuesConfirmed,
+    });
+    changeInputText($listWrapper, namesValues, $inputControl);
   }
   $clearButton.click(handleClearButtonClick);
 
   function handleConfirmButtonClick() {
     if (!isOpened) {
-      $control.removeClass('input__control_focused');
-      $dropdown.toggle('fade');
-      $dropdown.toggleClass(dropdownVisibleClass);
+      $inputControl.removeClass('input__focused_control');
+      $listWrapper.toggle('fade');
+      $listWrapper.toggleClass(dropdownVisibleClass);
     }
     areValuesConfirmed = true;
-    oldSpinnersNameValue = getCurrentNamesValues($spinnerValueElements);
+    oldNamesValues = getCurrentNamesValues($spinnerValueElements);
 
-    manageControlsVisibility(oldSpinnersNameValue, spinnersNameValue,
-      $clearButton, $confirmButton, $controlButtonsContainer,
-      areControlsEnabled, areValuesConfirmed);
+    manageControlsVisibility({
+      oldNamesValues,
+      namesValues,
+      $clearButton,
+      $confirmButton,
+      $buttonsContainer,
+      areControlsEnabled,
+      areValuesConfirmed,
+    });
   }
   $confirmButton.click(handleConfirmButtonClick);
 
@@ -324,30 +345,31 @@ export function initDropdownInput(index, rootElement) {
   $spinnerValueElements.each((i) => {
     const $spinner = $($spinnerValueElements[i]);
     function handleSpin(event, ui) {
-      spinnersNameValue[$spinner.attr('data-index')].value = ui.value;
+      namesValues[$spinner.attr('data-index')].value = ui.value;
 
       changeInputText(
-        $dropdown,
-        spinnersNameValue,
-        $control,
+        $listWrapper,
+        namesValues,
+        $inputControl,
       );
-      manageControlsVisibility(
-        oldSpinnersNameValue,
-        spinnersNameValue,
+      manageControlsVisibility({
+        oldNamesValues,
+        namesValues,
         $clearButton,
         $confirmButton,
-        $controlButtonsContainer,
-        areControlsEnabled, areValuesConfirmed,
-      );
+        $buttonsContainer,
+        areControlsEnabled,
+        areValuesConfirmed,
+      });
     }
 
     $spinner.on('spin', handleSpin);
   });
 
-  $dropdown.position({
+  $listWrapper.position({
     my: 'center',
     at: 'center',
-    of: $control,
+    of: $inputControl,
   });
 
   let clickedElement;
@@ -357,44 +379,55 @@ export function initDropdownInput(index, rootElement) {
     // если клик происходит не в дропдауне
     if (!$.contains($inputWrapper.get(0), clickedElement.get(0))) {
       // и дропдаун отображается
-      if ($dropdown.hasClass(dropdownVisibleClass)) {
+      if ($listWrapper.hasClass(dropdownVisibleClass)) {
         if (!isOpened) {
-          $dropdown.toggle('fade');
-          $dropdown.toggleClass(dropdownVisibleClass);
-          $control.removeClass('input_focused__control');
+          $listWrapper.toggle('fade');
+          $listWrapper.toggleClass(dropdownVisibleClass);
+          $inputControl.removeClass('input_focused__control');
         }
 
-        setSpinnerValues(oldSpinnersNameValue, spinnersNameValue,
+        setSpinnerValues(oldNamesValues, namesValues,
           $spinnerValueElements, ['array']);
 
-        manageControlsVisibility(
-          oldSpinnersNameValue, spinnersNameValue,
-          $clearButton, $confirmButton,
-          $controlButtonsContainer, areControlsEnabled,
+        manageControlsVisibility({
+          oldNamesValues,
+          namesValues,
+          $clearButton,
+          $confirmButton,
+          $buttonsContainer,
+          areControlsEnabled,
           areValuesConfirmed,
-        );
-        changeInputText($dropdown, spinnersNameValue, $control);
+        });
+        changeInputText($listWrapper, namesValues, $inputControl);
       }
     }
   });
 
-  $control.click(() => {
+  $inputControl.click(() => {
     if (!isOpened) {
-      $control.toggleClass('input_focused__control');
-      $dropdown.toggle('fade');
-      $dropdown.toggleClass(dropdownVisibleClass);
+      $inputControl.toggleClass('input_focused__control');
+      $listWrapper.toggle('fade');
+      $listWrapper.toggleClass(dropdownVisibleClass);
     }
 
-    if (!$dropdown.hasClass(dropdownVisibleClass)) {
-      dropdownOnChange(oldSpinnersNameValue, spinnersNameValue,
-        $spinnerValueElements, $clearButton, $confirmButton,
-        $controlButtonsContainer, $dropdown, $control,
-        areControlsEnabled, areValuesConfirmed);
+    if (!$listWrapper.hasClass(dropdownVisibleClass)) {
+      dropdownOnChange({
+        oldNamesValues,
+        namesValues,
+        $spinnerValueElements,
+        $clearButton,
+        $confirmButton,
+        $buttonsContainer,
+        $listWrapper,
+        $inputControl,
+        areControlsEnabled,
+        areValuesConfirmed,
+      });
     }
   });
 }
 
 export function initDropdowns() {
-  const $dropdowns = $('.input_type_dropdown');
-  $dropdowns.each(initDropdownInput);
+  const $dropdowns = $('.dropdown');
+  $dropdowns.each(initDropdown);
 }
