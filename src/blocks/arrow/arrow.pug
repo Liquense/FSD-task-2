@@ -1,0 +1,9 @@
+mixin arrow(attrs={})
+  //type: "expand"/"enter"
+  -var defaultAttrs = {type: "expand"}
+  -attrs = Object.assign(defaultAttrs, attrs)
+
+  if attrs.type === "expand"
+    span.arrow.arrow_expand expand_more
+  else if attrs.type === "enter"
+    span.arrow.arrow_enter arrow_forward

@@ -1,0 +1,51 @@
+$arrowSize: 44px;
+$borderWidth: 1px;
+$expandHeight: 18px;
+$expandWidth: 24px;
+$expandVerticalMargin: ($arrowSize - $expandHeight)/2 - $borderWidth;
+$expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/2;
+
+.arrow {
+  font-size: 24px;
+  position: absolute;
+  user-select: none;
+  top: 0;
+  right: 0;
+  height: $arrowSize;
+  line-height: $arrowSize;
+  vertical-align: middle;
+  text-align: center;
+
+  &_enter {
+    font-weight: bold;
+    width: $arrowSize;
+    @include icon();
+    @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
+  }
+
+  &_expand {
+    color: $darkShade50;
+    font-weight: normal;
+    vertical-align: middle;
+    margin-right: $expandHorizontalMargin;
+    -webkit-user-select: none;
+    cursor: pointer;
+    background-color: transparent;
+    @include icon();
+
+    &:hover,
+    &:focus {
+      border-radius: 50%;
+      line-height: $expandWidth + 2px;
+      width: $expandWidth + 2px;
+      height: $expandWidth + 2px;
+      margin-top: $expandVerticalMargin - 1px - ($expandWidth - $expandHeight)/2;
+      margin-right: $expandHorizontalMargin - 1px;
+      border: dotted 1px $darkShade50;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
