@@ -1,37 +1,23 @@
 //- title - заголовок
-//- types - типы инпута: (datepicker, dropdown, text, mask, subscription)
+//- types - типы инпута: ( text, mask)
 //- 	размеры: (medium, premedium, narrow),
-//- 	модификаторы дропдауна
-//-			unified - вывод одним словом (сочетается с rooms & customers),
-//- 		rooms - комнаты и кровати
-//- 		customers - гости и младенцы
-//- 		opened - постоянно открыт
-//- 		pure - без кнопок управления
-//- 		unaccepted - изначально данные не приняты
 //- placeholder - плейсхолдер в инпуте
-//- addClasses - дополнительные классы, применяемые на все элементы
-//- mask - маска для текстового инпута с маской
-//- additional - значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
-//- range - диапазон выбора значений спиннерами у дропдауна
+//- data - значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
 mixin input(data={})
-  - var defaultData = {title, type, width, dropdownType, placeholder, range: [0, 5],
-  -   isUnified: false, isPure: false, isInline: false, isOpened: false, isUnaccepted: false, isFocused: false, data: undefined, withSubscription: false}
+  - var defaultData = {title, type, width, placeholder, withSubscription: false, isExpandable: false}
   - data = Object.assign(defaultData, data)
 
   - var blockClassName = "input"
   - var titleClassName = "__title"
   - var controlWrapperCN = "__control-wrapper"
   - var controlClassName = "__control"
-  - var dropdownClassName = "__dropdown-list-wrapper"
-  - var classNames = [blockClassName, titleClassName, controlClassName, dropdownClassName, controlWrapperCN]
+  - var classNames = [blockClassName, titleClassName, controlClassName, controlWrapperCN]
 
   - var blockAttributes = {class: blockClassName + " "}
   - var titleAttributes = {class: blockClassName + titleClassName + " text_type_label-CTA "}
-  - var dropdownAttributes = {class: blockClassName + dropdownClassName + " "}
   - var controlWrapperAttrs = {class: blockClassName + controlWrapperCN + " "}
   - var controlAttributes = {class: blockClassName + controlClassName + " ", placeholder: data.placeholder}
-  - var attributes = {blockAttributes, titleAttributes, controlAttributes, dropdownAttributes, controlWrapperAttrs}
-
+  - var attributes = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttrs}
 
   each value, index in Object.values(attributes)
     //-ширина
@@ -41,31 +27,42 @@ mixin input(data={})
       - value.class += index === 0 ? blockClassName + "_width_premedium " : blockClassName + "_width_premedium" + classNames[index] + " "
     else if data.width === "medium"
       - value.class += index === 0 ? blockClassName + "_width_medium " : blockClassName + "_width_medium" + classNames[index] + " "
-    //-если раскрывающийся - добавляем декорацию-стрелочку вниз
-    if data.type === "dropdown" || data.type === "datepicker"
-      include _decoration/_expand-arrow/input_decoration_expand-arrow
-      - value.class += index === 0 ? blockClassName + "_decoration_expand-arrow " : blockClassName + "_decoration_expand-arrow" + classNames[index] + " "
     //-если подписка, то декорация-стрелочка вправо
-    else if data.withSubscription
-      include _decoration/_enter-arrow/input_decoration_enter-arrow
-      - value.class += index === 0 ? blockClassName + "_decoration_enter-arrow " : blockClassName + "_decoration_enter-arrow" + classNames[index] + " "
+    if data.withSubscription
+      - value.class += index === 0 ? blockClassName + "_with-subscription " : blockClassName + "_with-subscription" + classNames[index] + " "
+    if data.isExpandable
+      - value.class += index === 0 ? blockClassName + "_expandable " : blockClassName + "_expandable" + classNames[index] + " "
     //-фокус
     if data.isFocused
       - value.class += index === 0 ? blockClassName + "_focused" : blockClassName + "_focused" + classNames[index] + " "
+    //-Просто текст
+    if data.type === "text"
+      - value.class += index === 0 ? classNames[index] + "_type_text " : classNames[0] + "_type_text" + classNames[index] + " "
+      - attributes.controlAttributes.type = "text"
+    //-Текст с маской
+    else if data.type === "mask"
+      - value.class += index === 0 ? classNames[index] + "_type_masked " : classNames[0] + "_type_masked" + classNames[index] + " "
 
-  //-календарь
-  if data.type === "datepicker"
-    include ./_type/_datepicker/input_type_datepicker
-    +addDatepicker(attributes, data)
-  //-дропдаун
-  else if data.type === "dropdown"
-    include _type/_dropdown/__list/input_type_dropdown__list
-    +addDropdown(attributes, data)
-  //-Просто текст
-  else if data.type === "text"
-    include ./_type/_text/input_type_text
-    +addTextInput(attributes, classNames, data)
-  //-Текст с маской
-  else if data.type === "mask"
-    include _type/_masked/input_type_masked
-    +addMaskedInput(attributes, data)
+  include ../arrow/arrow
+  div&attributes(attributes.blockAttributes)
+    if data.title
+      label&attributes(attributes.titleAttributes) #{data.title}
+        br
+        div&attributes(attributes.controlWrapperAttrs)
+          if data.withSubscription
+            div.input_with-subscription__arrow
+              +arrow({type: "enter"})
+          else if data.isExpandable
+            div.input_expandable__arrow
+              +arrow({type: "expand"})
+          input&attributes(attributes.controlAttributes)(value=data.data)
+    else
+      label&attributes(attributes.titleAttributes)
+        div&attributes(attributes.controlWrapperAttrs)
+          input&attributes(attributes.controlAttributes)(value=data.data)
+          if data.withSubscription
+            div.input_with-subscription__arrow
+              +arrow({type: "enter"})
+          else if data.isExpandable
+            div.input_expandable__arrow
+              +arrow({type: "expand"})

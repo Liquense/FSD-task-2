@@ -1,20 +1,21 @@
-import './input.scss';
-// ---Masked
-import './_type/_masked/input_type_masked';
-// ---Focused
-import './_focused/input_focused.scss';
-// ---Width
-import './_width/input_width_narrow.scss';
-import './_width/input_width_premedium.scss';
-import './_width/input_width_medium.scss';
-// ---Type
-import './_type/input_type_text.scss';
+/* eslint-disable no-undef */
+// jquery объявлена глобально вебпаком
+import 'jquery.maskedinput/src/jquery.maskedinput';
 
-import './_type/_datepicker/input_type_datepicker';
+// region Masked
+const $document = $(document);
+$document.ready(($) => {
+  $.mask.definitions.D = '[0-3]';
+  $.mask.definitions.M = '[0-1]';
+  $.mask.definitions.Y = '[1-2]';
 
-import './_type/_dropdown/__list/input_type_dropdown__list';
+  const $maskedInput = $('.input_type_masked__control');
+  const placeholder = $maskedInput.attr('placeholder');
 
-import './_type/_spinner/input_type_spinner';
-
-import './_decoration/_expand-arrow/input_decoration_expand-arrow.scss';
-import './_decoration/_enter-arrow/input_decoration_enter-arrow.scss';
+  $maskedInput.mask('D9.M9.Y999',
+    {
+      placeholder,
+      autoclear: false,
+    });
+});
+// endregion

@@ -1,5 +1,13 @@
-@import "style-variables";
-
+$inputHeight: 44px;
+$inputWidth: 320px;
+$narrowInputWidth: 150px;
+$preMedInputWidth: 260px;
+$mediumInputWidth: 266px;
+$borderWidth: 1px;
+$inputBorderRadius: 4px;
+$inputTopMargin: 3px;
+$fontSize: 14px;
+$lineHeight: 15px;
 $paddingTop: 12px - $borderWidth;
 $paddingRight: 15px - $borderWidth;
 $paddingBottom: 14px - $borderWidth;
@@ -37,8 +45,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   }
 
   &__control:focus,
-  &__control:hover,
-  &__title_decoration_expand-arrow img:hover + &__control {
+  &__control:hover {
     color: $darkShade75;
     border-color: $darkShade50;
     outline: 0;
@@ -50,5 +57,45 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   &__control:focus::placeholder, &__control:hover::placeholder {
     @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
+  }
+
+  //focused
+  &_focused__control {
+    color: $darkShade75;
+    border-color: $darkShade50;
+    outline: 0;
+  }
+
+  //with-subscription & expandable
+  &_with-subscription__control, &_expandable__control {
+    padding-right: $inputHeight;
+  }
+
+  //TYPE
+  //masked
+  &_type_masked__control:valid:hover,
+  &_type_masked__control:focus {
+    color: $darkShade75;
+  }
+
+  //text
+  &_type_text__control:focus, &_type_text__control:hover {
+    color: $darkShade75;
+  }
+
+  //WIDTH
+  //medium
+  &_width_medium__control {
+    width: $mediumInputWidth;
+  }
+
+  //narrow
+  &_width_narrow__control {
+    width: $narrowInputWidth;
+  }
+
+  //premedium
+  &_width_premedium__control {
+    width: $preMedInputWidth;
   }
 }
