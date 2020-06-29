@@ -1,17 +1,15 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
-import '../../common';
-import '../../blocks/slider/slider';
-import '../../blocks/list/list';
-import '../../blocks/pagination/pagination';
+import { importCommon, importContext } from '../../index';
+
 import Checkbox from '../../blocks/checkbox/checkbox';
 import initRoomPreviewCard from '../../cards/room-preview-card/room-preview-card';
+import { initDatepickerInputs } from '../../blocks/datepicker/datepicker';
+import { initExpandableLists } from '../../blocks/list/list';
+import { initDropdowns } from '../../blocks/dropdown/dropdown';
 
-import './search-room.pug';
-import './search-room.scss';
-import { initDatepickerInputs } from '../../blocks/input/_type/_datepicker/input_type_datepicker';
-import { initExpandableLists } from '../../blocks/list/_expandable/list_expandable';
-import { initDropdowns } from '../../blocks/input/_type/_dropdown/__list/input_type_dropdown__list';
+importCommon();
+importContext(require.context('./', true, /\.(js|scss)$/));
 
 function initAllRoomPreviewCardsInContainer($container) {
   $container.find('.room-preview-card').each(initRoomPreviewCard);
