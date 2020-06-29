@@ -1,0 +1,21 @@
+mixin featureList(data={})
+  -var defaultData = {items: []};
+  -data = Object.assign(defaultData, data);
+
+  -var listCN = "features-list"
+  -var listContainerCN = "__container"
+  -var listItemCN = "__item"
+  -var listItemImageCN = "__item-image"
+  -var listItemTextContainerCN = "__item-text-container"
+  -var listItemTitleCN = "__item-title"
+  -var listItemTextCN = "__item-text"
+  -var classNames = [listCN, listContainerCN, listItemCN, listItemImageCN, listItemTextContainerCN, listItemTitleCN, listItemTextCN]
+
+  div(class=listCN)
+    ul(class=listCN+listContainerCN)
+      each item, index in data.items
+        li(class=listCN+listItemCN)
+          span(class=listCN+listItemImageCN) #{item.icon}
+          div(class=listCN+listItemTextContainerCN)
+            h4(class=listCN+listItemTitleCN) #{item.title}
+            span(class=listCN+listItemTextCN) #{item.text}
