@@ -1,5 +1,5 @@
 mixin bulletList(data={})
-  -var defaultData = {title: "", contentStrings: [], isExpandable: false}
+  -var defaultData = {title: "", contentStrings: []}
   -data = Object.assign(defaultData, data);
 
   -var listCN = "bullet-list"
@@ -8,24 +8,11 @@ mixin bulletList(data={})
   -var listElementCN = "__item"
   -var listElementImageCN = "__item-image"
   -var listElementTextCN = "__item-text"
-  -var classNames = [listCN, listTitleCN, listContainerCN, listElementCN, listElementImageCN, listElementTextCN]
 
-  -var listAttrs = {class: `${listCN} ${listCN} `}
-  -var listTitleAttrs = {class: `${listCN}${listTitleCN} ${listCN}${listTitleCN} text_type_label-CTA `}
-  -var listContainerAttrs = {class: `${listCN}${listContainerCN} ${listCN}${listContainerCN} `}
-  -var listElementAttrs = {class: `${listCN}${listElementCN} ${listCN}${listElementCN} `}
-  -var listElementImageAttrs = {class: `${listCN}${listElementImageCN} ${listCN}${listElementImageCN} `}
-  -var listElementTextAttrs = {class: `${listCN}${listElementTextCN} ${listCN}${listElementTextCN} text_type_regular `}
-  -var blAttributes = [listAttrs, listTitleAttrs, listContainerAttrs, listElementAttrs, listElementImageAttrs, listElementTextAttrs]
-
-  if data.isExpandable
-    each value, index in blAttributes
-      - value.class += index === 0 ? classNames[index] + "_expandable " : listCN + "_expandable" + classNames[index] + " "
-
-  div&attributes(listAttrs)
-    h4&attributes(listTitleAttrs) #{data.title}
-    ul&attributes(listContainerAttrs)
+  div(class=listCN)
+    h4(class=listCN+listTitleCN) #{data.title}
+    ul(class=listCN+listContainerCN)
       each string, index in data.contentStrings
-        li&attributes(listElementAttrs)
-          div&attributes(listElementImageAttrs)
-          span&attributes(listElementTextAttrs) #{string}
+        li(class=listCN+listElementCN)
+          div(class=listCN+listElementImageCN)
+          span(class=listCN+listElementTextCN) #{string}
