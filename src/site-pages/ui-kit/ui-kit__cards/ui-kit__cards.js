@@ -1,16 +1,15 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
-import './ui-kit__cards.scss';
-import '../../../cards/find-room-card/find-room-card';
-import '../../../cards/booking-card/booking-card';
-import '../../../cards/login-card/login-card';
 import initRegistrationCard from '../../../cards/registration-card/registration-card';
-import '../../../cards/room-preview-card/room-preview-card';
-import '../../../blocks/input/_type/_datepicker/input_type_datepicker';
-import initBookingCards from "../../../cards/booking-card/booking-card";
+import initBookingCards from '../../../cards/booking-card/booking-card';
+import { initDatepickerInputs } from '../../../blocks/datepicker/datepicker';
 
+initDatepickerInputs(); // для работоспособности инлайн календаря
+initRegistrationCard();
+initBookingCards();
 
-const $datepickerCells = $('.datepicker--cell.datepicker--cell-day');
+const $inlineDatepicker = $('.ui-kit__datepicker_inline');
+const $datepickerCells = $inlineDatepicker.find('.datepicker--cell.datepicker--cell-day');
 // визуальные изменения для соответствия макету
 $datepickerCells.each((index, element) => {
   const $datepickerCell = $(element);
@@ -21,6 +20,3 @@ $datepickerCells.each((index, element) => {
     $datepickerCell.removeClass('-disabled-');
   }
 });
-
-initRegistrationCard();
-initBookingCards();
