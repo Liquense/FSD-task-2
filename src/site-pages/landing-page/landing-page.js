@@ -1,9 +1,11 @@
 /* eslint-disable no-undef */
 // jquery подключена вебпаком
-import '../../common';
+import { importCommon, importContext } from '../../index';
+
 import initFindRoomCard from '../../cards/find-room-card/find-room-card';
 
-import './landing-page.scss';
+importCommon();
+importContext(require.context('./', true, /\.(js|scss)$/));
 
 const imagePaths = [];
 

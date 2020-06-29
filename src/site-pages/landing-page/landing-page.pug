@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+include ../../page-elements/header/header
+include ../../cards/find-room-card/find-room-card
+include ../../page-elements/footer/footer
+
 html(lang="ru")
   head
     meta(charset="UTF-8")
@@ -8,7 +12,6 @@ html(lang="ru")
     link(rel="icon" href=require('../../assets/images/logo-colored.png'))
     title TOXIN
   body
-    include ../../page-elements/header/header
     -var logoPath = require('../../assets/images/logo-colored-withText.svg')
     div.landing-page__header
       +header(
@@ -40,14 +43,12 @@ html(lang="ru")
       )
 
     div.landing-page__room-container
-      include ../../cards/find-room-card/find-room-card
       div.landing-page__find-room-card
         +findRoomCard()
       span.landing-page__slogan.text_type_regular Лучшие номера для вашей работы, отдыха и просто вдохновения
 
-    include ../../page-elements/footer/footer
     div.landing-page__footer
-      +largeFooter(
+      +footer(
         {
           logo: logoPath,
           text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
