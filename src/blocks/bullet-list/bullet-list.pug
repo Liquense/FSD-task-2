@@ -2,11 +2,7 @@ mixin bulletList(data={})
   -var defaultData = {title: "", contentStrings: [], isExpandable: false}
   -data = Object.assign(defaultData, data);
 
-  //- CN - className
-  -var blockModifier = "_type_bullet"
-  -var addClasses = attributes.addClasses ? attributes.addClasses : ""
-
-  -var listCN = "list"
+  -var listCN = "bullet-list"
   -var listTitleCN = "__title"
   -var listContainerCN = "__container"
   -var listElementCN = "__item"
@@ -14,12 +10,12 @@ mixin bulletList(data={})
   -var listElementTextCN = "__item-text"
   -var classNames = [listCN, listTitleCN, listContainerCN, listElementCN, listElementImageCN, listElementTextCN]
 
-  -var listAttrs = {class: `${listCN} ${listCN}${blockModifier} ${addClasses} `}
-  -var listTitleAttrs = {class: `${listCN}${listTitleCN} ${listCN}${blockModifier}${listTitleCN} text_type_label-CTA `}
-  -var listContainerAttrs = {class: `${listCN}${listContainerCN} ${listCN}${blockModifier}${listContainerCN} `}
-  -var listElementAttrs = {class: `${listCN}${listElementCN} ${listCN}${blockModifier}${listElementCN} `}
-  -var listElementImageAttrs = {class: `${listCN}${listElementImageCN} ${listCN}${blockModifier}${listElementImageCN} `}
-  -var listElementTextAttrs = {class: `${listCN}${listElementTextCN} ${listCN}${blockModifier}${listElementTextCN} text_type_regular `}
+  -var listAttrs = {class: `${listCN} ${listCN} `}
+  -var listTitleAttrs = {class: `${listCN}${listTitleCN} ${listCN}${listTitleCN} text_type_label-CTA `}
+  -var listContainerAttrs = {class: `${listCN}${listContainerCN} ${listCN}${listContainerCN} `}
+  -var listElementAttrs = {class: `${listCN}${listElementCN} ${listCN}${listElementCN} `}
+  -var listElementImageAttrs = {class: `${listCN}${listElementImageCN} ${listCN}${listElementImageCN} `}
+  -var listElementTextAttrs = {class: `${listCN}${listElementTextCN} ${listCN}${listElementTextCN} text_type_regular `}
   -var blAttributes = [listAttrs, listTitleAttrs, listContainerAttrs, listElementAttrs, listElementImageAttrs, listElementTextAttrs]
 
   if data.isExpandable
