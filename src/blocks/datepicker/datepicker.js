@@ -137,7 +137,6 @@ export function initDatepickerInput(index, input) {
 }
 
 export function initDatepickerInputs() {
-  console.log("HELLO");
   const $datepickers = $('.datepicker-block');
   $datepickers.each(initDatepickerInput);
 }

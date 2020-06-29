@@ -81,7 +81,6 @@ export function initTwoCalendarPicker(index, element) {
 
   const $firstInput = $($twoCalendarRange.find('.two-calendar-range-picker__first-datepicker > .datepicker-block')[0]);
   const $firstInputControl = $($firstInput.find('.datepicker-block__input-wrap .input__control')[0]);
-  console.log($firstInputControl);
   const firstDatepicker = safeDatepickerInit(
     $firstInput, $firstInputControl,
   );
