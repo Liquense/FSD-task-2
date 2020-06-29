@@ -5,6 +5,7 @@
   &__star {
     @include icon();
     @include textGradient(linear-gradient($purple 0%, $purpleGradientSecond 100%));
+    font-size: 24px;
     user-select: none;
     line-height: $iconDefaultSize;
   }
