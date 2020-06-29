@@ -1,16 +1,11 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
-import '../../common';
-import '../../blocks/donut-chart/donut-chart';
-import '../../blocks/comment/comment';
-import '../../page-elements/header/header';
-import '../../page-elements/footer/footer';
-import '../../blocks/list/list';
+import { importCommon, importContext } from '../../index';
+
 import initBookingCards from '../../cards/booking-card/booking-card';
 
-import './room-details.pug';
-import './room-details.scss';
-
+importCommon();
+importContext(require.context('./', true, /\.(js|scss)$/));
 
 const $donutCharts = $('.room-details__donut-chart > .donut-chart');
 function initDonutChart() {
