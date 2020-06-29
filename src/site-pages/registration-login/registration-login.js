@@ -1,10 +1,11 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
-import './registration-login.scss';
-import '../../common';
-import initRegistrationCard from '../../cards/registration-card/registration-card';
-import '../../cards/login-card/login-card';
+import { importCommon, importContext } from '../../index';
 
+import initRegistrationCard from '../../cards/registration-card/registration-card';
+
+importCommon();
+importContext(require.context('./', true, /\.(js|scss)$/));
 
 const url = new URL(window.location.href);
 const isLogin = url.searchParams.get('login');

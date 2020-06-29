@@ -1,3 +1,5 @@
+include ../../page-elements/header/header
+include ../../page-elements/footer/footer
 <!DOCTYPE html>
 head
   meta(charset="UTF-8")
@@ -7,7 +9,6 @@ head
   link(rel="icon" href=require('../../assets/images/logo-colored.png'))
   title TOXIN
 body
-  include ../../page-elements/header/header
   -var logoPath = require('../../assets/images/logo-colored-withText.svg')
   div.registration-login__header
     +header(
@@ -39,9 +40,8 @@ body
 
   div.registration-login__content
 
-  include ../../page-elements/footer/footer
   div.registration-login__footer
-    +largeFooter(
+    +footer(
       {
         logo: logoPath,
         text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
