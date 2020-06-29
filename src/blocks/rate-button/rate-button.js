@@ -1,7 +1,10 @@
 /* eslint-disable no-undef */
 // jquery объявлен вебпаком
-import './rate-button.scss';
-import setState from './__star/rate-button__star';
+
+const states = { 1: 'star_border', 2: 'star_half', 3: 'star' };
+function setState($star, stateIndex) {
+  $star.text(states[stateIndex]);
+}
 
 function setRatingVisual($ratingButton, numericRating) {
   const wholePart = Math.floor(numericRating);

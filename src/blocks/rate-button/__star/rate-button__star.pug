@@ -1,7 +1,0 @@
-mixin star(index)
-  -var starClassName = "rate-button__star"
-  -var emptyStarModifierClassName = "rate-button_type_empty__star"
-  -var starAttrs = {class: starClassName + " text_type_regular " + emptyStarModifierClassName}
-  - starAttrs["data-index"] = index
-
-  label&attributes(starAttrs) star
