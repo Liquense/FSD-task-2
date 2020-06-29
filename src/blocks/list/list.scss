@@ -17,4 +17,106 @@
   &__expand-arrow {
     display: none;
   }
+
+  //region Checkbox
+  &_type_checkbox {
+    &__input {
+      content: "text";
+      &:first-child {
+        margin-top: 16px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+  //endregion
+
+  //region Radio
+  &_type_radio {
+    &__input {
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    &__input:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+  //endregion
+
+  //region Rich
+  &_type_rich {
+    &__input {
+      &:first-child {
+        margin-top: 17px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 7px;
+      }
+    }
+  }
+  //endregion
+
+  //region Toggle
+  &_type_toggle {
+    &__input {
+      &:first-child {
+        margin-top: 15px;
+      }
+      &:not(:last-child) {
+        margin-bottom: 13px;
+      }
+    }
+  }
+  //endregion
+
+  //region Expandable
+  &_expandable {
+    &__title {
+      max-width: 266px;
+      height: 12px;
+
+      &:after {
+        content: "\e5cf";
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        vertical-align: middle;
+        font-family: "Material Icons";
+        color: $darkShade50;
+        font-weight: normal;
+        font-size: 24px;
+        line-height: 12px;
+        text-align: center;
+        top: -1px;
+        left: 30px;
+        cursor: pointer;
+      }
+    }
+
+    &__expand-arrow:after {
+      content: "\e5ce";
+    }
+
+    &__container {
+      display: none;
+      padding-top: 3px;
+
+      &.list_visible__container {
+        display: block;
+      }
+    }
+  }
+
+  &_expandable-narrow {
+    &__title {
+      &:after {
+        bottom: 2px;
+        left: 13px;
+        cursor: pointer;
+      }
+    }
+  }
+  //endregion
 }
