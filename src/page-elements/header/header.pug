@@ -1,5 +1,4 @@
 include ../../blocks/button/button
-include __menu-item/header__menu-item
 
 mixin header(data={})
   -var defaultData = {userLogin: "", logo: "", loginText: "Login", registerText: "register", content: [], isNarrow: false}
@@ -14,7 +13,27 @@ mixin header(data={})
       ul(class=`header__menu ${data.isNarrow ? narrowClass + "__menu" : ""}`)
         each item, index in data.content
           -item.isNarrow = data.isNarrow
-          +header__menuItem(item)
+          -var narrowClass = "header_narrow"
+          -function createChildrenRecursive(itemsArray) {
+            if itemsArray
+              div(class=`header__submenu ${item.isNarrow ? narrowClass + "__submenu" : ""}`)
+                each child in itemsArray
+                  -var itemClasses =
+                  -`header__submenu-item ${item.isNarrow ? narrowClass + "__submenu-item" : ""} text_type_regular` +
+                  -`${item.bold ? " header__submenu-item_bold" : ""}` +
+                  -`${child.children ? " header__submenu-item_expandable" : ""}`
+                  div(class=itemClasses) #{child.text}
+                    if child.children
+                      button(class=`header__expand-button ${item.isNarrow ? narrowClass + "__expand-button" : ""}`) expand_more
+                    -createChildrenRecursive(child.children)
+          -}
+          -var itemClasses = `header__menu-item ${item.isNarrow ? narrowClass + "__menu-item" : ""} text_type_regular` +
+          -`${item.bold ? " header__menu-item_bold" : ""}` +
+          -`${item.children ? " header__menu-item_expandable" : ""}`
+          li(class=itemClasses) #{item.text}
+            if item.children
+              button(class=`header__expand-button ${item.isNarrow ? narrowClass + "__expand-button" : ""}`) expand_more
+            -createChildrenRecursive(item.children);
       if (data.userLogin)
         div(class=`header__divider ${data.isNarrow ? narrowClass + "__divider" : ""}`)
         div(class=`header__user-name ${data.isNarrow ? narrowClass + "__user-name" : ""} text_type_regular`) #{data.userLogin}
