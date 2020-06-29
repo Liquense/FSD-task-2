@@ -276,6 +276,12 @@ function getInitialNamesValues($spinnerElements) {
 const dropdownVisibleClass = 'dropdown__list-wrapper_visible';
 export function initDropdown(index, rootElement) {
   const $inputWrapper = $(rootElement);
+
+  // чтобы не инициализировать повторно
+  const isInitialisedKey = 'isInitialised';
+  if ($inputWrapper.data(isInitialisedKey)) return;
+  $inputWrapper.data(isInitialisedKey, true);
+
   const $listWrapper = $inputWrapper.children('.dropdown__list-wrapper');
   const $inputControl = $inputWrapper.find('.dropdown__input .input__control');
   const $spinnerValueElements = $inputWrapper.find('.spinner__value');
@@ -294,6 +300,7 @@ export function initDropdown(index, rootElement) {
   const namesValues = getInitialNamesValues($spinnerValueElements);
   let oldNamesValues = getInitialNamesValues($spinnerValueElements);
   changeInputText($listWrapper, namesValues, $inputControl);
+
 
   manageControlsVisibility({
     oldNamesValues,
