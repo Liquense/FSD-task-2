@@ -1,8 +1,6 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
 import 'paginationjs';
-//
-import './pagination.scss';
 
 function getPaginationContent($contentContainer) {
   const HTMLContent = [];
