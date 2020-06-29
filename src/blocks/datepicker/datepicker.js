@@ -101,7 +101,10 @@ export function initDatepickerInput(index, input) {
   const $datepicker = $(input);
   const $inputWrap = $datepicker.find('.datepicker-block__input-wrap');
   const $inputControl = $inputWrap.find('.input__control');
-  const isInline = $inputWrap.hasClass('datepicker-block_inline');
+  const isInline = $inputWrap.hasClass('datepicker-block_inline__input-wrap');
+
+  if ($inputControl.data('datepicker')) return;
+
   const datepicker = $inputControl.datepicker({
     range: true,
     inline: isInline,

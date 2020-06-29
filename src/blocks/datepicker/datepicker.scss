@@ -38,6 +38,10 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
     }
   }
 
+  &_inline__input-wrap .input__control {
+    display: none;
+  }
+
   &__confirm-button,
   &__clear-button {
     width: fit-content;
