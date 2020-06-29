@@ -1,3 +1,5 @@
+include ../arrow/arrow
+
 //- title - заголовок
 //- types - типы инпута: ( text, mask)
 //- 	размеры: (medium, premedium, narrow),
@@ -43,7 +45,6 @@ mixin input(data={})
     else if data.type === "mask"
       - value.class += index === 0 ? classNames[index] + "_type_masked " : classNames[0] + "_type_masked" + classNames[index] + " "
 
-  include ../arrow/arrow
   div&attributes(attributes.blockAttributes)
     if data.title
       label&attributes(attributes.titleAttributes) #{data.title}
