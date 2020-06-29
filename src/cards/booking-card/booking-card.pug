@@ -1,6 +1,7 @@
 include ../../blocks/two-calendar-range-picker/two-calendar-range-picker
 include ../../blocks/input/input
 include ../../blocks/button/button
+include ../../blocks/dropdown/dropdown
 
 //- data = {
   arrivalDate: string("dd.MM.yyyy") - дата въезда
@@ -19,7 +20,7 @@ mixin bookingCard(data={})
     div.booking-card__range-picker
       +twoCalendarRangePicker({labels: ["Прибытие", "Выезд"], firstDate: data.arrivalDate, secondDate: data.departureDate})
     div.booking-card__guests-dropdown
-      +input({title: "Гости", type: "dropdown", dropdownType: "customers", isUnified: true, placeholder: "Сколько гостей", data: data.dropdownItems})
+      +dropdown({title: "Гости", dropdownType: "customers", isUnified: true, placeholder: "Сколько гостей", data: data.dropdownItems})
     div.booking-card__check-container.text_type_regular()
       div.booking-card__staying-cost-row.row
         span.booking-card__staying-cost-calculation.col1 test

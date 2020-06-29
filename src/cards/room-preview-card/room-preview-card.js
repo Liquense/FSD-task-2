@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 // jquery подключена вебпаком
-import './room-preview-card.scss';
 import initCarouselPlugin from '../../blocks/carousel/carousel';
 import setRatingToRateButton from '../../blocks/rate-button/rate-button';
 import { formatNumber, ruDeclination } from '../../common/functions';

@@ -1,5 +1,6 @@
 include  ../../blocks/two-calendar-range-picker/two-calendar-range-picker
 include ../../blocks/input/input
+include ../../blocks/dropdown/dropdown
 include ../../blocks/button/button
 
 mixin findRoomCard()
@@ -8,6 +9,6 @@ mixin findRoomCard()
     div.find-room-card__range-picker
       +twoCalendarRangePicker({labels: ["Прибытие", "Выезд"]})
     div.find-room-card__dropdown
-      +input({title: "Гости", type: "dropdown", dropdownType: "customers", placeholder: "Сколько гостей", data: [{name: "Взрослые"}, {name: "Дети"}, {name: "Младенцы"}]})
+      +dropdown({title: "Гости", dropdownType: "customers", placeholder: "Сколько гостей", data: [{name: "Взрослые"}, {name: "Дети"}, {name: "Младенцы"}]})
     div.find-room-card__button
       +Button({text: "Подобрать номер", type: "filled", size: "wide", decoration: "enter-arrow"})

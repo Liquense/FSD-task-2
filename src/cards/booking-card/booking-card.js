@@ -1,14 +1,12 @@
 /* eslint-disable no-undef */
 // jquery объявлена вебпаком
-import '../../blocks/input/input';
 import {
   initTwoCalendarPicker,
   setInitialDates,
 } from '../../blocks/two-calendar-range-picker/two-calendar-range-picker';
 import { formatNumber, ruDeclination } from '../../common/functions';
-import { initDropdownInput } from '../../blocks/input/_type/_dropdown/__list/input_type_dropdown__list';
-
-import './booking-card.scss';
+import { initDropdown } from '../../blocks/dropdown/dropdown';
+import { initDatepickerInput } from '../../blocks/datepicker/datepicker';
 
 function getTotalCost(priceData) {
   const totalCost = Number.parseFloat(priceData.stayingSum)
@@ -23,7 +21,6 @@ function writeTotalCost($totalCostSpan, priceData) {
 
   $totalCostSpan.text(`${formattedTotalBookingCost}${priceData.currency}`);
 }
-
 
 function writeFormattedDailyPrice($dailyPriceSpan, priceToShow, currency) {
   $dailyPriceSpan.text(`${priceToShow}${currency}`);
@@ -111,12 +108,12 @@ function initBookingCard() {
   const $rangePicker = $bookingCard.find('.booking-card__range-picker > .two-calendar-range-picker');
   initTwoCalendarPicker(0, $rangePicker);
   const $firstDatepicker = $($rangePicker.find('.two-calendar-range-picker__first-datepicker')[0]);
-  const $firstDatepickerControl = $($firstDatepicker.find('.input_type_datepicker__control')[0]);
+  const $firstDatepickerControl = $($firstDatepicker.find('.datepicker-block .input__control')[0]);
   const $secondDatepicker = $($rangePicker.find('.two-calendar-range-picker__second-datepicker')[0]);
-  const $secondDatepickerControl = $($secondDatepicker.find('.input_type_datepicker__control')[0]);
+  const $secondDatepickerControl = $($secondDatepicker.find('.datepicker-block .input__control')[0]);
 
-  const $guestsDropdown = $($bookingCard.find('.booking-card__guests-dropdown > .input_type_dropdown')[0]);
-  initDropdownInput(0, $guestsDropdown);
+  const $guestsDropdown = $($bookingCard.find('.booking-card__guests-dropdown > .dropdown')[0]);
+  initDropdown(0, $guestsDropdown);
 
   const $stayingCostRow = $bookingCard.find('.booking-card__staying-cost-row');
 
@@ -154,4 +151,7 @@ function initBookingCard() {
 export default function initBookingCards() {
   const $bookingCards = $('.booking-card');
   $bookingCards.each(initBookingCard);
+
+  const $datepickers = $bookingCards.find('.datepicker-block');
+  $datepickers.each(initDatepickerInput);
 }
