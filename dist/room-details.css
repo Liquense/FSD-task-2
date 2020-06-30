@@ -2819,52 +2819,6 @@ body {
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content; }
-  .room-details__info-container .room-details__reviews-container {
-    margin-bottom: 2.29167vw;
-    max-width: 710px; }
-    @media (max-width: 610px) {
-      .room-details__info-container .room-details__reviews-container {
-        margin-bottom: 30px; } }
-    .room-details__info-container .room-details__reviews-container .room-details__reviews-title-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline; }
-      .room-details__info-container .room-details__reviews-container .room-details__reviews-title-container .room-details__reviews-title {
-        letter-spacing: -0.4px; }
-      .room-details__info-container .room-details__reviews-container .room-details__reviews-title-container .room-details__reviews-count {
-        flex-shrink: 0; }
-    .room-details__info-container .room-details__reviews-container .room-details__reviews-content .room-details__comment:not(:last-child) {
-      margin-bottom: 23px; }
-  .room-details__info-container .room-details__additional-info {
-    display: flex;
-    justify-content: space-between; }
-    @media (max-width: 850px) {
-      .room-details__info-container .room-details__additional-info {
-        flex-wrap: wrap;
-        justify-content: space-evenly; } }
-    @media (max-width: 610px) {
-      .room-details__info-container .room-details__additional-info .room-details__rules-container {
-        margin-bottom: 30px; } }
-    .room-details__info-container .room-details__additional-info .room-details__rules-container .room-details__rules-title {
-      margin-bottom: 17px;
-      margin-left: 20px; }
-      @media (max-width: 610px) {
-        .room-details__info-container .room-details__additional-info .room-details__rules-container .room-details__rules-title {
-          margin-left: 0; } }
-    .room-details__info-container .room-details__additional-info .room-details__rules-container .room-details__rules-list .list__title {
-      display: none; }
-    .room-details__info-container .room-details__additional-info .room-details__cancellation-container {
-      margin-right: 10px;
-      min-width: 280px;
-      max-width: 340px; }
-      @media (max-width: 550px) {
-        .room-details__info-container .room-details__additional-info .room-details__cancellation-container {
-          max-width: 280px;
-          margin-right: 0; } }
-      .room-details__info-container .room-details__additional-info .room-details__cancellation-container .room-details__cancellation-title {
-        margin-bottom: 17px; }
-      .room-details__info-container .room-details__additional-info .room-details__cancellation-container .room-details__cancellation-text {
-        line-height: 24px; }
 
 .room-details__main-info {
   display: flex;
@@ -2888,9 +2842,27 @@ body {
       margin-bottom: 30px; } }
 
 .room-details__features-title {
+  font-family: Quicksand, Montserrat, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  color: #1F2041;
+  text-decoration: none;
   letter-spacing: -0.6px; }
 
 .room-details__expressions-title {
+  font-family: Quicksand, Montserrat, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  color: #1F2041;
+  text-decoration: none;
   letter-spacing: -0.4px; }
 
 .room-details__donut-chart .donut-chart__svg-arc:hover {
@@ -2900,6 +2872,109 @@ body {
 @media (max-width: 610px) {
   .room-details__donut-chart {
     align-items: center; } }
+
+.room-details__reviews-container {
+  margin-bottom: 2.29167vw;
+  max-width: 710px; }
+  @media (max-width: 610px) {
+    .room-details__reviews-container {
+      margin-bottom: 30px; } }
+
+.room-details__comment:not(:last-child) {
+  margin-bottom: 23px; }
+
+.room-details__reviews-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline; }
+
+.room-details__reviews-title {
+  font-family: Quicksand, Montserrat, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  color: #1F2041;
+  text-decoration: none;
+  letter-spacing: -0.4px; }
+
+.room-details__reviews-count {
+  font-family: Montserrat, Montserrat, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  color: rgba(31, 32, 65, 0.75);
+  text-decoration: none;
+  flex-shrink: 0; }
+
+.room-details__additional-info {
+  display: flex;
+  justify-content: space-between; }
+  @media (max-width: 850px) {
+    .room-details__additional-info {
+      flex-wrap: wrap;
+      justify-content: space-evenly; } }
+
+@media (max-width: 610px) {
+  .room-details__rules-container {
+    margin-bottom: 30px; } }
+
+.room-details__rules-title {
+  font-family: Quicksand, Montserrat, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  color: #1F2041;
+  text-decoration: none;
+  margin-bottom: 17px;
+  margin-left: 20px; }
+  @media (max-width: 610px) {
+    .room-details__rules-title {
+      margin-left: 0; } }
+
+.room-details__rules-list .list__title {
+  display: none; }
+
+.room-details__cancellation-container {
+  margin-right: 10px;
+  min-width: 280px;
+  max-width: 340px; }
+  @media (max-width: 550px) {
+    .room-details__cancellation-container {
+      max-width: 280px;
+      margin-right: 0; } }
+
+.room-details__cancellation-title {
+  font-family: Quicksand, Montserrat, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 19px;
+  line-height: 24px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  color: #1F2041;
+  text-decoration: none;
+  margin-bottom: 17px; }
+
+.room-details__cancellation-text {
+  font-family: Montserrat, Montserrat, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  color: rgba(31, 32, 65, 0.75);
+  text-decoration: none;
+  line-height: 24px; }
 
 @media (max-width: 1250px) {
   .room-details__booking-card {

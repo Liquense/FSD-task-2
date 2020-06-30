@@ -2834,6 +2834,15 @@ body {
   margin-bottom: 14px; }
 
 .search-room__price-per-day-text {
+  font-family: Montserrat, Montserrat, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  color: rgba(31, 32, 65, 0.75);
+  text-decoration: none;
   font-size: 12px;
   margin: 0; }
 
@@ -2841,12 +2850,21 @@ body {
   margin-bottom: 34px; }
 
 .search-room__availability-filter {
-  margin-bottom: 26px; }
+  margin-bottom: 28px; }
 
 .search-room__rooms {
   width: 100%; }
 
 .search-room__rooms-title {
+  font-family: Quicksand, Montserrat, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 30px;
+  letter-spacing: normal;
+  vertical-align: middle;
+  color: #1F2041;
+  text-decoration: none;
   margin-top: 0;
   margin-bottom: 22px;
   letter-spacing: -0.5px; }
