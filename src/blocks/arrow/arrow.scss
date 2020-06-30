@@ -30,7 +30,7 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
     color: $darkShade50;
     font-weight: normal;
     vertical-align: middle;
-    margin-right: $expandHorizontalMargin;
+    margin-right: $expandHorizontalMargin + $borderWidth;
     -webkit-user-select: none;
     cursor: pointer;
     background-color: transparent;
@@ -42,7 +42,7 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
       width: $expandWidth + 2px;
       height: $expandWidth + 2px;
       margin-top: $expandVerticalMargin - 1px - ($expandWidth - $expandHeight)/2;
-      margin-right: $expandHorizontalMargin - 1px;
+      margin-right: $expandHorizontalMargin + $borderWidth - 1px;
       border: dotted 1px $darkShade50;
     }
 
