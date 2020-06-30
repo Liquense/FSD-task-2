@@ -1,8 +1,10 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
 import { initDatepickers } from '../../../blocks/datepicker-block/datepicker-block';
+import initRoomPreviewCards from '../../../cards/room-preview-card/room-preview-card';
 
 initDatepickers(); // для работоспособности инлайн календаря
+initRoomPreviewCards();
 
 const $inlineDatepicker = $('.ui-kit__datepicker_inline');
 const $datepickerCells = $inlineDatepicker.find('.datepicker--cell.datepicker--cell-day');
