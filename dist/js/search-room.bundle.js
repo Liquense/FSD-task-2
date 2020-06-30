@@ -1,1 +1,1134 @@
-!function(t){function e(e){for(var r,s,o=e[0],c=e[1],l=e[2],d=0,_=[];d<o.length;d++)s=o[d],Object.prototype.hasOwnProperty.call(n,s)&&n[s]&&_.push(n[s][0]),n[s]=0;for(r in c)Object.prototype.hasOwnProperty.call(c,r)&&(t[r]=c[r]);for(u&&u(e);_.length;)_.shift()();return i.push.apply(i,l||[]),a()}function a(){for(var t,e=0;e<i.length;e++){for(var a=i[e],r=!0,o=1;o<a.length;o++){var c=a[o];0!==n[c]&&(r=!1)}r&&(i.splice(e--,1),t=s(s.s=a[0]))}return t}var r={},n={5:0},i=[];function s(e){if(r[e])return r[e].exports;var a=r[e]={i:e,l:!1,exports:{}};return t[e].call(a.exports,a,a.exports,s),a.l=!0,a.exports}s.m=t,s.c=r,s.d=function(t,e,a){s.o(t,e)||Object.defineProperty(t,e,{enumerable:!0,get:a})},s.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},s.t=function(t,e){if(1&e&&(t=s(t)),8&e)return t;if(4&e&&"object"==typeof t&&t&&t.__esModule)return t;var a=Object.create(null);if(s.r(a),Object.defineProperty(a,"default",{enumerable:!0,value:t}),2&e&&"string"!=typeof t)for(var r in t)s.d(a,r,function(e){return t[e]}.bind(null,r));return a},s.n=function(t){var e=t&&t.__esModule?function(){return t.default}:function(){return t};return s.d(e,"a",e),e},s.o=function(t,e){return Object.prototype.hasOwnProperty.call(t,e)},s.p="";var o=window.webpackJsonp=window.webpackJsonp||[],c=o.push.bind(o);o.push=e,o=o.slice();for(var l=0;l<o.length;l++)e(o[l]);var u=c;i.push([226,0]),a()}([,function(t,e,a){"use strict";(function(t){function a(t,e){var a=Object.keys(t);if(Object.getOwnPropertySymbols){var r=Object.getOwnPropertySymbols(t);e&&(r=r.filter((function(e){return Object.getOwnPropertyDescriptor(t,e).enumerable}))),a.push.apply(a,r)}return a}function r(t,e,a){return e in t?Object.defineProperty(t,e,{value:a,enumerable:!0,configurable:!0,writable:!0}):t[e]=a,t}Object.defineProperty(e,"__esModule",{value:!0}),e.formatNumber=function(t,e){if(Number.isNaN(1*t))return"not number";for(var a=t.toString(),r=[],n=a.length-1;n>=0;n-=1)(a.length-n)%3==0&&a.length-n>0?r[n]="".concat(e).concat(a[n]):r[n]=a[n];return r.join("")},e.checkDateArraysEquality=function(t,e){return t.length===e.length&&!t.some((function(t,a){var r;return t.getTime()!==(null===(r=e[a])||void 0===r?void 0:r.getTime())}))},e.ruDeclination=function(t,e){var a=e.split("|"),r=Math.abs(t),n=r%10>=2&&r%10<=4&&(r%100<10||r%100>=20);if(r%10==1&&r%100!=11)return a[0]+a[1];if(n)return a[0]+a[2];return a[0]+a[3]},e.copyArrayOfObjects=function(t){return t.map((function(t){return function(t){for(var e=1;e<arguments.length;e++){var n=null!=arguments[e]?arguments[e]:{};e%2?a(Object(n),!0).forEach((function(e){r(t,e,n[e])})):Object.getOwnPropertyDescriptors?Object.defineProperties(t,Object.getOwnPropertyDescriptors(n)):a(Object(n)).forEach((function(e){Object.defineProperty(t,e,Object.getOwnPropertyDescriptor(n,e))}))}return t}({},t)}))},e.clamp=function(t,e,a){return Math.min(Math.max(t,e),a)},t.fn.outerHTML=function(){return t("<div />").append(this.eq(0).clone()).html()}}).call(this,a(0))},function(t,e,a){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,a){t(e).each((function(){var e=t(this);if(!e.data("uiCheckboxradio")){var r=e.checkboxradio({classes:{"ui-checkboxradio-icon":a.icon,"ui-checkboxradio-icon-space":a.iconSpace}});"true"===e.attr("data-isChecked")&&r.attr("checked","checked").change()}}))}}).call(this,a(0))},function(t,e,a){"use strict";a(23),a(24),a(26),a(27),a(28),a(29),a(30),a(4),a(5),a(6),a(37),a(38)},function(t,e,a){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.parseAttrToDate=r,e.setDates=function(t,e){if(!e)return;t.data("datepicker").selectDate(e)},e.initDatepickerInput=s,e.initDatepickerInputs=function(){t(".input_type_datepicker").each(s)},a(85),a(31),a(32),a(33),a(34);function r(t){var e=t.split("."),a=e[0],r=e[1],n=e[2],i="".concat(n,"-").concat(r,"-").concat(a);return new Date(i)}function n(t){t.preventDefault()}function i(e,a){var r=t(this).parent(),i=function(e,a,r){var i=null;return a.each((function(){(i=a.data("datepicker")).update({onHide:function(a,i){i?(t(e).removeClass("expanded"),t(r).unbind("click",n)):e.text("expand_more")},onShow:function(t,a){a?(e.addClass("expanded"),r.click(n)):e.text("expand_less")},todayButton:!1})})),i}(e,a,r);i&&function(e,a,r){t(r).click((function(){t(e).hasClass("expanded")?a.hide():a.show()}))}(e,i,a)}function s(e,a){var n=t(a),s=n.find(".input__control_type_datepicker"),o=n.hasClass("datepicker_inline"),c=s.datepicker({range:!0,inline:o,dateFormat:"d M",multipleDatesSeparator:" - ",todayButton:!0,showEvent:"",position:"bottom center",offset:5,navTitles:{days:'<span class="text_type_item-title">MM yyyy</span>',months:'<span class="text_type_item-title">yyyy</span>',years:'<span class="text_type_item-title">yyyy1 - yyyy2</span>'},prevHtml:'<img src="./images/arrow-back.svg" alt="назад"">',nextHtml:'<img src="./images/arrow-back.svg" alt="назад" style="transform: scale(-1, 1)">',onSelect:function(t){s.val(t.toLowerCase())}}).data("datepicker");c.$datepicker.find('.datepicker--button[data-action="today"]').remove(),c.$datepicker.find(".datepicker--buttons").append('<div class="button button_type_text button_hovered input_type_datepicker__clear-button"><button class="button__control text_type_label-CTA datepicker--button" data-action="clear">Очистить</button><div class="button__decoration material-icons"></div></div>'),c.$datepicker.find(".datepicker--buttons").append('<div class="button button_type_text input_type_datepicker__confirm-button"><button class="button__control text_type_label-CTA datepicker--button" data-action="hide">Применить</button><div class="button__decoration material-icons"></div></div>'),i(t(n.find(".input__arrow_decoration_expand-arrow")[0]),s);var l,u,d=(u=[],(l=s).attr("data-firstdate")&&u.push(r(l.attr("data-firstDate"))),l.attr("data-seconddate")&&u.push(r(l.attr("data-secondDate"))),0===u.length?void 0:u);c.selectDate(d)}}).call(this,a(0))},function(t,e,a){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.initDropdownInput=f,e.initDropdowns=function(){t(".input_type_dropdown").each(f)},a(54);var r=a(1),n=a(6);a(36);function i(t,e){var a="";switch(e.toLowerCase()){case"спальни":a=(0,r.ruDeclination)(t,"спал|ьня|ьни|ен");break;case"кровати":a=(0,r.ruDeclination)(t,"кроват|ь|и|ей");break;case"ванные комнаты":a="".concat((0,r.ruDeclination)(t,"ванн|ая|ых|ых")," ").concat((0,r.ruDeclination)(t,"комнат|а|ы|"));break;case"гости":a=(0,r.ruDeclination)(t,"гост|ь|я|ей");break;case"младенцы":a=(0,r.ruDeclination)(t,"младен|ец|ца|цев")}return a}function s(t){return!t.some((function(t){return 0!==parseInt(t.value,10)}))}function o(t,e){var a=t.reduce((function(t,e){return t+parseInt(e.value,10)}),0);return"".concat(a," ").concat((0,r.ruDeclination)(a,e))}function c(t,e){return e?o(t,"комнаты"):function(t){var e=t.reduce((function(t,e){return"".concat(t," ")+"".concat(e.value," ")+"".concat(i(e.value,e.name),", ")}),"");return e=e.substring(0,e.length-2).trim()}(t)}function l(t,e){return e?o(t,"гост|ь|я|ей"):function(t){var e=0,a=0;return t.forEach((function(t){"младенцы"!==t.name.toLowerCase()?a+=parseInt(t.value,10):e=t.value})),"".concat(a," ").concat(i(a,"гости"),", ")+"".concat(e," ").concat(i(e,"младенцы"))}(t)}function u(e,a,r){var n=function(t,e){var a="";if(s(t))return a;switch(e.name){case"rooms":a=c(t,e.isUnified);break;case"customers":a=l(t,e.isUnified);break;default:var r=t.reduce((function(t,e){return t+parseInt(e.value,10)}),0);a+="".concat(r," чего-то")}return a}(a,function(e){var a={};if(t(e).hasClass("input__dropdown-list-wrapper_unified")&&(a.isUnified=!0),t(e).hasClass("input__dropdown-list-wrapper_rooms"))a.name="rooms";else{if(!t(e).hasClass("input__dropdown-list-wrapper_customers"))return!1;a.name="customers"}return a}(e));t(r).val(n)}function d(e,a,r,n,i,o,c){var l;s(a)?t(r).removeClass("input__clear-button_visible"):t(r).addClass("input__clear-button_visible"),(l=a,!e.some((function(t,e){return l[e].value!==t.value})))&&c?t(n).removeClass("input__confirm-button_visible"):t(n).addClass("input__confirm-button_visible");var u=t(r).hasClass("input__clear-button_visible"),d=t(n).hasClass("input__confirm-button_visible");(u||d)&&o?t(i).addClass("input__control-buttons-container_visible"):t(i).removeClass("input__control-buttons-container_visible")}function _(e,a,r,i){r.each((function(s){var o=t(r[s]);i.includes("array")&&(a[s].value=e[s].value,o.spinner("value",e[s].value),(0,n.disableButtonsAtExtremum)(o,e[s].value)),i.includes("value")&&(a[s].value=e,o.spinner("value",e),(0,n.disableButtonsAtExtremum)(o,e))}))}function p(e){var a=[];return e.each((function(){var e=t(this);a.push({name:e.attr("data-name"),value:parseInt(e.attr("value")?e.attr("value"):0,10)})})),a}var b="input__dropdown-list-wrapper_visible";function f(e,a){var r=t(a),n=r.children(".input__dropdown-list-wrapper_type_dropdown"),i=r.find(".input__control_type_dropdown"),s=r.find(".input__value_type_spinner"),o=r.find(".input__control-buttons-container"),c=r.find(".input__clear-button"),l=r.find(".input__confirm-button"),f=!r.hasClass("input_type_dropdown-unaccepted"),h=r.hasClass("input_type_dropdown-opened");h&&(n.toggle("fade"),n.toggleClass(b));var v,m=!r.hasClass("input_type_dropdown-pure"),g=p(s),x=p(s);u(n,g,i),d(x,g,c,l,o,m,f),c.click((function(){_(0,g,s,["value"]),d(x,g,c,l,o,m,f),u(n,g,i)})),l.click((function(){var e;h||(i.removeClass("input__control_focused"),n.toggle("fade"),n.toggleClass(b)),f=!0,e=[],t(s).each((function(){e.push({name:t(this).attr("data-name"),value:parseInt(t(this).val(),10)})})),d(x=e,g,c,l,o,m,f)})),s.each((function(e){var a=t(s[e]);a.on("spin",(function(t,e){g[a.attr("data-index")].value=e.value,u(n,g,i),d(x,g,c,l,o,m,f)}))})),n.position({my:"center",at:"center",of:i}),t(document).click((function(e){v=t(e.target),t.contains(r.get(0),v.get(0))||n.hasClass(b)&&(h||(n.toggle("fade"),n.toggleClass(b),i.removeClass("input__control_focused")),_(x,g,s,["array"]),d(x,g,c,l,o,m,f),u(n,g,i))})),i.click((function(){h||(i.toggleClass("input__control_focused"),n.toggle("fade"),n.toggleClass(b)),n.hasClass(b)||function(t,e,a,r,n,i,s,o,c,l){_(t,e,a,["array"]),d(t,e,r,n,i,c,l),u(s,e,o)}(x,g,s,c,l,o,n,i,m,f)}))}}).call(this,a(0))},function(t,e,a){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.disableButtonsAtExtremum=i,e.increaseButtonClasses=e.decreaseButtonClasses=void 0,a(86),a(35);var r="input__dropdown-decrease_type_dropdown input__button_type_spinner ui-spinner-button ui-spinner-down";e.decreaseButtonClasses=r;var n="input__dropdown-increase_type_dropdown input__button_type_spinner ui-spinner-button ui-spinner-up";function i(t,e){var a=t.attr("data-min"),r=t.attr("data-max"),n=t.siblings(".input__dropdown-decrease_type_dropdown"),i=t.siblings(".input__dropdown-increase_type_dropdown");e<=a?n.addClass("input__button_disabled"):n.removeClass("input__button_disabled"),e>=r?i.addClass("input__button_disabled"):i.removeClass("input__button_disabled")}function s(){var e=t(this),a=e.attr("value");i(e,a),e.on("spin",(function(t,a){i(e,a.value)}))}e.increaseButtonClasses=n,t.widget("ui.spinner",t.ui.spinner,{_enhance:function(){this.uiSpinner=this.element.attr("autocomplete","off").wrap(this._uiSpinnerHtml()).parent().prepend(this._buttonHtml()[0]).append(this._buttonHtml()[1])},_buttonHtml:function(){return['<button class="'.concat(r,'">-</button>'),'<button class="'.concat(n,'">+</button>')]},_uiSpinnerHtml:function(){return""}}),t(".input_type_dropdown").each((function(){(function(e){var a=t(e).find(".input__value_type_spinner");return a.spinner({min:a.attr("data-min"),max:a.attr("data-max")}),a})(this).each(s)}))}).call(this,a(0))},,,function(t,e,a){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0,a(89),a(63);var r=o(a(64)),n=o(a(66)),i=o(a(68)),s=o(a(70));function o(t){return t&&t.__esModule?t:{default:t}}function c(t,e){for(var a=0;a<e.length;a++){var r=e[a];r.enumerable=r.enumerable||!1,r.configurable=!0,"value"in r&&(r.writable=!0),Object.defineProperty(t,r.key,r)}}a(72);var l=function(){function t(){!function(t,e){if(!(t instanceof e))throw new TypeError("Cannot call a class as a function")}(this,t)}var e,a,o;return e=t,o=[{key:"initDefault",value:function(){(0,r.default)()}},{key:"initLike",value:function(){(0,s.default)()}},{key:"initRadio",value:function(){(0,n.default)()}},{key:"initToggle",value:function(){(0,i.default)()}}],(a=null)&&c(e.prototype,a),o&&c(e,o),t}();e.default=l},,,function(t,e,a){"use strict";a(19),a(20),a(21),a(22)},function(t,e,a){"use strict";a(3),a(39),a(40),a(41),a(88)},function(t,e,a){"use strict";(function(t){a(15),a(50),a(52),a(53);t(".header__logo-link").attr("href","landing-page.html");var e="".concat("registration-login.html","?login=true"),r="".concat("registration-login.html","?login=false");t(".header__register-button").attr("href",r),t(".header__login-button").attr("href",e)}).call(this,a(0))},function(t,e,a){"use strict";a(42),a(43),a(44),a(45),a(46),a(47),a(48),a(49)},function(t,e,a){"use strict";a(17),a(18),a(1),a(12),a(13),a(14)},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){"use strict";(function(t){a(25),a(84),t(document).ready((function(t){t.mask.definitions.m="[012]",t.mask.definitions.d="[0123]",t(".input__control_masked").mask("99.99.9999",{placeholder:"ДД.ММ.ГГГГ",autoclear:!1})}))}).call(this,a(0))},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e){t.exports="images/arrow-back.svg"},function(t,e){t.exports="images/expand-more.svg"},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){"use strict";a(51)},function(t,e,a){},function(t,e,a){},function(t,e,a){},,,function(t,e){t.exports="images/room-mini-1.jpg"},function(t,e){t.exports="images/room-mini-2.jpg"},function(t,e,a){"use strict";(function(t){function r(e,a){var r=t(a),n=t(r.find(".list__title_expandable")[0]),i=t(r.find(".list__container_expandable")[0]),s=r.hasClass("list_expandable-opened");n.click((function(){r.toggleClass("list__expand-arrow_expanded"),i.toggle("fade",[],200),i.toggleClass("list__container_visible")})),s&&t(i).toggle("fade",[],200)}Object.defineProperty(e,"__esModule",{value:!0}),e.initExpandableList=r,e.initExpandableLists=function(){t(".list_expandable").each(r)},a(54),a(82)}).call(this,a(0))},function(t,e,a){"use strict";a(9),a(73),a(74),a(75),a(76),a(77),a(78),a(79),a(80),a(81),a(58)},,,,function(t,e,a){},function(t,e,a){"use strict";(function(t){var r;Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){t(".checkbox__button_type_default").text("check")},a(65),(0,((r=a(2))&&r.__esModule?r:{default:r}).default)(".checkbox__hidden-button_type_default",{icon:"checkbox__button checkbox__button_type_default",iconSpace:"checkbox__icon-space checkbox__icon-space_type_default"})}).call(this,a(0))},function(t,e,a){},function(t,e,a){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){(0,n.default)(".checkbox__hidden-button_type_radio",{icon:"checkbox__button checkbox__button_type_radio",iconSpace:"checkbox__icon-space checkbox__iconSpace_type_radio"})},a(67);var r,n=(r=a(2))&&r.__esModule?r:{default:r}},function(t,e,a){},function(t,e,a){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){(0,n.default)(".checkbox__hidden-button_type_toggle",{icon:"checkbox__button checkbox__button_type_toggle",iconSpace:"checkbox__icon-space checkbox__icon-space_type_toggle"})},a(69);var r,n=(r=a(2))&&r.__esModule?r:{default:r}},function(t,e,a){},function(t,e,a){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(){t(".checkbox__label_type_like").each(i)},a(71);var r,n=(r=a(2))&&r.__esModule?r:{default:r};function i(){var e=t(this),a=t(e.find(".checkbox__hidden-button_type_like")[0]),r=a.data("uiCheckboxradio");(0,n.default)(a,{icon:"checkbox__button checkbox__button_type_like"});var i=document.createElement("div");if(i.classList.add("checkbox__button-border_type_like"),e.prepend(i),!Number.isNaN(Number.parseInt(e.attr("data-likes-count"),10))&&!r){var s=Number.parseInt(e.attr("data-likes-count"),10);a.change((function(){var a=t(e.find(".checkbox__text_type_like")[0]);s=e.hasClass("ui-checkboxradio-checked")?s+1:s-1,a.text(s),e.attr("data-likes-count",s)}))}}}).call(this,a(0))},function(t,e,a){},function(t,e,a){},function(t,e,a){var r=a(55);t.exports=function(t){var e,a="";return e=function(t,n,i,s="",o=!1){this&&this.block,this&&this.attributes;var c=["checkbox","checkbox__label","checkbox__hidden-button","checkbox__description","checkbox__text"],l={class:"checkbox "+s+" "},u={class:"checkbox__label text_type_regular "},d={class:"checkbox__hidden-button "},_={class:"checkbox__description "},p={class:"checkbox__text "},b=[l,u,d,_,p];if(n){if(n.includes("radio")?(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_radio "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_radio "}}}.call(this),d.type="radio",i&&i.group&&(d.name=i.group)):n.includes("toggle")?(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_toggle "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_toggle "}}}.call(this),d.type="checkbox",n.includes("toggled")&&(u.class+="checkbox__label_toggled ")):n.includes("like")?(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_like "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_like "}}}.call(this),d.type="checkbox",u["data-likes-count"]=t):(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_default "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_default "}}}.call(this),d.type="checkbox"),n.includes("rich")&&(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_rich "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_rich "}}}.call(this),i&&i.description))var f=i.description}else(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_default "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_default "}}}).call(this),d.type="checkbox";d["data-isChecked"]=""+o,a=a+"<div"+r.attrs(l,!0)+"><label"+r.attrs(u,!0)+"><span"+r.attrs(p,!0)+">"+r.escape(null==(e=t)?"":e)+"</span><input"+r.attrs(d,!0)+">",n.includes("rich")&&(a=a+"<span"+r.attrs(_,!0)+">"+r.escape(null==(e=f)?"":e)+"</span>"),a+="</label></div>"},a}},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},function(t,e,a){},,,,,,,,function(t,e){t.exports="images/logo-colored.png"},function(t,e){t.exports="images/logo-colored-withText.svg"},function(t,e,a){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(e,a){t(a.handle).attr("sliderHandleValue",a.value)},a(151),a(152)}).call(this,a(0))},,,function(t,e){},function(t,e,a){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=i,a(121);var r,n=(r=a(122))&&r.__esModule?r:{default:r};function i(e){var a,r,i,s,o,c=e.attr("data-maxRating"),l=e.attr("data-rating");a="-1"===l?Math.random()*c:l,r=e,i=a,s=Math.floor(i),o=i-s,r.children(".rate-button__star").each((function(e){var a;a=e+1<=s?3:o>0&&e===s?2:1,(0,n.default)(t(this),a)}))}t(".rate-button").each((function(){i(t(this))}))}).call(this,a(0))},function(t,e){t.exports="images/room-mini-3.jpg"},function(t,e){t.exports="images/room-mini-4.jpg"},function(t,e){t.exports="images/room-mini-5.jpg"},function(t,e){t.exports="images/room-mini-6.jpg"},function(t,e){t.exports="images/room-mini-7.jpg"},function(t,e){t.exports="images/room-mini-8.jpg"},function(t,e){t.exports="images/room-mini-9.jpg"},function(t,e){t.exports="images/room-mini-10.jpg"},function(t,e){t.exports="images/room-mini-11.jpg"},function(t,e){t.exports="images/room-mini-12.jpg"},,,,,,,,,,,,function(t,e,a){"use strict";(function(t){a(119),a(120);var e,r=a(1),n=(e=a(92))&&e.__esModule?e:{default:e};function i(e,a){t(a.handle).closest(".slider").find(".slider__value").text("".concat((0,r.formatNumber)(a.value," "),"₽"))}t(".slider__control:not(.slider__control_range)").each((function(){var e=Number(t(this).attr("data-min")),a=Number(t(this).attr("data-max")),r=Number(t(this).attr("data-step")),s=Number(t(this).attr("data-firstValue"));t(this).slider({min:e,max:a,value:s,step:r,animate:"fast",change:i,slide:n.default}),t(this).children(".ui-slider-handle").first().attr("sliderHandleValue",s)}))}).call(this,a(0))},function(t,e,a){"use strict";(function(t){var e,r=a(1),n=(e=a(92))&&e.__esModule?e:{default:e};function i(e,a){t(a.handle).closest(".slider").find(".slider__value").text("".concat((0,r.formatNumber)(a.values[0]," "),"₽ - ").concat((0,r.formatNumber)(a.values[1]," "),"₽"))}t(".slider__control_range").each((function(){var e=t(this),a=Number(e.attr("data-min")),s=Number(e.attr("data-max")),o=Number(e.attr("data-step"));e.slider({min:a,max:s,step:o,range:!0,animate:"fast",change:i,slide:n.default});var c=[],l=e.attr("data-firstValue"),u=e.attr("data-secondValue");c.push((0,r.clamp)(l,a,s)),c.push((0,r.clamp)(u,a,s)),e.slider("values",c),e.children(".ui-slider-handle").first().attr("sliderHandleValue",c[0]),e.children(".ui-slider-handle").last().attr("sliderHandleValue",c[1])}))}).call(this,a(0))},function(t,e,a){},function(t,e,a){},function(t,e,a){"use strict";Object.defineProperty(e,"__esModule",{value:!0}),e.default=function(t,e){t.text(r[e])},a(123);var r={1:"star_border",2:"star_half",3:"star"}},function(t,e,a){},function(t,e,a){"use strict";(function(t){a(153),a(125),t(".pagination").each((function(){var e,a=t(this),r=a.children(".pagination__content-container"),n=a.children(".pagination__buttons-container"),i=a.attr("data-page-size"),s=(e=[],r.children().each((function(){e.push(t(this).outerHTML())})),e),o=t(".pagination__content-container");n.pagination({dataSource:s,prevText:"arrow_back",nextText:"arrow_forward",pageSize:i,pageRange:1,callback:function(t){o.html(t)},showNavigator:!0,formatNavigator:function(t,e,a){var r=a.toString();a>100&&(r="100+");var n=1;t>1&&(n=(t-1)*i+1);var s=i*t;return s>a&&(s=a),"<span class='text_type_regular'>"+" ".concat(n," – ").concat(s," из ").concat(r," вариантов аренды</span>")}})}))}).call(this,a(0))},function(t,e,a){},,,,,,,,,,,function(t,e,a){"use strict";(function(t){Object.defineProperty(e,"__esModule",{value:!0}),e.default=o,a(137);var r=s(a(138)),n=s(a(96)),i=a(1);function s(t){return t&&t.__esModule?t:{default:t}}function o(){var e=t(this),a=e.find(".room-preview-card__cost-per-period"),s=e.find(".room-preview-card__reviews-count"),o=e.find(".room-preview-card__reviews-text"),c=e.find(".room-preview-card__rating"),l={currency:e.attr("data-currency"),costPerPeriod:e.attr("data-cost-per-period"),reviewsCount:e.attr("data-reviews-count")};(0,r.default)(e);var u=(0,i.formatNumber)(l.costPerPeriod," ");a.text(u+l.currency);var d=(0,i.formatNumber)(l.reviewsCount," ");s.text(d),(0,n.default)(c);var _=(0,i.ruDeclination)(l.reviewsCount,"Отзыв||а|ов");o.text(_)}t(document).ready((function(){t(".room-preview-card").each(o)}))}).call(this,a(0))},function(t,e,a){},function(t,e,a){"use strict";(function(t){function r(e){e.find(".carousel").each((function(){var e=t(this);if("true"!==e.attr("data-initiated")){var a=function(t){return{arrows:"true"===t.attr("data-arrows").toLowerCase(),prevArrow:'<label class="slick-prev"><button type="button" >expand_more</button></label>',nextArrow:'<label class="slick-next"><button type="button" >expand_more</button></label>',dots:"true"===t.attr("data-dots").toLowerCase()}}(e);e.slick(a),e.attr("data-initiated","true")}}))}Object.defineProperty(e,"__esModule",{value:!0}),e.default=r,a(154),a(155),a(139),t(document).ready((function(){r(t("body"))}))}).call(this,a(0))},function(t,e,a){},,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,function(t,e,a){"use strict";(function(t){a(16),a(118),a(59),a(124);var e=o(a(9)),r=o(a(136));a(227),a(228);var n=a(4),i=a(58),s=a(5);function o(t){return t&&t.__esModule?t:{default:t}}t(".search-room__show-sidebar-button").each((function(e,a){var r=t(a);r.click((function(){r.toggleClass("search-room__show-sidebar-button_active")}))})),t(".pagination").each((function(){var e=t(this),a=e.children(".pagination__content-container");e.children(".pagination__buttons-container").addHook("afterPaging",(function(){a.find(".room-preview-card").each(r.default),t(".roomPreviewCard__textContent").click((function(){window.location.href="room-details.html"}))}))})),t(".room-preview-card__text-content").click((function(){window.location.href="room-details.html"})),e.default.initDefault(),(0,n.initDatepickerInputs)(),(0,i.initExpandableLists)(),(0,s.initDropdowns)()}).call(this,a(0))},function(t,e,a){var r=a(55);t.exports=function(t){var e,n="",i={},s=t||{};return function(t,s){n=n+'<!DOCTYPE html><!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="keywords" content="search"><meta name="description" content="search room page"><link rel="icon"'+r.attr("href",a(90),!0,!0)+"><title>TOXIN</title></head><body>",i.Button=e=function(t,a,i={isTextSized:!1,isLink:!1}){this&&this.block;var s=this&&this.attributes||{};let o="";switch(s.decoration?s.decoration.toLowerCase():""){case"enterarrow":o="arrow_forward",a+=" button_decoration_enter-arrow "}i.isTextSized&&(a+=" button_text-sized "),i.isLink?(n=n+"<a"+r.attr("class",r.classes(["button "+a],[!0]),!1,!0)+">",n=a.includes("bordered")?n+'<div class="button__border button__border_type_bordered"><button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button></div>":n+'<button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button>",a.includes("button_decoration_enter-arrow")&&(n=n+'<div class="button__decoration">'+r.escape(null==(e=o)?"":e)+"</div>"),n+="</a>"):(n=n+"<div"+r.attr("class",r.classes(["button "+a],[!0]),!1,!0)+">",n=a.includes("bordered")?n+'<div class="button__border button__border_type_bordered"><button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button></div>":n+'<button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button>",a.includes("button_decoration_enter-arrow")&&(n=n+'<div class="button__decoration">'+r.escape(null==(e=o)?"":e)+"</div>"),n+="</div>")},i.header__menuItem=e=function(t={}){this&&this.block,this&&this.attributes;let a="header__menu-item text_type_regular"+(t.bold?" header__menu-item_bold":"")+(t.children?" header__menu-item_expandable":"");n=n+"<li"+r.attr("class",r.classes([a],[!0]),!1,!0)+">"+r.escape(null==(e=t.text)?"":e),t.children&&(n+='<button class="header__expand-button">expand_more</button>'),function a(i){i&&(n+='<div class="header__submenu">',function(){var s=i;if("number"==typeof s.length)for(var o=0,c=s.length;o<c;o++){var l=s[o];let i="header__submenu-item text_type_regular"+(t.bold?" header__submenu-item_bold":"")+(l.children?" header__submenu-item_expandable":"");n=n+"<div"+r.attr("class",r.classes([i],[!0]),!1,!0)+">"+r.escape(null==(e=l.text)?"":e),l.children&&(n+='<button class="header__expand-button">expand_more</button>'),a(l.children),n+="</div>"}else{c=0;for(var o in s){c++;l=s[o];let i="header__submenu-item text_type_regular"+(t.bold?" header__submenu-item_bold":"")+(l.children?" header__submenu-item_expandable":"");n=n+"<div"+r.attr("class",r.classes([i],[!0]),!1,!0)+">"+r.escape(null==(e=l.text)?"":e),l.children&&(n+='<button class="header__expand-button">expand_more</button>'),a(l.children),n+="</div>"}}}.call(this),n+="</div>")}(t.children),n+="</li>"},i.header=e=function(t={},a=[],s=""){this&&this.block;var o=this&&this.attributes||{},c="";s.includes("narrow")&&(c+="header_narrow "),c+=o.addClasses?o.addClasses:"",n=n+"<header"+r.attr("class",r.classes(["header "+c],[!0]),!1,!0)+'><a class="header__logo-link"><img class="header__logo"'+r.attr("src",t.logo,!0,!0)+' alt="logo"></a><div class="header__content-container"><ul class="header__menu">',function(){var t=a;if("number"==typeof t.length)for(var e=0,r=t.length;e<r;e++){var n=t[e];i.header__menuItem(n)}else{r=0;for(var e in t){r++;n=t[e];i.header__menuItem(n)}}}.call(this),n+="</ul>",t.userLogin?n=n+'<div class="header__divider"></div><div class="header__user-name text_type_regular">'+r.escape(null==(e=t.userLogin)?"":e)+"</div>":(n+='<div class="header__buttons-container">',i.Button(t.loginText?t.loginText:"Login","button_type_bordered header__login-button",{isTextSized:!0,isLink:!0}),i.Button(t.registerText?t.registerText:"Register","button_type_filled header__register-button",{isTextSized:!0,isLink:!0}),n+="</div>"),n+="</div></header>"};const o=a(91);i.header.call({attributes:{addClasses:"search-room__header"}},{loginText:"Войти",registerText:"Зарегистрироваться",logo:o},[{text:"О нас"},{text:"Услуги",children:[{text:"Услуга 1",children:[{text:"456",children:[{text:"1231"}]}]},{text:"Услуга 2",children:[{text:"123"}]}]},{text:"Вакансии"},{text:"Новости"},{text:"Соглашения",children:[{text:"Соглашение 1",children:[{text:"456",children:[{text:"1231"}]}]},{text:"Соглашение 2",children:[{text:"123"}]}]}],"narrow"),n+='<div class="search-room__content"><div class="search-room__show-sidebar-button">filter_list</div><div class="search-room__sidebar">',i.addTextInput=e=function(a,o,c,l,u){this&&this.block,this&&this.attributes;(function(){var e=t.values(a);if("number"==typeof e.length)for(var r=0,n=e.length;r<n;r++){e[r].class+=c[r]+"_type_text "}else{n=0;for(var r in e){n++,e[r].class+=c[r]+"_type_text "}}}).call(this),a.controlAttributes.type="text",n=n+"<div"+r.attrs(a.blockAttributes,!0)+">",l?(n=n+"<label"+r.attrs(a.titleAttributes,!0)+">"+r.escape(null==(e=l)?"":e)+"<br><div"+r.attrs(a.controlWrapperAttrs,!0)+">",u.includes("subscription")&&i["enter-arrow"](),n=n+"<input"+r.attrs(r.merge([{value:r.escape(o)},a.controlAttributes]),!0)+"></div></label>"):(n=n+"<label"+r.attrs(a.titleAttributes,!0)+"><div"+r.attrs(a.controlWrapperAttrs,!0)+">",u.includes("subscription")&&i["enter-arrow"](),n=n+"<input"+r.attrs(r.merge([{value:r.escape(s)},a.controlAttributes]),!0)+"></div></label>"),n+="</div>"},i.input=e=function(a,s="",o,c,l,u="",d=[0,5]){this&&this.block;var _=this&&this.attributes,p="input__dropdown-list-wrapper",b=["input","input__title","input__control",p,"input__control-wrapper"],f={class:"input__control ",placeholder:o};_={blockAttributes:{class:"input "+c+" "},titleAttributes:{class:"input__title text_type_label-CTA input__title "},controlAttributes:f,dropdownAttributes:{class:" "},controlWrapperAttrs:{class:"input__control-wrapper "}};(function(){var a=t.values(_);if("number"==typeof a.length)for(var r=0,o=a.length;r<o;r++){var c=a[r];s.includes("narrow")?c.class+=b[r]+"_width_narrow ":s.includes("premedium")?c.class+=b[r]+"_width_premedium ":s.includes("medium")&&(c.class+=b[r]+"_width_medium "),s.includes("dropdown")||s.includes("datepicker")?(i["expand-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<span class="input__arrow_decoration_expand-arrow">expand_more</span>'},c.class+=b[r]+"_decoration_expand-arrow "):s.includes("subscription")&&(i["enter-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<div class="input__enter-arrow">arrow_forward</div>'},c.class+=b[r]+"_decoration_enter-arrow ")}else{o=0;for(var r in a){o++;c=a[r];s.includes("narrow")?c.class+=b[r]+"_width_narrow ":s.includes("premedium")?c.class+=b[r]+"_width_premedium ":s.includes("medium")&&(c.class+=b[r]+"_width_medium "),s.includes("dropdown")||s.includes("datepicker")?(i["expand-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<span class="input__arrow_decoration_expand-arrow">expand_more</span>'},c.class+=b[r]+"_decoration_expand-arrow "):s.includes("subscription")&&(i["enter-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<div class="input__enter-arrow">arrow_forward</div>'},c.class+=b[r]+"_decoration_enter-arrow ")}}}).call(this),s.includes("datepicker")?(i.addDatepicker=e=function(a={},s="",o=[]){this&&this.block,this&&this.attributes;(function(){var e=t.values(a);if("number"==typeof e.length)for(var r=0,n=e.length;r<n;r++){e[r].class+=b[r]+"_type_datepicker "}else{n=0;for(var r in e){n++,e[r].class+=b[r]+"_type_datepicker "}}}).call(this),a.controlAttributes.type="select",a.controlAttributes["data-firstDate"]=o[0],a.controlAttributes["data-secondDate"]=u[1],a.controlAttributes.class+="input__control_decoration_expand-arrow ",s.includes("inline")?(i.createInlineDatepicker=e=function(t={},e="",a=[]){this&&this.block,this&&this.attributes;n=n+"<div"+r.attrs(t.blockAttributes,!0)+"><input"+r.attrs(t.controlAttributes,!0)+"></div>"},a.blockAttributes.class+="datepicker_inline ",i.createInlineDatepicker(a,s,o)):i.createDatepicker(a,s,o)},i.createDatepicker=e=function(t={},s="",o=[]){this&&this.block,this&&this.attributes;n=n+"<div"+r.attrs(t.blockAttributes,!0)+">",a?(n=n+"<label"+r.attrs(t.titleAttributes,!0)+">"+r.escape(null==(e=a)?"":e)+"<br><div"+r.attrs(t.controlWrapperAttrs,!0)+">",i["expand-arrow"](),n=n+"<input"+r.attrs(t.controlAttributes,!0)+"></div></label>"):(n=n+"<label"+r.attrs(t.titleAttributes,!0)+"><div"+r.attrs(t.controlWrapperAttrs,!0)+"><input"+r.attrs(t.controlAttributes,!0)+">",i["expand-arrow"](),n+="</div></label>"),n+="</div>"},i.addDatepicker(_,s,u)):s.includes("dropdown")?(i.spinner=e=function(t,e,a,i){this&&this.block,this&&this.attributes,t[0],t[1];n=n+'<div class="input_type_spinner"><input class="input__value_type_spinner text_type_label-CTA"'+r.attr("data-name",e,!0,!0)+r.attr("data-min",t[0],!0,!0)+r.attr("data-max",t[1],!0,!0)+r.attr("data-index",a,!0,!0)+r.attr("value",i||0,!0,!0)+" readonly></div>"},i.Button=e=function(t,a,i={isTextSized:!1,isLink:!1}){this&&this.block;var s=this&&this.attributes||{};let o="";switch(s.decoration?s.decoration.toLowerCase():""){case"enterarrow":o="arrow_forward",a+=" button_decoration_enter-arrow "}i.isTextSized&&(a+=" button_text-sized "),i.isLink?(n=n+"<a"+r.attr("class",r.classes(["button "+a],[!0]),!1,!0)+">",n=a.includes("bordered")?n+'<div class="button__border button__border_type_bordered"><button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button></div>":n+'<button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button>",a.includes("button_decoration_enter-arrow")&&(n=n+'<div class="button__decoration">'+r.escape(null==(e=o)?"":e)+"</div>"),n+="</a>"):(n=n+"<div"+r.attr("class",r.classes(["button "+a],[!0]),!1,!0)+">",n=a.includes("bordered")?n+'<div class="button__border button__border_type_bordered"><button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button></div>":n+'<button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button>",a.includes("button_decoration_enter-arrow")&&(n=n+'<div class="button__decoration">'+r.escape(null==(e=o)?"":e)+"</div>"),n+="</div>")},i.dropdownList=e=function(t={},a,s){this&&this.block,this&&this.attributes;n=n+"<div"+r.attrs(a,!0)+'><div class="input__dropdown-list_type_dropdown">',function(){var a=t;if("number"==typeof a.length)for(var o=0,c=a.length;o<c;o++){var l=a[o];n=n+'<div class="text_type_label-CTA input__dropdown-list-row_type_dropdown"><p class="input__dropdown-text_type_dropdown">'+r.escape(null==(e=l.name)?"":e)+"</p>",i.spinner(s,l.name,o,l.value),n+="</div>"}else{c=0;for(var o in a){c++;l=a[o];n=n+'<div class="text_type_label-CTA input__dropdown-list-row_type_dropdown"><p class="input__dropdown-text_type_dropdown">'+r.escape(null==(e=l.name)?"":e)+"</p>",i.spinner(s,l.name,o,l.value),n+="</div>"}}}.call(this),n+='</div><div class="input__control-buttons-container">',i.Button("Очистить","button_type_text input__clear-button button_hovered input__control-button"),i.Button("Применить","button_type_text input__confirm-button input__control-button"),n+="</div></div>"},i.addDropdown=e=function(s,o,c){this&&this.block,this&&this.attributes;(function(){var e=t.values(s);if("number"==typeof e.length)for(var a=0,r=e.length;a<r;a++){e[a].class+=b[a]+"_type_dropdown "}else{r=0;for(var a in e){r++,e[a].class+=b[a]+"_type_dropdown "}}}).call(this),f.type="select",o.includes("unified")&&(s.dropdownAttributes.class+=p+"_unified "),o.includes("rooms")?s.dropdownAttributes.class+=p+"_rooms ":o.includes("customers")&&(s.dropdownAttributes.class+=p+"_customers "),o.includes("opened")&&(s.blockAttributes.class+="input_type_dropdown-opened "),o.includes("pure")&&(s.blockAttributes.class+="input_type_dropdown-pure "),o.includes("unaccepted")&&(s.blockAttributes.class+="input_type_dropdown-unaccepted "),n=n+"<div"+r.attrs(s.blockAttributes,!0)+">",a?(n=n+"<label"+r.attrs(s.titleAttributes,!0)+">"+r.escape(null==(e=a)?"":e)+"<br><div"+r.attrs(s.controlWrapperAttrs,!0)+">",i["expand-arrow"](),n=n+"<input"+r.attrs(s.controlAttributes,!0)+"></div></label>"):(n=n+"<label"+r.attrs(s.titleAttributes,!0)+"><div"+r.attrs(s.controlWrapperAttrs,!0)+"><input"+r.attrs(s.controlAttributes,!0)+">",i["expand-arrow"](),n+="</div></label>"),i.dropdownList(c,s.dropdownAttributes,d),n+="</div>"},i.addDropdown(_,s,u)):s.includes("text")?i.addTextInput(_,u,b,a,s):s.includes("mask")&&(i.addMaskedInput=e=function(s,o,c){this&&this.block,this&&this.attributes;i["enter-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<div class="input__enter-arrow">arrow_forward</div>'},function(){var e=t.values(s);if("number"==typeof e.length)for(var a=0,r=e.length;a<r;a++){e[a].class+=b[a]+"_masked "}else{r=0;for(var a in e){r++,e[a].class+=b[a]+"_masked "}}}.call(this),n=n+"<div"+r.attrs(s.blockAttributes,!0)+">",a?(n=n+"<label"+r.attrs(s.titleAttributes,!0)+">"+r.escape(null==(e=a)?"":e)+"<br><div"+r.attrs(s.controlWrapperAttrs,!0)+">",c.includes("subscription")&&i.enterArrow(),n=n+"<input"+r.attrs(r.merge([{value:r.escape(o)},s.controlAttributes]),!0)+"></div></label>"):(n=n+"<label"+r.attrs(s.titleAttributes,!0)+"><div"+r.attrs(s.controlWrapperAttrs,!0)+"><input"+r.attrs(r.merge([{value:r.escape(o)},s.controlAttributes]),!0)+">",c.includes("subscription")&&i.enterArrow(),n+="</div></label>"),n+="</div>"},i.addMaskedInput(_,u,u,s))},i.input("Даты пребывания в отеле","datepicker medium","ДД.ММ.ГГГГ","search-room__staying-dates","",["19.08.2019","23.08.2019"]),i.input("Гости","dropdown customers medium","Сколько гостей","search-room__guests","",[{name:"Взрослые",value:3},{name:"Дети",value:0},{name:"Младенцы",value:1}]),n+='<div class="search-room__price-per-day-slider-container">',i.slider=e=function(t,a,i,s,o,c,l){this&&this.block,this&&this.attributes;l||(l=[t,a]),n=c?n+"<div"+r.attr("class",r.classes(["slider slider_range "+o],[!0]),!1,!0)+'><div class="slider__text"><p class="slider__title text_type_label-CTA">'+r.escape(null==(e=s)?"":e)+'</p><p class="slider__value text_type_regular">₽</p></div><div class="slider__plugin-container"><div class="slider__control slider__control_range"'+r.attr("data-min",t,!0,!0)+r.attr("data-max",a,!0,!0)+r.attr("data-step",i,!0,!0)+r.attr("data-firstValue",l[0],!0,!0)+r.attr("data-secondValue",l[1],!0,!0)+"></div></div></div>":n+"<div"+r.attr("class",r.classes(["slider "+o],[!0]),!1,!0)+'><div class="slider__text"><p class="slider__title text_type_label-CTA">'+r.escape(null==(e=s)?"":e)+'</p><p class="slider__value text_type_regular">₽</p></div><div class="slider__plugin-container"><div class="slider__control"'+r.attr("data-min",t,!0,!0)+r.attr("data-max",a,!0,!0)+r.attr("data-step",i,!0,!0)+r.attr("data-firstValue",l[0],!0,!0)+r.attr("data-secondValue",l[1],!0,!0)+"></div></div></div>"},i.slider(0,16e3,100,"Диапазон цены","search-room__price-per-day-slider-filter ",!0,[5e3,1e4]),n+='<p class="search-room__price-per-day-text text_type_regular">Стоимость за сутки пребывания в номере</p></div>',i.checkbox=e=function(t,a,i,s="",o=!1){this&&this.block,this&&this.attributes;var c=["checkbox","checkbox__label","checkbox__hidden-button","checkbox__description","checkbox__text"],l={class:"checkbox "+s+" "},u={class:"checkbox__label text_type_regular "},d={class:"checkbox__hidden-button "},_={class:"checkbox__description "},p={class:"checkbox__text "},b=[l,u,d,_,p];if(a){if(a.includes("radio")?(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_radio "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_radio "}}}.call(this),d.type="radio",i&&i.group&&(d.name=i.group)):a.includes("toggle")?(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_toggle "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_toggle "}}}.call(this),d.type="checkbox",a.includes("toggled")&&(u.class+="checkbox__label_toggled ")):a.includes("like")?(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_like "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_like "}}}.call(this),d.type="checkbox",u["data-likes-count"]=t):(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_default "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_default "}}}.call(this),d.type="checkbox"),a.includes("rich")&&(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_rich "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_rich "}}}.call(this),i&&i.description))var f=i.description}else(function(){var t=b;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){t[e].class+=c[e]+"_type_default "}else{a=0;for(var e in t){a++,t[e].class+=c[e]+"_type_default "}}}).call(this),d.type="checkbox";d["data-isChecked"]=""+o,n=n+"<div"+r.attrs(l,!0)+"><label"+r.attrs(u,!0)+"><span"+r.attrs(p,!0)+">"+r.escape(null==(e=t)?"":e)+"</span><input"+r.attrs(d,!0)+">",a.includes("rich")&&(n=n+"<span"+r.attrs(_,!0)+">"+r.escape(null==(e=f)?"":e)+"</span>"),n+="</label></div>"},i.list=e=function(t,a,s=[],o=""){this&&this.block,this&&this.attributes;var c=["list","list__title","list__container"],l={class:"list "+o+" "},u={class:"list__title  text_type_label-CTA "},d={class:"list__container "},_=[l,u,d],p="";(function(){var e=_;if("number"==typeof e.length)for(var a=0,r=e.length;a<r;a++){var n=e[a];t.includes("checkbox")?(n.class+=c[a]+"_type_checkbox ",p="checkbox"):t.includes("radio")?(n.class+=c[a]+"_type_radio ",p="radio"):t.includes("toggle")?(n.class+=c[a]+"_type_toggle ",p="toggle"):t.includes("rich")&&(n.class+=c[a]+"_type_rich ",p="rich"),t.includes("expandable")&&(n.class+=c[a]+"_expandable ",t.includes("narrow")&&(n.class+=c[a]+"_expandable-narrow "),t.includes("opened")&&(n.class+=c[a]+"_expandable-opened "))}else{r=0;for(var a in e){r++;n=e[a];t.includes("checkbox")?(n.class+=c[a]+"_type_checkbox ",p="checkbox"):t.includes("radio")?(n.class+=c[a]+"_type_radio ",p="radio"):t.includes("toggle")?(n.class+=c[a]+"_type_toggle ",p="toggle"):t.includes("rich")&&(n.class+=c[a]+"_type_rich ",p="rich"),t.includes("expandable")&&(n.class+=c[a]+"_expandable ",t.includes("narrow")&&(n.class+=c[a]+"_expandable-narrow "),t.includes("opened")&&(n.class+=c[a]+"_expandable-opened "))}}}).call(this),n=n+"<fieldset"+r.attrs(l,!0)+">",a&&(n=n+"<legend"+r.attrs(u,!0)+">"+r.escape(null==(e=a)?"":e)+"</legend>"),n=n+"<div"+r.attrs(d,!0)+">",function(){var t=s;if("number"==typeof t.length)for(var e=0,a=t.length;e<a;e++){var r=t[e];i.checkbox(r.text,`${p} ${r.class}`,r,"list__input list__input_type_"+p,r.isChecked)}else{a=0;for(var e in t){a++;r=t[e];i.checkbox(r.text,`${p} ${r.class}`,r,"list__input list__input_type_"+p,r.isChecked)}}}.call(this),n+="</div></fieldset>"};let c=[];c.push({text:"Можно курить"}),c.push({text:"Можно с питомцами",isChecked:!0}),c.push({text:"Можно приглашать гостей (до 10 человек)",isChecked:!0}),i.list("checkbox","Checkbox buttons",c,"search-room__benefits-filter");const l=[];l.push({text:"Широкий коридор",description:"Ширина коридоров в номере \n не менее 91 см."}),l.push({text:"Помощник для инвалидов",description:"На 1 этаже вас встретит специалист \n и проводит до номера"}),i.list("rich","Доступность",l,"search-room__availability-filter"),i.input("Удобства номера","dropdown medium rooms","Комплектация номера","search-room__room-equipment-filter","",[{name:"Спальни",value:2},{name:"Кровати",value:2},{name:"Ванные комнаты",value:0}]),c=[],c.push({text:"Завтрак"}),c.push({text:"Письменный стол",isChecked:!0}),c.push({text:"Стул для кормления",isChecked:!0}),c.push({text:"Кроватка",isChecked:!0}),c.push({text:"Телевизор"}),c.push({text:"Шампунь"}),c.push({text:"Телевизор"}),c.push({text:"Шампунь"}),i.list("checkbox expandable narrow","Дополнительные удобства",c,"search-room__additional-features-filter"),n+='</div><div class="search-room__rooms"><h2 class="search-room__roomsTitle text_type_widget-title">Номера, которые мы для вас подобрали</h2>',i.pagination=e=function(t=12){var e=this&&this.block,a=this&&this.attributes||{};a.addClasses=a.addClasses?` ${a.addClasses} `:"";var i={class:"pagination"+a.addClasses},s={class:"pagination__content-container "},o={class:"pagination__buttons-container "};n=n+"<div"+r.attrs(r.merge([{"data-page-size":r.escape(t)},i]),!0)+"><div"+r.attrs(s,!0)+">",e&&e(),n=n+"</div><div"+r.attrs(o,!0)+"></div></div>"},i.carousel=e=function(t={content:[]}){this&&this.block;var e=this&&this.attributes||{};n=n+"<div"+r.attrs(r.merge([{class:r.classes(["carousel "+e.addClasses],[!0])},t.carouselParams]),!0)+">",function(){var e=t.content;if("number"==typeof e.length)for(var a=0,i=e.length;a<i;a++){"img"===(s=e[a]).tag&&(n=n+'<img class="carousel__element"'+r.attr("src",s.src,!0,!0)+' alt="Фото комнаты">')}else{i=0;for(var a in e){var s;i++,"img"===(s=e[a]).tag&&(n=n+'<img class="carousel__element"'+r.attr("src",s.src,!0,!0)+' alt="Фото комнаты">')}}}.call(this),n+="</div>"},i.star=e=function(t){this&&this.block,this&&this.attributes;var e={class:"rate-button__star text_type_regular rate-button__star_type_empty"};e["data-index"]=t,n=n+"<label"+r.attrs(e,!0)+">star</label>"},i.rateButton=e=function(t={maxRating:5,rating:-1}){this&&this.block;var e=this&&this.attributes||{};n=n+"<div"+(r.attr("class",r.classes(["rate-button "+(e.addClasses?e.addClasses:"")],[!0]),!1,!0)+r.attr("data-maxRating",t.maxRating,!0,!0)+r.attr("data-rating",t.rating,!0,!0))+">";for(var a=1;a<=t.maxRating;)i.star(a),a++;n+="</div>"},i.roomPreviewCard=e=function(t={},a={content:[],carouselParams:{}}){this&&this.block;var s=this&&this.attributes||{};t||(t={}),t.currencySymbol=t.currencySymbol?t.currencySymbol:"₽",t.periodText=t.periodText?t.periodText:"в сутки",t.rating=t.rating?t.rating:[5,5],n=n+"<div"+(r.attr("class",r.classes(["room-preview-card "+(s.addClasses?s.addClasses:"")],[!0]),!1,!0)+r.attr("data-currency",t.currencySymbol,!0,!0)+r.attr("data-cost-per-period",t.costPerPeriod,!0,!0)+r.attr("data-reviews-count",t.reviewsCount,!0,!0))+">",i.carousel.call({attributes:{addClasses:"room-preview-card__photos"}},a),n=n+'<div class="room-preview-card__text-content"><div class="room-preview-card__room-info"><div class="room-preview-card__room-description"><span class="room-preview-card__room-num-symbol text_type_label-CTA">№</span><span class="room-preview-card__room-number text_type_label-CTA">'+r.escape(null==(e=` ${t.roomNumber} `)?"":e)+'</span><span class="room-preview-card__room-type text_type_label-CTA">'+r.escape(null==(e=t.roomType)?"":e)+'</span></div><div class="room-preview-card__cost-info"><span class="room-preview-card__cost-per-period text_type_regular">'+r.escape(null==(e=t.costPerPeriod)?"":e)+r.escape(null==(e=t.currencySymbol)?"":e)+'</span><span class="room-preview-card__period text_type_regular">'+r.escape(null==(e=t.periodText)?"":e)+'</span></div></div><hr class="room-preview-card__division-line"><div class="room-preview-card__rate-info">',i.rateButton.call({attributes:{addClasses:"room-preview-card__rating"}},{maxRating:t.rating[1],rating:t.rating[0]}),n=n+'<div class="room-preview-card__reviews-info"><span class="room-preview-card__reviews-count text_type_regular">'+r.escape(null==(e=t.reviewsCount)?"":e)+'</span><span class="room-preview-card__reviews-text text_type_regular">Отзывов</span></div></div></div></div>'},i.pagination.call({block:function(){let t=0;for(;t<15;)i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:9990,reviewsCount:145,roomNumber:"888",roomType:"Люкс",rating:[5,5]},{content:[{tag:"img",src:a(56)},{tag:"img",src:a(56)},{tag:"img",src:a(56)},{tag:"img",src:a(56)}],carouselParams:{"data-arrows":"true","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:9900,reviewsCount:65,roomNumber:"840",rating:[4,5]},{content:[{tag:"img",src:a(57)},{tag:"img",src:a(57)},{tag:"img",src:a(57)},{tag:"img",src:a(57)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:8500,reviewsCount:35,roomNumber:"980",rating:[3,5]},{content:[{tag:"img",src:a(97)},{tag:"img",src:a(97)},{tag:"img",src:a(97)},{tag:"img",src:a(97)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:7300,reviewsCount:19,roomNumber:"856",rating:[5,5]},{content:[{tag:"img",src:a(98)},{tag:"img",src:a(98)},{tag:"img",src:a(98)},{tag:"img",src:a(98)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:6e3,reviewsCount:44,roomNumber:"740",rating:[4,5]},{content:[{tag:"img",src:a(99)},{tag:"img",src:a(99)},{tag:"img",src:a(99)},{tag:"img",src:a(99)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:5800,reviewsCount:56,roomNumber:"982",rating:[3,5]},{content:[{tag:"img",src:a(100)},{tag:"img",src:a(100)},{tag:"img",src:a(100)},{tag:"img",src:a(100)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:5500,reviewsCount:45,roomNumber:"678",rating:[5,5]},{content:[{tag:"img",src:a(101)},{tag:"img",src:a(101)},{tag:"img",src:a(101)},{tag:"img",src:a(101)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:5300,reviewsCount:39,roomNumber:"450",rating:[4,5]},{content:[{tag:"img",src:a(102)},{tag:"img",src:a(102)},{tag:"img",src:a(102)},{tag:"img",src:a(102)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:5e3,reviewsCount:77,roomNumber:"350",rating:[3,5]},{content:[{tag:"img",src:a(103)},{tag:"img",src:a(103)},{tag:"img",src:a(103)},{tag:"img",src:a(103)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:5e3,reviewsCount:25,roomNumber:"666",rating:[5,5]},{content:[{tag:"img",src:a(104)},{tag:"img",src:a(104)},{tag:"img",src:a(104)},{tag:"img",src:a(104)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:500,reviewsCount:15,roomNumber:"444",rating:[3,5]},{content:[{tag:"img",src:a(105)},{tag:"img",src:a(105)},{tag:"img",src:a(105)},{tag:"img",src:a(105)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),i.roomPreviewCard.call({attributes:{addClasses:"pagination__item"}},{costPerPeriod:5e3,reviewsCount:55,roomNumber:"352",rating:[3,5]},{content:[{tag:"img",src:a(106)},{tag:"img",src:a(106)},{tag:"img",src:a(106)},{tag:"img",src:a(106)}],carouselParams:{"data-arrows":"false","data-dots":"true"}}),t++},attributes:{addClasses:"search-room__rooms-pagination"}},12),n+="</div></div>",i.socialMedia=e=function(){this&&this.block,this&&this.attributes;n+='<div class="footer__social-media"><a class="footer__twitter-icon footer__icon fab fa-twitter" href="https://twitter.com/" target="_blank" rel="noopener noreferrer"></a><a class="span footer__facebook-icon footer__icon fab fa-facebook-square" href="https://facebook.com/" target="_blank" rel="noopener noreferrer"></a><a class="span footer__instagram-icon footer__icon fab fa-instagram" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer"></a></div>'},i.largeFooter=e=function(a={},o=[],c={}){this&&this.block;var l=this&&this.attributes||{};i.addTextInput=e=function(a,o,c,l,u){this&&this.block,this&&this.attributes;(function(){var e=t.values(a);if("number"==typeof e.length)for(var r=0,n=e.length;r<n;r++){e[r].class+=c[r]+"_type_text "}else{n=0;for(var r in e){n++,e[r].class+=c[r]+"_type_text "}}}).call(this),a.controlAttributes.type="text",n=n+"<div"+r.attrs(a.blockAttributes,!0)+">",l?(n=n+"<label"+r.attrs(a.titleAttributes,!0)+">"+r.escape(null==(e=l)?"":e)+"<br><div"+r.attrs(a.controlWrapperAttrs,!0)+">",u.includes("subscription")&&i["enter-arrow"](),n=n+"<input"+r.attrs(r.merge([{value:r.escape(o)},a.controlAttributes]),!0)+"></div></label>"):(n=n+"<label"+r.attrs(a.titleAttributes,!0)+"><div"+r.attrs(a.controlWrapperAttrs,!0)+">",u.includes("subscription")&&i["enter-arrow"](),n=n+"<input"+r.attrs(r.merge([{value:r.escape(s)},a.controlAttributes]),!0)+"></div></label>"),n+="</div>"},i.input=e=function(a,s="",o,c,l,u="",d=[0,5]){this&&this.block;var _=this&&this.attributes,p="input__dropdown-list-wrapper",b=["input","input__title","input__control",p,"input__control-wrapper"],f={class:"input__control ",placeholder:o};_={blockAttributes:{class:"input "+c+" "},titleAttributes:{class:"input__title text_type_label-CTA input__title "},controlAttributes:f,dropdownAttributes:{class:" "},controlWrapperAttrs:{class:"input__control-wrapper "}};(function(){var a=t.values(_);if("number"==typeof a.length)for(var r=0,o=a.length;r<o;r++){var c=a[r];s.includes("narrow")?c.class+=b[r]+"_width_narrow ":s.includes("premedium")?c.class+=b[r]+"_width_premedium ":s.includes("medium")&&(c.class+=b[r]+"_width_medium "),s.includes("dropdown")||s.includes("datepicker")?(i["expand-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<span class="input__arrow_decoration_expand-arrow">expand_more</span>'},c.class+=b[r]+"_decoration_expand-arrow "):s.includes("subscription")&&(i["enter-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<div class="input__enter-arrow">arrow_forward</div>'},c.class+=b[r]+"_decoration_enter-arrow ")}else{o=0;for(var r in a){o++;c=a[r];s.includes("narrow")?c.class+=b[r]+"_width_narrow ":s.includes("premedium")?c.class+=b[r]+"_width_premedium ":s.includes("medium")&&(c.class+=b[r]+"_width_medium "),s.includes("dropdown")||s.includes("datepicker")?(i["expand-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<span class="input__arrow_decoration_expand-arrow">expand_more</span>'},c.class+=b[r]+"_decoration_expand-arrow "):s.includes("subscription")&&(i["enter-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<div class="input__enter-arrow">arrow_forward</div>'},c.class+=b[r]+"_decoration_enter-arrow ")}}}).call(this),s.includes("datepicker")?(i.addDatepicker=e=function(a={},s="",o=[]){this&&this.block,this&&this.attributes;(function(){var e=t.values(a);if("number"==typeof e.length)for(var r=0,n=e.length;r<n;r++){e[r].class+=b[r]+"_type_datepicker "}else{n=0;for(var r in e){n++,e[r].class+=b[r]+"_type_datepicker "}}}).call(this),a.controlAttributes.type="select",a.controlAttributes["data-firstDate"]=o[0],a.controlAttributes["data-secondDate"]=u[1],a.controlAttributes.class+="input__control_decoration_expand-arrow ",s.includes("inline")?(i.createInlineDatepicker=e=function(t={},e="",a=[]){this&&this.block,this&&this.attributes;n=n+"<div"+r.attrs(t.blockAttributes,!0)+"><input"+r.attrs(t.controlAttributes,!0)+"></div>"},a.blockAttributes.class+="datepicker_inline ",i.createInlineDatepicker(a,s,o)):i.createDatepicker(a,s,o)},i.createDatepicker=e=function(t={},s="",o=[]){this&&this.block,this&&this.attributes;n=n+"<div"+r.attrs(t.blockAttributes,!0)+">",a?(n=n+"<label"+r.attrs(t.titleAttributes,!0)+">"+r.escape(null==(e=a)?"":e)+"<br><div"+r.attrs(t.controlWrapperAttrs,!0)+">",i["expand-arrow"](),n=n+"<input"+r.attrs(t.controlAttributes,!0)+"></div></label>"):(n=n+"<label"+r.attrs(t.titleAttributes,!0)+"><div"+r.attrs(t.controlWrapperAttrs,!0)+"><input"+r.attrs(t.controlAttributes,!0)+">",i["expand-arrow"](),n+="</div></label>"),n+="</div>"},i.addDatepicker(_,s,u)):s.includes("dropdown")?(i.spinner=e=function(t,e,a,i){this&&this.block,this&&this.attributes,t[0],t[1];n=n+'<div class="input_type_spinner"><input class="input__value_type_spinner text_type_label-CTA"'+r.attr("data-name",e,!0,!0)+r.attr("data-min",t[0],!0,!0)+r.attr("data-max",t[1],!0,!0)+r.attr("data-index",a,!0,!0)+r.attr("value",i||0,!0,!0)+" readonly></div>"},i.Button=e=function(t,a,i={isTextSized:!1,isLink:!1}){this&&this.block;var s=this&&this.attributes||{};let o="";switch(s.decoration?s.decoration.toLowerCase():""){case"enterarrow":o="arrow_forward",a+=" button_decoration_enter-arrow "}i.isTextSized&&(a+=" button_text-sized "),i.isLink?(n=n+"<a"+r.attr("class",r.classes(["button "+a],[!0]),!1,!0)+">",n=a.includes("bordered")?n+'<div class="button__border button__border_type_bordered"><button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button></div>":n+'<button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button>",a.includes("button_decoration_enter-arrow")&&(n=n+'<div class="button__decoration">'+r.escape(null==(e=o)?"":e)+"</div>"),n+="</a>"):(n=n+"<div"+r.attr("class",r.classes(["button "+a],[!0]),!1,!0)+">",n=a.includes("bordered")?n+'<div class="button__border button__border_type_bordered"><button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button></div>":n+'<button class="button__control text_type_label-CTA ">'+r.escape(null==(e=t)?"":e)+"</button>",a.includes("button_decoration_enter-arrow")&&(n=n+'<div class="button__decoration">'+r.escape(null==(e=o)?"":e)+"</div>"),n+="</div>")},i.dropdownList=e=function(t={},a,s){this&&this.block,this&&this.attributes;n=n+"<div"+r.attrs(a,!0)+'><div class="input__dropdown-list_type_dropdown">',function(){var a=t;if("number"==typeof a.length)for(var o=0,c=a.length;o<c;o++){var l=a[o];n=n+'<div class="text_type_label-CTA input__dropdown-list-row_type_dropdown"><p class="input__dropdown-text_type_dropdown">'+r.escape(null==(e=l.name)?"":e)+"</p>",i.spinner(s,l.name,o,l.value),n+="</div>"}else{c=0;for(var o in a){c++;l=a[o];n=n+'<div class="text_type_label-CTA input__dropdown-list-row_type_dropdown"><p class="input__dropdown-text_type_dropdown">'+r.escape(null==(e=l.name)?"":e)+"</p>",i.spinner(s,l.name,o,l.value),n+="</div>"}}}.call(this),n+='</div><div class="input__control-buttons-container">',i.Button("Очистить","button_type_text input__clear-button button_hovered input__control-button"),i.Button("Применить","button_type_text input__confirm-button input__control-button"),n+="</div></div>"},i.addDropdown=e=function(s,o,c){this&&this.block,this&&this.attributes;(function(){var e=t.values(s);if("number"==typeof e.length)for(var a=0,r=e.length;a<r;a++){e[a].class+=b[a]+"_type_dropdown "}else{r=0;for(var a in e){r++,e[a].class+=b[a]+"_type_dropdown "}}}).call(this),f.type="select",o.includes("unified")&&(s.dropdownAttributes.class+=p+"_unified "),o.includes("rooms")?s.dropdownAttributes.class+=p+"_rooms ":o.includes("customers")&&(s.dropdownAttributes.class+=p+"_customers "),o.includes("opened")&&(s.blockAttributes.class+="input_type_dropdown-opened "),o.includes("pure")&&(s.blockAttributes.class+="input_type_dropdown-pure "),o.includes("unaccepted")&&(s.blockAttributes.class+="input_type_dropdown-unaccepted "),n=n+"<div"+r.attrs(s.blockAttributes,!0)+">",a?(n=n+"<label"+r.attrs(s.titleAttributes,!0)+">"+r.escape(null==(e=a)?"":e)+"<br><div"+r.attrs(s.controlWrapperAttrs,!0)+">",i["expand-arrow"](),n=n+"<input"+r.attrs(s.controlAttributes,!0)+"></div></label>"):(n=n+"<label"+r.attrs(s.titleAttributes,!0)+"><div"+r.attrs(s.controlWrapperAttrs,!0)+"><input"+r.attrs(s.controlAttributes,!0)+">",i["expand-arrow"](),n+="</div></label>"),i.dropdownList(c,s.dropdownAttributes,d),n+="</div>"},i.addDropdown(_,s,u)):s.includes("text")?i.addTextInput(_,u,b,a,s):s.includes("mask")&&(i.addMaskedInput=e=function(s,o,c){this&&this.block,this&&this.attributes;i["enter-arrow"]=e=function(){this&&this.block,this&&this.attributes;n+='<div class="input__enter-arrow">arrow_forward</div>'},function(){var e=t.values(s);if("number"==typeof e.length)for(var a=0,r=e.length;a<r;a++){e[a].class+=b[a]+"_masked "}else{r=0;for(var a in e){r++,e[a].class+=b[a]+"_masked "}}}.call(this),n=n+"<div"+r.attrs(s.blockAttributes,!0)+">",a?(n=n+"<label"+r.attrs(s.titleAttributes,!0)+">"+r.escape(null==(e=a)?"":e)+"<br><div"+r.attrs(s.controlWrapperAttrs,!0)+">",c.includes("subscription")&&i.enterArrow(),n=n+"<input"+r.attrs(r.merge([{value:r.escape(o)},s.controlAttributes]),!0)+"></div></label>"):(n=n+"<label"+r.attrs(s.titleAttributes,!0)+"><div"+r.attrs(s.controlWrapperAttrs,!0)+"><input"+r.attrs(r.merge([{value:r.escape(o)},s.controlAttributes]),!0)+">",c.includes("subscription")&&i.enterArrow(),n+="</div></label>"),n+="</div>"},i.addMaskedInput(_,u,u,s))};let u=c;u.title=u.title?u.title:"Subscribe to our newsletter",u.text=u.text?u.text:"Receive our latest news and promotions in your inbox!",n=n+"<footer"+r.attr("class",r.classes(["footer footer_type_large "+l.addClasses],[!0]),!1,!0)+'><div class="footer__content-section"><div class="footer__logo-section"><img class="footer__logo"'+r.attr("src",a.logo,!0,!0)+' alt="logo"><span class="footer__logo-text text_type_regular">'+r.escape(null==(e=a.text)?"":e)+'</span></div><div class="footer__links-section">',function(){var t=o;if("number"==typeof t.length)for(var a=0,i=t.length;a<i;a++){var s=t[a];n=n+'<div class="footer__links-column"><h3 class="footer__links-section-title text_type_label-CTA">'+r.escape(null==(e=s.title)?"":e)+"</h3>",s.links&&function(){var t=s.links;if("number"==typeof t.length)for(var a=0,i=t.length;a<i;a++){var o=t[a];n=n+'<a class="footer__link text_type_regular"'+r.attr("href",o.url,!0,!0)+">"+r.escape(null==(e=o.text)?"":e)+"</a>"}else{i=0;for(var a in t){i++;o=t[a];n=n+'<a class="footer__link text_type_regular"'+r.attr("href",o.url,!0,!0)+">"+r.escape(null==(e=o.text)?"":e)+"</a>"}}}.call(this),n+="</div>"}else{i=0;for(var a in t){i++;s=t[a];n=n+'<div class="footer__links-column"><h3 class="footer__links-section-title text_type_label-CTA">'+r.escape(null==(e=s.title)?"":e)+"</h3>",s.links&&function(){var t=s.links;if("number"==typeof t.length)for(var a=0,i=t.length;a<i;a++){var o=t[a];n=n+'<a class="footer__link text_type_regular"'+r.attr("href",o.url,!0,!0)+">"+r.escape(null==(e=o.text)?"":e)+"</a>"}else{i=0;for(var a in t){i++;o=t[a];n=n+'<a class="footer__link text_type_regular"'+r.attr("href",o.url,!0,!0)+">"+r.escape(null==(e=o.text)?"":e)+"</a>"}}}.call(this),n+="</div>"}}}.call(this),n=n+'</div><div class="footer__subscribe-section"><h3 class="footer__subscription-title text_type_label-CTA">'+r.escape(null==(e=c.title)?"":e)+'</h3><span class="footer__subscription-text text_type_regular">'+r.escape(null==(e=c.text)?"":e)+"</span>",i.input("","text premedium subscription",c.emailPlaceholder,"footer__subscribeInput",""),n=n+'</div></div><div class="footer__copyright-bar"><span class="footer__copyright-text text_type_regular">'+r.escape(null==(e=a.copyright)?"":e)+"</span>",i.socialMedia(),n+="</div></footer>"},i.largeFooter.call({attributes:{addClasses:"search-room__footer"}},{logo:o,text:"Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",copyright:"Copyright © 2018 Toxin отель. Все права зачищены."},[{title:"Навигация",links:[{text:"О нас",url:"#"},{text:"Новости",url:"#"},{text:"Служба поддержки",url:"#"},{text:"Услуги",url:"#"}]},{title:"О нас",links:[{text:"О сервисе",url:"#"},{text:"Наша команда",url:"#"},{text:"Вакансии",url:"#"},{text:"Инвесторы",url:"#"}]},{title:"Служба поддержки",links:[{text:"Соглашения",url:"#"},{text:"Сообщества",url:"#"},{text:"Связь с нами",url:"#"}]}],{title:"Подписка",text:"Получайте специальные предложения и новости сервиса",emailPlaceholder:"Email"}),n+="</body></html>"}.call(this,"Object"in s?s.Object:"undefined"!=typeof Object?Object:void 0,"imAdditional"in s?s.imAdditional:"undefined"!=typeof imAdditional?imAdditional:void 0),n}},function(t,e,a){}]);
+/******/ (function(modules) { // webpackBootstrap
+/******/ 	// install a JSONP callback for chunk loading
+/******/ 	function webpackJsonpCallback(data) {
+/******/ 		var chunkIds = data[0];
+/******/ 		var moreModules = data[1];
+/******/ 		var executeModules = data[2];
+/******/
+/******/ 		// add "moreModules" to the modules object,
+/******/ 		// then flag all "chunkIds" as loaded and fire callback
+/******/ 		var moduleId, chunkId, i = 0, resolves = [];
+/******/ 		for(;i < chunkIds.length; i++) {
+/******/ 			chunkId = chunkIds[i];
+/******/ 			if(Object.prototype.hasOwnProperty.call(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 				resolves.push(installedChunks[chunkId][0]);
+/******/ 			}
+/******/ 			installedChunks[chunkId] = 0;
+/******/ 		}
+/******/ 		for(moduleId in moreModules) {
+/******/ 			if(Object.prototype.hasOwnProperty.call(moreModules, moduleId)) {
+/******/ 				modules[moduleId] = moreModules[moduleId];
+/******/ 			}
+/******/ 		}
+/******/ 		if(parentJsonpFunction) parentJsonpFunction(data);
+/******/
+/******/ 		while(resolves.length) {
+/******/ 			resolves.shift()();
+/******/ 		}
+/******/
+/******/ 		// add entry modules from loaded chunk to deferred list
+/******/ 		deferredModules.push.apply(deferredModules, executeModules || []);
+/******/
+/******/ 		// run deferred modules when all chunks ready
+/******/ 		return checkDeferredModules();
+/******/ 	};
+/******/ 	function checkDeferredModules() {
+/******/ 		var result;
+/******/ 		for(var i = 0; i < deferredModules.length; i++) {
+/******/ 			var deferredModule = deferredModules[i];
+/******/ 			var fulfilled = true;
+/******/ 			for(var j = 1; j < deferredModule.length; j++) {
+/******/ 				var depId = deferredModule[j];
+/******/ 				if(installedChunks[depId] !== 0) fulfilled = false;
+/******/ 			}
+/******/ 			if(fulfilled) {
+/******/ 				deferredModules.splice(i--, 1);
+/******/ 				result = __webpack_require__(__webpack_require__.s = deferredModule[0]);
+/******/ 			}
+/******/ 		}
+/******/
+/******/ 		return result;
+/******/ 	}
+/******/
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// object to store loaded and loading chunks
+/******/ 	// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 	// Promise = chunk loading, 0 = chunk loaded
+/******/ 	var installedChunks = {
+/******/ 		"search-room": 0
+/******/ 	};
+/******/
+/******/ 	var deferredModules = [];
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	var jsonpArray = window["webpackJsonp"] = window["webpackJsonp"] || [];
+/******/ 	var oldJsonpFunction = jsonpArray.push.bind(jsonpArray);
+/******/ 	jsonpArray.push = webpackJsonpCallback;
+/******/ 	jsonpArray = jsonpArray.slice();
+/******/ 	for(var i = 0; i < jsonpArray.length; i++) webpackJsonpCallback(jsonpArray[i]);
+/******/ 	var parentJsonpFunction = oldJsonpFunction;
+/******/
+/******/
+/******/ 	// add entry module to deferred list
+/******/ 	deferredModules.push(["./src/site-pages/search-room/search-room.js","vendors"]);
+/******/ 	// run deferred modules when ready
+/******/ 	return checkDeferredModules();
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ "./src sync index\\.scss$":
+/*!********************************************!*\
+  !*** ./src sync nonrecursive index\.scss$ ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./index.scss\": \"./src/index.scss\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src sync index\\\\.scss$\";\n\n//# sourceURL=webpack:///./src_sync_nonrecursive_index\\.scss$?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts sync recursive \\.(otf|ttf|svg|woff|woff2|eot)$":
+/*!***************************************************************!*\
+  !*** ./src/assets/fonts sync \.(otf|ttf|svg|woff|woff2|eot)$ ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./Montserrat-Bold.svg\": \"./src/assets/fonts/Montserrat-Bold.svg\",\n\t\"./Montserrat-Bold.ttf\": \"./src/assets/fonts/Montserrat-Bold.ttf\",\n\t\"./Montserrat-Bold.woff\": \"./src/assets/fonts/Montserrat-Bold.woff\",\n\t\"./Montserrat-Regular.svg\": \"./src/assets/fonts/Montserrat-Regular.svg\",\n\t\"./Montserrat-Regular.ttf\": \"./src/assets/fonts/Montserrat-Regular.ttf\",\n\t\"./Montserrat-Regular.woff\": \"./src/assets/fonts/Montserrat-Regular.woff\",\n\t\"./Quicksand-Bold.svg\": \"./src/assets/fonts/Quicksand-Bold.svg\",\n\t\"./Quicksand-Bold.ttf\": \"./src/assets/fonts/Quicksand-Bold.ttf\",\n\t\"./Quicksand-Bold.woff\": \"./src/assets/fonts/Quicksand-Bold.woff\",\n\t\"./Quicksand-Regular.svg\": \"./src/assets/fonts/Quicksand-Regular.svg\",\n\t\"./Quicksand-Regular.ttf\": \"./src/assets/fonts/Quicksand-Regular.ttf\",\n\t\"./Quicksand-Regular.woff\": \"./src/assets/fonts/Quicksand-Regular.woff\",\n\t\"./iconfont/MaterialIcons-Regular.eot\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.eot\",\n\t\"./iconfont/MaterialIcons-Regular.svg\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.svg\",\n\t\"./iconfont/MaterialIcons-Regular.ttf\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.ttf\",\n\t\"./iconfont/MaterialIcons-Regular.woff\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.woff\",\n\t\"./iconfont/MaterialIcons-Regular.woff2\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.woff2\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/assets/fonts sync recursive \\\\.(otf|ttf|svg|woff|woff2|eot)$\";\n\n//# sourceURL=webpack:///./src/assets/fonts_sync_\\.(otf%7Cttf%7Csvg%7Cwoff%7Cwoff2%7Ceot)$?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Montserrat-Bold.svg":
+/*!**********************************************!*\
+  !*** ./src/assets/fonts/Montserrat-Bold.svg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Montserrat-Bold.svg\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Montserrat-Bold.svg?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Montserrat-Bold.ttf":
+/*!**********************************************!*\
+  !*** ./src/assets/fonts/Montserrat-Bold.ttf ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Montserrat-Bold.ttf\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Montserrat-Bold.ttf?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Montserrat-Bold.woff":
+/*!***********************************************!*\
+  !*** ./src/assets/fonts/Montserrat-Bold.woff ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Montserrat-Bold.woff\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Montserrat-Bold.woff?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Montserrat-Regular.svg":
+/*!*************************************************!*\
+  !*** ./src/assets/fonts/Montserrat-Regular.svg ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Montserrat-Regular.svg\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Montserrat-Regular.svg?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Montserrat-Regular.ttf":
+/*!*************************************************!*\
+  !*** ./src/assets/fonts/Montserrat-Regular.ttf ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Montserrat-Regular.ttf\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Montserrat-Regular.ttf?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Montserrat-Regular.woff":
+/*!**************************************************!*\
+  !*** ./src/assets/fonts/Montserrat-Regular.woff ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Montserrat-Regular.woff\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Montserrat-Regular.woff?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Quicksand-Bold.svg":
+/*!*********************************************!*\
+  !*** ./src/assets/fonts/Quicksand-Bold.svg ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Quicksand-Bold.svg\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Quicksand-Bold.svg?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Quicksand-Bold.ttf":
+/*!*********************************************!*\
+  !*** ./src/assets/fonts/Quicksand-Bold.ttf ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Quicksand-Bold.ttf\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Quicksand-Bold.ttf?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Quicksand-Bold.woff":
+/*!**********************************************!*\
+  !*** ./src/assets/fonts/Quicksand-Bold.woff ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Quicksand-Bold.woff\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Quicksand-Bold.woff?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Quicksand-Regular.svg":
+/*!************************************************!*\
+  !*** ./src/assets/fonts/Quicksand-Regular.svg ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Quicksand-Regular.svg\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Quicksand-Regular.svg?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Quicksand-Regular.ttf":
+/*!************************************************!*\
+  !*** ./src/assets/fonts/Quicksand-Regular.ttf ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Quicksand-Regular.ttf\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Quicksand-Regular.ttf?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/Quicksand-Regular.woff":
+/*!*************************************************!*\
+  !*** ./src/assets/fonts/Quicksand-Regular.woff ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/Quicksand-Regular.woff\";\n\n//# sourceURL=webpack:///./src/assets/fonts/Quicksand-Regular.woff?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/iconfont/MaterialIcons-Regular.eot":
+/*!*************************************************************!*\
+  !*** ./src/assets/fonts/iconfont/MaterialIcons-Regular.eot ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/MaterialIcons-Regular.eot\";\n\n//# sourceURL=webpack:///./src/assets/fonts/iconfont/MaterialIcons-Regular.eot?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/iconfont/MaterialIcons-Regular.svg":
+/*!*************************************************************!*\
+  !*** ./src/assets/fonts/iconfont/MaterialIcons-Regular.svg ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/MaterialIcons-Regular.svg\";\n\n//# sourceURL=webpack:///./src/assets/fonts/iconfont/MaterialIcons-Regular.svg?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/iconfont/MaterialIcons-Regular.ttf":
+/*!*************************************************************!*\
+  !*** ./src/assets/fonts/iconfont/MaterialIcons-Regular.ttf ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/MaterialIcons-Regular.ttf\";\n\n//# sourceURL=webpack:///./src/assets/fonts/iconfont/MaterialIcons-Regular.ttf?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/iconfont/MaterialIcons-Regular.woff":
+/*!**************************************************************!*\
+  !*** ./src/assets/fonts/iconfont/MaterialIcons-Regular.woff ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/MaterialIcons-Regular.woff\";\n\n//# sourceURL=webpack:///./src/assets/fonts/iconfont/MaterialIcons-Regular.woff?");
+
+/***/ }),
+
+/***/ "./src/assets/fonts/iconfont/MaterialIcons-Regular.woff2":
+/*!***************************************************************!*\
+  !*** ./src/assets/fonts/iconfont/MaterialIcons-Regular.woff2 ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/MaterialIcons-Regular.woff2\";\n\n//# sourceURL=webpack:///./src/assets/fonts/iconfont/MaterialIcons-Regular.woff2?");
+
+/***/ }),
+
+/***/ "./src/assets/images/arrow-back.svg":
+/*!******************************************!*\
+  !*** ./src/assets/images/arrow-back.svg ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"images/arrow-back.svg\";\n\n//# sourceURL=webpack:///./src/assets/images/arrow-back.svg?");
+
+/***/ }),
+
+/***/ "./src/blocks sync recursive \\.(js|scss)$":
+/*!**************************************!*\
+  !*** ./src/blocks sync \.(js|scss)$ ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./arrow/arrow.scss\": \"./src/blocks/arrow/arrow.scss\",\n\t\"./bullet-list/bullet-list.scss\": \"./src/blocks/bullet-list/bullet-list.scss\",\n\t\"./button/button.scss\": \"./src/blocks/button/button.scss\",\n\t\"./carousel/carousel.js\": \"./src/blocks/carousel/carousel.js\",\n\t\"./carousel/carousel.scss\": \"./src/blocks/carousel/carousel.scss\",\n\t\"./checkbox/checkbox.js\": \"./src/blocks/checkbox/checkbox.js\",\n\t\"./checkbox/checkbox.scss\": \"./src/blocks/checkbox/checkbox.scss\",\n\t\"./checkbox/init.js\": \"./src/blocks/checkbox/init.js\",\n\t\"./comment/comment.scss\": \"./src/blocks/comment/comment.scss\",\n\t\"./datepicker-block/datepicker-block.js\": \"./src/blocks/datepicker-block/datepicker-block.js\",\n\t\"./datepicker-block/datepicker-block.scss\": \"./src/blocks/datepicker-block/datepicker-block.scss\",\n\t\"./datepicker-block/init.js\": \"./src/blocks/datepicker-block/init.js\",\n\t\"./donut-chart/donut-chart.js\": \"./src/blocks/donut-chart/donut-chart.js\",\n\t\"./donut-chart/donut-chart.scss\": \"./src/blocks/donut-chart/donut-chart.scss\",\n\t\"./dropdown/dropdown.js\": \"./src/blocks/dropdown/dropdown.js\",\n\t\"./dropdown/dropdown.scss\": \"./src/blocks/dropdown/dropdown.scss\",\n\t\"./dropdown/init.js\": \"./src/blocks/dropdown/init.js\",\n\t\"./features-list/features-list.scss\": \"./src/blocks/features-list/features-list.scss\",\n\t\"./input/init.js\": \"./src/blocks/input/init.js\",\n\t\"./input/input.js\": \"./src/blocks/input/input.js\",\n\t\"./input/input.scss\": \"./src/blocks/input/input.scss\",\n\t\"./list/init.js\": \"./src/blocks/list/init.js\",\n\t\"./list/list.js\": \"./src/blocks/list/list.js\",\n\t\"./list/list.scss\": \"./src/blocks/list/list.scss\",\n\t\"./pagination/init.js\": \"./src/blocks/pagination/init.js\",\n\t\"./pagination/pagination.js\": \"./src/blocks/pagination/pagination.js\",\n\t\"./pagination/pagination.scss\": \"./src/blocks/pagination/pagination.scss\",\n\t\"./rate-button/init.js\": \"./src/blocks/rate-button/init.js\",\n\t\"./rate-button/rate-button.js\": \"./src/blocks/rate-button/rate-button.js\",\n\t\"./rate-button/rate-button.scss\": \"./src/blocks/rate-button/rate-button.scss\",\n\t\"./slider/init.js\": \"./src/blocks/slider/init.js\",\n\t\"./slider/slider.js\": \"./src/blocks/slider/slider.js\",\n\t\"./slider/slider.scss\": \"./src/blocks/slider/slider.scss\",\n\t\"./spinner/spinner.js\": \"./src/blocks/spinner/spinner.js\",\n\t\"./spinner/spinner.scss\": \"./src/blocks/spinner/spinner.scss\",\n\t\"./two-calendar-range-picker/init.js\": \"./src/blocks/two-calendar-range-picker/init.js\",\n\t\"./two-calendar-range-picker/two-calendar-range-picker.js\": \"./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js\",\n\t\"./two-calendar-range-picker/two-calendar-range-picker.scss\": \"./src/blocks/two-calendar-range-picker/two-calendar-range-picker.scss\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/blocks sync recursive \\\\.(js|scss)$\";\n\n//# sourceURL=webpack:///./src/blocks_sync_\\.(js%7Cscss)$?");
+
+/***/ }),
+
+/***/ "./src/blocks/arrow/arrow.scss":
+/*!*************************************!*\
+  !*** ./src/blocks/arrow/arrow.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/arrow/arrow.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/bullet-list/bullet-list.scss":
+/*!*************************************************!*\
+  !*** ./src/blocks/bullet-list/bullet-list.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/bullet-list/bullet-list.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/button/button.scss":
+/*!***************************************!*\
+  !*** ./src/blocks/button/button.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/button/button.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/carousel/carousel.js":
+/*!*****************************************!*\
+  !*** ./src/blocks/carousel/carousel.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\n__webpack_require__(/*! slick-carousel */ \"./node_modules/slick-carousel/slick/slick.js\");\n\n__webpack_require__(/*! ../../../node_modules/slick-carousel/slick/slick.css */ \"./node_modules/slick-carousel/slick/slick.css\");\n\n/* eslint-disable no-undef */\n// jQuery объявлена глобально вебпаком\nfunction getCarouselParams($carousel) {\n  return {\n    arrows: $carousel.attr('data-arrows').toLowerCase() === 'true',\n    prevArrow: '<label class=\"slick-prev\"><button type=\"button\" >expand_more</button></label>',\n    nextArrow: '<label class=\"slick-next\"><button type=\"button\" >expand_more</button></label>',\n    dots: $carousel.attr('data-dots').toLowerCase() === 'true'\n  };\n}\n\nfunction initCarousel() {\n  var initAttrName = 'data-initiated';\n  var initAttrValue = 'true';\n  var $carousel = $(this);\n\n  if ($carousel.attr(initAttrName) === initAttrValue) {\n    return;\n  }\n\n  var params = getCarouselParams($carousel);\n  $carousel.slick(params);\n  $carousel.attr(initAttrName, initAttrValue);\n}\n\nfunction initCarousels() {\n  var $carousels = $('.carousel');\n  $carousels.each(initCarousel);\n}\n\nvar _default = initCarousels;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/carousel/carousel.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/carousel/carousel.scss":
+/*!*******************************************!*\
+  !*** ./src/blocks/carousel/carousel.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/carousel/carousel.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/checkbox/checkbox.js":
+/*!*****************************************!*\
+  !*** ./src/blocks/checkbox/checkbox.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.initCheckbox = initCheckbox;\nexports[\"default\"] = void 0;\n\n__webpack_require__(/*! jquery-ui/ui/widgets/checkboxradio */ \"./node_modules/jquery-ui/ui/widgets/checkboxradio.js\");\n\nfunction _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError(\"Cannot call a class as a function\"); } }\n\nfunction _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if (\"value\" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }\n\nfunction _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }\n\nfunction initCheckbox(jquerySelector, classes) {\n  var $hiddenInput = $(jquerySelector);\n\n  function initialization() {\n    var $singleInput = $(this);\n    if ($singleInput.data('uiCheckboxradio')) return; // чтобы не инициализировать лишнего\n\n    var checkbox = $singleInput.checkboxradio({\n      classes: {\n        'ui-checkboxradio-icon': classes.icon,\n        'ui-checkboxradio-icon-space': classes.iconSpace\n      }\n    });\n    var isChecked = $singleInput.attr('data-isChecked');\n\n    if (isChecked === 'true') {\n      checkbox.attr('checked', 'checked').change();\n    }\n  }\n\n  $hiddenInput.each(initialization);\n}\n\nfunction initToggleCheckboxes() {\n  initCheckbox('.checkbox_type_toggle__hidden-button', {\n    icon: 'checkbox__button checkbox_type_toggle__button',\n    iconSpace: 'checkbox__icon-space checkbox_type_toggle__icon-space'\n  });\n}\n\nfunction initRadioCheckboxes() {\n  initCheckbox('.checkbox_type_radio__hidden-button', {\n    icon: 'checkbox__button checkbox_type_radio__button',\n    iconSpace: 'checkbox__icon-space checkbox_type_radio__iconSpace'\n  });\n}\n\nfunction initLikeCheckbox() {\n  var $likeLabel = $(this);\n  var $likeButton = $($likeLabel.find('.checkbox_type_like__hidden-button')[0]);\n  var checkboxRadioData = $likeButton.data('uiCheckboxradio');\n  initCheckbox($likeButton, {\n    icon: 'checkbox__button checkbox_type_like__button'\n  });\n  var gradientBorderElement = document.createElement('div');\n  gradientBorderElement.classList.add('checkbox_type_like__button-border');\n  $likeLabel.prepend(gradientBorderElement);\n\n  if (Number.isNaN(Number.parseInt($likeLabel.attr('data-likes-count'), 10))) {\n    return;\n  }\n\n  if (checkboxRadioData) return; // чтобы не навешивать лишних обработчиков\n\n  var likesCount = Number.parseInt($likeLabel.attr('data-likes-count'), 10);\n  $likeButton.change(function () {\n    var $likeText = $($likeLabel.find('.checkbox_type_like__text')[0]);\n    likesCount = $likeLabel.hasClass('ui-checkboxradio-checked') ? likesCount + 1 : likesCount - 1;\n    $likeText.text(likesCount);\n    $likeLabel.attr('data-likes-count', likesCount);\n  });\n}\n\nfunction initLikeCheckboxes() {\n  var $likeCheckboxes = $('.checkbox_type_like__label');\n  $likeCheckboxes.each(initLikeCheckbox);\n}\n\ninitCheckbox('.checkbox_type_default__hidden-button', {\n  icon: 'checkbox__button checkbox_type_default__button',\n  iconSpace: 'checkbox__icon-space checkbox_type_default__icon-space'\n});\n\nfunction initDefaultCheckboxes() {\n  var $defaultCheckboxes = $('.checkbox_type_default__button');\n  $defaultCheckboxes.text('check');\n}\n\nvar Checkbox = /*#__PURE__*/function () {\n  function Checkbox() {\n    _classCallCheck(this, Checkbox);\n  }\n\n  _createClass(Checkbox, null, [{\n    key: \"initDefault\",\n    value: function initDefault() {\n      initDefaultCheckboxes();\n    }\n  }, {\n    key: \"initLike\",\n    value: function initLike() {\n      initLikeCheckboxes();\n    }\n  }, {\n    key: \"initRadio\",\n    value: function initRadio() {\n      initRadioCheckboxes();\n    }\n  }, {\n    key: \"initToggle\",\n    value: function initToggle() {\n      initToggleCheckboxes();\n    }\n  }]);\n\n  return Checkbox;\n}();\n\nvar _default = Checkbox;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/checkbox/checkbox.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/checkbox/checkbox.scss":
+/*!*******************************************!*\
+  !*** ./src/blocks/checkbox/checkbox.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/checkbox/checkbox.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/checkbox/init.js":
+/*!*************************************!*\
+  !*** ./src/blocks/checkbox/init.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _checkbox = _interopRequireDefault(__webpack_require__(/*! ./checkbox */ \"./src/blocks/checkbox/checkbox.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n_checkbox[\"default\"].initLike();\n\n_checkbox[\"default\"].initToggle();\n\n_checkbox[\"default\"].initRadio();\n\n_checkbox[\"default\"].initDefault();\n\n//# sourceURL=webpack:///./src/blocks/checkbox/init.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/comment/comment.scss":
+/*!*****************************************!*\
+  !*** ./src/blocks/comment/comment.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/comment/comment.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/datepicker-block/datepicker-block.js":
+/*!*********************************************************!*\
+  !*** ./src/blocks/datepicker-block/datepicker-block.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.parseAttrToDate = parseAttrToDate;\nexports.setDates = setDates;\nexports.initDatepickerInput = initDatepickerInput;\nexports.initDatepickers = initDatepickers;\n\n__webpack_require__(/*! air-datepicker */ \"./node_modules/air-datepicker/src/js/air-datepicker.js\");\n\nvar _arrowBack = _interopRequireDefault(__webpack_require__(/*! ../../assets/images/arrow-back.svg */ \"./src/assets/images/arrow-back.svg\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n/* eslint-disable no-undef */\n// jquery объявлена глобально вебпаком\nvar confirmButton = '<div class=\"button button_type_text datepicker-block__confirm-button\">' + '<button class=\"button__control button_type_text__control datepicker--button\" data-action=\"hide\">Применить' + '</button><div class=\"button__decoration material-icons\"></div></div>';\nvar clearButton = '<div class=\"button button_type_text button_hovered datepicker-block__clear-button\">' + '<button class=\"button__control button_type_text__control datepicker--button\" data-action=\"clear\">Очистить' + '</button><div class=\"button__decoration material-icons\"></div></div>';\n\nfunction parseAttrToDate(attrDate) {\n  var dateParts = attrDate.split('.');\n  var day = dateParts[0];\n  var month = dateParts[1];\n  var year = dateParts[2];\n  var dateString = \"\".concat(year, \"-\").concat(month, \"-\").concat(day);\n  return new Date(dateString);\n}\n\nfunction getInitDates($inputWrap) {\n  var dates = [];\n\n  if ($inputWrap.attr('data-first-date')) {\n    dates.push(parseAttrToDate($inputWrap.attr('data-first-date')));\n  }\n\n  if ($inputWrap.attr('data-second-date')) {\n    dates.push(parseAttrToDate($inputWrap.attr('data-second-date')));\n  }\n\n  return dates.length === 0 ? undefined : dates;\n}\n\nfunction addClickHandler(arrowElement, expandableElement, controlElement) {\n  $(controlElement).click(function () {\n    if ($(arrowElement).hasClass('expanded')) {\n      expandableElement.hide();\n    } else {\n      expandableElement.show();\n    }\n  });\n}\n\nfunction disableLabelClicks(event) {\n  // при клике на заголовок/стрелку итак происходит анфокус и календарь прячется,\n  // лишний клик не нужен\n  event.preventDefault();\n}\n\nfunction setExpandArrowEventHandlers($expandArrow, $inputControl, $ownerLabel) {\n  var expandableElement = null;\n  $inputControl.each(function () {\n    expandableElement = $inputControl.data('datepicker');\n    expandableElement.update({\n      onHide: function onHide(inst, animationCompleted) {\n        if (!animationCompleted) {\n          $expandArrow.text('expand_more');\n          return;\n        }\n\n        $($expandArrow).removeClass('expanded'); // чтобы лейбловые прокликивания снова заработали\n        // нужно показывать календарь при клике на что-то кроме инпута\n\n        $($ownerLabel).unbind('click', disableLabelClicks);\n      },\n      onShow: function onShow(inst, animationCompleted) {\n        if (!animationCompleted) {\n          $expandArrow.text('expand_less');\n          return;\n        }\n\n        $expandArrow.addClass('expanded');\n        $ownerLabel.click(disableLabelClicks);\n      },\n      todayButton: false\n    });\n  });\n  return expandableElement;\n}\n\nfunction initExpandableEvents($expandArrow, $control) {\n  var $ownerLabel = $(this).parent();\n  var expandableElement = setExpandArrowEventHandlers($expandArrow, $control, $ownerLabel);\n\n  if (expandableElement) {\n    addClickHandler($expandArrow, expandableElement, $control, $ownerLabel);\n  }\n}\n/**\n * Устанавливает даты в первый календарь\n * (второй подцепляет это значение в логике two-calendar-range-picker)\n * Если даты не переданы, используется сегодняшняя\n * @param $datepickerInput\n * @param dates\n */\n\n\nfunction setDates($datepickerInput, dates) {\n  if (!dates || dates.length === 0) {\n    return;\n  }\n\n  var datepickerData = $datepickerInput.data('datepicker');\n  datepickerData.selectDate(dates);\n}\n\nfunction initDatepickerInput(index, input) {\n  var $datepicker = $(input);\n  var $inputWrap = $datepicker.find('.datepicker-block__input-wrap');\n  var $inputControl = $inputWrap.find('.input__control');\n  var isInline = $inputWrap.hasClass('datepicker-block_inline__input-wrap');\n  if ($inputControl.data('datepicker')) return;\n  var datepicker = $inputControl.datepicker({\n    range: true,\n    inline: isInline,\n    dateFormat: 'd M',\n    multipleDatesSeparator: ' - ',\n    todayButton: true,\n    showEvent: '',\n    position: 'bottom center',\n    offset: 5,\n    navTitles: {\n      days: '<span class=\"text_type_item-title\">MM yyyy</span>',\n      months: '<span class=\"text_type_item-title\">yyyy</span>',\n      years: '<span class=\"text_type_item-title\">yyyy1 - yyyy2</span>'\n    },\n    prevHtml: \"<img src=\\\"\".concat(_arrowBack[\"default\"], \"\\\" alt=\\\"\\u043D\\u0430\\u0437\\u0430\\u0434\\\"\\\">\"),\n    nextHtml: \"<img src=\\\"\".concat(_arrowBack[\"default\"], \"\\\" alt=\\\"\\u043D\\u0430\\u0437\\u0430\\u0434\\\" style=\\\"transform: scale(-1, 1)\\\">\"),\n    onSelect: function onSelect(formattedDate) {\n      $inputControl.val(formattedDate.toLowerCase());\n    }\n  }).data('datepicker'); // замена кнопок на свои в элементе календаря\n\n  datepicker.$datepicker.find('.datepicker--button[data-action=\"today\"]').remove();\n  datepicker.$datepicker.find('.datepicker--buttons').append(clearButton);\n  datepicker.$datepicker.find('.datepicker--buttons').append(confirmButton); // установка ивентов отображения/исчезновения\n\n  var $expandArrow = $($datepicker.find('.datepicker-block__arrow')[0]);\n  initExpandableEvents($expandArrow, $inputControl);\n  var initDates = getInitDates($inputWrap);\n  datepicker.selectDate(initDates);\n}\n\nfunction initDatepickers() {\n  var $datepickers = $('.datepicker-block');\n  $datepickers.each(initDatepickerInput);\n}\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/datepicker-block/datepicker-block.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/datepicker-block/datepicker-block.scss":
+/*!***********************************************************!*\
+  !*** ./src/blocks/datepicker-block/datepicker-block.scss ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/datepicker-block/datepicker-block.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/datepicker-block/init.js":
+/*!*********************************************!*\
+  !*** ./src/blocks/datepicker-block/init.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _datepickerBlock = __webpack_require__(/*! ./datepicker-block */ \"./src/blocks/datepicker-block/datepicker-block.js\");\n\n(0, _datepickerBlock.initDatepickers)();\n\n//# sourceURL=webpack:///./src/blocks/datepicker-block/init.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/donut-chart/donut-chart.js":
+/*!***********************************************!*\
+  !*** ./src/blocks/donut-chart/donut-chart.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($, jQuery) {\n\nvar _functions = __webpack_require__(/*! ../../common/functions */ \"./src/common/functions.js\");\n\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\nvar donutHTML = __webpack_require__(/*! ./donut-template.pug */ \"./src/blocks/donut-chart/donut-template.pug\");\n\nvar donutArcActiveClass = 'donut-chart__svg-active-arc';\n\nfunction getDataTextContainer($donutContainer) {\n  var $imageContainer = $donutContainer.find('.donut-chart__image-container');\n  return $imageContainer.find('.donut-chart__active-data');\n}\n\nfunction getArcStyle(arc, params) {\n  if (arc.$arc.hasClass(donutArcActiveClass)) {\n    return params.activeStyle;\n  }\n\n  return params.defaultStyle;\n}\n\nfunction getSecondAngle(firstAngle, arcValue, ratesCount) {\n  var arcValueProportion = arcValue / ratesCount;\n  var arcAngle = 360 * arcValueProportion;\n  return firstAngle + arcAngle;\n}\n\nfunction degreesToRads(degreeAngleValue) {\n  return degreeAngleValue / 180 * Math.PI;\n}\n/**\r\n * Получить прямоугольные координаты из полярных\r\n * @param length радиус окружности\r\n * @param angle угол поворота\r\n * @param x0 Х точки отсчёта\r\n * @param y0 У точки отсчёта\r\n * @returns {{x: number, y: number}}\r\n */\n\n\nfunction toCartesian(length, angle) {\n  var x0 = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;\n  var y0 = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;\n  var result = {\n    x: 0,\n    y: 0\n  };\n  var angleRads = degreesToRads(angle);\n  result.x = x0 + length * Math.cos(angleRads);\n  result.y = y0 - length * Math.sin(angleRads); // вычитаем, потому что на канвасе ось перевёрнута\n\n  return result;\n}\n/**\r\n * Формирует и возвращает массив данных, необходимых для отрисовки дуги\r\n * @param arc\r\n * @param style активная или обычная\r\n * @param ratesCount общее количество отзывов\r\n * @param canvasSize\r\n * @returns\r\n * {secondPoint, strokeWidth, firstPoint, arcRadius, endingAngle, startY, startX, arcAngle}\r\n */\n\n\nfunction getArcDrawData(arc, style, ratesCount, canvasSize) {\n  var startingAngle = arc.$arc.data('startingAngle');\n  var endingAngle = getSecondAngle(startingAngle, arc.value, ratesCount);\n  var startX = canvasSize.width / 2;\n  var startY = canvasSize.height / 2;\n  var strokeWidth = style.outerRadius - style.innerRadius;\n  var arcRadius = style.outerRadius / 2 - strokeWidth / 2;\n  var arcAngle = endingAngle - startingAngle;\n  var firstPoint = toCartesian(arcRadius, startingAngle, startX, startY);\n  var secondPoint = toCartesian(arcRadius, endingAngle, startX, startY);\n  return {\n    firstPoint: firstPoint,\n    secondPoint: secondPoint,\n    arcRadius: arcRadius,\n    strokeWidth: strokeWidth,\n    startX: startX,\n    startY: startY,\n    arcAngle: arcAngle,\n    endingAngle: endingAngle\n  };\n}\n\nfunction drawArc(arc, arcDrawData) {\n  var isLargeArc = 0;\n\n  if (arcDrawData.arcAngle > 180) {\n    isLargeArc = 1;\n  }\n\n  arc.$arc.attr('stroke-width', arcDrawData.strokeWidth);\n  arc.$arc.attr('d', \"M \".concat(arcDrawData.firstPoint.x, \",\").concat(arcDrawData.firstPoint.y, \"\\n  A \").concat(arcDrawData.arcRadius, \" \").concat(arcDrawData.arcRadius, \"\\n  0 \").concat(isLargeArc, \"\\n  0 \").concat(arcDrawData.secondPoint.x, \",\").concat(arcDrawData.secondPoint.y));\n}\n\nfunction initDrawArc(arc, params) {\n  var currentStyle = getArcStyle(arc, params);\n  var arcDrawData = getArcDrawData(arc, currentStyle, params.ratesCountWithGaps, {\n    width: params.canvasWidth,\n    height: params.canvasHeight\n  });\n  drawArc(arc, arcDrawData);\n  return arcDrawData;\n}\n\nfunction clearArcsActivity(arcsArray, currentArc, params) {\n  arcsArray.forEach(function (arc) {\n    if (arc === currentArc) {\n      return;\n    }\n\n    arc.$arc.removeClass(donutArcActiveClass);\n    initDrawArc(arc, params);\n  });\n}\n/**\r\n * Выводит в текстовое поле значение выбранной дуги и меняет его цвет\r\n * Если передать 0, то текст очистится\r\n * @param $dataTextContainer\r\n * @param value\r\n * @param color\r\n * @param overallCount\r\n */\n\n\nfunction changeDataText($dataTextContainer, value, color, overallCount) {\n  var $activeValue = $dataTextContainer.find('.donut-chart__active-value');\n  var $valueText = $dataTextContainer.find('.donut-chart__value-text');\n\n  if (value === 0) {\n    $activeValue.text(overallCount);\n    $activeValue.css('color', 'grey');\n    $valueText.text((0, _functions.ruDeclination)(overallCount, 'голос||а|ов'));\n    $valueText.css('color', 'grey');\n  } else {\n    $activeValue.text(value);\n    $activeValue.css('color', color);\n    $valueText.text((0, _functions.ruDeclination)(value, 'голос||а|ов'));\n    $valueText.css('color', color);\n  }\n}\n\nfunction addOnClickHandlerToArcs(arcsArray, params, $dataTextContainer) {\n  arcsArray.forEach(function (arc) {\n    arc.$arc.click(function () {\n      clearArcsActivity(arcsArray, arc, params);\n      arc.$arc.toggleClass(donutArcActiveClass);\n      initDrawArc(arc, params);\n\n      if (arc.$arc.hasClass(donutArcActiveClass)) {\n        changeDataText($dataTextContainer, arc.value, arc.firstColor);\n      } else {\n        changeDataText($dataTextContainer, 0, undefined, params.ratesCount);\n      }\n    });\n  });\n}\n\nfunction getRatesWithGaps(rates, gapAngle, arcsCount) {\n  return rates / (1 - gapAngle * arcsCount / 360);\n}\n\nfunction getArcsAndRatesCount(arcsArray) {\n  var result = {\n    arcs: 0,\n    rates: 0\n  };\n  arcsArray.forEach(function (arc) {\n    if (arc.value === 0) {\n      return;\n    }\n\n    result.rates += arc.value;\n    result.arcs += 1;\n  });\n  return result;\n}\n\nfunction getMiddleNum(firstNum, secondNum) {\n  return (firstNum + secondNum) / 2;\n}\n\nfunction getAngleFromArcLength(arcLength, radius) {\n  return 180 * arcLength / (Math.PI * radius);\n}\n\nfunction getAdditionalParams(params) {\n  var additionalParams = {};\n  var arcDefaultRadius = getMiddleNum(params.defaultStyle.outerRadius, params.defaultStyle.innerRadius);\n  var arcsAndRatesCount = getArcsAndRatesCount(params.data);\n  additionalParams.canvasWidth = params.activeStyle.outerRadius;\n  additionalParams.canvasHeight = params.activeStyle.outerRadius;\n  additionalParams.gapsAngle = getAngleFromArcLength(params.arcsGap, arcDefaultRadius);\n  additionalParams.startingAngle = 90 + additionalParams.gapsAngle / 2;\n  additionalParams.notZeroArcs = arcsAndRatesCount.arcs;\n  additionalParams.ratesCount = arcsAndRatesCount.rates;\n  additionalParams.ratesCountWithGaps = getRatesWithGaps(arcsAndRatesCount.rates, additionalParams.gapsAngle, arcsAndRatesCount.arcs);\n  return additionalParams;\n}\n\nfunction drawArcsOnSVGCanvas(arcsArray, params, $dataTextContainer) {\n  arcsArray[0].$arc.data('startingAngle', params.startingAngle);\n  var activeArc = null;\n  arcsArray.forEach(function (arc, i) {\n    if (arc.value === 0) {\n      if (i + 1 < arcsArray.length) {\n        arcsArray[i + 1].$arc.data('startingAngle', params.startingAngle);\n      }\n\n      return;\n    } // добавляем класс, если в параметрах передано, что дуга активная\n\n\n    if (arcsArray[i].isActive) {\n      arc.$arc.addClass(donutArcActiveClass);\n      activeArc = arc;\n    } // узнаём данные о нарисованной дуге\n\n\n    var arcDrawData = initDrawArc(arcsArray[i], params);\n\n    if (i + 1 < arcsArray.length) {\n      // записываем в следующую дугу угол, с которого она должна начинаться\n      arcsArray[i + 1].$arc.data('startingAngle', arcDrawData.endingAngle + params.gapsAngle);\n    }\n  });\n\n  if (activeArc.$arc.hasClass(donutArcActiveClass)) {\n    changeDataText($dataTextContainer, activeArc.value, activeArc.firstColor);\n  } else {\n    changeDataText($dataTextContainer, 0);\n  }\n}\n\nfunction addJQLinksToArcs(arcsObjArray, $arcs, $legendItems) {\n  arcsObjArray.forEach(function (arcObj, i) {\n    arcObj.$arc = $($arcs[i]);\n    arcObj.$legend = $($legendItems[i]);\n  });\n}\n\nfunction createDonut() {\n  var params = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {\n    data: [{\n      caption: '1',\n      value: 1,\n      background: 'red'\n    }, {\n      caption: '2',\n      value: 2,\n      background: 'green'\n    }, {\n      caption: '3',\n      value: 3,\n      background: 'blue'\n    }, {\n      caption: '4',\n      value: 4,\n      background: 'black'\n    }],\n    defaultStyle: {\n      outerRadius: 100,\n      innerRadius: 95\n    },\n    activeStyle: {\n      outerRadius: 105,\n      innerRadius: 90\n    },\n    arcsGap: 5\n  };\n  var $donutContainer = $(this);\n  var arcsData = (0, _functions.copyArrayOfObjects)(params.data);\n  $donutContainer.html(donutHTML({\n    arcs: arcsData\n  }));\n  var $dataTextContainer = getDataTextContainer($donutContainer);\n  var $donutCanvas = $donutContainer.find('.donut-chart__svg');\n  var $donutArcs = $donutCanvas.find('.donut-chart__svg-arc');\n  var $donutLegend = $donutContainer.find('.donut-chart__legend');\n  var $legendItems = $donutLegend.find('.donut-chart__legend-item');\n  var additionalParams = getAdditionalParams(params);\n\n  var fullParams = _objectSpread({}, params, {}, additionalParams);\n\n  addJQLinksToArcs(arcsData, $donutArcs, $legendItems);\n  drawArcsOnSVGCanvas(arcsData, fullParams, $dataTextContainer);\n  $donutCanvas.attr('viewBox', \"0 0 \".concat(fullParams.canvasWidth, \" \").concat(fullParams.canvasHeight));\n  addOnClickHandlerToArcs(arcsData, fullParams, $dataTextContainer);\n}\n\njQuery.fn.extend({\n  donutChart: createDonut\n});\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\"), __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/donut-chart/donut-chart.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/donut-chart/donut-chart.scss":
+/*!*************************************************!*\
+  !*** ./src/blocks/donut-chart/donut-chart.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/donut-chart/donut-chart.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/donut-chart/donut-template.pug":
+/*!***************************************************!*\
+  !*** ./src/blocks/donut-chart/donut-template.pug ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var pug = __webpack_require__(/*! ../../../node_modules/pug-runtime/index.js */ \"./node_modules/pug-runtime/index.js\");\n\nfunction template(locals) {var pug_html = \"\", pug_mixins = {}, pug_interp;;var locals_for_with = (locals || {});(function (arcs) {pug_html = pug_html + \"\\u003Cdiv class=\\\"donut-chart__image-container\\\"\\u003E\\u003Csvg class=\\\"donut-chart__svg\\\" width=\\\"200\\\" height=\\\"200\\\" preserveAspectRatio=\\\"xMidYMid meet\\\"\\u003E\\u003Cdefs\\u003E\";\n// iterate arcs\n;(function(){\n  var $$obj = arcs;\n  if ('number' == typeof $$obj.length) {\n      for (var index = 0, $$l = $$obj.length; index < $$l; index++) {\n        var arc = $$obj[index];\npug_html = pug_html + \"\\u003ClinearGradient\" + (pug.attr(\"id\", `grad${index}`, true, true)+\" x1=\\\"0%\\\" y1=\\\"0%\\\" x2=\\\"0%\\\" y2=\\\"100%\\\"\") + \"\\u003E\\u003Cstop\" + (pug.attr(\"stop-color\", arc.firstColor, true, true)) + \"\\u003E\\u003C\\u002Fstop\\u003E\\u003Cstop\" + (\" offset=\\\"100%\\\"\"+pug.attr(\"stop-color\", arc.secondColor, true, true)) + \"\\u003E\\u003C\\u002Fstop\\u003E\\u003C\\u002FlinearGradient\\u003E\";\n      }\n  } else {\n    var $$l = 0;\n    for (var index in $$obj) {\n      $$l++;\n      var arc = $$obj[index];\npug_html = pug_html + \"\\u003ClinearGradient\" + (pug.attr(\"id\", `grad${index}`, true, true)+\" x1=\\\"0%\\\" y1=\\\"0%\\\" x2=\\\"0%\\\" y2=\\\"100%\\\"\") + \"\\u003E\\u003Cstop\" + (pug.attr(\"stop-color\", arc.firstColor, true, true)) + \"\\u003E\\u003C\\u002Fstop\\u003E\\u003Cstop\" + (\" offset=\\\"100%\\\"\"+pug.attr(\"stop-color\", arc.secondColor, true, true)) + \"\\u003E\\u003C\\u002Fstop\\u003E\\u003C\\u002FlinearGradient\\u003E\";\n    }\n  }\n}).call(this);\n\npug_html = pug_html + \"\\u003C\\u002Fdefs\\u003E\";\n// iterate arcs\n;(function(){\n  var $$obj = arcs;\n  if ('number' == typeof $$obj.length) {\n      for (var index = 0, $$l = $$obj.length; index < $$l; index++) {\n        var arc = $$obj[index];\npug_html = pug_html + \"\\u003Cpath\" + (\" class=\\\"donut-chart__svg-arc\\\"\"+pug.attr(\"stroke\", `url(#grad${index})`, true, true)+\" fill=\\\"transparent\\\"\") + \"\\u003E\\u003C\\u002Fpath\\u003E\";\n      }\n  } else {\n    var $$l = 0;\n    for (var index in $$obj) {\n      $$l++;\n      var arc = $$obj[index];\npug_html = pug_html + \"\\u003Cpath\" + (\" class=\\\"donut-chart__svg-arc\\\"\"+pug.attr(\"stroke\", `url(#grad${index})`, true, true)+\" fill=\\\"transparent\\\"\") + \"\\u003E\\u003C\\u002Fpath\\u003E\";\n    }\n  }\n}).call(this);\n\npug_html = pug_html + \"\\u003C\\u002Fsvg\\u003E\\u003Cdiv class=\\\"donut-chart__active-data\\\"\\u003E\\u003Cspan class=\\\"donut-chart__active-value\\\"\\u003E\\u003C\\u002Fspan\\u003E\\u003Cspan class=\\\"donut-chart__value-text\\\"\\u003E\\u003C\\u002Fspan\\u003E\\u003C\\u002Fdiv\\u003E\\u003C\\u002Fdiv\\u003E\\u003Cul class=\\\"donut-chart__legend\\\"\\u003E\";\n// iterate arcs\n;(function(){\n  var $$obj = arcs;\n  if ('number' == typeof $$obj.length) {\n      for (var pug_index2 = 0, $$l = $$obj.length; pug_index2 < $$l; pug_index2++) {\n        var arc = $$obj[pug_index2];\npug_html = pug_html + \"\\u003Cli\" + (\" class=\\\"donut-chart__legend-item\\\"\"+pug.attr(\"style\", pug.style(`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%);`), true, true)) + \"\\u003E\" + (pug.escape(null == (pug_interp = arc.caption) ? \"\" : pug_interp)) + \"\\u003C\\u002Fli\\u003E\";\n      }\n  } else {\n    var $$l = 0;\n    for (var pug_index2 in $$obj) {\n      $$l++;\n      var arc = $$obj[pug_index2];\npug_html = pug_html + \"\\u003Cli\" + (\" class=\\\"donut-chart__legend-item\\\"\"+pug.attr(\"style\", pug.style(`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%);`), true, true)) + \"\\u003E\" + (pug.escape(null == (pug_interp = arc.caption) ? \"\" : pug_interp)) + \"\\u003C\\u002Fli\\u003E\";\n    }\n  }\n}).call(this);\n\npug_html = pug_html + \"\\u003C\\u002Ful\\u003E\";}.call(this,\"arcs\" in locals_for_with?locals_for_with.arcs:typeof arcs!==\"undefined\"?arcs:undefined));;return pug_html;};\nmodule.exports = template;\n\n//# sourceURL=webpack:///./src/blocks/donut-chart/donut-template.pug?");
+
+/***/ }),
+
+/***/ "./src/blocks/dropdown/dropdown.js":
+/*!*****************************************!*\
+  !*** ./src/blocks/dropdown/dropdown.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\n__webpack_require__(/*! jquery-ui/ui/effects/effect-fade */ \"./node_modules/jquery-ui/ui/effects/effect-fade.js\");\n\nvar _functions = __webpack_require__(/*! ../../common/functions */ \"./src/common/functions.js\");\n\nvar _spinner = __webpack_require__(/*! ../spinner/spinner */ \"./src/blocks/spinner/spinner.js\");\n\n/* eslint-disable no-undef */\n// jquery объявлена глобально вебпаком\n\n/**\r\n * Функция для получения пар имя-значение со всех переданных спиннеров\r\n *\r\n * @param spinnerElements   массив спиннеров\r\n * @returns {Array}\r\n */\nfunction getCurrentNamesValues(spinnerElements) {\n  var result = [];\n\n  function getNameValue() {\n    result.push({\n      name: $(this).attr('data-name'),\n      value: parseInt($(this).val(), 10)\n    });\n  }\n\n  $(spinnerElements).each(getNameValue);\n  return result;\n}\n\nvar typeRooms = 'rooms';\nvar typeCustomers = 'customers';\n\nfunction getDropdownType($list) {\n  var dropdownType = {};\n  var listClassPrefix = 'dropdown__list_';\n\n  if ($($list).hasClass(\"\".concat(listClassPrefix, \"unified\"))) {\n    dropdownType.isUnified = true;\n  }\n\n  if ($($list).hasClass(\"\".concat(listClassPrefix, \"type_rooms\"))) {\n    dropdownType.name = typeRooms;\n  } else if ($($list).hasClass(\"\".concat(listClassPrefix, \"type_customers\"))) {\n    dropdownType.name = typeCustomers;\n  } else return false;\n\n  return dropdownType;\n}\n\nfunction selectNiceWord(itemsCount, itemName) {\n  var result = '';\n\n  switch (itemName.toLowerCase()) {\n    case 'спальни':\n      result = (0, _functions.ruDeclination)(itemsCount, 'спал|ьня|ьни|ен');\n      break;\n\n    case 'кровати':\n      result = (0, _functions.ruDeclination)(itemsCount, 'кроват|ь|и|ей');\n      break;\n\n    case 'ванные комнаты':\n      result = \"\".concat((0, _functions.ruDeclination)(itemsCount, 'ванн|ая|ых|ых'), \" \").concat((0, _functions.ruDeclination)(itemsCount, 'комнат|а|ы|'));\n      break;\n\n    case 'гости':\n      result = (0, _functions.ruDeclination)(itemsCount, 'гост|ь|я|ей');\n      break;\n\n    case 'младенцы':\n      result = (0, _functions.ruDeclination)(itemsCount, 'младен|ец|ца|цев');\n      break;\n\n    default:\n  }\n\n  return result;\n}\n\nfunction areAllValuesZero(namesValues) {\n  return !(namesValues === null || namesValues === void 0 ? void 0 : namesValues.some(function (nameValue) {\n    return parseInt(nameValue.value, 10) !== 0;\n  }));\n}\n\nfunction createUnifiedString(namesValues, declinationsString) {\n  var sum = namesValues.reduce(function (accumulator, currentValue) {\n    return accumulator + parseInt(currentValue.value, 10);\n  }, 0);\n  return \"\".concat(sum, \" \").concat((0, _functions.ruDeclination)(sum, declinationsString));\n}\n\nfunction createSeparateRoomsString(namesValues) {\n  var result = namesValues.reduce(function (accumulator, currentNameValue) {\n    return \"\".concat(accumulator, \" \") + \"\".concat(currentNameValue.value, \" \") + \"\".concat(selectNiceWord(currentNameValue.value, currentNameValue.name), \", \");\n  }, '');\n  result = result.substring(0, result.length - 2).trim();\n  return result;\n}\n\nfunction createRoomsString(namesValues, isUnified) {\n  var result;\n\n  if (isUnified) {\n    result = createUnifiedString(namesValues, 'комнаты');\n  } else {\n    result = createSeparateRoomsString(namesValues);\n  }\n\n  return result;\n}\n\nfunction createCustomersWithInfantsString(namesValues) {\n  var infants = 0;\n  var sum = 0;\n  namesValues.forEach(function (nameValue) {\n    if (nameValue.name.toLowerCase() === 'младенцы') {\n      infants = nameValue.value;\n      return;\n    }\n\n    sum += parseInt(nameValue.value, 10);\n  });\n  return \"\".concat(sum, \" \").concat(selectNiceWord(sum, 'гости'), \", \") + \"\".concat(infants, \" \").concat(selectNiceWord(infants, 'младенцы'));\n}\n\nfunction createCustomersString(namesValues, isUnified) {\n  var resultString;\n\n  if (isUnified) {\n    resultString = createUnifiedString(namesValues, 'гост|ь|я|ей');\n  } else {\n    resultString = createCustomersWithInfantsString(namesValues);\n  }\n\n  return resultString;\n}\n/**\r\n * Создание строки, содержащей суммарную информацию по дропдауну.\r\n * Формат строки зависит от типа дропдауна\r\n *\r\n * @param namesValues   массив пар имя-значение, из которых составляется строка\r\n * @param dropdownType  тип дропдауна\r\n * @returns {string}    результирующая строка\r\n */\n\n\nfunction createInputText(namesValues, dropdownType) {\n  var result = '';\n  if (areAllValuesZero(namesValues)) return result;\n\n  switch (dropdownType.name) {\n    case typeRooms:\n      {\n        result = createRoomsString(namesValues, dropdownType.isUnified);\n        break;\n      }\n\n    case typeCustomers:\n      {\n        result = createCustomersString(namesValues, dropdownType.isUnified);\n        break;\n      }\n\n    default:\n      {\n        var sum = namesValues.reduce(function (accumulator, nameValue) {\n          return accumulator + parseInt(nameValue.value, 10);\n        }, 0);\n        result += \"\".concat(sum, \" \\u0447\\u0435\\u0433\\u043E-\\u0442\\u043E\");\n        break;\n      }\n  }\n\n  return result;\n}\n\nfunction changeInputText($listWrapper, namesValues, input) {\n  var $list = $listWrapper.find('.dropdown__list');\n  var dropdownType = getDropdownType($list);\n  var newInputText = createInputText(namesValues, dropdownType);\n  $(input).val(newInputText);\n}\n/**\r\n * Поэлементное сравнение двух массивов имя-значение по значениям.\r\n * @param namesValues1  первый массив\r\n * @param namesValues2  второй массив\r\n * @returns {boolean}   одинаковы ли они\r\n */\n\n\nfunction areValuesEqual(namesValues1, namesValues2) {\n  return !(namesValues2 === null || namesValues2 === void 0 ? void 0 : namesValues2.some(function (nameValue, index) {\n    return (namesValues1 === null || namesValues1 === void 0 ? void 0 : namesValues1[index].value) !== nameValue.value;\n  }));\n}\n\nfunction manageControlsVisibility(_ref) {\n  var oldNamesValues = _ref.oldNamesValues,\n      namesValues = _ref.namesValues,\n      $clearButton = _ref.$clearButton,\n      $confirmButton = _ref.$confirmButton,\n      $buttonsContainer = _ref.$buttonsContainer,\n      areControlsEnabled = _ref.areControlsEnabled,\n      areValuesConfirmed = _ref.areValuesConfirmed;\n  var clearVisibleClass = 'dropdown__clear-button_visible';\n  var confirmVisibleClass = 'dropdown__confirm-button_visible';\n  var containerVisibleClass = 'dropdown__buttons-container_visible';\n  var areEmpty = areAllValuesZero(namesValues);\n\n  if (areEmpty) {\n    $clearButton.removeClass(clearVisibleClass);\n  } else {\n    $clearButton.addClass(clearVisibleClass);\n  }\n\n  var areEqual = areValuesEqual(namesValues, oldNamesValues);\n\n  if (areEqual && areValuesConfirmed) {\n    $confirmButton.removeClass(confirmVisibleClass);\n  } else {\n    $confirmButton.addClass(confirmVisibleClass);\n  }\n\n  var hasClearVisibleClass = $clearButton.hasClass(clearVisibleClass);\n  var hasConfirmVisibleClass = $confirmButton.hasClass(confirmVisibleClass);\n  var areSomeControlsVisible = hasClearVisibleClass || hasConfirmVisibleClass;\n\n  if (areSomeControlsVisible && areControlsEnabled) {\n    $buttonsContainer.addClass(containerVisibleClass);\n  } else {\n    $buttonsContainer.removeClass(containerVisibleClass);\n  }\n}\n\nfunction setSpinnerValues(namesValuesToSet, namesValuesToChange, $spinners, options) {\n  $spinners.each(function (i) {\n    var $currentSpinner = $($spinners[i]);\n\n    if (options.includes('array')) {\n      namesValuesToChange[i].value = namesValuesToSet[i].value;\n      $currentSpinner.spinner('value', namesValuesToSet[i].value);\n      (0, _spinner.disableButtonsAtExtremum)($currentSpinner, namesValuesToSet[i].value);\n    }\n\n    if (options.includes('value')) {\n      namesValuesToChange[i].value = namesValuesToSet;\n      $currentSpinner.spinner('value', namesValuesToSet);\n      (0, _spinner.disableButtonsAtExtremum)($currentSpinner, namesValuesToSet);\n    }\n  });\n}\n\nfunction clearSpinnersValues(namesValues, spinners) {\n  setSpinnerValues(0, namesValues, spinners, ['value']);\n}\n\nfunction dropdownOnChange(_ref2) {\n  var oldNamesValues = _ref2.oldNamesValues,\n      namesValues = _ref2.namesValues,\n      $spinners = _ref2.$spinners,\n      $clearButton = _ref2.$clearButton,\n      $confirmButton = _ref2.$confirmButton,\n      $buttonsContainer = _ref2.$buttonsContainer,\n      $listWrapper = _ref2.$listWrapper,\n      $input = _ref2.$input,\n      areControlsEnabled = _ref2.areControlsEnabled,\n      areValuesConfirmed = _ref2.areValuesConfirmed;\n  setSpinnerValues(oldNamesValues, namesValues, $spinners, ['array']);\n  manageControlsVisibility({\n    oldNamesValues: oldNamesValues,\n    namesValues: namesValues,\n    $clearButton: $clearButton,\n    $confirmButton: $confirmButton,\n    $buttonsContainer: $buttonsContainer,\n    areControlsEnabled: areControlsEnabled,\n    areValuesConfirmed: areValuesConfirmed\n  });\n  changeInputText($listWrapper, namesValues, $input);\n}\n\nfunction getInitialNamesValues($spinnerElements) {\n  var result = [];\n\n  function getNameValueFromSpinner() {\n    var $spinnerElement = $(this);\n    result.push({\n      name: $spinnerElement.attr('data-name'),\n      value: parseInt($spinnerElement.attr('value') ? $spinnerElement.attr('value') : 0, 10)\n    });\n  }\n\n  $spinnerElements.each(getNameValueFromSpinner);\n  return result;\n}\n\nvar dropdownVisibleClass = 'dropdown__list-wrapper_visible';\n\nfunction initDropdown(index, rootElement) {\n  var $inputWrapper = $(rootElement); // чтобы не инициализировать повторно\n\n  var isInitialisedKey = 'isInitialised';\n  if ($inputWrapper.data(isInitialisedKey)) return;\n  $inputWrapper.data(isInitialisedKey, true);\n  var $listWrapper = $inputWrapper.children('.dropdown__list-wrapper');\n  var $inputControl = $inputWrapper.find('.dropdown__input .input__control');\n  var $spinners = $inputWrapper.find('.spinner__value');\n  var $buttonsContainer = $inputWrapper.find('.dropdown__buttons-container');\n  var $clearButton = $inputWrapper.find('.dropdown__clear-button');\n  var $confirmButton = $inputWrapper.find('.dropdown__confirm-button');\n  var areValuesConfirmed = !$inputWrapper.hasClass('dropdown_unaccepted');\n  var isOpened = $inputWrapper.hasClass('dropdown_opened');\n\n  if (isOpened) {\n    $listWrapper.toggle('fade');\n    $listWrapper.toggleClass(dropdownVisibleClass);\n  }\n\n  var areControlsEnabled = !$inputWrapper.hasClass('dropdown_pure');\n  var namesValues = getInitialNamesValues($spinners);\n  var oldNamesValues = getInitialNamesValues($spinners);\n  changeInputText($listWrapper, namesValues, $inputControl);\n  manageControlsVisibility({\n    oldNamesValues: oldNamesValues,\n    namesValues: namesValues,\n    $clearButton: $clearButton,\n    $confirmButton: $confirmButton,\n    $buttonsContainer: $buttonsContainer,\n    areControlsEnabled: areControlsEnabled,\n    areValuesConfirmed: areValuesConfirmed\n  });\n\n  function handleClearButtonClick() {\n    clearSpinnersValues(namesValues, $spinners);\n    manageControlsVisibility({\n      oldNamesValues: oldNamesValues,\n      namesValues: namesValues,\n      $clearButton: $clearButton,\n      $confirmButton: $confirmButton,\n      $buttonsContainer: $buttonsContainer,\n      areControlsEnabled: areControlsEnabled,\n      areValuesConfirmed: areValuesConfirmed\n    });\n    changeInputText($listWrapper, namesValues, $inputControl);\n  }\n\n  $clearButton.click(handleClearButtonClick);\n\n  function handleConfirmButtonClick() {\n    if (!isOpened) {\n      $inputControl.removeClass('input__focused_control');\n      $listWrapper.toggle('fade');\n      $listWrapper.toggleClass(dropdownVisibleClass);\n    }\n\n    areValuesConfirmed = true;\n    oldNamesValues = getCurrentNamesValues($spinners);\n    manageControlsVisibility({\n      oldNamesValues: oldNamesValues,\n      namesValues: namesValues,\n      $clearButton: $clearButton,\n      $confirmButton: $confirmButton,\n      $buttonsContainer: $buttonsContainer,\n      areControlsEnabled: areControlsEnabled,\n      areValuesConfirmed: areValuesConfirmed\n    });\n  }\n\n  $confirmButton.click(handleConfirmButtonClick); // on spin\n\n  $spinners.each(function (i) {\n    var $spinner = $($spinners[i]);\n\n    function handleSpin(event, ui) {\n      namesValues[$spinner.attr('data-index')].value = ui.value;\n      changeInputText($listWrapper, namesValues, $inputControl);\n      manageControlsVisibility({\n        oldNamesValues: oldNamesValues,\n        namesValues: namesValues,\n        $clearButton: $clearButton,\n        $confirmButton: $confirmButton,\n        $buttonsContainer: $buttonsContainer,\n        areControlsEnabled: areControlsEnabled,\n        areValuesConfirmed: areValuesConfirmed\n      });\n    }\n\n    $spinner.on('spin', handleSpin);\n  });\n  $listWrapper.position({\n    my: 'center',\n    at: 'center',\n    of: $inputControl\n  });\n  var clickedElement;\n  $(document).click(function (event) {\n    clickedElement = $(event.target); // если клик происходит не в дропдауне\n\n    if (!$.contains($inputWrapper.get(0), clickedElement.get(0))) {\n      // и дропдаун отображается\n      if ($listWrapper.hasClass(dropdownVisibleClass)) {\n        if (!isOpened) {\n          $listWrapper.toggle('fade');\n          $listWrapper.toggleClass(dropdownVisibleClass);\n          $inputControl.removeClass('input_focused__control');\n        }\n\n        setSpinnerValues(oldNamesValues, namesValues, $spinners, ['array']);\n        manageControlsVisibility({\n          oldNamesValues: oldNamesValues,\n          namesValues: namesValues,\n          $clearButton: $clearButton,\n          $confirmButton: $confirmButton,\n          $buttonsContainer: $buttonsContainer,\n          areControlsEnabled: areControlsEnabled,\n          areValuesConfirmed: areValuesConfirmed\n        });\n        changeInputText($listWrapper, namesValues, $inputControl);\n      }\n    }\n  });\n  $inputControl.click(function () {\n    if (!isOpened) {\n      $inputControl.toggleClass('input_focused__control');\n      $listWrapper.toggle('fade');\n      $listWrapper.toggleClass(dropdownVisibleClass);\n    }\n\n    if (!$listWrapper.hasClass(dropdownVisibleClass)) {\n      dropdownOnChange({\n        oldNamesValues: oldNamesValues,\n        namesValues: namesValues,\n        $spinners: $spinners,\n        $clearButton: $clearButton,\n        $confirmButton: $confirmButton,\n        $buttonsContainer: $buttonsContainer,\n        $listWrapper: $listWrapper,\n        $inputControl: $inputControl,\n        areControlsEnabled: areControlsEnabled,\n        areValuesConfirmed: areValuesConfirmed\n      });\n    }\n  });\n}\n\nfunction initDropdowns() {\n  var $dropdowns = $('.dropdown');\n  $dropdowns.each(initDropdown);\n}\n\nvar _default = initDropdowns;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/dropdown/dropdown.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/dropdown/dropdown.scss":
+/*!*******************************************!*\
+  !*** ./src/blocks/dropdown/dropdown.scss ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/dropdown/dropdown.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/dropdown/init.js":
+/*!*************************************!*\
+  !*** ./src/blocks/dropdown/init.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _dropdown = _interopRequireDefault(__webpack_require__(/*! ./dropdown */ \"./src/blocks/dropdown/dropdown.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n(0, _dropdown[\"default\"])();\n\n//# sourceURL=webpack:///./src/blocks/dropdown/init.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/features-list/features-list.scss":
+/*!*****************************************************!*\
+  !*** ./src/blocks/features-list/features-list.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/features-list/features-list.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/input/init.js":
+/*!**********************************!*\
+  !*** ./src/blocks/input/init.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _input = _interopRequireDefault(__webpack_require__(/*! ./input */ \"./src/blocks/input/input.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n(0, _input[\"default\"])();\n\n//# sourceURL=webpack:///./src/blocks/input/init.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/input/input.js":
+/*!***********************************!*\
+  !*** ./src/blocks/input/input.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\n__webpack_require__(/*! jquery.maskedinput/src/jquery.maskedinput */ \"./node_modules/jquery.maskedinput/src/jquery.maskedinput.js\");\n\n/* eslint-disable no-undef */\n// jquery объявлена глобально вебпаком\n// region Masked\nfunction initMaskedInputs() {\n  var $document = $(document);\n  $document.ready(function ($) {\n    $.mask.definitions.D = '[0-3]';\n    $.mask.definitions.M = '[0-1]';\n    $.mask.definitions.Y = '[1-2]';\n    var $maskedInput = $('.input_type_masked__control');\n    var placeholder = $maskedInput.attr('placeholder');\n    $maskedInput.mask('D9.M9.Y999', {\n      placeholder: placeholder,\n      autoclear: false\n    });\n  });\n} // endregion\n\n\nvar _default = initMaskedInputs;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/input/input.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/input/input.scss":
+/*!*************************************!*\
+  !*** ./src/blocks/input/input.scss ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/input/input.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/list/init.js":
+/*!*********************************!*\
+  !*** ./src/blocks/list/init.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _list = _interopRequireDefault(__webpack_require__(/*! ./list */ \"./src/blocks/list/list.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n(0, _list[\"default\"])();\n\n//# sourceURL=webpack:///./src/blocks/list/init.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/list/list.js":
+/*!*********************************!*\
+  !*** ./src/blocks/list/list.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\n__webpack_require__(/*! jquery-ui/ui/effects/effect-fade */ \"./node_modules/jquery-ui/ui/effects/effect-fade.js\");\n\n/* eslint-disable no-undef */\n// jquery объявлена глобально вебпаком\n// region Expandable\nfunction initExpandableList(index, element) {\n  var $expandableList = $(element);\n  if ($expandableList.data('isInitialized')) return;\n  $expandableList.data('isInitialized', true);\n  var $expandableTitle = $($expandableList.find('.list_expandable__title')[0]);\n  var $expandableContainer = $($expandableList.find('.list_expandable__container')[0]);\n  var isOpened = $expandableList.hasClass('list_expandable-opened');\n\n  function handleExpandableTitleClick() {\n    $expandableList.toggleClass('list_expanded__expand-arrow');\n    $expandableContainer.toggle('fade', [], 200);\n    $expandableContainer.toggleClass('list_visible__container');\n  }\n\n  $expandableTitle.click(handleExpandableTitleClick);\n  if (isOpened) $($expandableContainer).toggle('fade', [], 200);\n}\n\nfunction initExpandableLists() {\n  var $expandableLists = $('.list_expandable');\n  $expandableLists.each(initExpandableList);\n} // endregion\n\n\nvar _default = initExpandableLists;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/list/list.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/list/list.scss":
+/*!***********************************!*\
+  !*** ./src/blocks/list/list.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/list/list.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/pagination/init.js":
+/*!***************************************!*\
+  !*** ./src/blocks/pagination/init.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _pagination = _interopRequireDefault(__webpack_require__(/*! ./pagination */ \"./src/blocks/pagination/pagination.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n(0, _pagination[\"default\"])();\n\n//# sourceURL=webpack:///./src/blocks/pagination/init.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/pagination/pagination.js":
+/*!*********************************************!*\
+  !*** ./src/blocks/pagination/pagination.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\n__webpack_require__(/*! paginationjs */ \"./node_modules/paginationjs/dist/pagination.js\");\n\n/* eslint-disable no-undef */\n// jquery объявлена глобально вебпаком\nfunction getPaginationContent($contentContainer) {\n  var HTMLContent = [];\n\n  function addHTMLContentToArray() {\n    HTMLContent.push($(this).outerHTML());\n  }\n\n  $contentContainer.children().each(addHTMLContentToArray);\n  return HTMLContent;\n}\n\nfunction initPagination() {\n  var $paginationBlock = $(this);\n  var $paginationContent = $paginationBlock.children('.pagination__content-container');\n  var $paginationButtons = $paginationBlock.children('.pagination__buttons-container');\n  var pageSize = $paginationBlock.attr('data-page-size');\n  var contentHTMLArray = getPaginationContent($paginationContent);\n  var $paginationContainer = $('.pagination__content-container');\n  $paginationButtons.pagination({\n    dataSource: contentHTMLArray,\n    prevText: 'arrow_back',\n    nextText: 'arrow_forward',\n    pageSize: pageSize,\n    pageRange: 1,\n    callback: function callback(arrayData) {\n      $paginationContainer.html(arrayData);\n    },\n    showNavigator: true,\n    formatNavigator: function formatNavigator(currentPage, totalPage, totalNumber) {\n      var totalCount = totalNumber.toString();\n\n      if (totalNumber > 100) {\n        totalCount = '100+';\n      } // так в макете\n\n\n      var startCount = 1;\n\n      if (currentPage > 1) {\n        startCount = (currentPage - 1) * pageSize + 1;\n      }\n\n      var endCount = pageSize * currentPage;\n\n      if (endCount > totalNumber) {\n        endCount = totalNumber;\n      }\n\n      return '<span class=\\'text_type_regular\\'>' + \" \".concat(startCount, \" \\u2013 \").concat(endCount, \" \\u0438\\u0437 \").concat(totalCount, \" \\u0432\\u0430\\u0440\\u0438\\u0430\\u043D\\u0442\\u043E\\u0432 \\u0430\\u0440\\u0435\\u043D\\u0434\\u044B</span>\");\n    }\n  });\n}\n\nfunction initPaginations() {\n  var $paginations = $('.pagination');\n  $paginations.each(initPagination);\n}\n\nvar _default = initPaginations;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/pagination/pagination.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/pagination/pagination.scss":
+/*!***********************************************!*\
+  !*** ./src/blocks/pagination/pagination.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/pagination/pagination.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/rate-button/init.js":
+/*!****************************************!*\
+  !*** ./src/blocks/rate-button/init.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _rateButton = _interopRequireDefault(__webpack_require__(/*! ./rate-button */ \"./src/blocks/rate-button/rate-button.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n(0, _rateButton[\"default\"])();\n\n//# sourceURL=webpack:///./src/blocks/rate-button/init.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/rate-button/rate-button.js":
+/*!***********************************************!*\
+  !*** ./src/blocks/rate-button/rate-button.js ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\n/* eslint-disable no-undef */\n// jquery объявлен вебпаком\nvar states = {\n  1: 'star_border',\n  2: 'star_half',\n  3: 'star'\n};\n\nfunction setState($star, stateIndex) {\n  $star.text(states[stateIndex]);\n}\n\nfunction setRatingVisual($ratingButton, numericRating) {\n  var wholePart = Math.floor(numericRating);\n  var fraction = numericRating - wholePart;\n\n  function setRateStarState(index) {\n    var stateIndex; // 3 - full, 2 - half, 1 - empty\n\n    if (index + 1 <= wholePart) {\n      stateIndex = 3;\n    } else if (fraction > 0 && index === wholePart) {\n      stateIndex = 2;\n    } else {\n      stateIndex = 1;\n    }\n\n    setState($(this), stateIndex);\n  }\n\n  $ratingButton.children('.rate-button__star').each(setRateStarState);\n}\n\nfunction initRateButton(index, element) {\n  var $rating = $(element);\n  var maxRating = $rating.attr('data-maxRating');\n  var specifiedRating = $rating.attr('data-rating');\n  var rating;\n\n  if (specifiedRating === '-1') {\n    rating = Math.random() * maxRating;\n  } else {\n    rating = specifiedRating;\n  }\n\n  setRatingVisual($rating, rating);\n}\n\nfunction initRateButtons() {\n  var $rateButtons = $('.rate-button');\n  $rateButtons.each(initRateButton);\n}\n\nvar _default = initRateButtons;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/rate-button/rate-button.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/rate-button/rate-button.scss":
+/*!*************************************************!*\
+  !*** ./src/blocks/rate-button/rate-button.scss ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/rate-button/rate-button.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/slider/init.js":
+/*!***********************************!*\
+  !*** ./src/blocks/slider/init.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _slider = _interopRequireDefault(__webpack_require__(/*! ./slider */ \"./src/blocks/slider/slider.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n(0, _slider[\"default\"])();\n\n//# sourceURL=webpack:///./src/blocks/slider/init.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/slider/slider.js":
+/*!*************************************!*\
+  !*** ./src/blocks/slider/slider.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\n__webpack_require__(/*! jquery-ui/ui/widgets/slider */ \"./node_modules/jquery-ui/ui/widgets/slider.js\");\n\n__webpack_require__(/*! jquery-ui/themes/base/slider.css */ \"./node_modules/jquery-ui/themes/base/slider.css\");\n\nvar _functions = __webpack_require__(/*! ../../common/functions */ \"./src/common/functions.js\");\n\n/* eslint-disable no-undef */\n// jquery объявлена вебпаком\nfunction sliderHandlerValueChange(event, ui) {\n  $(ui.handle).attr('sliderHandleValue', ui.value);\n} // region range slider\n\n\nfunction sliderValuesChange(event, ui) {\n  $(ui.handle).closest('.slider').find('.slider__value').text(\"\".concat((0, _functions.formatNumber)(ui.values[0], ' '), \"\\u20BD - \").concat((0, _functions.formatNumber)(ui.values[1], ' '), \"\\u20BD\"));\n} // endregion\n// region single slider\n\n\nfunction sliderValueChange(event, ui) {\n  $(ui.handle).closest('.slider').find('.slider__value').text(\"\".concat((0, _functions.formatNumber)(ui.value, ' '), \"\\u20BD\"));\n} // ищем слайдер, но не с диапазоном, а только одиночным значением\n\n\nfunction initSlider() {\n  var $slider = $(this);\n  var minimalValue = Number($slider.attr('data-min'));\n  var maximumValue = Number($slider.attr('data-max'));\n  var step = Number($slider.attr('data-step'));\n  var isRange = $slider.hasClass('slider__control_range');\n  $slider.slider({\n    min: minimalValue,\n    max: maximumValue,\n    step: step,\n    range: isRange,\n    animate: 'fast',\n    change: isRange ? sliderValuesChange : sliderValueChange,\n    slide: sliderHandlerValueChange\n  });\n  var initialValues = [(0, _functions.clamp)($slider.attr('data-firstValue'), minimalValue, maximumValue)];\n\n  if (isRange) {\n    var secondValue = $slider.attr('data-secondValue');\n    initialValues.push((0, _functions.clamp)(secondValue, minimalValue, maximumValue));\n    $slider.slider('values', initialValues);\n    $slider.children('.ui-slider-handle').first().attr('sliderHandleValue', initialValues[0]);\n    $slider.children('.ui-slider-handle').last().attr('sliderHandleValue', initialValues[1]);\n  } else {\n    $slider.slider('value', initialValues[0]);\n    $slider.children('.ui-slider-handle').first().attr('sliderHandleValue', initialValues[0]);\n  }\n} // endregion\n\n\nfunction initSliders() {\n  var $sliders = $('.slider__control');\n  $sliders.each(initSlider);\n}\n\nvar _default = initSliders;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/slider/slider.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/slider/slider.scss":
+/*!***************************************!*\
+  !*** ./src/blocks/slider/slider.scss ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/slider/slider.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/spinner/spinner.js":
+/*!***************************************!*\
+  !*** ./src/blocks/spinner/spinner.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.disableButtonsAtExtremum = disableButtonsAtExtremum;\nexports.increaseButtonClasses = exports.decreaseButtonClasses = void 0;\n\n__webpack_require__(/*! jquery-ui/ui/widgets/spinner */ \"./node_modules/jquery-ui/ui/widgets/spinner.js\");\n\n/* eslint-disable no-undef,no-underscore-dangle */\n// jquery импортирована вебпаком, функции с подчеркиванием - часть плагина\nvar decreaseButtonClasses = 'spinner__decrease spinner__button ui-spinner-button ui-spinner-down';\nexports.decreaseButtonClasses = decreaseButtonClasses;\nvar increaseButtonClasses = 'spinner__increase spinner__button ui-spinner-button ui-spinner-up'; // морф, чтобы кнопки были по бокам\n\nexports.increaseButtonClasses = increaseButtonClasses;\n$.widget('ui.spinner', $.ui.spinner, {\n  _enhance: function _enhance() {\n    this.uiSpinner = this.element.attr('autocomplete', 'off').wrap(this._uiSpinnerHtml()).parent() // Add buttons\n    .prepend(this._buttonHtml()[0]).append(this._buttonHtml()[1]);\n  },\n  _buttonHtml: function _buttonHtml() {\n    return [\"<button class=\\\"\".concat(decreaseButtonClasses, \"\\\">-</button>\"), \"<button class=\\\"\".concat(increaseButtonClasses, \"\\\">+</button>\")];\n  },\n  // обёртка своя есть\n  _uiSpinnerHtml: function _uiSpinnerHtml() {\n    return '';\n  }\n});\n\nfunction disableButtonsAtExtremum($spinner, currentValue) {\n  var disabledButtonClass = 'spinner__button_disabled';\n  var min = $spinner.attr('data-min');\n  var max = $spinner.attr('data-max');\n  var $decreaseButton = $spinner.siblings('.spinner__decrease');\n  var $increaseButton = $spinner.siblings('.spinner__increase');\n\n  if (currentValue <= min) {\n    $decreaseButton.addClass(disabledButtonClass);\n  } else {\n    $decreaseButton.removeClass(disabledButtonClass);\n  }\n\n  if (currentValue >= max) {\n    $increaseButton.addClass(disabledButtonClass);\n  } else {\n    $increaseButton.removeClass(disabledButtonClass);\n  }\n}\n\nvar $allSpinners = $('.spinner');\n\nfunction findSpinnersAndPassData(whereToSearch) {\n  var $spinners = whereToSearch ? $(whereToSearch).find('.spinner__value') : $('.spinner__value');\n  $spinners.spinner({\n    min: $spinners.attr('data-min'),\n    max: $spinners.attr('data-max')\n  });\n  return $spinners;\n}\n\nfunction initSpinner() {\n  var $spinner = $(this);\n  var spinnerValue = $spinner.attr('value');\n  disableButtonsAtExtremum($spinner, spinnerValue);\n\n  function handleOnSpin(event, ui) {\n    disableButtonsAtExtremum($spinner, ui.value);\n  }\n\n  $spinner.on('spin', handleOnSpin);\n}\n\nfunction findAndInitSpinners() {\n  var $spinners = findSpinnersAndPassData(this);\n  $spinners.each(initSpinner);\n}\n\n$allSpinners.each(findAndInitSpinners);\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/spinner/spinner.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/spinner/spinner.scss":
+/*!*****************************************!*\
+  !*** ./src/blocks/spinner/spinner.scss ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/spinner/spinner.scss?");
+
+/***/ }),
+
+/***/ "./src/blocks/two-calendar-range-picker/init.js":
+/*!******************************************************!*\
+  !*** ./src/blocks/two-calendar-range-picker/init.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _twoCalendarRangePicker = __webpack_require__(/*! ./two-calendar-range-picker */ \"./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js\");\n\n(0, _twoCalendarRangePicker.initTwoCalendarPickers)();\n\n//# sourceURL=webpack:///./src/blocks/two-calendar-range-picker/init.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js":
+/*!***************************************************************************!*\
+  !*** ./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.setInitialDates = setInitialDates;\nexports.initTwoCalendarPickers = initTwoCalendarPickers;\n\nvar _datepickerBlock = __webpack_require__(/*! ../datepicker-block/datepicker-block */ \"./src/blocks/datepicker-block/datepicker-block.js\");\n\n/* eslint-disable no-undef */\n// jquery подключена вебпаком\nvar isSecondAssignStarted = false;\n\nfunction handleOnSelect(formattedDate, datepicker, otherDatepicker, input, otherInput, number) {\n  if (isSecondAssignStarted) return;\n  var otherNumber = 1 - number;\n  var newDates = datepicker.selectedDates;\n  var options = {\n    year: 'numeric',\n    month: 'numeric',\n    day: 'numeric'\n  }; // если дат в пикере больше одной, то перезаписываем данные в инпуте,\n  // если одна - оставляем дефолтное поведение\n  // иначе второй пикер будет очищать оба при фокусе на нём\n\n  if (datepicker.selectedDates.length > 1) {\n    $(input).val(newDates[number].toLocaleDateString('ru-RU', options));\n  } else {\n    datepicker.update({\n      dateFormat: ''\n    });\n    otherDatepicker.update({\n      dateFormat: 'ДД.ММ.ГГГГ'\n    });\n  }\n\n  isSecondAssignStarted = true;\n  otherDatepicker.clear();\n  otherDatepicker.selectDate(datepicker.selectedDates);\n  isSecondAssignStarted = false;\n\n  if (datepicker.selectedDates.length > 1) {\n    $(otherInput).val(newDates[otherNumber].toLocaleDateString('ru-RU', options));\n  } // вызов ивента вручную, поскольку автоматически этого не происходит\n  // (отслеживание изменения инпута используется в booking-card)\n\n\n  $(input).change();\n}\n\nfunction datepickerAddOnSelect(datepicker, otherDatepicker, input, otherInput, number) {\n  datepicker.update({\n    onSelect: function onSelect(formattedDate) {\n      handleOnSelect(formattedDate, datepicker, otherDatepicker, input, otherInput, number);\n    }\n  });\n}\n\nfunction getInitDates($rangePicker) {\n  var dates = {};\n\n  if ($rangePicker.attr('data-firstdate')) {\n    dates.firstDate = (0, _datepickerBlock.parseAttrToDate)($rangePicker.attr('data-firstdate'));\n  }\n\n  if ($rangePicker.attr('data-seconddate')) {\n    dates.secondDate = (0, _datepickerBlock.parseAttrToDate)($rangePicker.attr('data-seconddate'));\n  }\n\n  return dates;\n}\n\nfunction setInitialDates($rangePicker, $input) {\n  var initDates = getInitDates($rangePicker);\n  (0, _datepickerBlock.setDates)($input, Object.values(initDates));\n}\n\nfunction safeDatepickerInit($datepicker, $datepickerControl) {\n  if (!$datepickerControl.data('datepicker')) {\n    $datepicker.each(_datepickerBlock.initDatepickerInput);\n    return $datepickerControl.data('datepicker');\n  }\n\n  return $datepickerControl.data('datepicker');\n} // index, поскольку вызов может происходить и через each от jQuery\n\n\nfunction initTwoCalendarPicker(index, element) {\n  var $twoCalendarRange = $(element);\n  var $firstInput = $($twoCalendarRange.find('.two-calendar-range-picker__first-datepicker > .datepicker-block')[0]);\n  var $firstInputControl = $($firstInput.find('.datepicker-block__input-wrap .input__control')[0]);\n  var firstDatepicker = safeDatepickerInit($firstInput, $firstInputControl);\n  var $secondInput = $($twoCalendarRange.find('.two-calendar-range-picker__second-datepicker > .datepicker-block')[0]);\n  var $secondInputControl = $($secondInput.find('.datepicker-block__input-wrap .input__control')[0]);\n  var secondDatepicker = safeDatepickerInit($secondInput, $secondInputControl);\n  if (!(firstDatepicker && secondDatepicker)) return;\n  firstDatepicker.update({\n    position: 'bottom left'\n  });\n  secondDatepicker.update({\n    position: 'bottom right'\n  });\n  datepickerAddOnSelect(firstDatepicker, secondDatepicker, $firstInputControl, $secondInputControl, 0);\n  datepickerAddOnSelect(secondDatepicker, firstDatepicker, $secondInputControl, $firstInputControl, 1);\n  var initDates = getInitDates($twoCalendarRange);\n\n  if (initDates.firstDate) {\n    firstDatepicker.selectDate(initDates.firstDate);\n  }\n\n  if (initDates.secondDate) {\n    secondDatepicker.selectDate(initDates.secondDate);\n  }\n}\n\nfunction initTwoCalendarPickers() {\n  var $twoCalendarPickers = $('.two-calendar-range-picker');\n  $twoCalendarPickers.each(initTwoCalendarPicker);\n}\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js?");
+
+/***/ }),
+
+/***/ "./src/blocks/two-calendar-range-picker/two-calendar-range-picker.scss":
+/*!*****************************************************************************!*\
+  !*** ./src/blocks/two-calendar-range-picker/two-calendar-range-picker.scss ***!
+  \*****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/blocks/two-calendar-range-picker/two-calendar-range-picker.scss?");
+
+/***/ }),
+
+/***/ "./src/cards sync recursive \\.(js|scss)$":
+/*!*************************************!*\
+  !*** ./src/cards sync \.(js|scss)$ ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./booking-card/booking-card.js\": \"./src/cards/booking-card/booking-card.js\",\n\t\"./booking-card/booking-card.scss\": \"./src/cards/booking-card/booking-card.scss\",\n\t\"./booking-card/init.js\": \"./src/cards/booking-card/init.js\",\n\t\"./find-room-card/find-room-card.scss\": \"./src/cards/find-room-card/find-room-card.scss\",\n\t\"./login-card/login-card.js\": \"./src/cards/login-card/login-card.js\",\n\t\"./login-card/login-card.scss\": \"./src/cards/login-card/login-card.scss\",\n\t\"./registration-card/registration-card.scss\": \"./src/cards/registration-card/registration-card.scss\",\n\t\"./room-preview-card/room-preview-card.js\": \"./src/cards/room-preview-card/room-preview-card.js\",\n\t\"./room-preview-card/room-preview-card.scss\": \"./src/cards/room-preview-card/room-preview-card.scss\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/cards sync recursive \\\\.(js|scss)$\";\n\n//# sourceURL=webpack:///./src/cards_sync_\\.(js%7Cscss)$?");
+
+/***/ }),
+
+/***/ "./src/cards/booking-card/booking-card.js":
+/*!************************************************!*\
+  !*** ./src/cards/booking-card/booking-card.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\nvar _twoCalendarRangePicker = __webpack_require__(/*! ../../blocks/two-calendar-range-picker/two-calendar-range-picker */ \"./src/blocks/two-calendar-range-picker/two-calendar-range-picker.js\");\n\nvar _functions = __webpack_require__(/*! ../../common/functions */ \"./src/common/functions.js\");\n\n/* eslint-disable no-undef */\n// jquery объявлена вебпаком\nfunction getTotalCost(priceData) {\n  var totalCost = Number.parseFloat(priceData.stayingSum) + Number.parseFloat(priceData.servicesSum) + Number.parseFloat(priceData.addServicesSum);\n  return totalCost > 0 ? totalCost : 0;\n}\n\nfunction writeTotalCost($totalCostSpan, priceData) {\n  var totalBookingCost = getTotalCost(priceData);\n  var formattedTotalBookingCost = (0, _functions.formatNumber)(totalBookingCost, ' ');\n  $totalCostSpan.text(\"\".concat(formattedTotalBookingCost).concat(priceData.currency));\n}\n\nfunction writeFormattedDailyPrice($dailyPriceSpan, priceToShow, currency) {\n  $dailyPriceSpan.text(\"\".concat(priceToShow).concat(currency));\n}\n\nfunction getDaysFromDateRange(dateRange) {\n  if (dateRange[0] && dateRange[1]) {\n    return Math.round((dateRange[1] - dateRange[0]) / (24 * 60 * 60 * 1000));\n  }\n\n  return 0;\n}\n\nfunction writeStayingCostsToSpans($calculatingStayingCostSpan, $stayingSumSpan, priceData, daysCount) {\n  var declinedPeriod = (0, _functions.ruDeclination)(daysCount, 'сут|ки|ок|ок');\n  $calculatingStayingCostSpan.text(\"\".concat(priceData.priceToShow).concat(priceData.currency) + \" \\u0445 \".concat(daysCount, \" \").concat(declinedPeriod));\n  priceData.stayingSum = priceData.price * daysCount;\n  var sumToPrint = (0, _functions.formatNumber)(priceData.stayingSum, ' ');\n  $stayingSumSpan.text(\"\".concat(sumToPrint).concat(priceData.currency));\n}\n\nfunction getOverallServicesData($servicesEnumSpan, $servicesSumSpan, priceData) {\n  var servicesData = $servicesEnumSpan.attr('data-services');\n  var services = JSON.parse(servicesData);\n  var overallServicesCost = 0;\n  var servicesString = 'Сбор за услуги: ';\n  services.forEach(function (service) {\n    overallServicesCost += service.cost;\n    servicesString += \"\".concat(service.name, \" \") + \"\".concat((0, _functions.formatNumber)(Math.abs(service.cost), ' ')) + \"\".concat(priceData.currency, \", \");\n  });\n  servicesString = servicesString.substring(0, servicesString.length - 2);\n  priceData.servicesSum = overallServicesCost;\n  overallServicesCost = overallServicesCost > 0 ? overallServicesCost : 0;\n  return {\n    text: servicesString,\n    sum: overallServicesCost\n  };\n}\n\nfunction writeServicesToSpans($servicesEnumSpan, $servicesSumSpan, currency, servicesData) {\n  $servicesEnumSpan.text(servicesData.text);\n  $servicesSumSpan.text(\"\".concat(servicesData.sum).concat(currency));\n}\n\nfunction addRefreshCheckOnInputChange($firstDatePicker, $secondDatePicker, $stayingCostRow, $totalCostSpan, priceData) {\n  function refreshCheckValuesOnDateChange(event) {\n    var $calculatingStayingCostSpan = $stayingCostRow.children('.booking-card__staying-cost-calculation');\n    var $stayingSumSpan = $stayingCostRow.children('.booking-card__staying-cost-sum');\n    var datePickerData = $(event.target).data('datepicker');\n    var daysCount = getDaysFromDateRange(datePickerData.selectedDates);\n    writeStayingCostsToSpans($calculatingStayingCostSpan, $stayingSumSpan, priceData, daysCount);\n    writeTotalCost($totalCostSpan, priceData);\n  }\n\n  $firstDatePicker.change(refreshCheckValuesOnDateChange);\n  $secondDatePicker.change(refreshCheckValuesOnDateChange);\n}\n\nfunction initBookingCard() {\n  var $bookingCard = $(this);\n  var $dailyPrice = $bookingCard.find('.booking-card__daily-price');\n  var priceAmount = $dailyPrice.attr('data-dailyPrice');\n  var currency = $dailyPrice.attr('data-currency');\n  var priceToShow = (0, _functions.formatNumber)(priceAmount, ' ');\n  writeFormattedDailyPrice($dailyPrice, priceToShow, currency);\n  var $rangePicker = $bookingCard.find('.booking-card__range-picker > .two-calendar-range-picker');\n  var $firstDatepicker = $($rangePicker.find('.two-calendar-range-picker__first-datepicker')[0]);\n  var $firstDatepickerControl = $($firstDatepicker.find('.datepicker-block .input__control')[0]);\n  var $secondDatepicker = $($rangePicker.find('.two-calendar-range-picker__second-datepicker')[0]);\n  var $secondDatepickerControl = $($secondDatepicker.find('.datepicker-block .input__control')[0]);\n  var $stayingCostRow = $bookingCard.find('.booking-card__staying-cost-row');\n  var priceData = {\n    price: priceAmount,\n    currency: currency,\n    priceToShow: priceToShow,\n    servicesData: 0,\n    addServicesSum: 0,\n    stayingSum: 0\n  };\n  var $totalCostSpan = $bookingCard.find('.booking-card__summary-total-cost');\n  addRefreshCheckOnInputChange($firstDatepickerControl, $secondDatepickerControl, $stayingCostRow, $totalCostSpan, priceData);\n  (0, _twoCalendarRangePicker.setInitialDates)($rangePicker, $firstDatepickerControl);\n  var $servicesEnumSpan = $bookingCard.find('.booking-card__services');\n  var $servicesSumSpan = $bookingCard.find('.booking-card__services-sum');\n  var servicesData = getOverallServicesData($servicesEnumSpan, $servicesSumSpan, priceData);\n  var $addServicesSumSpan = $bookingCard.find('.booking-card__additional-services-sum');\n  priceData.addServicesSum = $addServicesSumSpan.attr('data-addServices');\n  writeServicesToSpans($servicesEnumSpan, $servicesSumSpan, currency, servicesData);\n  writeTotalCost($totalCostSpan, priceData);\n}\n\nfunction initBookingCards() {\n  var $bookingCards = $('.booking-card');\n  $bookingCards.each(initBookingCard);\n}\n\nvar _default = initBookingCards;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/cards/booking-card/booking-card.js?");
+
+/***/ }),
+
+/***/ "./src/cards/booking-card/booking-card.scss":
+/*!**************************************************!*\
+  !*** ./src/cards/booking-card/booking-card.scss ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/cards/booking-card/booking-card.scss?");
+
+/***/ }),
+
+/***/ "./src/cards/booking-card/init.js":
+/*!****************************************!*\
+  !*** ./src/cards/booking-card/init.js ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nvar _bookingCard = _interopRequireDefault(__webpack_require__(/*! ./booking-card */ \"./src/cards/booking-card/booking-card.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n(0, _bookingCard[\"default\"])();\n\n//# sourceURL=webpack:///./src/cards/booking-card/init.js?");
+
+/***/ }),
+
+/***/ "./src/cards/find-room-card/find-room-card.scss":
+/*!******************************************************!*\
+  !*** ./src/cards/find-room-card/find-room-card.scss ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/cards/find-room-card/find-room-card.scss?");
+
+/***/ }),
+
+/***/ "./src/cards/login-card/login-card.js":
+/*!********************************************!*\
+  !*** ./src/cards/login-card/login-card.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\nvar _checkbox = _interopRequireDefault(__webpack_require__(/*! ../../blocks/checkbox/checkbox */ \"./src/blocks/checkbox/checkbox.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\nfunction initLoginCards() {\n  _checkbox[\"default\"].initToggle();\n\n  _checkbox[\"default\"].initRadio();\n}\n\nvar _default = initLoginCards;\nexports[\"default\"] = _default;\n\n//# sourceURL=webpack:///./src/cards/login-card/login-card.js?");
+
+/***/ }),
+
+/***/ "./src/cards/login-card/login-card.scss":
+/*!**********************************************!*\
+  !*** ./src/cards/login-card/login-card.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/cards/login-card/login-card.scss?");
+
+/***/ }),
+
+/***/ "./src/cards/registration-card/registration-card.scss":
+/*!************************************************************!*\
+  !*** ./src/cards/registration-card/registration-card.scss ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/cards/registration-card/registration-card.scss?");
+
+/***/ }),
+
+/***/ "./src/cards/room-preview-card/room-preview-card.js":
+/*!**********************************************************!*\
+  !*** ./src/cards/room-preview-card/room-preview-card.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports[\"default\"] = void 0;\n\nvar _rateButton = _interopRequireDefault(__webpack_require__(/*! ../../blocks/rate-button/rate-button */ \"./src/blocks/rate-button/rate-button.js\"));\n\nvar _functions = __webpack_require__(/*! ../../common/functions */ \"./src/common/functions.js\");\n\nvar _carousel = _interopRequireDefault(__webpack_require__(/*! ../../blocks/carousel/carousel */ \"./src/blocks/carousel/carousel.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n/* eslint-disable no-undef */\n// jquery подключена вебпаком\nfunction initRoomPreviewCard() {\n  var $this = $(this);\n  var $costPerPeriodSpan = $this.find('.room-preview-card__cost-per-period');\n  var $reviewsCountSpan = $this.find('.room-preview-card__reviews-count');\n  var $reviewsTextSpan = $this.find('.room-preview-card__reviews-text');\n  var cardData = {\n    currency: $this.attr('data-currency'),\n    costPerPeriod: $this.attr('data-cost-per-period'),\n    reviewsCount: $this.attr('data-reviews-count')\n  };\n  var formattedCostPerPeriod = (0, _functions.formatNumber)(cardData.costPerPeriod, ' ');\n  $costPerPeriodSpan.text(formattedCostPerPeriod + cardData.currency);\n  var formattedReviewsCount = (0, _functions.formatNumber)(cardData.reviewsCount, ' ');\n  $reviewsCountSpan.text(formattedReviewsCount);\n  var inclinedReviewsText = (0, _functions.ruDeclination)(cardData.reviewsCount, 'Отзыв||а|ов');\n  $reviewsTextSpan.text(inclinedReviewsText);\n}\n\nfunction initRoomPreviewCards() {\n  var $roomPreviewCard = $('.room-preview-card');\n  $roomPreviewCard.each(initRoomPreviewCard);\n  (0, _rateButton[\"default\"])();\n  (0, _carousel[\"default\"])();\n}\n\nvar _default = initRoomPreviewCards;\nexports[\"default\"] = _default;\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/cards/room-preview-card/room-preview-card.js?");
+
+/***/ }),
+
+/***/ "./src/cards/room-preview-card/room-preview-card.scss":
+/*!************************************************************!*\
+  !*** ./src/cards/room-preview-card/room-preview-card.scss ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/cards/room-preview-card/room-preview-card.scss?");
+
+/***/ }),
+
+/***/ "./src/common sync recursive \\.(js|scss)$":
+/*!**************************************!*\
+  !*** ./src/common sync \.(js|scss)$ ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./fonts.scss\": \"./src/common/fonts.scss\",\n\t\"./functions.js\": \"./src/common/functions.js\",\n\t\"./mixins.scss\": \"./src/common/mixins.scss\",\n\t\"./variables.scss\": \"./src/common/variables.scss\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/common sync recursive \\\\.(js|scss)$\";\n\n//# sourceURL=webpack:///./src/common_sync_\\.(js%7Cscss)$?");
+
+/***/ }),
+
+/***/ "./src/common/fonts.scss":
+/*!*******************************!*\
+  !*** ./src/common/fonts.scss ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/common/fonts.scss?");
+
+/***/ }),
+
+/***/ "./src/common/functions.js":
+/*!*********************************!*\
+  !*** ./src/common/functions.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function(jQuery) {\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.formatNumber = formatNumber;\nexports.checkDateArraysEquality = checkDateArraysEquality;\nexports.ruDeclination = ruDeclination;\nexports.copyArrayOfObjects = copyArrayOfObjects;\nexports.clamp = clamp;\n\nfunction ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }\n\nfunction _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }\n\nfunction _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }\n\n/* eslint-disable no-undef */\n// jquery объявлена вебпаком\n\n/**\r\n * добавляет пробелы на каждом третьем разряде числа\r\n * @param number форматируемое число\r\n * @param {string} symbol символ для вставки между триадами\r\n * @returns {string} итоговое число в виде строки\r\n */\nfunction formatNumber(number, symbol) {\n  if (Number.isNaN(number * 1)) {\n    return 'not number';\n  }\n\n  var stringNum = number.toString();\n  var formattedNum = [];\n\n  for (var i = stringNum.length - 1; i >= 0; i -= 1) {\n    if ((stringNum.length - i) % 3 === 0 && stringNum.length - i > 0) {\n      formattedNum[i] = \"\".concat(symbol).concat(stringNum[i]);\n    } else {\n      formattedNum[i] = stringNum[i];\n    }\n  }\n\n  return formattedNum.join('');\n}\n\nfunction checkDateArraysEquality(first, second) {\n  if (first.length !== second.length) return false;\n  return !first.some(function (value, index) {\n    var _second$index;\n\n    return value.getTime() !== ((_second$index = second[index]) === null || _second$index === void 0 ? void 0 : _second$index.getTime());\n  });\n}\n/**\r\n * Функция для склонения русских слов\r\n * Пример использования: ruDeclination(5,'комментари|й|я|ев')\r\n *\r\n * @author Павел Белоусов <pafnuty10@gmail.com>\r\n *\r\n * @param      {number}  number  Число, для которого будет расчитано окончание\r\n * @param      {string}  words   Слово и варианты окончаний для 1|2|100\r\n * (1 комментарий, 2 комментария, 100 комментариев)\r\n * @return     {string}  Cлово с правильным окончанием\r\n */\n\n\nfunction ruDeclination(number, words) {\n  var w = words.split('|');\n  var n = Math.abs(number); // abs на случай отрицательного значения\n\n  var firstEndingCondition = n % 10 === 1 && n % 100 !== 11;\n  var secondEndingCondition = n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20);\n\n  if (firstEndingCondition) {\n    return w[0] + w[1];\n  }\n\n  if (secondEndingCondition) {\n    return w[0] + w[2];\n  }\n\n  return w[0] + w[3];\n}\n/**\r\n * Возвращает HTML-код, включая сам объект, а не только его содержимое\r\n * @returns {jQuery}\r\n */\n\n\nfunction outerHTML() {\n  return jQuery('<div />').append(this.eq(0).clone()).html();\n} // eslint-disable-next-line no-undef\n\n\njQuery.fn.outerHTML = outerHTML;\n/**\r\n * Копирует простые объекты (без вложенных ссылочных типов) в новый экземпляр\r\n * @param arrayOfObj [{}, {}...] исходный массив объектов\r\n * @returns {[]} новый массив объектов\r\n */\n\nfunction copyArrayOfObjects(arrayOfObj) {\n  return arrayOfObj.map(function (obj) {\n    return _objectSpread({}, obj);\n  });\n}\n\nfunction clamp(value, min, max) {\n  return Math.min(Math.max(value, min), max);\n}\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/common/functions.js?");
+
+/***/ }),
+
+/***/ "./src/common/mixins.scss":
+/*!********************************!*\
+  !*** ./src/common/mixins.scss ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/common/mixins.scss?");
+
+/***/ }),
+
+/***/ "./src/common/variables.scss":
+/*!***********************************!*\
+  !*** ./src/common/variables.scss ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/common/variables.scss?");
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.importContext = importContext;\nexports.importCommon = importCommon;\n\nfunction importContext(r) {\n  r.keys().forEach(r);\n}\n\nfunction importCommon() {\n  importContext(__webpack_require__(\"./src sync index\\\\.scss$\"));\n  importContext(__webpack_require__(\"./src/blocks sync recursive \\\\.(js|scss)$\"));\n  importContext(__webpack_require__(\"./src/common sync recursive \\\\.(js|scss)$\"));\n  importContext(__webpack_require__(\"./src/cards sync recursive \\\\.(js|scss)$\"));\n  importContext(__webpack_require__(\"./src/page-elements sync recursive \\\\.(js|scss)$\"));\n  importContext(__webpack_require__(\"./src/assets/fonts sync recursive \\\\.(otf|ttf|svg|woff|woff2|eot)$\"));\n}\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/index.scss":
+/*!************************!*\
+  !*** ./src/index.scss ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/index.scss?");
+
+/***/ }),
+
+/***/ "./src/page-elements sync recursive \\.(js|scss)$":
+/*!*********************************************!*\
+  !*** ./src/page-elements sync \.(js|scss)$ ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./footer/footer.js\": \"./src/page-elements/footer/footer.js\",\n\t\"./footer/footer.scss\": \"./src/page-elements/footer/footer.scss\",\n\t\"./header/header.js\": \"./src/page-elements/header/header.js\",\n\t\"./header/header.scss\": \"./src/page-elements/header/header.scss\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/page-elements sync recursive \\\\.(js|scss)$\";\n\n//# sourceURL=webpack:///./src/page-elements_sync_\\.(js%7Cscss)$?");
+
+/***/ }),
+
+/***/ "./src/page-elements/footer/footer.js":
+/*!********************************************!*\
+  !*** ./src/page-elements/footer/footer.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("\n\n__webpack_require__(/*! @fortawesome/fontawesome-free/css/all.css */ \"./node_modules/@fortawesome/fontawesome-free/css/all.css\");\n\n//# sourceURL=webpack:///./src/page-elements/footer/footer.js?");
+
+/***/ }),
+
+/***/ "./src/page-elements/footer/footer.scss":
+/*!**********************************************!*\
+  !*** ./src/page-elements/footer/footer.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/page-elements/footer/footer.scss?");
+
+/***/ }),
+
+/***/ "./src/page-elements/header/header.js":
+/*!********************************************!*\
+  !*** ./src/page-elements/header/header.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\n/* eslint-disable no-undef */\n// jquery подключается вебпаком\nvar indexURL = 'landing-page.html';\nvar $logoLink = $('.header__logo-link');\n$logoLink.attr('href', indexURL);\nvar registrationLoginURL = 'registration-login.html';\nvar loginURL = \"\".concat(registrationLoginURL, \"?login=true\");\nvar registerURL = \"\".concat(registrationLoginURL, \"?login=false\");\nvar $registerButton = $('.header__register-button');\n$registerButton.attr('href', registerURL);\nvar $loginButton = $('.header__login-button');\n$loginButton.attr('href', loginURL);\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/page-elements/header/header.js?");
+
+/***/ }),
+
+/***/ "./src/page-elements/header/header.scss":
+/*!**********************************************!*\
+  !*** ./src/page-elements/header/header.scss ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/page-elements/header/header.scss?");
+
+/***/ }),
+
+/***/ "./src/site-pages/search-room sync recursive \\.(js|scss)$":
+/*!******************************************************!*\
+  !*** ./src/site-pages/search-room sync \.(js|scss)$ ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("var map = {\n\t\"./search-room.js\": \"./src/site-pages/search-room/search-room.js\",\n\t\"./search-room.scss\": \"./src/site-pages/search-room/search-room.scss\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/site-pages/search-room sync recursive \\\\.(js|scss)$\";\n\n//# sourceURL=webpack:///./src/site-pages/search-room_sync_\\.(js%7Cscss)$?");
+
+/***/ }),
+
+/***/ "./src/site-pages/search-room/search-room.js":
+/*!***************************************************!*\
+  !*** ./src/site-pages/search-room/search-room.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+eval("/* WEBPACK VAR INJECTION */(function($) {\n\nvar _index = __webpack_require__(/*! ../../index */ \"./src/index.js\");\n\nvar _roomPreviewCard = _interopRequireDefault(__webpack_require__(/*! ../../cards/room-preview-card/room-preview-card */ \"./src/cards/room-preview-card/room-preview-card.js\"));\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\n/* eslint-disable no-undef */\n// jquery импортирована вебпаком\n(0, _index.importCommon)();\n(0, _index.importContext)(__webpack_require__(\"./src/site-pages/search-room sync recursive \\\\.(js|scss)$\"));\n\nfunction initLinksInPagination() {\n  var $pagination = $(this);\n  var $paginationButtons = $pagination.children('.pagination__buttons-container');\n  $paginationButtons.addHook('afterPaging', function () {\n    (0, _roomPreviewCard[\"default\"])();\n    var $roomPreviewCardsTextContent = $('.room-preview-card__text-content');\n    $roomPreviewCardsTextContent.click(function () {\n      window.location.href = 'room-details.html';\n    });\n  });\n}\n\nvar $showSidebarButtons = $('.search-room__show-sidebar-button');\n$showSidebarButtons.each(function (index, element) {\n  var $showSideBarButton = $(element);\n  $showSideBarButton.click(function () {\n    $showSideBarButton.toggleClass('search-room__show-sidebar-button_active');\n  });\n});\nvar $paginations = $('.pagination');\n$paginations.each(initLinksInPagination);\nvar $roomPreviewCardsTextContent = $('.room-preview-card__text-content');\n$roomPreviewCardsTextContent.click(function () {\n  window.location.href = 'room-details.html';\n});\n(0, _roomPreviewCard[\"default\"])();\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ \"./node_modules/jquery/dist/jquery.js\")))\n\n//# sourceURL=webpack:///./src/site-pages/search-room/search-room.js?");
+
+/***/ }),
+
+/***/ "./src/site-pages/search-room/search-room.scss":
+/*!*****************************************************!*\
+  !*** ./src/site-pages/search-room/search-room.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("// extracted by mini-css-extract-plugin\n\n//# sourceURL=webpack:///./src/site-pages/search-room/search-room.scss?");
+
+/***/ }),
+
+/***/ 0:
+/*!********************!*\
+  !*** fs (ignored) ***!
+  \********************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("/* (ignored) */\n\n//# sourceURL=webpack:///fs_(ignored)?");
+
+/***/ })
+
+/******/ });
