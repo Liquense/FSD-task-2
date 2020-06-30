@@ -3,14 +3,18 @@
 import 'jquery-ui/ui/effects/effect-fade';
 
 // region Expandable
-export function initExpandableList(index, rootElement) {
-  const $expandable = $(rootElement);
-  const $expandableTitle = $($expandable.find('.list_expandable__title')[0]);
-  const $expandableContainer = $($expandable.find('.list_expandable__container')[0]);
-  const isOpened = $expandable.hasClass('list_expandable-opened');
+export function initExpandableList(index, element) {
+  const $expandableList = $(element);
+
+  if ($expandableList.data('isInitialized')) return;
+  $expandableList.data('isInitialized', true);
+
+  const $expandableTitle = $($expandableList.find('.list_expandable__title')[0]);
+  const $expandableContainer = $($expandableList.find('.list_expandable__container')[0]);
+  const isOpened = $expandableList.hasClass('list_expandable-opened');
 
   function handleExpandableTitleClick() {
-    $expandable.toggleClass('list_expanded__expand-arrow');
+    $expandableList.toggleClass('list_expanded__expand-arrow');
     $expandableContainer.toggle('fade', [], 200);
     $expandableContainer.toggleClass('list_visible__container');
   }
