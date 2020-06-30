@@ -1,6 +1,7 @@
 @import "../../common/variables";
 
 body {
+  margin: 0;
   background-color: #eeeeee;
   align-items: center;
   flex-direction: column;
@@ -15,6 +16,7 @@ section {
 }
 
 .ui-kit__note {
+  @include text_item-title();
   text-align: center;
 }
 

@@ -1,7 +1,7 @@
 .form-elements {
   padding: 140px 141px 131px 0;
 
-  H2 {
+  > H2 {
     margin: 0;
   }
 
@@ -61,12 +61,14 @@
 
       .form-elements__likes {
         .form-elements__likes-header {
+          @include text_label-CTA();
           margin-bottom: 16px;
         }
       }
 
       .form-elements__rates {
         .form-elements__rates-header {
+          @include text_label-CTA();
           margin-bottom: 17px;
         }
       }
@@ -101,6 +103,7 @@
 
       .form-elements__buttons {
         .form-elements__buttons-header {
+          @include text_label-CTA();
           margin-bottom: 16px;
         }
 
@@ -136,8 +139,10 @@
         padding-left: 2px;
 
         .form-elements__pagination-title {
+          @include text_label-CTA();
           margin-bottom: 16px;
         }
+
         .pagination {
               width: fit-content;
         }

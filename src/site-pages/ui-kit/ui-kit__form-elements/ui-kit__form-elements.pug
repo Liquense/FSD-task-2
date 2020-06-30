@@ -1,7 +1,7 @@
 include ../../../blocks/dropdown/dropdown
 include ../../../blocks/input/input
 include ../../../blocks/two-calendar-range-picker/two-calendar-range-picker
-include ../../../blocks/datepicker/datepicker
+include ../../../blocks/datepicker-block/datepicker-block
 include ../../../blocks/checkbox/checkbox
 include ../../../blocks/list/list
 include ../../../blocks/rate-button/rate-button
@@ -45,14 +45,14 @@ section.form-elements
       div.form-elements__toggles
         +list({type: "toggle", title: "toggle", elements: toggleButtons})
       div.form-elements__likes
-        H2.form-elements__likes-header.text_type_label-CTA Like button
+        H2.form-elements__likes-header Like button
         div.form-elements__likes-body
           div.form-elements__like
             +checkbox({text: "2", type: "like"})
           div.form-elements__like
             +checkbox({text: "12", type: "like", isChecked: true})
       div.form-elements__rates
-        H2.form-elements__rates-header.text_type_label-CTA rate button
+        H2.form-elements__rates-header rate button
         div.form-elements__rates-body
           div.form-elements__rate
             +rateButton({maxRating: 5, rating: 4})
@@ -63,7 +63,7 @@ section.form-elements
       div.form-elements__slider
         +slider({minValue: 0, maxValue: 16000, step: 100, title: "Range slider", isRange: true, initialValues: [5000, 10000]})
       div.form-elements__buttons
-        H2.form-elements__buttons-header.text_type_label-CTA buttons
+        H2.form-elements__buttons-header buttons
         div.form-elements__filled-buttons.buttons-row
           +Button({text: "Click Me", type: "filled"})
           +Button({text: "Click Me", type: "filled", isHovered: true})
@@ -76,7 +76,7 @@ section.form-elements
         div.form-elements__wide-button
           +Button({text: "Перейти к оплате", type: "filled", size: "wide", decoration: "enter-arrow"})
         div.form-elements__pagination
-          H2.form-elements__pagination-title.text_type_label-CTA pagination
+          H2.form-elements__pagination-title pagination
           +pagination(12)
             -var i = 0;
             while i < 151

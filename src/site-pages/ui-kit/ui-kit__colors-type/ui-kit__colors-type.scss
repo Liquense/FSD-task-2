@@ -11,7 +11,7 @@
       align-items: center;
       margin-bottom: 20px;
 
-      .color-block__square {
+      &__square {
         width: 70px;
         height: 70px;
         border-radius: 6px;
@@ -46,7 +46,8 @@
         }
       }
 
-      .color-block__description {
+      &__description {
+        @include text_widget-title();
         display: flex;
         flex-direction: column;
 
@@ -74,48 +75,57 @@
     row-gap: 50px;
 
     .type__header {
+      @include text_regular();
       color: $darkShade25;
       justify-self: flex-end;
       margin: 0;
       height: fit-content;
+
+      &[data-text-type='H1'] {
+        font-size: 24px;
+        line-height: 29px;
+
+        &+.type__text {
+          @include text_widget-title();
+          letter-spacing: -0.5px;
+        }
+      }
+
+      &[data-text-type='H2'] {
+        font-size: 19px;
+        line-height: 23px;
+        &+.type__text {
+          @include text_item-title();
+          letter-spacing: -0.36px;
+        }
+      }
+
+      &[data-text-type='H3'] {
+        font-size: 12px;
+        line-height: 15px;
+
+        &+.type__text {
+          @include text_label-CTA();
+          line-height: 15px;
+        }
+      }
+
+      &[data-text-type='Body'] {
+        margin-top: -2px; //другого способа выровнять по верху текст относительно линии (когда её размер больше) не нашел
+        font-size: 14px;
+        line-height: 24px;
+        &+ .type__text {
+          @include text_regular();
+          max-width: 33ch;
+          margin-top: -2px;
+          line-height: 24px;
+        }
+      }
     }
+
     .type__text {
       margin: 0;
       height: fit-content;
-    }
-
-    .type__header[data-text-type='H1'] {
-      font-size: 24px;
-      line-height: 29px;
-
-      &+.type__text {
-        letter-spacing: -0.5px;
-      }
-    }
-    .type__header[data-text-type='H2'] {
-      font-size: 19px;
-      line-height: 23px;
-      &+.type__text {
-        letter-spacing: -0.36px;
-      }
-    }
-    .type__header[data-text-type='H3'] {
-      font-size: 12px;
-      line-height: 15px;
-
-      &+.type__text {
-        line-height: 15px;
-      }
-    }
-    .type__header[data-text-type='Body'] {
-      margin-top: -2px; //другого способа выровнять по верху текст относительно линии (когда её размер больше) не нашел
-      font-size: 14px;
-      line-height: 24px;
-      &+ .type__text {
-        max-width: 33ch;
-        margin-top: -2px;
-        line-height: 24px;
-      }
     }
   }
 }

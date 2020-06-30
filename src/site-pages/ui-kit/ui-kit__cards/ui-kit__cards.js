@@ -1,12 +1,8 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
-import initRegistrationCard from '../../../cards/registration-card/registration-card';
-import initBookingCards from '../../../cards/booking-card/booking-card';
-import { initDatepickerInputs } from '../../../blocks/datepicker/datepicker';
+import { initDatepickers } from '../../../blocks/datepicker-block/datepicker-block';
 
-initDatepickerInputs(); // для работоспособности инлайн календаря
-initRegistrationCard();
-initBookingCards();
+initDatepickers(); // для работоспособности инлайн календаря
 
 const $inlineDatepicker = $('.ui-kit__datepicker_inline');
 const $datepickerCells = $inlineDatepicker.find('.datepicker--cell.datepicker--cell-day');
