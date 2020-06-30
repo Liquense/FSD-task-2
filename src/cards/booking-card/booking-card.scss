@@ -12,58 +12,59 @@
   @include clearfix();
   @include boxSizingBorderBox();
 
-  .booking-card__header {
+  &__header {
     display: flex;
     justify-content: space-between;
     align-self: stretch;
     align-items: baseline;
-
     margin-bottom: 21px;
-
-    .booking-card__room-info {
-      display: flex;
-      align-items: baseline;
-
-      .booking-card__number-text {
-        font-size: 14px;
-        line-height: 17px;
-        margin-right: 4px;
-      }
-
-      .booking-card__room-num {
-        margin: 0;
-        font-size: 22px;
-        margin-right: 5px;
-      }
-
-      .booking-card__room-type {
-        color: $purple;
-      }
-    }
-
-    .booking-card__price-info {
-      .booking-card__daily-price {
-        color: $darkShade50;
-        font-size: 14px;
-      }
-
-      .booking-card__payment-period {
-        font-size: 12px;
-      }
-    }
   }
 
-  .booking-card__range-picker {
+  &__room-info {
+    display: flex;
+    align-items: baseline;
+  }
+
+  &__number-text {
+    @include text_widget-title();
+    font-size: 14px;
+    line-height: 17px;
+    margin-right: 4px;
+  }
+
+  &__room-num {
+    @include text_label-CTA();
+    font-size: 22px;
+    margin: 0 5px 0 0;
+  }
+
+  &__room-type {
+    @include text_label-CTA();
+    color: $purple;
+  }
+
+  &__daily-price {
+    @include text_label-CTA();
+    color: $darkShade50;
+    font-size: 14px;
+  }
+
+  &__payment-period {
+    @include text_regular();
+    font-size: 12px;
+  }
+
+  &__range-picker {
     margin-bottom: 19px;
   }
 
-  .booking-card__guests-dropdown {
+  &__guests-dropdown {
     margin-bottom: 20px;
   }
 
-  .booking-card__check-container {
-    $iconSize: 20px;
-
+  $iconSize: 20px;
+  &__check-container {
+    @include text_regular();
     margin-bottom: 30px;
     padding-left: 1px;
 
@@ -94,49 +95,50 @@
         text-align: right;
       }
     }
-
-    .booking-card__info-icon {
-      width: $iconSize;
-      height: $iconSize;
-      display: block;
-      line-height: $iconSize - 2px;
-      vertical-align: middle;
-      text-align: center;
-      border-radius: 50%;
-      border: 1px solid $darkShade25;
-      color: $darkShade25;
-
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
   }
 
-  .booking-card__summary {
+  &__info-icon {
+    width: $iconSize;
+    height: $iconSize;
+    display: block;
+    line-height: $iconSize - 2px;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid $darkShade25;
+    color: $darkShade25;
+
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  &__summary {
+    @include text_item-title();
     margin-bottom: 19px;
     padding-left: 1px;
     display: flex;
     align-self: stretch;
     align-items: baseline;
+  }
 
-    .booking-card__summary-text {
-      flex-shrink: 0;
-      margin-right: 5px;
-    }
+  &__summary-text {
+    flex-shrink: 0;
+    margin-right: 5px;
+  }
 
-    .booking-card__summary-dash-underline {
-      width: 100%;
-      border-bottom: 1px dotted $darkShade25;
-      margin-right: 5px;
-    }
+  &__summary-dash-underline {
+    width: 100%;
+    border-bottom: 1px dotted $darkShade25;
+    margin-right: 5px;
+  }
 
-    .booking-card__summary-total-cost {
-      flex-shrink: 0;
-      font-family: Montserrat, sans-serif;
-      font-size: 18px;
-      letter-spacing: -0.7px;
-    }
+  &__summary-total-cost {
+    flex-shrink: 0;
+    font-family: Montserrat, sans-serif;
+    font-size: 18px;
+    letter-spacing: -0.7px;
   }
 }
 
@@ -149,11 +151,11 @@
     width: 100%;
     min-width: 320px;
 
-    .booking-card__header {
+    &__header {
       justify-content: space-evenly;
     }
 
-    .booking-card__check-container {
+    &__check-container {
       padding-right: 10px;
       padding-left: 10px;
 
@@ -162,7 +164,7 @@
       }
     }
 
-    .booking-card__summary {
+    &__summary {
       padding-right: 5px;
       padding-left: 5px;
     }

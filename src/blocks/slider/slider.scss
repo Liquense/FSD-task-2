@@ -69,6 +69,14 @@ $sliderHandleSize: 12px;
     margin: 0 0 $sliderTextMargin 0;
   }
 
+  &__title {
+    @include text_label-CTA();
+  }
+
+  &__value {
+    @include text_regular();
+  }
+
   &__title, &__value {
     line-height: $fontSize;
     font-size: $fontSize;

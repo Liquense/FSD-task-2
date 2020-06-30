@@ -30,6 +30,7 @@
 
   &__item-title,
   &__item-text {
+    @include text_regular();
     font-size: 14px;
     line-height: 24px;
   }

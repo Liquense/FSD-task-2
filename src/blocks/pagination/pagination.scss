@@ -56,6 +56,7 @@ $pageButtonSize: 40px;
 
             &.J-paginationjs-previous, &.J-paginationjs-next {
               @include icon();
+              font-size: 24px;
               background: linear-gradient($green 0%, $greenGradientSecond 100%);
             }
 
@@ -81,6 +82,10 @@ $pageButtonSize: 40px;
     .paginationjs-nav {
       align-self: flex-start;
       margin: 10px auto 0 auto;
+
+      > span {
+        @include text_regular();
+      }
     }
   }
 }

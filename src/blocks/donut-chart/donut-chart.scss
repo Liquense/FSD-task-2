@@ -33,15 +33,16 @@
   }
 
   &__active-value {
+    @include text_widget-title();
     font-size: 24px;
     line-height: 30px;
   }
 
   &__value-text {
+    @include text_widget-title();
     font-size: 14px;
     line-height: 15px;
   }
-
 
   &__legend {
     list-style: none;
@@ -50,6 +51,7 @@
   }
 
   &__legend-item {
+    @include text_regular();
     display: flex;
     align-items: baseline;
 

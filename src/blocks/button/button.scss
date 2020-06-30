@@ -11,6 +11,7 @@ $buttonMinHeight: 44px;
   @include boxSizingBorderBox();
 
   &__control {
+    @include text_label-CTA();
     cursor: pointer;
     height: $buttonMinHeight;
     width: $buttonWidth;

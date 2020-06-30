@@ -35,23 +35,23 @@ mixin roomPreviewCard(data = {})
     div.room-preview-card__text-content
       div.room-preview-card__room-info
         div.room-preview-card__room-description
-          span.room-preview-card__room-num-symbol.text_type_label-CTA
+          span.room-preview-card__room-num-symbol
             |№
-          span.room-preview-card__room-number.text_type_label-CTA
+          span.room-preview-card__room-number
             |#{` ${data.room.roomNumber} `}
-          span.room-preview-card__room-type.text_type_label-CTA
+          span.room-preview-card__room-type
             |#{data.room.roomType}
         div.room-preview-card__cost-info
-          span.room-preview-card__cost-per-period.text_type_regular
+          span.room-preview-card__cost-per-period
             |#{data.room.costPerPeriod}#{data.room.currencySymbol}
-          span.room-preview-card__period.text_type_regular
+          span.room-preview-card__period
             |#{data.room.periodText}
       hr.room-preview-card__division-line
       div.room-preview-card__rate-info
         div.room-preview-card__rating
           +rateButton({maxRating: data.room.rating[1], rating: data.room.rating[0]})
         div.room-preview-card__reviews-info
-          span.room-preview-card__reviews-count.text_type_regular
+          span.room-preview-card__reviews-count
             |#{data.room.reviewsCount}
-          span.room-preview-card__reviews-text.text_type_regular
+          span.room-preview-card__reviews-text
             |Отзывов

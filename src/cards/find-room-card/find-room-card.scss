@@ -15,10 +15,10 @@ $borderWidth: 1px;
   @include boxSizingBorderBox();
 
   &__title {
-    margin: 0;
+    @include text_widget-title();
     padding: 0;
     letter-spacing: -0.4px;
-    margin-bottom: 19px;
+    margin: 0 0 19px;
   }
 
   &__range-picker {

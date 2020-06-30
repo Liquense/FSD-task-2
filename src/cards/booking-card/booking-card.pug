@@ -11,17 +11,17 @@ mixin bookingCard(data={})
   div(class = `booking-card`)
     header.booking-card__header
       div.booking-card__room-info
-        span.booking-card__number-text.text_type_widget-title №
-        h3.booking-card__room-num.text_type_label-CTA #{data.roomNumber}
-        span.booking-card__room-type.text_type_label-CTA #{data.roomType}
+        span.booking-card__number-text №
+        h3.booking-card__room-num #{data.roomNumber}
+        span.booking-card__room-type #{data.roomType}
       div.booking-card__price-info
-        span.booking-card__daily-price.text_type_label-CTA(data-dailyPrice=data.dailyPrice data-currency=data.currency) #{data.dailyPrice}#{data.currency}
-        span.booking-card__payment-period.text_type_regular  в сутки
+        span.booking-card__daily-price(data-dailyPrice=data.dailyPrice data-currency=data.currency) #{data.dailyPrice}#{data.currency}
+        span.booking-card__payment-period  в сутки
     div.booking-card__range-picker
       +twoCalendarRangePicker({labels: ["Прибытие", "Выезд"], firstDate: data.arrivalDate, secondDate: data.departureDate})
     div.booking-card__guests-dropdown
       +dropdown({title: "Гости", dropdownType: "customers", isUnified: true, placeholder: "Сколько гостей", data: data.dropdownItems})
-    div.booking-card__check-container.text_type_regular()
+    div.booking-card__check-container
       div.booking-card__staying-cost-row.row
         span.booking-card__staying-cost-calculation.col1 test
         span.booking-card__staying-cost-sum.col3 test
@@ -35,7 +35,7 @@ mixin bookingCard(data={})
         div.col2
           +infoIcon()
         span.booking-card__additional-services-sum.col3(data-addServices=data.additionalPrice) #{data.additionalPrice}#{data.currency}
-    div.booking-card__summary.text_type_item-title
+    div.booking-card__summary
       span.booking-card__summary-text Итого
       div.booking-card__summary-dash-underline
       span.booking-card__summary-total-cost

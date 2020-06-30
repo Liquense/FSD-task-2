@@ -2,6 +2,8 @@
   width: 280px;
 
   &__title {
+    @include text_label-CTA();
+
     margin: 0;
     margin-bottom: 15px;
     padding: 0;
@@ -37,6 +39,7 @@
   }
 
   &__item-text {
+    @include text_regular();
     max-width: calc(25ch);
     line-height: $textLineHeight;
   }

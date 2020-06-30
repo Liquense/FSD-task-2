@@ -58,6 +58,7 @@ $inputBorderRadius: 4px;
   }
 
   &__list-row-text {
+    @include text_label-CTA();
     margin: 0;
     line-height: 30px;
   }

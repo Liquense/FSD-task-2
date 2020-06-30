@@ -21,6 +21,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   @include boxSizingBorderBox();
 
   &__title {
+    @include text_label-CTA();
     display: block;
     position: relative;
     line-height: $lineHeight;

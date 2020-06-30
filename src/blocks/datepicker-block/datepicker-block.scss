@@ -25,6 +25,9 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
 .datepicker-block {
   width: fit-content;
+  &__label {
+    @include text_label-CTA();
+  }
 
   &__input-wrap .input__control {
     color: $darkShade75;

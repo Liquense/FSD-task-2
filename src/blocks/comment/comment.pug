@@ -7,10 +7,10 @@ mixin comment(commentData={})
       div.comment__col1.comment__avatar-wrap
         img.comment__avatar(src=commentData.avatar, alt="user avatar")
       div.comment__info-container.comment__col2
-        h4.comment__author.text_type_regular #{commentData.author}
-        span.comment__date-time.text_type_regular #{commentData.dateTime}
+        h4.comment__author #{commentData.author}
+        span.comment__date-time #{commentData.dateTime}
     div.comment__content
       div.comment__col1
         div.comment__like
           +checkbox({text: commentData.likesCount, type: "like", isChecked: commentData.isLiked})
-      span.comment__text.text_type_regular.comment__col2 #{commentData.text}
+      span.comment__text.comment__col2 #{commentData.text}

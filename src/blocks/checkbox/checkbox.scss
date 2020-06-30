@@ -8,12 +8,13 @@ $buttonRightMargin: 10px;
   @include boxSizingBorderBox();
 
   &__label {
+    @include text_regular();
     display: inline-block;
     -webkit-user-select: none;
-    line-height: $lineHeight;
     vertical-align: middle;
     cursor: pointer;
     color: $darkShade50;
+    line-height: $lineHeight;
   }
 
   &__hidden-button {
@@ -254,36 +255,6 @@ $buttonRightMargin: 10px;
         }
       }
 
-      .checkbox_type_toggle {
-        &__button {
-          width: 40px;
-          height: 20px;
-          border-radius: 10px;
-          border-color: $darkShade25;
-          animation-name: desaturate;
-          animation-duration: 0.4s;
-
-          &:after {
-            content: "";
-            display: block;
-            position: relative;
-            left: $toggleCircleMargin - $checkboxButtonBorderWidth;
-            top: $toggleCircleMargin - $checkboxButtonBorderWidth;
-            width: $toggleCircleSize;
-            height: $toggleCircleSize;
-            border-radius: 50%;
-            background-color: $darkShade25;
-
-            animation-name: moveLeft;
-            animation-duration: 0.4s;
-          }
-        }
-
-        &__text {
-          color: $darkShade75;
-        }
-      }
-
       &.ui-checkboxradio-checked {
         color: $darkShade75;
 
@@ -301,6 +272,34 @@ $buttonRightMargin: 10px;
         }
       }
     }
+
+    &__button {
+      width: 40px;
+      height: 20px;
+      border-radius: 10px;
+      border-color: $darkShade25;
+      animation-name: desaturate;
+      animation-duration: 0.4s;
+
+      &:after {
+        content: "";
+        display: block;
+        position: relative;
+        left: $toggleCircleMargin - $checkboxButtonBorderWidth;
+        top: $toggleCircleMargin - $checkboxButtonBorderWidth;
+        width: $toggleCircleSize;
+        height: $toggleCircleSize;
+        border-radius: 50%;
+        background-color: $darkShade25;
+
+        animation-name: moveLeft;
+        animation-duration: 0.4s;
+      }
+    }
+
+    &__text {
+      color: $darkShade75;
+    }
   }
 
   &_rich {
@@ -312,6 +311,7 @@ $buttonRightMargin: 10px;
     }
 
     &__description {
+      @include text_regular();
       display: inline-block; //чтобы применить паддинг ко всему блоку, а не первой строке
       padding-left: $checkboxButtonSize + $buttonRightMargin; //для избавления от переноса текста снизу чекбокса
       margin: 5px 0 0 0;

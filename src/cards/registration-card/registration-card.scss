@@ -13,9 +13,9 @@ $borderWidth: 1px;
   @include boxSizingBorderBox();
 
   &__title {
+    @include text_widget-title();
     align-self: stretch;
-    margin: 0;
-    margin-bottom: 20px;
+    margin: 0 0 20px;
     letter-spacing: -0.6px;
   }
 
@@ -58,6 +58,7 @@ $borderWidth: 1px;
   }
 
   &__login-data-title {
+    @include text_label-CTA();
     margin: 0 0 6px;
   }
 

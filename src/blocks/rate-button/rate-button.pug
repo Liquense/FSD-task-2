@@ -5,7 +5,7 @@ mixin rateButton(data={})
   -var rateButtonClass = "rate-button"
   -var starClassName = rateButtonClass + "__star"
   -var emptyStarModifierClassName = rateButtonClass + "_type_empty__star"
-  -var starAttrs = {class: starClassName + " text_type_regular " + emptyStarModifierClassName}
+  -var starAttrs = {class: starClassName + " " + emptyStarModifierClassName}
 
   div(
     class=rateButtonClass data-maxRating=data.maxRating data-rating=data.rating)

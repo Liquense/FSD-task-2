@@ -33,17 +33,17 @@ mixin Button(params={})
     a(class=blockAttributes.class)
       if params.type === "bordered"
         div(class=borderAttributes.class)
-          button(class=`${controlAttributes.class} text_type_label-CTA`) #{params.text}
+          button(class=`${controlAttributes.class}`) #{params.text}
       else
-        button(class=`${controlAttributes.class} text_type_label-CTA`) #{params.text}
+        button(class=`${controlAttributes.class}`) #{params.text}
       if params.decoration === enterArrowDecoration
         div.button__decoration #{decorationText}
   else
     div(class=blockAttributes.class)
       if params.type === "bordered"
         div(class=borderAttributes.class)
-          button(class=`${controlAttributes.class} text_type_label-CTA`) #{params.text}
+          button(class=`${controlAttributes.class}`) #{params.text}
       else
-        button(class=`${controlAttributes.class} text_type_label-CTA`) #{params.text}
+        button(class=`${controlAttributes.class}`) #{params.text}
       if params.decoration === enterArrowDecoration
         div.button__decoration #{decorationText}

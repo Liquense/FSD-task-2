@@ -7,8 +7,8 @@ mixin slider(data={})
   if data.isRange
     div(class="slider slider_range ")
       div(class="slider__text")
-        p(class="slider__title text_type_label-CTA") #{data.title}
-        p(class="slider__value text_type_regular") ₽
+        p(class="slider__title") #{data.title}
+        p(class="slider__value") ₽
       div.slider__plugin-container
         div(class="slider__control slider__control_range"
           data-min=data.minValue data-max=data.maxValue data-step=data.step
@@ -16,7 +16,7 @@ mixin slider(data={})
   else
     div(class="slider ")
       div(class="slider__text")
-        p(class="slider__title text_type_label-CTA") #{data.title}
-        p(class="slider__value text_type_regular") ₽
+        p(class="slider__title") #{data.title}
+        p(class="slider__value") ₽
       div.slider__plugin-container
         div(class="slider__control" data-min=data.minValue data-max=data.maxValue data-step=data.step data-firstValue=data.initialValues[0])

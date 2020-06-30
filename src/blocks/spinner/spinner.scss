@@ -3,6 +3,7 @@
   float: right;
 
   &__value {
+    @include text_label-CTA();
     display: inline-block;
     text-align: center;
     width: 32px;
