@@ -2,8 +2,6 @@
 // jquery подключена вебпаком
 import { importCommon, importContext } from '../../index';
 
-import initFindRoomCard from '../../cards/find-room-card/find-room-card';
-
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));
 
@@ -24,6 +22,3 @@ $roomContainers.each(initRoomContainer);
 
 const $findRoomCardButton = $('.find-room-card__button');
 $findRoomCardButton.click(() => { window.location.href = 'search-room.html'; });
-
-const $findRoomCards = $('.find-room-card');
-$findRoomCards.each(initFindRoomCard);

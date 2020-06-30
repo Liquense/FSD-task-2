@@ -1,5 +1,9 @@
 $backgroundImageHeight: 685px;
 
+body {
+  margin: 0;
+}
+
 .registration-login {
   &__content {
     position: relative;

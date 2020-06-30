@@ -1,8 +1,7 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
 import { importCommon, importContext } from '../../index';
-
-import initRegistrationCard from '../../cards/registration-card/registration-card';
+import initLoginCards from "../../cards/login-card/login-card";
 
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));
@@ -29,4 +28,4 @@ if (locals.login === 'true') {
     .html(templateHTML);
 }
 
-initRegistrationCard();
+initLoginCards();

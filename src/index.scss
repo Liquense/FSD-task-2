@@ -1,17 +1,21 @@
 .ui-kit {
+  @include text_widget-title();
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
 
   > *:first-child {
+    @include text_regular();
     margin-top: 5px;
   }
 }
 .site-pages {
+  @include text_widget-title();
   display: flex;
   flex-direction: column;
 
   > * {
+    @include text_regular();
     margin-bottom: 5px;
 
     &:first-child {

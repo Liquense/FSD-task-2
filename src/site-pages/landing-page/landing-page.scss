@@ -1,3 +1,7 @@
+body {
+  margin: 0;
+}
+
 .landing-page {
   &__room-container {
     background-size: cover;
@@ -35,6 +39,7 @@
   }
 
   &__slogan {
+    @include text_regular();
     font-size: 14px;
     line-height: 24px;
     max-width: 300px;

@@ -1,5 +1,9 @@
 $roomCardWidth: 270px;
 
+body {
+  margin: 0;
+}
+
 .search-room {
   &__content {
     display: flex;
