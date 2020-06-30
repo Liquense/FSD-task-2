@@ -41,8 +41,13 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
     }
   }
 
-  &_inline__input-wrap .input__control {
-    display: none;
+  &_inline__input-wrap  {
+    .input__control-wrapper {
+      margin-top: 0;
+    }
+    .input__control {
+      display: none;
+    }
   }
 
   &__confirm-button,
@@ -232,6 +237,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   -ms-flex: 1;
   flex: 1;
   text-align: center;
+  text-transform: none;
 }
 
 $monthCellSize: $datepickerContentHeight/4;

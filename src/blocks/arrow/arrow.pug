@@ -1,9 +1,12 @@
 mixin arrow(attrs={})
   //-type: "expand"/"enter"
-  -var defaultAttrs = {type: "expand"}
+  -var defaultAttrs = {type: "expand", isColored: false, isBold: false}
   -attrs = Object.assign(defaultAttrs, attrs)
 
+  -var coloredClass = attrs.isColored ? "arrow_colored" : ""
+  -var boldClass = attrs.isBold ? "arrow_bold" : ""
+
   if attrs.type === "expand"
-    span.arrow.arrow_expand expand_more
+    span(class=`arrow arrow_expand ${coloredClass} ${boldClass}`) expand_more
   else if attrs.type === "enter"
-    span.arrow.arrow_enter arrow_forward
+    span(class=`arrow arrow_enter ${coloredClass} ${boldClass}`) arrow_forward

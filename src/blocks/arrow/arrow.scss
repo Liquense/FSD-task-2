@@ -18,15 +18,12 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
 
   &_enter {
     @include icon();
-    @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
-
-    font-weight: bold;
+    font-weight: normal;
     width: $arrowSize;
   }
 
   &_expand {
     @include icon();
-
     color: $darkShade50;
     font-weight: normal;
     vertical-align: middle;
@@ -50,4 +47,14 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
       outline: none;
     }
   }
+
+  // region modifiers
+  &_bold {
+    font-weight: bold;
+  }
+
+  &_colored {
+    @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
+  }
+  // endregion
 }

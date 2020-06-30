@@ -1,3 +1,4 @@
+include ../arrow/arrow
 //- types: filled, bordered, text
 mixin Button(params={})
   - var defaultParams = {text: "", isTextSized: false, isLink: false, type: "filled", size: "", decoration: "", isHovered: false}
@@ -37,7 +38,8 @@ mixin Button(params={})
       else
         button(class=`${controlAttributes.class}`) #{params.text}
       if params.decoration === enterArrowDecoration
-        div.button__decoration #{decorationText}
+        div.button__decoration
+          +arrow({type: "enter"})
   else
     div(class=blockAttributes.class)
       if params.type === "bordered"
@@ -46,4 +48,5 @@ mixin Button(params={})
       else
         button(class=`${controlAttributes.class}`) #{params.text}
       if params.decoration === enterArrowDecoration
-        div.button__decoration #{decorationText}
+        div.button__decoration
+          +arrow({type: "enter"})

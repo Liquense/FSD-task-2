@@ -52,7 +52,7 @@ mixin input(data={})
         div&attributes(attributes.controlWrapperAttrs)
           if data.withSubscription
             div.input_with-subscription__arrow
-              +arrow({type: "enter"})
+              +arrow({type: "enter", isColored: true, isBold: true})
           else if data.isExpandable
             div.input_expandable__arrow
               +arrow({type: "expand"})
@@ -63,7 +63,7 @@ mixin input(data={})
           input&attributes(attributes.controlAttributes)(value=data.data)
           if data.withSubscription
             div.input_with-subscription__arrow
-              +arrow({type: "enter"})
+              +arrow({type: "enter", isColored: true, isBold: true})
           else if data.isExpandable
             div.input_expandable__arrow
               +arrow({type: "expand"})
