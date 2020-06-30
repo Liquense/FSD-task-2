@@ -1,4 +1,5 @@
 include ../../blocks/button/button
+include ../../blocks/arrow/arrow
 
 mixin header(data={})
   -var defaultData = {userLogin: "", logo: "", loginText: "Login", registerText: "register", content: [], isNarrow: false}
@@ -19,24 +20,26 @@ mixin header(data={})
               div(class=`header__submenu ${item.isNarrow ? narrowClass + "__submenu" : ""}`)
                 each child in itemsArray
                   -var itemClasses =
-                  -`header__submenu-item ${item.isNarrow ? narrowClass + "__submenu-item" : ""} text_type_regular` +
+                  -`header__submenu-item ${item.isNarrow ? narrowClass + "__submenu-item" : ""}` +
                   -`${item.bold ? " header__submenu-item_bold" : ""}` +
                   -`${child.children ? " header__submenu-item_expandable" : ""}`
                   div(class=itemClasses) #{child.text}
                     if child.children
-                      button(class=`header__expand-button ${item.isNarrow ? narrowClass + "__expand-button" : ""}`) expand_more
+                      div(class=`header__expand-button ${item.isNarrow ? narrowClass + "__expand-button" : ""}`)
+                        +arrow({type: "expand", isRelative: true})
                     -createChildrenRecursive(child.children)
           -}
-          -var itemClasses = `header__menu-item ${item.isNarrow ? narrowClass + "__menu-item" : ""} text_type_regular` +
+          -var itemClasses = `header__menu-item ${item.isNarrow ? narrowClass + "__menu-item" : ""}` +
           -`${item.bold ? " header__menu-item_bold" : ""}` +
           -`${item.children ? " header__menu-item_expandable" : ""}`
           li(class=itemClasses) #{item.text}
             if item.children
-              button(class=`header__expand-button ${item.isNarrow ? narrowClass + "__expand-button" : ""}`) expand_more
+              div(class=`header__expand-button ${item.isNarrow ? narrowClass + "__expand-button" : ""}`)
+                +arrow({type: "expand", isRelative: true})
             -createChildrenRecursive(item.children);
       if (data.userLogin)
         div(class=`header__divider ${data.isNarrow ? narrowClass + "__divider" : ""}`)
-        div(class=`header__user-name ${data.isNarrow ? narrowClass + "__user-name" : ""} text_type_regular`) #{data.userLogin}
+        div(class=`header__user-name ${data.isNarrow ? narrowClass + "__user-name" : ""}`) #{data.userLogin}
       else
         div(class=`header__buttons-container ${data.isNarrow ? narrowClass + "__buttons-container" : ""}`)
           div(class=`header__login-button ${data.isNarrow ? narrowClass + "__login-button" : ""}`)

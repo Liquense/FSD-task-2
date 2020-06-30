@@ -80,11 +80,13 @@
     }
 
     &__links-section-title {
+      @include text_label-CTA();
       margin-bottom: 21.8px;
       letter-spacing: -0.15px;
     }
 
     &__link {
+      @include text_regular();
       line-height: 17px;
 
       &:not(:last-child) {
@@ -105,10 +107,12 @@
     }
 
     &__subscription-title {
+      @include text_label-CTA();
       margin-bottom: 20px;
     }
 
     &__subscription-text {
+      @include text_regular();
       line-height: 24px;
       margin-bottom: 18px;
     }
@@ -135,6 +139,7 @@
     }
 
     &__logo-text {
+      @include text_regular();
       letter-spacing: -0.1px;
       max-width: 260px;
       line-height: 24px;
@@ -169,6 +174,10 @@
         justify-content: space-between;
       }
     }
+
+    &__copyright-text {
+      @include text_regular();
+    }
   }
   //endregion
 
@@ -202,6 +211,7 @@
     }
 
     &__logo-text {
+      @include text_regular();
       text-align: center;
       max-width: 560px;
       line-height: 24px;

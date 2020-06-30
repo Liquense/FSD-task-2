@@ -29,6 +29,8 @@
 
   //region menu items
   &__menu-item {
+    @include text_regular();
+
     &:not(:last-child) {
       margin-right: get-vw(29px);
     }
@@ -57,14 +59,17 @@
   }
 
   &__expand-button {
-    @include icon();
     border: none;
     margin: 0;
     padding: 0;
     background-color: transparent;
     outline: none;
     user-select: none;
-    color: $darkShade50;
+
+    .arrow_expand {
+      line-height: 18px;
+      margin-right: 0;
+    }
   }
 
   &__submenu {
@@ -74,10 +79,10 @@
     background: white;
     border: solid 1px $darkShade30;
     border-radius: 5px;
-
     top: 100%;
 
     .header__submenu-item { //для последовательного раскрытия нужен именно вложенный стиль
+      @include text_regular();
       display: flex;
       align-items: center;
       width: 100%;
@@ -117,6 +122,7 @@
   }
 
   &__user-name {
+    @include text_regular();
     color: $darkShade50;
   }
 
