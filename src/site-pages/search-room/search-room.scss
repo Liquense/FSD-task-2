@@ -106,6 +106,7 @@ body {
   }
 
   &__price-per-day-text {
+    @include text_regular();
     font-size: 12px;
     margin: 0;
   }
@@ -115,7 +116,7 @@ body {
   }
 
   &__availability-filter {
-    margin-bottom: 26px;
+    margin-bottom: 28px;
   }
 
   &__rooms {
@@ -123,6 +124,7 @@ body {
   }
 
   &__rooms-title {
+    @include text_widget-title();
     margin-top: 0;
     margin-bottom: 22px;
     letter-spacing: -0.5px;

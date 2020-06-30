@@ -48,7 +48,7 @@ html(lang="ru")
         include ../../blocks/list/list
         div.room-details__main-info
           div.room-details__features-container
-            h2.text_type_item-title.room-details__features-title Сведения о номере
+            h2.room-details__features-title Сведения о номере
             div.room-details__features-content
               +featureList({
                 items: [
@@ -59,13 +59,13 @@ html(lang="ru")
               })
           div.room-details__expressions-container
             include ../../blocks/donut-chart/donut-chart
-            h2.text_type_item-title.room-details__expressions-title Впечатления от номера
+            h2.room-details__expressions-title Впечатления от номера
             div.room-details__donut-chart
               +donut-chart()
         div.room-details__reviews-container
           div.room-details__reviews-title-container
-            h2.text_type_item-title.room-details__reviews-title Отзывы посетителей номера
-            span.text_type_regular.room-details__reviews-count 2 отзыва
+            h2.room-details__reviews-title Отзывы посетителей номера
+            span.room-details__reviews-count 2 отзыва
           div.room-details__reviews-content
             include ../../blocks/comment/comment
             div.room-details__comment
@@ -90,15 +90,15 @@ html(lang="ru")
               })
         div.room-details__additional-info
           div.room-details__rules-container
-            h2.text_type_item-title.room-details__rules-title Правила
+            h2.room-details__rules-title Правила
             div.room-details__rules-list
               +bulletList({
                 title: "",
                 contentStrings: ["Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"]
               })
           div.room-details__cancellation-container
-            h2.text_type_item-title.room-details__cancellation-title Отмена
-            span.text_type_regular.room-details__cancellation-text
+            h2.room-details__cancellation-title Отмена
+            span.room-details__cancellation-text
               | Бесплатная отмена в течение 48 ч.
               | После этого при отмене не позднее чем за 5 дн. до прибытия
               | вы получите полный возврат за вычетом сбора за услуги.

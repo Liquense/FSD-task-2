@@ -61,7 +61,7 @@ html(lang="ru")
         div.search-room__price-per-day-slider-container
           div.search-room__price-per-day-slider-filter
             +slider({minValue: 0, maxValue: 16000, step: 100, title: "Диапазон цены", isRange: true, initialValues: [5000, 10000]})
-          p.search-room__price-per-day-text.text_type_regular Стоимость за сутки пребывания в номере
+          p.search-room__price-per-day-text Стоимость за сутки пребывания в номере
         -let checkButtons = []
         -checkButtons.push({text: "Можно курить"});
         -checkButtons.push({text: "Можно с питомцами", isChecked: true});
@@ -95,7 +95,7 @@ html(lang="ru")
             elements: checkButtons
           })
       div.search-room__rooms
-        h2.search-room__roomsTitle.text_type_widget-title Номера, которые мы для вас подобрали
+        h2.search-room__rooms-title Номера, которые мы для вас подобрали
         div.search-room__rooms-pagination
           +pagination(12)(addClasses="")
             -let i = 0;

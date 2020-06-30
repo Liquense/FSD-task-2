@@ -3,6 +3,7 @@ body {
 }
 
 .room-details {
+  // region photos
   &__photos {
     display: flex;
     justify-content: center;
@@ -50,7 +51,9 @@ body {
       height: auto;
     }
   }
+  // endregion
 
+  // region content
   $horizontalGap: 70px;
   $verticalGap: 30px;
 
@@ -85,84 +88,6 @@ body {
       padding: 0;
       width: fit-content;
     }
-
-    .room-details__reviews-container {
-      margin-bottom: get-vw(33px); //PP
-      max-width: 710px;
-      @media (max-width: 610px) {
-        margin-bottom: $verticalGap;
-      }
-
-      .room-details__reviews-title-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-
-        .room-details__reviews-title {
-          letter-spacing: -0.4px;
-        }
-
-        .room-details__reviews-count {
-          flex-shrink: 0;
-        }
-      }
-
-      .room-details__reviews-content {
-        .room-details__comment {
-          &:not(:last-child) {
-            margin-bottom: 23px;
-          }
-        }
-      }
-    }
-
-    .room-details__additional-info {
-      display: flex;
-      justify-content: space-between;
-
-      @media (max-width: 850px) {
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-      }
-
-      .room-details__rules-container {
-        @media (max-width: 610px) {
-          margin-bottom: $verticalGap;
-        }
-
-        .room-details__rules-title {
-          margin-bottom: 17px;
-          margin-left: 20px;
-          @media (max-width: 610px) {
-            margin-left: 0;
-          }
-        }
-
-        .room-details__rules-list {
-          .list__title {
-            display: none;
-          }
-        }
-      }
-
-      .room-details__cancellation-container {
-        margin-right: 10px;
-        min-width: 280px;
-        max-width: 340px;
-        @media (max-width: 550px) {
-          max-width: 280px;
-          margin-right: 0;
-        }
-
-        .room-details__cancellation-title {
-          margin-bottom: 17px;
-        }
-
-        .room-details__cancellation-text {
-          line-height: 24px;
-        }
-      }
-    }
   }
 
   &__main-info {
@@ -189,10 +114,12 @@ body {
   }
 
   &__features-title {
+    @include text_item-title();
     letter-spacing: -0.6px;
   }
 
   &__expressions-title {
+    @include text_item-title();
     letter-spacing: -0.4px;
   }
 
@@ -206,6 +133,92 @@ body {
       align-items: center;
     }
   }
+  // endregion
+
+  // region reviews
+  &__reviews-container {
+    margin-bottom: get-vw(33px);
+    max-width: 710px;
+    @media (max-width: 610px) {
+      margin-bottom: $verticalGap;
+    }
+  }
+
+  &__comment {
+    &:not(:last-child) {
+      margin-bottom: 23px;
+    }
+  }
+
+  &__reviews-title-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+
+  &__reviews-title {
+    @include text_item-title();
+    letter-spacing: -0.4px;
+  }
+
+  &__reviews-count {
+    @include text_regular();
+    flex-shrink: 0;
+  }
+  // endregion
+
+  // region additional-info
+  &__additional-info {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: 850px) {
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+    }
+  }
+
+  &__rules-container {
+    @media (max-width: 610px) {
+      margin-bottom: $verticalGap;
+    }
+  }
+
+  &__rules-title {
+    @include text_item-title();
+    margin-bottom: 17px;
+    margin-left: 20px;
+    @media (max-width: 610px) {
+      margin-left: 0;
+    }
+  }
+
+  &__rules-list {
+    .list__title {
+      display: none;
+    }
+  }
+
+  &__cancellation-container {
+    margin-right: 10px;
+    min-width: 280px;
+    max-width: 340px;
+    @media (max-width: 550px) {
+      max-width: 280px;
+      margin-right: 0;
+    }
+  }
+
+  &__cancellation-title {
+    @include text_item-title();
+    margin-bottom: 17px;
+  }
+
+  &__cancellation-text {
+    @include text_regular();
+    line-height: 24px;
+  }
+  // endregion
 
   &__booking-card {
     @media (max-width: 1250px) {
