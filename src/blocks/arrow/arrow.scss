@@ -32,8 +32,8 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
     cursor: pointer;
     background-color: transparent;
 
-    &:hover,
-    &:focus {
+    &:hover:not(.arrow_relative),
+    &:focus:not(.arrow_relative) {
       border-radius: 50%;
       line-height: $expandWidth + 2px;
       width: $expandWidth + 2px;
@@ -55,6 +55,10 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
 
   &_colored {
     @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
+  }
+
+  &_relative {
+    position: relative;
   }
   // endregion
 }
