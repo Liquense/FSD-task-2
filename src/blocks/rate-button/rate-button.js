@@ -1,6 +1,5 @@
 /* eslint-disable no-undef */
 // jquery объявлен вебпаком
-
 const states = { 1: 'star_border', 2: 'star_half', 3: 'star' };
 function setState($star, stateIndex) {
   $star.text(states[stateIndex]);
@@ -25,9 +24,10 @@ function setRatingVisual($ratingButton, numericRating) {
   $ratingButton.children('.rate-button__star').each(setRateStarState);
 }
 
-export default function setRatingToRateButton($rateButton) {
-  const maxRating = $rateButton.attr('data-maxRating');
-  const specifiedRating = $rateButton.attr('data-rating');
+function initRateButton(index, element) {
+  const $rating = $(element);
+  const maxRating = $rating.attr('data-maxRating');
+  const specifiedRating = $rating.attr('data-rating');
 
   let rating;
   if (specifiedRating === '-1') {
@@ -36,12 +36,12 @@ export default function setRatingToRateButton($rateButton) {
     rating = specifiedRating;
   }
 
-  setRatingVisual($rateButton, rating);
+  setRatingVisual($rating, rating);
 }
 
-const $rateButtons = $('.rate-button');
-function initRateButton() {
-  const $rateButton = $(this);
-  setRatingToRateButton($rateButton);
+function initRateButtons() {
+  const $rateButtons = $('.rate-button');
+  $rateButtons.each(initRateButton);
 }
-$rateButtons.each(initRateButton);
+
+export default initRateButtons;

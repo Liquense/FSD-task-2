@@ -11,7 +11,6 @@ function getPaginationContent($contentContainer) {
   return HTMLContent;
 }
 
-const $paginations = $('.pagination');
 function initPagination() {
   const $paginationBlock = $(this);
   const $paginationContent = $paginationBlock.children('.pagination__content-container');
@@ -53,4 +52,9 @@ function initPagination() {
   });
 }
 
-$paginations.each(initPagination);
+function initPaginations() {
+  const $paginations = $('.pagination');
+  $paginations.each(initPagination);
+}
+
+export default initPaginations;

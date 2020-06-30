@@ -3,7 +3,7 @@
 import 'jquery-ui/ui/effects/effect-fade';
 
 // region Expandable
-export function initExpandableList(index, element) {
+function initExpandableList(index, element) {
   const $expandableList = $(element);
 
   if ($expandableList.data('isInitialized')) return;
@@ -23,8 +23,10 @@ export function initExpandableList(index, element) {
   if (isOpened) $($expandableContainer).toggle('fade', [], 200);
 }
 
-export function initExpandableLists() {
+function initExpandableLists() {
   const $expandableLists = $('.list_expandable');
   $expandableLists.each(initExpandableList);
 }
 // endregion
+
+export default initExpandableLists;

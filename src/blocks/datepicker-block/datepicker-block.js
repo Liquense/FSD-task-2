@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
 import 'air-datepicker';
+import arrowBack from '../../assets/images/arrow-back.svg';
 
 const confirmButton = '<div class="button button_type_text datepicker-block__confirm-button">'
     + '<button class="button__control button_type_text__control datepicker--button" data-action="hide">Применить'
@@ -9,7 +10,7 @@ const clearButton = '<div class="button button_type_text button_hovered datepick
     + '<button class="button__control button_type_text__control datepicker--button" data-action="clear">Очистить'
     + '</button><div class="button__decoration material-icons"></div></div>';
 
-export function parseAttrToDate(attrDate) {
+function parseAttrToDate(attrDate) {
   const dateParts = attrDate.split('.');
   const day = dateParts[0];
   const month = dateParts[1];
@@ -91,13 +92,13 @@ function initExpandableEvents($expandArrow, $control) {
  * @param $datepickerInput
  * @param dates
  */
-export function setDates($datepickerInput, dates) {
+function setDates($datepickerInput, dates) {
   if (!dates || dates.length === 0) { return; }
   const datepickerData = $datepickerInput.data('datepicker');
   datepickerData.selectDate(dates);
 }
 
-export function initDatepickerInput(index, input) {
+function initDatepickerInput(index, input) {
   const $datepicker = $(input);
   const $inputWrap = $datepicker.find('.datepicker-block__input-wrap');
   const $inputControl = $inputWrap.find('.input__control');
@@ -119,8 +120,8 @@ export function initDatepickerInput(index, input) {
       months: '<span class="text_type_item-title">yyyy</span>',
       years: '<span class="text_type_item-title">yyyy1 - yyyy2</span>',
     },
-    prevHtml: '<img src="./images/arrow-back.svg" alt="назад"">',
-    nextHtml: '<img src="./images/arrow-back.svg" alt="назад" style="transform: scale(-1, 1)">',
+    prevHtml: `<img src="${arrowBack}" alt="назад"">`,
+    nextHtml: `<img src="${arrowBack}" alt="назад" style="transform: scale(-1, 1)">`,
     onSelect: (formattedDate) => {
       $inputControl.val(formattedDate.toLowerCase());
     },
@@ -139,7 +140,11 @@ export function initDatepickerInput(index, input) {
   datepicker.selectDate(initDates);
 }
 
-export function initDatepickerInputs() {
+function initDatepickers() {
   const $datepickers = $('.datepicker-block');
   $datepickers.each(initDatepickerInput);
 }
+
+export {
+  parseAttrToDate, setDates, initDatepickerInput, initDatepickers,
+};

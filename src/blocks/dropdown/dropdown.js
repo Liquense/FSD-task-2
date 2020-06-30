@@ -274,7 +274,7 @@ function getInitialNamesValues($spinnerElements) {
 }
 
 const dropdownVisibleClass = 'dropdown__list-wrapper_visible';
-export function initDropdown(index, rootElement) {
+function initDropdown(index, rootElement) {
   const $inputWrapper = $(rootElement);
 
   // чтобы не инициализировать повторно
@@ -284,7 +284,7 @@ export function initDropdown(index, rootElement) {
 
   const $listWrapper = $inputWrapper.children('.dropdown__list-wrapper');
   const $inputControl = $inputWrapper.find('.dropdown__input .input__control');
-  const $spinnerValueElements = $inputWrapper.find('.spinner__value');
+  const $spinners = $inputWrapper.find('.spinner__value');
   const $buttonsContainer = $inputWrapper.find('.dropdown__buttons-container');
   const $clearButton = $inputWrapper.find('.dropdown__clear-button');
   const $confirmButton = $inputWrapper.find('.dropdown__confirm-button');
@@ -297,8 +297,8 @@ export function initDropdown(index, rootElement) {
   }
   const areControlsEnabled = !$inputWrapper.hasClass('dropdown_pure');
 
-  const namesValues = getInitialNamesValues($spinnerValueElements);
-  let oldNamesValues = getInitialNamesValues($spinnerValueElements);
+  const namesValues = getInitialNamesValues($spinners);
+  let oldNamesValues = getInitialNamesValues($spinners);
   changeInputText($listWrapper, namesValues, $inputControl);
 
 
@@ -313,7 +313,7 @@ export function initDropdown(index, rootElement) {
   });
 
   function handleClearButtonClick() {
-    clearSpinnersValues(namesValues, $spinnerValueElements);
+    clearSpinnersValues(namesValues, $spinners);
     manageControlsVisibility({
       oldNamesValues,
       namesValues,
@@ -334,7 +334,7 @@ export function initDropdown(index, rootElement) {
       $listWrapper.toggleClass(dropdownVisibleClass);
     }
     areValuesConfirmed = true;
-    oldNamesValues = getCurrentNamesValues($spinnerValueElements);
+    oldNamesValues = getCurrentNamesValues($spinners);
 
     manageControlsVisibility({
       oldNamesValues,
@@ -349,8 +349,8 @@ export function initDropdown(index, rootElement) {
   $confirmButton.click(handleConfirmButtonClick);
 
   // on spin
-  $spinnerValueElements.each((i) => {
-    const $spinner = $($spinnerValueElements[i]);
+  $spinners.each((i) => {
+    const $spinner = $($spinners[i]);
     function handleSpin(event, ui) {
       namesValues[$spinner.attr('data-index')].value = ui.value;
 
@@ -394,7 +394,7 @@ export function initDropdown(index, rootElement) {
         }
 
         setSpinnerValues(oldNamesValues, namesValues,
-          $spinnerValueElements, ['array']);
+          $spinners, ['array']);
 
         manageControlsVisibility({
           oldNamesValues,
@@ -421,7 +421,7 @@ export function initDropdown(index, rootElement) {
       dropdownOnChange({
         oldNamesValues,
         namesValues,
-        $spinnerValueElements,
+        $spinners,
         $clearButton,
         $confirmButton,
         $buttonsContainer,
@@ -434,7 +434,9 @@ export function initDropdown(index, rootElement) {
   });
 }
 
-export function initDropdowns() {
+function initDropdowns() {
   const $dropdowns = $('.dropdown');
   $dropdowns.each(initDropdown);
 }
+
+export default initDropdowns;

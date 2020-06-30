@@ -4,7 +4,7 @@ import {
   initDatepickerInput,
   parseAttrToDate,
   setDates,
-} from '../datepicker/datepicker';
+} from '../datepicker-block/datepicker-block';
 
 let isSecondAssignStarted = false;
 function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, otherInput, number) {
@@ -62,7 +62,7 @@ function getInitDates($rangePicker) {
   return dates;
 }
 
-export function setInitialDates($rangePicker, $input) {
+function setInitialDates($rangePicker, $input) {
   const initDates = getInitDates($rangePicker);
   setDates($input, Object.values(initDates));
 }
@@ -76,7 +76,7 @@ function safeDatepickerInit($datepicker, $datepickerControl) {
 }
 
 // index, поскольку вызов может происходить и через each от jQuery
-export function initTwoCalendarPicker(index, element) {
+function initTwoCalendarPicker(index, element) {
   const $twoCalendarRange = $(element);
 
   const $firstInput = $($twoCalendarRange.find('.two-calendar-range-picker__first-datepicker > .datepicker-block')[0]);
@@ -112,3 +112,10 @@ export function initTwoCalendarPicker(index, element) {
     secondDatepicker.selectDate(initDates.secondDate);
   }
 }
+
+function initTwoCalendarPickers() {
+  const $twoCalendarPickers = $('.two-calendar-range-picker');
+  $twoCalendarPickers.each(initTwoCalendarPicker);
+}
+
+export { setInitialDates, initTwoCalendarPickers };

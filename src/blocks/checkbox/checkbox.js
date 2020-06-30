@@ -87,7 +87,7 @@ function initDefaultCheckboxes() {
   $defaultCheckboxes.text('check');
 }
 
-export default class Checkbox {
+class Checkbox {
   static initDefault() {
     initDefaultCheckboxes();
   }
@@ -104,3 +104,5 @@ export default class Checkbox {
     initToggleCheckboxes();
   }
 }
+
+export default Checkbox;

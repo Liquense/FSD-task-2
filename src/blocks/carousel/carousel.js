@@ -12,23 +12,22 @@ function getCarouselParams($carousel) {
   };
 }
 
-export default function initCarouselPlugin($parent) {
-  function initCarousel() {
-    const initAttrName = 'data-initiated';
-    const initAttrValue = 'true';
+function initCarousel() {
+  const initAttrName = 'data-initiated';
+  const initAttrValue = 'true';
 
-    const $carousel = $(this);
-    if ($carousel.attr(initAttrName) === initAttrValue) { return; }
+  const $carousel = $(this);
+  if ($carousel.attr(initAttrName) === initAttrValue) { return; }
 
-    const params = getCarouselParams($carousel);
+  const params = getCarouselParams($carousel);
 
-    $carousel.slick(params);
-    $carousel.attr(initAttrName, initAttrValue);
-  }
-
-  $parent.find('.carousel').each(initCarousel);
+  $carousel.slick(params);
+  $carousel.attr(initAttrName, initAttrValue);
 }
 
-$(document).ready(() => {
-  initCarouselPlugin($('body'));
-});
+function initCarousels() {
+  const $carousels = $('.carousel');
+  $carousels.each(initCarousel);
+}
+
+export default initCarousels;

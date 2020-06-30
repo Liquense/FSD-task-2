@@ -1,10 +1,9 @@
 /* eslint-disable no-undef */
 // jquery подключена вебпаком
-import initCarouselPlugin from '../../blocks/carousel/carousel';
 import setRatingToRateButton from '../../blocks/rate-button/rate-button';
 import { formatNumber, ruDeclination } from '../../common/functions';
 
-export default function initRoomPreviewCard() {
+function initRoomPreviewCard() {
   const $this = $(this);
   const $costPerPeriodSpan = $this.find('.room-preview-card__cost-per-period');
   const $reviewsCountSpan = $this.find('.room-preview-card__reviews-count');
@@ -17,7 +16,6 @@ export default function initRoomPreviewCard() {
     reviewsCount: $this.attr('data-reviews-count'),
   };
 
-  initCarouselPlugin($this);
   const formattedCostPerPeriod = formatNumber(cardData.costPerPeriod, ' ');
   $costPerPeriodSpan.text(formattedCostPerPeriod + cardData.currency);
   const formattedReviewsCount = formatNumber(cardData.reviewsCount, ' ');
@@ -27,7 +25,9 @@ export default function initRoomPreviewCard() {
   $reviewsTextSpan.text(inclinedReviewsText);
 }
 
-$(document).ready(() => {
+function initRoomPreviewCards() {
   const $roomPreviewCard = $('.room-preview-card');
   $roomPreviewCard.each(initRoomPreviewCard);
-});
+}
+
+export default initRoomPreviewCards;
