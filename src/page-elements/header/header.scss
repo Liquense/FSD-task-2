@@ -135,6 +135,20 @@
   &__login-button {
     margin-right: get-vw(20px);
   }
+
+  // region narrow
+  &_narrow {
+    &__menu-item {
+      &:not(:last-child) {
+        margin-right: get-vw(21px);
+      }
+    }
+
+    &__buttons-container {
+      margin-left: get-vw(20px);
+    }
+  }
+  // endregion
 }
 
 @media (max-width: 1100px) {
