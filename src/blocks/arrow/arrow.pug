@@ -1,13 +1,10 @@
-mixin arrow(attrs={})
+mixin arrow({type = "expand", isColored = false, isBold = false, isRelative = false})
   //-type: "expand"/"enter"
-  -var defaultAttrs = {type: "expand", isColored: false, isBold: false, isRelative: false}
-  -attrs = Object.assign(defaultAttrs, attrs)
+  -const coloredClass = isColored ? "arrow_colored" : ""
+  -const boldClass = isBold ? "arrow_bold" : ""
+  -const relativeClass = isRelative ? "arrow_relative" : ""
 
-  -var coloredClass = attrs.isColored ? "arrow_colored" : ""
-  -var boldClass = attrs.isBold ? "arrow_bold" : ""
-  -var relativeClass = attrs.isRelative ? "arrow_relative" : ""
-
-  if attrs.type === "expand"
+  if type === "expand"
     span(class=`arrow arrow_expand ${coloredClass} ${boldClass} ${relativeClass}`) expand_more
-  else if attrs.type === "enter"
+  else if type === "enter"
     span(class=`arrow arrow_enter ${coloredClass} ${boldClass} ${relativeClass}`) arrow_forward
