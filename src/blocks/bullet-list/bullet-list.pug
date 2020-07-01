@@ -1,18 +1,15 @@
-mixin bulletList(data={})
-  -var defaultData = {title: "", contentStrings: []}
-  -data = Object.assign(defaultData, data);
-
-  -var listCN = "bullet-list"
-  -var listTitleCN = "__title"
-  -var listContainerCN = "__container"
-  -var listElementCN = "__item"
-  -var listElementImageCN = "__item-image"
-  -var listElementTextCN = "__item-text"
+mixin bulletList({title = "", contentStrings = []})
+  -const listCN = "bullet-list"
+  -const listTitleCN = "__title"
+  -const listContainerCN = "__container"
+  -const listElementCN = "__item"
+  -const listElementImageCN = "__item-image"
+  -const listElementTextCN = "__item-text"
 
   div(class=listCN)
-    h4(class=listCN+listTitleCN) #{data.title}
-    ul(class=listCN+listContainerCN)
-      each string, index in data.contentStrings
-        li(class=listCN+listElementCN)
-          div(class=listCN+listElementImageCN)
-          span(class=listCN+listElementTextCN) #{string}
+    h4(class=`${listCN}${listTitleCN}`) #{title}
+    ul(class=`${listCN}${listContainerCN}`)
+      each string, index in contentStrings
+        li(class=`${listCN}${listElementCN}`)
+          div(class=`${listCN}${listElementImageCN}`)
+          span(class=`${listCN}${listElementTextCN}`) #{string}
