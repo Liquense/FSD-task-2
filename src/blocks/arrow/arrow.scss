@@ -48,17 +48,15 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
     }
   }
 
-  // region modifiers
-  &_bold {
-    font-weight: bold;
+  &_relative {
+    position: relative;
   }
 
   &_colored {
     @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
   }
 
-  &_relative {
-    position: relative;
+  &_bold {
+    font-weight: bold;
   }
-  // endregion
 }
