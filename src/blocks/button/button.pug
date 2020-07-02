@@ -18,35 +18,20 @@ mixin Button(params={})
   - var arrowDecorationCN = `${blockClassName}_decoration_enter-arrow`
   - var enterArrowDecoration = "enter-arrow"
 
-  case params.decoration.toLowerCase()
-    when enterArrowDecoration
-      -decorationText = "arrow_forward"
-      -blockAttributes.class += ` ${arrowDecorationCN} `
-  each value, index in Object.values(attributes)
-    if params.isTextSized
-      -value.class += ` ${blockClassName}_text-sized${index ? classNames[index] : ""} `
-    if params.isHovered
-      -value.class += ` ${blockClassName}_hovered ${index ? classNames[index] : ""} `
-    if params.size
-      -value.class += ` ${blockClassName}_size_${params.size}${index ? classNames[index] : ""} `
+  - function createButtonContent() {
+    if type === 'bordered'
+      div&attributes(borderAttributes)
+        button&attributes(controlAttributes) #{text}
+    else
+      button&attributes(controlAttributes) #{text}
+    if decoration === 'enter-arrow'
+      div&attributes(decorationAttributes)
+        +arrow({type: 'enter'})
+  - }
 
-  if params.isLink
+  if isLink
     a(class=blockAttributes.class)
-      if params.type === "bordered"
-        div(class=borderAttributes.class)
-          button(class=`${controlAttributes.class}`) #{params.text}
-      else
-        button(class=`${controlAttributes.class}`) #{params.text}
-      if params.decoration === enterArrowDecoration
-        div.button__decoration
-          +arrow({type: "enter"})
+      -createButtonContent()
   else
     div(class=blockAttributes.class)
-      if params.type === "bordered"
-        div(class=borderAttributes.class)
-          button(class=`${controlAttributes.class}`) #{params.text}
-      else
-        button(class=`${controlAttributes.class}`) #{params.text}
-      if params.decoration === enterArrowDecoration
-        div.button__decoration
-          +arrow({type: "enter"})
+      -createButtonContent()
