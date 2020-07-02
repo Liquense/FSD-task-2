@@ -26,7 +26,7 @@ function initCarousel() {
 }
 
 function initCarousels() {
-  const $carousels = $('.carousel');
+  const $carousels = $('.js-carousel');
   $carousels.each(initCarousel);
 }
 
