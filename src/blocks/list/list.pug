@@ -49,6 +49,6 @@ mixin list(data={})
       each value, index in data.elements
         div(class=`${listClassName}__input ${listClassName}_type_${inputType}__input`)
           +checkbox({
-            text: value.text, type: `${inputType} ${value.class}`, isRich: isRich,
+            text: value.text, type: `${inputType}`, isRich: isRich,
             additional: value, isChecked: value.isChecked
           })
