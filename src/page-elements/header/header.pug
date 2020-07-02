@@ -43,6 +43,6 @@ mixin header(data={})
       else
         div(class=`header__buttons-container ${data.isNarrow ? narrowClass + "__buttons-container" : ""}`)
           div(class=`header__login-button ${data.isNarrow ? narrowClass + "__login-button" : ""}`)
-            +Button({text: data.loginText, type: "bordered", isTextSized: true, isLink: true})
+            +button({text: data.loginText, type: "bordered", isTextSized: true, isLink: true})
           div(class=`header__register-button ${data.isNarrow ? narrowClass + "__register-button" : ""}`)
-            +Button({text: data.registerText, type: "filled", isTextSized: true, isLink: true})
+            +button({text: data.registerText, type: "filled", isTextSized: true, isLink: true})

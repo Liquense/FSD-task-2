@@ -10,8 +10,8 @@ mixin loginCard(data={})
     div.login-card__password-input
       +input({type: "text", placeholder: "Пароль"})
     div.login-card__login-button
-      +Button({text: "Войти", type: "filled", size: "wide", decoration: "enter-arrow"})
+      +button({text: "Войти", type: "filled", size: "wide", decoration: "enter-arrow"})
     div.login-card__create-account-container
       span.login-card__havent-account Нет аккаунта на Toxin?
       div.login-card__create-login-button
-        +Button({text: "Создать", type: "bordered"})
+        +button({text: "Создать", type: "bordered"})

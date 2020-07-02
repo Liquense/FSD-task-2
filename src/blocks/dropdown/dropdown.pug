@@ -50,6 +50,6 @@ mixin dropdown(attrs = {})
               +spinner({range: attrs.range, name: element.name, index, initValue: element.value})
       div.dropdown__buttons-container
         div.dropdown_button.dropdown__clear-button
-          +Button({text: "Очистить", type: "text", isHovered: true})
+          +button({text: "Очистить", type: "text", isHovered: true})
         div.dropdown__button.dropdown__confirm-button
-          +Button({text: "Применить", type: "text"})
+          +button({text: "Применить", type: "text"})
