@@ -2,6 +2,7 @@ $buttonWidth: 99px;
 $wideButtonWidth: 320px;
 $buttonBorderWidth: 2px;
 $buttonMinHeight: 44px;
+$arrowSize: 44px;
 
 .button {
   cursor: pointer;
@@ -10,6 +11,62 @@ $buttonMinHeight: 44px;
   text-decoration: none;
   @include boxSizingBorderBox();
 
+  &_type_bordered {
+    position: relative;
+    @include clearfix();
+  }
+
+  &_size_wide {
+    width: $wideButtonWidth;
+  }
+
+  &_decorated {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &_decorated#{&}_size_wide {
+    width: $wideButtonWidth;
+  }
+
+  &_hovered:not(&_type_text),
+  &:not(&_type_text):hover {
+    opacity: 0.5;
+  }
+
+  &_hovered#{&}_type_text, &_type_text:hover {
+    .button__control, .button__decoration {
+      color: $darkShade50;
+    }
+  }
+
+  // region border
+  &__border {
+    content: '';
+    display: block;
+    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+    width: 99px;
+    height: 44px;
+    border-radius: 22px;
+    padding: $buttonBorderWidth;
+
+    &_size_wide {
+      width: $wideButtonWidth;
+    }
+
+    &_decorated#{&}_type_bordered#{&}:not(&_size_wide) {
+      width: $buttonWidth + $arrowSize + 2*$buttonBorderWidth;
+    }
+
+    &_text-sized {
+      height: fit-content;
+      width: fit-content;
+    }
+  }
+  // endregion
+
+  // region control
   &__control {
     @include text_label-CTA();
     cursor: pointer;
@@ -22,162 +79,73 @@ $buttonMinHeight: 44px;
     &:focus {
       outline: none;
     }
-  }
 
-  &__decoration,
-  &__border {
-    display: none;
-  }
-
-  //decoration
-  $arrowSize: 44px;
-  &_decoration_enter-arrow {
-    display: flex;
-    align-items: center;
-    position: relative;
-
-    &:not(.button_size_wide) {
-      &.button_type_bordered > .button__control:before {
-        width: $buttonWidth + $arrowSize + $buttonBorderWidth*2;
-      }
-
-      &__control {
-        width: $buttonWidth + $arrowSize;
-      }
-    }
-
-    &.button_type_bordered > .button__decoration,
-    &.button_type_text > .button__decoration {
-      color: $purple;
-    }
-
-    &.button_type_filled > .button__decoration {
+    &_type_filled {
+      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+      border: none;
       color: $inputBackgroundColor;
     }
 
-    .button__decoration {
-      display: block;
-      font-weight: normal;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-      position: absolute;
-      width: $arrowSize;
-      height: $arrowSize;
-      right: 0;
+    &_type_bordered {
+      position: relative;
+      border: none;
+      background-color: $inputBackgroundColor;
+      color: $purple;
+      width: 100%;
+      height: 100%;
     }
-  }
 
-  //hovered
-  &_hovered.button_type_filled > &__control,
-  &_type_filled:hover > &__control,
-  &_type_filled:hover > &__decoration,
-  &_hovered.button_type_bordered > &__border,
-  &_type_bordered:hover > &__border,
-  &_type_bordered:hover > &__decoration {
-    opacity: 0.5;
-  }
+    &_type_text {
+      border: none;
+      background-color: transparent;
+      width: fit-content;
+      height: 15px;
+      color: $purple;
+      cursor: pointer;
 
-  &_hovered.button_type_text, &_type_text:hover {
-    .button__control, .button__decoration {
-      color: $darkShade50;
+      &:focus {
+        outline: none;
+      }
     }
-  }
 
-  //WIDTH
-  //wide
-  &_size_wide {
-    width: $wideButtonWidth;
-
-    &__control {
+    &_size_wide#{&}_type_filled {
       width: $wideButtonWidth;
     }
 
-    .button_type_bordered {
-      &__border {
-        width: $wideButtonWidth;
-      }
-
-      &__control {
-        width: $wideButtonWidth - $buttonBorderWidth*2;
-      }
-    }
-  }
-
-  //text-sized
-  &_text-sized {
-    & .button_type_bordered {
-      &__border {
-        height: fit-content;
-        width: fit-content;
-      }
-
-      &__control {
-        padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth; // на хэдере почему-то высота кнопки логина изменилась
-      }
+    &_decorated#{&}_type_bordered#{&}:not(&_size_wide) {
+      width: $buttonWidth + $arrowSize - 2*$buttonBorderWidth;
     }
 
-    &__control {
+    &_text-sized {
       display: block;
       width: auto;
       height: auto;
       line-height: normal;
       padding: 9px 20px 10px 20px;
     }
-  }
 
-  //TYPE
-  //bordered
-  &_type_bordered {
-    position: relative;
-    @include clearfix();
-
-    &__border {
-      content: '';
-      display: block;
-      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-      width: 99px;
-      height: 44px;
-      border-radius: 22px;
-      padding: $buttonBorderWidth;
-    }
-
-    &__control {
-      position: relative;
-      border: none;
-      background-color: $inputBackgroundColor;
-      color: $purple;
-
-      width: 100%;
-      height: 100%;
+    &_text-sized#{&}_type_bordered {
+      padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
     }
   }
+  // endregion
 
-  //filled
-  &_type_filled {
-    &__control {
-      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-      border: none;
+  // region decoration
+  &__decoration {
+    display: block;
+    font-weight: normal;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    position: absolute;
+    width: $arrowSize;
+    height: $arrowSize;
+    right: 0;
+
+    &_type_filled {
       color: $inputBackgroundColor;
     }
   }
-
-  //text
-  &_type_text {
-    &__control {
-      &:focus {
-        outline: none;
-      }
-
-      border: none;
-      background-color: transparent;
-
-      width: fit-content;
-      height: 15px;
-
-      color: $purple;
-      cursor: pointer;
-    }
-  }
+  // endregion
 }
