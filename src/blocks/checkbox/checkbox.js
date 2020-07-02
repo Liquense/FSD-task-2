@@ -2,17 +2,17 @@
 // jQuery объявлена глобально вебпаком
 import 'jquery-ui/ui/widgets/checkboxradio';
 
-export function initCheckbox(jquerySelector, classes) {
+export function initCheckbox(jquerySelector, { icon, iconSpace }) {
   const $hiddenInput = $(jquerySelector);
+
   function initialization() {
     const $singleInput = $(this);
-
     if ($singleInput.data('uiCheckboxradio')) return; // чтобы не инициализировать лишнего
 
     const checkbox = $singleInput.checkboxradio({
       classes: {
-        'ui-checkboxradio-icon': classes.icon,
-        'ui-checkboxradio-icon-space': classes.iconSpace,
+        'ui-checkboxradio-icon': icon,
+        'ui-checkboxradio-icon-space': iconSpace,
       },
     });
     const isChecked = $singleInput.attr('data-isChecked');
@@ -26,45 +26,38 @@ export function initCheckbox(jquerySelector, classes) {
 }
 
 function initToggleCheckboxes() {
-  initCheckbox('.checkbox_type_toggle__hidden-button', {
-    icon: 'checkbox__button checkbox_type_toggle__button',
-    iconSpace: 'checkbox__icon-space checkbox_type_toggle__icon-space',
+  initCheckbox('.js-checkbox__hidden-button_type_toggle', {
+    icon: 'checkbox__button checkbox__button_type_toggle',
+    iconSpace: 'checkbox__icon-space checkbox__icon-space_type_toggle',
   });
 }
 
 function initRadioCheckboxes() {
-  initCheckbox('.checkbox_type_radio__hidden-button',
+  initCheckbox('.js-checkbox__hidden-button_type_radio',
     {
-      icon: 'checkbox__button checkbox_type_radio__button',
-      iconSpace: 'checkbox__icon-space checkbox_type_radio__iconSpace',
+      icon: 'checkbox__button checkbox__button_type_radio',
+      iconSpace: 'checkbox__icon-space checkbox__icon-space_type_radio',
     });
 }
 
 function initLikeCheckbox() {
   const $likeLabel = $(this);
-  const $likeButton = $($likeLabel.find('.checkbox_type_like__hidden-button')[0]);
+  const $likeButton = $likeLabel.find('.js-checkbox__hidden-button_type_like');
+  const $likeText = $likeLabel.find('.js-checkbox__text_type_like');
 
   const checkboxRadioData = $likeButton.data('uiCheckboxradio');
-  initCheckbox($likeButton, {
-    icon: 'checkbox__button checkbox_type_like__button',
-  });
-
-  const gradientBorderElement = document.createElement('div');
-  gradientBorderElement.classList.add('checkbox_type_like__button-border');
-  $likeLabel.prepend(gradientBorderElement);
-
-  if (Number.isNaN(
-    Number.parseInt($likeLabel.attr('data-likes-count'), 10),
-  )) {
-    return;
-  }
-
   if (checkboxRadioData) return; // чтобы не навешивать лишних обработчиков
 
-  let likesCount = Number.parseInt($likeLabel.attr('data-likes-count'), 10);
-  $likeButton.change(() => {
-    const $likeText = $($likeLabel.find('.checkbox_type_like__text')[0]);
+  initCheckbox($likeButton, { icon: 'checkbox__button checkbox__button_type_like' });
 
+  const gradientBorderElement = document.createElement('div');
+  gradientBorderElement.classList.add('checkbox__button-border_type_like');
+  $likeLabel.prepend(gradientBorderElement);
+
+  let likesCount = Number.parseInt($likeLabel.attr('data-likes-count'), 10);
+  if (Number.isNaN(likesCount)) return;
+
+  $likeButton.change(() => {
     likesCount = $likeLabel.hasClass('ui-checkboxradio-checked') ? likesCount + 1 : likesCount - 1;
 
     $likeText.text(likesCount);
@@ -73,18 +66,18 @@ function initLikeCheckbox() {
 }
 
 function initLikeCheckboxes() {
-  const $likeCheckboxes = $('.checkbox_type_like__label');
+  const $likeCheckboxes = $('.js-checkbox__label_type_like');
   $likeCheckboxes.each(initLikeCheckbox);
 }
 
-initCheckbox('.checkbox_type_default__hidden-button', {
-  icon: 'checkbox__button checkbox_type_default__button',
-  iconSpace: 'checkbox__icon-space checkbox_type_default__icon-space',
-});
-
 function initDefaultCheckboxes() {
-  const $defaultCheckboxes = $('.checkbox_type_default__button');
-  $defaultCheckboxes.text('check');
+  initCheckbox('.js-checkbox__hidden-button_type_default', {
+    icon: 'checkbox__button js-checkbox__button_type_default checkbox__button_type_default',
+    iconSpace: 'checkbox__icon-space checkbox__icon-space_type_default',
+  });
+
+  const $defaultCheckboxButtons = $('.js-checkbox__button_type_default');
+  $defaultCheckboxButtons.text('check');
 }
 
 class Checkbox {

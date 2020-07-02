@@ -1,79 +1,59 @@
 //-
   types: checkbox/пусто - чекбокс, toggle - переключатель,
   additional - структура с дополнительными параметрами (description, text)
-mixin checkbox(data={})
-  -var defaultData = {isChecked: false, text, type, isRich: false, additional};
-  -data = Object.assign({}, defaultData, data);
+mixin checkbox({isChecked = false, text, type="", isRich = false, additional})
+  -const checkboxClassName = 'checkbox'
+  -const labelClassName = '__label'
+  -const textClassName = '__text'
+  -const inputClassName = '__hidden-button'
+  -const descriptionClassName = '__description'
+  -const classNames = [checkboxClassName, labelClassName, inputClassName, descriptionClassName, textClassName]
 
-  -var checkboxClassName = "checkbox"
-  -var labelClassName = "__label"
-  -var textClassName = "__text"
-  -var inputClassName = "__hidden-button"
-  -var descriptionClassName = "__description"
-    -var classNames = [checkboxClassName, labelClassName, inputClassName, descriptionClassName, textClassName]
+  -const checkboxAttrs = {class: `${checkboxClassName} `}
+  -const labelAttrs = {class: `${checkboxClassName}${labelClassName} `}
+  -const inputAttrs = {class: `${checkboxClassName}${inputClassName} `}
+  -const descriptionAttrs = {class: `${checkboxClassName}${descriptionClassName} `}
+  -const textAttrs = {class: `${checkboxClassName}${textClassName} `}
+  -const allAttrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
 
-  -var checkboxAttrs = {class: checkboxClassName + " "}
-  -var labelAttrs = {class: checkboxClassName + labelClassName + " "}
-  -var inputAttrs = {class: checkboxClassName + inputClassName + " "}
-  -var descriptionAttrs = {class: checkboxClassName + descriptionClassName + " "}
-  -var textAttrs = {class: checkboxClassName + textClassName + " "}
-    -var attrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
+  each value, index in Object.values(allAttrs)
+    -const typeName = `${(type && type !== 'checkbox' && type !== 'rich') ? type : 'default'}`
+    -const typeClass = `${checkboxClassName}${index ? classNames[index] : ''}_type_${typeName} `
+    -const isInput = value === inputAttrs
+    -const isLabel = value === labelAttrs
+    -const isText = value === textAttrs
+    -const isLike = type === 'like'
+    -const isLikeTextOrLabel = isLike && (isText || isLabel)
 
-  if data.type
-    if data.type.includes("radio")
-      each value, index in attrs
-        if index === 0
-          - value.class += classNames[index] + "_type_radio "
-        else
-          - value.class += checkboxClassName + "_type_radio" + classNames[index] + " "
+    if isInput || isLikeTextOrLabel
+      -value.class += `js-${typeClass} `
+    -value.class += `${typeClass} `
+
+  case type
+    when 'radio'
       - inputAttrs.type = "radio"
-      if data.additional && data.additional.group
-        - inputAttrs.name = data.additional.group
-    else if data.type.includes("toggle")
-      each value, index in attrs
-        if index === 0
-          - value.class += classNames[index] + "_type_toggle "
-        else
-          - value.class += checkboxClassName + "_type_toggle" + classNames[index] + " "
+      if additional && additional.group
+        - inputAttrs.name = additional.group
+    when 'toggle'
       - inputAttrs.type = "checkbox"
-      if data.isChecked
-        - labelAttrs.class += checkboxClassName + labelClassName + "_toggled "
-    else if data.type.includes("like")
-      each value, index in attrs
-        if index === 0
-          - value.class += classNames[index] + "_type_like "
-        else
-          - value.class += checkboxClassName + "_type_like" + classNames[index] + " "
+      if isChecked
+        - labelAttrs.class += `${checkboxClassName}${labelClassName}_toggled `
+    when "like"
       - inputAttrs.type = "checkbox"
-      - labelAttrs["data-likes-count"] = data.text
-    else
-      each value, index in attrs
-        if index === 0
-          - value.class += classNames[index] + "_type_default "
-        else
-          - value.class += checkboxClassName + "_type_default" + classNames[index] + " "
+      - labelAttrs["data-likes-count"] = text
+    default
       - inputAttrs.type = "checkbox"
 
-    if data.isRich
-      each value, index in attrs
-        if index === 0
-          - value.class += classNames[index] + "_rich "
-        else
-          - value.class += checkboxClassName + "_rich" + classNames[index] + " "
-      if data.additional && data.additional.description
-        - var description = data.additional.description
-  else
-    each value, index in attrs
-      if index === 0
-        - value.class += classNames[index] + "_type_default "
-      else
-        - value.class += checkboxClassName + "_type_default" + classNames[index] + " "
-    - inputAttrs.type = "checkbox"
+  if isRich
+    each value, index in allAttrs
+      - value.class += `${checkboxClassName}${index ? classNames[index] : ''}_rich `
+    if additional && additional.description
+      - var description = additional.description
 
-  -inputAttrs["data-isChecked"] = `${data.isChecked}`
+  -inputAttrs["data-isChecked"] = `${isChecked}`
   div&attributes(checkboxAttrs)
     label&attributes(labelAttrs)
-      p&attributes(textAttrs) #{data.text}
+      p&attributes(textAttrs) #{text}
       input&attributes(inputAttrs)
-      if data.isRich
+      if isRich
         p&attributes(descriptionAttrs) #{description}
