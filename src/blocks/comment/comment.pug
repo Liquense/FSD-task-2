@@ -1,16 +1,14 @@
 include ../checkbox/checkbox
 
 mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text})
-  -const addClasses = attributes.addClasses ? attributes.addClasses : ""
-  article(class=`comment ${addClasses}`)
+  article(class=`comment`)
     div.comment__header
-      div.comment__col1.comment__avatar-wrap
+      div.comment__avatar-wrap
         img.comment__avatar(src=avatar, alt="user avatar")
-      div.comment__info-container.comment__col2
+      div.comment__info-container
         h4.comment__author #{author}
         span.comment__date-time #{dateTime}
     div.comment__content
-      div.comment__col1
-        div.comment__like
-          +checkbox({text: likesCount, type: "like", isChecked: isLiked})
-      span.comment__text.comment__col2 #{text}
+      div.comment__like
+        +checkbox({text: likesCount, type: "like", isChecked: isLiked})
+      span.comment__text #{text}

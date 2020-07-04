@@ -4,15 +4,6 @@ $avatarSize: 48px;
   max-width: 710px;
   @include boxSizingBorderBox();
 
-  &__col1 {
-    display: flex;
-    justify-content: center;
-    width: $avatarSize;
-    flex-shrink: 0;
-
-    margin-right: 10px;
-  }
-
   &__header {
     display: flex;
     align-items: center;
@@ -61,5 +52,13 @@ $avatarSize: 48px;
     @include text_regular();
     font-size: 14px;
     line-height: 24px;
+  }
+
+  &__avatar-wrap, &__like {
+    display: flex;
+    justify-content: center;
+    width: $avatarSize;
+    flex-shrink: 0;
+    margin-right: 10px;
   }
 }
