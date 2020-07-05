@@ -1,53 +1,53 @@
 include ../checkbox/checkbox
-include ../bullet-list/bullet-list
-include ../features-list/features-list
+include ../arrow/arrow
 
-mixin list(data={})
-  -var defaultData = {type: "", isExpandable: false, isNarrow: false, isOpened: false, title: "", elements: []}
-  -data = Object.assign(defaultData, data);
+mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false, title = "", elements = []})
+  -const listClassName = "list"
+  -const titleClassName = "__title"
+  -const containerClassName = "__container"
+  -const classNames = [listClassName, titleClassName, containerClassName]
 
-  -var listClassName = "list"
-  -var titleClassName = "__title"
-  -var containerClassName = "__container"
-  -var classNames = [listClassName, titleClassName, containerClassName]
+  -const listAttrs = {class: listClassName + " "}
+  -const titleAttrs = {class: listClassName + titleClassName + " "}
+  -const containerAttrs = {class: listClassName + containerClassName + " "}
+  -const attrs = [listAttrs, titleAttrs, containerAttrs]
 
-  -var listAttrs = {class: listClassName + " "}
-  -var titleAttrs = {class: listClassName + titleClassName + " "}
-  -var containerAttrs = {class: listClassName + containerClassName + " "}
-  -var attrs = [listAttrs, titleAttrs, containerAttrs]
-  -var inputType = ""
-
-  -var isRich = false;
+  -let inputType = ""
+  -let isRich = false;
 
   each value, index in attrs
     //- типы чекбоксов
-    if data.type.includes("checkbox")
-      - value.class += index === 0 ? classNames[index] + "_type_checkbox " : listClassName + "_type_checkbox" + classNames[index] + " "
+    if type.includes("checkbox")
+      -value.class += `${index ? listClassName : ''}${classNames[index]}_type_checkbox `
       -inputType = "checkbox"
-    else if data.type.includes("radio")
-      - value.class += index === 0 ? classNames[index] + "_type_radio " : listClassName + "_type_radio" + classNames[index] + " "
+    else if type.includes("radio")
+      -value.class += `${index ? listClassName : ''}${classNames[index]}_type_radio `
       -inputType = "radio"
-    else if data.type.includes("toggle")
-      - value.class += index === 0 ? classNames[index] + "_type_toggle " : listClassName + "_type_toggle" + classNames[index] + " "
+    else if type.includes("toggle")
+      -value.class += `${index ? listClassName : ''}${classNames[index]}_type_toggle `
       -inputType = "toggle"
-    else if data.type.includes("rich")
-      - value.class += index === 0 ? classNames[index] + "_type_rich " : listClassName + "_type_rich" + classNames[index] + " "
+    else if type.includes("rich")
+      -value.class += `${index ? listClassName : ''}${classNames[index]}_type_rich `
       -inputType = "rich"
       -isRich = true
     //- модификаторы списка
-    if data.isExpandable
-      - value.class += index === 0 ? classNames[index] + "_expandable " : listClassName + "_expandable" + classNames[index] + " "
-      if data.isNarrow
-        - value.class += index === 0 ? classNames[index] + "_expandable-narrow " : listClassName + "_expandable-narrow" + classNames[index] + " "
-      if data.isOpened
-        - value.class += index === 0 ? classNames[index] + "_expandable-opened " : listClassName + "_expandable-opened" + classNames[index] + " "
+    if isExpandable
+      -const classToAdd = `${index ? listClassName : ''}${classNames[index]}_expandable `
+      -value.class += `js-${classToAdd} ${classToAdd} `
+      if isNarrow
+        -value.class += `${index ? listClassName : ''}${classNames[index]}_expandable-narrow `
+      if isOpened
+        -value.class += `${index ? listClassName : ''}${classNames[index]}_expandable-opened `
 
   fieldset&attributes(listAttrs)
-    if data.title
-      legend&attributes(titleAttrs) #{data.title}
+    if title
+      legend&attributes(titleAttrs) #{title}
+      if isExpandable
+        div.js-list__expand-arrow.list__expand-arrow
+          +arrow({type: 'expand'})
     div&attributes(containerAttrs)
-      each value, index in data.elements
-        div(class=`${listClassName}__input ${listClassName}_type_${inputType}__input`)
+      each value, index in elements
+        div(class=`${listClassName}__input ${listClassName}__input_type_${inputType}`)
           +checkbox({
             text: value.text, type: `${inputType}`, isRich: isRich,
             additional: value, isChecked: value.isChecked

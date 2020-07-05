@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
 import 'jquery-ui/ui/effects/effect-fade';
+import { handleArrowChangeState } from '../arrow/arrow';
 
 // region Expandable
 function initExpandableList(index, element) {
@@ -9,22 +10,27 @@ function initExpandableList(index, element) {
   if ($expandableList.data('isInitialized')) return;
   $expandableList.data('isInitialized', true);
 
-  const $expandableTitle = $($expandableList.find('.list_expandable__title')[0]);
-  const $expandableContainer = $($expandableList.find('.list_expandable__container')[0]);
+  const $expandableTitle = $expandableList.find('.js-list__title_expandable');
+  const $expandableContainer = $expandableList.find('.js-list__container_expandable');
+  const $expandArrow = $expandableList.find('.js-list__expand-arrow');
   const isOpened = $expandableList.hasClass('list_expandable-opened');
 
-  function handleExpandableTitleClick() {
-    $expandableList.toggleClass('list_expanded__expand-arrow');
+  function handleExpandableClick() {
+    $expandableList.toggleClass('list__expand-arrow_expanded');
     $expandableContainer.toggle('fade', [], 200);
-    $expandableContainer.toggleClass('list_visible__container');
-  }
-  $expandableTitle.click(handleExpandableTitleClick);
+    $expandableContainer.toggleClass('list__container_visible');
 
-  if (isOpened) $($expandableContainer).toggle('fade', [], 200);
+    handleArrowChangeState($expandArrow);
+  }
+
+  $expandableTitle.on('click.list', handleExpandableClick);
+  $expandArrow.on('click.list', handleExpandableClick);
+
+  if (isOpened) handleExpandableClick();
 }
 
 function initExpandableLists() {
-  const $expandableLists = $('.list_expandable');
+  const $expandableLists = $('.js-list_expandable');
   $expandableLists.each(initExpandableList);
 }
 // endregion
