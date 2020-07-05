@@ -5,10 +5,7 @@ include ../arrow/arrow
 //- 	размеры: (medium, premedium, narrow),
 //- placeholder - плейсхолдер в инпуте
 //- data - значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
-mixin input(data={})
-  - var defaultData = {title, type, width, placeholder, withSubscription: false, isExpandable: false}
-  - data = Object.assign(defaultData, data)
-
+mixin input({title, type, width, placeholder, withSubscription = false, isExpandable = false, inDatepicker = false})
   - var blockClassName = "input"
   - var titleClassName = "__title"
   - var controlWrapperCN = "__control-wrapper"
@@ -18,52 +15,57 @@ mixin input(data={})
   - var blockAttributes = {class: blockClassName + " "}
   - var titleAttributes = {class: blockClassName + titleClassName + " "}
   - var controlWrapperAttrs = {class: blockClassName + controlWrapperCN + " "}
-  - var controlAttributes = {class: blockClassName + controlClassName + " ", placeholder: data.placeholder}
+  - var controlAttributes = {
+  -   class: `${inDatepicker ? `js-${blockClassName}${controlClassName} ` : ''}`
+  -     + `${blockClassName}${controlClassName} `,
+  -   placeholder: placeholder
+  - }
   - var attributes = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttrs}
 
   each value, index in Object.values(attributes)
     //-ширина
-    if data.width === "narrow"
+    if width === "narrow"
       - value.class += index === 0 ? blockClassName + "_width_narrow " : blockClassName + "_width_narrow" + classNames[index] + " "
-    else if data.width === "premedium"
+    else if width === "premedium"
       - value.class += index === 0 ? blockClassName + "_width_premedium " : blockClassName + "_width_premedium" + classNames[index] + " "
-    else if data.width === "medium"
+    else if width === "medium"
       - value.class += index === 0 ? blockClassName + "_width_medium " : blockClassName + "_width_medium" + classNames[index] + " "
     //-если подписка, то декорация-стрелочка вправо
-    if data.withSubscription
+    if withSubscription
       - value.class += index === 0 ? blockClassName + "_with-subscription " : blockClassName + "_with-subscription" + classNames[index] + " "
-    if data.isExpandable
+    if isExpandable
       - value.class += index === 0 ? blockClassName + "_expandable " : blockClassName + "_expandable" + classNames[index] + " "
     //-фокус
-    if data.isFocused
+    if isFocused
       - value.class += index === 0 ? blockClassName + "_focused" : blockClassName + "_focused" + classNames[index] + " "
     //-Просто текст
-    if data.type === "text"
+    if type === "text"
       - value.class += index === 0 ? classNames[index] + "_type_text " : classNames[0] + "_type_text" + classNames[index] + " "
       - attributes.controlAttributes.type = "text"
     //-Текст с маской
-    else if data.type === "mask"
+    else if type === "mask"
       - value.class += index === 0 ? classNames[index] + "_type_masked " : classNames[0] + "_type_masked" + classNames[index] + " "
 
   div&attributes(attributes.blockAttributes)
-    if data.title
-      label&attributes(attributes.titleAttributes) #{data.title}
+    if title
+      label&attributes(attributes.titleAttributes) #{title}
         br
         div&attributes(attributes.controlWrapperAttrs)
-          if data.withSubscription
+          if withSubscription
             div.input_with-subscription__arrow
               +arrow({type: "enter", isColored: true, isBold: true})
-          else if data.isExpandable
+          else if isExpandable
             div.input_expandable__arrow
               +arrow({type: "expand"})
-          input&attributes(attributes.controlAttributes)(value=data.data)
+          input&attributes(attributes.controlAttributes)(value=data)
     else
       label&attributes(attributes.titleAttributes)
         div&attributes(attributes.controlWrapperAttrs)
-          input&attributes(attributes.controlAttributes)(value=data.data)
-          if data.withSubscription
+          //- TODO: value=data - запихнуть в controlAttributes
+          input&attributes(attributes.controlAttributes)(value=data)
+          if withSubscription
             div.input_with-subscription__arrow
               +arrow({type: "enter", isColored: true, isBold: true})
-          else if data.isExpandable
+          else if isExpandable
             div.input_expandable__arrow
               +arrow({type: "expand"})
