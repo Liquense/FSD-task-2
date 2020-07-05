@@ -7,49 +7,53 @@ include ../input/input
 //- unaccepted - для отображения кнопки "применить" при инициализации
 //- pure - для отсутствия контролирующих кнопок постоянно
 //- opened - для постоянно открытого дропдауна
-mixin dropdown(attrs = {})
-  - var defaultAttrs = {title, width, dropdownType, placeholder, range: [0, 5],
-  -   isUnified: false, isPure: false, isOpened: false, isUnaccepted: false, isFocused: false, data: undefined}
-  - attrs = Object.assign(defaultAttrs, attrs)
+mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnified = false, isPure = false, isOpened = false, isUnaccepted = false, isFocused = false, data = undefined})
+  -const blockClass = 'dropdown'
+  -const listClass = 'dropdown__list'
+  -const listWrapperClass = 'dropdown__list-wrapper'
+  -const inputClass = 'dropdown__input'
+  -const buttonsContainerClass = 'dropdown__buttons-container'
+  -const clearButtonClass = 'dropdown__clear-button'
+  -const confirmButtonClass = 'dropdown__confirm-button'
 
-  - var listClasses = "dropdown__list ",
-  - blockClasses = "dropdown ",
-  - listWrapperClasses = "dropdown__list-wrapper ";
+  -let blockClasses = `js-${blockClass} ${blockClass} `
+  -let listClasses = `js-${listClass} ${listClass} `
+  -let listWrapperClasses = `js-${listWrapperClass} ${listWrapperClass} `
 
   //-подтипы дропдауна
-  if attrs.dropdownType === "rooms"
-    - listClasses += "dropdown__list_type_rooms "
-  else if attrs.dropdownType === "customers"
-    - listClasses += "dropdown__list_type_customers "
+  if dropdownType === 'rooms'
+    -listClasses += 'dropdown__list_type_rooms '
+  else if dropdownType === 'customers'
+    -listClasses += 'dropdown__list_type_customers '
   //-модификаторы дропдауна
-  if attrs.isUnified
-    - listClasses += "dropdown__list_unified "
-  if attrs.isOpened
-    - blockClasses += "dropdown_opened "
-  if attrs.isPure
-    - blockClasses += "dropdown_pure "
-  if attrs.isUnaccepted
-    - blockClasses += "dropdown_unaccepted "
+  if isUnified
+    -listClasses += 'dropdown__list_unified '
+  if isOpened
+    -blockClasses += 'dropdown_opened '
+  if isPure
+    -blockClasses += 'dropdown_pure '
+  if isUnaccepted
+    -blockClasses += 'dropdown_unaccepted '
   //-ширина
-  if attrs.width === "narrow"
-    - listWrapperClasses += "dropdown__list-wrapper_width_narrow "
-  else if attrs.width === "premedium"
-    - listWrapperClasses += "dropdown__list-wrapper_width_premedium "
-  else if attrs.width === "medium"
-    - listWrapperClasses += "dropdown__list-wrapper_width_medium "
+  if width === 'narrow'
+    -listWrapperClasses += 'dropdown__list-wrapper_width_narrow '
+  else if width === 'premedium'
+    -listWrapperClasses += 'dropdown__list-wrapper_width_premedium '
+  else if width === 'medium'
+    -listWrapperClasses += 'dropdown__list-wrapper_width_medium '
 
   div(class=blockClasses)
-    div.dropdown__input
-      +input({title: attrs.title, width: attrs.width, placeholder: attrs.placeholder, isExpandable: true, isFocused: attrs.isOpened})
+    div(class=`js-${inputClass} ${inputClass}`)
+      +input({title: title, width: width, placeholder: placeholder, isExpandable: true, isFocused: isOpened})
     div(class=listWrapperClasses)
       div(class=listClasses)
-        each element, index in attrs.data
+        each element, index in data
           div.dropdown__list-row
             p.dropdown__list-row-text #{element.name}
             div.dropdown__spinner
-              +spinner({range: attrs.range, name: element.name, index, initValue: element.value})
-      div.dropdown__buttons-container
-        div.dropdown_button.dropdown__clear-button
-          +button({text: "Очистить", type: "text", isHovered: true})
-        div.dropdown__button.dropdown__confirm-button
-          +button({text: "Применить", type: "text"})
+              +spinner({range: range, name: element.name, index, initValue: element.value})
+      div(class=`js-${buttonsContainerClass} ${buttonsContainerClass}`)
+        div(class=`js-${clearButtonClass} ${clearButtonClass}`)
+          +button({text: 'Очистить', type: 'text', isHovered: true})
+        div(class=`js-${confirmButtonClass} ${confirmButtonClass}`)
+          +button({text: 'Применить', type: 'text'})

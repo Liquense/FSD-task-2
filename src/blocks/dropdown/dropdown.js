@@ -168,7 +168,7 @@ function createInputText(namesValues, dropdownType) {
 }
 
 function changeInputText($listWrapper, namesValues, input) {
-  const $list = $listWrapper.find('.dropdown__list');
+  const $list = $listWrapper.find('.js-dropdown__list');
   const dropdownType = getDropdownType($list);
   const newInputText = createInputText(namesValues, dropdownType);
 
@@ -275,27 +275,27 @@ function getInitialNamesValues($spinnerElements) {
 
 const dropdownVisibleClass = 'dropdown__list-wrapper_visible';
 function initDropdown(index, rootElement) {
-  const $inputWrapper = $(rootElement);
+  const $dropdown = $(rootElement);
 
   // чтобы не инициализировать повторно
   const isInitialisedKey = 'isInitialised';
-  if ($inputWrapper.data(isInitialisedKey)) return;
-  $inputWrapper.data(isInitialisedKey, true);
+  if ($dropdown.data(isInitialisedKey)) return;
+  $dropdown.data(isInitialisedKey, true);
 
-  const $listWrapper = $inputWrapper.children('.dropdown__list-wrapper');
-  const $inputControl = $inputWrapper.find('.dropdown__input .input__control');
-  const $spinners = $inputWrapper.find('.spinner__value');
-  const $buttonsContainer = $inputWrapper.find('.dropdown__buttons-container');
-  const $clearButton = $inputWrapper.find('.dropdown__clear-button');
-  const $confirmButton = $inputWrapper.find('.dropdown__confirm-button');
+  const $listWrapper = $dropdown.children('.js-dropdown__list-wrapper');
+  const $inputControl = $dropdown.find('.js-dropdown__input .js-input__control');
+  const $spinners = $dropdown.find('.js-spinner__value');
+  const $buttonsContainer = $dropdown.find('.js-dropdown__buttons-container');
+  const $clearButton = $dropdown.find('.js-dropdown__clear-button');
+  const $confirmButton = $dropdown.find('.js-dropdown__confirm-button');
 
-  let areValuesConfirmed = !$inputWrapper.hasClass('dropdown_unaccepted');
-  const isOpened = $inputWrapper.hasClass('dropdown_opened');
+  let areValuesConfirmed = !$dropdown.hasClass('dropdown_unaccepted');
+  const isOpened = $dropdown.hasClass('dropdown_opened');
   if (isOpened) {
     $listWrapper.toggle('fade');
     $listWrapper.toggleClass(dropdownVisibleClass);
   }
-  const areControlsEnabled = !$inputWrapper.hasClass('dropdown_pure');
+  const areControlsEnabled = !$dropdown.hasClass('dropdown_pure');
 
   const namesValues = getInitialNamesValues($spinners);
   let oldNamesValues = getInitialNamesValues($spinners);
@@ -384,7 +384,7 @@ function initDropdown(index, rootElement) {
   $(document).click((event) => {
     clickedElement = $(event.target);
     // если клик происходит не в дропдауне
-    if (!$.contains($inputWrapper.get(0), clickedElement.get(0))) {
+    if (!$.contains($dropdown.get(0), clickedElement.get(0))) {
       // и дропдаун отображается
       if ($listWrapper.hasClass(dropdownVisibleClass)) {
         if (!isOpened) {
@@ -435,7 +435,7 @@ function initDropdown(index, rootElement) {
 }
 
 function initDropdowns() {
-  const $dropdowns = $('.dropdown');
+  const $dropdowns = $('.js-dropdown');
   $dropdowns.each(initDropdown);
 }
 
