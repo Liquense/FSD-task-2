@@ -19,4 +19,11 @@ function getExpandState($rootElement) {
   return $expandArrow.hasClass('arrow_expanded');
 }
 
-export { handleArrowCollapsing, handleArrowExpanding, getExpandState };
+function handleArrowChangeState($rootElement) {
+  if (getExpandState($rootElement)) handleArrowCollapsing($rootElement);
+  else handleArrowExpanding($rootElement);
+}
+
+export {
+  handleArrowCollapsing, handleArrowExpanding, getExpandState, handleArrowChangeState,
+};
