@@ -5,7 +5,7 @@ include ../arrow/arrow
 //-	размеры: (medium, premedium, narrow),
 //-placeholder -плейсхолдер в инпуте
 //-data -значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
-mixin input({title, type, width, placeholder, withSubscription = false, isExpandable = false, isFocused = false, inDatepicker = false, data})
+mixin input({title = '', type, width, placeholder, withSubscription = false, isExpandable = false, isFocused = false, inDatepicker = false, data})
   -var blockClassName = 'input'
   -var titleClassName = '__title'
   -var controlWrapperCN = '__control-wrapper'
@@ -45,24 +45,14 @@ mixin input({title, type, width, placeholder, withSubscription = false, isExpand
       -value.class += `js-${stringToAdd} ${stringToAdd} `
 
   div&attributes(allAttrs.blockAttributes)
-    if title
-      label&attributes(allAttrs.titleAttributes) #{title}
+    label&attributes(allAttrs.titleAttributes) #{title}
+      if title
         br
-        div&attributes(allAttrs.controlWrapperAttrs)
-          if withSubscription
-            div.input_with-subscription__arrow
-              +arrow({type: 'enter', isColored: true, isBold: true})
-          else if isExpandable
-            div.input_expandable__arrow
-              +arrow({type: 'expand'})
-          input&attributes(allAttrs.controlAttributes)
-    else
-      label&attributes(allAttrs.titleAttributes)
-        div&attributes(allAttrs.controlWrapperAttrs)
-          input&attributes(allAttrs.controlAttributes)
-          if withSubscription
-            div.input_with-subscription__arrow
-              +arrow({type: 'enter', isColored: true, isBold: true})
-          else if isExpandable
-            div.input_expandable__arrow
-              +arrow({type: 'expand'})
+      div&attributes(allAttrs.controlWrapperAttrs)
+        input&attributes(allAttrs.controlAttributes)
+        if withSubscription
+          div.input_with-subscription__arrow
+            +arrow({type: 'enter', isColored: true, isBold: true})
+        else if isExpandable
+          div.input_expandable__arrow
+            +arrow({type: 'expand'})
