@@ -2,16 +2,11 @@ $arrowSize: 44px;
 $borderWidth: 1px;
 $expandHeight: 18px;
 $expandWidth: 24px;
-$expandVerticalMargin: ($arrowSize - $expandHeight)/2 - $borderWidth;
-$expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/2;
 
 .arrow {
   font-size: 24px;
   position: absolute;
   user-select: none;
-  top: 0;
-  right: 0;
-  height: $arrowSize;
   line-height: $arrowSize;
   vertical-align: middle;
   text-align: center;
@@ -27,7 +22,6 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
     color: $darkShade50;
     font-weight: normal;
     vertical-align: middle;
-    margin-right: $expandHorizontalMargin + $borderWidth;
     -webkit-user-select: none;
     cursor: pointer;
     background-color: transparent;
@@ -38,8 +32,6 @@ $expandHorizontalMargin: $expandVerticalMargin - ($expandWidth - $expandHeight)/
       line-height: $expandWidth + 2px;
       width: $expandWidth + 2px;
       height: $expandWidth + 2px;
-      margin-top: $expandVerticalMargin - 1px - ($expandWidth - $expandHeight)/2;
-      margin-right: $expandHorizontalMargin + $borderWidth - 1px;
       border: dotted 1px $darkShade50;
     }
 
