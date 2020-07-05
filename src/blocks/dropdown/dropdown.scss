@@ -9,11 +9,13 @@ $inputBorderRadius: 4px;
   @include boxSizingBorderBox();
 
   &__input {
+    width: fit-content;
+
     .input__control {
       color: $darkShade75;
       padding-right: 9.6ch;
 
-      &.input_focused__control {
+      &_focused {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
       }
