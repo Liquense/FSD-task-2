@@ -86,17 +86,17 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     }
     // endregion
 
-  &__control:focus,
-  &__control:hover {
-    color: $darkShade75;
-    border-color: $darkShade50;
-    outline: 0;
+    &:focus,
+    &:hover {
+      color: $darkShade75;
+      border-color: $darkShade50;
+      outline: 0;
 
-    &::placeholder {
-      @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
+      &::placeholder {
+        @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
+      }
     }
   }
-}
 
   &__arrow {
     &_with-subscription,

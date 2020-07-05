@@ -13,7 +13,7 @@ mixin input({title = '', type, width, placeholder, withSubscription = false, isE
   -var classNames = [blockClassName, titleClassName, controlClassName, controlWrapperCN]
 
   -var blockAttributes = {class: `${blockClassName} `}
-  -var titleAttributes = {class: `${blockClassName}${titleClassName} `}
+  -var titleAttributes = {class: `${inDatepicker || isExpandable ? `js-${blockClassName}${titleClassName} ` : ''}${blockClassName}${titleClassName} `}
   -var controlWrapperAttrs = {class: `${blockClassName}${controlWrapperCN} `}
   -var controlAttributes = {class: `${inDatepicker || isExpandable ? `js-${blockClassName}${controlClassName} ` : ''}${blockClassName}${controlClassName} `,
   -  placeholder: placeholder, value: data}
@@ -51,8 +51,8 @@ mixin input({title = '', type, width, placeholder, withSubscription = false, isE
       div&attributes(allAttrs.controlWrapperAttrs)
         input&attributes(allAttrs.controlAttributes)
         if withSubscription
-          div.input_with-subscription__arrow
+          div.input__arrow_with-subscription
             +arrow({type: 'enter', isColored: true, isBold: true})
         else if isExpandable
-          div.input_expandable__arrow
+          div.input__arrow_expandable
             +arrow({type: 'expand'})
