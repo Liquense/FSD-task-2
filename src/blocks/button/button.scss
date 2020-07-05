@@ -2,7 +2,7 @@ $buttonWidth: 99px;
 $wideButtonWidth: 320px;
 $buttonBorderWidth: 2px;
 $buttonMinHeight: 44px;
-$arrowSize: 44px;
+$arrowSize: 24px;
 
 .button {
   cursor: pointer;
@@ -56,7 +56,7 @@ $arrowSize: 44px;
     }
 
     &_decorated#{&}_type_bordered#{&}:not(&_size_wide) {
-      width: $buttonWidth + $arrowSize + 2*$buttonBorderWidth;
+      width: $buttonWidth + 2*$buttonBorderWidth;
     }
 
     &_text-sized {
@@ -113,7 +113,7 @@ $arrowSize: 44px;
     }
 
     &_decorated#{&}_type_bordered#{&}:not(&_size_wide) {
-      width: $buttonWidth + $arrowSize - 2*$buttonBorderWidth;
+      width: $wideButtonWidth - 2*$buttonBorderWidth;
     }
 
     &_text-sized {
@@ -139,8 +139,9 @@ $arrowSize: 44px;
     -ms-user-select: none;
     user-select: none;
     position: absolute;
-    width: $arrowSize;
-    height: $arrowSize;
+    width: $buttonMinHeight;
+    height: $buttonMinHeight;
+    padding: ($buttonMinHeight - $arrowSize)/2;
     right: 0;
 
     &_type_filled {

@@ -7,14 +7,14 @@ $expandWidth: 24px;
   font-size: 24px;
   position: absolute;
   user-select: none;
-  line-height: $arrowSize;
   vertical-align: middle;
   text-align: center;
+  height: $expandWidth;
+  line-height: $expandWidth;
 
   &_enter {
     @include icon();
     font-weight: normal;
-    width: $arrowSize;
   }
 
   &_expand {
@@ -28,11 +28,17 @@ $expandWidth: 24px;
 
     &:hover:not(.arrow_relative),
     &:focus:not(.arrow_relative) {
-      border-radius: 50%;
-      line-height: $expandWidth + 2px;
-      width: $expandWidth + 2px;
-      height: $expandWidth + 2px;
-      border: dotted 1px $darkShade50;
+      &:before {
+        box-sizing: border-box;
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        width: $expandWidth + 2px;
+        height: $expandWidth + 2px;
+        border: dotted 1px $darkShade50;
+        top: -1px;
+        right: -1px;
+      }
     }
 
     &:focus {

@@ -1,9 +1,11 @@
 $inputHeight: 44px;
+$borderWidth: 1px;
+$expandHeight: 18px;
+$arrowSize: 24px;
 $inputWidth: 320px;
 $narrowInputWidth: 150px;
 $preMedInputWidth: 260px;
 $mediumInputWidth: 266px;
-$borderWidth: 1px;
 $inputBorderRadius: 4px;
 $inputTopMargin: 3px;
 $fontSize: 14px;
@@ -83,7 +85,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
       width: $mediumInputWidth;
     }
     // endregion
-  }
 
   &__control:focus,
   &__control:hover {
@@ -93,6 +94,23 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
     &::placeholder {
       @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
+    }
+  }
+}
+
+  &__arrow {
+    &_with-subscription,
+    &_expandable {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: $inputHeight;
+      width: $inputHeight;
+      padding: ($inputHeight - $arrowSize)/2;
+    }
+
+    &_with-subscription {
+      width: $inputHeight;
     }
   }
 }
