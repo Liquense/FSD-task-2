@@ -1,10 +1,12 @@
 mixin spinner(attrs={})
+  -const spinnerClass = 'spinner'
+  -const valueClass = 'spinner__value'
   -var defaultAttrs = {range: [], name, index, initValue}
   -attrs = Object.assign(defaultAttrs, attrs);
 
-  div.spinner
+  div(class=`js-${spinnerClass} ${spinnerClass}`)
     input(
-      class="spinner__value"
+      class=`js-${valueClass} ${valueClass}`
       data-name=attrs.name
       data-min=attrs.range[0]
       data-max=attrs.range[1]

@@ -2,8 +2,8 @@
 // jquery импортирована вебпаком, функции с подчеркиванием - часть плагина
 import 'jquery-ui/ui/widgets/spinner';
 
-const decreaseButtonClasses = 'spinner__decrease spinner__button ui-spinner-button ui-spinner-down';
-const increaseButtonClasses = 'spinner__increase spinner__button ui-spinner-button ui-spinner-up';
+const decreaseButtonClasses = 'js-spinner__decrease spinner__decrease spinner__button ui-spinner-button ui-spinner-down';
+const increaseButtonClasses = 'js-spinner__increase spinner__increase spinner__button ui-spinner-button ui-spinner-up';
 // морф, чтобы кнопки были по бокам
 $.widget('ui.spinner', $.ui.spinner, {
   _enhance() {
@@ -31,8 +31,8 @@ function disableButtonsAtExtremum($spinner, currentValue) {
   const disabledButtonClass = 'spinner__button_disabled';
   const min = $spinner.attr('data-min');
   const max = $spinner.attr('data-max');
-  const $decreaseButton = $spinner.siblings('.spinner__decrease');
-  const $increaseButton = $spinner.siblings('.spinner__increase');
+  const $decreaseButton = $spinner.siblings('.js-spinner__decrease');
+  const $increaseButton = $spinner.siblings('.js-spinner__increase');
 
   if (currentValue <= min) {
     $decreaseButton.addClass(disabledButtonClass);
@@ -46,9 +46,9 @@ function disableButtonsAtExtremum($spinner, currentValue) {
   }
 }
 
-const $allSpinners = $('.spinner');
+const $allSpinners = $('.js-spinner');
 function findSpinnersAndPassData(whereToSearch) {
-  const $spinners = whereToSearch ? $(whereToSearch).find('.spinner__value') : $('.spinner__value');
+  const $spinners = whereToSearch ? $(whereToSearch).find('.js-spinner__value') : $('.js-spinner__value');
 
   $spinners.spinner({
     min: $spinners.attr('data-min'),
