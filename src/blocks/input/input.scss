@@ -43,6 +43,46 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     @include text(Montserrat, normal, $fontSize, $lineHeight, $darkShade25, -0.18px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect похоже получилось -0.18px
     margin: 0 0 0 0;
     text-overflow: ellipsis;
+
+    &::placeholder {
+      @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
+    }
+
+    &_focused {
+      color: $darkShade75;
+      border-color: $darkShade50;
+      outline: 0;
+    }
+
+    &_with-subscription, &_expandable {
+      padding-right: $inputHeight;
+    }
+
+    // region type
+    &_type_masked:valid:hover,
+    &_type_masked:focus {
+      color: $darkShade75;
+    }
+
+    &_type_text:focus,
+    &_type_text:hover {
+      color: $darkShade75;
+    }
+    // endregion
+
+    // region width
+    &_width_narrow {
+      width: $narrowInputWidth;
+    }
+
+    &_width_premedium {
+      width: $preMedInputWidth;
+    }
+
+    &_width_medium {
+      width: $mediumInputWidth;
+    }
+    // endregion
   }
 
   &__control:focus,
@@ -50,53 +90,9 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     color: $darkShade75;
     border-color: $darkShade50;
     outline: 0;
-  }
 
-  &__control::placeholder {
-    @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
-  }
-
-  &__control:focus::placeholder, &__control:hover::placeholder {
-    @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
-  }
-
-  //focused
-  &_focused__control {
-    color: $darkShade75;
-    border-color: $darkShade50;
-    outline: 0;
-  }
-
-  //with-subscription & expandable
-  &_with-subscription__control, &_expandable__control {
-    padding-right: $inputHeight;
-  }
-
-  //TYPE
-  //masked
-  &_type_masked__control:valid:hover,
-  &_type_masked__control:focus {
-    color: $darkShade75;
-  }
-
-  //text
-  &_type_text__control:focus, &_type_text__control:hover {
-    color: $darkShade75;
-  }
-
-  //WIDTH
-  //medium
-  &_width_medium__control {
-    width: $mediumInputWidth;
-  }
-
-  //narrow
-  &_width_narrow__control {
-    width: $narrowInputWidth;
-  }
-
-  //premedium
-  &_width_premedium__control {
-    width: $preMedInputWidth;
+    &::placeholder {
+      @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
+    }
   }
 }

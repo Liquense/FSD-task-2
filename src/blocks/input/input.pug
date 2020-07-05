@@ -1,71 +1,68 @@
 include ../arrow/arrow
 
-//- title - заголовок
-//- types - типы инпута: ( text, mask)
-//- 	размеры: (medium, premedium, narrow),
-//- placeholder - плейсхолдер в инпуте
-//- data - значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
-mixin input({title, type, width, placeholder, withSubscription = false, isExpandable = false, inDatepicker = false})
-  - var blockClassName = "input"
-  - var titleClassName = "__title"
-  - var controlWrapperCN = "__control-wrapper"
-  - var controlClassName = "__control"
-  - var classNames = [blockClassName, titleClassName, controlClassName, controlWrapperCN]
+//-title -заголовок
+//-types -типы инпута: ( text, mask)
+//-	размеры: (medium, premedium, narrow),
+//-placeholder -плейсхолдер в инпуте
+//-data -значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
+mixin input({title, type, width, placeholder, withSubscription = false, isExpandable = false, isFocused = false, inDatepicker = false, data})
+  -var blockClassName = 'input'
+  -var titleClassName = '__title'
+  -var controlWrapperCN = '__control-wrapper'
+  -var controlClassName = '__control'
+  -var classNames = [blockClassName, titleClassName, controlClassName, controlWrapperCN]
 
-  - var blockAttributes = {class: blockClassName + " "}
-  - var titleAttributes = {class: blockClassName + titleClassName + " "}
-  - var controlWrapperAttrs = {class: blockClassName + controlWrapperCN + " "}
-  - var controlAttributes = {
-  -   class: `${inDatepicker ? `js-${blockClassName}${controlClassName} ` : ''}`
-  -     + `${blockClassName}${controlClassName} `,
-  -   placeholder: placeholder
-  - }
-  - var attributes = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttrs}
+  -var blockAttributes = {class: `${blockClassName} `}
+  -var titleAttributes = {class: `${blockClassName}${titleClassName} `}
+  -var controlWrapperAttrs = {class: `${blockClassName}${controlWrapperCN} `}
+  -var controlAttributes = {class: `${inDatepicker || isExpandable ? `js-${blockClassName}${controlClassName} ` : ''}${blockClassName}${controlClassName} `,
+  -  placeholder: placeholder, value: data}
+  -var allAttrs = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttrs}
 
-  each value, index in Object.values(attributes)
+  each value, index in Object.values(allAttrs)
     //-ширина
-    if width === "narrow"
-      - value.class += index === 0 ? blockClassName + "_width_narrow " : blockClassName + "_width_narrow" + classNames[index] + " "
-    else if width === "premedium"
-      - value.class += index === 0 ? blockClassName + "_width_premedium " : blockClassName + "_width_premedium" + classNames[index] + " "
-    else if width === "medium"
-      - value.class += index === 0 ? blockClassName + "_width_medium " : blockClassName + "_width_medium" + classNames[index] + " "
+    if width === 'narrow'
+      -value.class += `${index ? blockClassName : ''}${classNames[index]}_width_narrow `
+    else if width === 'premedium'
+      -value.class += `${index ? blockClassName : ''}${classNames[index]}_width_premedium `
+    else if width === 'medium'
+      -value.class += `${index ? blockClassName : ''}${classNames[index]}_width_medium `
     //-если подписка, то декорация-стрелочка вправо
     if withSubscription
-      - value.class += index === 0 ? blockClassName + "_with-subscription " : blockClassName + "_with-subscription" + classNames[index] + " "
+      -value.class += `${index ? blockClassName : ''}${classNames[index]}_with-subscription `
     if isExpandable
-      - value.class += index === 0 ? blockClassName + "_expandable " : blockClassName + "_expandable" + classNames[index] + " "
+      -value.class += `${index ? blockClassName : ''}${classNames[index]}_expandable `
     //-фокус
     if isFocused
-      - value.class += index === 0 ? blockClassName + "_focused" : blockClassName + "_focused" + classNames[index] + " "
+      -value.class += `${index ? blockClassName : ''}${classNames[index]}_focused `
     //-Просто текст
-    if type === "text"
-      - value.class += index === 0 ? classNames[index] + "_type_text " : classNames[0] + "_type_text" + classNames[index] + " "
-      - attributes.controlAttributes.type = "text"
+    if type === 'text'
+      -value.class += `${index ? blockClassName : ''}${classNames[index]}_type_text `
+      -allAttrs.controlAttributes.type = 'text'
     //-Текст с маской
-    else if type === "mask"
-      - value.class += index === 0 ? classNames[index] + "_type_masked " : classNames[0] + "_type_masked" + classNames[index] + " "
+    else if type === 'mask'
+      -const stringToAdd = `${index ? blockClassName : ''}${classNames[index]}_type_masked `
+      -value.class += `js-${stringToAdd} ${stringToAdd} `
 
-  div&attributes(attributes.blockAttributes)
+  div&attributes(allAttrs.blockAttributes)
     if title
-      label&attributes(attributes.titleAttributes) #{title}
+      label&attributes(allAttrs.titleAttributes) #{title}
         br
-        div&attributes(attributes.controlWrapperAttrs)
+        div&attributes(allAttrs.controlWrapperAttrs)
           if withSubscription
             div.input_with-subscription__arrow
-              +arrow({type: "enter", isColored: true, isBold: true})
+              +arrow({type: 'enter', isColored: true, isBold: true})
           else if isExpandable
             div.input_expandable__arrow
-              +arrow({type: "expand"})
-          input&attributes(attributes.controlAttributes)(value=data)
+              +arrow({type: 'expand'})
+          input&attributes(allAttrs.controlAttributes)
     else
-      label&attributes(attributes.titleAttributes)
-        div&attributes(attributes.controlWrapperAttrs)
-          //- TODO: value=data - запихнуть в controlAttributes
-          input&attributes(attributes.controlAttributes)(value=data)
+      label&attributes(allAttrs.titleAttributes)
+        div&attributes(allAttrs.controlWrapperAttrs)
+          input&attributes(allAttrs.controlAttributes)
           if withSubscription
             div.input_with-subscription__arrow
-              +arrow({type: "enter", isColored: true, isBold: true})
+              +arrow({type: 'enter', isColored: true, isBold: true})
           else if isExpandable
             div.input_expandable__arrow
-              +arrow({type: "expand"})
+              +arrow({type: 'expand'})

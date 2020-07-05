@@ -10,7 +10,7 @@ function initMaskedInputs() {
     $.mask.definitions.M = '[0-1]';
     $.mask.definitions.Y = '[1-2]';
 
-    const $maskedInput = $('.input_type_masked__control');
+    const $maskedInput = $('.js-input__control_type_masked');
     const placeholder = $maskedInput.attr('placeholder');
 
     $maskedInput.mask('D9.M9.Y999',
