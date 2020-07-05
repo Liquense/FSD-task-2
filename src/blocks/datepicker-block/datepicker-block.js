@@ -48,9 +48,10 @@ function disableLabelClicks(event) {
 
 function setExpandArrowEventHandlers(datepicker, $ownerLabel) {
   datepicker.update({
-    onHide(inst) {
+    onHide(inst, isAnimationEnded) {
       const $controlWrap = $(inst.el).parent();
-      handleArrowCollapsing($controlWrap);
+
+      if (isAnimationEnded) handleArrowCollapsing($controlWrap);
 
       // чтобы лейбловые прокликивания снова заработали
       // нужно показывать календарь при клике на что-то кроме инпута
@@ -66,13 +67,12 @@ function setExpandArrowEventHandlers(datepicker, $ownerLabel) {
   });
 }
 
-function initExpandableEvents($control) {
-  const $ownerLabel = $(this).parent();
+function initExpandableEvents($control, $inputLabel) {
   const expandableElement = $control.data('datepicker');
-  setExpandArrowEventHandlers(expandableElement, $ownerLabel);
+  setExpandArrowEventHandlers(expandableElement, $inputLabel);
 
   if (expandableElement) {
-    addClickHandler(expandableElement, $control, $ownerLabel);
+    addClickHandler(expandableElement, $control, $inputLabel);
   }
 }
 
@@ -93,6 +93,7 @@ function initDatepickerInput(index, input) {
   const $datepicker = $(input);
   const $inputWrap = $datepicker.find('.js-datepicker-block__input-wrap');
   const $inputControl = $inputWrap.find('.js-input__control');
+  const $inputLabel = $inputWrap.find('.js-input__title');
   const isInline = $inputWrap.hasClass('js-datepicker-block_inline__input-wrap');
 
   if ($inputControl.data('datepicker')) return;
@@ -126,7 +127,7 @@ function initDatepickerInput(index, input) {
   $buttonsContainer.append(confirmButton);
 
   // установка ивентов отображения/исчезновения
-  initExpandableEvents($inputControl);
+  initExpandableEvents($inputControl, $inputLabel);
 
   const initDates = getInitDates($inputWrap);
   datepicker.selectDate(initDates);
