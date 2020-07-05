@@ -13,8 +13,8 @@ function getPaginationContent($contentContainer) {
 
 function initPagination() {
   const $paginationBlock = $(this);
-  const $paginationContent = $paginationBlock.children('.pagination__content-container');
-  const $paginationButtons = $paginationBlock.children('.pagination__buttons-container');
+  const $paginationContent = $paginationBlock.children('.js-pagination__content-container');
+  const $paginationButtons = $paginationBlock.children('.js-pagination__buttons-container');
 
   const pageSize = $paginationBlock.attr('data-page-size');
   const contentHTMLArray = getPaginationContent($paginationContent);
@@ -53,7 +53,7 @@ function initPagination() {
 }
 
 function initPaginations() {
-  const $paginations = $('.pagination');
+  const $paginations = $('.js-pagination');
   $paginations.each(initPagination);
 }
 

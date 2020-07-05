@@ -1,15 +1,13 @@
-mixin pagination(data={})
-  -var defaultData = {pageSize: 12}
-  -data = Object.assign(defaultData, data);
-  -var paginationClassName = "pagination"
-  -var contentContainerClassName = "__content-container"
-  -var buttonsContainerClassName = "__buttons-container"
+mixin pagination({pageSize = 12})
+  -const paginationClassName = 'pagination'
+  -const contentContainerClassName = `${paginationClassName}__content-container`
+  -const buttonsContainerClassName = `${paginationClassName}__buttons-container`
 
-  -var paginationAttrs = {class: paginationClassName}
-  -var contentAttrs = {class: paginationClassName + contentContainerClassName + " "}
-  -var buttonsAttrs =	{class: paginationClassName + buttonsContainerClassName + " "}
+  -const paginationAttrs = {class: `js-${paginationClassName} ${paginationClassName}`}
+  -const contentAttrs = {class: `js-${contentContainerClassName} ${contentContainerClassName} `}
+  -const buttonsAttrs =	{class: `js-${buttonsContainerClassName} ${buttonsContainerClassName} `}
 
-  div&attributes(paginationAttrs)(data-page-size=data.pageSize)
+  div&attributes(paginationAttrs)(data-page-size=pageSize)
     div&attributes(contentAttrs)
       block
     div&attributes(buttonsAttrs)
