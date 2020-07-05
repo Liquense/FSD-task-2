@@ -55,16 +55,6 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
     width: fit-content;
     height: fit-content;
   }
-
-  &__confirm-button {
-    text-align: right;
-    margin-left: auto;
-  }
-
-  &__clear-button {
-    text-align: left;
-    margin-right: auto;
-  }
 }
 
 /* -------------------------------------------------
@@ -505,13 +495,8 @@ $navActionHeight: 18px;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  justify-content: space-between;
   padding: 20px 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth;
-}
-
-.datepicker--button {
-}
-
-.datepicker--button:hover {
 }
 
 .datepicker--cell-day.-other-month-,

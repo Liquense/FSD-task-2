@@ -2,6 +2,7 @@
 // jquery объявлена глобально вебпаком
 import 'air-datepicker';
 import arrowBack from '../../assets/images/arrow-back.svg';
+import { getExpandState, handleArrowCollapsing, handleArrowExpanding } from '../arrow/arrow';
 
 const buttonTemplate = require('./datepicker-block__button-template.pug');
 
@@ -27,9 +28,11 @@ function getInitDates($inputWrap) {
   return dates.length === 0 ? undefined : dates;
 }
 
-function addClickHandler(arrowElement, expandableElement, controlElement) {
-  $(controlElement).click(() => {
-    if ($(arrowElement).hasClass('expanded')) {
+function addClickHandler(expandableElement, controlElement) {
+  $(controlElement).click((event) => {
+    const $controlWrap = $(event.target).parent();
+
+    if (getExpandState($controlWrap)) {
       expandableElement.hide();
     } else {
       expandableElement.show();
@@ -43,43 +46,33 @@ function disableLabelClicks(event) {
   event.preventDefault();
 }
 
-function setExpandArrowEventHandlers($expandArrow, $inputControl, $ownerLabel) {
-  let expandableElement = null;
+function setExpandArrowEventHandlers(datepicker, $ownerLabel) {
+  datepicker.update({
+    onHide(inst) {
+      const $controlWrap = $(inst.el).parent();
+      handleArrowCollapsing($controlWrap);
 
-  $inputControl.each(() => {
-    expandableElement = $inputControl.data('datepicker');
-    expandableElement.update({
-      onHide(inst, animationCompleted) {
-        if (!animationCompleted) {
-          $expandArrow.text('expand_more');
-          return;
-        }
-        $($expandArrow).removeClass('expanded');
-        // чтобы лейбловые прокликивания снова заработали
-        // нужно показывать календарь при клике на что-то кроме инпута
-        $($ownerLabel).unbind('click', disableLabelClicks);
-      },
-      onShow(inst, animationCompleted) {
-        if (!animationCompleted) {
-          $expandArrow.text('expand_less');
-          return;
-        }
-        $expandArrow.addClass('expanded');
-        $ownerLabel.click(disableLabelClicks);
-      },
-      todayButton: false,
-    });
+      // чтобы лейбловые прокликивания снова заработали
+      // нужно показывать календарь при клике на что-то кроме инпута
+      $ownerLabel.unbind('click', disableLabelClicks);
+    },
+    onShow(inst) {
+      const $controlWrap = $(inst.el).parent();
+      handleArrowExpanding($controlWrap);
+
+      $ownerLabel.click(disableLabelClicks);
+    },
+    todayButton: false,
   });
-
-  return expandableElement;
 }
 
-function initExpandableEvents($expandArrow, $control) {
+function initExpandableEvents($control) {
   const $ownerLabel = $(this).parent();
-  const expandableElement = setExpandArrowEventHandlers($expandArrow, $control, $ownerLabel);
+  const expandableElement = $control.data('datepicker');
+  setExpandArrowEventHandlers(expandableElement, $ownerLabel);
 
   if (expandableElement) {
-    addClickHandler($expandArrow, expandableElement, $control, $ownerLabel);
+    addClickHandler(expandableElement, $control, $ownerLabel);
   }
 }
 
@@ -98,9 +91,9 @@ function setDates($datepickerInput, dates) {
 
 function initDatepickerInput(index, input) {
   const $datepicker = $(input);
-  const $inputWrap = $datepicker.find('.datepicker-block__input-wrap');
-  const $inputControl = $inputWrap.find('.input__control');
-  const isInline = $inputWrap.hasClass('datepicker-block_inline__input-wrap');
+  const $inputWrap = $datepicker.find('.js-datepicker-block__input-wrap');
+  const $inputControl = $inputWrap.find('.js-input__control');
+  const isInline = $inputWrap.hasClass('js-datepicker-block_inline__input-wrap');
 
   if ($inputControl.data('datepicker')) return;
 
@@ -126,20 +119,21 @@ function initDatepickerInput(index, input) {
   }).data('datepicker');
 
   // замена кнопок на свои в элементе календаря
+  // классы кнопок и контейнера не изменить без вмешательства в плагин, так что без 'js-'
   datepicker.$datepicker.find('.datepicker--button[data-action="today"]').remove();
-  datepicker.$datepicker.find('.datepicker--buttons').append(clearButton);
-  datepicker.$datepicker.find('.datepicker--buttons').append(confirmButton);
+  const $buttonsContainer = datepicker.$datepicker.find('.datepicker--buttons');
+  $buttonsContainer.append(clearButton);
+  $buttonsContainer.append(confirmButton);
 
   // установка ивентов отображения/исчезновения
-  const $expandArrow = $($datepicker.find('.datepicker-block__arrow')[0]);
-  initExpandableEvents($expandArrow, $inputControl);
+  initExpandableEvents($inputControl);
 
   const initDates = getInitDates($inputWrap);
   datepicker.selectDate(initDates);
 }
 
 function initDatepickers() {
-  const $datepickers = $('.datepicker-block');
+  const $datepickers = $('.js-datepicker-block');
   $datepickers.each(initDatepickerInput);
 }
 
