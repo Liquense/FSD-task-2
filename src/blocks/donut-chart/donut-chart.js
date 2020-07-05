@@ -7,8 +7,8 @@ const donutHTML = require('./donut-template.pug');
 const donutArcActiveClass = 'donut-chart__svg-active-arc';
 
 function getDataTextContainer($donutContainer) {
-  const $imageContainer = $donutContainer.find('.donut-chart__image-container');
-  return $imageContainer.find('.donut-chart__active-data');
+  const $imageContainer = $donutContainer.find('.js-donut-chart__image-container');
+  return $imageContainer.find('.js-donut-chart__active-data');
 }
 
 function getArcStyle(arc, params) {
@@ -123,8 +123,8 @@ function clearArcsActivity(arcsArray, currentArc, params) {
  * @param overallCount
  */
 function changeDataText($dataTextContainer, value, color, overallCount) {
-  const $activeValue = $dataTextContainer.find('.donut-chart__active-value');
-  const $valueText = $dataTextContainer.find('.donut-chart__value-text');
+  const $activeValue = $dataTextContainer.find('.js-donut-chart__active-value');
+  const $valueText = $dataTextContainer.find('.js-donut-chart__value-text');
 
   if (value === 0) {
     $activeValue.text(overallCount);
@@ -265,10 +265,10 @@ function createDonut(params = {
   const arcsData = copyArrayOfObjects(params.data);
   $donutContainer.html(donutHTML({ arcs: arcsData }));
   const $dataTextContainer = getDataTextContainer($donutContainer);
-  const $donutCanvas = $donutContainer.find('.donut-chart__svg');
-  const $donutArcs = $donutCanvas.find('.donut-chart__svg-arc');
-  const $donutLegend = $donutContainer.find('.donut-chart__legend');
-  const $legendItems = $donutLegend.find('.donut-chart__legend-item');
+  const $donutCanvas = $donutContainer.find('.js-donut-chart__svg');
+  const $donutArcs = $donutCanvas.find('.js-donut-chart__svg-arc');
+  const $donutLegend = $donutContainer.find('.js-donut-chart__legend');
+  const $legendItems = $donutLegend.find('.js-donut-chart__legend-item');
 
   const additionalParams = getAdditionalParams(params);
   const fullParams = { ...params, ...additionalParams };

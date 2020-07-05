@@ -1,15 +1,24 @@
-div.donut-chart__image-container
-  svg(class="donut-chart__svg" width="200" height="200" preserveAspectRatio="xMidYMid meet")
+-const imageContainerCN = 'donut-chart__image-container'
+-const svgCN = 'donut-chart__svg'
+-const svgArcCN = 'donut-chart__svg-arc'
+-const activeDataCN = 'donut-chart__active-data'
+-const activeValueCN = 'donut-chart__active-value'
+-const valueTextCN = 'donut-chart__value-text'
+-const legendCN = 'donut-chart__legend'
+-const legendItemCN = 'donut-chart__legend-item'
+
+div(class=`js-${imageContainerCN} ${imageContainerCN}`)
+  svg(class=`js-${svgCN} ${svgCN}` width="200" height="200" preserveAspectRatio="xMidYMid meet")
     defs
       each arc, index in arcs
         linearGradient(id=`grad${index}` x1="0%" y1="0%" x2="0%" y2="100%")
           stop(stop-color=arc.firstColor)
           stop(offset="100%" stop-color=arc.secondColor)
     each arc, index in arcs
-      path(stroke=`url(#grad${index})` fill="transparent" class="donut-chart__svg-arc")
-  div.donut-chart__active-data
-    span.donut-chart__active-value
-    span.donut-chart__value-text
-ul.donut-chart__legend
+      path(class=`js-${svgArcCN} ${svgArcCN}` stroke=`url(#grad${index})` fill="transparent")
+  div(class=`js-${activeDataCN} ${activeDataCN}`)
+    span(class=`js-${activeValueCN} ${activeValueCN}`)
+    span(class=`js-${valueTextCN} ${valueTextCN}`)
+ul(class=`js-${legendCN} ${legendCN}`)
   each arc in arcs
-    li.donut-chart__legend-item(style=`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%);`) #{arc.caption}
+    li(class=`js-${legendItemCN} ${legendItemCN}` style=`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%);`) #{arc.caption}
