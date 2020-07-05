@@ -301,7 +301,6 @@ function initDropdown(index, rootElement) {
   let oldNamesValues = getInitialNamesValues($spinners);
   changeInputText($listWrapper, namesValues, $inputControl);
 
-
   manageControlsVisibility({
     oldNamesValues,
     namesValues,
@@ -329,7 +328,7 @@ function initDropdown(index, rootElement) {
 
   function handleConfirmButtonClick() {
     if (!isOpened) {
-      $inputControl.removeClass('input__focused_control');
+      $inputControl.removeClass('input_control__focused');
       $listWrapper.toggle('fade');
       $listWrapper.toggleClass(dropdownVisibleClass);
     }
@@ -390,7 +389,7 @@ function initDropdown(index, rootElement) {
         if (!isOpened) {
           $listWrapper.toggle('fade');
           $listWrapper.toggleClass(dropdownVisibleClass);
-          $inputControl.removeClass('input_focused__control');
+          $inputControl.removeClass('input__control_focused');
         }
 
         setSpinnerValues(oldNamesValues, namesValues,
@@ -412,7 +411,7 @@ function initDropdown(index, rootElement) {
 
   $inputControl.click(() => {
     if (!isOpened) {
-      $inputControl.toggleClass('input_focused__control');
+      $inputControl.toggleClass('input__control_focused');
       $listWrapper.toggle('fade');
       $listWrapper.toggleClass(dropdownVisibleClass);
     }
