@@ -1,17 +1,12 @@
-mixin rateButton(data={})
-  -var defaultData = {maxRating: 5, rating: -1}
-  -data = Object.assign(defaultData, data)
+mixin rateButton({maxRating = 5, rating = -1})
+  -const rateButtonClass = 'rate-button'
+  -const starClassName = `${rateButtonClass}__star`
+  -const emptyStarModifierClassName = `${rateButtonClass}_type_empty__star`
+  -const starAttrs = {class: `js-${starClassName} ${starClassName} ${emptyStarModifierClassName}`}
 
-  -var rateButtonClass = "rate-button"
-  -var starClassName = rateButtonClass + "__star"
-  -var emptyStarModifierClassName = rateButtonClass + "_type_empty__star"
-  -var starAttrs = {class: starClassName + " " + emptyStarModifierClassName}
-
-  div(
-    class=rateButtonClass data-maxRating=data.maxRating data-rating=data.rating)
+  div(class=`js-${rateButtonClass} ${rateButtonClass}` data-maxRating=maxRating data-rating=rating)
     - var i = 1
-    while i <= data.maxRating
+    while i <= maxRating
       - starAttrs["data-index"] = i
-
       label&attributes(starAttrs) star
       - i++

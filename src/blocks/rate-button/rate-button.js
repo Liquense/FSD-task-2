@@ -21,7 +21,7 @@ function setRatingVisual($ratingButton, numericRating) {
 
     setState($(this), stateIndex);
   }
-  $ratingButton.children('.rate-button__star').each(setRateStarState);
+  $ratingButton.children('.js-rate-button__star').each(setRateStarState);
 }
 
 function initRateButton(index, element) {
@@ -40,7 +40,7 @@ function initRateButton(index, element) {
 }
 
 function initRateButtons() {
-  const $rateButtons = $('.rate-button');
+  const $rateButtons = $('.js-rate-button');
   $rateButtons.each(initRateButton);
 }
 
