@@ -3,12 +3,10 @@
 import 'air-datepicker';
 import arrowBack from '../../assets/images/arrow-back.svg';
 
-const confirmButton = '<div class="button button_type_text datepicker-block__confirm-button">'
-    + '<button class="button__control button_type_text__control datepicker--button" data-action="hide">Применить'
-    + '</button><div class="button__decoration material-icons"></div></div>';
-const clearButton = '<div class="button button_type_text button_hovered datepicker-block__clear-button">'
-    + '<button class="button__control button_type_text__control datepicker--button" data-action="clear">Очистить'
-    + '</button><div class="button__decoration material-icons"></div></div>';
+const buttonTemplate = require('./datepicker-block__button-template.pug');
+
+const confirmButton = buttonTemplate({ type: 'confirm' });
+const clearButton = buttonTemplate({ type: 'clear' });
 
 function parseAttrToDate(attrDate) {
   const dateParts = attrDate.split('.');
