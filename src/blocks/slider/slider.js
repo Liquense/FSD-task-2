@@ -43,11 +43,11 @@ function initSlider() {
   });
 
   const initialValues = [
-    clamp($slider.attr('data-firstValue'), minimalValue, maximumValue),
+    clamp($slider.attr('data-first-value'), minimalValue, maximumValue),
   ];
 
   if (isRange) {
-    const secondValue = $slider.attr('data-secondValue');
+    const secondValue = $slider.attr('data-second-value');
     initialValues.push(clamp(secondValue, minimalValue, maximumValue));
 
     $slider.slider('values', initialValues);
@@ -61,7 +61,7 @@ function initSlider() {
 // endregion
 
 function initSliders() {
-  const $sliders = $('.slider__control');
+  const $sliders = $('.js-slider__control');
   $sliders.each(initSlider);
 }
 

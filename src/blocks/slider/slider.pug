@@ -1,22 +1,28 @@
-mixin slider(data={})
-  -var defaultData = {minValue: 0, maxValue: 10, step: 1, title: "", isRange: false, initialValues: [5]}
-  -data = Object.assign(defaultData, data)
+mixin slider({minValue = 0, maxValue = 10, step = 1, title = "", isRange = false, initialValues = [5]})
+  -const sliderClass = 'slider'
+  -const textClass = `${sliderClass}__text`
+  -const titleClass = `${sliderClass}__title`
+  -const valueClass = `${sliderClass}__value`
+  -const containerClass = `${sliderClass}__container`
+  -const controlClass = `${sliderClass}__control`
+  -const allClasses = [sliderClass, textClass, titleClass, valueClass, containerClass, controlClass]
 
-  if (!initialValues)
-    -initialValues = [data.minValue, data.maxValue];
-  if data.isRange
-    div(class="slider slider_range ")
-      div(class="slider__text")
-        p(class="slider__title") #{data.title}
-        p(class="slider__value") ₽
-      div.slider__plugin-container
-        div(class="slider__control slider__control_range"
-          data-min=data.minValue data-max=data.maxValue data-step=data.step
-          data-firstValue=data.initialValues[0] data-secondValue=data.initialValues[1])
-  else
-    div(class="slider ")
-      div(class="slider__text")
-        p(class="slider__title") #{data.title}
-        p(class="slider__value") ₽
-      div.slider__plugin-container
-        div(class="slider__control" data-min=data.minValue data-max=data.maxValue data-step=data.step data-firstValue=data.initialValues[0])
+  -const sliderAttrs = {class: sliderClass}
+  -const textAttrs = {class: textClass}
+  -const titleAttrs = {class: titleClass}
+  -const valueAttrs = {class: valueClass}
+  -const containerAttrs = {class: containerClass}
+  -const controlAttrs = {class: `js-${controlClass} ${controlClass}`, ['data-min']: minValue, ['data-max']: maxValue, ['data-step']: step, ['data-first-value']: initialValues[0]}
+  -const allAttrs = [sliderAttrs, textAttrs, titleAttrs, valueAttrs, containerAttrs, controlAttrs]
+
+  if isRange
+    each value, index in allAttrs
+      -value.class += ` ${allClasses[index]}_range `
+    -controlAttrs['data-second-value'] = initialValues[1]
+
+  div&attributes(sliderAttrs)
+    div&attributes(textAttrs)
+      p&attributes(titleAttrs) #{title}
+      p&attributes(valueAttrs) ₽
+    div&attributes(containerAttrs)
+      div&attributes(controlAttrs)
