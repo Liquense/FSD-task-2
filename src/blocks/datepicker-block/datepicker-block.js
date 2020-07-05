@@ -120,8 +120,8 @@ function initDatepickerInput(index, input) {
 
   // замена кнопок на свои в элементе календаря
   // классы кнопок и контейнера не изменить без вмешательства в плагин, так что без 'js-'
-  $datepicker.find('.datepicker--button[data-action="today"]').remove();
-  const $buttonsContainer = $datepicker.find('.datepicker--buttons');
+  datepicker.$datepicker.find('.datepicker--button[data-action="today"]').remove();
+  const $buttonsContainer = datepicker.$datepicker.find('.datepicker--buttons');
   $buttonsContainer.append(clearButton);
   $buttonsContainer.append(confirmButton);
 
