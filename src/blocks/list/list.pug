@@ -2,42 +2,42 @@ include ../checkbox/checkbox
 include ../arrow/arrow
 
 mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false, title = "", elements = []})
-  -const listClassName = "list"
-  -const titleClassName = "__title"
-  -const containerClassName = "__container"
+  -const listClassName = 'list'
+  -const titleClassName = `${listClassName}__title`
+  -const containerClassName = `${listClassName}__container`
   -const classNames = [listClassName, titleClassName, containerClassName]
 
-  -const listAttrs = {class: listClassName + " "}
-  -const titleAttrs = {class: listClassName + titleClassName + " "}
-  -const containerAttrs = {class: listClassName + containerClassName + " "}
+  -const listAttrs = {class: `${listClassName} `}
+  -const titleAttrs = {class: `${titleClassName} `}
+  -const containerAttrs = {class: `${containerClassName} `}
   -const attrs = [listAttrs, titleAttrs, containerAttrs]
 
-  -let inputType = ""
+  -let inputType = ''
   -let isRich = false;
 
   each value, index in attrs
     //- типы чекбоксов
     if type.includes("checkbox")
-      -value.class += `${index ? listClassName : ''}${classNames[index]}_type_checkbox `
+      -value.class += `${classNames[index]}_type_checkbox `
       -inputType = "checkbox"
     else if type.includes("radio")
-      -value.class += `${index ? listClassName : ''}${classNames[index]}_type_radio `
+      -value.class += `${classNames[index]}_type_radio `
       -inputType = "radio"
     else if type.includes("toggle")
-      -value.class += `${index ? listClassName : ''}${classNames[index]}_type_toggle `
+      -value.class += `${classNames[index]}_type_toggle `
       -inputType = "toggle"
     else if type.includes("rich")
-      -value.class += `${index ? listClassName : ''}${classNames[index]}_type_rich `
+      -value.class += `${classNames[index]}_type_rich `
       -inputType = "rich"
       -isRich = true
     //- модификаторы списка
     if isExpandable
-      -const classToAdd = `${index ? listClassName : ''}${classNames[index]}_expandable `
+      -const classToAdd = `${classNames[index]}_expandable `
       -value.class += `js-${classToAdd} ${classToAdd} `
       if isNarrow
-        -value.class += `${index ? listClassName : ''}${classNames[index]}_expandable-narrow `
+        -value.class += `${classNames[index]}_expandable-narrow `
       if isOpened
-        -value.class += `${index ? listClassName : ''}${classNames[index]}_expandable-opened `
+        -value.class += `${classNames[index]}_expandable-opened `
 
   fieldset&attributes(listAttrs)
     if title

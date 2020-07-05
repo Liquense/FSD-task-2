@@ -7,41 +7,41 @@ include ../arrow/arrow
 //-data -значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
 mixin input({title = '', type, width, placeholder, withSubscription = false, isExpandable = false, isFocused = false, inDatepicker = false, data})
   -var blockClassName = 'input'
-  -var titleClassName = '__title'
-  -var controlWrapperCN = '__control-wrapper'
-  -var controlClassName = '__control'
+  -var titleClassName = `${blockClassName}__title`
+  -var controlWrapperCN = `${blockClassName}__control-wrapper`
+  -var controlClassName = `${blockClassName}__control`
   -var classNames = [blockClassName, titleClassName, controlClassName, controlWrapperCN]
 
   -var blockAttributes = {class: `${blockClassName} `}
-  -var titleAttributes = {class: `${inDatepicker || isExpandable ? `js-${blockClassName}${titleClassName} ` : ''}${blockClassName}${titleClassName} `}
-  -var controlWrapperAttrs = {class: `${blockClassName}${controlWrapperCN} `}
-  -var controlAttributes = {class: `${inDatepicker || isExpandable ? `js-${blockClassName}${controlClassName} ` : ''}${blockClassName}${controlClassName} `,
+  -var titleAttributes = {class: `${inDatepicker || isExpandable ? `js-${titleClassName} ` : ''}${titleClassName} `}
+  -var controlWrapperAttrs = {class: `${controlWrapperCN} `}
+  -var controlAttributes = {class: `${inDatepicker || isExpandable ? `js-${controlClassName} ` : ''}${controlClassName} `,
   -  placeholder: placeholder, value: data}
   -var allAttrs = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttrs}
 
   each value, index in Object.values(allAttrs)
     //-ширина
     if width === 'narrow'
-      -value.class += `${index ? blockClassName : ''}${classNames[index]}_width_narrow `
+      -value.class += `${classNames[index]}_width_narrow `
     else if width === 'premedium'
-      -value.class += `${index ? blockClassName : ''}${classNames[index]}_width_premedium `
+      -value.class += `${classNames[index]}_width_premedium `
     else if width === 'medium'
-      -value.class += `${index ? blockClassName : ''}${classNames[index]}_width_medium `
+      -value.class += `${classNames[index]}_width_medium `
     //-если подписка, то декорация-стрелочка вправо
     if withSubscription
-      -value.class += `${index ? blockClassName : ''}${classNames[index]}_with-subscription `
+      -value.class += `${classNames[index]}_with-subscription `
     if isExpandable
-      -value.class += `${index ? blockClassName : ''}${classNames[index]}_expandable `
+      -value.class += `${classNames[index]}_expandable `
     //-фокус
     if isFocused
-      -value.class += `${index ? blockClassName : ''}${classNames[index]}_focused `
+      -value.class += `${classNames[index]}_focused `
     //-Просто текст
     if type === 'text'
-      -value.class += `${index ? blockClassName : ''}${classNames[index]}_type_text `
+      -value.class += `${classNames[index]}_type_text `
       -allAttrs.controlAttributes.type = 'text'
     //-Текст с маской
     else if type === 'mask'
-      -const stringToAdd = `${index ? blockClassName : ''}${classNames[index]}_type_masked `
+      -const stringToAdd = `${classNames[index]}_type_masked `
       -value.class += `js-${stringToAdd} ${stringToAdd} `
 
   div&attributes(allAttrs.blockAttributes)
