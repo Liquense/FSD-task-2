@@ -79,14 +79,14 @@ function safeDatepickerInit($datepicker, $datepickerControl) {
 function initTwoCalendarPicker(index, element) {
   const $twoCalendarRange = $(element);
 
-  const $firstInput = $($twoCalendarRange.find('.two-calendar-range-picker__first-datepicker > .datepicker-block')[0]);
-  const $firstInputControl = $($firstInput.find('.datepicker-block__input-wrap .input__control')[0]);
+  const $firstInput = $($twoCalendarRange.find('.js-two-calendar-range-picker__first-datepicker > .js-datepicker-block')[0]);
+  const $firstInputControl = $($firstInput.find('.js-datepicker-block__input-wrap .js-input__control')[0]);
   const firstDatepicker = safeDatepickerInit(
     $firstInput, $firstInputControl,
   );
 
-  const $secondInput = $($twoCalendarRange.find('.two-calendar-range-picker__second-datepicker > .datepicker-block')[0]);
-  const $secondInputControl = $($secondInput.find('.datepicker-block__input-wrap .input__control')[0]);
+  const $secondInput = $($twoCalendarRange.find('.js-two-calendar-range-picker__second-datepicker > .js-datepicker-block')[0]);
+  const $secondInputControl = $($secondInput.find('.js-datepicker-block__input-wrap .js-input__control')[0]);
   const secondDatepicker = safeDatepickerInit(
     $secondInput, $secondInputControl,
   );
@@ -114,7 +114,7 @@ function initTwoCalendarPicker(index, element) {
 }
 
 function initTwoCalendarPickers() {
-  const $twoCalendarPickers = $('.two-calendar-range-picker');
+  const $twoCalendarPickers = $('.js-two-calendar-range-picker');
   $twoCalendarPickers.each(initTwoCalendarPicker);
 }
 

@@ -1,18 +1,21 @@
 include ../datepicker-block/datepicker-block
 
-mixin twoCalendarRangePicker(data={})
-  div(class = "two-calendar-range-picker " data-firstDate=data.firstDate data-secondDate=data.secondDate)
-    div.two-calendar-range-picker__datepicker.two-calendar-range-picker__first-datepicker
-      +datepicker({
-        title: data.labels ? data.labels[0] : "",
-        type: "datepicker",
-        width: "narrow",
-        placeholder: "ДД.ММ.ГГГГ",
-      })
-    div.two-calendar-range-picker__datepicker.two-calendar-range-picker__second-datepicker
-      +datepicker({
-        title: data.labels ? data.labels[1] : "",
-        type: "datepicker",
-        width: "narrow",
-        placeholder: "ДД.ММ.ГГГГ",
-      })
+mixin twoCalendarRangePicker({labels=[], firstDate, secondDate})
+  -const twoCalendarRangePickerClass = 'two-calendar-range-picker'
+  -const firstDatepickerClass = `${twoCalendarRangePickerClass}__first-datepicker`
+  -const secondDatepickerClass = `${twoCalendarRangePickerClass}__second-datepicker`
+
+  -function createDatepicker(title) {
+    +datepicker({
+      title: title ? title : "",
+      type: "datepicker",
+      width: "narrow",
+      placeholder: "ДД.ММ.ГГГГ",
+    })
+  -}
+
+  div(class=`js-${twoCalendarRangePickerClass} ${twoCalendarRangePickerClass}` data-firstDate=firstDate data-secondDate=secondDate)
+    div(class=`js-${firstDatepickerClass} ${firstDatepickerClass}`)
+      -createDatepicker(labels[0])
+    div(class=`js-${secondDatepickerClass} ${secondDatepickerClass}`)
+      -createDatepicker(labels[1])
