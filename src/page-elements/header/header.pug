@@ -1,48 +1,45 @@
 include ../../blocks/button/button
 include ../../blocks/arrow/arrow
 
-mixin header(data={})
-  -var defaultData = {userLogin: "", logo: "", loginText: "Login", registerText: "register", content: [], isNarrow: false}
-  -data = Object.assign(defaultData, data)
+mixin header({userLogin='', logo='', loginText='Login', registerText='register', content=[], isNarrow=false})
+  -const headerClass = 'header'
+  -const narrowClass = `${headerClass}_narrow`
 
-  -var narrowClass = "header_narrow"
-
-  header(class=`header ${data.isNarrow ? narrowClass : ""}`)
-    a(class=`header__logo-link ${data.isNarrow ? narrowClass + "__logo-link" : ""}`)
-      img(src=data.logo alt="logo" class=`header__logo ${data.isNarrow ? narrowClass + "__logo" : ""}`)
-    div(class=`header__content-container ${data.isNarrow ? narrowClass + "__content-container" : ""}`)
-      ul(class=`header__menu ${data.isNarrow ? narrowClass + "__menu" : ""}`)
-        each item, index in data.content
-          -item.isNarrow = data.isNarrow
-          -var narrowClass = "header_narrow"
+  header(class=`${headerClass} ${isNarrow ? narrowClass : ''}`)
+    a(class=`js-${headerClass}__logo-link ${headerClass}__logo-link ${isNarrow ? `${headerClass}__logo-link_narrow` : ''}`)
+      img(src=logo alt='logo' class=`${headerClass}__logo ${isNarrow ? `${headerClass}__logo_narrow` : ''}`)
+    div(class=`${headerClass}__content-container ${isNarrow ? `${headerClass}__content-container_narrow` : ''}`)
+      ul(class=`${headerClass}__menu ${isNarrow ? `${headerClass}__menu_narrow` : ''}`)
+        each item, index in content
           -function createChildrenRecursive(itemsArray) {
             if itemsArray
-              div(class=`header__submenu ${item.isNarrow ? narrowClass + "__submenu" : ""}`)
+              div(class=`${headerClass}__submenu ${isNarrow ? `${headerClass}__submenu_narrow` : ''}`)
                 each child in itemsArray
-                  -var itemClasses =
-                  -`header__submenu-item ${item.isNarrow ? narrowClass + "__submenu-item" : ""}` +
-                  -`${item.bold ? " header__submenu-item_bold" : ""}` +
-                  -`${child.children ? " header__submenu-item_expandable" : ""}`
+                  -const itemClasses =
+                  -`${headerClass}__submenu-item ${isNarrow ? `${headerClass}__submenu-item_narrow` : ''}` +
+                  -`${item.bold ?  `${headerClass}__submenu-item_bold` : ''}` +
+                  -`${child.children ? ` ${headerClass}__submenu-item_expandable` : ''}`
                   div(class=itemClasses) #{child.text}
                     if child.children
-                      div(class=`header__expand-button ${item.isNarrow ? narrowClass + "__expand-button" : ""}`)
-                        +arrow({type: "expand", isRelative: true})
+                      div(class=`${headerClass}__expand-button ${isNarrow ? `${headerClass}__expand-button_narrow` : ''}`)
+                        +arrow({type: 'expand', isRelative: true})
                     -createChildrenRecursive(child.children)
           -}
-          -var itemClasses = `header__menu-item ${item.isNarrow ? narrowClass + "__menu-item" : ""}` +
-          -`${item.bold ? " header__menu-item_bold" : ""}` +
-          -`${item.children ? " header__menu-item_expandable" : ""}`
+
+          -const itemClasses = `${headerClass}__menu-item ${isNarrow ? `${headerClass}__menu-item_narrow` : ''}` +
+          -`${item.bold ? ` ${headerClass}__menu-item_bold` : ''}` +
+          -`${item.children ? ` ${headerClass}__menu-item_expandable` : ''}`
           li(class=itemClasses) #{item.text}
             if item.children
-              div(class=`header__expand-button ${item.isNarrow ? narrowClass + "__expand-button" : ""}`)
-                +arrow({type: "expand", isRelative: true})
+              div(class=`${headerClass}__expand-button ${isNarrow ? `${headerClass}__expand-button_narrow` : ''}`)
+                +arrow({type: 'expand', isRelative: true})
             -createChildrenRecursive(item.children);
-      if (data.userLogin)
-        div(class=`header__divider ${data.isNarrow ? narrowClass + "__divider" : ""}`)
-        div(class=`header__user-name ${data.isNarrow ? narrowClass + "__user-name" : ""}`) #{data.userLogin}
+      if (userLogin)
+        div(class=`${headerClass}__divider ${isNarrow ? `${headerClass}__divider_narrow` : ''}`)
+        div(class=`${headerClass}__user-name ${isNarrow ? `${headerClass}__user-name_narrow` : ''}`) #{userLogin}
       else
-        div(class=`header__buttons-container ${data.isNarrow ? narrowClass + "__buttons-container" : ""}`)
-          div(class=`header__login-button ${data.isNarrow ? narrowClass + "__login-button" : ""}`)
-            +button({text: data.loginText, type: "bordered", isTextSized: true, isLink: true})
-          div(class=`header__register-button ${data.isNarrow ? narrowClass + "__register-button" : ""}`)
-            +button({text: data.registerText, type: "filled", isTextSized: true, isLink: true})
+        div(class=`${headerClass}__buttons-container ${isNarrow ? `${headerClass}__buttons-container_narrow` : ''}`)
+          div(class=`js-${headerClass}__login-button ${headerClass}__login-button ${isNarrow ? `${headerClass}__login-button_narrow` : ''}`)
+            +button({text: loginText, type: 'bordered', isTextSized: true, isLink: true})
+          div(class=`js-${headerClass}__register-button ${headerClass}__register-button ${isNarrow ? `${headerClass}__register-button_narrow` : ''}`)
+            +button({text: registerText, type: 'filled', isTextSized: true, isLink: true})
