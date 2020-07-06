@@ -73,4 +73,9 @@
       margin-right: 5px;
     }
   }
+
+  &__svg-arc:hover, &__svg-arc_active {
+    stroke-width: 10px;
+    cursor: pointer;
+  }
 }
