@@ -2,46 +2,46 @@ include ../../../page-elements/header/header
 include ../../../page-elements/footer/footer
 
 section.ui-kit__headers-footers
-  -var logoPath = require('../../assets/images/logo-colored-withText.svg')
+  -const logoPath = require('../../assets/images/logo-colored-withText.svg')
   div.ui-kit__header-unauthorized
     +header(
       {logo: logoPath,
       content: [
-        {text: "Home", bold: true},
-        {text: "About Us"},
+        {text: 'Home', bold: true},
+        {text: 'About Us'},
         {
-          text: "Services",
+          text: 'Services',
           children: [
-            {text: "service 1", children: [{text: "456", children: [{text: "1231"}]}]},
-            {text: "service 2", children: [{text: "123"}]}
+            {text: 'service 1', children: [{text: '456', children: [{text: '1231'}]}]},
+            {text: 'service 2', children: [{text: '123'}]}
           ]
         },
-      {text: "Careers"},
-      {text: "News"},
-      {text: "Documentation"},
+      {text: 'Careers'},
+      {text: 'News'},
+      {text: 'Documentation'},
       ]}
     )
   div.ui-kit__header-authorized
     +header(
       {
-        userLogin: "Cosmin Negoita",
+        userLogin: 'Cosmin Negoita',
         logo: logoPath,
-        loginText: "Login",
-        registerText: "register"
+        loginText: 'Login',
+        registerText: 'register'
       ,
       content: [
-        {text: "Home", bold: true},
-        {text: "About Us"},
+        {text: 'Home', bold: true},
+        {text: 'About Us'},
         {
-          text: "Services",
+          text: 'Services',
           children: [
-            {text: "service 1", children: [{text: "456", children: [{text: "1231"}]}]},
-            {text: "service 2", children: [{text: "123"}]}
+            {text: 'service 1', children: [{text: '456', children: [{text: '1231'}]}]},
+            {text: 'service 2', children: [{text: '123'}]}
           ]
         },
-        {text: "Careers"},
-        {text: "News"},
-        {text: "Documentation"},
+        {text: 'Careers'},
+        {text: 'News'},
+        {text: 'Documentation'},
       ]}
     )
 
@@ -49,36 +49,36 @@ section.ui-kit__headers-footers
     +footer(
       {
         logo: logoPath,
-        text: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
-        copyright: "Copyright © 2018 Toxin UI Kit. All rights reserved.",
+        text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',
+        copyright: 'Copyright © 2018 Toxin UI Kit. All rights reserved.',
       links: [
         {
-          title: "navigation",
-          links: [{text: "About Us", url: "#"}, {text: "News", url: "#"}, {
-            text: "Support",
-            url: "#"
-          }, {text: "Products", url: "#"}]
+          title: 'navigation',
+          links: [{text: 'About Us', url: '#'}, {text: 'News', url: '#'}, {
+            text: 'Support',
+            url: '#'
+          }, {text: 'Products', url: '#'}]
         },
         {
-          title: "about us",
-          links: [{text: "Who we are", url: "#"}, {text: "Our team", url: "#"}, {
-            text: "Careers",
-            url: "#"
-          }, {text: "Investors", url: "#"}]
+          title: 'about us',
+          links: [{text: 'Who we are', url: '#'}, {text: 'Our team', url: '#'}, {
+            text: 'Careers',
+            url: '#'
+          }, {text: 'Investors', url: '#'}]
         },
         {
-          title: "support",
-          links: [{text: "Documentation", url: "#"}, {
-            text: "Community",
-            url: "#"
-          }, {text: "Get in Touch", url: "#"}]
+          title: 'support',
+          links: [{text: 'Documentation', url: '#'}, {
+            text: 'Community',
+            url: '#'
+          }, {text: 'Get in Touch', url: '#'}]
         }
       ],
-      subscription: {title: "Subscribe to our newsletter", text: "Receive our latest news and promotions in your inbox!", emailPlaceholder: "Your email address"}
+      subscription: {title: 'Subscribe to our newsletter', text: 'Receive our latest news and promotions in your inbox!', emailPlaceholder: 'Your email address'}
     })
   div.ui-kit__footer-simple
     +footer({
       logo: logoPath,
-      text: "Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.",
+      text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',
       isSimple: true
     })
