@@ -124,11 +124,6 @@ body {
   }
 
   &__donut-chart {
-    .donut-chart__svg-arc:hover {
-      stroke-width: 10px;
-      cursor: pointer;
-    }
-
     @media (max-width: 610px) {
       align-items: center;
     }

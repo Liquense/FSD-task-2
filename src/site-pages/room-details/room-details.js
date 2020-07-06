@@ -7,7 +7,7 @@ import initBookingCards from '../../cards/booking-card/booking-card';
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));
 
-const $donutCharts = $('.room-details__donut-chart > .donut-chart');
+const $donutCharts = $('.js-room-details__donut-chart > .js-donut-chart');
 $donutCharts.donutChart({
   data: [
     {
