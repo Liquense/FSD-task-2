@@ -35,6 +35,7 @@ mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', s
   - }
 
   if isLink
+    -blockAttributes.class += `js-${blockClassName}`
     a(class=blockAttributes.class)
       -createButtonContent()
   else
