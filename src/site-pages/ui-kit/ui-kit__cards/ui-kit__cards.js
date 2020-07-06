@@ -2,9 +2,11 @@
 // jquery импортирована вебпаком
 import { initDatepickers } from '../../../blocks/datepicker-block/datepicker-block';
 import initRoomPreviewCards from '../../../cards/room-preview-card/room-preview-card';
+import initBookingCards from '../../../cards/booking-card/booking-card';
 
 initDatepickers(); // для работоспособности инлайн календаря
 initRoomPreviewCards();
+initBookingCards();
 
 const $inlineDatepicker = $('.js-ui-kit__datepicker_inline');
 // классы air-datepicker, которые не изменить без вмешательства в плагин
