@@ -6,7 +6,8 @@ import initRoomPreviewCards from '../../../cards/room-preview-card/room-preview-
 initDatepickers(); // для работоспособности инлайн календаря
 initRoomPreviewCards();
 
-const $inlineDatepicker = $('.ui-kit__datepicker_inline');
+const $inlineDatepicker = $('.js-ui-kit__datepicker_inline');
+// классы air-datepicker, которые не изменить без вмешательства в плагин
 const $datepickerCells = $inlineDatepicker.find('.datepicker--cell.datepicker--cell-day');
 // визуальные изменения для соответствия макету
 $datepickerCells.each((index, element) => {
