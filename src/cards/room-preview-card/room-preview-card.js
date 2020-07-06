@@ -6,9 +6,9 @@ import initCarousels from '../../blocks/carousel/carousel';
 
 function initRoomPreviewCard() {
   const $this = $(this);
-  const $costPerPeriodSpan = $this.find('.room-preview-card__cost-per-period');
-  const $reviewsCountSpan = $this.find('.room-preview-card__reviews-count');
-  const $reviewsTextSpan = $this.find('.room-preview-card__reviews-text');
+  const $costPerPeriodSpan = $this.find('.js-room-preview-card__cost-per-period');
+  const $reviewsCountSpan = $this.find('.js-room-preview-card__reviews-count');
+  const $reviewsTextSpan = $this.find('.js-room-preview-card__reviews-text');
 
   const cardData = {
     currency: $this.attr('data-currency'),
@@ -25,7 +25,7 @@ function initRoomPreviewCard() {
 }
 
 function initRoomPreviewCards() {
-  const $roomPreviewCard = $('.room-preview-card');
+  const $roomPreviewCard = $('.js-room-preview-card');
   $roomPreviewCard.each(initRoomPreviewCard);
   initRateButtons();
   initCarousels();

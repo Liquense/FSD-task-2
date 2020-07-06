@@ -27,6 +27,7 @@
     align-items: baseline;
     margin-bottom: 9px;
 
+    //& не нужен, стиль относится к потомкам
     :not(:last-child) {
       margin-right: 4px;
     }
@@ -87,9 +88,7 @@
   }
 
   &__rating {
-    .rateButton__star {
-      cursor: pointer;
-    }
+    cursor: pointer;
   }
 
   &__reviews-info {

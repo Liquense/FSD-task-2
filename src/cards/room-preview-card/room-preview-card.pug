@@ -13,45 +13,42 @@ include ../../blocks/rate-button/rate-button
     tag: string | HTML tag,
     src: string | path to image
   carouselParams:
-    "data-arrows": bool
-    "data-dots": bool
+    'data-arrows': bool
+    'data-dots': bool
 
-mixin roomPreviewCard(data = {})
-  -var defaultData = {room: {}, carousel: {content: [], carouselParams: {}}}
-  -data = Object.assign(defaultData, data)
-
-  -data.room.currencySymbol = data.room.currencySymbol ? data.room.currencySymbol : "₽";
-  -data.room.periodText = data.room.periodText ? data.room.periodText : "в сутки";
-  -data.room.rating = data.room.rating ? data.room.rating : [5, 5];
+mixin roomPreviewCard({room={}, carousel={content: [], carouselParams: {}}})
+  -room.currencySymbol = room.currencySymbol ? room.currencySymbol : '₽';
+  -room.periodText = room.periodText ? room.periodText : 'в сутки';
+  -room.rating = room.rating ? room.rating : [5, 5];
 
   div(
-    class=`room-preview-card`
-    data-currency=data.room.currencySymbol
-    data-cost-per-period=data.room.costPerPeriod
-    data-reviews-count=data.room.reviewsCount
+    class='js-room-preview-card room-preview-card'
+    data-currency=room.currencySymbol
+    data-cost-per-period=room.costPerPeriod
+    data-reviews-count=room.reviewsCount
   )
     div.room-preview-card__photos
-      +carousel(data.carousel)
+      +carousel(carousel)
     div.room-preview-card__text-content
       div.room-preview-card__room-info
         div.room-preview-card__room-description
           span.room-preview-card__room-num-symbol
             |№
           span.room-preview-card__room-number
-            |#{` ${data.room.roomNumber} `}
+            |#{` ${room.roomNumber} `}
           span.room-preview-card__room-type
-            |#{data.room.roomType}
+            |#{room.roomType}
         div.room-preview-card__cost-info
-          span.room-preview-card__cost-per-period
-            |#{data.room.costPerPeriod}#{data.room.currencySymbol}
+          span.js-room-preview-card__cost-per-period.room-preview-card__cost-per-period
+            |#{room.costPerPeriod}#{room.currencySymbol}
           span.room-preview-card__period
-            |#{data.room.periodText}
+            |#{room.periodText}
       hr.room-preview-card__division-line
       div.room-preview-card__rate-info
         div.room-preview-card__rating
-          +rateButton({maxRating: data.room.rating[1], rating: data.room.rating[0]})
+          +rateButton({maxRating: room.rating[1], rating: room.rating[0]})
         div.room-preview-card__reviews-info
-          span.room-preview-card__reviews-count
-            |#{data.room.reviewsCount}
-          span.room-preview-card__reviews-text
+          span.js-room-preview-card__reviews-count.room-preview-card__reviews-count
+            |#{room.reviewsCount}
+          span.js-room-preview-card__reviews-text.room-preview-card__reviews-text
             |Отзывов
