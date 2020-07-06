@@ -46,7 +46,6 @@ function disableButtonsAtExtremum($spinner, currentValue) {
   }
 }
 
-const $allSpinners = $('.js-spinner');
 function findSpinnersAndPassData(whereToSearch) {
   const $spinners = whereToSearch ? $(whereToSearch).find('.js-spinner__value') : $('.js-spinner__value');
 
@@ -81,6 +80,7 @@ function findAndInitSpinners() {
   $spinners.each(initSpinner);
 }
 
+const $allSpinners = $('.js-spinner');
 $allSpinners.each(findAndInitSpinners);
 
 export { decreaseButtonClasses, increaseButtonClasses, disableButtonsAtExtremum };

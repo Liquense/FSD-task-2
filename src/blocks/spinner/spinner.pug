@@ -1,16 +1,14 @@
-mixin spinner(attrs={})
+mixin spinner({range = [], name, index, initValue})
   -const spinnerClass = 'spinner'
   -const valueClass = 'spinner__value'
-  -var defaultAttrs = {range: [], name, index, initValue}
-  -attrs = Object.assign(defaultAttrs, attrs);
 
   div(class=`js-${spinnerClass} ${spinnerClass}`)
     input(
       class=`js-${valueClass} ${valueClass}`
-      data-name=attrs.name
-      data-min=attrs.range[0]
-      data-max=attrs.range[1]
-      data-index=attrs.index
-      value=attrs.initValue ? attrs.initValue : 0
+      data-name=name
+      data-min=range[0]
+      data-max=range[1]
+      data-index=index
+      value=initValue ? initValue : 0
       readonly=true
     )
