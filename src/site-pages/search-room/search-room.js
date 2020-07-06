@@ -6,20 +6,16 @@ import initRoomPreviewCards from '../../cards/room-preview-card/room-preview-car
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));
 
-function initLinksInPagination() {
+function initCardsInPagination() {
   const $pagination = $(this);
-  const $paginationButtons = $pagination.children('.pagination__buttons-container');
+  const $paginationButtons = $pagination.children('.js-pagination__buttons-container');
 
   $paginationButtons.addHook('afterPaging', () => {
     initRoomPreviewCards();
-    const $roomPreviewCardsTextContent = $('.room-preview-card__text-content');
-    $roomPreviewCardsTextContent.click(() => {
-      window.location.href = 'room-details.html';
-    });
   });
 }
 
-const $showSidebarButtons = $('.search-room__show-sidebar-button');
+const $showSidebarButtons = $('.js-search-room__show-sidebar-button');
 $showSidebarButtons.each((index, element) => {
   const $showSideBarButton = $(element);
 
@@ -28,12 +24,7 @@ $showSidebarButtons.each((index, element) => {
   });
 });
 
-const $paginations = $('.pagination');
-$paginations.each(initLinksInPagination);
-
-const $roomPreviewCardsTextContent = $('.room-preview-card__text-content');
-$roomPreviewCardsTextContent.click(() => {
-  window.location.href = 'room-details.html';
-});
+const $paginations = $('.js-pagination');
+$paginations.each(initCardsInPagination);
 
 initRoomPreviewCards();
