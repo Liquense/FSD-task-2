@@ -2,83 +2,83 @@ include ../../page-elements/header/header
 include ../../page-elements/footer/footer
 <!DOCTYPE html>
 head
-  meta(charset="UTF-8")
-  meta(name="viewport" content="width=device-width, initial-scale=1.0")
-  meta(name="keywords" content="login registration")
-  meta(name="description" content="login/registration page")
-  link(rel="icon" href=require('../../assets/images/logo-colored.png'))
+  meta(charset='UTF-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  meta(name='keywords' content='login registration')
+  meta(name='description' content='login/registration page')
+  link(rel='icon' href=require('../../assets/images/logo-colored.png'))
   title TOXIN
 body
   -var logoPath = require('../../assets/images/logo-colored-withText.svg')
   div.registration-login__header
     +header(
       {
-        loginText: "Войти",
-        registerText: "Зарегистрироваться",
+        loginText: 'Войти',
+        registerText: 'Зарегистрироваться',
         logo: logoPath,
         content: [
-          {text: "О нас"},
+          {text: 'О нас'},
           {
-            text: "Услуги",
+            text: 'Услуги',
             children: [
-              {text: "Услуга 1", children: [{text: "456", children: [{text: "1231"}]}]},
-              {text: "Услуга 2", children: [{text: "123"}]}
+              {text: 'Услуга 1', children: [{text: '456', children: [{text: '1231'}]}]},
+              {text: 'Услуга 2', children: [{text: '123'}]}
             ]
           },
-          {text: "Вакансии"},
-          {text: "Новости"},
+          {text: 'Вакансии'},
+          {text: 'Новости'},
           {
-            text: "Соглашения",
+            text: 'Соглашения',
             children: [
-              {text: "Соглашение 1", children: [{text: "456", children: [{text: "1231"}]}]},
-              {text: "Соглашение 2", children: [{text: "123"}]}
+              {text: 'Соглашение 1', children: [{text: '456', children: [{text: '1231'}]}]},
+              {text: 'Соглашение 2', children: [{text: '123'}]}
             ]
           },
         ],
         isNarrow: true
       })
 
-  div.registration-login__content
+  div.js-registration-login__content.registration-login__content
 
   div.registration-login__footer
     +footer(
       {
         logo: logoPath,
-        text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
-        copyright: "Copyright © 2018 Toxin отель. Все права зачищены.",
+        text: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
+        copyright: 'Copyright © 2018 Toxin отель. Все права зачищены.',
         links: [
           {
-            title: "Навигация",
+            title: 'Навигация',
             links:
               [
-                {text: "О нас", url: "#"},
-                {text: "Новости", url: "#"},
-                {text: "Служба поддержки", url: "#"},
-                {text: "Услуги", url: "#"}
+                {text: 'О нас', url: '#'},
+                {text: 'Новости', url: '#'},
+                {text: 'Служба поддержки', url: '#'},
+                {text: 'Услуги', url: '#'}
               ]
           },
           {
-            title: "О нас",
+            title: 'О нас',
             links:
               [
-                {text: "О сервисе", url: "#"},
-                {text: "Наша команда", url: "#"},
-                {text: "Вакансии", url: "#"},
-                {text: "Инвесторы", url: "#"}
+                {text: 'О сервисе', url: '#'},
+                {text: 'Наша команда', url: '#'},
+                {text: 'Вакансии', url: '#'},
+                {text: 'Инвесторы', url: '#'}
               ]
           },
           {
-            title: "Служба поддержки",
+            title: 'Служба поддержки',
             links:
               [
-                {text: "Соглашения", url: "#"},
-                {text: "Сообщества", url: "#"},
-                {text: "Связь с нами", url: "#"}
+                {text: 'Соглашения', url: '#'},
+                {text: 'Сообщества', url: '#'},
+                {text: 'Связь с нами', url: '#'}
               ]
           }
         ],
         subscription: {
-          title: "Подписка", text: "Получайте специальные предложения и новости сервиса",
-          emailPlaceholder: "Email"
+          title: 'Подписка', text: 'Получайте специальные предложения и новости сервиса',
+          emailPlaceholder: 'Email'
         }
       })
