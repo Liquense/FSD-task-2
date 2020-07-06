@@ -4,6 +4,8 @@ include ../../../blocks/two-calendar-range-picker/two-calendar-range-picker
 include ../../../blocks/datepicker-block/datepicker-block
 include ../../../blocks/checkbox/checkbox
 include ../../../blocks/list/list
+include ../../../blocks/bullet-list/bullet-list
+include ../../../blocks/features-list/features-list
 include ../../../blocks/rate-button/rate-button
 include ../../../blocks/slider/slider
 include ../../../blocks/button/button
@@ -14,43 +16,43 @@ section.form-elements
   div.form-elements__top-area
     div.form-elements__basic-inputs
       div.form-elements__text-input
-        +input({title: "Text field", type: "text", placeholder: "Email"})
+        +input({title: 'Text field', type: 'text', placeholder: 'Email'})
       div.form-elements__focused-text-input
-        +input({title: "Text field", type: "text", placeholder: "This is pretty awesome", data: "This is pretty awesome", isFocused: true})
+        +input({title: 'Text field', type: 'text', placeholder: 'This is pretty awesome', data: 'This is pretty awesome', isFocused: true})
       div.form-elements__dropdown
-        +dropdown({title: "Dropdown", dropdownType: "customers", placeholder: "Сколько гостей",
-          data: [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}]})
+        +dropdown({title: 'Dropdown', dropdownType: 'customers', placeholder: 'Сколько гостей',
+          data: [{name: 'Взрослые', value: 0}, {name: 'Дети', value: 0}, {name: 'Младенцы', value: 0}]})
       div.form-elements__masked-input
-        +input({title: "Masked Text Field", type: "mask", placeholder: "ДД.ММ.ГГГГ"})
+        +input({title: 'Masked Text Field', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
 
     div.form-elements__datepickers
-      +twoCalendarRangePicker({secondDate: "19.08.2019", labels: ["date dropdown", "date dropdown"]})
-      +datepicker({title: "filter date dropdown", width: "medium", placeholder: "ДД.ММ.ГГГГ", data: ["19.08.2019", "23.08.2019"]})
-      +input({title: "subscription text field", type: "text", width: "medium", withSubscription: true, placeholder: "Email"})
+      +twoCalendarRangePicker({secondDate: '19.08.2019', labels: ['date dropdown', 'date dropdown']})
+      +datepicker({title: 'filter date dropdown', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', data: ['19.08.2019', '23.08.2019']})
+      +input({title: 'subscription text field', type: 'text', width: 'medium', withSubscription: true, placeholder: 'Email'})
 
     div.form-elements__checkboxes-ratings
-      -var checkButtons = [{text: "Можно курить"}]
-        -checkButtons.push({text: "Можно с питомцами", isChecked: true})
-        -checkButtons.push({text: "Можно пригласить гостей (до 10 человек)", isChecked: true})
+      -const checkButtons = [{text: 'Можно курить'}]
+        -checkButtons.push({text: 'Можно с питомцами', isChecked: true})
+        -checkButtons.push({text: 'Можно пригласить гостей (до 10 человек)', isChecked: true})
       div.form-elements__checkboxes
-        +list({type: "checkbox", title: "Checkbox Buttons", elements: checkButtons})
+        +list({type: 'checkbox', title: 'Checkbox Buttons', elements: checkButtons})
 
-      -var radioButtons = [{text: "Мужчина", group: "gender", isChecked: true}]
-        -radioButtons.push({text: "Женщина", group: "gender", isChecked: false})
+      -const radioButtons = [{text: 'Мужчина', group: 'gender', isChecked: true}]
+        -radioButtons.push({text: 'Женщина', group: 'gender', isChecked: false})
       div.form-elements__radios
-        +list({type: "radio", title: "Radio buttons", elements: radioButtons})
+        +list({type: 'radio', title: 'Radio buttons', elements: radioButtons})
 
-      -var toggleButtons = [{text: "Получать спецпредложения", isChecked: true}]
-      -toggleButtons.push({text: "Получать спецпредложения", isChecked: false})
+      -const toggleButtons = [{text: 'Получать спецпредложения', isChecked: true}]
+      -toggleButtons.push({text: 'Получать спецпредложения', isChecked: false})
       div.form-elements__toggles
-        +list({type: "toggle", title: "toggle", elements: toggleButtons})
+        +list({type: 'toggle', title: 'toggle', elements: toggleButtons})
       div.form-elements__likes
         H2.form-elements__likes-header Like button
         div.form-elements__likes-body
           div.form-elements__like
-            +checkbox({text: "2", type: "like"})
+            +checkbox({text: '2', type: 'like'})
           div.form-elements__like
-            +checkbox({text: "12", type: "like", isChecked: true})
+            +checkbox({text: '12', type: 'like', isChecked: true})
       div.form-elements__rates
         H2.form-elements__rates-header rate button
         div.form-elements__rates-body
@@ -61,24 +63,24 @@ section.form-elements
 
     div.form-elements__slider-buttons-pagination
       div.form-elements__slider
-        +slider({minValue: 0, maxValue: 16000, step: 100, title: "Range slider", isRange: true, initialValues: [5000, 10000]})
+        +slider({minValue: 0, maxValue: 16000, step: 100, title: 'Range slider', isRange: true, initialValues: [5000, 10000]})
       div.form-elements__buttons
         H2.form-elements__buttons-header buttons
         div.form-elements__filled-buttons.buttons-row
-          +button({text: "Click Me", type: "filled"})
-          +button({text: "Click Me", type: "filled", isHovered: true})
+          +button({text: 'Click Me', type: 'filled'})
+          +button({text: 'Click Me', type: 'filled', isHovered: true})
         div.form-elements__bordered-buttons.buttons-row
-          +button({text: "Click Me", type: "bordered"})
-          +button({text: "Click Me", type: "bordered", isHovered: true})
+          +button({text: 'Click Me', type: 'bordered'})
+          +button({text: 'Click Me', type: 'bordered', isHovered: true})
         div.form-elements__text-buttons.buttons-row
-          +button({text: "Click Me", type: "text"})
-          +button({text: "Click Me", type: "text", isHovered: true})
+          +button({text: 'Click Me', type: 'text'})
+          +button({text: 'Click Me', type: 'text', isHovered: true})
         div.form-elements__wide-button
-          +button({text: "Перейти к оплате", type: "filled", size: "wide", decoration: "enter-arrow"})
+          +button({text: 'Перейти к оплате', type: 'filled', size: 'wide', decoration: 'enter-arrow'})
         div.form-elements__pagination
           H2.form-elements__pagination-title pagination
           +pagination(12)
-            -var i = 0;
+            -let i = 0;
             while i < 151
               div.pagination__item
               -i += 1
@@ -86,55 +88,56 @@ section.form-elements
   div.form-elements__middle-area
     div.form-elements__dropdowns
       div.form-elements__room-dropdowns
-        -var rooms = [{name: "Спальни", value: 2}, {name: "Кровати", value: 2}, {name: "Ванные комнаты", value: 0}];
+        -const rooms = [{name: 'Спальни', value: 2}, {name: 'Кровати', value: 2}, {name: 'Ванные комнаты', value: 0}];
         div.form-elements__rooms-dropdown
-          +dropdown({title: "Dropdown", width: "medium", dropdownType: "rooms", placeholder: "Сколько убранства", data: rooms})
+          +dropdown({title: 'Dropdown', width: 'medium', dropdownType: 'rooms', placeholder: 'Сколько убранства', data: rooms})
         div.form-elements__rooms-dropdown
-          +dropdown({title: "Dropdown", dropdownType: "rooms", width: "medium", isPure: true, isOpened: true, placeholder: "Сколько убранства", data: rooms})
+          +dropdown({title: 'Dropdown', dropdownType: 'rooms', width: 'medium', isPure: true, isOpened: true, placeholder: 'Сколько убранства', data: rooms})
       div.form-elements__guest-dropdown-unaccepted
-        +dropdown({title: "Dropdown", dropdownType: "customers",  isOpened: true, isUnaccepted: true, placeholder: "Сколько гостей",
-          data: [{name: "Взрослые", value: 0}, {name: "Дети", value: 0}, {name: "Младенцы", value: 0}]})
+        +dropdown({title: 'Dropdown', dropdownType: 'customers',  isOpened: true, isUnaccepted: true, placeholder: 'Сколько гостей',
+          data: [{name: 'Взрослые', value: 0}, {name: 'Дети', value: 0}, {name: 'Младенцы', value: 0}]})
       div.form-elements__guest-dropdown
-        +dropdown({title: "Dropdown", isUnified: true, dropdownType: "customers", isOpened: true, isUnaccepted: true, placeholder: "Сколько гостей",
-          data: [{name: "Взрослые", value: 2}, {name: "Дети", value: 1}, {name: "Младенцы", value: 0}]})
+        +dropdown({title: 'Dropdown', isUnified: true, dropdownType: 'customers', isOpened: true, isUnaccepted: true, placeholder: 'Сколько гостей',
+          data: [{name: 'Взрослые', value: 2}, {name: 'Дети', value: 1}, {name: 'Младенцы', value: 0}]})
     div.form-elements__lists
       div.form-elements__expandable-lists
-        -var checkButtons = [{text: "Завтрак"}, {text: "Письменный стол", isChecked: true},
-        -{text: "Стул для кормления", isChecked: true}, {text: "Кроватка", isChecked: true},
-        -{text: "Телевизор"}, {text: "Шампунь"}
+        -const checkButtonsExpandable = [{text: 'Завтрак'}, {text: 'Письменный стол', isChecked: true},
+        -{text: 'Стул для кормления', isChecked: true}, {text: 'Кроватка', isChecked: true},
+        -{text: 'Телевизор'}, {text: 'Шампунь'}
         -]
         div.form-elements__expandable-list
-          +list({type: "checkbox", isExpandable: true, title: "Expandable Checkbox List", elements: checkButtons})
+          +list({type: 'checkbox', isExpandable: true, title: 'Expandable Checkbox List', elements: checkButtonsExpandable})
         div.form-elements__expanded-list
-          +list({type: "checkbox", isExpandable: true, isOpened: true, title: "Expandable Checkbox List", elements: checkButtons})
+          +list({type: 'checkbox', isExpandable: true, isOpened: true, title: 'Expandable Checkbox List', elements: checkButtonsExpandable})
 
-      -var richButtons = [{
-      -text: "Широкий коридор", description: "Ширина коридоров в номере \n не менее 91 см."}]
-      -richButtons.push({text: "Помощник для инвалидов",
-      -description: "На 1 этаже вас встретит специалист \n и проводит до номера."})
+      -const richButtons = [{
+      -text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'}]
+      -richButtons.push({text: 'Помощник для инвалидов',
+      -description: 'На 1 этаже вас встретит специалист \n и проводит до номера.'})
       div.form-elements__rich-list
-        +list({type: "rich", title: "Rich checkbox buttons", elements: richButtons})
+        +list({type: 'rich', title: 'Rich checkbox buttons', elements: richButtons})
 
       div.form-elements__bullet-list
         +bulletList({
-          title: "Bullet List",
-          contentStrings: ["Нельзя с питомцами", "Без вечеринок и мероприятий", "Время прибытия — после 13:00, а выезд до 12:00"]
+          title: 'Bullet List',
+          contentStrings: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']
           }
         )
 
   div.form-elements__bottom-area
     div.form-elements__feature-list
       +featureList({items: [
-        {title: "Комфорт", text: "Шумопоглощающие стены", icon: "insert_emoticon"},
-        {title: "Удобство", text: "Окно в каждой из спален", icon: "location_city"},
+        {title: 'Комфорт', text: 'Шумопоглощающие стены', icon: 'insert_emoticon'},
+        {title: 'Удобство', text: 'Окно в каждой из спален', icon: 'location_city'},
       ]})
-    +comment({
-      avatar: require("../../assets/images/user-avatar.jpg"),
-      author: "Мурад Сарафанов",
-      dateTime: "5 дней назад",
-      text: "Великолепный матрас на кровати в основной спальне! " +
-        "А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. " +
-        "Выкрикивал комплименты повару — никто не жаловался из соседей.",
-      likesCount: 12,
-      isLiked: true
-    })(addClasses="form-elements__comment")
+    div.form-elements__comment
+      +comment({
+        avatar: require('../../assets/images/user-avatar.jpg'),
+        author: 'Мурад Сарафанов',
+        dateTime: '5 дней назад',
+        text: 'Великолепный матрас на кровати в основной спальне! ' +
+          'А пуфик вообще потрясающий. И стены, действительно, шумоподавляющие. ' +
+          'Выкрикивал комплименты повару — никто не жаловался из соседей.',
+        likesCount: 12,
+        isLiked: true
+      })
