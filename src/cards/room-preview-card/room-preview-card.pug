@@ -16,7 +16,7 @@ include ../../blocks/rate-button/rate-button
     'data-arrows': bool
     'data-dots': bool
 
-mixin roomPreviewCard({room={}, carousel={content: [], carouselParams: {}}})
+mixin roomPreviewCard({link = 'room-details.html', room={}, carousel={content: [], carouselParams: {}}})
   -room.currencySymbol = room.currencySymbol ? room.currencySymbol : '₽';
   -room.periodText = room.periodText ? room.periodText : 'в сутки';
   -room.rating = room.rating ? room.rating : [5, 5];
@@ -29,7 +29,7 @@ mixin roomPreviewCard({room={}, carousel={content: [], carouselParams: {}}})
   )
     div.room-preview-card__photos
       +carousel(carousel)
-    div.room-preview-card__text-content
+    a.js-room-preview-card__text-content.room-preview-card__text-content(href=link)
       div.room-preview-card__room-info
         div.room-preview-card__room-description
           span.room-preview-card__room-num-symbol
