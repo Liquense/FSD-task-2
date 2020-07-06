@@ -3,31 +3,30 @@ include ../../blocks/checkbox/checkbox
 include ../../blocks/button/button
 include ../../blocks/list/list
 
-mixin registrationCard(data={})
-  -var addClasses = attributes.addClasses ? attributes.addClasses : ""
-  div.registration-card(class=addClasses)
+mixin registrationCard({loginURL=''} = {})
+  div.registration-card
     h3.registration-card__title Регистрация аккаунта
     div.registration-card__user-name
-      +input({type: "text", placeholder: "Имя"})
+      +input({type: 'text', placeholder: 'Имя'})
     div.registration-card__user-surname
-      +input({type: "text", placeholder: "Фамилия"})
-    -var radioButtons = [{text: "Мужчина", group: "registrationGender", isChecked: true}]
-    -radioButtons.push({text: "Женщина", group: "registrationGender"})
+      +input({type: 'text', placeholder: 'Фамилия'})
+    -var radioButtons = [{text: 'Мужчина', group: 'registrationGender', isChecked: true}]
+    -radioButtons.push({text: 'Женщина', group: 'registrationGender'})
     div.registration-card__gender-list
-      +list({type: "radio", elements: radioButtons})
+      +list({type: 'radio', elements: radioButtons})
     div.registration-card__birthday
-      +input({title: "Дата рождения", type: "mask", placeholder: "ДД.ММ.ГГГГ"})
+      +input({title: 'Дата рождения', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
     div.registration-card__login-data-container
       p.registration-card__login-data-title Данные для входа в сервис
       div.registration-card__email
-        +input({type: "text", placeholder: "Email"})
+        +input({type: 'text', placeholder: 'Email'})
       div.registration-card__password
-        +input({type: "text", placeholder: "Пароль"})
+        +input({type: 'text', placeholder: 'Пароль'})
     div.registration-card__send-offers
-      +checkbox({text: "Получать спецпредложения", type: "toggle"})
+      +checkbox({text: 'Получать спецпредложения', type: 'toggle'})
     div.registration-card__payment-button
-      +button({text: "Перейти к оплате", type: "filled", size: "wide", decoration: "enter-arrow"})
+      +button({text: 'Перейти к оплате', type: 'filled', size: 'wide', decoration: 'enter-arrow'})
     div.registration-card__action-container
-      a.registration-card__have-account-link(href=data.loginURL) Уже есть аккаунт на Toxin
+      a.registration-card__have-account-link(href=loginURL) Уже есть аккаунт на Toxin
       div.registration-card__login-button
-        +button({text: "Войти", type: "bordered"})
+        +button({text: 'Войти', type: 'bordered'})

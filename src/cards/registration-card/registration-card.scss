@@ -12,21 +12,31 @@ $borderWidth: 1px;
   padding: 40px - $borderWidth 30px 30px - $borderWidth 30px;
   @include boxSizingBorderBox();
 
+  @media (max-width: 380px) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0;
+  }
+
   &__title {
     @include text_widget-title();
     align-self: stretch;
     margin: 0 0 20px;
     letter-spacing: -0.6px;
+
+    @media (max-width: 380px) {
+      text-align: center;
+    }
   }
 
   &__user-name,
   &__user-surname,
   &__email,
   &__password {
-    .input__title {
-      .input__control-wrapper {
-        margin-top: 0;
-      }
+    .input__control-wrapper {
+      margin-top: 0;
     }
   }
 
@@ -42,10 +52,14 @@ $borderWidth: 1px;
     align-self: stretch;
     margin-bottom: 23px;
 
-    .list__container {
-      .list__input {
-        margin-top: 0;
-      }
+    .list__container .list__input {
+      margin-top: 0;
+    }
+
+    @media (max-width: 380px) {
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
     }
   }
 
@@ -69,6 +83,13 @@ $borderWidth: 1px;
   &__send-offers {
     align-self: stretch;
     margin-bottom: 24px;
+
+    @media (max-width: 380px) {
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+
+    }
   }
 
   &__payment-button {
@@ -80,41 +101,15 @@ $borderWidth: 1px;
     align-self: stretch;
     align-items: center;
     justify-content: space-between;
+
+    @media (max-width: 380px) {
+      justify-content: space-evenly;
+    }
   }
 
   &__have-account-link {
     margin-bottom: 2px;
     text-decoration: none;
     @include text(Montserrat, normal, 14px, 18px, black, normal);
-  }
-}
-
-@media (max-width: 380px) {
-  .registration-card {
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    border-right: 0;
-    border-left: 0;
-
-    &__title {
-      text-align: center;
-    }
-
-    &__gender-list {
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    &__send-offers {
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    &__action-container {
-      justify-content: space-evenly;
-    }
   }
 }
