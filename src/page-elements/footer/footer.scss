@@ -4,35 +4,18 @@
   background-color: white;
   @include boxSizingBorderBox();
 
+  &_type_simple {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 0 110px 0;
+  }
+
   &__content-section {
     padding: get-vw(100px) get-vw(140px) get-vw(99px);
-  }
 
-  .fab {
-    font-size: 24px;
-    text-decoration: none;
-    @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
-  }
-
-  &__social-media {
-    @media (max-width: 450px) {
-      min-width: 80px;
-    }
-  }
-
-  &__icon {
-    &:not(:first-child) {
-      margin-left: get-vw(23px); //в макете 20, а по ПП - 23
-    }
-  }
-
-  //region large
-  &_type_large {
-    &__title {
-      margin: 0;
-    }
-
-    &__content-section {
+    &_type_large {
       min-height: 372px;
       display: flex;
       justify-content: space-between;
@@ -54,70 +37,82 @@
       }
     }
 
-    &__links-section {
-      display: grid;
-      width: 100%;
-      row-gap: 40px;
-      grid-template-columns: repeat(auto-fit, minmax(get-vw(200px), 1fr));
-      padding-top: 6px; //не придумал гибкого варианта, т.к. на макете они не строго по центру контейнера, но и не вровень с логотипом
-      @media (max-width: 1439px) {
-        grid-template-columns: repeat(auto-fit, 1fr);
-        justify-items: center;
-        column-gap: get-vw(10px);
-      }
+    &_type_simple {
+      padding: 0;
     }
+  }
 
-    &__links-column {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      min-width: get-vw(190px);
+  &__links-section_type_large {
+    display: grid;
+    width: 100%;
+    row-gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(get-vw(200px), 1fr));
+    padding-top: 6px; //не придумал гибкого варианта, т.к. на макете они не строго по центру контейнера, но и не вровень с логотипом
 
-      @media (max-width: 1439px) {
-        min-width: unset;
-        width: fit-content;
-      }
+    @media (max-width: 1439px) {
+      grid-template-columns: repeat(auto-fit, 1fr);
+      justify-items: center;
+      column-gap: get-vw(10px);
     }
+  }
 
-    &__links-section-title {
-      @include text_label-CTA();
-      margin-bottom: 21.8px;
-      letter-spacing: -0.15px;
+  &__links-column_type_large {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: get-vw(190px);
+
+    @media (max-width: 1439px) {
+      min-width: unset;
+      width: fit-content;
     }
+  }
 
-    &__link {
-      @include text_regular();
-      line-height: 17px;
+  &__links-section-title_type_large,
+  &__subscription-title_type_large {
+    margin: 0;
+  }
 
-      &:not(:last-child) {
-        margin-bottom: 21px;
-      }
+  &__links-section-title_type_large {
+    @include text_label-CTA();
+    margin-bottom: 21.8px;
+    letter-spacing: -0.15px;
+  }
+
+  &__link_type_large {
+    @include text_regular();
+    line-height: 17px;
+
+    &:not(:last-child) {
+      margin-bottom: 21px;
     }
+  }
 
-    &__subscribe-section {
-      align-self: flex-start;
-      width: min-content;
-      display: flex;
-      flex-direction: column;
-      padding-top: 6px;
+  &__subscribe-section_type_large {
+    align-self: flex-start;
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    padding-top: 6px;
 
-      @media (max-width: 1039px) {
-        align-self: center;
-      }
+    @media (max-width: 1039px) {
+      align-self: center;
     }
+  }
 
-    &__subscription-title {
-      @include text_label-CTA();
-      margin-bottom: 20px;
-    }
+  &__subscription-title_type_large {
+    @include text_label-CTA();
+    margin-bottom: 20px;
+  }
 
-    &__subscription-text {
-      @include text_regular();
-      line-height: 24px;
-      margin-bottom: 18px;
-    }
+  &__subscription-text_type_large {
+    @include text_regular();
+    line-height: 24px;
+    margin-bottom: 18px;
+  }
 
-    &__logo-section {
+  &__logo-section {
+    &_type_large {
       align-self: flex-start;
       display: flex;
       flex-direction: column;
@@ -134,15 +129,31 @@
       }
     }
 
-    &__logo {
+    &_type_simple {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    &_type_large {
       margin-bottom: 17px;
     }
 
-    &__logo-text {
+    &_type_simple {
+      margin-bottom: 18px;
+    }
+  }
+
+  &__logo-text {
+    &_type_large {
       @include text_regular();
       letter-spacing: -0.1px;
       max-width: 260px;
       line-height: 24px;
+
       @media (max-width: 1039px) {
         width: 70%;
         text-align: center;
@@ -156,7 +167,17 @@
       }
     }
 
-    &__copyright-bar {
+    &_type_simple {
+      @include text_regular();
+      text-align: center;
+      max-width: 560px;
+      line-height: 24px;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__copyright-bar {
+    &_type_large {
       padding-right: get-vw(140px);
       padding-left: get-vw(140px);
       display: flex;
@@ -175,48 +196,34 @@
       }
     }
 
-    &__copyright-text {
-      @include text_regular();
-    }
-  }
-  //endregion
-
-  //region simple
-  &_type_simple {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 100px 0 110px 0;
-
-    &__content-section {
-      padding: 0;
-    }
-
-    &__logo-section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-
-    &__logo {
-      margin-bottom: 18px;
-    }
-
-    &__copyright-bar {
+    &_type_simple {
       padding: 0;
       border-top: none;
       height: fit-content;
     }
+  }
 
-    &__logo-text {
-      @include text_regular();
-      text-align: center;
-      max-width: 560px;
-      line-height: 24px;
-      margin-bottom: 26px;
+  &__copyright-text_type_large {
+    @include text_regular();
+  }
+
+  &__social-media {
+    display: flex;
+
+    @media (max-width: 450px) {
+      min-width: 80px;
+    }
+
+    .fab {
+      font-size: 24px;
+      text-decoration: none;
+      @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
     }
   }
-  //endregion
+
+  &__icon {
+    &:not(:first-child) {
+      margin-left: get-vw(23px); //в макете 20, а по ПП - 23
+    }
+  }
 }

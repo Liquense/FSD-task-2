@@ -3,38 +3,39 @@ include ../../blocks/input/input
 //- data = {logo: path to image, text: string, copyright: string}
 //- links = [{title: string, links: [string, string]},]
 //- subscription = {title: string, text: string}
-mixin footer(data={})
-  -var defaultData = {logo: "", text: "", copyright: "", links: [], subscription: {}, isSimple: false}
-  -data = Object.assign(defaultData, data);
+mixin footer({logo='', text='', copyright='', links=[], subscription={}, isSimple=false})
+  -const typeModifier = isSimple ? '_type_simple' : '_type_large'
 
-  -var typeModifier = data.isSimple ? '_type_simple' : '_type_large'
   footer(class=`footer footer${typeModifier}`)
-    div(class=`footer__content-section footer${typeModifier}__content-section`)
-      div(class=`footer__logo-section footer${typeModifier}__logo-section`)
-        img(src=data.logo alt="logo" class=`footer__logo footer${typeModifier}__logo`)
-        span(class=`footer__logo-text footer${typeModifier}__logo-text`) #{data.text}
-      if !data.isSimple
-        div.footer__links-section.footer_type_large__links-section
-          each column in data.links
-            div.footer__links-column.footer_type_large__links-column
-              h3.footer__title.footer_type_large__title.footer__links-section-title.footer_type_large__links-section-title #{column.title}
+    div(class=`footer__content-section footer__content-section${typeModifier}`)
+      div(class=`footer__logo-section footer__logo-section${typeModifier}`)
+        img(src=logo alt='logo' class=`footer__logo footer__logo${typeModifier}`)
+        span(class=`footer__logo-text footer__logo-text${typeModifier}`) #{text}
+      if !isSimple
+        div.footer__links-section.footer__links-section_type_large
+          each column in links
+            div.footer__links-column.footer__links-column_type_large
+              h3.footer__links-section-title.footer__links-section-title_type_large #{column.title}
               if column.links
                 each link in column.links
-                  a.footer__link.footer_type_large__link(href=link.url) #{link.text}
-        div.footer__subscribe-section.footer_type_large__subscribe-section
-          h3.footer__title.footer_type_large__title.footer__subscription-title.footer_type_large__subscription-title #{data.subscription.title}
-          span.footer__subscription-text.footer_type_large__subscription-text #{data.subscription.text}
+                  a.footer__link.footer__link_type_large(href=link.url) #{link.text}
+        div.footer__subscribe-section.footer__subscribe-section_type_large
+          h3.footer__subscription-title.footer__subscription-title_type_large #{subscription.title}
+          span.footer__subscription-text.footer__subscription-text_type_large #{subscription.text}
           div.footer__subscribe-input
             +input({
-              type: "text",
-              width: "premedium",
+              type: 'text',
+              width: 'premedium',
               withSubscription: true,
-              placeholder: data.subscription.emailPlaceholder
+              placeholder: subscription.emailPlaceholder
             })
-    div(class=`footer__copyright-bar footer${typeModifier}__copyright-bar`)
-      if !data.isSimple
-        span.footer__copyright-text.footer_type_large__copyright-text #{data.copyright}
+    div(class=`footer__copyright-bar footer__copyright-bar${typeModifier}`)
+      if !isSimple
+        span.footer__copyright-text.footer__copyright-text_type_large #{copyright}
       div.footer__social-media
-        a.footer__twitter-icon.footer__icon.fab.fa-twitter(href="https://twitter.com/" target="_blank", rel="noopener noreferrer")
-        a.span.footer__facebook-icon.footer__icon.fab.fa-facebook-square(href="https://facebook.com/" target="_blank" rel="noopener noreferrer")
-        a.span.footer__instagram-icon.footer__icon.fab.fa-instagram(href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer")
+        div.footer__icon
+          a.fab.fa-twitter(href='https://twitter.com/' target='_blank', rel='noopener noreferrer')
+        div.footer__icon
+          a.fab.fa-facebook-square(href='https://facebook.com/' target='_blank' rel='noopener noreferrer')
+        div.footer__icon
+          a.fab.fa-instagram(href='https://www.instagram.com/' target='_blank' rel='noopener noreferrer')
