@@ -11,12 +11,24 @@
   border-radius: 4px;
   @include boxSizingBorderBox();
 
+  @media (max-width: 380px) {
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+    border-right: 0;
+    border-left: 0;
+  }
+
   &__title {
     @include text_item-title();
     align-self: stretch;
     margin: 0 0 17px;
     font-size: 24px;
     line-height: 30px;
+
+    @media (max-width: 380px) {
+      text-align: center;
+    }
   }
 
   &__email-input,
@@ -43,28 +55,14 @@
     justify-content: space-between;
     align-self: stretch;
     align-items: center;
+
+    @media (max-width: 380px) {
+      justify-content: space-evenly;
+    }
   }
 
   &__havent-account {
     @include text_regular();
     color: black;
-  }
-}
-
-@media (max-width: 380px) {
-  .login-card {
-    width: 100%;
-    padding-left: 0;
-    padding-right: 0;
-    border-right: 0;
-    border-left: 0;
-
-    &__title {
-      text-align: center;
-    }
-
-    &__create-account-container {
-      justify-content: space-evenly;
-    }
   }
 }
