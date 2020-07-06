@@ -67,34 +67,43 @@
     @include text_regular();
     margin-bottom: 30px;
     padding-left: 1px;
+  }
 
-    .row {
-      max-width: 320px;
-      display: flex;
-      align-items: flex-start;
-      line-height: $iconSize - 2px;
+  &__staying-cost-row,
+  &__services-cost-row,
+  &__additional-services-row {
+    max-width: 320px;
+    display: flex;
+    align-items: flex-start;
+    line-height: $iconSize - 2px;
 
-      &:not(:last-child) {
-        margin-bottom: 16px;
-      }
-
-      &:nth-last-child(2) {
-        margin-bottom: 15px;
-      }
-
-      .col1 {
-        width: 100%;
-      }
-
-      .col2, .col3 {
-        flex-shrink: 0;
-      }
-
-      .col3 {
-        width: 80px;
-        text-align: right;
-      }
+    &:not(:last-child) {
+      margin-bottom: 16px;
     }
+
+    &:nth-last-child(2) {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__staying-cost-calculation,
+  &__services,
+  &__additional-services-text {
+    width: 100%;
+  }
+
+  &__info-icon,
+  &__staying-cost-sum,
+  &__services-sum,
+  &__additional-services-sum {
+    flex-shrink: 0;
+  }
+
+  &__staying-cost-sum,
+  &__services-sum,
+  &__additional-services-sum {
+    width: 80px;
+    text-align: right;
   }
 
   &__info-icon {
@@ -159,7 +168,9 @@
       padding-right: 10px;
       padding-left: 10px;
 
-      .row {
+      .booking-card__staying-cost-row,
+      .booking-card__services-cost-row,
+      .booking-card__additional-services-row {
         max-width: unset;
       }
     }
