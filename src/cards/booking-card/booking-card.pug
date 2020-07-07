@@ -10,7 +10,7 @@ mixin bookingCard({roomNumber, roomType, dailyPrice, currency, arrivalDate, depa
         h3.booking-card__room-num #{roomNumber}
         span.booking-card__room-type #{roomType}
       div.booking-card__price-info
-        span.js-booking-card__daily-price.booking-card__daily-price(data-dailyPrice=dailyPrice data-currency=currency) #{dailyPrice}#{currency}
+        span.js-booking-card__daily-price.booking-card__daily-price(data-daily-price=dailyPrice data-currency=currency) #{dailyPrice}#{currency}
         span.booking-card__payment-period  в сутки
     div.js-booking-card__range-picker.booking-card__range-picker
       +twoCalendarRangePicker({labels: ['Прибытие', 'Выезд'], firstDate: arrivalDate, secondDate: departureDate})

@@ -97,7 +97,7 @@ function initBookingCard() {
   const $bookingCard = $(this);
 
   const $dailyPrice = $bookingCard.find('.js-booking-card__daily-price');
-  const priceAmount = $dailyPrice.attr('data-dailyPrice');
+  const priceAmount = $dailyPrice.attr('data-daily-price');
   const currency = $dailyPrice.attr('data-currency');
   const priceToShow = formatNumber(priceAmount, ' ');
   writeFormattedDailyPrice($dailyPrice, priceToShow, currency);
