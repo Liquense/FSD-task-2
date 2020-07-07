@@ -34,10 +34,7 @@ mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', s
         +arrow({type: 'enter'})
   - }
 
-  if isLink
-    -blockAttributes.class += `js-${blockClassName}`
-    a(class=blockAttributes.class)
-      -createButtonContent()
-  else
-    div(class=blockAttributes.class)
-      -createButtonContent()
+  -const blockTag = isLink ? 'a' : 'div'
+  -blockAttributes.class += `js-${blockClassName}`
+  #{blockTag}(class=blockAttributes.class)
+    -createButtonContent()
