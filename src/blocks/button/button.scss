@@ -12,8 +12,21 @@ $arrowSize: 24px;
   @include boxSizingBorderBox();
 
   &_type_bordered {
-    position: relative;
     @include clearfix();
+    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+    width:$buttonWidth;
+    height: 44px;
+    border-radius: 22px;
+    padding: $buttonBorderWidth;
+
+    &_size_wide {
+      max-width: $wideButtonWidth;
+    }
+
+    &_text-sized {
+      height: fit-content;
+      width: fit-content;
+    }
   }
 
   &_size_wide {
@@ -40,31 +53,6 @@ $arrowSize: 24px;
       color: $darkShade50;
     }
   }
-
-  // region border
-  &__border {
-    content: '';
-    display: block;
-    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-    width: 99px;
-    height: 44px;
-    border-radius: 22px;
-    padding: $buttonBorderWidth;
-
-    &_size_wide {
-      width: $wideButtonWidth;
-    }
-
-    &_decorated#{&}_type_bordered#{&}:not(&_size_wide) {
-      width: $buttonWidth + 2*$buttonBorderWidth;
-    }
-
-    &_text-sized {
-      height: fit-content;
-      width: fit-content;
-    }
-  }
-  // endregion
 
   // region control
   &__control {

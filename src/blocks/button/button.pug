@@ -23,18 +23,10 @@ mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', s
     if decoration
       -value.class += ` ${classNames[index]}_decorated `
 
-  - function createButtonContent() {
-    if type === 'bordered'
-      div&attributes(borderAttributes)
-        button&attributes(controlAttributes) #{text}
-    else
-      button&attributes(controlAttributes) #{text}
-    if decoration === 'enter-arrow'
-      div&attributes(decorationAttributes)
-        +arrow({type: 'enter'})
-  - }
-
   -const blockTag = isLink ? 'a' : 'div'
   -blockAttributes.class += `js-${blockClassName}`
   #{blockTag}(class=blockAttributes.class)
-    -createButtonContent()
+    button&attributes(controlAttributes) #{text}
+    if decoration === 'enter-arrow'
+      div&attributes(decorationAttributes)
+        +arrow({type: 'enter'})
