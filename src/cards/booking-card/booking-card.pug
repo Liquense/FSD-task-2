@@ -2,7 +2,7 @@ include ../../blocks/two-calendar-range-picker/two-calendar-range-picker
 include ../../blocks/button/button
 include ../../blocks/dropdown/dropdown
 
-mixin bookingCard({roomNumber, roomType, dailyPrice, currency, arrivalDate, departureDate, dropdownItems=[], services, additionalPrice})
+mixin bookingCard({roomNumber, roomType, dailyPrice, currency, arrivalDate, departureDate, dropdownItems=[], services, additionalPrice} = {})
   div.js-booking-card.booking-card
     header.booking-card__header
       div.booking-card__room-info

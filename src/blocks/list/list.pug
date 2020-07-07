@@ -1,7 +1,7 @@
 include ../checkbox/checkbox
 include ../arrow/arrow
 
-mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false, title = "", elements = []})
+mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false, title = "", elements = []} = {})
   -const listClassName = 'list'
   -const titleClassName = `${listClassName}__title`
   -const containerClassName = `${listClassName}__container`

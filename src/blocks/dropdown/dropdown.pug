@@ -7,7 +7,7 @@ include ../input/input
 //- unaccepted - для отображения кнопки "применить" при инициализации
 //- pure - для отсутствия контролирующих кнопок постоянно
 //- opened - для постоянно открытого дропдауна
-mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnified = false, isPure = false, isOpened = false, isUnaccepted = false, isFocused = false, data = undefined})
+mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnified = false, isPure = false, isOpened = false, isUnaccepted = false, isFocused = false, data = undefined} = {})
   -const blockClass = 'dropdown'
   -const listClass = 'dropdown__list'
   -const listWrapperClass = 'dropdown__list-wrapper'

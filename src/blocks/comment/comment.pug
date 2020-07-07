@@ -1,6 +1,6 @@
 include ../checkbox/checkbox
 
-mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text})
+mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} = {})
   article(class=`comment`)
     div.comment__header
       div.comment__avatar-wrap

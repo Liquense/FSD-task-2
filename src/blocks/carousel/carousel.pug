@@ -1,4 +1,4 @@
-mixin carousel({content = [], carouselParams={}})
+mixin carousel({content = [], carouselParams={}} = {})
   div.carousel.js-carousel&attributes(carouselParams)
     each element in content
       if element.tag === 'img'

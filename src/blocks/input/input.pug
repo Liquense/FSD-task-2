@@ -5,7 +5,7 @@ include ../arrow/arrow
 //-	размеры: (medium, premedium, narrow),
 //-placeholder -плейсхолдер в инпуте
 //-data -значения (даты для календаря/текст для текстового инпута/набор значений для дропдауна)
-mixin input({title = '', type, width, placeholder, withSubscription = false, isExpandable = false, isFocused = false, inDatepicker = false, data})
+mixin input({title = '', type, width, placeholder, withSubscription = false, isExpandable = false, isFocused = false, inDatepicker = false, data} = {})
   -var blockClassName = 'input'
   -var titleClassName = `${blockClassName}__title`
   -var controlWrapperCN = `${blockClassName}__control-wrapper`

@@ -16,7 +16,7 @@ include ../../blocks/rate-button/rate-button
     'data-arrows': bool
     'data-dots': bool
 
-mixin roomPreviewCard({link = 'room-details.html', room={}, carousel={content: [], carouselParams: {}}})
+mixin roomPreviewCard({link = 'room-details.html', room={}, carousel={content: [], carouselParams: {}}} = {})
   -room.currencySymbol = room.currencySymbol ? room.currencySymbol : '₽';
   -room.periodText = room.periodText ? room.periodText : 'в сутки';
   -room.rating = room.rating ? room.rating : [5, 5];

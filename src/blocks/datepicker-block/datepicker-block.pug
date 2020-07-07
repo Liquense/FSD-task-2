@@ -1,7 +1,7 @@
 include ../../blocks/arrow/arrow
 include ../../blocks/input/input
 
-mixin datepicker({title = "", type, width, placeholder, isInline = false, data = undefined})
+mixin datepicker({title = "", type, width, placeholder, isInline = false, data = undefined} = {})
   -const datepickerCN = 'datepicker-block'
   -const inputWrapCN = `${datepickerCN}__input-wrap`
   -const inlineInputWrapCN = `${datepickerCN}_inline__input-wrap`

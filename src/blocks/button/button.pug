@@ -1,6 +1,6 @@
 include ../arrow/arrow
 //- types: filled, bordered, text
-mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', size = '', decoration = '', isHovered = false})
+mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', size = '', decoration = '', isHovered = false} = {})
   - const blockClassName = 'button'
   - const borderClassName = `${blockClassName}__border`
   - const controlClassName = `${blockClassName}__control`
