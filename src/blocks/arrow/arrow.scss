@@ -1,7 +1,6 @@
 $arrowSize: 44px;
-$borderWidth: 1px;
-$expandHeight: 18px;
-$expandWidth: 24px;
+$borderWidth: 0.1em;
+$expandWidth: 1em;
 
 .arrow {
   font-size: 24px;
@@ -33,11 +32,11 @@ $expandWidth: 24px;
         content: "";
         position: absolute;
         border-radius: 50%;
-        width: $expandWidth + 2px;
-        height: $expandWidth + 2px;
-        border: dotted 1px $darkShade50;
-        top: -1px;
-        right: -1px;
+        width: 1.1em;
+        height: 1.1em;
+        border: dotted 0.1em $darkShade50;
+        top: -0.05em;
+        right: -0.05em;
       }
     }
 
