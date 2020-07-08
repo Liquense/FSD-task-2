@@ -3,7 +3,6 @@
 
   &__title {
     @include text_label-CTA();
-
     margin: 0;
     margin-bottom: 15px;
     padding: 0;
@@ -27,12 +26,10 @@
   $textLineHeight: 24px;
   $ellipseSize: 10px;
   &__item-image {
+    flex-shrink: 0;
     width: $ellipseSize;
     height: $ellipseSize;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
     border-radius: 50%;
-
     background-color: $darkShade25;
     margin-top: ($textLineHeight - $ellipseSize)/2;
     margin-right: 11px;
@@ -40,7 +37,7 @@
 
   &__item-text {
     @include text_regular();
-    max-width: calc(25ch);
+    max-width: 25ch;
     line-height: $textLineHeight;
   }
 }
