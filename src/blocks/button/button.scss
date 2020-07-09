@@ -8,6 +8,7 @@ $arrowSize: 24px;
   @include boxSizingBorderBox();
   cursor: pointer;
   display: inline-block;
+  width: fit-content;
   min-width: $buttonWidth;
   height: $buttonHeight;
   text-decoration: none;
@@ -118,6 +119,7 @@ $arrowSize: 24px;
     height: $buttonHeight;
     padding: ($buttonHeight - $arrowSize)/2;
     right: 0;
+    top: 0;
 
     &_type_filled {
       color: $inputBackgroundColor;
