@@ -253,6 +253,7 @@ $navActionWidth: 17px;
 $navActionHeight: 18px;
 
 .datepicker--nav {
+  box-sizing: border-box;
   padding: 19px 20px 0 20px;
   border-bottom: none;
 }
