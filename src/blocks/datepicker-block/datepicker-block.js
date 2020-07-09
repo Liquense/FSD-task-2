@@ -108,9 +108,9 @@ function initDatepickerInput(index, input) {
     position: 'bottom center',
     offset: 5,
     navTitles: {
-      days: '<span class="text_type_item-title">MM yyyy</span>',
-      months: '<span class="text_type_item-title">yyyy</span>',
-      years: '<span class="text_type_item-title">yyyy1 - yyyy2</span>',
+      days: '<span class="datepicker-block__title">MM yyyy</span>',
+      months: '<span class="datepicker-block__title">yyyy</span>',
+      years: '<span class="datepicker-block__title">yyyy1 - yyyy2</span>',
     },
     prevHtml: `<img src="${arrowBack}" alt="назад"">`,
     nextHtml: `<img src="${arrowBack}" alt="назад" style="transform: scale(-1, 1)">`,
