@@ -64,7 +64,6 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 .datepicker--cell {
   border-radius: 50%;
   height: $cellSize;
-  width: $cellSize;
 
   &.datepicker--cell.-focus- {
     background: linear-gradient($gradientDefaultAngle, rgba($purple, 0.5) 0%, rgba($purpleGradientSecond, 0.5) 100%);
@@ -189,7 +188,7 @@ $monthCellSize: $datepickerContentHeight/4;
   padding: 0 ($datepickerContentWidth - $datepickerContentHeight)/2;
 
   .datepicker--cell-month {
-    width: $monthCellSize;
+    width: 25%;
     height: $monthCellSize;
 
     &:before {
@@ -220,7 +219,7 @@ $yearCellsColumnLength: 3;
 }
 
 .datepicker--cell-year {
-  width: $yearCellSize;
+  width: 25%;
   height: $yearCellSize;
 
   &.-range-from-.-range-to- {
@@ -238,7 +237,7 @@ $yearCellsColumnLength: 3;
   box-sizing: border-box;
   @include text(Montserrat, normal, 12px, 15px, $cellTextColor, normal);
   color: $darkShade100;
-  width: $datepickerWidth;
+  min-width: $datepickerWidth;
 }
 
 .datepicker--content {
@@ -267,7 +266,7 @@ $navActionHeight: 18px;
 }
 
 .datepicker--nav-action {
-  width: $navActionWidth;
+  width: fit-content;
   height: 24px;
   display: flex;
 
