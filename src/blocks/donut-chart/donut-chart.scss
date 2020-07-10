@@ -7,7 +7,7 @@
   @include boxSizingBorderBox();
 
   &__image-container {
-    width: 120px;
+    max-width: 120px;
     height: fit-content;
     margin-right: 30px;
     position: relative;
