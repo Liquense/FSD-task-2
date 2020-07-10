@@ -32,6 +32,7 @@ mixin input({title = '', type, width, placeholder, withSubscription = false, isE
       -value.class += `${classNames[index]}_with-subscription `
     if isExpandable
       -value.class += `${classNames[index]}_expandable `
+      -controlAttributes.readonly = true
     //-фокус
     if isFocused
       -value.class += `${classNames[index]}_focused `
