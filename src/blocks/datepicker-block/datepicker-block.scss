@@ -26,7 +26,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
     rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%);
 
 .datepicker-block {
-  width: fit-content;
+  max-width: 266px;
 
   &__label {
     @include text_label-CTA();

@@ -5,10 +5,10 @@ $inputBorderRadius: 4px;
 
 .dropdown {
   @include boxSizingBorderBox();
-  max-width: $inputWidth;
+  min-width: $inputWidth;
 
-  &_medium {
-    max-width: $mediumInputWidth;
+  &_width_medium {
+    min-width: $mediumInputWidth;
   }
 
   &__input {
