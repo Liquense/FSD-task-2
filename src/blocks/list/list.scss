@@ -17,7 +17,7 @@ $titleHeight: 12px;
 
     // region Expandable
     &_expandable {
-      width: 266px;
+      min-width: 266px;
       padding-right: $arrowWrapSize;
       line-height: $titleHeight;
       position: relative;
