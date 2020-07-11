@@ -19,8 +19,23 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
 .input {
   height: fit-content;
-  width: fit-content;
+  max-width: $inputWidth;
+  width: 100%;
   @include boxSizingBorderBox();
+
+  // region width
+  &_width_narrow {
+    max-width: $narrowInputWidth;
+  }
+
+  &_width_premedium {
+    max-width: $preMedInputWidth;
+  }
+
+  &_width_medium {
+    max-width: $mediumInputWidth;
+  }
+  // endregion
 
   &__title {
     @include text_label-CTA();
@@ -37,11 +52,12 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     display: inline-block;
     margin-top: $inputTopMargin;
     position: relative;
+    width: 100%;
   }
 
   &__control {
     border-radius: $inputBorderRadius;
-    width: $inputWidth;
+    width: 100%;
     height: $inputHeight;
     border: $borderWidth solid $darkShade25;
     background: $inputBackgroundColor;
@@ -60,7 +76,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
       outline: 0;
     }
 
-    &_with-subscription, &_expandable {
+    &_with-subscription {
       padding-right: $inputHeight;
     }
 
@@ -77,20 +93,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     &_type_text:focus,
     &_type_text:hover {
       color: $darkShade75;
-    }
-    // endregion
-
-    // region width
-    &_width_narrow {
-      width: $narrowInputWidth;
-    }
-
-    &_width_premedium {
-      width: $preMedInputWidth;
-    }
-
-    &_width_medium {
-      width: $mediumInputWidth;
     }
     // endregion
 
@@ -113,12 +115,8 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
       top: 0;
       right: 0;
       height: $inputHeight;
-      width: $inputHeight;
+      width: $inputHeight; //у стрелки фиксированный размер
       padding: ($inputHeight - $arrowSize)/2;
-    }
-
-    &_with-subscription {
-      width: $inputHeight;
     }
   }
 }
