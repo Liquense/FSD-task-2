@@ -6,7 +6,7 @@
     @include text_label-CTA();
     display: inline-block;
     text-align: center;
-    width: 32px;
+    max-width: 32px;
     margin: 0;
     padding: 0;
     border: none;
@@ -20,7 +20,7 @@
     border: 1px solid $darkShade50;
     color: $darkShade50;
     background-color: $inputBackgroundColor;
-    width: $buttonSize;
+    width: $buttonSize; // круглые кнопки фиксированного размера
     height: $buttonSize;
     padding: 0;
 
