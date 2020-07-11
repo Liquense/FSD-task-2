@@ -8,8 +8,13 @@ $pageButtonSize: 40px;
   }
 
   &__buttons-container {
+    max-width: 360px;
     width: fit-content;
     margin: 0 auto;
+
+    @media (max-width: 450px) {
+      max-width: 320px;
+    }
 
     .paginationjs {
       display: flex;
@@ -26,7 +31,7 @@ $pageButtonSize: 40px;
           li {
             display: inline-block;
             border-radius: 50%;
-            width: $pageButtonSize;
+            width: $pageButtonSize; // у кнопок фиксированный размер
             height: $pageButtonSize;
             text-align: center;
 
