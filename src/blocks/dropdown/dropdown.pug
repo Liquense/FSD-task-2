@@ -9,12 +9,12 @@ include ../input/input
 //- opened - для постоянно открытого дропдауна
 mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnified = false, isPure = false, isOpened = false, isUnaccepted = false, isFocused = false, data = undefined} = {})
   -const blockClass = 'dropdown'
-  -const listClass = 'dropdown__list'
-  -const listWrapperClass = 'dropdown__list-wrapper'
-  -const inputClass = 'dropdown__input'
-  -const buttonsContainerClass = 'dropdown__buttons-container'
-  -const clearButtonClass = 'dropdown__clear-button'
-  -const confirmButtonClass = 'dropdown__confirm-button'
+  -const listClass = `${blockClass}__list`
+  -const listWrapperClass = `${blockClass}__list-wrapper`
+  -const inputClass = `${blockClass}__input`
+  -const buttonsContainerClass = `${blockClass}__buttons-container`
+  -const clearButtonClass = `${blockClass}__clear-button`
+  -const confirmButtonClass = `${blockClass}__confirm-button`
 
   -let blockClasses = `js-${blockClass} ${blockClass} `
   -let listClasses = `js-${listClass} ${listClass} `
@@ -22,21 +22,22 @@ mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnifi
 
   //-подтипы дропдауна
   if dropdownType === 'rooms'
-    -listClasses += 'dropdown__list_type_rooms '
+    -listClasses += `${listClass}_type_rooms `
   else if dropdownType === 'customers'
-    -listClasses += 'dropdown__list_type_customers '
+    -listClasses += `${listClass}_type_customers `
   //-модификаторы дропдауна
   if isUnified
-    -listClasses += 'dropdown__list_unified '
+    -listClasses += `${listClass}_unified `
   if isOpened
-    -blockClasses += 'dropdown_opened '
+    -blockClasses += `${blockClass}_opened `
   if isPure
-    -blockClasses += 'dropdown_pure '
+    -blockClasses += `${blockClass}_pure `
   if isUnaccepted
-    -blockClasses += 'dropdown_unaccepted '
+    -blockClasses += `${blockClass}_unaccepted `
   //-ширина
   else if width === 'medium'
-    -listWrapperClasses += 'dropdown__list-wrapper_width_medium '
+    -blockClasses += `${blockClass}_width_medium `
+    -listWrapperClasses += `${listClass}-wrapper_width_medium `
 
   div(class=blockClasses)
     div(class=`js-${inputClass} ${inputClass}`)
