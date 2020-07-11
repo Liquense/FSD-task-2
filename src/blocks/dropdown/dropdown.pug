@@ -35,10 +35,6 @@ mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnifi
   if isUnaccepted
     -blockClasses += 'dropdown_unaccepted '
   //-ширина
-  if width === 'narrow'
-    -listWrapperClasses += 'dropdown__list-wrapper_width_narrow '
-  else if width === 'premedium'
-    -listWrapperClasses += 'dropdown__list-wrapper_width_premedium '
   else if width === 'medium'
     -listWrapperClasses += 'dropdown__list-wrapper_width_medium '
 

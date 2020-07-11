@@ -1,16 +1,17 @@
 $inputWidth: 320px;
-$narrowInputWidth: 150px;
-$preMedInputWidth: 260px;
 $mediumInputWidth: 266px;
 $borderWidth: 1px;
 $inputBorderRadius: 4px;
 
 .dropdown {
   @include boxSizingBorderBox();
+  max-width: $inputWidth;
+
+  &_medium {
+    max-width: $mediumInputWidth;
+  }
 
   &__input {
-    width: fit-content;
-
     .input__control {
       color: $darkShade75;
       padding-right: 9.6ch;
@@ -34,10 +35,6 @@ $inputBorderRadius: 4px;
     //toggle в jquery делает изменения через inline-стили,
     //поэтому по дефолту элемент невидим
     display: none;
-
-    &_width_narrow {
-      min-width: $narrowInputWidth;
-    }
 
     &_width_medium {
       min-width: $mediumInputWidth;
