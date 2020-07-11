@@ -24,30 +24,29 @@ $inputBorderRadius: 4px;
 
   &__list-wrapper {
     position: absolute;
-    width: $inputWidth;
+    min-width: $inputWidth;
     border: $borderWidth solid $darkShade50;
     border-top: 0;
     border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
     background-color: $inputBackgroundColor;
     box-shadow: 0 10px 20px $darkShade5;
     z-index: 10;
-    //toggle в jquery делает изменения через более приоритетные style в html,
+    //toggle в jquery делает изменения через inline-стили,
     //поэтому по дефолту элемент невидим
     display: none;
 
     &_width_narrow {
-      width: $narrowInputWidth;
+      min-width: $narrowInputWidth;
     }
 
     &_width_medium {
-      width: $mediumInputWidth;
+      min-width: $mediumInputWidth;
     }
   }
 
   &__list {
     padding: 0;
-    margin: 6px - $borderWidth 7px - $borderWidth 7px 15px - $borderWidth;;
-    width: calc(100% - (14px - #{$borderWidth}) - (7px - #{$borderWidth}));
+    margin: 6px - $borderWidth 7px - $borderWidth 7px - $borderWidth 15px - $borderWidth;
     border-spacing: 0;
     border-collapse: collapse;
 
