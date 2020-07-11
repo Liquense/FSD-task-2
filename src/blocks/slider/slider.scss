@@ -4,14 +4,15 @@ $sliderBorderWidth: 1px;
 $sliderHandleBorderWidth: 2px;
 $sliderHorizontalHeight: 6px;
 $sliderHandleSize: 12px;
+$sliderSize: 266px;
 
 .slider {
-  width: 266px + ($sliderHandleSize + $sliderHandleBorderWidth);
+  max-width: $sliderSize + ($sliderHandleSize + $sliderHandleBorderWidth);
   padding-right: 14px;
   @include boxSizingBorderBox();
 
   &__plugin-container {
-    width: 266px;
+    max-width: $sliderSize;
   }
 
   &__control {
@@ -34,7 +35,7 @@ $sliderHandleSize: 12px;
   .ui-slider-horizontal .ui-slider-handle {
     border-radius: 50%;
     background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
-    width: $sliderHandleSize + $sliderHandleBorderWidth*2;
+    width: $sliderHandleSize + $sliderHandleBorderWidth*2; // хэндлер фиксированного размера
     height: $sliderHandleSize + $sliderHandleBorderWidth*2;
     border: $sliderHandleBorderWidth solid $inputBackgroundColor;
     top: $sliderHorizontalHeight - $sliderHandleSize;
@@ -55,7 +56,7 @@ $sliderHandleSize: 12px;
     content: attr(sliderHandleValue);
     position: absolute;
     text-align: center;
-    width: 40px;
+    width: 40px; // у тултипа хэндлера фиксированный размер
     left: -20px+$sliderHandleSize/2;
     bottom: $sliderHandleSize;
   }
