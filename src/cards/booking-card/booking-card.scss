@@ -76,6 +76,10 @@
 
   &__check-container {
     @include text_regular();
+    display: grid;
+    grid-template-columns: 67.29% $iconSize auto;
+    grid-column-gap: 5px;
+    grid-row-gap: 15px;
     margin-bottom: 30px;
     padding-left: 1px;
     line-height: $iconSize - 2px;
@@ -95,12 +99,10 @@
   &__staying-cost-sum,
   &__services-sum,
   &__additional-services-sum {
-    width: 80px;
     text-align: right;
   }
 
   &__info-icon {
-    width: $iconSize;
     height: $iconSize;
     display: block;
     line-height: $iconSize - 2px;
