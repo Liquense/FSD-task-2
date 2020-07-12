@@ -72,11 +72,11 @@ function writeServicesToSpans($servicesEnumSpan, $servicesSumSpan, currency, ser
 }
 
 function addRefreshCheckOnInputChange(
-  $firstDatePicker, $secondDatePicker, $stayingCostRow, $totalCostSpan, priceData,
+  $firstDatePicker, $secondDatePicker, $bookingCard, $totalCostSpan, priceData,
 ) {
   function refreshCheckValuesOnDateChange(event) {
-    const $calculatingStayingCostSpan = $stayingCostRow.children('.js-booking-card__staying-cost-calculation');
-    const $stayingSumSpan = $stayingCostRow.children('.js-booking-card__staying-cost-sum');
+    const $calculatingStayingCostSpan = $bookingCard.find('.js-booking-card__staying-cost-calculation');
+    const $stayingSumSpan = $bookingCard.find('.js-booking-card__staying-cost-sum');
     const datePickerData = $(event.target).data('datepicker');
     const daysCount = getDaysFromDateRange(datePickerData.selectedDates);
 
@@ -108,8 +108,6 @@ function initBookingCard() {
   const $secondDatepicker = $($rangePicker.find('.js-two-calendar-range-picker__second-datepicker')[0]);
   const $secondDatepickerControl = $($secondDatepicker.find('.js-datepicker-block .js-input__control')[0]);
 
-  const $stayingCostRow = $bookingCard.find('.js-booking-card__staying-cost-row');
-
   const priceData = {
     price: priceAmount,
     currency,
@@ -123,7 +121,7 @@ function initBookingCard() {
   addRefreshCheckOnInputChange(
     $firstDatepickerControl,
     $secondDatepickerControl,
-    $stayingCostRow,
+    $bookingCard,
     $totalCostSpan,
     priceData,
   );
