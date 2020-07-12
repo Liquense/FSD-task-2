@@ -1,14 +1,14 @@
-$inputWidth: 320px;
-$mediumInputWidth: 266px;
+$minInputWidth: 320px;
+$minMediumInputWidth: 266px;
 $borderWidth: 1px;
 $inputBorderRadius: 4px;
 
 .dropdown {
   @include boxSizingBorderBox();
-  min-width: $inputWidth;
+  min-width: $minInputWidth;
 
   &_width_medium {
-    min-width: $mediumInputWidth;
+    min-width: $minMediumInputWidth;
   }
 
   &__input {
@@ -25,7 +25,7 @@ $inputBorderRadius: 4px;
 
   &__list-wrapper {
     position: absolute;
-    min-width: $inputWidth;
+    min-width: $minInputWidth;
     border: $borderWidth solid $darkShade50;
     border-top: 0;
     border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
@@ -37,7 +37,7 @@ $inputBorderRadius: 4px;
     display: none;
 
     &_width_medium {
-      min-width: $mediumInputWidth;
+      min-width: $minMediumInputWidth;
     }
   }
 

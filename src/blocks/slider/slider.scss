@@ -1,18 +1,16 @@
-$lineHeight: 15px;
 $fontSize: 12px;
 $sliderBorderWidth: 1px;
 $sliderHandleBorderWidth: 2px;
 $sliderHorizontalHeight: 6px;
 $sliderHandleSize: 12px;
-$sliderSize: 266px;
+$maxSliderWidth: 266px;
 
 .slider {
-  max-width: $sliderSize + ($sliderHandleSize + $sliderHandleBorderWidth);
-  padding-right: 14px;
+  max-width: $maxSliderWidth;
   @include boxSizingBorderBox();
 
   &__plugin-container {
-    max-width: $sliderSize;
+    max-width: $maxSliderWidth;
   }
 
   &__control {

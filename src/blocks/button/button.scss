@@ -1,5 +1,3 @@
-$buttonWidth: 99px;
-$wideButtonWidth: 320px;
 $buttonBorderWidth: 2px;
 $buttonHeight: 44px;
 $arrowSize: 24px;
@@ -9,7 +7,7 @@ $arrowSize: 24px;
   cursor: pointer;
   display: inline-block;
   width: fit-content;
-  min-width: $buttonWidth;
+  min-width: 99px;
   height: $buttonHeight;
   text-decoration: none;
 
@@ -27,7 +25,7 @@ $arrowSize: 24px;
   }
 
   &_size_wide {
-    min-width: $wideButtonWidth;
+    min-width: 320px;
   }
 
   &_decorated {

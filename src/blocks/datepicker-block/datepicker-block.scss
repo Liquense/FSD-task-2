@@ -3,11 +3,9 @@
 $datepickerBorderWidth: 1px;
 $datepickerWidth: 320px;
 $datepickerContentHeight: 240px;
-$cellSize: 40px;
 $cellTextColor: $darkShade50;
 $datepickerContentSidesPadding: 20px;
-$datepickerContentTopPadding: 29px;
-$datepickerContentWidth: $datepickerWidth - $datepickerContentSidesPadding*2;
+$datepickerContentWidth: $datepickerWidth - 2*$datepickerContentSidesPadding;
 
 $actualPointsGradient: linear-gradient($gradientDefaultAngle,
     $purple 0%,
@@ -63,7 +61,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
 .datepicker--cell {
   border-radius: 50%;
-  height: $cellSize;
+  height: 40px;
 
   &.datepicker--cell.-focus- {
     background: linear-gradient($gradientDefaultAngle, rgba($purple, 0.5) 0%, rgba($purpleGradientSecond, 0.5) 100%);
@@ -241,7 +239,7 @@ $yearCellsColumnLength: 3;
 }
 
 .datepicker--content {
-  padding: $datepickerContentTopPadding $datepickerContentSidesPadding - $datepickerBorderWidth*2 0 $datepickerContentSidesPadding;
+  padding: 29px $datepickerContentSidesPadding - 2*$datepickerBorderWidth 0 $datepickerContentSidesPadding;
   min-height: $datepickerContentHeight;
 }
 

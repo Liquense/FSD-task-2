@@ -1,39 +1,30 @@
 $inputHeight: 44px;
 $borderWidth: 1px;
-$expandHeight: 18px;
 $arrowSize: 24px;
-$inputWidth: 320px;
-$narrowInputWidth: 150px;
-$preMedInputWidth: 260px;
-$mediumInputWidth: 266px;
-$inputBorderRadius: 4px;
-$inputTopMargin: 3px;
-$fontSize: 14px;
 $lineHeight: 15px;
 $paddingTop: 12px - $borderWidth;
 $paddingRight: 15px - $borderWidth;
 $paddingBottom: 14px - $borderWidth;
 $paddingLeft: 15px - $borderWidth;
-
 $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
 .input {
   height: fit-content;
-  max-width: $inputWidth;
+  max-width: 320px;
   width: 100%;
   @include boxSizingBorderBox();
 
   // region width
   &_width_narrow {
-    max-width: $narrowInputWidth;
+    max-width: 150px;
   }
 
   &_width_premedium {
-    max-width: $preMedInputWidth;
+    max-width: 260px;
   }
 
   &_width_medium {
-    max-width: $mediumInputWidth;
+    max-width: 266px;
   }
   // endregion
 
@@ -50,19 +41,19 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   &__control-wrapper {
     display: inline-block;
-    margin-top: $inputTopMargin;
+    margin-top: 3px;
     position: relative;
     width: 100%;
   }
 
   &__control {
-    border-radius: $inputBorderRadius;
+    border-radius: 4px;
     width: 100%;
     height: $inputHeight;
     border: $borderWidth solid $darkShade25;
     background: $inputBackgroundColor;
     padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
-    @include text(Montserrat, normal, $fontSize, $lineHeight, $darkShade25, -0.18px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect похоже получилось -0.18px
+    @include text(Montserrat, normal, 14px, $lineHeight, $darkShade25, -0.18px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect похоже получилось -0.18px
     margin: 0 0 0 0;
     text-overflow: ellipsis;
 

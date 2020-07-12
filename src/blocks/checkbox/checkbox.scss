@@ -1,13 +1,10 @@
 $checkboxButtonSize: 20px;
 $checkboxButtonBorderWidth: 1px;
-$lineHeight: 18px;
 $buttonRightMargin: 10px;
-$likeWidth: 40px;
 $defaultTypePadding: 0.143em;
 $toggleCircleXOffset: 7.9%;
 $toggleCircleYOffset: 16.67%;
 $toggleCircleWidth: 31.58%;
-$toggleCircleHeight: 66.7%;
 
 // region toggle animations
 @keyframes desaturate {
@@ -62,7 +59,7 @@ $toggleCircleHeight: 66.7%;
   width: fit-content;
 
   &_type_like {
-    min-width: $likeWidth;
+    min-width: 40px;
     height: $checkboxButtonSize;
     @include clearfix;
   }
@@ -75,7 +72,7 @@ $toggleCircleHeight: 66.7%;
     vertical-align: middle;
     cursor: pointer;
     color: $darkShade50;
-    line-height: $lineHeight;
+    line-height: 18px;
 
     &_type_default {
       &:hover,
@@ -254,7 +251,7 @@ $toggleCircleHeight: 66.7%;
         left: $toggleCircleXOffset;
         top: $toggleCircleYOffset;
         width: $toggleCircleWidth;
-        height: $toggleCircleHeight;
+        height: 66.7%;
         border-radius: 50%;
         background-color: $darkShade25;
         animation-name: toggleMoveLeft;
