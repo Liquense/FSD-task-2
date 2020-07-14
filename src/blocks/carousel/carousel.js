@@ -3,31 +3,34 @@
 import 'slick-carousel';
 import '../../../node_modules/slick-carousel/slick/slick.css';
 
-function getCarouselParams($carousel) {
-  return {
-    arrows: ($carousel.attr('data-arrows').toLowerCase() === 'true'),
-    prevArrow: '<label class="slick-prev"><button type="button" >expand_more</button></label>',
-    nextArrow: '<label class="slick-next"><button type="button" >expand_more</button></label>',
-    dots: ($carousel.attr('data-dots').toLowerCase() === 'true'),
-  };
+class Carousel {
+  $element;
+
+  constructor(element) {
+    this.$element = $(element);
+    this._initCarousel();
+  }
+
+  _getCarouselParams() {
+    return {
+      arrows: (this.$element.attr('data-arrows').toLowerCase() === 'true'),
+      prevArrow: '<label class="slick-prev"><button type="button" >expand_more</button></label>',
+      nextArrow: '<label class="slick-next"><button type="button" >expand_more</button></label>',
+      dots: (this.$element.attr('data-dots').toLowerCase() === 'true'),
+    };
+  }
+
+  _initCarousel() {
+    const initAttrName = 'data-initiated';
+    const initAttrValue = 'true';
+
+    if (this.$element.attr(initAttrName) === initAttrValue) { return; }
+
+    const params = this._getCarouselParams();
+
+    this.$element.slick(params);
+    this.$element.attr(initAttrName, initAttrValue);
+  }
 }
 
-function initCarousel() {
-  const initAttrName = 'data-initiated';
-  const initAttrValue = 'true';
-
-  const $carousel = $(this);
-  if ($carousel.attr(initAttrName) === initAttrValue) { return; }
-
-  const params = getCarouselParams($carousel);
-
-  $carousel.slick(params);
-  $carousel.attr(initAttrName, initAttrValue);
-}
-
-function initCarousels() {
-  const $carousels = $('.js-carousel');
-  $carousels.each(initCarousel);
-}
-
-export default initCarousels;
+export default Carousel;
