@@ -1,3 +1,15 @@
-import { initDatepickers } from './datepicker-block';
+/* eslint-disable no-undef */
+import DatepickerBlock from './datepicker-block';
 
-initDatepickers();
+function initDatepickers() {
+  const $datepickers = $('.js-datepicker-block');
+  const datepickers = [];
+
+  $datepickers.each((index, element) => {
+    datepickers.push(new DatepickerBlock(element));
+  });
+
+  return datepickers;
+}
+
+export default initDatepickers;
