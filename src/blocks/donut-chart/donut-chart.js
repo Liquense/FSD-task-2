@@ -1,284 +1,331 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
-import { copyArrayOfObjects, ruDeclination } from '../../common/functions';
+import { getAverageNum, ruDeclination } from '../../common/functions';
 
-const donutHTML = require('./donut-template.pug');
+const donutTemplate = require('./donut-template.pug');
 
-const donutArcActiveClass = 'donut-chart__svg-arc_active';
+class DonutChart {
+  static donutArcActiveClass = 'donut-chart__svg-arc_active';
 
-function getDataTextContainer($donutContainer) {
-  const $imageContainer = $donutContainer.find('.js-donut-chart__image-container');
-  return $imageContainer.find('.js-donut-chart__active-data');
-}
+  $donutContainer;
 
-function getArcStyle(arc, params) {
-  if (arc.$arc.hasClass(donutArcActiveClass)) { return params.activeStyle; }
-  return params.defaultStyle;
-}
+  $dataTextContainer;
 
-function getSecondAngle(firstAngle, arcValue, ratesCount) {
-  const arcValueProportion = arcValue / ratesCount;
-  const arcAngle = 360 * arcValueProportion;
+  $donutCanvas;
 
-  return firstAngle + arcAngle;
-}
+  $donutArcs;
 
-function degreesToRads(degreeAngleValue) {
-  return (degreeAngleValue / 180) * Math.PI;
-}
+  $donutLegend;
 
-/**
- * Получить прямоугольные координаты из полярных
- * @param length радиус окружности
- * @param angle угол поворота
- * @param x0 Х точки отсчёта
- * @param y0 У точки отсчёта
- * @returns {{x: number, y: number}}
- */
-function toCartesian(length, angle, x0 = 0, y0 = 0) {
-  const result = { x: 0, y: 0 };
-  const angleRads = degreesToRads(angle);
+  $legendItems;
 
-  result.x = x0 + length * Math.cos(angleRads);
-  result.y = y0 - length * Math.sin(angleRads); // вычитаем, потому что на канвасе ось перевёрнута
+  $activeValue;
 
-  return result;
-}
+  $activeValueText;
 
-/**
- * Формирует и возвращает массив данных, необходимых для отрисовки дуги
- * @param arc
- * @param style активная или обычная
- * @param ratesCount общее количество отзывов
- * @param canvasSize
- * @returns
- * {secondPoint, strokeWidth, firstPoint, arcRadius, endingAngle, startY, startX, arcAngle}
- */
-function getArcDrawData(arc, style, ratesCount, canvasSize) {
-  const startingAngle = arc.$arc.data('startingAngle');
-  const endingAngle = getSecondAngle(
-    startingAngle, arc.value, ratesCount,
-  );
-  const startX = canvasSize.width / 2;
-  const startY = canvasSize.height / 2;
-  const strokeWidth = style.outerRadius - style.innerRadius;
-  const arcRadius = style.outerRadius / 2 - strokeWidth / 2;
-  const arcAngle = endingAngle - startingAngle;
+  donutParams;
 
-  const firstPoint = toCartesian(arcRadius, startingAngle, startX, startY);
-  const secondPoint = toCartesian(arcRadius, endingAngle, startX, startY);
+  activeArc;
 
-  return {
-    firstPoint,
-    secondPoint,
-    arcRadius,
-    strokeWidth,
-    startX,
-    startY,
-    arcAngle,
-    endingAngle,
-  };
-}
-
-function drawArc(arc, arcDrawData) {
-  let isLargeArc = 0;
-  if (arcDrawData.arcAngle > 180) { isLargeArc = 1; }
-
-  arc.$arc.attr('stroke-width', arcDrawData.strokeWidth);
-  arc.$arc.attr(
-    'd', `M ${arcDrawData.firstPoint.x},${arcDrawData.firstPoint.y}
-  A ${arcDrawData.arcRadius} ${arcDrawData.arcRadius}
-  0 ${isLargeArc}
-  0 ${arcDrawData.secondPoint.x},${arcDrawData.secondPoint.y}`,
-  );
-}
-
-function initDrawArc(arc, params) {
-  const currentStyle = getArcStyle(arc, params);
-  const arcDrawData = getArcDrawData(
-    arc,
-    currentStyle,
-    params.ratesCountWithGaps,
-    { width: params.canvasWidth, height: params.canvasHeight },
-  );
-  drawArc(arc, arcDrawData);
-
-  return arcDrawData;
-}
-
-function clearArcsActivity(arcsArray, currentArc, params) {
-  arcsArray.forEach((arc) => {
-    if (arc === currentArc) { return; }
-    arc.$arc.removeClass(donutArcActiveClass);
-    initDrawArc(arc, params);
-  });
-}
-
-/**
- * Выводит в текстовое поле значение выбранной дуги и меняет его цвет
- * Если передать 0, то текст очистится
- * @param $dataTextContainer
- * @param value
- * @param color
- * @param overallCount
- */
-function changeDataText($dataTextContainer, value, color, overallCount) {
-  const $activeValue = $dataTextContainer.find('.js-donut-chart__active-value');
-  const $valueText = $dataTextContainer.find('.js-donut-chart__value-text');
-
-  if (value === 0) {
-    $activeValue.text(overallCount);
-    $activeValue.css('color', 'grey');
-    $valueText.text(ruDeclination(overallCount, 'голос||а|ов'));
-    $valueText.css('color', 'grey');
-  } else {
-    $activeValue.text(value);
-    $activeValue.css('color', color);
-    $valueText.text(ruDeclination(value, 'голос||а|ов'));
-    $valueText.css('color', color);
+  constructor(donutParams = { rootElement: undefined }) {
+    this._initParams(donutParams);
+    this._createDonut();
+    this._initEvents();
   }
-}
 
-function addOnClickHandlerToArcs(arcsArray, params, $dataTextContainer) {
-  arcsArray.forEach((arc) => {
-    arc.$arc.click(() => {
-      clearArcsActivity(arcsArray, arc, params);
+  _initElementsParams() {
+    this.$dataTextContainer = this.$donutContainer.find('.js-donut-chart__active-data');
+    this.$donutCanvas = this.$donutContainer.find('.js-donut-chart__svg');
+    this.$donutArcs = this.$donutCanvas.find('.js-donut-chart__svg-arc');
+    this.$donutLegend = this.$donutContainer.find('.js-donut-chart__legend');
+    this.$legendItems = this.$donutLegend.find('.js-donut-chart__legend-item');
+    this.$activeValue = this.$dataTextContainer.find('.js-donut-chart__active-value');
+    this.$activeValueText = this.$dataTextContainer.find('.js-donut-chart__value-text');
+  }
 
-      arc.$arc.toggleClass(donutArcActiveClass);
-      initDrawArc(arc, params);
+  _initParams(params = {
+    data: [
+      { caption: '1', value: 1, background: 'red' },
+      { caption: '2', value: 2, background: 'green' },
+      { caption: '3', value: 3, background: 'blue' },
+      { caption: '4', value: 4, background: 'black' },
+    ],
+    defaultStyle: {
+      outerRadius: 100,
+      innerRadius: 95,
+    },
+    activeStyle: {
+      outerRadius: 105,
+      innerRadius: 90,
+    },
+    arcsGap: 5,
+  }) {
+    this.$donutContainer = $(params.rootElement);
 
-      if (arc.$arc.hasClass(donutArcActiveClass)) {
-        changeDataText(
-          $dataTextContainer, arc.value, arc.firstColor,
-        );
-      } else {
-        changeDataText(
-          $dataTextContainer, 0, undefined, params.ratesCount,
-        );
+    this.$donutContainer.html(donutTemplate({ arcs: params.data }));
+    this._initElementsParams();
+
+    const additionalParams = DonutChart._getAdditionalParams(params);
+    this.donutParams = { ...params, ...additionalParams };
+  }
+
+  _createDonut() {
+    this._addJqObjectsToArcs();
+    this._drawDonutOnCanvas();
+
+    this.$donutCanvas.attr(
+      'viewBox', `0 0 ${this.donutParams.canvasWidth} ${this.donutParams.canvasHeight}`,
+    );
+  }
+
+  _initEvents() {
+    this._addHandlerToArcs('click', this._handleArcClick);
+    this._addHandlerToArcs('mouseenter', this._handleArcMouseEnter);
+    this._addHandlerToArcs('mouseleave', this._handleArcMouseLeave);
+  }
+
+  _getArcStyle(arc) {
+    if (arc.$arc.hasClass(DonutChart.donutArcActiveClass)) return this.donutParams.activeStyle;
+    return this.donutParams.defaultStyle;
+  }
+
+  static _getSecondAngle(firstAngle, arcValue, ratesCount) {
+    const arcValueProportion = arcValue / ratesCount;
+    const arcAngle = 360 * arcValueProportion;
+
+    return firstAngle + arcAngle;
+  }
+
+  static _degreesToRads(degreeAngleValue) {
+    return (degreeAngleValue / 180) * Math.PI;
+  }
+
+  /**
+   * Получить прямоугольные координаты из полярных
+   * @param length радиус окружности
+   * @param angle угол поворота
+   * @param x0 Х точки отсчёта
+   * @param y0 У точки отсчёта
+   * @returns {{x: number, y: number}}
+   */
+  static _toCartesian(length, angle, x0 = 0, y0 = 0) {
+    const result = { x: 0, y: 0 };
+    const angleRads = DonutChart._degreesToRads(angle);
+
+    result.x = x0 + length * Math.cos(angleRads);
+    // вычитаем, потому что на канве ось перевёрнута
+    result.y = y0 - length * Math.sin(angleRads);
+
+    return result;
+  }
+
+  /**
+   * Если arc равен this.activeArc - активное состояние снимается
+   * @param arc
+   * @private
+   */
+  _changeActiveArc(arc) {
+    const oldActiveArc = this.activeArc;
+
+    if (arc === this.activeArc) { this.activeArc = undefined; } else {
+      this.activeArc = arc;
+      // eslint-disable-next-line no-unused-expressions
+      arc?.$arc.addClass(DonutChart.donutArcActiveClass);
+    }
+
+    if (oldActiveArc) {
+      oldActiveArc.$arc.removeClass(DonutChart.donutArcActiveClass);
+      this._redrawArc(oldActiveArc);
+    }
+  }
+
+  /**
+   * Формирует и возвращает массив данных, необходимых для отрисовки дуги
+   * @param arc
+   * @param style активная или обычная
+   * @param ratesCount общее количество отзывов
+   * @param canvasSize
+   * @returns
+   * {secondPoint, strokeWidth, firstPoint, arcRadius, endingAngle, startY, startX, arcAngle}
+   */
+  static _calculateArcDrawData(arc, style, ratesCount, canvasSize) {
+    const { startingAngle } = arc;
+
+    const endingAngle = DonutChart._getSecondAngle(
+      startingAngle, arc.value, ratesCount,
+    );
+    const startX = canvasSize.width / 2;
+    const startY = canvasSize.height / 2;
+    const strokeWidth = style.outerRadius - style.innerRadius;
+    const arcRadius = style.outerRadius / 2 - strokeWidth / 2;
+    const arcAngle = endingAngle - startingAngle;
+
+    const firstPoint = DonutChart._toCartesian(
+      arcRadius, startingAngle, startX, startY,
+    );
+    const secondPoint = DonutChart._toCartesian(
+      arcRadius, endingAngle, startX, startY,
+    );
+
+    return {
+      firstPoint,
+      secondPoint,
+      arcRadius,
+      strokeWidth,
+      startX,
+      startY,
+      arcAngle,
+      endingAngle,
+    };
+  }
+
+  static _drawArc(arc, arcDrawData) {
+    let isLargeArc = 0;
+    if (arcDrawData.arcAngle > 180) { isLargeArc = 1; }
+
+    arc.$arc.attr('stroke-width', arcDrawData.strokeWidth);
+    arc.$arc.attr(
+      'd', `M ${arcDrawData.firstPoint.x},${arcDrawData.firstPoint.y} `
+      + `A ${arcDrawData.arcRadius} ${arcDrawData.arcRadius} `
+      + `0 ${isLargeArc} `
+      + `0 ${arcDrawData.secondPoint.x},${arcDrawData.secondPoint.y}`,
+    );
+  }
+
+  _redrawArc(arc) {
+    const arcDrawData = this._getArcDrawData(arc);
+    DonutChart._drawArc(arc, arcDrawData);
+  }
+
+  _getArcDrawData(arc) {
+    const currentStyle = this._getArcStyle(arc);
+    return DonutChart._calculateArcDrawData(
+      arc,
+      currentStyle,
+      this.donutParams.ratesCountWithGaps,
+      { width: this.donutParams.canvasWidth, height: this.donutParams.canvasHeight },
+    );
+  }
+
+  /**
+   * Выводит в текстовое поле значение выбранной дуги и меняет его цвет
+   */
+  _updateActiveValue() {
+    if (!this.activeArc?.value) {
+      this.$activeValue.text(this.donutParams.ratesCount);
+      this.$activeValue.css('color', 'grey');
+
+      this.$activeValueText.text(ruDeclination(
+        this.donutParams.ratesCount, 'голос||а|ов',
+      ));
+      this.$activeValueText.css('color', 'grey');
+    } else {
+      this.$activeValue.text(this.activeArc.value);
+      this.$activeValue.css('color', this.activeArc.firstColor);
+
+      this.$activeValueText.text(ruDeclination(this.activeArc.value, 'голос||а|ов'));
+      this.$activeValueText.css('color', this.activeArc.firstColor);
+    }
+  }
+
+  _handleArcClick(arc) {
+    this._changeActiveArc(arc);
+    this._redrawArc(arc);
+    this._updateActiveValue(this.activeArc?.value, this.activeArc?.firstColor);
+  }
+
+  _handleArcMouseEnter(arc, mouseEvent) {
+    $(mouseEvent.target).addClass(DonutChart.donutArcActiveClass);
+    this._redrawArc(arc);
+  }
+
+  _handleArcMouseLeave(arc, mouseEvent) {
+    if (arc !== this.activeArc) $(mouseEvent.target).removeClass(DonutChart.donutArcActiveClass);
+    this._redrawArc(arc);
+  }
+
+  _addHandlerToArcs(eventName, handler) {
+    this.donutParams.data.forEach((arc) => {
+      const handleExactArcEvent = (event) => {
+        handler.apply(this, [arc, event]);
+      };
+
+      arc.$arc.on(`${eventName}.donut-chart`, handleExactArcEvent);
+    });
+  }
+
+  static _getRatesWithGaps(rates, gapAngle, arcsCount) {
+    return rates / (1 - ((gapAngle * arcsCount) / 360));
+  }
+
+  static _getArcsAndRatesAmount(arcsArray) {
+    const result = { arcs: 0, rates: 0 };
+
+    arcsArray.forEach((arc) => {
+      if (arc.value === 0) { return; }
+      result.rates += arc.value;
+      result.arcs += 1;
+    });
+
+    return result;
+  }
+
+  static _getAngleFromArcLength(arcLength, radius) {
+    return (180 * arcLength) / (Math.PI * radius);
+  }
+
+  static _getAdditionalParams(params) {
+    const additionalParams = {};
+    const arcDefaultRadius = getAverageNum(
+      params.defaultStyle.outerRadius, params.defaultStyle.innerRadius,
+    );
+    const arcsAndRatesCount = DonutChart._getArcsAndRatesAmount(params.data);
+
+    additionalParams.canvasWidth = params.activeStyle.outerRadius;
+    additionalParams.canvasHeight = params.activeStyle.outerRadius;
+    additionalParams.gapsAngle = DonutChart._getAngleFromArcLength(
+      params.arcsGap, arcDefaultRadius,
+    );
+    additionalParams.startingAngle = 90 + additionalParams.gapsAngle / 2;
+    additionalParams.notZeroArcs = arcsAndRatesCount.arcs;
+    additionalParams.ratesCount = arcsAndRatesCount.rates;
+    additionalParams.ratesCountWithGaps = DonutChart._getRatesWithGaps(
+      arcsAndRatesCount.rates,
+      additionalParams.gapsAngle,
+      arcsAndRatesCount.arcs,
+    );
+
+    return additionalParams;
+  }
+
+  _drawDonutOnCanvas() {
+    const arcsDataArray = this.donutParams.data;
+
+    arcsDataArray[0].startingAngle = this.donutParams.startingAngle;
+
+    arcsDataArray.forEach((arc, i) => {
+      // добавляем класс, если в параметрах передано, что дуга активная
+      if (arc.isActive) this._changeActiveArc(arc);
+
+      const arcDrawData = this._getArcDrawData(arc);
+      DonutChart._drawArc(arc, arcDrawData);
+
+      if (i + 1 < arcsDataArray.length) {
+        // записываем в следующую дугу угол, с которого она должна начинаться
+        arcsDataArray[i + 1]
+          .startingAngle = arcDrawData.endingAngle + this.donutParams.gapsAngle;
       }
     });
-  });
-}
 
-function getRatesWithGaps(rates, gapAngle, arcsCount) {
-  return rates / (1 - ((gapAngle * arcsCount) / 360));
-}
+    this._updateActiveValue();
+  }
 
-function getArcsAndRatesCount(arcsArray) {
-  const result = { arcs: 0, rates: 0 };
-
-  arcsArray.forEach((arc) => {
-    if (arc.value === 0) { return; }
-    result.rates += arc.value;
-    result.arcs += 1;
-  });
-
-  return result;
-}
-
-function getMiddleNum(firstNum, secondNum) {
-  return (firstNum + secondNum) / 2;
-}
-
-function getAngleFromArcLength(arcLength, radius) {
-  return (180 * arcLength) / (Math.PI * radius);
-}
-
-function getAdditionalParams(params) {
-  const additionalParams = {};
-  const arcDefaultRadius = getMiddleNum(
-    params.defaultStyle.outerRadius, params.defaultStyle.innerRadius,
-  );
-  const arcsAndRatesCount = getArcsAndRatesCount(params.data);
-
-  additionalParams.canvasWidth = params.activeStyle.outerRadius;
-  additionalParams.canvasHeight = params.activeStyle.outerRadius;
-  additionalParams.gapsAngle = getAngleFromArcLength(params.arcsGap, arcDefaultRadius);
-  additionalParams.startingAngle = 90 + additionalParams.gapsAngle / 2;
-  additionalParams.notZeroArcs = arcsAndRatesCount.arcs;
-  additionalParams.ratesCount = arcsAndRatesCount.rates;
-  additionalParams.ratesCountWithGaps = getRatesWithGaps(
-    arcsAndRatesCount.rates, additionalParams.gapsAngle, arcsAndRatesCount.arcs,
-  );
-
-  return additionalParams;
-}
-
-function drawArcsOnSVGCanvas(arcsArray, params, $dataTextContainer) {
-  arcsArray[0].$arc.data('startingAngle', params.startingAngle);
-
-  let activeArc = null;
-  arcsArray.forEach((arc, i) => {
-    if (arc.value === 0) {
-      if (i + 1 < arcsArray.length) { arcsArray[i + 1].$arc.data('startingAngle', params.startingAngle); }
-      return;
-    }
-    // добавляем класс, если в параметрах передано, что дуга активная
-    if (arcsArray[i].isActive) {
-      arc.$arc.addClass(donutArcActiveClass);
-      activeArc = arc;
-    }
-    // узнаём данные о нарисованной дуге
-    const arcDrawData = initDrawArc(arcsArray[i], params);
-    if (i + 1 < arcsArray.length) {
-      // записываем в следующую дугу угол, с которого она должна начинаться
-      arcsArray[i + 1].$arc.data('startingAngle', arcDrawData.endingAngle + params.gapsAngle);
-    }
-  });
-
-  if (activeArc.$arc.hasClass(donutArcActiveClass)) {
-    changeDataText(
-      $dataTextContainer, activeArc.value, activeArc.firstColor,
-    );
-  } else {
-    changeDataText(
-      $dataTextContainer, 0,
-    );
+  _addJqObjectsToArcs() {
+    this.donutParams.data.forEach((arc, i) => {
+      arc.$arc = $(this.$donutArcs[i]);
+      arc.$legend = $(this.$legendItems[i]);
+    });
   }
 }
 
-function addJQLinksToArcs(arcsObjArray, $arcs, $legendItems) {
-  arcsObjArray.forEach((arcObj, i) => {
-    arcObj.$arc = $($arcs[i]);
-    arcObj.$legend = $($legendItems[i]);
-  });
-}
-
-function createDonut(params = {
-  data: [
-    { caption: '1', value: 1, background: 'red' },
-    { caption: '2', value: 2, background: 'green' },
-    { caption: '3', value: 3, background: 'blue' },
-    { caption: '4', value: 4, background: 'black' },
-  ],
-  defaultStyle: {
-    outerRadius: 100,
-    innerRadius: 95,
-  },
-  activeStyle: {
-    outerRadius: 105,
-    innerRadius: 90,
-  },
-  arcsGap: 5,
-}) {
-  const $donutContainer = $(this);
-  const arcsData = copyArrayOfObjects(params.data);
-  $donutContainer.html(donutHTML({ arcs: arcsData }));
-  const $dataTextContainer = getDataTextContainer($donutContainer);
-  const $donutCanvas = $donutContainer.find('.js-donut-chart__svg');
-  const $donutArcs = $donutCanvas.find('.js-donut-chart__svg-arc');
-  const $donutLegend = $donutContainer.find('.js-donut-chart__legend');
-  const $legendItems = $donutLegend.find('.js-donut-chart__legend-item');
-
-  const additionalParams = getAdditionalParams(params);
-  const fullParams = { ...params, ...additionalParams };
-  addJQLinksToArcs(arcsData, $donutArcs, $legendItems);
-  drawArcsOnSVGCanvas(arcsData, fullParams, $dataTextContainer);
-
-  $donutCanvas.attr('viewBox', `0 0 ${fullParams.canvasWidth} ${fullParams.canvasHeight}`);
-  addOnClickHandlerToArcs(arcsData, fullParams, $dataTextContainer);
-}
-
-jQuery.fn.extend({
-  donutChart: createDonut,
-});
+export default DonutChart;

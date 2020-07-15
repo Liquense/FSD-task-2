@@ -74,8 +74,7 @@
     }
   }
 
-  &__svg-arc:hover, &__svg-arc_active {
-    stroke-width: 10px;
+  &__svg-arc:hover {
     cursor: pointer;
   }
 }
