@@ -6,7 +6,7 @@
  * @param {string} symbol символ для вставки между триадами
  * @returns {string} итоговое число в виде строки
  */
-export function formatNumber(number, symbol) {
+function formatNumber(number, symbol) {
   if (Number.isNaN(number * 1)) {
     return 'not number';
   }
@@ -25,7 +25,7 @@ export function formatNumber(number, symbol) {
   return formattedNum.join('');
 }
 
-export function checkDateArraysEquality(first, second) {
+function checkDateArraysEquality(first, second) {
   if (first.length !== second.length) return false;
   return !first.some((value, index) => value.getTime() !== second[index]?.getTime());
 }
@@ -41,7 +41,7 @@ export function checkDateArraysEquality(first, second) {
  * (1 комментарий, 2 комментария, 100 комментариев)
  * @return     {string}  Cлово с правильным окончанием
  */
-export function ruDeclination(number, words) {
+function ruDeclination(number, words) {
   const w = words.split('|');
   const n = Math.abs(number); // abs на случай отрицательного значения
   const firstEndingCondition = n % 10 === 1 && n % 100 !== 11;
@@ -69,10 +69,14 @@ jQuery.fn.outerHTML = outerHTML;
  * @param arrayOfObj [{}, {}...] исходный массив объектов
  * @returns {[]} новый массив объектов
  */
-export function copyArrayOfObjects(arrayOfObj) {
+function copyArrayOfObjects(arrayOfObj) {
   return arrayOfObj.map((obj) => ({ ...obj }));
 }
 
-export function clamp(value, min, max) {
+function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
+
+export {
+  clamp, copyArrayOfObjects, checkDateArraysEquality, formatNumber, ruDeclination,
+};
