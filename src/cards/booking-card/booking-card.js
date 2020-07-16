@@ -4,6 +4,7 @@ import {
   setInitialDates,
 } from '../../blocks/two-calendar-range-picker/two-calendar-range-picker';
 import { formatNumber, ruDeclination } from '../../common/functions';
+import initDropdowns from '../../blocks/dropdown/init';
 
 function getTotalCost(priceData) {
   const totalCost = Number.parseFloat(priceData.stayingSum)
@@ -107,6 +108,8 @@ function initBookingCard() {
   const $firstDatepickerControl = $($firstDatepicker.find('.js-datepicker-block .js-input__control')[0]);
   const $secondDatepicker = $($rangePicker.find('.js-two-calendar-range-picker__second-datepicker')[0]);
   const $secondDatepickerControl = $($secondDatepicker.find('.js-datepicker-block .js-input__control')[0]);
+
+  initDropdowns($bookingCard);
 
   const priceData = {
     price: priceAmount,
