@@ -5,7 +5,9 @@ $inputBorderRadius: 4px;
 
 .dropdown {
   @include boxSizingBorderBox();
+  position: relative;
   min-width: $minInputWidth;
+  width: fit-content;
 
   &_width_medium {
     min-width: $minMediumInputWidth;
@@ -16,7 +18,7 @@ $inputBorderRadius: 4px;
       color: $darkShade75;
       padding-right: 9.6ch;
 
-      &_focused {
+      &_focused, &:focus {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
       }
@@ -25,20 +27,16 @@ $inputBorderRadius: 4px;
 
   &__list-wrapper {
     position: absolute;
-    min-width: $minInputWidth;
+    width: 100%;
     border: $borderWidth solid $darkShade50;
     border-top: 0;
     border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
     background-color: $inputBackgroundColor;
     box-shadow: 0 10px 20px $darkShade5;
     z-index: 10;
-    //toggle в jquery делает изменения через inline-стили,
-    //поэтому по дефолту элемент невидим
-    display: none;
 
-    &_width_medium {
-      min-width: $minMediumInputWidth;
-    }
+    //toggle в jquery делает изменения через inline-стили, поэтому здесь по дефолту элемент невидим
+    display: none;
   }
 
   &__list {
