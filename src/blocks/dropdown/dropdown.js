@@ -3,439 +3,406 @@
 import 'jquery-ui/ui/effects/effect-fade';
 
 import { ruDeclination } from '../../common/functions';
+import { initSpinners } from '../spinner/spinner';
 
-import { disableButtonsAtExtremum } from '../spinner/spinner';
+class Dropdown {
+  static types = { rooms: 'rooms', customers: 'customers' }
 
-/**
- * Функция для получения пар имя-значение со всех переданных спиннеров
- *
- * @param spinnerElements   массив спиннеров
- * @returns {Array}
- */
-function getCurrentNamesValues(spinnerElements) {
-  const result = [];
+  static dropdownVisibleClass = 'dropdown__list-wrapper_visible';
 
-  function getNameValue() {
-    result.push({
-      name: $(this).attr('data-name'),
-      value: parseInt($(this).val(), 10),
+  $dropdown;
+
+  $listWrapper;
+
+  $inputControl;
+
+  $spinners;
+
+  $buttonsContainer;
+
+  $clearButton;
+
+  $confirmButton;
+
+  $list;
+
+  isAlwaysOpened = false;
+
+  isPure = false;
+
+  areValuesAccepted = true;
+
+  oldNamesValues = [];
+
+  get namesValues() {
+    const namesValues = [];
+
+    this.$spinners.each((index, element) => {
+      namesValues.push(Dropdown._getNameValueFromSpinner(element));
+    });
+
+    return namesValues;
+  }
+
+  get isOpened() {
+    return this.$listWrapper.hasClass(Dropdown.dropdownVisibleClass);
+  }
+
+  constructor(rootElement) {
+    this._initElements(rootElement);
+    this._initParams();
+    this._initEvents();
+  }
+
+  static _initSpinners() {
+    initSpinners(); // плейсхолдер до рефактора спиннера
+  }
+
+  _initElements(rootElement) {
+    this.$dropdown = $(rootElement);
+
+    this.$listWrapper = this.$dropdown.children('.js-dropdown__list-wrapper');
+    this.$inputControl = this.$dropdown.find('.js-dropdown__input .js-input__control');
+    this.$spinners = this.$dropdown.find('.js-spinner__value');
+    this.$buttonsContainer = this.$dropdown.find('.js-dropdown__buttons-container');
+    this.$clearButton = this.$dropdown.find('.js-dropdown__clear-button');
+    this.$confirmButton = this.$dropdown.find('.js-dropdown__confirm-button');
+    this.$list = this.$listWrapper.find('.js-dropdown__list');
+    Dropdown._initSpinners();
+  }
+
+  _initEvents() {
+    this._addClearButtonEvents();
+    this._addConfirmButtonEvents();
+    this._addSpinnersEvents();
+    this._addDocumentEvents();
+    this._addInputEvents();
+  }
+
+  // region clear button
+  _addClearButtonEvents() {
+    this.$clearButton.on('click.dropdown', this._handleClearButtonClick.bind(this));
+  }
+
+  _handleClearButtonClick() {
+    this._clearSpinnersValues();
+    this._updateVisuals();
+  }
+  // endregion
+
+  // region confirm button
+  _addConfirmButtonEvents() {
+    this.$confirmButton.on('click.dropdown', this._handleConfirmButtonClick.bind(this));
+  }
+
+  _handleConfirmButtonClick() {
+    if (!this.isAlwaysOpened) { this._toggle(); }
+
+    this.areValuesAccepted = true;
+    this.oldNamesValues = this.namesValues;
+
+    this._updateControlsVisibility();
+  }
+  // endregion
+
+  // region spinner
+  _addSpinnersEvents() {
+    this.$spinners.each((index, element) => {
+      $(element).on('spin.datepicker', this._handleSpin.bind(this));
     });
   }
-  $(spinnerElements).each(getNameValue);
 
-  return result;
-}
-
-const typeRooms = 'rooms';
-const typeCustomers = 'customers';
-function getDropdownType($list) {
-  const dropdownType = {};
-  const listClassPrefix = 'dropdown__list_';
-
-  if ($($list).hasClass(`${listClassPrefix}unified`)) { dropdownType.isUnified = true; }
-
-  if ($($list).hasClass(`${listClassPrefix}type_rooms`)) {
-    dropdownType.name = typeRooms;
-  } else if ($($list).hasClass(`${listClassPrefix}type_customers`)) {
-    dropdownType.name = typeCustomers;
-  } else return false;
-
-  return dropdownType;
-}
-
-function selectNiceWord(itemsCount, itemName) {
-  let result = '';
-
-  switch (itemName.toLowerCase()) {
-    case 'спальни':
-      result = ruDeclination(itemsCount, 'спал|ьня|ьни|ен');
-      break;
-    case 'кровати':
-      result = ruDeclination(itemsCount, 'кроват|ь|и|ей');
-      break;
-    case 'ванные комнаты':
-      result = `${ruDeclination(itemsCount, 'ванн|ая|ых|ых')} ${
-        ruDeclination(itemsCount, 'комнат|а|ы|')}`;
-      break;
-    case 'гости':
-      result = ruDeclination(itemsCount, 'гост|ь|я|ей');
-      break;
-    case 'младенцы':
-      result = ruDeclination(itemsCount, 'младен|ец|ца|цев');
-      break;
-
-    default:
+  // todo: обновить, когда спиннер будет классом
+  static _triggerSpin($spinner) {
+    const spinEvent = $.Event('spin', { currentTarget: $spinner });
+    $spinner.trigger(spinEvent, { value: $spinner.spinner('value') });
   }
 
-  return result;
-}
+  _handleSpin(event, ui) {
+    $(event.currentTarget).spinner('value', ui?.value ? ui?.value : 0);
+    this._updateVisuals();
+  }
+  // endregion
 
-function areAllValuesZero(namesValues) {
-  return !namesValues?.some((nameValue) => parseInt((nameValue.value), 10) !== 0);
-}
-
-function createUnifiedString(namesValues, declinationsString) {
-  const sum = namesValues.reduce(
-    (accumulator, currentValue) => accumulator + parseInt(currentValue.value, 10),
-    0,
-  );
-
-  return `${sum} ${ruDeclination(sum, declinationsString)}`;
-}
-
-function createSeparateRoomsString(namesValues) {
-  let result = namesValues.reduce(
-    (accumulator, currentNameValue) => `${accumulator} `
-      + `${currentNameValue.value} `
-      + `${selectNiceWord(currentNameValue.value, currentNameValue.name)}, `,
-    '',
-  );
-  result = result.substring(0, result.length - 2).trim();
-
-  return result;
-}
-
-function createRoomsString(namesValues, isUnified) {
-  let result;
-
-  if (isUnified) {
-    result = createUnifiedString(namesValues, 'комнаты');
-  } else {
-    result = createSeparateRoomsString(namesValues);
+  // region document
+  _addDocumentEvents() {
+    $(document).on('click.dropdown', this._handleDocumentClick.bind(this));
   }
 
-  return result;
-}
+  _handleDocumentClick(event) {
+    const clickedElement = $(event.target);
 
-function createCustomersWithInfantsString(namesValues) {
-  let infants = 0;
-  let sum = 0;
+    if ($.contains(this.$dropdown.get(0), clickedElement.get(0))) return;
 
-  namesValues.forEach((nameValue) => {
-    if (nameValue.name.toLowerCase() === 'младенцы') {
-      infants = nameValue.value;
-      return;
-    }
-    sum += parseInt(nameValue.value, 10);
-  });
+    if (this.isOpened) {
+      if (!this.isAlwaysOpened) { this._toggle(); }
 
-  return `${sum} ${selectNiceWord(sum, 'гости')}, `
-    + `${infants} ${selectNiceWord(infants, 'младенцы')}`;
-}
-
-function createCustomersString(namesValues, isUnified) {
-  let resultString;
-
-  if (isUnified) {
-    resultString = createUnifiedString(namesValues, 'гост|ь|я|ей');
-  } else {
-    resultString = createCustomersWithInfantsString(namesValues);
-  }
-
-  return resultString;
-}
-
-/**
- * Создание строки, содержащей суммарную информацию по дропдауну.
- * Формат строки зависит от типа дропдауна
- *
- * @param namesValues   массив пар имя-значение, из которых составляется строка
- * @param dropdownType  тип дропдауна
- * @returns {string}    результирующая строка
- */
-function createInputText(namesValues, dropdownType) {
-  let result = '';
-  if (areAllValuesZero(namesValues)) return result;
-
-  switch (dropdownType.name) {
-    case typeRooms: {
-      result = createRoomsString(namesValues, dropdownType.isUnified);
-      break;
-    }
-    case typeCustomers: {
-      result = createCustomersString(namesValues, dropdownType.isUnified);
-      break;
-    }
-    default: {
-      const sum = namesValues.reduce(
-        (accumulator, nameValue) => accumulator + parseInt(nameValue.value, 10), 0,
-      );
-      result += `${sum} чего-то`;
-      break;
+      this._setSpinnerValues(this.oldNamesValues);
+      this._updateVisuals();
     }
   }
-  return result;
-}
+  // endregion
 
-function changeInputText($listWrapper, namesValues, input) {
-  const $list = $listWrapper.find('.js-dropdown__list');
-  const dropdownType = getDropdownType($list);
-  const newInputText = createInputText(namesValues, dropdownType);
-
-  $(input).val(newInputText);
-}
-
-/**
- * Поэлементное сравнение двух массивов имя-значение по значениям.
- * @param namesValues1  первый массив
- * @param namesValues2  второй массив
- * @returns {boolean}   одинаковы ли они
- */
-function areValuesEqual(namesValues1, namesValues2) {
-  return !namesValues2?.some((nameValue, index) => namesValues1?.[index].value !== nameValue.value);
-}
-
-function manageControlsVisibility({
-  oldNamesValues, namesValues, $clearButton, $confirmButton, $buttonsContainer,
-  areControlsEnabled, areValuesConfirmed,
-}) {
-  const clearVisibleClass = 'dropdown__clear-button_visible';
-  const confirmVisibleClass = 'dropdown__confirm-button_visible';
-  const containerVisibleClass = 'dropdown__buttons-container_visible';
-
-  const areEmpty = areAllValuesZero(namesValues);
-  if (areEmpty) {
-    $clearButton.removeClass(clearVisibleClass);
-  } else {
-    $clearButton.addClass(clearVisibleClass);
+  // region input
+  _addInputEvents() {
+    this.$inputControl.on('click.dropdown', this._handleInputClick.bind(this));
   }
 
-  const areEqual = areValuesEqual(namesValues, oldNamesValues);
-  if (areEqual && areValuesConfirmed) {
-    $confirmButton.removeClass(confirmVisibleClass);
-  } else {
-    $confirmButton.addClass(confirmVisibleClass);
-  }
+  _handleInputClick() {
+    if (!this.isAlwaysOpened) { this._toggle(); }
 
-  const hasClearVisibleClass = $clearButton.hasClass(clearVisibleClass);
-  const hasConfirmVisibleClass = $confirmButton.hasClass(confirmVisibleClass);
-  const areSomeControlsVisible = hasClearVisibleClass || hasConfirmVisibleClass;
-  if (areSomeControlsVisible && areControlsEnabled) {
-    $buttonsContainer.addClass(containerVisibleClass);
-  } else {
-    $buttonsContainer.removeClass(containerVisibleClass);
-  }
-}
-
-function setSpinnerValues(namesValuesToSet, namesValuesToChange, $spinners, options) {
-  $spinners.each((i) => {
-    const $currentSpinner = $($spinners[i]);
-
-    if (options.includes('array')) {
-      namesValuesToChange[i].value = namesValuesToSet[i].value;
-      $currentSpinner.spinner('value', namesValuesToSet[i].value);
-      disableButtonsAtExtremum($currentSpinner, namesValuesToSet[i].value);
+    if (!this.isOpened) {
+      this._setSpinnerValues(this.oldNamesValues);
+      this._updateVisuals();
     }
-    if (options.includes('value')) {
-      namesValuesToChange[i].value = namesValuesToSet;
-      $currentSpinner.spinner('value', namesValuesToSet);
-      disableButtonsAtExtremum($currentSpinner, namesValuesToSet);
+  }
+  // endregion
+
+  _initParams() {
+    // чтобы не инициализировать повторно
+    const isInitialisedKey = 'isDropdownInitialised';
+    if (this.$dropdown.data(isInitialisedKey)) return;
+    this.$dropdown.data(isInitialisedKey, true);
+
+    this.areValuesAccepted = !this.$dropdown.hasClass('dropdown_unaccepted');
+
+    this.isAlwaysOpened = this.$dropdown.hasClass('dropdown_opened');
+    if (this.isAlwaysOpened) {
+      this.$listWrapper.toggle('fade');
+      this.$listWrapper.toggleClass(Dropdown.dropdownVisibleClass);
     }
-  });
-}
 
-function clearSpinnersValues(namesValues, spinners) {
-  setSpinnerValues(0, namesValues, spinners, ['value']);
-}
+    this.isPure = !this.$dropdown.hasClass('dropdown_pure');
+    this.oldNamesValues = this.namesValues;
 
-function dropdownOnChange({
-  oldNamesValues, namesValues, $spinners, $clearButton,
-  $confirmButton, $buttonsContainer, $listWrapper, $input, areControlsEnabled, areValuesConfirmed,
-}) {
-  setSpinnerValues(
-    oldNamesValues, namesValues,
-    $spinners, ['array'],
-  );
-  manageControlsVisibility({
-    oldNamesValues,
-    namesValues,
-    $clearButton,
-    $confirmButton,
-    $buttonsContainer,
-    areControlsEnabled,
-    areValuesConfirmed,
-  });
-  changeInputText($listWrapper, namesValues, $input);
-}
+    this._updateVisuals();
 
-function getInitialNamesValues($spinnerElements) {
-  const result = [];
-
-  function getNameValueFromSpinner() {
-    const $spinnerElement = $(this);
-    result.push({
-      name: $spinnerElement.attr('data-name'),
-      value: parseInt($spinnerElement.attr('value') ? $spinnerElement.attr('value') : 0, 10),
+    // .position(args) из JqueryUI
+    this.$listWrapper.position({
+      my: 'center',
+      at: 'center',
+      of: this.$inputControl,
     });
   }
-  $spinnerElements.each(getNameValueFromSpinner);
 
-  return result;
-}
-
-const dropdownVisibleClass = 'dropdown__list-wrapper_visible';
-function initDropdown(index, rootElement) {
-  const $dropdown = $(rootElement);
-
-  // чтобы не инициализировать повторно
-  const isInitialisedKey = 'isInitialised';
-  if ($dropdown.data(isInitialisedKey)) return;
-  $dropdown.data(isInitialisedKey, true);
-
-  const $listWrapper = $dropdown.children('.js-dropdown__list-wrapper');
-  const $inputControl = $dropdown.find('.js-dropdown__input .js-input__control');
-  const $spinners = $dropdown.find('.js-spinner__value');
-  const $buttonsContainer = $dropdown.find('.js-dropdown__buttons-container');
-  const $clearButton = $dropdown.find('.js-dropdown__clear-button');
-  const $confirmButton = $dropdown.find('.js-dropdown__confirm-button');
-
-  let areValuesConfirmed = !$dropdown.hasClass('dropdown_unaccepted');
-  const isOpened = $dropdown.hasClass('dropdown_opened');
-  if (isOpened) {
-    $listWrapper.toggle('fade');
-    $listWrapper.toggleClass(dropdownVisibleClass);
+  _toggle() {
+    this.$listWrapper.toggle('fade');
+    this.$listWrapper.toggleClass(Dropdown.dropdownVisibleClass);
+    this.$inputControl.toggleClass('input_control__focused');
   }
-  const areControlsEnabled = !$dropdown.hasClass('dropdown_pure');
 
-  const namesValues = getInitialNamesValues($spinners);
-  let oldNamesValues = getInitialNamesValues($spinners);
-  changeInputText($listWrapper, namesValues, $inputControl);
+  _getDropdownType() {
+    const dropdownParams = {};
+    const listClassPrefix = 'dropdown__list_';
 
-  manageControlsVisibility({
-    oldNamesValues,
-    namesValues,
-    $clearButton,
-    $confirmButton,
-    $buttonsContainer,
-    areControlsEnabled,
-    areValuesConfirmed,
-  });
+    if (this.$list.hasClass(`${listClassPrefix}unified`)) { dropdownParams.isUnified = true; }
 
-  function handleClearButtonClick() {
-    clearSpinnersValues(namesValues, $spinners);
-    manageControlsVisibility({
-      oldNamesValues,
-      namesValues,
-      $clearButton,
-      $confirmButton,
-      $buttonsContainer,
-      areControlsEnabled,
-      areValuesConfirmed,
-    });
-    changeInputText($listWrapper, namesValues, $inputControl);
+    if (this.$list.hasClass(`${listClassPrefix}type_rooms`)) {
+      dropdownParams.name = Dropdown.types.rooms;
+    } else if (this.$list.hasClass(`${listClassPrefix}type_customers`)) {
+      dropdownParams.name = Dropdown.types.customers;
+    } else return false;
+
+    return dropdownParams;
   }
-  $clearButton.click(handleClearButtonClick);
 
-  function handleConfirmButtonClick() {
-    if (!isOpened) {
-      $inputControl.removeClass('input_control__focused');
-      $listWrapper.toggle('fade');
-      $listWrapper.toggleClass(dropdownVisibleClass);
-    }
-    areValuesConfirmed = true;
-    oldNamesValues = getCurrentNamesValues($spinners);
+  static _selectProperWord(itemsCount, itemName) {
+    let result = '';
 
-    manageControlsVisibility({
-      oldNamesValues,
-      namesValues,
-      $clearButton,
-      $confirmButton,
-      $buttonsContainer,
-      areControlsEnabled,
-      areValuesConfirmed,
-    });
-  }
-  $confirmButton.click(handleConfirmButtonClick);
+    switch (itemName.toLowerCase()) {
+      case 'спальни':
+        result = ruDeclination(itemsCount, 'спал|ьня|ьни|ен');
+        break;
+      case 'кровати':
+        result = ruDeclination(itemsCount, 'кроват|ь|и|ей');
+        break;
+      case 'ванные комнаты':
+        result = `${ruDeclination(itemsCount, 'ванн|ая|ых|ых')} ${
+          ruDeclination(itemsCount, 'комнат|а|ы|')}`;
+        break;
+      case 'гости':
+        result = ruDeclination(itemsCount, 'гост|ь|я|ей');
+        break;
+      case 'младенцы':
+        result = ruDeclination(itemsCount, 'младен|ец|ца|цев');
+        break;
 
-  // on spin
-  $spinners.each((i) => {
-    const $spinner = $($spinners[i]);
-    function handleSpin(event, ui) {
-      namesValues[$spinner.attr('data-index')].value = ui.value;
-
-      changeInputText(
-        $listWrapper,
-        namesValues,
-        $inputControl,
-      );
-      manageControlsVisibility({
-        oldNamesValues,
-        namesValues,
-        $clearButton,
-        $confirmButton,
-        $buttonsContainer,
-        areControlsEnabled,
-        areValuesConfirmed,
-      });
+      default:
     }
 
-    $spinner.on('spin', handleSpin);
-  });
+    return result;
+  }
 
-  $listWrapper.position({
-    my: 'center',
-    at: 'center',
-    of: $inputControl,
-  });
+  _areAllValuesZero() {
+    return !this.namesValues?.some((nameValue) => parseInt((nameValue.value), 10) !== 0);
+  }
 
-  let clickedElement;
+  _createUnifiedString(declinations) {
+    const sum = this.namesValues.reduce(
+      (accumulator, currentValue) => accumulator + parseInt(currentValue.value, 10),
+      0,
+    );
 
-  $(document).click((event) => {
-    clickedElement = $(event.target);
-    // если клик происходит не в дропдауне
-    if (!$.contains($dropdown.get(0), clickedElement.get(0))) {
-      // и дропдаун отображается
-      if ($listWrapper.hasClass(dropdownVisibleClass)) {
-        if (!isOpened) {
-          $listWrapper.toggle('fade');
-          $listWrapper.toggleClass(dropdownVisibleClass);
-          $inputControl.removeClass('input__control_focused');
-        }
+    return `${sum} ${ruDeclination(sum, declinations)}`;
+  }
 
-        setSpinnerValues(oldNamesValues, namesValues,
-          $spinners, ['array']);
+  _createSeparateRoomsString() {
+    let result = this.namesValues.reduce(
+      (accumulator, currentNameValue) => `${accumulator} `
+        + `${currentNameValue.value} `
+        + `${Dropdown._selectProperWord(currentNameValue.value, currentNameValue.name)}, `,
+      '',
+    );
+    result = result.substring(0, result.length - 2).trim();
 
-        manageControlsVisibility({
-          oldNamesValues,
-          namesValues,
-          $clearButton,
-          $confirmButton,
-          $buttonsContainer,
-          areControlsEnabled,
-          areValuesConfirmed,
-        });
-        changeInputText($listWrapper, namesValues, $inputControl);
+    return result;
+  }
+
+  _createRoomsString(namesValues, isUnified) {
+    let result;
+
+    if (isUnified) {
+      result = this._createUnifiedString('комнаты');
+    } else {
+      result = this._createSeparateRoomsString(namesValues);
+    }
+
+    return result;
+  }
+
+  _createCustomersWithInfantsString() {
+    let infants = 0;
+    let sum = 0;
+
+    this.namesValues.forEach((nameValue) => {
+      if (nameValue.name.toLowerCase() === 'младенцы') {
+        infants = nameValue.value;
+        return;
+      }
+      sum += parseInt(nameValue.value, 10);
+    });
+
+    return `${sum} ${Dropdown._selectProperWord(sum, 'гости')}, `
+      + `${infants} ${Dropdown._selectProperWord(infants, 'младенцы')}`;
+  }
+
+  _createCustomersString(namesValues, isUnified) {
+    let resultString;
+
+    if (isUnified) {
+      resultString = this._createUnifiedString('гост|ь|я|ей');
+    } else {
+      resultString = this._createCustomersWithInfantsString();
+    }
+
+    return resultString;
+  }
+
+  /**
+   * Создание строки, содержащей суммарную информацию по дропдауну.
+   * Формат строки зависит от типа дропдауна
+   *
+   * @param namesValues   массив пар имя-значение, из которых составляется строка
+   * @param dropdownType  тип дропдауна
+   * @returns {string}    результирующая строка
+   */
+  _createInputText(namesValues, dropdownType) {
+    let result = '';
+    if (this._areAllValuesZero(namesValues)) return result;
+
+    switch (dropdownType.name) {
+      case Dropdown.types.rooms: {
+        result = this._createRoomsString(namesValues, dropdownType.isUnified);
+        break;
+      }
+      case Dropdown.types.customers: {
+        result = this._createCustomersString(namesValues, dropdownType.isUnified);
+        break;
+      }
+      default: {
+        const sum = namesValues.reduce(
+          (accumulator, nameValue) => accumulator + parseInt(nameValue.value, 10), 0,
+        );
+        result += `${sum} чего-то`;
+        break;
       }
     }
-  });
+    return result;
+  }
 
-  $inputControl.click(() => {
-    if (!isOpened) {
-      $inputControl.toggleClass('input__control_focused');
-      $listWrapper.toggle('fade');
-      $listWrapper.toggleClass(dropdownVisibleClass);
+  _updateInputText() {
+    const dropdownType = this._getDropdownType(this.$list);
+    const newInputText = this._createInputText(this.namesValues, dropdownType);
+
+    this.$inputControl.val(newInputText);
+  }
+
+  /**
+   * Поэлементное сравнение двух массивов имя-значение по значениям.
+   * @param namesValues1  первый массив
+   * @param namesValues2  второй массив
+   * @returns {boolean}   одинаковы ли они
+   */
+  static _areValuesEqual(namesValues1, namesValues2) {
+    return !namesValues2?.some(
+      (nameValue, index) => namesValues1?.[index].value !== nameValue.value
+    );
+  }
+
+  _updateControlsVisibility() {
+    const clearVisibleClass = 'dropdown__clear-button_visible';
+    const confirmVisibleClass = 'dropdown__confirm-button_visible';
+    const containerVisibleClass = 'dropdown__buttons-container_visible';
+
+    const areEmpty = this._areAllValuesZero();
+    if (areEmpty) {
+      this.$clearButton.removeClass(clearVisibleClass);
+    } else {
+      this.$clearButton.addClass(clearVisibleClass);
     }
 
-    if (!$listWrapper.hasClass(dropdownVisibleClass)) {
-      dropdownOnChange({
-        oldNamesValues,
-        namesValues,
-        $spinners,
-        $clearButton,
-        $confirmButton,
-        $buttonsContainer,
-        $listWrapper,
-        $inputControl,
-        areControlsEnabled,
-        areValuesConfirmed,
-      });
+    const areEqual = Dropdown._areValuesEqual(this.namesValues, this.oldNamesValues);
+    if (areEqual && this.areValuesAccepted) {
+      this.$confirmButton.removeClass(confirmVisibleClass);
+    } else {
+      this.$confirmButton.addClass(confirmVisibleClass);
     }
-  });
+
+    const hasClearVisibleClass = this.$clearButton.hasClass(clearVisibleClass);
+    const hasConfirmVisibleClass = this.$confirmButton.hasClass(confirmVisibleClass);
+    const areSomeControlsVisible = hasClearVisibleClass || hasConfirmVisibleClass;
+    if (areSomeControlsVisible && this.isPure) {
+      this.$buttonsContainer.addClass(containerVisibleClass);
+    } else {
+      this.$buttonsContainer.removeClass(containerVisibleClass);
+    }
+  }
+
+  _setSpinnerValues(namesValuesToSet) {
+    this.$spinners.each((i, element) => {
+      const $currentSpinner = $(element);
+      const valuesIsArray = Array.isArray(namesValuesToSet);
+      const valueToSet = valuesIsArray ? namesValuesToSet[i].value : namesValuesToSet;
+
+      $currentSpinner.spinner('value', valueToSet);
+      Dropdown._triggerSpin($currentSpinner);
+    });
+  }
+
+  _clearSpinnersValues() {
+    this._setSpinnerValues(0);
+  }
+
+  _updateVisuals() {
+    this._updateControlsVisibility();
+    this._updateInputText();
+  }
+
+  static _getNameValueFromSpinner(element) {
+    const $spinnerElement = $(element);
+
+    return { name: $spinnerElement.attr('data-name'), value: $spinnerElement.spinner('value') };
+  }
 }
 
-function initDropdowns() {
-  const $dropdowns = $('.js-dropdown');
-  $dropdowns.each(initDropdown);
-}
-
-export default initDropdowns;
+export default Dropdown;
