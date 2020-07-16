@@ -3,7 +3,7 @@
 import 'jquery-ui/ui/effects/effect-fade';
 
 import { ruDeclination } from '../../common/functions';
-import { initSpinners } from '../spinner/spinner';
+import Spinner from '../spinner/spinner';
 
 class Dropdown {
   static types = { rooms: 'rooms', customers: 'customers' }
@@ -34,6 +34,8 @@ class Dropdown {
 
   oldNamesValues = [];
 
+  spinners = [];
+
   get namesValues() {
     const namesValues = [];
 
@@ -54,8 +56,10 @@ class Dropdown {
     this._initEvents();
   }
 
-  static _initSpinners() {
-    initSpinners(); // плейсхолдер до рефактора спиннера
+  _initSpinners() {
+    this.$spinners.each((index, element) => {
+      this.spinners.push(new Spinner(element));
+    });
   }
 
   _initElements(rootElement) {
@@ -68,7 +72,7 @@ class Dropdown {
     this.$clearButton = this.$dropdown.find('.js-dropdown__clear-button');
     this.$confirmButton = this.$dropdown.find('.js-dropdown__confirm-button');
     this.$list = this.$listWrapper.find('.js-dropdown__list');
-    Dropdown._initSpinners();
+    this._initSpinners();
   }
 
   _initEvents() {
@@ -110,12 +114,6 @@ class Dropdown {
     this.$spinners.each((index, element) => {
       $(element).on('spin.datepicker', this._handleSpin.bind(this));
     });
-  }
-
-  // todo: обновить, когда спиннер будет классом
-  static _triggerSpin($spinner) {
-    const spinEvent = $.Event('spin', { currentTarget: $spinner });
-    $spinner.trigger(spinEvent, { value: $spinner.spinner('value') });
   }
 
   _handleSpin(event, ui) {
@@ -379,13 +377,10 @@ class Dropdown {
   }
 
   _setSpinnerValues(namesValuesToSet) {
-    this.$spinners.each((i, element) => {
-      const $currentSpinner = $(element);
+    this.spinners.forEach((spinner, i) => {
       const valuesIsArray = Array.isArray(namesValuesToSet);
-      const valueToSet = valuesIsArray ? namesValuesToSet[i].value : namesValuesToSet;
-
-      $currentSpinner.spinner('value', valueToSet);
-      Dropdown._triggerSpin($currentSpinner);
+      spinner.value = valuesIsArray ? namesValuesToSet[i].value : namesValuesToSet;
+      spinner.triggerSpin();
     });
   }
 
