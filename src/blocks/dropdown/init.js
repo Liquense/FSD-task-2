@@ -1,14 +1,25 @@
+/* eslint-disable no-undef */
 import Dropdown from './dropdown';
 
-function initDropdowns() {
-  const dropdowns = [];
+const dropdownInstanceKey = 'dropdownInstance';
 
-  // eslint-disable-next-line no-undef
-  $('.js-dropdown').each((index, element) => {
-    dropdowns.push(new Dropdown(element));
+function initDropdowns(rootElement) {
+  const dropdowns = [];
+  const $dropdowns = rootElement ? $(rootElement).find('.js-dropdown') : $('.js-dropdown');
+
+  $dropdowns.each((index, element) => {
+    const $dropdown = $(element);
+
+    if ($dropdown.data(dropdownInstanceKey)) {
+      dropdowns.push($dropdown.data(dropdownInstanceKey));
+      return;
+    }
+    const dropdownInstance = new Dropdown(element);
+    $dropdown.data(dropdownInstanceKey, dropdownInstance);
+    dropdowns.push(dropdownInstance);
   });
 
   return dropdowns;
 }
 
-export default initDropdowns();
+export default initDropdowns;

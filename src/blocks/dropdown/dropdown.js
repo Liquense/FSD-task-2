@@ -157,11 +157,6 @@ class Dropdown {
   // endregion
 
   _initParams() {
-    // чтобы не инициализировать повторно
-    const isInitialisedKey = 'isDropdownInitialised';
-    if (this.$dropdown.data(isInitialisedKey)) return;
-    this.$dropdown.data(isInitialisedKey, true);
-
     this.areValuesAccepted = !this.$dropdown.hasClass('dropdown_unaccepted');
 
     this.isAlwaysOpened = this.$dropdown.hasClass('dropdown_opened');
