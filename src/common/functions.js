@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 // jquery объявлена вебпаком
+
 /**
  * добавляет пробелы на каждом третьем разряде числа
  * @param number форматируемое число
@@ -77,6 +78,10 @@ function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
+function getAverageNum(firstNum, secondNum) {
+  return (firstNum + secondNum) / 2;
+}
+
 export {
-  clamp, copyArrayOfObjects, checkDateArraysEquality, formatNumber, ruDeclination,
+  clamp, copyArrayOfObjects, checkDateArraysEquality, formatNumber, ruDeclination, getAverageNum,
 };
