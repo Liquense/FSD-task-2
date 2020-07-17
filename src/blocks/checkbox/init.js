@@ -1,6 +1,8 @@
-import checkbox from './checkbox';
+import Checkbox from './checkbox';
+import initBlocks from '../../common/dynamicInit';
 
-checkbox.initLike();
-checkbox.initToggle();
-checkbox.initRadio();
-checkbox.initDefault();
+function initCheckboxes(rootElement) {
+  initBlocks(rootElement, '.js-checkbox', Checkbox);
+}
+
+export default initCheckboxes;

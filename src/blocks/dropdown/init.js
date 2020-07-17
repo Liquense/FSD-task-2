@@ -1,25 +1,9 @@
 /* eslint-disable no-undef */
 import Dropdown from './dropdown';
-
-const dropdownInstanceKey = 'dropdownInstance';
+import initBlocks from '../../common/dynamicInit';
 
 function initDropdowns(rootElement) {
-  const dropdowns = [];
-  const $dropdowns = rootElement ? $(rootElement).find('.js-dropdown') : $('.js-dropdown');
-
-  $dropdowns.each((index, element) => {
-    const $dropdown = $(element);
-
-    if ($dropdown.data(dropdownInstanceKey)) {
-      dropdowns.push($dropdown.data(dropdownInstanceKey));
-      return;
-    }
-    const dropdownInstance = new Dropdown(element);
-    $dropdown.data(dropdownInstanceKey, dropdownInstance);
-    dropdowns.push(dropdownInstance);
-  });
-
-  return dropdowns;
+  return initBlocks(rootElement, '.js-dropdown', Dropdown);
 }
 
 export default initDropdowns;
