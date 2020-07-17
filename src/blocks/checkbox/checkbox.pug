@@ -9,7 +9,7 @@ mixin checkbox({isChecked = false, text, type="", isRich = false, additional} = 
   -const descriptionClassName = `${checkboxClassName}__description`
   -const classNames = [checkboxClassName, labelClassName, inputClassName, descriptionClassName, textClassName]
 
-  -const checkboxAttrs = {class: `${checkboxClassName} `}
+  -const checkboxAttrs = {class: `js-${checkboxClassName} ${checkboxClassName} `}
   -const labelAttrs = {class: `${labelClassName} `}
   -const inputAttrs = {class: `${inputClassName} `}
   -const descriptionAttrs = {class: `${descriptionClassName} `}
@@ -17,7 +17,7 @@ mixin checkbox({isChecked = false, text, type="", isRich = false, additional} = 
   -const allAttrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
 
   each value, index in Object.values(allAttrs)
-    -const typeName = `${(type && type !== 'checkbox' && type !== 'rich') ? type : 'default'}`
+    -const typeName = `${((type && type !== 'checkbox') && (type !== 'rich')) ? type : 'default'}`
     -const typeClass = `${classNames[index]}_type_${typeName} `
     -const isInput = value === inputAttrs
     -const isLabel = value === labelAttrs
