@@ -5,6 +5,6 @@ mixin arrow({type = "expand", isColored = false, isBold = false, isRelative = fa
   -const relativeClass = isRelative ? 'arrow_relative' : ''
 
   if type === "expand"
-    span(class=`arrow js-arrow_expand arrow_expand ${coloredClass} ${boldClass} ${relativeClass}`) expand_more
+    span(class=`js-arrow arrow arrow_expand ${coloredClass} ${boldClass} ${relativeClass}`) expand_more
   else if type === "enter"
-    span(class=`arrow arrow_enter ${coloredClass} ${boldClass} ${relativeClass}`) arrow_forward
+    span(class=`js-arrow arrow arrow_enter ${coloredClass} ${boldClass} ${relativeClass}`) arrow_forward

@@ -1,13 +1,12 @@
 /* eslint-disable no-undef */
-class ExpandArrow {
+class Arrow {
   $element;
 
   constructor(rootElement) {
-    this.$element = ExpandArrow.findExpandArrow(rootElement);
+    this._initElement(rootElement);
   }
 
-  static findExpandArrow(rootElement) { return $(rootElement).find('.js-arrow_expand'); }
-
+  // region expand
   handleArrowChangeState() {
     if (this.getExpandState()) this.handleArrowCollapsing();
     else this.handleArrowExpanding();
@@ -26,6 +25,11 @@ class ExpandArrow {
   getExpandState() {
     return this.$element.hasClass('arrow_expanded');
   }
+  // endregion
+
+  _initElement(rootElement) {
+    this.$element = $(rootElement);
+  }
 }
 
-export default ExpandArrow;
+export default Arrow;
