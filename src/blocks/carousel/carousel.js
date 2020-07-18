@@ -6,9 +6,13 @@ import '../../../node_modules/slick-carousel/slick/slick.css';
 class Carousel {
   $element;
 
-  constructor(element) {
-    this.$element = $(element);
+  constructor(rootElement) {
+    this._initElement(rootElement);
     this._initCarousel();
+  }
+
+  _initElement(rootElement) {
+    this.$element = $(rootElement);
   }
 
   _getCarouselParams() {
