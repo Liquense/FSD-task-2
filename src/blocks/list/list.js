@@ -1,38 +1,68 @@
 /* eslint-disable no-undef */
 // jquery объявлена глобально вебпаком
 import 'jquery-ui/ui/effects/effect-fade';
-import { handleArrowChangeState } from '../arrow/arrow';
+import initArrows from '../arrow/init';
 
-// region Expandable
-function initExpandableList(index, element) {
-  const $expandableList = $(element);
+class List {
+  static expandableClass = 'list_expandable';
 
-  if ($expandableList.data('isInitialized')) return;
-  $expandableList.data('isInitialized', true);
+  $list;
 
-  const $expandableTitle = $expandableList.find('.js-list__title_expandable');
-  const $expandableContainer = $expandableList.find('.js-list__container_expandable');
-  const $expandArrow = $expandableList.find('.js-list__expand-arrow');
-  const isOpened = $expandableList.hasClass('list_expandable-opened');
+  $title;
 
-  function handleExpandableClick() {
-    $expandableList.toggleClass('list__expand-arrow_expanded');
-    $expandableContainer.toggle('fade', [], 200);
-    $expandableContainer.toggleClass('list__container_visible');
+  $container;
 
-    handleArrowChangeState($expandArrow);
+  $arrow;
+
+  arrow;
+
+  isOpened;
+
+  constructor(rootElement) {
+    this._initList(rootElement);
   }
 
-  $expandableTitle.on('click.list', handleExpandableClick);
-  $expandArrow.on('click.list', handleExpandableClick);
+  _initList(rootElement) {
+    this._initElements(rootElement);
 
-  if (isOpened) handleExpandableClick();
+    if (this.$list.hasClass(List.expandableClass)) { this._initExpandableList(); }
+  }
+
+  _initElements(rootElement) {
+    this.$list = $(rootElement);
+
+    this.$title = this.$list.find('.js-list__title');
+    this.$container = this.$list.find('.js-list__container');
+  }
+
+  // region expandable
+  _initExpandableList() {
+    this.isOpened = this.$list.hasClass('list_expandable-opened');
+
+    this._initArrow();
+    this._addExpandableEvents();
+
+    if (this.isOpened) this._handleExpandableClick();
+  }
+
+  _initArrow() {
+    this.arrow = initArrows(this.$list);
+    this.$arrow = this.arrow.$element;
+  }
+
+  _addExpandableEvents() {
+    this.$title.on('click.list', this._handleExpandableClick.bind(this));
+    this.$arrow.on('click.list', this._handleExpandableClick.bind(this));
+  }
+
+  _handleExpandableClick() {
+    this.$arrow.toggleClass('list__expand-arrow_expanded');
+    this.$container.toggle('fade', [], 200);
+    this.$container.toggleClass('list__container_visible');
+
+    this.arrow.handleArrowChangeState();
+  }
+  // endregion
 }
 
-function initExpandableLists() {
-  const $expandableLists = $('.js-list_expandable');
-  $expandableLists.each(initExpandableList);
-}
-// endregion
-
-export default initExpandableLists;
+export default List;

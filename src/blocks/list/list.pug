@@ -7,9 +7,9 @@ mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false,
   -const containerClassName = `${listClassName}__container`
   -const classNames = [listClassName, titleClassName, containerClassName]
 
-  -const listAttrs = {class: `${listClassName} `}
-  -const titleAttrs = {class: `${titleClassName} `}
-  -const containerAttrs = {class: `${containerClassName} `}
+  -const listAttrs = {class: `js-${listClassName} ${listClassName} `}
+  -const titleAttrs = {class: `js-${titleClassName} ${titleClassName} `}
+  -const containerAttrs = {class: `js-${containerClassName} ${containerClassName} `}
   -const attrs = [listAttrs, titleAttrs, containerAttrs]
 
   -let inputType = ''
@@ -32,8 +32,7 @@ mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false,
       -isRich = true
     //- модификаторы списка
     if isExpandable
-      -const classToAdd = `${classNames[index]}_expandable `
-      -value.class += `js-${classToAdd} ${classToAdd} `
+      -value.class += `${classNames[index]}_expandable `
       if isNarrow
         -value.class += `${classNames[index]}_expandable-narrow `
       if isOpened
@@ -43,7 +42,7 @@ mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false,
     if title
       legend&attributes(titleAttrs) #{title}
       if isExpandable
-        div.js-list__expand-arrow.list__expand-arrow
+        div.list__expand-arrow
           +arrow({type: 'expand'})
     div&attributes(containerAttrs)
       each value, index in elements
