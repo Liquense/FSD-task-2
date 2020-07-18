@@ -2,7 +2,7 @@
 // jquery объявлена глобально вебпаком
 import 'air-datepicker';
 import arrowBack from '../../assets/images/arrow-back.svg';
-import ExpandArrow from '../arrow/arrow';
+import initArrows from '../arrow/init';
 
 const buttonTemplate = require('./datepicker-block__button-template.pug');
 
@@ -60,7 +60,7 @@ class DatepickerBlock {
     this.$inputControl = this.$inputWrap.find('.js-input__control');
     this.$inputLabel = this.$inputWrap.find('.js-input__title');
     this.isInline = this.$inputWrap.hasClass('js-datepicker-block_inline__input-wrap');
-    this.arrow = new ExpandArrow(this.$datepicker);
+    this.arrow = initArrows(this.$datepicker);
   }
 
   getInitDates() {
