@@ -1,3 +1,8 @@
-import initBookingCards from './booking-card';
+import initBlocks from '../../common/dynamicInit';
+import BookingCard from './booking-card';
 
-initBookingCards();
+function initBookingCards(rootElement) {
+  return initBlocks(rootElement, '.js-booking-card', BookingCard);
+}
+
+export default initBookingCards;
