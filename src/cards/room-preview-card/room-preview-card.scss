@@ -1,6 +1,6 @@
 .room-preview-card {
   height: fit-content;
-  max-width: 270px;
+  max-width: 270px; // если ограничение убрать вне ограничивающей обёртки, то картинка может непредсказуемо расшириться
   background: white;
   box-shadow: 0 10px 20px $darkShade5;
   border-radius: 4px;
