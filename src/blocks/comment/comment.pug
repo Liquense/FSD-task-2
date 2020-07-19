@@ -1,7 +1,7 @@
 include ../checkbox/checkbox
 
 mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} = {})
-  article(class=`comment`)
+  article.js-comment.comment
     div.comment__header
       div.comment__avatar-wrap
         img.comment__avatar(src=avatar, alt="user avatar")
