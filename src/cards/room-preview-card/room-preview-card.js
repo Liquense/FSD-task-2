@@ -1,34 +1,60 @@
 /* eslint-disable no-undef */
 // jquery подключена вебпаком
-import initRateButtons from '../../blocks/rate-button/rate-button';
 import { formatNumber, ruDeclination } from '../../common/functions';
-import initCarousels from '../../blocks/carousel/carousel';
+import initCarousels from '../../blocks/carousel/init';
+import initRatings from '../../blocks/rating/init';
 
-function initRoomPreviewCard() {
-  const $this = $(this);
-  const $costPerPeriodSpan = $this.find('.js-room-preview-card__cost-per-period');
-  const $reviewsCountSpan = $this.find('.js-room-preview-card__reviews-count');
-  const $reviewsTextSpan = $this.find('.js-room-preview-card__reviews-text');
+class RoomPreviewCard {
+  $roomPreviewCard;
 
-  const cardData = {
-    currency: $this.attr('data-currency'),
-    costPerPeriod: $this.attr('data-cost-per-period'),
-    reviewsCount: $this.attr('data-reviews-count'),
-  };
+  $dailyCost;
 
-  const formattedCostPerPeriod = formatNumber(cardData.costPerPeriod, ' ');
-  $costPerPeriodSpan.text(formattedCostPerPeriod + cardData.currency);
-  const formattedReviewsCount = formatNumber(cardData.reviewsCount, ' ');
-  $reviewsCountSpan.text(formattedReviewsCount);
-  const inclinedReviewsText = ruDeclination(cardData.reviewsCount, 'Отзыв||а|ов');
-  $reviewsTextSpan.text(inclinedReviewsText);
+  $reviewsAmount;
+
+  $reviewsText;
+
+  currency;
+
+  dailyCost;
+
+  reviewsAmount;
+
+  constructor(rootElement) {
+    this._initElements(rootElement);
+    this._initProperties();
+    this._initCaptions();
+    this._initInnerBlocks();
+  }
+
+  _initElements(rootElement) {
+    this.$roomPreviewCard = $(rootElement);
+
+    this.$dailyCost = this.$roomPreviewCard.find('.js-room-preview-card__cost-per-period');
+    this.$reviewsAmount = this.$roomPreviewCard.find('.js-room-preview-card__reviews-count');
+    this.$reviewsText = this.$roomPreviewCard.find('.js-room-preview-card__reviews-text');
+  }
+
+  _initProperties() {
+    this.currency = this.$roomPreviewCard.attr('data-currency');
+    this.dailyCost = this.$roomPreviewCard.attr('data-cost-per-period');
+    this.reviewsAmount = this.$roomPreviewCard.attr('data-reviews-count');
+  }
+
+  _initCaptions() {
+    const formattedCostPerPeriod = formatNumber(this.dailyCost, ' ');
+    this.$dailyCost.text(`${formattedCostPerPeriod}${this.currency}`);
+
+    const formattedReviewsCount = formatNumber(this.reviewsAmount, ' ');
+    this.$reviewsAmount.text(formattedReviewsCount);
+
+    const inclinedReviewsText = ruDeclination(this.reviewsAmount, 'Отзыв||а|ов');
+    this.$reviewsText.text(inclinedReviewsText);
+  }
+
+  _initInnerBlocks() {
+    initRatings(this.$roomPreviewCard);
+    initCarousels(this.$roomPreviewCard);
+  }
 }
 
-function initRoomPreviewCards() {
-  const $roomPreviewCard = $('.js-room-preview-card');
-  $roomPreviewCard.each(initRoomPreviewCard);
-  initRateButtons();
-  initCarousels();
-}
-
-export default initRoomPreviewCards;
+export default RoomPreviewCard;
