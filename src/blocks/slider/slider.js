@@ -5,64 +5,88 @@ import 'jquery-ui/themes/base/slider.css';
 
 import { clamp, formatNumber } from '../../common/functions';
 
-function sliderHandlerValueChange(event, ui) {
-  $(ui.handle).attr('sliderHandleValue', ui.value);
-}
+class Slider {
+  $slider;
 
-// region range slider
-function sliderValuesChange(event, ui) {
-  $(ui.handle).closest('.slider').find('.slider__value').text(
-    `${formatNumber(ui.values[0], ' ')}₽ - ${formatNumber(ui.values[1], ' ')}₽`,
-  );
-}
-// endregion
+  $sliderControl;
 
-// region single slider
-function sliderValueChange(event, ui) {
-  $(ui.handle).closest('.slider').find('.slider__value').text(
-    `${formatNumber(ui.value, ' ')}₽`,
-  );
-}
+  $sliderValueCaption;
 
-// ищем слайдер, но не с диапазоном, а только одиночным значением
-function initSlider() {
-  const $slider = $(this);
-  const minimalValue = Number($slider.attr('data-min'));
-  const maximumValue = Number($slider.attr('data-max'));
-  const step = Number($slider.attr('data-step'));
-  const isRange = $slider.hasClass('slider__control_range');
+  min;
 
-  $slider.slider({
-    min: minimalValue,
-    max: maximumValue,
-    step,
-    range: isRange,
-    animate: 'fast',
-    change: isRange ? sliderValuesChange : sliderValueChange,
-    slide: sliderHandlerValueChange,
-  });
+  max;
 
-  const initialValues = [
-    clamp($slider.attr('data-first-value'), minimalValue, maximumValue),
-  ];
+  step;
 
-  if (isRange) {
-    const secondValue = $slider.attr('data-second-value');
-    initialValues.push(clamp(secondValue, minimalValue, maximumValue));
+  isRange;
 
-    $slider.slider('values', initialValues);
-    $slider.children('.ui-slider-handle').first().attr('sliderHandleValue', initialValues[0]);
-    $slider.children('.ui-slider-handle').last().attr('sliderHandleValue', initialValues[1]);
-  } else {
-    $slider.slider('value', initialValues[0]);
-    $slider.children('.ui-slider-handle').first().attr('sliderHandleValue', initialValues[0]);
+  constructor(rootElement) {
+    this._initElements(rootElement);
+    this._initProperties();
+    this._initPlugin();
+  }
+
+  _initElements(rootElement) {
+    this.$slider = $(rootElement);
+    this.$sliderControl = this.$slider.find('.js-slider__control');
+    this.$sliderValueCaption = this.$slider.find('.js-slider__value');
+  }
+
+  _initProperties() {
+    this.min = Number(this.$sliderControl.attr('data-min'));
+    this.max = Number(this.$sliderControl.attr('data-max'));
+    this.step = Number(this.$sliderControl.attr('data-step'));
+    this.isRange = this.$sliderControl.hasClass('slider__control_range');
+  }
+
+  _initPlugin() {
+    this.$sliderControl.slider({
+      min: this.min,
+      max: this.max,
+      step: this.step,
+      range: this.isRange,
+      animate: 'fast',
+      change: this.isRange ? this._handleValuesChange : this._handleValueChange,
+      slide: Slider._handleHandlerValueChange,
+    });
+
+    const initialValues = [
+      clamp(this.$sliderControl.attr('data-first-value'), this.min, this.max),
+    ];
+    if (this.isRange) {
+      const secondValue = this.$sliderControl.attr('data-second-value');
+      initialValues.push(clamp(secondValue, this.min, this.max));
+      this._setValues(initialValues);
+    } else {
+      this._setValue(initialValues[0]);
+    }
+  }
+
+  _setValue(value) {
+    this.$sliderControl.slider('value', value);
+    this.$sliderControl.find('.ui-slider-handle').first().attr('sliderHandleValue', value);
+  }
+
+  _setValues(values) {
+    this.$sliderControl.slider('values', values);
+    this.$sliderControl.find('.ui-slider-handle').first().attr('sliderHandleValue', values[0]);
+    this.$sliderControl.find('.ui-slider-handle').last().attr('sliderHandleValue', values[1]);
+  }
+
+  static _handleHandlerValueChange(event, ui) {
+    $(ui.handle).attr('sliderHandleValue', ui.value);
+  }
+
+  _handleValuesChange = (event, ui) => {
+    const firstValueText = `${formatNumber(ui.values[0], ' ')}₽`;
+    const secondValueText = `${formatNumber(ui.values[1], ' ')}₽`;
+    this.$sliderValueCaption.text(`${firstValueText} - ${secondValueText}`);
+  }
+
+  _handleValueChange = (event, ui) => {
+    const firstValueText = `${formatNumber(ui.value, ' ')}₽`;
+    this.$sliderValueCaption.text(firstValueText);
   }
 }
-// endregion
 
-function initSliders() {
-  const $sliders = $('.js-slider__control');
-  $sliders.each(initSlider);
-}
-
-export default initSliders;
+export default Slider;

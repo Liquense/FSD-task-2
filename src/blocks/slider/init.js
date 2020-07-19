@@ -1,3 +1,8 @@
-import initSliders from './slider';
+import initBlocks from '../../common/dynamicInit';
+import Slider from './slider';
 
-initSliders();
+function initSliders(rootElement) {
+  return initBlocks(rootElement, '.js-slider', Slider);
+}
+
+export default initSliders;
