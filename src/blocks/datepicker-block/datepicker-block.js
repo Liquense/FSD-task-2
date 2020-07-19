@@ -27,7 +27,7 @@ class DatepickerBlock {
   constructor(element) {
     this._initProperties(element);
     this._initDatepicker();
-    this._initExpandableEvents();
+    if (!this.isInline) this._initExpandableEvents();
 
     const initDates = this.getInitDates();
     this.datepickerPlugin.selectDate(initDates);
