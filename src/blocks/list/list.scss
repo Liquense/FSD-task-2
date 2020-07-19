@@ -8,6 +8,7 @@ $titleHeight: 12px;
   margin: 0;
   border: none;
   position: relative;
+  width: fit-content;
 
   &__title {
     @include text_label-CTA();
