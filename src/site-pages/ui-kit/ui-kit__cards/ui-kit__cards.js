@@ -1,12 +1,16 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
-import { initDatepickers } from '../../../blocks/datepicker-block/datepicker-block';
-import initRoomPreviewCards from '../../../cards/room-preview-card/room-preview-card';
-import initBookingCards from '../../../cards/booking-card/booking-card';
+import initBookingCards from '../../../cards/booking-card/init';
+import initFindRoomCards from '../../../cards/find-room-card/init';
+import initRegistrationCards from '../../../cards/registration-card/init';
+import initRoomPreviewCards from '../../../cards/room-preview-card/init';
+import initDatepickers from '../../../blocks/datepicker-block/init';
 
-initDatepickers(); // для работоспособности инлайн календаря
-initRoomPreviewCards();
+initDatepickers();
 initBookingCards();
+initFindRoomCards();
+initRegistrationCards();
+initRoomPreviewCards();
 
 const $inlineDatepicker = $('.js-ui-kit__datepicker_inline');
 // классы air-datepicker, которые не изменить без вмешательства в плагин

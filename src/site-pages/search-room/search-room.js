@@ -1,20 +1,18 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
 import { importCommon, importContext } from '../../index';
-import initRoomPreviewCards from '../../cards/room-preview-card/room-preview-card';
+import initRoomPreviewCards from '../../cards/room-preview-card/init';
+import initPaginations from '../../blocks/pagination/init';
+import initDatepickers from '../../blocks/datepicker-block/init';
+import initDropdowns from '../../blocks/dropdown/init';
+import initSliders from '../../blocks/slider/init';
+import initLists from '../../blocks/list/init';
+import initCheckboxes from '../../blocks/checkbox/init';
 
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));
 
-function initCardsInPagination() {
-  const $pagination = $(this);
-  const $paginationButtons = $pagination.children('.js-pagination__buttons-container');
-
-  $paginationButtons.addHook('afterPaging', () => {
-    initRoomPreviewCards();
-  });
-}
-
+// для отображения/скрытия меню на маленьких экранах
 const $showSidebarButtons = $('.js-search-room__show-sidebar-button');
 $showSidebarButtons.each((index, element) => {
   const $showSideBarButton = $(element);
@@ -24,7 +22,15 @@ $showSidebarButtons.each((index, element) => {
   });
 });
 
-const $paginations = $('.js-pagination');
-$paginations.each(initCardsInPagination);
+// при переходе по страницам пагинации
+const pagination = initPaginations();
+pagination.$buttons.addHook('afterPaging', () => {
+  initRoomPreviewCards();
+});
 
+initDatepickers();
+initDropdowns();
+initSliders();
+initLists();
+initCheckboxes();
 initRoomPreviewCards();

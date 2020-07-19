@@ -1,12 +1,12 @@
 /* eslint-disable no-undef */
 // jquery подключена вебпаком
 import { importCommon, importContext } from '../../index';
+import initFindRoomCards from '../../cards/find-room-card/init';
 
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));
 
 const imagePaths = [];
-
 imagePaths.push(require('../../assets/images/room-big-1.jpg'));
 imagePaths.push(require('../../assets/images/room-big-2.jpg'));
 imagePaths.push(require('../../assets/images/room-big-3.jpg'));
@@ -20,5 +20,4 @@ function initRoomContainer() {
 
 $roomContainers.each(initRoomContainer);
 
-const $findRoomCardButton = $('.find-room-card__button');
-$findRoomCardButton.click(() => { window.location.href = 'search-room.html'; });
+initFindRoomCards();

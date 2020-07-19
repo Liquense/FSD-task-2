@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 // jquery импортирована вебпаком
 import { importCommon, importContext } from '../../index';
-import initLoginCards from '../../cards/login-card/login-card';
+import initRegistrationCards from '../../cards/registration-card/init';
 
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));
@@ -15,10 +15,9 @@ const locals = { login: isLogin === 'true' };
 const templateHTML = template(locals);
 
 const $registrationLoginContent = $('.js-registration-login__content');
-if (locals.login === 'true') {
+if (locals.login) {
   $registrationLoginContent.append(templateHTML);
 } else {
   $registrationLoginContent.append(templateHTML);
+  initRegistrationCards();
 }
-
-initLoginCards();
