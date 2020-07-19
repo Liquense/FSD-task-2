@@ -5,6 +5,7 @@ import initLists from '../../../blocks/list/init';
 import initPaginations from '../../../blocks/pagination/init';
 import initSliders from '../../../blocks/slider/init';
 import initTwoCalendarDatepickers from '../../../blocks/two-calendar-range-picker/init';
+import initRatings from '../../../blocks/rating/init';
 
 initDropdowns();
 initMaskedInputs();
@@ -13,3 +14,4 @@ initLists();
 initPaginations();
 initSliders();
 initTwoCalendarDatepickers();
+initRatings();
