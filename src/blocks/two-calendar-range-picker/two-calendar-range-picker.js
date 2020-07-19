@@ -1,121 +1,121 @@
 /* eslint-disable no-undef */
 // jquery подключена вебпаком
-import {
-  initDatepickerInput,
-  parseAttrToDate,
-  setDates,
-} from '../datepicker-block/datepicker-block';
+import DatepickerBlock from '../datepicker-block/datepicker-block';
+import initDatepickers from '../datepicker-block/init';
 
-let isSecondAssignStarted = false;
-function handleOnSelect(formattedDate, datepicker, otherDatepicker, input, otherInput, number) {
-  if (isSecondAssignStarted) return;
-  const otherNumber = 1 - number;
-  const newDates = datepicker.selectedDates;
-  const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-
-  // если дат в пикере больше одной, то перезаписываем данные в инпуте,
-  // если одна - оставляем дефолтное поведение
-  // иначе второй пикер будет очищать оба при фокусе на нём
-  if (datepicker.selectedDates.length > 1) {
-    $(input).val(newDates[number].toLocaleDateString('ru-RU', options));
-  } else {
-    datepicker.update({ dateFormat: '' });
-    otherDatepicker.update({ dateFormat: 'ДД.ММ.ГГГГ' });
-  }
-
-  isSecondAssignStarted = true;
-  otherDatepicker.clear();
-  otherDatepicker.selectDate(datepicker.selectedDates);
+class TwoCalendarDatepicker {
   isSecondAssignStarted = false;
 
-  if (datepicker.selectedDates.length > 1) {
-    $(otherInput).val(newDates[otherNumber].toLocaleDateString('ru-RU', options));
+  $twoCalendarDatepicker;
+
+  $firstDatepicker;
+
+  $secondDatepicker;
+
+  firstDatepicker;
+
+  secondDatepicker;
+
+  constructor(rootElement) {
+    this._initElements(rootElement);
+    this._initDatepickers();
+    this._initTwoCalendarDatePicker();
   }
 
-  // вызов ивента вручную, поскольку автоматически этого не происходит
-  // (отслеживание изменения инпута используется в booking-card)
-  $(input).change();
-}
+  _initElements(rootElement) {
+    this.$twoCalendarDatepicker = $(rootElement);
+    this.$firstDatepicker = this.$twoCalendarDatepicker
+      .find('.js-two-calendar-range-picker__first-datepicker');
+    this.$secondDatepicker = this.$twoCalendarDatepicker
+      .find('.js-two-calendar-range-picker__second-datepicker');
+  }
 
-function datepickerAddOnSelect(datepicker, otherDatepicker, input, otherInput, number) {
-  datepicker.update({
-    onSelect: (formattedDate) => {
-      handleOnSelect(
-        formattedDate,
-        datepicker, otherDatepicker,
-        input, otherInput, number,
+  _initDatepickers() {
+    this.firstDatepicker = initDatepickers(this.$firstDatepicker);
+    this.secondDatepicker = initDatepickers(this.$secondDatepicker);
+  }
+
+  _initTwoCalendarDatePicker() {
+    if (!this.firstDatepicker || !this.secondDatepicker) return;
+
+    this.firstDatepicker.datepickerPlugin.update({ position: 'bottom left' });
+    this.secondDatepicker.datepickerPlugin.update({ position: 'bottom right' });
+
+    this._addDatepickerOnSelectHandler(
+      this.firstDatepicker, this.secondDatepicker, 0,
+    );
+    this._addDatepickerOnSelectHandler(
+      this.secondDatepicker, this.firstDatepicker, 1,
+    );
+
+    const initDates = this._getInitialDates(this.$twoCalendarDatepicker);
+    this._setInitialDates(initDates);
+  }
+
+  _handleOnSelect(formattedDate, datepicker, otherDatepicker, number) {
+    if (this.isSecondAssignStarted) return;
+
+    const { datepickerPlugin } = datepicker;
+    const otherDatepickerPlugin = otherDatepicker.datepickerPlugin;
+    const otherNumber = 1 - number;
+    const newDates = datepickerPlugin.selectedDates;
+    const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
+    // изменение формата даты, чтобы второй календарь ничего не выводил, если дата одна
+    if (newDates.length < 2) {
+      datepickerPlugin.update({ dateFormat: '' });
+      otherDatepickerPlugin.update({ dateFormat: 'ДД.ММ.ГГГГ' });
+    }
+    // назначение даты второму календарю без влияния на текущий
+    this.isSecondAssignStarted = true;
+    otherDatepickerPlugin.clear();
+    otherDatepickerPlugin.selectDate(datepicker.datepickerPlugin.selectedDates);
+    this.isSecondAssignStarted = false;
+
+    if (newDates.length > 1) {
+      datepicker.$inputControl.val(newDates[number].toLocaleDateString('ru-RU', options));
+      otherDatepicker.$inputControl.val(newDates[otherNumber].toLocaleDateString('ru-RU', options));
+    }
+    // вызов события вручную, поскольку автоматически этого не происходит
+    // (отслеживание изменения в календаре нужно для booking-card)
+    $(datepicker.$inputControl).change();
+  }
+
+  _addDatepickerOnSelectHandler(datepicker, otherDatepicker, number) {
+    datepicker.datepickerPlugin.update({
+      onSelect: (formattedDate) => {
+        this._handleOnSelect(
+          formattedDate, datepicker,
+          otherDatepicker, number,
+        );
+      },
+    });
+  }
+
+  _getInitialDates() {
+    const dates = {};
+
+    if (this.$twoCalendarDatepicker.attr('data-first-date')) {
+      dates.firstDate = DatepickerBlock.parseAttrToDate(
+        this.$twoCalendarDatepicker.attr('data-first-date'),
       );
-    },
-  });
-}
+    }
+    if (this.$twoCalendarDatepicker.attr('data-second-date')) {
+      dates.secondDate = DatepickerBlock.parseAttrToDate(
+        this.$twoCalendarDatepicker.attr('data-second-date'),
+      );
+    }
 
-function getInitDates($rangePicker) {
-  const dates = {};
-
-  if ($rangePicker.attr('data-firstdate')) {
-    dates.firstDate = parseAttrToDate($rangePicker.attr('data-firstdate'));
-  }
-  if ($rangePicker.attr('data-seconddate')) {
-    dates.secondDate = parseAttrToDate($rangePicker.attr('data-seconddate'));
+    return dates;
   }
 
-  return dates;
-}
-
-function setInitialDates($rangePicker, $input) {
-  const initDates = getInitDates($rangePicker);
-  setDates($input, Object.values(initDates));
-}
-
-function safeDatepickerInit($datepicker, $datepickerControl) {
-  if (!$datepickerControl.data('datepicker')) {
-    $datepicker.each(initDatepickerInput);
-    return $datepickerControl.data('datepicker');
-  }
-  return $datepickerControl.data('datepicker');
-}
-
-// index, поскольку вызов может происходить и через each от jQuery
-function initTwoCalendarPicker(index, element) {
-  const $twoCalendarRange = $(element);
-
-  const $firstInput = $($twoCalendarRange.find('.js-two-calendar-range-picker__first-datepicker > .js-datepicker-block')[0]);
-  const $firstInputControl = $($firstInput.find('.js-datepicker-block__input-wrap .js-input__control')[0]);
-  const firstDatepicker = safeDatepickerInit(
-    $firstInput, $firstInputControl,
-  );
-
-  const $secondInput = $($twoCalendarRange.find('.js-two-calendar-range-picker__second-datepicker > .js-datepicker-block')[0]);
-  const $secondInputControl = $($secondInput.find('.js-datepicker-block__input-wrap .js-input__control')[0]);
-  const secondDatepicker = safeDatepickerInit(
-    $secondInput, $secondInputControl,
-  );
-
-  if (!(firstDatepicker && secondDatepicker)) return;
-
-  firstDatepicker.update({ position: 'bottom left' });
-  secondDatepicker.update({ position: 'bottom right' });
-
-  datepickerAddOnSelect(
-    firstDatepicker, secondDatepicker,
-    $firstInputControl, $secondInputControl, 0,
-  );
-  datepickerAddOnSelect(
-    secondDatepicker, firstDatepicker,
-    $secondInputControl, $firstInputControl, 1,
-  );
-
-  const initDates = getInitDates($twoCalendarRange);
-  if (initDates.firstDate) {
-    firstDatepicker.selectDate(initDates.firstDate);
-  } if (initDates.secondDate) {
-    secondDatepicker.selectDate(initDates.secondDate);
+  _setInitialDates(initDates) {
+    if (initDates.firstDate) {
+      this.firstDatepicker.selectDate(initDates.firstDate);
+    }
+    if (initDates.secondDate) {
+      this.secondDatepicker.selectDate(initDates.secondDate);
+    }
   }
 }
 
-function initTwoCalendarPickers() {
-  const $twoCalendarPickers = $('.js-two-calendar-range-picker');
-  $twoCalendarPickers.each(initTwoCalendarPicker);
-}
-
-export { setInitialDates, initTwoCalendarPickers };
+export default TwoCalendarDatepicker;
