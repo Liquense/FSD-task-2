@@ -16,11 +16,15 @@ class TwoCalendarDatepicker {
 
   secondDatepicker;
 
+  selectedDates;
+
   constructor(rootElement) {
     this._initElements(rootElement);
     this._initDatepickers();
     this._initTwoCalendarDatePicker();
   }
+
+  getSelectedDates = () => this.firstDatepicker.datepickerPlugin.selectedDates;
 
   _initElements(rootElement) {
     this.$twoCalendarDatepicker = $(rootElement);
@@ -68,9 +72,9 @@ class TwoCalendarDatepicker {
     // назначение даты второму календарю без влияния на текущий
     this.isSecondAssignStarted = true;
     otherDatepickerPlugin.clear();
-    otherDatepickerPlugin.selectDate(datepicker.datepickerPlugin.selectedDates);
+    otherDatepickerPlugin.selectDate(datepickerPlugin.selectedDates);
     this.isSecondAssignStarted = false;
-
+    // установка текста в инпутах
     if (newDates.length > 1) {
       datepicker.$inputControl.val(newDates[number].toLocaleDateString('ru-RU', options));
       otherDatepicker.$inputControl.val(newDates[otherNumber].toLocaleDateString('ru-RU', options));
@@ -110,10 +114,10 @@ class TwoCalendarDatepicker {
 
   _setInitialDates(initDates) {
     if (initDates.firstDate) {
-      this.firstDatepicker.selectDate(initDates.firstDate);
+      this.firstDatepicker.datepickerPlugin.selectDate(initDates.firstDate);
     }
     if (initDates.secondDate) {
-      this.secondDatepicker.selectDate(initDates.secondDate);
+      this.secondDatepicker.datepickerPlugin.selectDate(initDates.secondDate);
     }
   }
 }
