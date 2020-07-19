@@ -2,59 +2,69 @@
 // jquery объявлена глобально вебпаком
 import 'paginationjs';
 
-function getPaginationContent($contentContainer) {
-  const HTMLContent = [];
+class Pagination {
+  $pagination;
 
-  function addHTMLContentToArray() { HTMLContent.push($(this).outerHTML()); }
-  $contentContainer.children().each(addHTMLContentToArray);
+  $contentContainer;
 
-  return HTMLContent;
+  $buttons;
+
+  pageSize;
+
+  HTMLContent = [];
+
+  constructor(rootElement) {
+    this._initElements(rootElement);
+    this._getPaginationContent();
+    this._initPlugin();
+  }
+
+  _initElements(rootElement) {
+    this.$pagination = $(rootElement);
+    this.$contentContainer = this.$pagination.find('.js-pagination__content-container');
+    this.$buttons = this.$pagination.find('.js-pagination__buttons-container');
+
+    this.pageSize = this.$pagination.attr('data-page-size');
+  }
+
+  _getPaginationContent() {
+    this.$contentContainer.children().each((index, element) => {
+      this.HTMLContent.push($(element).outerHTML());
+    });
+  }
+
+  _initPlugin() {
+    this.$buttons.pagination({
+      dataSource: this.HTMLContent,
+      prevText: 'arrow_back',
+      nextText: 'arrow_forward',
+      pageSize: this.pageSize,
+      pageRange: 1,
+      callback: (arrayData) => {
+        this.$contentContainer.html(arrayData);
+      },
+      showNavigator: true,
+      formatNavigator: (currentPage, totalPage, totalNumber) => {
+        let totalCount = totalNumber.toString();
+        if (totalNumber > 100) {
+          totalCount = '100+';
+        }
+
+        let startCount = 1;
+        if (currentPage > 1) {
+          startCount = (currentPage - 1) * this.pageSize + 1;
+        }
+
+        let endCount = this.pageSize * currentPage;
+        if (endCount > totalNumber) {
+          endCount = totalNumber;
+        }
+
+        return '<span class=\'text_type_regular\'>'
+          + ` ${startCount} – ${endCount} из ${totalCount} вариантов аренды</span>`;
+      },
+    });
+  }
 }
 
-function initPagination() {
-  const $paginationBlock = $(this);
-  const $paginationContent = $paginationBlock.children('.js-pagination__content-container');
-  const $paginationButtons = $paginationBlock.children('.js-pagination__buttons-container');
-
-  const pageSize = $paginationBlock.attr('data-page-size');
-  const contentHTMLArray = getPaginationContent($paginationContent);
-
-  const $paginationContainer = $('.pagination__content-container');
-  $paginationButtons.pagination({
-    dataSource: contentHTMLArray,
-    prevText: 'arrow_back',
-    nextText: 'arrow_forward',
-    pageSize,
-    pageRange: 1,
-    callback(arrayData) {
-      $paginationContainer.html(arrayData);
-    },
-    showNavigator: true,
-    formatNavigator(currentPage, totalPage, totalNumber) {
-      let totalCount = totalNumber.toString();
-      if (totalNumber > 100) {
-        totalCount = '100+';
-      } // так в макете
-
-      let startCount = 1;
-      if (currentPage > 1) {
-        startCount = (currentPage - 1) * pageSize + 1;
-      }
-
-      let endCount = pageSize * currentPage;
-      if (endCount > totalNumber) {
-        endCount = totalNumber;
-      }
-
-      return '<span class=\'text_type_regular\'>'
-        + ` ${startCount} – ${endCount} из ${totalCount} вариантов аренды</span>`;
-    },
-  });
-}
-
-function initPaginations() {
-  const $paginations = $('.js-pagination');
-  $paginations.each(initPagination);
-}
-
-export default initPaginations;
+export default Pagination;

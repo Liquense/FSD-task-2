@@ -1,3 +1,8 @@
-import initPaginations from './pagination';
+import initBlocks from '../../common/dynamicInit';
+import Pagination from './pagination';
 
-initPaginations();
+function initPaginations(rootElement) {
+  return initBlocks(rootElement, '.js-pagination', Pagination);
+}
+
+export default initPaginations;
