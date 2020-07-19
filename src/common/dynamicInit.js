@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-function initBlocks(rootElement, selector, ClassToInit) {
+function initBlocks(rootElement, selector, ClassToInit, ...classInitParams) {
   const blockInstanceKey = `${ClassToInit.className}Instance`;
   const blocks = [];
   const $blocks = rootElement ? $(rootElement).find(selector) : $(selector);
@@ -11,12 +11,12 @@ function initBlocks(rootElement, selector, ClassToInit) {
       blocks.push($block.data(blockInstanceKey));
       return;
     }
-    const blockInstance = new ClassToInit(element);
+    const blockInstance = new ClassToInit(element, ...classInitParams);
     $block.data(blockInstanceKey, blockInstance);
     blocks.push(blockInstance);
   });
 
-  return blocks;
+  return blocks.length === 1 ? blocks[0] : blocks;
 }
 
 export default initBlocks;
