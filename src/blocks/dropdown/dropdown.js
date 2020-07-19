@@ -3,7 +3,7 @@
 import 'jquery-ui/ui/effects/effect-fade';
 
 import { ruDeclination } from '../../common/functions';
-import Spinner from '../spinner/spinner';
+import initSpinners from '../spinner/init';
 
 class Dropdown {
   static types = { rooms: 'rooms', customers: 'customers' }
@@ -17,6 +17,8 @@ class Dropdown {
   $inputControl;
 
   $spinners;
+
+  $spinnerValues;
 
   $buttonsContainer;
 
@@ -39,7 +41,7 @@ class Dropdown {
   get namesValues() {
     const namesValues = [];
 
-    this.$spinners.each((index, element) => {
+    this.$spinnerValues.each((index, element) => {
       namesValues.push(Dropdown._getNameValueFromSpinner(element));
     });
 
@@ -52,27 +54,28 @@ class Dropdown {
 
   constructor(rootElement) {
     this._initElements(rootElement);
+    this._initSpinners();
     this._initParams();
     this._initEvents();
-  }
-
-  _initSpinners() {
-    this.$spinners.each((index, element) => {
-      this.spinners.push(new Spinner(element));
-    });
   }
 
   _initElements(rootElement) {
     this.$dropdown = $(rootElement);
 
-    this.$listWrapper = this.$dropdown.children('.js-dropdown__list-wrapper');
+    this.$listWrapper = this.$dropdown.find('.js-dropdown__list-wrapper');
     this.$inputControl = this.$dropdown.find('.js-dropdown__input .js-input__control');
-    this.$spinners = this.$dropdown.find('.js-spinner__value');
+    this.$spinners = this.$dropdown.find('.js-spinner');
+    this.$spinnerValues = this.$dropdown.find('.js-spinner__value');
     this.$buttonsContainer = this.$dropdown.find('.js-dropdown__buttons-container');
     this.$clearButton = this.$dropdown.find('.js-dropdown__clear-button');
     this.$confirmButton = this.$dropdown.find('.js-dropdown__confirm-button');
     this.$list = this.$listWrapper.find('.js-dropdown__list');
-    this._initSpinners();
+  }
+
+  _initSpinners() {
+    this.$spinners.each((index, element) => {
+      this.spinners.push(initSpinners(element));
+    });
   }
 
   _initEvents() {
@@ -111,7 +114,7 @@ class Dropdown {
 
   // region spinner
   _addSpinnersEvents() {
-    this.$spinners.each((index, element) => {
+    this.$spinnerValues.each((index, element) => {
       $(element).on('spin.datepicker', this._handleSpin);
     });
   }
