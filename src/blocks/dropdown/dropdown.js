@@ -85,10 +85,10 @@ class Dropdown {
 
   // region clear button
   _addClearButtonEvents() {
-    this.$clearButton.on('click.dropdown', this._handleClearButtonClick.bind(this));
+    this.$clearButton.on('click.dropdown', this._handleClearButtonClick);
   }
 
-  _handleClearButtonClick() {
+  _handleClearButtonClick = () => {
     this._clearSpinnersValues();
     this._updateVisuals();
   }
@@ -96,10 +96,10 @@ class Dropdown {
 
   // region confirm button
   _addConfirmButtonEvents() {
-    this.$confirmButton.on('click.dropdown', this._handleConfirmButtonClick.bind(this));
+    this.$confirmButton.on('click.dropdown', this._handleConfirmButtonClick);
   }
 
-  _handleConfirmButtonClick() {
+  _handleConfirmButtonClick = () => {
     if (!this.isAlwaysOpened) { this._toggle(); }
 
     this.areValuesAccepted = true;
@@ -112,11 +112,11 @@ class Dropdown {
   // region spinner
   _addSpinnersEvents() {
     this.$spinners.each((index, element) => {
-      $(element).on('spin.datepicker', this._handleSpin.bind(this));
+      $(element).on('spin.datepicker', this._handleSpin);
     });
   }
 
-  _handleSpin(event, ui) {
+  _handleSpin = (event, ui) => {
     $(event.currentTarget).spinner('value', ui?.value ? ui?.value : 0);
     this._updateVisuals();
   }
@@ -124,10 +124,10 @@ class Dropdown {
 
   // region document
   _addDocumentEvents() {
-    $(document).on('click.dropdown', this._handleDocumentClick.bind(this));
+    $(document).on('click.dropdown', this._handleDocumentClick);
   }
 
-  _handleDocumentClick(event) {
+  _handleDocumentClick = (event) => {
     const clickedElement = $(event.target);
 
     if ($.contains(this.$dropdown.get(0), clickedElement.get(0))) return;
@@ -143,10 +143,10 @@ class Dropdown {
 
   // region input
   _addInputEvents() {
-    this.$inputControl.on('click.dropdown', this._handleInputClick.bind(this));
+    this.$inputControl.on('click.dropdown', this._handleInputClick);
   }
 
-  _handleInputClick() {
+  _handleInputClick = () => {
     if (!this.isAlwaysOpened) { this._toggle(); }
 
     if (!this.isOpened) {

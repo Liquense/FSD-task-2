@@ -45,10 +45,10 @@ class Rating {
     this.ratingIntegerPart = Math.floor(numericRating);
     this.ratingFractionPart = numericRating - this.ratingIntegerPart;
 
-    this.$rating.find('.js-rating__star').each(this._setStarState.bind(this));
+    this.$rating.find('.js-rating__star').each(this._setStarState);
   }
 
-  _setStarState(index, element) {
+  _setStarState = (index, element) => {
     if (index + 1 <= this.ratingIntegerPart) {
       Rating._setState($(element), 'full');
     } else if (this.ratingFractionPart > 0 && index === this.ratingIntegerPart) {

@@ -51,11 +51,11 @@ class List {
   }
 
   _addExpandableEvents() {
-    this.$title.on('click.list', this._handleExpandableClick.bind(this));
-    this.$arrow.on('click.list', this._handleExpandableClick.bind(this));
+    this.$title.on('click.list', this._handleExpandableClick);
+    this.$arrow.on('click.list', this._handleExpandableClick);
   }
 
-  _handleExpandableClick() {
+  _handleExpandableClick = () => {
     this.$arrow.toggleClass('list__expand-arrow_expanded');
     this.$container.toggle('fade', [], 200);
     this.$container.toggleClass('list__container_visible');
