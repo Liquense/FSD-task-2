@@ -27,8 +27,8 @@ class DonutChart {
 
   activeArc;
 
-  constructor(donutParams = { rootElement: undefined }) {
-    this._initParams(donutParams);
+  constructor(rootElement, donutParams) {
+    this._initParams(rootElement, donutParams);
     this._createDonut();
     this._initEvents();
   }
@@ -43,24 +43,25 @@ class DonutChart {
     this.$activeValueText = this.$dataTextContainer.find('.js-donut-chart__value-text');
   }
 
-  _initParams(params = {
-    data: [
-      { caption: '1', value: 1, background: 'red' },
-      { caption: '2', value: 2, background: 'green' },
-      { caption: '3', value: 3, background: 'blue' },
-      { caption: '4', value: 4, background: 'black' },
-    ],
-    defaultStyle: {
-      outerRadius: 100,
-      innerRadius: 95,
-    },
-    activeStyle: {
-      outerRadius: 105,
-      innerRadius: 90,
-    },
-    arcsGap: 5,
-  }) {
-    this.$donutContainer = $(params.rootElement);
+  _initParams(rootElement,
+    params = {
+      data: [
+        { caption: '1', value: 1, background: 'red' },
+        { caption: '2', value: 2, background: 'green' },
+        { caption: '3', value: 3, background: 'blue' },
+        { caption: '4', value: 4, background: 'black' },
+      ],
+      defaultStyle: {
+        outerRadius: 100,
+        innerRadius: 95,
+      },
+      activeStyle: {
+        outerRadius: 105,
+        innerRadius: 90,
+      },
+      arcsGap: 5,
+    }) {
+    this.$donutContainer = $(rootElement);
 
     this.$donutContainer.html(donutTemplate({ arcs: params.data }));
     this._initElementsParams();
