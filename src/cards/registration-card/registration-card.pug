@@ -4,7 +4,7 @@ include ../../blocks/button/button
 include ../../blocks/list/list
 
 mixin registrationCard({loginURL=''} = {})
-  div.registration-card
+  div.js-registration-card.registration-card
     h3.registration-card__title Регистрация аккаунта
     div.registration-card__user-name
       +input({type: 'text', placeholder: 'Имя'})
