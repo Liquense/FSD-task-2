@@ -14,7 +14,7 @@ mixin twoCalendarRangePicker({labels=[], firstDate, secondDate} = {})
     })
   -}
 
-  div(class=`js-${twoCalendarRangePickerClass} ${twoCalendarRangePickerClass}` data-firstDate=firstDate data-secondDate=secondDate)
+  div(class=`js-${twoCalendarRangePickerClass} ${twoCalendarRangePickerClass}` data-first-date=firstDate data-second-date=secondDate)
     div(class=`js-${firstDatepickerClass} ${firstDatepickerClass}`)
       -createDatepicker(labels[0])
     div(class=`js-${secondDatepickerClass} ${secondDatepickerClass}`)
