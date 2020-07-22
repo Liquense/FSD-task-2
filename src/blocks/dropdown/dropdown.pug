@@ -1,12 +1,6 @@
 include ../spinner/spinner
 include ../input/input
 
-//- rooms - комнаты и кровати
-//- customers - гости и младенцы
-//- unified - одним словом
-//- unaccepted - для отображения кнопки "применить" при инициализации
-//- pure - для отсутствия контролирующих кнопок постоянно
-//- opened - для постоянно открытого дропдауна
 mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnified = false, isPure = false, isOpened = false, isUnaccepted = false, isFocused = false, data = undefined} = {})
   -const blockClass = 'dropdown'
   -const listClass = `${blockClass}__list`
@@ -20,12 +14,11 @@ mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnifi
   -let listClasses = `js-${listClass} ${listClass} `
   -let listWrapperClasses = `js-${listWrapperClass} ${listWrapperClass} `
 
-  //-подтипы дропдауна
   if dropdownType === 'rooms'
     -listClasses += `${listClass}_type_rooms `
   else if dropdownType === 'customers'
     -listClasses += `${listClass}_type_customers `
-  //-модификаторы дропдауна
+
   if isUnified
     -listClasses += `${listClass}_unified `
   if isOpened
@@ -34,7 +27,7 @@ mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnifi
     -blockClasses += `${blockClass}_pure `
   if isUnaccepted
     -blockClasses += `${blockClass}_unaccepted `
-  //-ширина
+
   else if width === 'medium'
     -blockClasses += `${blockClass}_width_medium `
     -listWrapperClasses += `${listClass}-wrapper_width_medium `

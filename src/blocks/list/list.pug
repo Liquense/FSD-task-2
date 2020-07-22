@@ -16,7 +16,6 @@ mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false,
   -let isRich = false;
 
   each value, index in attrs
-    //- типы чекбоксов
     if type.includes("checkbox")
       -value.class += `${classNames[index]}_type_checkbox `
       -inputType = "checkbox"
@@ -30,7 +29,7 @@ mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false,
       -value.class += `${classNames[index]}_type_rich `
       -inputType = "rich"
       -isRich = true
-    //- модификаторы списка
+
     if isExpandable
       -value.class += `${classNames[index]}_expandable `
       if isNarrow

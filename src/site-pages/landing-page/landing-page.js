@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery подключена вебпаком
 import { importCommon, importContext } from '../../index';
 import initFindRoomCards from '../../cards/find-room-card/init';
 

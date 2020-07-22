@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery импортирована вебпаком
 import { importCommon, importContext } from '../../index';
 import initRegistrationCards from '../../cards/registration-card/init';
 

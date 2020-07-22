@@ -112,7 +112,7 @@
     }
 
     &[data-text-type='Body'] {
-      margin-top: -2px; //другого способа выровнять по верху текст относительно линии (когда её размер больше) не нашел
+      margin-top: -2px;
       font-size: 14px;
       line-height: 24px;
       &+ .colors-type__type-text {

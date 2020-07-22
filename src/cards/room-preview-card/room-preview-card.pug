@@ -1,21 +1,5 @@
 include ../../blocks/carousel/carousel
 include ../../blocks/rating/rating
-//- room
-  currencySymbol: string
-  costPerPeriod: int
-  reviewsCount: int
-  roomNumber: string
-  roomType: string
-  periodText: string
-  rating: [int, int] | [rating, maxRating]
-//- carousel
-  content: array<object>
-    tag: string | HTML tag,
-    src: string | path to image
-  carouselParams:
-    'data-arrows': bool
-    'data-dots': bool
-
 mixin roomPreviewCard({link = 'room-details.html', room={}, carousel={content: [], carouselParams: {}}} = {})
   -room.currencySymbol = room.currencySymbol ? room.currencySymbol : '₽';
   -room.periodText = room.periodText ? room.periodText : 'в сутки';

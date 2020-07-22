@@ -63,7 +63,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     border: $borderWidth solid $darkShade25;
     background: $inputBackgroundColor;
     padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
-    @include text(Montserrat, normal, 14px, $lineHeight, $darkShade25, -0.18px); //в фигме написано, что межбуквенный интервал нулевой, но при сравнении в PixelPerfect похоже получилось -0.18px
+    @include text(Montserrat, normal, 14px, $lineHeight, $darkShade25, -0.18px);
     margin: 0 0 0 0;
     text-overflow: ellipsis;
 
@@ -116,7 +116,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
       top: 0;
       right: 0;
       height: $inputHeight;
-      width: $inputHeight; //у стрелки фиксированный размер
+      width: $inputHeight;
       padding: ($inputHeight - $arrowSize)/2;
     }
   }

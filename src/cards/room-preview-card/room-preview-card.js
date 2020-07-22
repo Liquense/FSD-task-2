@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery подключена вебпаком
 import { formatNumber, ruDeclination } from '../../common/functions';
 import initCarousels from '../../blocks/carousel/init';
 import initRatings from '../../blocks/rating/init';

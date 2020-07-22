@@ -299,8 +299,8 @@ $toggleCircleWidth: 31.58%;
   // region description
   &__description {
     @include text_regular();
-    display: inline-block; //чтобы применить паддинг ко всему блоку, а не первой строке
-    padding-left: $checkboxButtonSize + $buttonRightMargin; //для избавления от переноса текста снизу чекбокса
+    display: inline-block;
+    padding-left: $checkboxButtonSize + $buttonRightMargin;
     margin: 5px 0 0 0;
     color: $darkShade50;
     font-weight: normal;

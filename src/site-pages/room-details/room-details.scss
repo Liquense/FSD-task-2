@@ -3,7 +3,6 @@ body {
 }
 
 .room-details {
-  // region photos
   &__photos {
     display: flex;
     justify-content: center;
@@ -51,9 +50,7 @@ body {
       height: auto;
     }
   }
-  // endregion
 
-  // region content
   $horizontalGap: 70px;
   $verticalGap: 30px;
 
@@ -93,7 +90,7 @@ body {
   &__main-info {
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: get-vw(33px); //PP
+    margin-bottom: get-vw(33px);
     @media (max-width: 1250px) {
       justify-content: space-between;
     }
@@ -104,7 +101,7 @@ body {
   }
 
   &__features-container {
-    margin-right: get-vw(82px); //PP
+    margin-right: get-vw(82px);
     @media (max-width: 1250px) {
       margin-right: 0;
     }
@@ -128,9 +125,7 @@ body {
       align-items: center;
     }
   }
-  // endregion
 
-  // region reviews
   &__reviews-container {
     margin-bottom: get-vw(33px);
     max-width: 710px;
@@ -160,9 +155,7 @@ body {
     @include text_regular();
     flex-shrink: 0;
   }
-  // endregion
 
-  // region additional-info
   &__additional-info {
     display: flex;
     justify-content: space-between;
@@ -213,7 +206,6 @@ body {
     @include text_regular();
     line-height: 24px;
   }
-  // endregion
 
   &__booking-card {
     @media (max-width: 1250px) {

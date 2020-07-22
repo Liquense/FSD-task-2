@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery объявлен вебпаком
 
 class Rating {
   static states = { empty: 'star_border', half: 'star_half', full: 'star' };

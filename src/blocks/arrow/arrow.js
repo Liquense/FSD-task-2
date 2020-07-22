@@ -6,7 +6,6 @@ class Arrow {
     this._initElement(rootElement);
   }
 
-  // region expand
   handleArrowChangeState() {
     if (this.getExpandState()) this.handleArrowCollapsing();
     else this.handleArrowExpanding();
@@ -25,7 +24,6 @@ class Arrow {
   getExpandState() {
     return this.$element.hasClass('arrow_expanded');
   }
-  // endregion
 
   _initElement(rootElement) {
     this.$element = $(rootElement);

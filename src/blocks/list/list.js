@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery объявлена глобально вебпаком
 import 'jquery-ui/ui/effects/effect-fade';
 import initArrows from '../arrow/init';
 
@@ -35,7 +34,6 @@ class List {
     this.$container = this.$list.find('.js-list__container');
   }
 
-  // region expandable
   _initExpandableList() {
     this.isOpened = this.$list.hasClass('list_expandable-opened');
 
@@ -62,7 +60,6 @@ class List {
 
     this.arrow.handleArrowChangeState();
   }
-  // endregion
 }
 
 export default List;

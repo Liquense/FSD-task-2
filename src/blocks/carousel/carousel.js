@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jQuery объявлена глобально вебпаком
 import 'slick-carousel';
 import '../../../node_modules/slick-carousel/slick/slick.css';
 

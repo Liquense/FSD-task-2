@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
   background: white;
-  box-shadow: 0px 10px 20px $darkShade5;
+  box-shadow: 0 10px 20px $darkShade5;
   width: 100%;
   padding: get-vw(15px) get-vw(140px);
 
@@ -40,7 +40,6 @@
     }
   }
 
-  // region menu
   &__menu {
     margin: 0;
     padding: 0;
@@ -57,9 +56,7 @@
       flex-direction: column;
     }
   }
-  // endregion
 
-  //region menu items
   &__menu-item {
     @include text_regular();
 
@@ -111,7 +108,6 @@
       }
     }
   }
-  // endregion
 
   &__expand-button {
     border: none;
@@ -122,7 +118,6 @@
     user-select: none;
   }
 
-  // region submenu
   &__submenu {
     display: none;
     position: absolute;
@@ -132,7 +127,6 @@
     border-radius: 5px;
     top: 100%;
 
-    //для последовательного раскрытия нужен именно вложенный стиль
     .header__submenu-item {
       @include text_regular();
       display: flex;
@@ -162,10 +156,7 @@
       }
     }
   }
-  //endregion
 
-  // region divider
-  //Если залогинен - вертикальный разделитель и имя пользователя
   &__divider {
     flex-shrink: 0;
     display: block;
@@ -185,14 +176,12 @@
       margin-bottom: 5px;
     }
   }
-  // endregion
 
   &__user-name {
     @include text_regular();
     color: $darkShade50;
   }
 
-  //Если не залогинен - кнопки логина и регистрации
   &__buttons-container {
     display: flex;
     margin-left: get-vw(27px);

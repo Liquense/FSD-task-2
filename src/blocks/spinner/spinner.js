@@ -1,5 +1,4 @@
 /* eslint-disable no-undef,no-underscore-dangle */
-// jquery импортирована вебпаком, функции с подчеркиванием - часть плагина
 import 'jquery-ui/ui/widgets/spinner';
 
 class Spinner {
@@ -24,7 +23,7 @@ class Spinner {
   }
 
   constructor(spinnerElement) {
-    Spinner._enhanceWidget();
+    Spinner._addButtons();
     this._initPlugin(spinnerElement);
   }
 
@@ -33,8 +32,7 @@ class Spinner {
     this.$spinner.trigger(spinEvent, { value: this.value });
   }
 
-  static _enhanceWidget() {
-    // морф, чтобы кнопки были по бокам
+  static _addButtons() {
     $.widget('ui.spinner', $.ui.spinner, {
       _enhance() {
         this.uiSpinner = this.element
@@ -42,7 +40,6 @@ class Spinner {
           .wrap(this._uiSpinnerHtml())
           .parent()
 
-        // Add buttons
           .prepend(this._buttonHtml()[0])
           .append(this._buttonHtml()[1]);
       },
@@ -51,7 +48,6 @@ class Spinner {
           `<button class="${Spinner.decreaseButtonClasses}">-</button>`,
           `<button class="${Spinner.increaseButtonClasses}">+</button>`];
       },
-      // обёртка своя есть
       _uiSpinnerHtml() {
         return '';
       },

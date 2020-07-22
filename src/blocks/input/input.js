@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery объявлена глобально вебпаком
 import 'jquery.maskedinput/src/jquery.maskedinput';
 
 class MaskedInput {

@@ -2,7 +2,7 @@
 // jquery объявлена глобально вебпаком
 import { getAverageNum, ruDeclination } from '../../common/functions';
 
-const donutTemplate = require('./donut-template.pug');
+import donutTemplate from './donut-template.pug';
 
 class DonutChart {
   static donutArcActiveClass = 'donut-chart__svg-arc_active';
@@ -71,7 +71,7 @@ class DonutChart {
   }
 
   _createDonut() {
-    this._addJqObjectsToArcs();
+    this._addJQObjectsToArcs();
     this._drawDonutOnCanvas();
 
     this.$donutCanvas.attr(
@@ -90,8 +90,8 @@ class DonutChart {
     return this.donutParams.defaultStyle;
   }
 
-  static _getSecondAngle(firstAngle, arcValue, ratesCount) {
-    const arcValueProportion = arcValue / ratesCount;
+  static _getSecondAngle(firstAngle, arcValue, allRatesAmount) {
+    const arcValueProportion = arcValue / allRatesAmount;
     const arcAngle = 360 * arcValueProportion;
 
     return firstAngle + arcAngle;
@@ -101,20 +101,11 @@ class DonutChart {
     return (degreeAngleValue / 180) * Math.PI;
   }
 
-  /**
-   * Получить прямоугольные координаты из полярных
-   * @param length радиус окружности
-   * @param angle угол поворота
-   * @param x0 Х точки отсчёта
-   * @param y0 У точки отсчёта
-   * @returns {{x: number, y: number}}
-   */
   static _toCartesian(length, angle, x0 = 0, y0 = 0) {
     const result = { x: 0, y: 0 };
     const angleRads = DonutChart._degreesToRads(angle);
 
     result.x = x0 + length * Math.cos(angleRads);
-    // вычитаем, потому что на канве ось перевёрнута
     result.y = y0 - length * Math.sin(angleRads);
 
     return result;
@@ -122,16 +113,13 @@ class DonutChart {
 
   /**
    * Если arc равен this.activeArc - активное состояние снимается
-   * @param arc
-   * @private
    */
   _changeActiveArc(arc) {
     const oldActiveArc = this.activeArc;
 
     if (arc === this.activeArc) { this.activeArc = undefined; } else {
       this.activeArc = arc;
-      // eslint-disable-next-line no-unused-expressions
-      arc?.$arc.addClass(DonutChart.donutArcActiveClass);
+      if (arc) arc.$arc.addClass(DonutChart.donutArcActiveClass);
     }
 
     if (oldActiveArc) {
@@ -140,20 +128,11 @@ class DonutChart {
     }
   }
 
-  /**
-   * Формирует и возвращает массив данных, необходимых для отрисовки дуги
-   * @param arc
-   * @param style активная или обычная
-   * @param ratesCount общее количество отзывов
-   * @param canvasSize
-   * @returns
-   * {secondPoint, strokeWidth, firstPoint, arcRadius, endingAngle, startY, startX, arcAngle}
-   */
-  static _calculateArcDrawData(arc, style, ratesCount, canvasSize) {
+  static _calculateArcDrawData(arc, style, allRatesAmount, canvasSize) {
     const { startingAngle } = arc;
 
     const endingAngle = DonutChart._getSecondAngle(
-      startingAngle, arc.value, ratesCount,
+      startingAngle, arc.value, allRatesAmount,
     );
     const startX = canvasSize.width / 2;
     const startY = canvasSize.height / 2;
@@ -203,21 +182,18 @@ class DonutChart {
     return DonutChart._calculateArcDrawData(
       arc,
       currentStyle,
-      this.donutParams.ratesCountWithGaps,
+      this.donutParams.ratesAmountWithGaps,
       { width: this.donutParams.canvasWidth, height: this.donutParams.canvasHeight },
     );
   }
 
-  /**
-   * Выводит в текстовое поле значение выбранной дуги и меняет его цвет
-   */
-  _updateActiveValue() {
+  _updateActiveCaption() {
     if (!this.activeArc?.value) {
-      this.$activeValue.text(this.donutParams.ratesCount);
+      this.$activeValue.text(this.donutParams.allRatesAmount);
       this.$activeValue.css('color', 'grey');
 
       this.$activeValueText.text(ruDeclination(
-        this.donutParams.ratesCount, 'голос||а|ов',
+        this.donutParams.allRatesAmount, 'голос||а|ов',
       ));
       this.$activeValueText.css('color', 'grey');
     } else {
@@ -232,7 +208,7 @@ class DonutChart {
   _handleArcClick(arc) {
     this._changeActiveArc(arc);
     this._redrawArc(arc);
-    this._updateActiveValue(this.activeArc?.value, this.activeArc?.firstColor);
+    this._updateActiveCaption(this.activeArc?.value, this.activeArc?.firstColor);
   }
 
   _handleArcMouseEnter(arc, mouseEvent) {
@@ -289,8 +265,8 @@ class DonutChart {
     );
     additionalParams.startingAngle = 90 + additionalParams.gapsAngle / 2;
     additionalParams.notZeroArcs = arcsAndRatesCount.arcs;
-    additionalParams.ratesCount = arcsAndRatesCount.rates;
-    additionalParams.ratesCountWithGaps = DonutChart._getRatesWithGaps(
+    additionalParams.allRatesAmount = arcsAndRatesCount.rates;
+    additionalParams.ratesAmountWithGaps = DonutChart._getRatesWithGaps(
       arcsAndRatesCount.rates,
       additionalParams.gapsAngle,
       arcsAndRatesCount.arcs,
@@ -305,23 +281,21 @@ class DonutChart {
     arcsDataArray[0].startingAngle = this.donutParams.startingAngle;
 
     arcsDataArray.forEach((arc, i) => {
-      // добавляем класс, если в параметрах передано, что дуга активная
       if (arc.isActive) this._changeActiveArc(arc);
 
       const arcDrawData = this._getArcDrawData(arc);
       DonutChart._drawArc(arc, arcDrawData);
 
       if (i + 1 < arcsDataArray.length) {
-        // записываем в следующую дугу угол, с которого она должна начинаться
         arcsDataArray[i + 1]
           .startingAngle = arcDrawData.endingAngle + this.donutParams.gapsAngle;
       }
     });
 
-    this._updateActiveValue();
+    this._updateActiveCaption();
   }
 
-  _addJqObjectsToArcs() {
+  _addJQObjectsToArcs() {
     this.donutParams.data.forEach((arc, i) => {
       arc.$arc = $(this.$donutArcs[i]);
       arc.$legend = $(this.$legendItems[i]);

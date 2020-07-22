@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jQuery объявлена глобально вебпаком
 import 'jquery-ui/ui/widgets/checkboxradio';
 
 class Checkbox {

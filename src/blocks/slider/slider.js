@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery объявлена вебпаком
 import 'jquery-ui/ui/widgets/slider';
 import 'jquery-ui/themes/base/slider.css';
 

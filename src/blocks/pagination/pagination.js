@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery объявлена глобально вебпаком
 import 'paginationjs';
 
 class Pagination {

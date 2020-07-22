@@ -64,23 +64,23 @@ class TwoCalendarDatepicker {
     const otherNumber = 1 - number;
     const newDates = datepickerPlugin.selectedDates;
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
-    // изменение формата даты, чтобы второй календарь ничего не выводил, если дата одна
+
     if (newDates.length < 2) {
       datepickerPlugin.update({ dateFormat: '' });
       otherDatepickerPlugin.update({ dateFormat: 'ДД.ММ.ГГГГ' });
     }
-    // назначение даты второму календарю без влияния на текущий
+
     this.isSecondAssignStarted = true;
     otherDatepickerPlugin.clear();
     otherDatepickerPlugin.selectDate(datepickerPlugin.selectedDates);
     this.isSecondAssignStarted = false;
-    // установка текста в инпутах
+
     if (newDates.length > 1) {
       datepicker.$inputControl.val(newDates[number].toLocaleDateString('ru-RU', options));
       otherDatepicker.$inputControl.val(newDates[otherNumber].toLocaleDateString('ru-RU', options));
     }
-    // вызов события вручную, поскольку автоматически этого не происходит
-    // (отслеживание изменения в календаре нужно для booking-card)
+
+    // вызов события вручную, поскольку автоматически этого не происходит, а оно используется
     $(datepicker.$inputControl).change();
   }
 

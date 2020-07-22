@@ -1,6 +1,6 @@
 .footer {
   width: 100%;
-  box-shadow: 0px 10px 20px $darkShade5;
+  box-shadow: 0 10px 20px $darkShade5;
   background-color: white;
   @include boxSizingBorderBox();
 
@@ -47,7 +47,7 @@
     width: 100%;
     row-gap: 40px;
     grid-template-columns: repeat(auto-fit, minmax(get-vw(200px), 1fr));
-    padding-top: 6px; //не придумал гибкого варианта, т.к. на макете они не строго по центру контейнера, но и не вровень с логотипом
+    padding-top: 6px;
 
     @media (max-width: 1439px) {
       grid-template-columns: repeat(auto-fit, 1fr);
@@ -223,7 +223,7 @@
 
   &__icon {
     &:not(:first-child) {
-      margin-left: get-vw(23px); //в макете 20, а по ПП - 23
+      margin-left: get-vw(23px);
     }
   }
 }

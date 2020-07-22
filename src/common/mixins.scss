@@ -63,6 +63,6 @@
 }
 
 @function get-vw($pixels) {
-  $vw-context: (1440*.01) * 1px; //1440 - изначальная ширина макета
+  $vw-context: (1440*.01) * 1px;
   @return ($pixels/$vw-context) * 1vw;
 }

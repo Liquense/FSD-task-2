@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery объявлена глобально вебпаком
 import 'air-datepicker';
 import arrowBack from '../../assets/images/arrow-back.svg';
 import initArrows from '../arrow/init';
@@ -43,11 +42,6 @@ class DatepickerBlock {
     return new Date(dateString);
   }
 
-  /**
-   * Устанавливает даты в первый календарь
-   * (в логике two-calendar-range-picker второй подцепляет это значение)
-   * @param dates
-   */
   setDates(dates) {
     if (!dates || dates.length) return;
 
@@ -90,8 +84,6 @@ class DatepickerBlock {
   }
 
   static _disableLabelClicks(event) {
-    // при клике на заголовок/стрелку итак происходит анфокус и календарь прячется,
-    // лишний клик не нужен
     event.preventDefault();
   }
 
@@ -104,8 +96,6 @@ class DatepickerBlock {
 
         if (isAnimationEnded) arrow.handleArrowCollapsing($controlWrap);
 
-        // чтобы лейбловые прокликивания снова заработали
-        // нужно показывать календарь при клике на что-то кроме инпута
         $inputLabel.unbind('click', DatepickerBlock._disableLabelClicks);
       },
       onShow(inst) {
@@ -154,8 +144,6 @@ class DatepickerBlock {
   }
 
   _replaceButtons() {
-    // замена кнопок на свои в элементе календаря
-    // классы кнопок и контейнера не изменить без вмешательства в плагин, так что без 'js-'
     this.datepickerPlugin.$datepicker.find('.datepicker--button[data-action="today"]').remove();
     const $buttonsContainer = this.datepickerPlugin.$datepicker.find('.datepicker--buttons');
     $buttonsContainer.append(clearButton);

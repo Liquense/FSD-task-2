@@ -18,7 +18,6 @@ html(lang='ru')
     link(rel='icon' href=require('../../assets/images/logo-colored.png'))
     title TOXIN
   body
-    //- HEADER
     -const logoPath = require('../../assets/images/logo-colored-withText.svg')
     div.search-room__header
       +header(
@@ -47,7 +46,6 @@ html(lang='ru')
           ],
           isNarrow: true
         })
-    //- CONTENT
     div.search-room__content
       div.js-search-room__show-sidebar-button.search-room__show-sidebar-button filter_list
       div.search-room__sidebar
@@ -311,8 +309,6 @@ html(lang='ru')
                   }
                 })
               -i++
-
-    //- FOOTER
     div.search-room__footer
       +footer(
         {

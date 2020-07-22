@@ -9,7 +9,9 @@ $arrowSize: 44px;
         .slick-slide {
           > div {
             .carousel__element {
-              display: block !important; // поскольку slick-slider прописывает inline-block в инлайновый стиль блока, но это создаёт артефакт в виде полоски снизу при наличии стрелок
+              // important, поскольку slick-slider прописывает inline-block в инлайновый стиль блока,
+              // но это создаёт артефакт в виде полоски снизу при наличии стрелок
+              display: block !important;
             }
           }
         }

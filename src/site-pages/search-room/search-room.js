@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery импортирована вебпаком
 import { importCommon, importContext } from '../../index';
 import initRoomPreviewCards from '../../cards/room-preview-card/init';
 import initPaginations from '../../blocks/pagination/init';
@@ -22,7 +21,6 @@ $showSidebarButtons.each((index, element) => {
   });
 });
 
-// при переходе по страницам пагинации
 const pagination = initPaginations();
 pagination.$buttons.addHook('afterPaging', () => {
   initRoomPreviewCards();

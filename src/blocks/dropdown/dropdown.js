@@ -1,5 +1,4 @@
 /* eslint-disable no-undef */
-// jquery объявлена глобально вебпаком
 import 'jquery-ui/ui/effects/effect-fade';
 
 import { ruDeclination } from '../../common/functions';
@@ -86,7 +85,6 @@ class Dropdown {
     this._addInputEvents();
   }
 
-  // region clear button
   _addClearButtonEvents() {
     this.$clearButton.on('click.dropdown', this._handleClearButtonClick);
   }
@@ -95,9 +93,7 @@ class Dropdown {
     this._clearSpinnersValues();
     this._updateVisuals();
   }
-  // endregion
 
-  // region confirm button
   _addConfirmButtonEvents() {
     this.$confirmButton.on('click.dropdown', this._handleConfirmButtonClick);
   }
@@ -110,9 +106,7 @@ class Dropdown {
 
     this._updateControlsVisibility();
   }
-  // endregion
 
-  // region spinner
   _addSpinnersEvents() {
     this.$spinnerValues.each((index, element) => {
       $(element).on('spin.datepicker', this._handleSpin);
@@ -123,9 +117,7 @@ class Dropdown {
     $(event.currentTarget).spinner('value', ui?.value ? ui?.value : 0);
     this._updateVisuals();
   }
-  // endregion
 
-  // region document
   _addDocumentEvents() {
     $(document).on('click.dropdown', this._handleDocumentClick);
   }
@@ -142,9 +134,7 @@ class Dropdown {
       this._updateVisuals();
     }
   }
-  // endregion
 
-  // region input
   _addInputEvents() {
     this.$inputControl.on('click.dropdown', this._handleInputClick);
   }
@@ -157,7 +147,6 @@ class Dropdown {
       this._updateVisuals();
     }
   }
-  // endregion
 
   _initParams() {
     this.areValuesAccepted = !this.$dropdown.hasClass('dropdown_unaccepted');
@@ -173,7 +162,6 @@ class Dropdown {
 
     this._updateVisuals();
 
-    // .position(args) из JqueryUI
     this.$listWrapper.position({
       my: 'center',
       at: 'center',
@@ -294,14 +282,6 @@ class Dropdown {
     return resultString;
   }
 
-  /**
-   * Создание строки, содержащей суммарную информацию по дропдауну.
-   * Формат строки зависит от типа дропдауна
-   *
-   * @param namesValues   массив пар имя-значение, из которых составляется строка
-   * @param dropdownType  тип дропдауна
-   * @returns {string}    результирующая строка
-   */
   _createInputText(namesValues, dropdownType) {
     let result = '';
     if (this._areAllValuesZero(namesValues)) return result;
@@ -333,12 +313,6 @@ class Dropdown {
     this.$inputControl.val(newInputText);
   }
 
-  /**
-   * Поэлементное сравнение двух массивов имя-значение по значениям.
-   * @param namesValues1  первый массив
-   * @param namesValues2  второй массив
-   * @returns {boolean}   одинаковы ли они
-   */
   static _areValuesEqual(namesValues1, namesValues2) {
     return !namesValues2?.some(
       (nameValue, index) => namesValues1?.[index].value !== nameValue.value

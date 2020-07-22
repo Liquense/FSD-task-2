@@ -1,8 +1,4 @@
 include ../../blocks/input/input
-
-//- data = {logo: path to image, text: string, copyright: string}
-//- links = [{title: string, links: [string, string]},]
-//- subscription = {title: string, text: string}
 mixin footer({logo='', text='', copyright='', links=[], subscription={}, isSimple=false})
   -const typeModifier = isSimple ? '_type_simple' : '_type_large'
 

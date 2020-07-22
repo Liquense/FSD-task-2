@@ -16,14 +16,12 @@ $titleHeight: 12px;
     padding: 0;
     user-select: none;
 
-    // region Expandable
     &_expandable {
       min-width: 266px;
       padding-right: $arrowWrapSize;
       line-height: $titleHeight;
       position: relative;
     }
-    // endregion
 
     &_expandable-narrow {
       &:after {
@@ -57,7 +55,6 @@ $titleHeight: 12px;
   }
 
   &__input {
-    // region checkbox
     &_type_checkbox {
       content: "text";
       &:first-child {
@@ -67,9 +64,7 @@ $titleHeight: 12px;
         margin-bottom: 10px;
       }
     }
-    // endregion
 
-    // region radio
     &_type_radio {
       display: inline-block;
       margin-top: 15px;
@@ -78,9 +73,7 @@ $titleHeight: 12px;
     &_type_radio#{&}:not(:last-child) {
       margin-right: 20px;
     }
-    //endregion
 
-    // region rich
     &_type_rich {
       &:first-child {
         margin-top: 17px;
@@ -89,9 +82,7 @@ $titleHeight: 12px;
         margin-bottom: 9px;
       }
     }
-    // endregion
 
-    // region toggle
     &_type_toggle {
       &:first-child {
         margin-top: 15px;
@@ -100,6 +91,5 @@ $titleHeight: 12px;
         margin-bottom: 13px;
       }
     }
-    // endregion
   }
 }

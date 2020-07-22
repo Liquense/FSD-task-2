@@ -1,6 +1,6 @@
 .room-preview-card {
   height: fit-content;
-  max-width: 270px; // если ограничение убрать вне ограничивающей обёртки, то картинка может непредсказуемо расшириться
+  max-width: 270px;
   background: white;
   box-shadow: 0 10px 20px $darkShade5;
   border-radius: 4px;
@@ -31,7 +31,6 @@
     align-items: baseline;
     margin-bottom: 9px;
 
-    //& не нужен, стиль относится к потомкам
     :not(:last-child) {
       margin-right: 4px;
     }

@@ -51,7 +51,6 @@ html(lang='ru')
         img.room-details__upper-side-photo(src=require('../../assets/images/room-details-2.jpg'))
         img.room-details__lower-side-photo(src=require('../../assets/images/room-details-3.jpg'))
     div.room-details__content
-      //- контейнер слева
       div.room-details__info-container
         div.room-details__main-info
           div.room-details__features-container
@@ -107,7 +106,6 @@ html(lang='ru')
               | Бесплатная отмена в течение 48 ч.
               | После этого при отмене не позднее чем за 5 дн. до прибытия
               | вы получите полный возврат за вычетом сбора за услуги.
-      //- карточка справа
       div.room-details__booking-card
         +bookingCard({
           roomNumber: '888',
@@ -123,7 +121,6 @@ html(lang='ru')
             value: 1
           }, {name: 'Младенцы'}]
         })
-    //Футер
     div.room-details__footer
       +footer(
         {

@@ -17,15 +17,14 @@ mixin bookingCard({roomNumber, roomType, dailyPrice, currency, arrivalDate, depa
     div.js-booking-card__guests-dropdown.booking-card__guests-dropdown
       +dropdown({title: 'Гости', dropdownType: 'customers', isUnified: true, placeholder: 'Сколько гостей', data: dropdownItems})
     div.booking-card__check-container
-      //- 1 строка
       span.js-booking-card__staying-cost-calculation.booking-card__staying-cost-calculation test
       div.booking-card__placeholder
       span.js-booking-card__staying-cost-sum.booking-card__staying-cost-sum test
-      //- 2 строка
+
       span.js-booking-card__services.booking-card__services(data-services=services)
       span.booking-card__info-icon i
       span.js-booking-card__services-sum.booking-card__services-sum
-      //- 3 строка
+
       span.booking-card__additional-services-text Сбор за дополнительные услуги
       span.booking-card__info-icon i
       span.js-booking-card__additional-services-sum.booking-card__additional-services-sum(data-addServices=additionalPrice) #{additionalPrice}#{currency}
