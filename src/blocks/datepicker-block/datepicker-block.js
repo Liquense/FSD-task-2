@@ -43,18 +43,12 @@ class DatepickerBlock {
     return new Date(dateString);
   }
 
-  setDates(dates) {
-    if (!dates || dates.length) return;
-
-    this.datepickerPlugin.selectDate(dates);
-  }
-
   _initProperties(element) {
     this.$datepicker = $(element);
     this.$inputWrap = this.$datepicker.find('.js-datepicker-block__input-wrap');
     this.$inputControl = this.$inputWrap.find('.js-input__control');
     this.$inputLabel = this.$inputWrap.find('.js-input__title');
-    this.isInline = this.$inputWrap.hasClass('js-datepicker-block_inline__input-wrap');
+    this.isInline = this.$inputWrap.hasClass('js-datepicker-block__input-wrap_inline');
     this.arrow = initArrows(this.$datepicker);
   }
 

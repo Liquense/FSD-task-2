@@ -30,25 +30,27 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
     @include text_label-CTA();
   }
 
-  &__input-wrap .input__control {
-    color: $darkShade75;
+  &__input-wrap {
+    &_inline {
+      .input__control-wrapper {
+        margin-top: 0;
+      }
 
-    &:valid:hover,
-    &:valid:focus,
-    &::placeholder,
-    &:focus::placeholder,
-    &:hover::placeholder {
-      color: $darkShade75;
-    }
-  }
-
-  &_inline__input-wrap {
-    .input__control-wrapper {
-      margin-top: 0;
+      .input__control {
+        display: none;
+      }
     }
 
     .input__control {
-      display: none;
+      color: $darkShade75;
+
+      &:valid:hover,
+      &:valid:focus,
+      &::placeholder,
+      &:focus::placeholder,
+      &:hover::placeholder {
+        color: $darkShade75;
+      }
     }
   }
 
