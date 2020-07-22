@@ -66,7 +66,30 @@ html(lang='ru')
           div.room-details__expressions-container
             h2.room-details__expressions-title Впечатления от номера
             div.js-room-details__donut-chart.room-details__donut-chart
-              +donut-chart()
+              -const donutParams = {
+              -  data: [
+              -    {
+              -      caption: 'Великолепно', value: 520, firstColor: '#FFE39C', secondColor: '#FFBA9C',
+              -    },
+              -    {
+              -      caption: 'Хорошо', value: 260, firstColor: '#6FCF97', secondColor: '#66D2EA',
+              -    },
+              -    {
+              -      caption: 'Удовлетворительно',
+              -      value: 260,
+              -      firstColor: '#BC9CFF',
+              -      secondColor: '#8BA4F9',
+              -      isActive: true,
+              -    },
+              -    {
+              -      caption: 'Разочарован', value: 0, firstColor: '#919191', secondColor: '#3D4975',
+              -    },
+              -  ],
+              -  defaultStyle: { outerRadius: 120, innerRadius: 116 },
+              -  activeStyle: { outerRadius: 120, innerRadius: 110 },
+              -  arcsGap: 2,
+              -};
+              +donut-chart(donutParams)
         div.room-details__reviews-container
           div.room-details__reviews-title-container
             h2.room-details__reviews-title Отзывы посетителей номера

@@ -2,8 +2,6 @@
 // jquery объявлена глобально вебпаком
 import { getAverageNum, ruDeclination } from '../../common/functions';
 
-import donutTemplate from './donut-template.pug';
-
 class DonutChart {
   static donutArcActiveClass = 'donut-chart__svg-arc_active';
 
@@ -23,17 +21,23 @@ class DonutChart {
 
   $activeValueText;
 
-  donutParams;
+  donutParams = {};
+
+  arcs = [];
 
   activeArc;
 
-  constructor(rootElement, donutParams) {
-    this._initParams(rootElement, donutParams);
+  constructor(rootElement) {
+    this._initElements(rootElement);
+    this._readParamsFromElements();
+
+    this._calculateAdditionalParams();
     this._createDonut();
     this._initEvents();
   }
 
-  _initElementsParams() {
+  _initElements(rootElement) {
+    this.$donutContainer = $(rootElement);
     this.$dataTextContainer = this.$donutContainer.find('.js-donut-chart__active-data');
     this.$donutCanvas = this.$donutContainer.find('.js-donut-chart__svg');
     this.$donutArcs = this.$donutCanvas.find('.js-donut-chart__svg-arc');
@@ -43,35 +47,50 @@ class DonutChart {
     this.$activeValueText = this.$dataTextContainer.find('.js-donut-chart__value-text');
   }
 
-  _initParams(rootElement,
-    params = {
-      data: [
-        { caption: '1', value: 1, background: 'red' },
-        { caption: '2', value: 2, background: 'green' },
-        { caption: '3', value: 3, background: 'blue' },
-        { caption: '4', value: 4, background: 'black' },
-      ],
-      defaultStyle: {
-        outerRadius: 100,
-        innerRadius: 95,
-      },
-      activeStyle: {
-        outerRadius: 105,
-        innerRadius: 90,
-      },
-      arcsGap: 5,
-    }) {
-    this.$donutContainer = $(rootElement);
+  _readParamsFromElements() {
+    this.donutParams.arcsGap = this.$donutCanvas.attr('data-arcs-gap');
+    this.donutParams.defaultStyle = {
+      outerRadius: this.$donutCanvas.attr('data-default-outer-radius'),
+      innerRadius: this.$donutCanvas.attr('data-default-inner-radius'),
+    };
+    this.donutParams.activeStyle = {
+      outerRadius: this.$donutCanvas.attr('data-active-outer-radius'),
+      innerRadius: this.$donutCanvas.attr('data-active-inner-radius'),
+    };
+    this.$donutArcs.each((index, arc) => { this._readArcParams($(arc)); });
+  }
 
-    this.$donutContainer.html(donutTemplate({ arcs: params.data }));
-    this._initElementsParams();
+  _readArcParams($arc) {
+    const value = Number.parseFloat($arc.attr('data-value'));
+    const color = $arc.attr('data-color');
+    const isActive = $arc.attr('data-is-active') === 'true';
+    this.arcs.push({
+      value, $arc, isActive, color,
+    });
+  }
 
-    const additionalParams = DonutChart._getAdditionalParams(params);
-    this.donutParams = { ...params, ...additionalParams };
+  _calculateAdditionalParams() {
+    const arcDefaultRadius = getAverageNum(
+      this.donutParams.defaultStyle.outerRadius, this.donutParams.defaultStyle.innerRadius,
+    );
+    const arcsAndRatesAmounts = this._getArcsAndRatesAmounts();
+
+    this.donutParams.canvasWidth = this.donutParams.activeStyle.outerRadius;
+    this.donutParams.canvasHeight = this.donutParams.activeStyle.outerRadius;
+    this.donutParams.gapsAngle = DonutChart._getAngleFromArcLength(
+      this.donutParams.arcsGap, arcDefaultRadius,
+    );
+    this.donutParams.startingAngle = 90 + this.donutParams.gapsAngle / 2;
+    this.donutParams.notZeroArcs = arcsAndRatesAmounts.arcs;
+    this.donutParams.allRatesAmount = arcsAndRatesAmounts.rates;
+    this.donutParams.ratesAmountWithGaps = DonutChart._getRatesWithGaps(
+      arcsAndRatesAmounts.rates,
+      this.donutParams.gapsAngle,
+      arcsAndRatesAmounts.arcs,
+    );
   }
 
   _createDonut() {
-    this._addJQObjectsToArcs();
     this._drawDonutOnCanvas();
 
     this.$donutCanvas.attr(
@@ -111,9 +130,6 @@ class DonutChart {
     return result;
   }
 
-  /**
-   * Если arc равен this.activeArc - активное состояние снимается
-   */
   _changeActiveArc(arc) {
     const oldActiveArc = this.activeArc;
 
@@ -134,6 +150,7 @@ class DonutChart {
     const endingAngle = DonutChart._getSecondAngle(
       startingAngle, arc.value, allRatesAmount,
     );
+    arc.endingAngle = endingAngle;
     const startX = canvasSize.width / 2;
     const startY = canvasSize.height / 2;
     const strokeWidth = style.outerRadius - style.innerRadius;
@@ -155,7 +172,6 @@ class DonutChart {
       startX,
       startY,
       arcAngle,
-      endingAngle,
     };
   }
 
@@ -198,17 +214,17 @@ class DonutChart {
       this.$activeValueText.css('color', 'grey');
     } else {
       this.$activeValue.text(this.activeArc.value);
-      this.$activeValue.css('color', this.activeArc.firstColor);
+      this.$activeValue.css('color', this.activeArc.color);
 
       this.$activeValueText.text(ruDeclination(this.activeArc.value, 'голос||а|ов'));
-      this.$activeValueText.css('color', this.activeArc.firstColor);
+      this.$activeValueText.css('color', this.activeArc.color);
     }
   }
 
   _handleArcClick(arc) {
     this._changeActiveArc(arc);
     this._redrawArc(arc);
-    this._updateActiveCaption(this.activeArc?.value, this.activeArc?.firstColor);
+    this._updateActiveCaption(this.activeArc?.value, this.activeArc?.color);
   }
 
   _handleArcMouseEnter(arc, mouseEvent) {
@@ -222,7 +238,7 @@ class DonutChart {
   }
 
   _addHandlerToArcs(eventName, handler) {
-    this.donutParams.data.forEach((arc) => {
+    this.arcs.forEach((arc) => {
       const handleExactArcEvent = (event) => {
         handler.apply(this, [arc, event]);
       };
@@ -235,11 +251,12 @@ class DonutChart {
     return rates / (1 - ((gapAngle * arcsCount) / 360));
   }
 
-  static _getArcsAndRatesAmount(arcsArray) {
+  _getArcsAndRatesAmounts() {
     const result = { arcs: 0, rates: 0 };
 
-    arcsArray.forEach((arc) => {
+    this.arcs.forEach((arc) => {
       if (arc.value === 0) { return; }
+
       result.rates += arc.value;
       result.arcs += 1;
     });
@@ -251,55 +268,20 @@ class DonutChart {
     return (180 * arcLength) / (Math.PI * radius);
   }
 
-  static _getAdditionalParams(params) {
-    const additionalParams = {};
-    const arcDefaultRadius = getAverageNum(
-      params.defaultStyle.outerRadius, params.defaultStyle.innerRadius,
-    );
-    const arcsAndRatesCount = DonutChart._getArcsAndRatesAmount(params.data);
-
-    additionalParams.canvasWidth = params.activeStyle.outerRadius;
-    additionalParams.canvasHeight = params.activeStyle.outerRadius;
-    additionalParams.gapsAngle = DonutChart._getAngleFromArcLength(
-      params.arcsGap, arcDefaultRadius,
-    );
-    additionalParams.startingAngle = 90 + additionalParams.gapsAngle / 2;
-    additionalParams.notZeroArcs = arcsAndRatesCount.arcs;
-    additionalParams.allRatesAmount = arcsAndRatesCount.rates;
-    additionalParams.ratesAmountWithGaps = DonutChart._getRatesWithGaps(
-      arcsAndRatesCount.rates,
-      additionalParams.gapsAngle,
-      arcsAndRatesCount.arcs,
-    );
-
-    return additionalParams;
-  }
-
   _drawDonutOnCanvas() {
-    const arcsDataArray = this.donutParams.data;
+    this.arcs[0].startingAngle = this.donutParams.startingAngle;
 
-    arcsDataArray[0].startingAngle = this.donutParams.startingAngle;
-
-    arcsDataArray.forEach((arc, i) => {
+    this.arcs.forEach((arc, i) => {
       if (arc.isActive) this._changeActiveArc(arc);
 
-      const arcDrawData = this._getArcDrawData(arc);
-      DonutChart._drawArc(arc, arcDrawData);
+      this._redrawArc(arc);
 
-      if (i + 1 < arcsDataArray.length) {
-        arcsDataArray[i + 1]
-          .startingAngle = arcDrawData.endingAngle + this.donutParams.gapsAngle;
+      if (i + 1 < this.arcs.length) {
+        this.arcs[i + 1].startingAngle = arc.endingAngle + this.donutParams.gapsAngle;
       }
     });
 
     this._updateActiveCaption();
-  }
-
-  _addJQObjectsToArcs() {
-    this.donutParams.data.forEach((arc, i) => {
-      arc.$arc = $(this.$donutArcs[i]);
-      arc.$legend = $(this.$legendItems[i]);
-    });
   }
 }
 
