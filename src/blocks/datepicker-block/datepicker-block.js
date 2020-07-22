@@ -3,12 +3,11 @@ import 'air-datepicker';
 import arrowBack from '../../assets/images/arrow-back.svg';
 import initArrows from '../arrow/init';
 
-const buttonTemplate = require('./datepicker-block__button-template.pug');
-
-const confirmButton = buttonTemplate({ type: 'confirm' });
-const clearButton = buttonTemplate({ type: 'clear' });
-
 class DatepickerBlock {
+  $confirmButton = $('<button></button>', {
+    text: 'Применить', 'data-action': 'hide', class: 'datepicker-block__confirm-button',
+  });
+
   $datepicker;
 
   $inputWrap;
@@ -16,6 +15,8 @@ class DatepickerBlock {
   $inputControl;
 
   $inputLabel;
+
+  $buttonsContainer;
 
   arrow;
 
@@ -122,9 +123,9 @@ class DatepickerBlock {
     this.datepickerPlugin = this.$inputControl.datepicker({
       range: true,
       inline: this.isInline,
+      clearButton: true,
       dateFormat: 'd M',
       multipleDatesSeparator: ' - ',
-      todayButton: true,
       showEvent: '',
       position: 'bottom center',
       offset: 5,
@@ -139,15 +140,15 @@ class DatepickerBlock {
         this.$inputControl.val(formattedDate.toLowerCase());
       },
     }).data('datepicker');
+    this.$buttonsContainer = this.datepickerPlugin.$datepicker.find('.datepicker--buttons');
 
-    this._replaceButtons();
+    this._createConfirmButton();
   }
 
-  _replaceButtons() {
-    this.datepickerPlugin.$datepicker.find('.datepicker--button[data-action="today"]').remove();
-    const $buttonsContainer = this.datepickerPlugin.$datepicker.find('.datepicker--buttons');
-    $buttonsContainer.append(clearButton);
-    $buttonsContainer.append(confirmButton);
+  _createConfirmButton() {
+    const $airDatepickerButtonWrap = $('<span></span>', { class: 'datepicker--button' });
+    this.$buttonsContainer.append($airDatepickerButtonWrap);
+    $airDatepickerButtonWrap.append(this.$confirmButton);
   }
 }
 

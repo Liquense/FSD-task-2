@@ -1,8 +1,0 @@
-include ../button/button
--const airDatepickerButtonCN = 'datepicker--button'
--const action = type === 'clear' ? 'clear' : 'hide'
--const text = type === 'clear' ? 'Очистить' : 'Применить'
-
-div(class=`.datepicker-block__${type}-button` data-action=action)
-  div(class=`js-${airDatepickerButtonCN} ${airDatepickerButtonCN}`)
-    +button({type: "text", text: text, isHovered: type === 'clear'})
