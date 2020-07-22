@@ -54,179 +54,18 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
     }
   }
 
-  &__confirm-button,
-  &__clear-button {
+  &__confirm-button {
+    @include text_label-CTA();
+    border: none;
+    background-color: transparent;
     width: fit-content;
-    height: fit-content;
-  }
-}
+    height: 15px;
+    color: $purple;
+    cursor: pointer;
+    padding: 0;
 
-.datepicker--cell {
-  border-radius: 50%;
-  height: 40px;
-
-  &.datepicker--cell.-focus- {
-    background: linear-gradient($gradientDefaultAngle, rgba($purple, 0.5) 0%, rgba($purpleGradientSecond, 0.5) 100%);
-    color: white;
-  }
-}
-
-.datepicker--cell.-current- {
-  background: linear-gradient($gradientDefaultAngle, $green 0%, $greenGradientSecond 100%);
-  font-weight: bold;
-  color: white;
-
-  &.-in-range- {
-    color: $green;
-  }
-
-  &.-other-decade-,
-  &.-other-month-,
-  &.-disabled- {
-    color: white;
-    background: linear-gradient(
-            $gradientDefaultAngle,
-            rgba($green, 0.25) 0%,
-            rgba($greenGradientSecond, 0.25) 100%
-    );
-
-    &.-focus- {
-      background: $otherPointsGradient;
-    }
-  }
-}
-
-.datepicker--cell.-in-range- {
-  background: $actualRangeGradient;
-  color: $cellTextColor;
-
-  &.-focus- {
-    background-color: rgba($purple, 0.25);
-    color: white;
-  }
-}
-
-.datepicker--cell.-disabled- {
-  color: $darkShade25;
-
-  &.-focus- {
-    color: $darkShade25;
-    background: $otherRangeGradient;
-  }
-
-  &.-in-range- {
-    color: $darkShade25;
-  }
-
-  &.-current-.-focus- {
-    color: white;
-  }
-}
-
-.datepicker--cell.-range-from-,
-.datepicker--cell.-range-to- {
-  z-index: 1;
-  background: $actualPointsGradient;
-  color: white;
-  border-radius: 50%;
-  border: none;
-
-  &.-other-month- {
-    color: white;
-    background: $otherPointsGradient;
-  }
-
-  &.-focus- {
-    background: $actualPointsGradient;
-  }
-
-  &::before {
-    content: "";
-    background: $actualRangeGradient;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-  }
-
-  &.-other-month-::before {
-    background: $otherRangeGradient;
-  }
-
-  &.datepicker--cell.-range-from-::before {
-    border-radius: 50% 0 0 50%;
-  }
-
-  &.datepicker--cell.-range-to-::before {
-    border-radius: 0 50% 50% 0;
-  }
-}
-
-.datepicker--cell.-selected- {
-  color: white;
-  background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-  font-weight: bold;
-}
-
-.datepicker--days-names {
-  margin: 0;
-}
-
-.datepicker--day-name {
-  color: $purple;
-  height: 40px;
-  font-size: 12px;
-  font-weight: bold;
-  text-transform: none;
-}
-
-$monthCellSize: $datepickerContentHeight/4;
-
-.datepicker--cells-months {
-  height: $datepickerContentHeight;
-  padding: 0 ($datepickerContentWidth - $datepickerContentHeight)/2;
-
-  .datepicker--cell-month {
-    width: 25%;
-    height: $monthCellSize;
-
-    &:before {
-      content: none;
-    }
-
-    &.-range-from-,
-    &.-range-to- {
-      border-radius: 50%;
-
-      &.-current- {
-        color: scale-color($green, $lightness: 75%);
-      }
-    }
-  }
-}
-
-$yearCellSize: $datepickerContentWidth/4;
-$yearCellsRowLength: 4;
-$yearCellsColumnLength: 3;
-
-.datepicker--years {
-  height: $datepickerContentHeight;
-}
-
-.datepicker--cells-years {
-  height: $datepickerContentHeight;
-}
-
-.datepicker--cell-year {
-  width: 25%;
-  height: $yearCellSize;
-
-  &.-range-from-.-range-to- {
-    border-radius: 50%;
-
-    &:before {
-      content: none;
+    &:focus {
+      outline: none;
     }
   }
 }
@@ -238,94 +77,271 @@ $yearCellsColumnLength: 3;
   @include text(Montserrat, normal, 12px, 15px, $cellTextColor, normal);
   color: $darkShade100;
   min-width: $datepickerWidth;
-}
 
-.datepicker--content {
-  padding: 29px $datepickerContentSidesPadding - 2*$datepickerBorderWidth 0 $datepickerContentSidesPadding;
-  min-height: $datepickerContentHeight;
-}
-
-.datepicker--pointer {
-  display: none;
-}
-
-$navActionWidth: 17px;
-$navActionHeight: 18px;
-
-.datepicker--nav {
-  box-sizing: border-box;
-  padding: 19px 20px 0 20px;
-  border-bottom: none;
-}
-
-.datepicker--nav-title,
-.datepicker--nav-action {
-  .datepicker-block__title {
-    @include text_item-title();
-    letter-spacing: -0.8px;
-  }
-}
-
-.datepicker--nav-action {
-  width: fit-content;
-  height: 24px;
-  display: flex;
-
-  &:hover {
-    background-color: #eee;
-  }
-}
-
-.datepicker--nav-title {
-  text-transform: none;
-}
-
-.datepicker--buttons {
-  border: none;
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth;
-}
-
-.datepicker--button {
-  height: unset;
-
-  &:hover {
-    background: none;
-  }
-}
-
-.datepicker--cell-day.-other-month-,
-.datepicker--cell-year.-other-decade- {
-  color: $darkShade50;
-
-  &:hover {
-    color: white;
-  }
-
-  &.-disabled- {
-    color: $darkShade25;
+  &--cell {
+    border-radius: 50%;
+    height: 40px;
 
     &.-focus- {
-      background: $otherRangeGradient;
-    }
-  }
-
-  &.-in-range- {
-    background: $otherRangeGradient;
-    color: $darkShade25;
-
-    &.-focus- {
-      background: $otherPointsGradient;
+      background: linear-gradient($gradientDefaultAngle, rgba($purple, 0.5) 0%, rgba($purpleGradientSecond, 0.5) 100%);
       color: white;
     }
+
+    &.-current- {
+      background: linear-gradient($gradientDefaultAngle, $green 0%, $greenGradientSecond 100%);
+      font-weight: bold;
+      color: white;
+
+      &.-in-range- {
+        color: $green;
+      }
+
+      &.-other-decade-,
+      &.-other-month-,
+      &.-disabled- {
+        color: white;
+        background: linear-gradient(
+                $gradientDefaultAngle,
+                rgba($green, 0.25) 0%,
+                rgba($greenGradientSecond, 0.25) 100%
+        );
+
+        &.-focus- {
+          background: $otherPointsGradient;
+        }
+      }
+    }
+
+    &.-in-range- {
+      background: $actualRangeGradient;
+      color: $cellTextColor;
+
+      &.-focus- {
+        background-color: rgba($purple, 0.25);
+        color: white;
+      }
+    }
+
+    &.-disabled- {
+      color: $darkShade25;
+
+      &.-focus- {
+        color: $darkShade25;
+        background: $otherRangeGradient;
+      }
+
+      &.-in-range- {
+        color: $darkShade25;
+      }
+
+      &.-current-.-focus- {
+        color: white;
+      }
+    }
+
+    &.-range-from-,
+    &.-range-to- {
+      z-index: 1;
+      background: $actualPointsGradient;
+      color: white;
+      border-radius: 50%;
+      border: none;
+
+      &.-other-month- {
+        color: white;
+        background: $otherPointsGradient;
+      }
+
+      &.-focus- {
+        background: $actualPointsGradient;
+      }
+
+      &::before {
+        content: "";
+        background: $actualRangeGradient;
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: -1;
+      }
+
+      &.-other-month-::before {
+        background: $otherRangeGradient;
+      }
+
+      &.datepicker--cell.-range-from-::before {
+        border-radius: 50% 0 0 50%;
+      }
+
+      &.datepicker--cell.-range-to-::before {
+        border-radius: 0 50% 50% 0;
+      }
+    }
+
+    &.-selected- {
+      color: white;
+      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+      font-weight: bold;
+    }
   }
 
-  &.-selected- {
-    background: $otherPointsGradient;
+  &--days-names {
+    margin: 0;
+  }
 
-    &.-focus- {
-      background: $actualPointsGradient;
+  &--day-name {
+    color: $purple;
+    height: 40px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: none;
+  }
+
+  $monthCellSize: $datepickerContentHeight/4;
+
+  &--cells-months {
+    height: $datepickerContentHeight;
+    padding: 0 ($datepickerContentWidth - $datepickerContentHeight)/2;
+
+    .datepicker--cell-month {
+      width: 25%;
+      height: $monthCellSize;
+
+      &:before {
+        content: none;
+      }
+
+      &.-range-from-,
+      &.-range-to- {
+        border-radius: 50%;
+
+        &.-current- {
+          color: scale-color($green, $lightness: 75%);
+        }
+      }
+    }
+  }
+
+  $yearCellSize: $datepickerContentWidth/4;
+  $yearCellsRowLength: 4;
+  $yearCellsColumnLength: 3;
+
+  &--years {
+    height: $datepickerContentHeight;
+  }
+
+  &--cells-years {
+    height: $datepickerContentHeight;
+  }
+
+  &--cell-year {
+    width: 25%;
+    height: $yearCellSize;
+
+    &.-range-from-.-range-to- {
+      border-radius: 50%;
+
+      &:before {
+        content: none;
+      }
+    }
+  }
+
+  &--content {
+    padding: 29px $datepickerContentSidesPadding - 2*$datepickerBorderWidth 0 $datepickerContentSidesPadding;
+    min-height: $datepickerContentHeight;
+  }
+
+  &--pointer {
+    display: none;
+  }
+
+  $navActionWidth: 17px;
+  $navActionHeight: 18px;
+
+  &--nav {
+    box-sizing: border-box;
+    padding: 19px 23px 0 23px;
+    border-bottom: none;
+  }
+
+  &--nav-title,
+  &--nav-action {
+    .datepicker-block__title {
+      @include text_item-title();
+      letter-spacing: -0.8px;
+    }
+  }
+
+  &--nav-action {
+    width: fit-content;
+    height: 24px;
+    display: flex;
+
+    &:hover {
+      background-color: #eee;
+    }
+  }
+
+  &--nav-title {
+    text-transform: none;
+  }
+
+  &--buttons {
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth;
+  }
+
+  &--button {
+    @include text_label-CTA();
+    flex: none;
+    height: unset;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    width: fit-content;
+    color: $darkShade50;
+
+    &:hover {
+      background: none;
+    }
+  }
+
+  &--cell-day.-other-month-,
+  &--cell-year.-other-decade- {
+    color: $darkShade50;
+
+    &:hover {
+      color: white;
+    }
+
+    &.-disabled- {
+      color: $darkShade25;
+
+      &.-focus- {
+        background: $otherRangeGradient;
+      }
+    }
+
+    &.-in-range- {
+      background: $otherRangeGradient;
+      color: $darkShade25;
+
+      &.-focus- {
+        background: $otherPointsGradient;
+        color: white;
+      }
+    }
+
+    &.-selected- {
+      background: $otherPointsGradient;
+
+      &.-focus- {
+        background: $actualPointsGradient;
+      }
     }
   }
 }
