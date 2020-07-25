@@ -172,7 +172,7 @@ class Dropdown {
   _toggle() {
     this.$listWrapper.toggle('fade');
     this.$listWrapper.toggleClass(Dropdown.dropdownVisibleClass);
-    this.$inputControl.toggleClass('input_control__focused');
+    this.$inputControl.toggleClass('input__control_focused');
   }
 
   _getDropdownType() {

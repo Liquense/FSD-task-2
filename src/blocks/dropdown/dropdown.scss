@@ -18,7 +18,7 @@ $inputBorderRadius: 4px;
       color: $darkShade75;
       padding-right: 9.6ch;
 
-      &_focused, &:focus {
+      &_focused {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
       }
