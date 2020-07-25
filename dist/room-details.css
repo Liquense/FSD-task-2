@@ -60,7 +60,7 @@
   text-align: center;
   height: 1em;
   line-height: 1em; }
-  .arrow_enter {
+  .arrow_type_enter {
     font-family: "Material Icons", sans-serif;
     font-weight: normal;
     font-style: normal;
@@ -68,7 +68,7 @@
     text-transform: lowercase;
     vertical-align: middle;
     font-weight: normal; }
-  .arrow_expand {
+  .arrow_type_expand {
     font-family: "Material Icons", sans-serif;
     font-weight: normal;
     font-style: normal;
@@ -81,7 +81,7 @@
     -webkit-user-select: none;
     cursor: pointer;
     background-color: transparent; }
-    .arrow_expand:hover:not(.arrow_relative):before, .arrow_expand:focus:not(.arrow_relative):before {
+    .arrow_type_expand:hover:not(.arrow_relative):before, .arrow_type_expand:focus:not(.arrow_relative):before {
       box-sizing: border-box;
       content: "";
       position: absolute;
@@ -91,7 +91,7 @@
       border: dotted 0.1em rgba(31, 32, 65, 0.5);
       top: -0.05em;
       right: -0.05em; }
-    .arrow_expand:focus {
+    .arrow_type_expand:focus {
       outline: none; }
   .arrow_relative {
     position: relative; }
@@ -1004,7 +1004,7 @@
   .dropdown__input .input__control {
     color: rgba(31, 32, 65, 0.75);
     padding-right: 9.6ch; }
-    .dropdown__input .input__control_focused, .dropdown__input .input__control:focus {
+    .dropdown__input .input__control_focused {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0; }
   .dropdown__list-wrapper {
@@ -1579,29 +1579,30 @@
     padding: 0;
     border: none;
     outline: 0; }
-  .spinner__increase, .spinner__decrease {
+  .spinner__increase-button, .spinner__decrease-button {
+    font-family: Montserrat, Montserrat, sans-serif;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    color: rgba(31, 32, 65, 0.5);
+    text-decoration: none;
     border-radius: 50%;
     border: 1px solid rgba(31, 32, 65, 0.5);
     color: rgba(31, 32, 65, 0.5);
     background-color: white;
     width: 30px;
     height: 30px;
-    padding: 0;
-    font-family: Montserrat, Montserrat, sans-serif;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 22px;
-    letter-spacing: 0px;
-    vertical-align: middle;
-    color: rgba(31, 32, 65, 0.5);
-    text-decoration: none; }
-    .spinner__increase_disabled, .spinner__decrease_disabled {
+    text-align: center;
+    padding: 0; }
+    .spinner__increase-button_disabled, .spinner__decrease-button_disabled {
       color: rgba(31, 32, 65, 0.25);
       border-color: rgba(31, 32, 65, 0.25); }
-    .spinner__increase:focus, .spinner__decrease:focus {
+    .spinner__increase-button:focus, .spinner__decrease-button:focus {
       outline: none; }
-    .spinner__increase.focused, .spinner__increase:hover, .spinner__decrease.focused, .spinner__decrease:hover {
+    .spinner__increase-button.focused, .spinner__increase-button:hover, .spinner__decrease-button.focused, .spinner__decrease-button:hover {
       border-color: rgba(31, 32, 65, 0.75);
       color: rgba(31, 32, 65, 0.75);
       cursor: pointer; }
