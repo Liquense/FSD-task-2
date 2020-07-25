@@ -29,6 +29,7 @@ class Spinner {
   constructor(spinnerElement) {
     Spinner._addButtons();
     this._initPlugin(spinnerElement);
+    this.triggerSpin();
   }
 
   triggerSpin() {
@@ -71,26 +72,25 @@ class Spinner {
     this.$spinner.on('spin.spinner', this._handleSpin.bind(this));
   }
 
-  _handleSpin() {
-    this._disableButtonsAtExtremum();
-  }
+  _handleSpin = (event, ui) => { this._disableButtonsAtExtremum(event, ui); }
 
-  _disableButtonsAtExtremum() {
-    const disabledButtonClass = 'spinner__button_disabled';
+  _disableButtonsAtExtremum(event, ui) {
     const min = this.$spinner.attr('data-min');
     const max = this.$spinner.attr('data-max');
-    const $decreaseButton = this.$spinner.siblings('.js-spinner__decrease');
-    const $increaseButton = this.$spinner.siblings('.js-spinner__increase');
+    const $decreaseButton = this.$spinner.siblings(`.js-${Spinner.decreaseButtonBaseClass}`);
+    const decreaseButtonDisabledClass = `${Spinner.decreaseButtonBaseClass}_disabled`;
+    const $increaseButton = this.$spinner.siblings(`.js-${Spinner.increaseButtonBaseClass}`);
+    const increaseButtonDisabledClass = `${Spinner.increaseButtonBaseClass}_disabled`;
 
-    if (this.value <= min) {
-      $decreaseButton.addClass(disabledButtonClass);
+    if (ui.value <= min) {
+      $decreaseButton.addClass(decreaseButtonDisabledClass);
     } else {
-      $decreaseButton.removeClass(disabledButtonClass);
+      $decreaseButton.removeClass(decreaseButtonDisabledClass);
     }
-    if (this.value >= max) {
-      $increaseButton.addClass(disabledButtonClass);
+    if (ui.value >= max) {
+      $increaseButton.addClass(increaseButtonDisabledClass);
     } else {
-      $increaseButton.removeClass(disabledButtonClass);
+      $increaseButton.removeClass(increaseButtonDisabledClass);
     }
   }
 }
