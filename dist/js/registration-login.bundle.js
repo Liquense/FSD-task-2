@@ -173,7 +173,7 @@ eval("var map = {\n\t\"./index.scss\": \"./src/index.scss\"\n};\n\n\nfunction we
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("var map = {\n\t\"./Montserrat-Bold.svg\": \"./src/assets/fonts/Montserrat-Bold.svg\",\n\t\"./Montserrat-Bold.ttf\": \"./src/assets/fonts/Montserrat-Bold.ttf\",\n\t\"./Montserrat-Bold.woff\": \"./src/assets/fonts/Montserrat-Bold.woff\",\n\t\"./Montserrat-Regular.svg\": \"./src/assets/fonts/Montserrat-Regular.svg\",\n\t\"./Montserrat-Regular.ttf\": \"./src/assets/fonts/Montserrat-Regular.ttf\",\n\t\"./Montserrat-Regular.woff\": \"./src/assets/fonts/Montserrat-Regular.woff\",\n\t\"./Quicksand-Bold.svg\": \"./src/assets/fonts/Quicksand-Bold.svg\",\n\t\"./Quicksand-Bold.ttf\": \"./src/assets/fonts/Quicksand-Bold.ttf\",\n\t\"./Quicksand-Bold.woff\": \"./src/assets/fonts/Quicksand-Bold.woff\",\n\t\"./Quicksand-Regular.svg\": \"./src/assets/fonts/Quicksand-Regular.svg\",\n\t\"./Quicksand-Regular.ttf\": \"./src/assets/fonts/Quicksand-Regular.ttf\",\n\t\"./Quicksand-Regular.woff\": \"./src/assets/fonts/Quicksand-Regular.woff\",\n\t\"./iconfont/MaterialIcons-Regular.eot\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.eot\",\n\t\"./iconfont/MaterialIcons-Regular.svg\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.svg\",\n\t\"./iconfont/MaterialIcons-Regular.ttf\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.ttf\",\n\t\"./iconfont/MaterialIcons-Regular.woff\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.woff\",\n\t\"./iconfont/MaterialIcons-Regular.woff2\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.woff2\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/assets/fonts sync recursive \\\\.(otf|ttf|svg|woff|woff2|eot)$\";\n\n//# sourceURL=webpack:///./src/assets/fonts_sync_\\.(otf%7Cttf%7Csvg%7Cwoff%7Cwoff2%7Ceot)$?");
+eval("var map = {\n\t\"./Montserrat-Bold.svg\": \"./src/assets/fonts/Montserrat-Bold.svg\",\n\t\"./Montserrat-Bold.ttf\": \"./src/assets/fonts/Montserrat-Bold.ttf\",\n\t\"./Montserrat-Bold.woff\": \"./src/assets/fonts/Montserrat-Bold.woff\",\n\t\"./Montserrat-Regular.svg\": \"./src/assets/fonts/Montserrat-Regular.svg\",\n\t\"./Montserrat-Regular.ttf\": \"./src/assets/fonts/Montserrat-Regular.ttf\",\n\t\"./Montserrat-Regular.woff\": \"./src/assets/fonts/Montserrat-Regular.woff\",\n\t\"./Quicksand-Bold.svg\": \"./src/assets/fonts/Quicksand-Bold.svg\",\n\t\"./Quicksand-Bold.ttf\": \"./src/assets/fonts/Quicksand-Bold.ttf\",\n\t\"./Quicksand-Bold.woff\": \"./src/assets/fonts/Quicksand-Bold.woff\",\n\t\"./Quicksand-Regular.svg\": \"./src/assets/fonts/Quicksand-Regular.svg\",\n\t\"./Quicksand-Regular.ttf\": \"./src/assets/fonts/Quicksand-Regular.ttf\",\n\t\"./Quicksand-Regular.woff\": \"./src/assets/fonts/Quicksand-Regular.woff\",\n\t\"./iconfont/MaterialIcons-Regular-fix.ttf\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular-fix.ttf\",\n\t\"./iconfont/MaterialIcons-Regular.eot\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.eot\",\n\t\"./iconfont/MaterialIcons-Regular.svg\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.svg\",\n\t\"./iconfont/MaterialIcons-Regular.woff\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.woff\",\n\t\"./iconfont/MaterialIcons-Regular.woff2\": \"./src/assets/fonts/iconfont/MaterialIcons-Regular.woff2\"\n};\n\n\nfunction webpackContext(req) {\n\tvar id = webpackContextResolve(req);\n\treturn __webpack_require__(id);\n}\nfunction webpackContextResolve(req) {\n\tif(!__webpack_require__.o(map, req)) {\n\t\tvar e = new Error(\"Cannot find module '\" + req + \"'\");\n\t\te.code = 'MODULE_NOT_FOUND';\n\t\tthrow e;\n\t}\n\treturn map[req];\n}\nwebpackContext.keys = function webpackContextKeys() {\n\treturn Object.keys(map);\n};\nwebpackContext.resolve = webpackContextResolve;\nmodule.exports = webpackContext;\nwebpackContext.id = \"./src/assets/fonts sync recursive \\\\.(otf|ttf|svg|woff|woff2|eot)$\";\n\n//# sourceURL=webpack:///./src/assets/fonts_sync_\\.(otf%7Cttf%7Csvg%7Cwoff%7Cwoff2%7Ceot)$?");
 
 /***/ }),
 
@@ -309,6 +309,17 @@ eval("module.exports = \"fonts/Quicksand-Regular.woff\";\n\n//# sourceURL=webpac
 
 /***/ }),
 
+/***/ "./src/assets/fonts/iconfont/MaterialIcons-Regular-fix.ttf":
+/*!*****************************************************************!*\
+  !*** ./src/assets/fonts/iconfont/MaterialIcons-Regular-fix.ttf ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+eval("module.exports = \"fonts/MaterialIcons-Regular-fix.ttf\";\n\n//# sourceURL=webpack:///./src/assets/fonts/iconfont/MaterialIcons-Regular-fix.ttf?");
+
+/***/ }),
+
 /***/ "./src/assets/fonts/iconfont/MaterialIcons-Regular.eot":
 /*!*************************************************************!*\
   !*** ./src/assets/fonts/iconfont/MaterialIcons-Regular.eot ***!
@@ -328,17 +339,6 @@ eval("module.exports = \"fonts/MaterialIcons-Regular.eot\";\n\n//# sourceURL=web
 /***/ (function(module, exports) {
 
 eval("module.exports = \"fonts/MaterialIcons-Regular.svg\";\n\n//# sourceURL=webpack:///./src/assets/fonts/iconfont/MaterialIcons-Regular.svg?");
-
-/***/ }),
-
-/***/ "./src/assets/fonts/iconfont/MaterialIcons-Regular.ttf":
-/*!*************************************************************!*\
-  !*** ./src/assets/fonts/iconfont/MaterialIcons-Regular.ttf ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = \"fonts/MaterialIcons-Regular.ttf\";\n\n//# sourceURL=webpack:///./src/assets/fonts/iconfont/MaterialIcons-Regular.ttf?");
 
 /***/ }),
 
