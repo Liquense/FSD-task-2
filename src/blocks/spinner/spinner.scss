@@ -13,18 +13,17 @@
     outline: 0;
   }
 
+  $buttonSize: 30px;
   &__increase-button, &__decrease-button {
-    $buttonSize: 30px;
-
+    @include text(Montserrat, normal, 18px, $buttonSize, $darkShade50, 0px);
     border-radius: 50%;
     border: 1px solid $darkShade50;
     color: $darkShade50;
     background-color: $inputBackgroundColor;
     width: $buttonSize;
     height: $buttonSize;
+    text-align: center;
     padding: 0;
-
-    @include text(Montserrat, normal, 18px, 22px, $darkShade50, 0px);
 
     &_disabled {
       color: $darkShade25;
