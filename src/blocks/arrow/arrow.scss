@@ -11,12 +11,12 @@ $expandWidth: 1em;
   height: $expandWidth;
   line-height: $expandWidth;
 
-  &_enter {
+  &_type_enter {
     @include icon();
     font-weight: normal;
   }
 
-  &_expand {
+  &_type_expand {
     @include icon();
     color: $darkShade50;
     font-weight: normal;
