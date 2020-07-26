@@ -5,7 +5,6 @@ mixin slider({minValue = 0, maxValue = 10, step = 1, title = "", isRange = false
   -const valueClass = `${sliderClass}__value`
   -const containerClass = `${sliderClass}__container`
   -const controlClass = `${sliderClass}__control`
-  -const allClasses = [sliderClass, textClass, titleClass, valueClass, containerClass, controlClass]
 
   -const sliderAttrs = {class: `js-${sliderClass} ${sliderClass}`}
   -const textAttrs = {class: textClass}
@@ -13,11 +12,9 @@ mixin slider({minValue = 0, maxValue = 10, step = 1, title = "", isRange = false
   -const valueAttrs = {class: `js-${valueClass} ${valueClass}`}
   -const containerAttrs = {class: containerClass}
   -const controlAttrs = {class: `js-${controlClass} ${controlClass}`, ['data-min']: minValue, ['data-max']: maxValue, ['data-step']: step, ['data-first-value']: initialValues[0]}
-  -const allAttrs = [sliderAttrs, textAttrs, titleAttrs, valueAttrs, containerAttrs, controlAttrs]
 
   if isRange
-    each value, index in allAttrs
-      -value.class += ` ${allClasses[index]}_range `
+    -controlAttrs.class += ` ${controlClass}_range `
     -controlAttrs['data-second-value'] = initialValues[1]
 
   div&attributes(sliderAttrs)
