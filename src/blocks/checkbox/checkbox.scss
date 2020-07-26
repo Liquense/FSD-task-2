@@ -58,13 +58,6 @@ $toggleCircleWidth: 31.58%;
   @include boxSizingBorderBox();
   width: fit-content;
 
-  &_type_like {
-    min-width: 40px;
-    height: $checkboxButtonSize;
-    @include clearfix;
-  }
-
-  // region label
   &__label {
     @include text_regular();
     display: inline-block;
@@ -83,24 +76,6 @@ $toggleCircleWidth: 31.58%;
       &:hover .checkbox__button_type_default,
       &.ui-checkboxradio-checked .checkbox__button_type_default {
         border-color: $purple;
-      }
-    }
-
-    &_type_like {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      color: $darkShade25;
-      font-size: 10px;
-      text-align: center;
-      line-height: 19px;
-
-      &.ui-checkboxradio-checked {
-        color: $purple;
-
-        .checkbox__button-border_type_like {
-          background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
-        }
       }
     }
 
@@ -157,20 +132,6 @@ $toggleCircleWidth: 31.58%;
     }
   }
 
-  // endregion
-
-  &__button-border_type_like {
-    background-color: $darkShade25;
-    border-radius: $checkboxButtonSize/2;
-    display: block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  // region button
   &__button {
     height: $checkboxButtonSize;
     line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
@@ -196,37 +157,6 @@ $toggleCircleWidth: 31.58%;
         font-weight: bolder;
         @include textGradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
         text-align: center;
-      }
-    }
-
-    &_type_like {
-      width: calc(100% - 2 * #{$checkboxButtonBorderWidth});
-      height: calc(100% - 2 * #{$checkboxButtonBorderWidth});;
-      background-color: $inputBackgroundColor;
-      margin: 0;
-      border: none;
-      border-radius: $checkboxButtonSize/2;
-      position: absolute;
-      top: $checkboxButtonBorderWidth;
-      left: $checkboxButtonBorderWidth;
-
-      &:after {
-        content: "\e87e";
-        color: $darkShade25;
-        font-family: "Material Icons", sans-serif;
-        font-size: 10px;
-        line-height: 10px;
-        position: absolute;
-        left: 5px - $checkboxButtonBorderWidth;
-        top: 5px - $checkboxButtonBorderWidth;
-      }
-
-      &.ui-state-checked:after {
-        content: "\e87d";
-        color: $purple;
-        left: 5px - $checkboxButtonBorderWidth;
-        top: 5px - $checkboxButtonBorderWidth;
-        position: absolute;
       }
     }
 
@@ -270,33 +200,20 @@ $toggleCircleWidth: 31.58%;
     }
   }
 
-  // endregion
-
-  // region text
   &__text {
     margin: 0;
     display: inline-block;
     max-width: 23ch;
-
-    &_type_like {
-      position: relative;
-      margin-left: 20px;
-      margin-right: 9px;
-    }
 
     &_type_toggle {
       color: $darkShade75;
     }
   }
 
-  // region hidden button
   &__hidden-button {
     display: none;
   }
 
-  // endregion
-
-  // region description
   &__description {
     @include text_regular();
     display: inline-block;
@@ -308,6 +225,4 @@ $toggleCircleWidth: 31.58%;
     line-height: 14px;
     white-space: pre-line;
   }
-
-  // endregion
 }

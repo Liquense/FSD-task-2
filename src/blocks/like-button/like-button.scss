@@ -1,0 +1,91 @@
+$checkboxButtonSize: 20px;
+$checkboxButtonBorderWidth: 1px;
+
+.like-button {
+  @include clearfix();
+  @include boxSizingBorderBox();
+  width: fit-content;
+  min-width: 40px;
+  height: $checkboxButtonSize;
+
+  &__label {
+    @include text_regular();
+    display: inline-block;
+    -webkit-user-select: none;
+    vertical-align: middle;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    color: $darkShade25;
+    font-size: 10px;
+    text-align: center;
+    line-height: 19px;
+
+    &.ui-checkboxradio-checked {
+      color: $purple;
+
+      .like-button__border {
+        background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
+      }
+    }
+  }
+
+  &__border {
+    background-color: $darkShade25;
+    border-radius: $checkboxButtonSize/2;
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  &__button {
+    line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
+    display: block;
+    float: left;
+    clear: both;
+    cursor: pointer;
+    width: calc(100% - 2 * #{$checkboxButtonBorderWidth});
+    height: calc(100% - 2 * #{$checkboxButtonBorderWidth});;
+    background-color: $inputBackgroundColor;
+    margin: 0;
+    border: none;
+    border-radius: $checkboxButtonSize/2;
+    position: absolute;
+    top: $checkboxButtonBorderWidth;
+    left: $checkboxButtonBorderWidth;
+
+    &:after {
+      content: "\e87e";
+      color: $darkShade25;
+      font-family: "Material Icons", sans-serif;
+      font-size: 10px;
+      line-height: 10px;
+      position: absolute;
+      left: 5px - $checkboxButtonBorderWidth;
+      top: 5px - $checkboxButtonBorderWidth;
+    }
+
+    &.ui-state-checked:after {
+      content: "\e87d";
+      color: $purple;
+      left: 5px - $checkboxButtonBorderWidth;
+      top: 5px - $checkboxButtonBorderWidth;
+      position: absolute;
+    }
+  }
+
+  &__text {
+    display: inline-block;
+    max-width: 23ch;
+    position: relative;
+    margin: 0 9px 0 20px;
+  }
+
+  &__hidden-button {
+    display: none;
+  }
+}

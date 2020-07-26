@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import initCheckboxes from '../checkbox/init';
+import initLikes from '../like-button/init';
 
 class Comment {
   $comment;
@@ -14,7 +14,7 @@ class Comment {
   }
 
   _initInnerBlocks() {
-    initCheckboxes(this.$comment);
+    initLikes(this.$comment);
   }
 }
 

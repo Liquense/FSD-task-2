@@ -1,4 +1,5 @@
 include ../checkbox/checkbox
+include ../like-button/like-button
 
 mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} = {})
   article.js-comment.comment
@@ -10,5 +11,5 @@ mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} 
         span.comment__date-time #{dateTime}
     div.comment__content
       div.comment__like
-        +checkbox({text: likesCount, type: "like", isChecked: isLiked})
+        +like({count: likesCount, isChecked: isLiked})
       span.comment__text #{text}

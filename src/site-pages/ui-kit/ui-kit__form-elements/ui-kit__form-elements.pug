@@ -47,12 +47,12 @@ section.form-elements
       div.form-elements__toggles
         +list({type: 'toggle', title: 'toggle', elements: toggleButtons})
       div.form-elements__likes
-        H2.form-elements__likes-header Like button
+        H2.form-elements__likes-header LikeButton button
         div.form-elements__likes-body
           div.form-elements__like
-            +checkbox({text: '2', type: 'like'})
+            +like({count: '2'})
           div.form-elements__like
-            +checkbox({text: '12', type: 'like', isChecked: true})
+            +like({count: '12', isChecked: true})
       div.form-elements__rates
         H2.form-elements__rates-header rate button
         div.form-elements__rates-body

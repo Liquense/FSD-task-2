@@ -1,4 +1,4 @@
-mixin checkbox({isChecked = false, text, type="", isRich = false, additional} = {})
+mixin checkbox({isChecked = false, text, type='', isRich = false, additional} = {})
   -const checkboxClassName = 'checkbox'
   -const labelClassName = `${checkboxClassName}__label`
   -const textClassName = `${checkboxClassName}__text`
@@ -17,12 +17,8 @@ mixin checkbox({isChecked = false, text, type="", isRich = false, additional} = 
     -const typeName = `${((type && type !== 'checkbox') && (type !== 'rich')) ? type : 'default'}`
     -const typeClass = `${classNames[index]}_type_${typeName} `
     -const isInput = value === inputAttrs
-    -const isLabel = value === labelAttrs
-    -const isText = value === textAttrs
-    -const isLike = type === 'like'
-    -const isLikeTextOrLabel = isLike && (isText || isLabel)
 
-    if isInput || isLikeTextOrLabel
+    if isInput
       -value.class += `js-${typeClass} `
     -value.class += `${typeClass} `
 
@@ -35,9 +31,6 @@ mixin checkbox({isChecked = false, text, type="", isRich = false, additional} = 
       - inputAttrs.type = "checkbox"
       if isChecked
         - labelAttrs.class += `${labelClassName}_toggled `
-    when "like"
-      - inputAttrs.type = "checkbox"
-      - labelAttrs["data-likes-count"] = text
     default
       - inputAttrs.type = "checkbox"
 
@@ -45,7 +38,7 @@ mixin checkbox({isChecked = false, text, type="", isRich = false, additional} = 
     each value, index in allAttrs
       - value.class += `${index ? classNames[index] : ''}_rich `
     if additional && additional.description
-      - var description = additional.description
+      - const description = additional.description
 
   -inputAttrs["data-isChecked"] = `${isChecked}`
   div&attributes(checkboxAttrs)
