@@ -14,12 +14,13 @@ mixin list({type='', isExpandable=false, isNarrow=false, isOpened=false, title='
   -const attrs = [listAttrs, titleAttrs, containerAttrs]
 
   each value, index in attrs
-    if type === 'checkbox'
-      -value.class += `${classNames[index]}_type_checkbox `
-    else if type === 'radio'
-      -value.class += `${classNames[index]}_type_radio `
-    else if type === 'toggle'
-      -value.class += `${classNames[index]}_type_toggle `
+    case type
+      when 'checkbox'
+        -value.class += `${classNames[index]}_type_checkbox `
+      when 'radio'
+        -value.class += `${classNames[index]}_type_radio `
+      when 'toggle'
+        -value.class += `${classNames[index]}_type_toggle `
 
     if isExpandable
       -value.class += `${classNames[index]}_expandable `

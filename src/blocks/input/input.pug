@@ -1,26 +1,27 @@
 include ../arrow/arrow
 
-mixin input({title = '', type, width, placeholder, withSubscription = false, isExpandable = false, isFocused = false, inDatepicker = false} = {})
-  -var blockClassName = 'input'
-  -var titleClassName = `${blockClassName}__title`
-  -var controlWrapperCN = `${blockClassName}__control-wrapper`
-  -var controlClassName = `${blockClassName}__control`
-  -var classNames = [blockClassName, titleClassName, controlClassName, controlWrapperCN]
+mixin input({title = '', type, width, placeholder, withSubscription = false, isExpandable = false, isFocused = false} = {})
+  -const blockClassName = 'input'
+  -const titleClassName = `${blockClassName}__title`
+  -const controlWrapperCN = `${blockClassName}__control-wrapper`
+  -const controlClassName = `${blockClassName}__control`
+  -const classNames = [blockClassName, titleClassName, controlClassName, controlWrapperCN]
 
-  -var blockAttributes = {class: `${blockClassName} `}
-  -var titleAttributes = {class: `${inDatepicker || isExpandable ? `js-${titleClassName} ` : ''}${titleClassName} `}
-  -var controlWrapperAttrs = {class: `${controlWrapperCN} `}
-  -var controlAttributes = {class: `${inDatepicker || isExpandable ? `js-${controlClassName} ` : ''}${controlClassName} `,
+  -const blockAttributes = {class: `${blockClassName} `}
+  -const titleAttributes = {class: `js-${titleClassName} ${titleClassName} `}
+  -const controlWrapperAttrs = {class: `${controlWrapperCN} `}
+  -const controlAttributes = {class: `js-${controlClassName} ${controlClassName} `,
   -  placeholder: placeholder}
-  -var allAttrs = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttrs}
+  -const allAttrs = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttrs}
 
   each value, index in Object.values(allAttrs)
-    if width === 'narrow'
-      -value.class += `${classNames[index]}_width_narrow `
-    else if width === 'premedium'
-      -value.class += `${classNames[index]}_width_premedium `
-    else if width === 'medium'
-      -value.class += `${classNames[index]}_width_medium `
+    case width
+      when 'narrow'
+        -value.class += `${classNames[index]}_width_narrow `
+      when 'premedium'
+        -value.class += `${classNames[index]}_width_premedium `
+      when 'medium'
+        -value.class += `${classNames[index]}_width_medium `
 
     if withSubscription
       -value.class += `${classNames[index]}_with-subscription `
@@ -30,12 +31,13 @@ mixin input({title = '', type, width, placeholder, withSubscription = false, isE
     if isFocused
       -value.class += `${classNames[index]}_focused `
 
-    if type === 'text'
-      -value.class += `${classNames[index]}_type_text `
-      -allAttrs.controlAttributes.type = 'text'
-    else if type === 'mask'
-      -const stringToAdd = `${classNames[index]}_type_masked `
-      -value.class += `js-${stringToAdd} ${stringToAdd} `
+    case type
+      when 'text'
+        -value.class += `${classNames[index]}_type_text `
+        -allAttrs.controlAttributes.type = 'text'
+      when 'mask'
+        -const stringToAdd = `${classNames[index]}_type_masked `
+        -value.class += `js-${stringToAdd} ${stringToAdd} `
 
   div&attributes(allAttrs.blockAttributes)
     label&attributes(allAttrs.titleAttributes) #{title}

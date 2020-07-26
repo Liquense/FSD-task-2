@@ -28,20 +28,22 @@ mixin dropdown({title, width, dropdownType, placeholder, range = [0, 5], isUnifi
   if isUnaccepted
     -blockClasses += `${blockClass}_unaccepted `
 
-  else if width === 'medium'
+  -let validWidth = ''
+  if width === 'medium'
     -blockClasses += `${blockClass}_width_medium `
-    -listWrapperClasses += `${listClass}-wrapper_width_medium `
+    -listWrapperClasses += `${listWrapperClass}_width_medium `
+    -validWidth = 'medium'
 
   div(class=blockClasses)
     div(class=`js-${inputClass} ${inputClass}`)
-      +input({title: title, width: width, placeholder: placeholder, isExpandable: true, isFocused: isOpened})
+      +input({title, width: validWidth, placeholder, isExpandable: true, isFocused: isOpened})
     div(class=listWrapperClasses)
       div(class=listClasses)
         each element, index in data
           div.dropdown__list-row
             p.dropdown__list-row-text #{element.name}
             div.dropdown__spinner
-              +spinner({range: range, name: element.name, index, initValue: element.value})
+              +spinner({range, name: element.name, index, initValue: element.value})
       div(class=`js-${buttonsContainerClass} ${buttonsContainerClass}`)
         div(class=`js-${clearButtonClass} ${clearButtonClass}`)
           +button({text: 'Очистить', type: 'text', isHovered: true})
