@@ -6,23 +6,23 @@ include ../../blocks/list/list
 mixin registrationCard({loginURL=''} = {})
   div.js-registration-card.registration-card
     h3.registration-card__title Регистрация аккаунта
-    div.registration-card__user-name
+    div.registration-card__user-name-input
       +input({type: 'text', placeholder: 'Имя'})
-    div.registration-card__user-surname
+    div.registration-card__user-surname-input
       +input({type: 'text', placeholder: 'Фамилия'})
     -var radioButtons = [{text: 'Мужчина', group: 'registrationGender', isChecked: true}]
     -radioButtons.push({text: 'Женщина', group: 'registrationGender'})
     div.registration-card__gender-list
       +list({type: 'radio', elements: radioButtons})
-    div.registration-card__birthday
+    div.registration-card__birthday-input
       +input({title: 'Дата рождения', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
     div.registration-card__login-data-container
       p.registration-card__login-data-title Данные для входа в сервис
-      div.registration-card__email
+      div.registration-card__email-input
         +input({type: 'text', placeholder: 'Email'})
-      div.registration-card__password
+      div.registration-card__password-input
         +input({type: 'text', placeholder: 'Пароль'})
-    div.registration-card__send-offers
+    div.registration-card__send-offers-button
       +checkbox({text: 'Получать спецпредложения', type: 'toggle'})
     div.registration-card__payment-button
       +button({text: 'Перейти к оплате', type: 'filled', size: 'wide', decoration: 'enter-arrow'})

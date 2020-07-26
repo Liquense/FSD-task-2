@@ -28,20 +28,11 @@ $borderWidth: 1px;
     }
   }
 
-  &__user-name,
-  &__user-surname,
-  &__email,
-  &__password {
-    .input__control-wrapper {
-      margin-top: 0;
-    }
-  }
-
-  &__user-name {
+  &__user-name-input {
     margin-bottom: 10px;
   }
 
-  &__user-surname {
+  &__user-surname-input {
     margin-bottom: 10px;
   }
 
@@ -56,7 +47,7 @@ $borderWidth: 1px;
     }
   }
 
-  &__birthday {
+  &__birthday-input {
     margin-bottom: 21px;
   }
 
@@ -69,11 +60,11 @@ $borderWidth: 1px;
     margin: 0 0 6px;
   }
 
-  &__email {
+  &__email-input {
     margin-bottom: 10px;
   }
 
-  &__send-offers {
+  &__send-offers-button {
     align-self: stretch;
     margin-bottom: 24px;
 
