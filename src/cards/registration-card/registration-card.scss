@@ -49,10 +49,6 @@ $borderWidth: 1px;
     align-self: stretch;
     margin-bottom: 23px;
 
-    .list__container .list__input {
-      margin-top: 0;
-    }
-
     @media (max-width: 380px) {
       width: fit-content;
       margin-left: auto;

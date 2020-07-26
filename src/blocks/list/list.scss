@@ -16,11 +16,27 @@ $titleHeight: 12px;
     padding: 0;
     user-select: none;
 
+    &_type_checkbox {
+      margin-bottom: 16px;
+    }
+
+    &_type_radio {
+      margin-bottom: 15px;
+    }
+
+    &_type_toggle {
+      margin-bottom: 15px;
+    }
+
     &_expandable {
       min-width: 266px;
       padding-right: $arrowWrapSize;
       line-height: $titleHeight;
       position: relative;
+
+      &:not(&-opened) {
+        margin-bottom: 0;
+      }
     }
 
     &_expandable-narrow {
@@ -54,12 +70,9 @@ $titleHeight: 12px;
     }
   }
 
-  &__input {
+  &__item {
     &_type_checkbox {
       content: "text";
-      &:first-child {
-        margin-top: 16px;
-      }
       &:not(:last-child) {
         margin-bottom: 10px;
       }
@@ -67,16 +80,15 @@ $titleHeight: 12px;
 
     &_type_radio {
       display: inline-block;
-      margin-top: 15px;
     }
 
     &_type_radio#{&}:not(:last-child) {
       margin-right: 20px;
     }
 
-    &_type_rich {
+    &_rich {
       &:first-child {
-        margin-top: 17px;
+        margin-top: 1px;
       }
       &:not(:last-child) {
         margin-bottom: 9px;
@@ -84,9 +96,6 @@ $titleHeight: 12px;
     }
 
     &_type_toggle {
-      &:first-child {
-        margin-top: 15px;
-      }
       &:not(:last-child) {
         margin-bottom: 13px;
       }

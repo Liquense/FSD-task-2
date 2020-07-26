@@ -36,7 +36,9 @@ mixin list({type='', isExpandable=false, isNarrow=false, isOpened=false, title='
           +arrow({type: 'expand'})
     div&attributes(containerAttrs)
       each value, index in elements
-        div(class=`${listClassName}__input ${listClassName}__input_type_${type}`)
+        -const itemClasses = `${listClassName}__item ${listClassName}__item_type_${type} `
+        -  + `${value.description ? `${listClassName}__item_rich` : ''}`
+        div(class=itemClasses)
           if type === 'radio'
             +radioButton(value)
           else
