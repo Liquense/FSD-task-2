@@ -1,6 +1,7 @@
 include ../../blocks/input/input
-mixin footer({logo='', text='', copyright='', links=[], subscription={}, isSimple=false})
+mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} = {})
   -const typeModifier = isSimple ? '_type_simple' : '_type_large'
+  -const logo = require('../../assets/images/logo-colored-withText.svg');
 
   footer(class=`footer footer${typeModifier}`)
     div(class=`footer__content-section footer__content-section${typeModifier}`)

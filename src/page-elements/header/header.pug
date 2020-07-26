@@ -1,9 +1,10 @@
 include ../../blocks/button/button
 include ../../blocks/arrow/arrow
 
-mixin header({userLogin='', logo='', loginText='Login', registerText='register', content=[], isNarrow=false})
+mixin header({userLogin='', loginText='Login', registerText='register', content=[], isNarrow=false} = {})
   -const headerClass = 'header'
   -const narrowClass = `${headerClass}_narrow`
+  -const logo = require('../../assets/images/logo-colored-withText.svg');
 
   header(class=`${headerClass} ${isNarrow ? narrowClass : ''}`)
     a(class=`js-${headerClass}__logo-link ${headerClass}__logo-link ${isNarrow ? `${headerClass}__logo-link_narrow` : ''}`)
