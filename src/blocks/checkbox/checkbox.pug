@@ -1,4 +1,4 @@
-mixin checkbox({isChecked = false, text, type='', isRich = false, additional} = {})
+mixin checkbox({isChecked=false, text='', type='', description} = {})
   -const checkboxClassName = 'checkbox'
   -const labelClassName = `${checkboxClassName}__label`
   -const textClassName = `${checkboxClassName}__text`
@@ -8,42 +8,27 @@ mixin checkbox({isChecked = false, text, type='', isRich = false, additional} = 
 
   -const checkboxAttrs = {class: `js-${checkboxClassName} ${checkboxClassName} `}
   -const labelAttrs = {class: `${labelClassName} `}
-  -const inputAttrs = {class: `${inputClassName} `}
+  -const inputAttrs = {class: `js-${inputClassName} ${inputClassName} `, type: 'checkbox'}
   -const descriptionAttrs = {class: `${descriptionClassName} `}
   -const textAttrs = {class: `${textClassName} `}
   -const allAttrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
 
   each value, index in Object.values(allAttrs)
-    -const typeName = `${((type && type !== 'checkbox') && (type !== 'rich')) ? type : 'default'}`
-    -const typeClass = `${classNames[index]}_type_${typeName} `
-    -const isInput = value === inputAttrs
+    if description
+      - value.class += `${classNames[index]}_rich `
 
-    if isInput
-      -value.class += `js-${typeClass} `
-    -value.class += `${typeClass} `
-
-  case type
-    when 'radio'
-      - inputAttrs.type = "radio"
-      if additional && additional.group
-        - inputAttrs.name = additional.group
-    when 'toggle'
-      - inputAttrs.type = "checkbox"
-      if isChecked
-        - labelAttrs.class += `${labelClassName}_toggled `
-    default
-      - inputAttrs.type = "checkbox"
-
-  if isRich
-    each value, index in allAttrs
-      - value.class += `${index ? classNames[index] : ''}_rich `
-    if additional && additional.description
-      - const description = additional.description
+    case type
+      when 'toggle'
+        - value.class += `${classNames[index]}_type_toggle `
+        if isChecked
+          - labelAttrs.class += `${labelClassName}_toggled `
+      default
+        - value.class += `${classNames[index]}_type_default `
 
   -inputAttrs["data-isChecked"] = `${isChecked}`
   div&attributes(checkboxAttrs)
     label&attributes(labelAttrs)
       p&attributes(textAttrs) #{text}
       input&attributes(inputAttrs)
-      if isRich
+      if description
         p&attributes(descriptionAttrs) #{description}
