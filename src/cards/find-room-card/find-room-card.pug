@@ -5,9 +5,9 @@ include ../../blocks/button/button
 mixin findRoomCard()
   div.js-find-room-card.find-room-card
     h3.find-room-card__title Найдём номера под ваши пожелания
-    div.find-room-card__range-picker
+    div.find-room-card__in-out-range-picker
       +twoCalendarRangePicker({labels: ['Прибытие', 'Выезд']})
-    div.find-room-card__dropdown
+    div.find-room-card__guests-dropdown
       +dropdown({title: 'Гости', dropdownType: 'customers', placeholder: 'Сколько гостей', data: [{name: 'Взрослые'}, {name: 'Дети'}, {name: 'Младенцы'}]})
-    div.find-room-card__button
+    div.find-room-card__search-button
       +button({text: 'Подобрать номер', type: 'filled', size: 'wide', decoration: 'enter-arrow'})
