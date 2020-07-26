@@ -33,13 +33,13 @@ $titleHeight: 12px;
       padding-right: $arrowWrapSize;
       line-height: $titleHeight;
       position: relative;
-
-      &:not(&-opened) {
-        margin-bottom: 0;
-      }
     }
 
-    &_expandable-narrow {
+    &_expandable#{&}:not(&_expanded) {
+      margin-bottom: 0;
+    }
+
+    &_narrow {
       &:after {
         bottom: 2px;
         left: 13px;

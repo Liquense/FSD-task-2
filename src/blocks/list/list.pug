@@ -15,19 +15,21 @@ mixin list({type='', isExpandable=false, isNarrow=false, isOpened=false, title='
 
   each value, index in attrs
     case type
-      when 'checkbox'
-        -value.class += `${classNames[index]}_type_checkbox `
       when 'radio'
         -value.class += `${classNames[index]}_type_radio `
       when 'toggle'
         -value.class += `${classNames[index]}_type_toggle `
+      when 'checkbox'
+      default
+        -value.class += `${classNames[index]}_type_checkbox `
 
     if isExpandable
       -value.class += `${classNames[index]}_expandable `
-      if isNarrow
-        -value.class += `${classNames[index]}_expandable-narrow `
-      if isOpened
-        -value.class += `${classNames[index]}_expandable-opened `
+
+  if isNarrow
+    -titleAttrs.class += `${titleClassName}_narrow `
+  if isOpened
+    -listAttrs.class += `${listClassName}_expanded `
 
   fieldset&attributes(listAttrs)
     if title

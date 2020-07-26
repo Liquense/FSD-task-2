@@ -1,11 +1,12 @@
 /* eslint-disable no-undef */
-import 'jquery-ui/ui/effects/effect-fade';
 import initArrows from '../arrow/init';
 import initRadioButtons from '../radio-button/init';
 import initCheckboxes from '../checkbox/init';
 
 class List {
   static expandableClass = 'list_expandable';
+
+  static expandedClass = 'list__title_expanded';
 
   $list;
 
@@ -17,7 +18,7 @@ class List {
 
   arrow;
 
-  isOpened;
+  isExpanded;
 
   listItems;
 
@@ -47,12 +48,15 @@ class List {
   }
 
   _initExpandableList() {
-    this.isOpened = this.$list.hasClass('list_expandable-opened');
+    this.isExpanded = this.$list.hasClass('list_expanded');
 
     this._initArrow();
     this._addExpandableEvents();
 
-    if (this.isOpened) this._handleExpandableClick();
+    if (this.isExpanded) {
+      this.isExpanded = !this.isExpanded;
+      this._handleExpandableClick();
+    }
   }
 
   _initArrow() {
@@ -66,10 +70,11 @@ class List {
   }
 
   _handleExpandableClick = () => {
-    this.$arrow.toggleClass('list__expand-arrow_expanded');
-    this.$container.toggle('fade', [], 200);
-    this.$container.toggleClass('list__container_visible');
+    this.isExpanded = !this.isExpanded;
 
+    this.$container.toggleClass('list__container_visible');
+    this.$title.toggleClass('list__title_expanded');
+    this.$arrow.toggleClass('list__expand-arrow_expanded');
     this.arrow.handleArrowChangeState();
   }
 }
