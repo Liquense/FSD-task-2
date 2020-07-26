@@ -23,17 +23,16 @@ mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', s
 
     case size
       when 'wide'
-        -value.class += ` ${classNames[index]}_size_${size} `
+        -value.class += ` ${classNames[index]}_size_wide `
 
-    -let validType = 'filled'
     case type
-      when 'filled'
-        -validType = 'filled'
       when 'bordered'
-        -validType = 'bordered'
+        -value.class += `${classNames[index]}_type_bordered `
       when 'text'
-        -validType = 'text'
-    -value.class += `${classNames[index]}_type_${validType} `
+        -value.class += `${classNames[index]}_type_text `
+      when 'filled'
+      default
+        -value.class += `${classNames[index]}_type_filled `
 
   -const blockTag = isLink ? 'a' : 'div'
   -blockAttributes.class += `js-${blockClassName}`
