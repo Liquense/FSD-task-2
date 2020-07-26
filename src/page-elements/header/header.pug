@@ -11,21 +11,6 @@ mixin header({userLogin='', logo='', loginText='Login', registerText='register',
     div(class=`${headerClass}__content-container ${isNarrow ? `${headerClass}__content-container_narrow` : ''}`)
       ul(class=`${headerClass}__menu ${isNarrow ? `${headerClass}__menu_narrow` : ''}`)
         each item, index in content
-          -function createChildrenRecursive(itemsArray) {
-            if itemsArray
-              div(class=`${headerClass}__submenu ${isNarrow ? `${headerClass}__submenu_narrow` : ''}`)
-                each child in itemsArray
-                  -const itemClasses =
-                  -`${headerClass}__submenu-item ${isNarrow ? `${headerClass}__submenu-item_narrow` : ''}` +
-                  -`${item.bold ?  `${headerClass}__submenu-item_bold` : ''}` +
-                  -`${child.children ? ` ${headerClass}__submenu-item_expandable` : ''}`
-                  div(class=itemClasses) #{child.text}
-                    if child.children
-                      div(class=`${headerClass}__expand-button ${isNarrow ? `${headerClass}__expand-button_narrow` : ''}`)
-                        +arrow({type: 'expand', isRelative: true})
-                    -createChildrenRecursive(child.children)
-          -}
-
           -const itemClasses = `${headerClass}__menu-item ${isNarrow ? `${headerClass}__menu-item_narrow` : ''}` +
           -`${item.bold ? ` ${headerClass}__menu-item_bold` : ''}` +
           -`${item.children ? ` ${headerClass}__menu-item_expandable` : ''}`
@@ -33,7 +18,6 @@ mixin header({userLogin='', logo='', loginText='Login', registerText='register',
             if item.children
               div(class=`${headerClass}__expand-button ${isNarrow ? `${headerClass}__expand-button_narrow` : ''}`)
                 +arrow({type: 'expand', isRelative: true})
-            -createChildrenRecursive(item.children);
       if (userLogin)
         div(class=`${headerClass}__divider ${isNarrow ? `${headerClass}__divider_narrow` : ''}`)
         div(class=`${headerClass}__user-name ${isNarrow ? `${headerClass}__user-name_narrow` : ''}`) #{userLogin}
