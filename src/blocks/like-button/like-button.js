@@ -55,7 +55,6 @@ class LikeButton {
     });
 
     const isChecked = this.$hiddenButton.attr('data-is-checked') === 'true';
-    console.log(isChecked);
     if (isChecked) { checkbox.attr('checked', 'checked').change(); }
   }
 }
