@@ -1,19 +1,13 @@
 mixin featureList({items=[]} = {})
   -const listCN = 'features-list'
-  -const listContainerCN = '__container'
-  -const listItemCN = '__item'
-  -const listItemImageCN = '__item-image'
-  -const listItemTitleCN = '__item-title'
-  -const listItemTextContainerCN = '__item-text-container'
-  -const listItemTextCN = '__item-text'
 
   div(class=listCN)
-    ul(class=`${listCN}${listContainerCN}`)
+    ul(class=`${listCN}__container`)
       each item, index in items
         if index
           hr(class=`${listCN}__divider`)
-        li(class=`${listCN}${listItemCN}`)
-          span(class=`${listCN}${listItemImageCN}`) #{item.icon}
-          div(class=`${listCN}${listItemTextContainerCN}`)
-            h4(class=`${listCN}${listItemTitleCN}`) #{item.title}
-            span(class=`${listCN}${listItemTextCN}`) #{item.text}
+        li(class=`${listCN}__item`)
+          span(class=`${listCN}__item-image`) #{item.icon}
+          div(class=`${listCN}__item-text-container`)
+            h4(class=`${listCN}__item-title`) #{item.title}
+            span(class=`${listCN}__item-text`) #{item.text}
