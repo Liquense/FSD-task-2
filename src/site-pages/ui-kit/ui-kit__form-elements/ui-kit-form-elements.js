@@ -7,11 +7,13 @@ import initSliders from '../../../blocks/slider/init';
 import initTwoCalendarDatepickers from '../../../blocks/two-calendar-range-picker/init';
 import initRatings from '../../../blocks/rating/init';
 import initLikes from '../../../blocks/like-button/init';
+import initRadioButtons from '../../../blocks/radio-button/init';
 
 initDropdowns();
 initMaskedInputs();
 initCheckboxes();
 initLikes();
+initRadioButtons();
 initLists();
 initPaginations();
 initSliders();

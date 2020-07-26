@@ -79,30 +79,6 @@ $toggleCircleWidth: 31.58%;
       }
     }
 
-    &_type_radio {
-      &:hover,
-      &.ui-checkboxradio-checked {
-        color: $darkShade75;
-      }
-
-      &:hover .checkbox__button_type_radio,
-      &.ui-checkboxradio-checked .checkbox__button_type_radio {
-        border-color: $purple;
-      }
-
-      &.ui-checkboxradio-checked .checkbox__button_type_radio:after {
-        content: "";
-        display: block;
-        width: 66.67%;
-        height: 66.67%;
-        left: 16.67%;
-        top: 16.67%;
-        border-radius: 50%;
-        background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-        position: relative;
-      }
-    }
-
     &_type_toggle {
       max-width: none;
 
@@ -158,13 +134,6 @@ $toggleCircleWidth: 31.58%;
         @include textGradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
         text-align: center;
       }
-    }
-
-    &_type_radio {
-      min-width: $checkboxButtonSize;
-      border-radius: 50%;
-      border-color: $darkShade25;
-      background-color: #ffffff;
     }
 
     &_type_toggle {

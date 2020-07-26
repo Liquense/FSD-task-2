@@ -1,5 +1,5 @@
-mixin checkbox({isChecked=false, text='', type='', description} = {})
-  -const checkboxClassName = 'checkbox'
+mixin radioButton({isChecked=false, text, group='', description} = {})
+  -const checkboxClassName = 'radio-button'
   -const labelClassName = `${checkboxClassName}__label`
   -const textClassName = `${checkboxClassName}__text`
   -const inputClassName = `${checkboxClassName}__hidden-button`
@@ -8,22 +8,14 @@ mixin checkbox({isChecked=false, text='', type='', description} = {})
 
   -const checkboxAttrs = {class: `js-${checkboxClassName} ${checkboxClassName} `}
   -const labelAttrs = {class: `${labelClassName} `}
-  -const inputAttrs = {class: `js-${inputClassName} ${inputClassName} `, type: 'checkbox', 'data-is-checked': `${isChecked}`}
+  -const inputAttrs = {class: `js-${inputClassName} ${inputClassName} `, type: 'radio', name: group, 'data-is-checked': `${isChecked}`}
   -const descriptionAttrs = {class: `${descriptionClassName} `}
   -const textAttrs = {class: `${textClassName} `}
   -const allAttrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
 
-  each value, index in Object.values(allAttrs)
-    if description
-      - value.class += `${classNames[index]}_rich `
-
-    case type
-      when 'toggle'
-        - value.class += `${classNames[index]}_type_toggle `
-        if isChecked
-          - labelAttrs.class += `${labelClassName}_toggled `
-      default
-        - value.class += `${classNames[index]}_type_default `
+  if description
+    each value, index in allAttrs
+      - value.class += `${index ? classNames[index] : ''}_rich `
 
   div&attributes(checkboxAttrs)
     label&attributes(labelAttrs)
