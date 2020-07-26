@@ -9,9 +9,10 @@ $paddingLeft: 15px - $borderWidth;
 $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
 .input {
+  display: block;
   height: fit-content;
+  width: fit-content;
   min-width: 320px;
-  width: 100%;
   @include boxSizingBorderBox();
 
   &_width_narrow {
@@ -28,6 +29,8 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   &__title {
     @include text_label-CTA();
+    margin: 0 0 3px 0;
+    width: fit-content;
     display: block;
     line-height: $lineHeight;
 
@@ -38,7 +41,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   &__control-wrapper {
     display: inline-block;
-    margin-top: 3px;
     position: relative;
     max-width: 320px;
     width: 100%;

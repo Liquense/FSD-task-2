@@ -39,15 +39,14 @@ mixin input({title = '', type, width, placeholder, withSubscription = false, isE
         -const stringToAdd = `${classNames[index]}_type_masked `
         -value.class += `js-${stringToAdd} ${stringToAdd} `
 
-  div&attributes(allAttrs.blockAttributes)
-    label&attributes(allAttrs.titleAttributes) #{title}
-      if title
-        br
-      div&attributes(allAttrs.controlWrapperAttrs)
-        input&attributes(allAttrs.controlAttributes)
-        if withSubscription
-          div.input__arrow_with-subscription
-            +arrow({type: 'enter', isColored: true, isBold: true})
-        else if isExpandable
-          div.input__arrow_expandable
-            +arrow({type: 'expand'})
+  label&attributes(allAttrs.blockAttributes)
+    if title
+      p&attributes(allAttrs.titleAttributes) #{title}
+    div&attributes(allAttrs.controlWrapperAttrs)
+      input&attributes(allAttrs.controlAttributes)
+      if withSubscription
+        div.input__arrow_with-subscription
+          +arrow({type: 'enter', isColored: true, isBold: true})
+      else if isExpandable
+        div.input__arrow_expandable
+          +arrow({type: 'expand'})

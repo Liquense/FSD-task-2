@@ -19,7 +19,7 @@
   &__title {
     @include text_item-title();
     align-self: stretch;
-    margin: 0 0 17px;
+    margin: 0 0 20px;
     font-size: 24px;
     line-height: 30px;
 
@@ -36,7 +36,7 @@
   }
 
   &__email-input {
-    margin-bottom: 6px;
+    margin-bottom: 9px;
   }
 
   &__password-input {
