@@ -3,6 +3,8 @@ include ../../../blocks/input/input
 include ../../../blocks/two-calendar-range-picker/two-calendar-range-picker
 include ../../../blocks/datepicker-block/datepicker-block
 include ../../../blocks/checkbox/checkbox
+include ../../../blocks/like-button/like-button
+include ../../../blocks/radio-button/radio-button
 include ../../../blocks/list/list
 include ../../../blocks/bullet-list/bullet-list
 include ../../../blocks/features-list/features-list
@@ -110,12 +112,10 @@ section.form-elements
         div.form-elements__expanded-list
           +list({type: 'checkbox', isExpandable: true, isOpened: true, title: 'Expandable Checkbox List', elements: checkButtonsExpandable})
 
-      -const richButtons = [{
-      -text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'}]
-      -richButtons.push({text: 'Помощник для инвалидов',
-      -description: 'На 1 этаже вас встретит специалист \n и проводит до номера.'})
+      -const richCheckboxes = [{text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'}]
+      -richCheckboxes.push({text: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \n и проводит до номера.'})
       div.form-elements__rich-list
-        +list({type: 'rich', title: 'Rich checkbox buttons', elements: richButtons})
+        +list({type: 'checkbox', title: 'Rich checkbox buttons', elements: richCheckboxes})
 
       div.form-elements__bullet-list
         +bulletList({

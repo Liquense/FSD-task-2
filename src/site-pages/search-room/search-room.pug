@@ -70,7 +70,7 @@ html(lang='ru')
         -richButtons.push({text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'});
         -richButtons.push({text: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'});
         div.search-room__availability-filter
-          +list({type: 'rich', title: 'Доступность', elements: richButtons})
+          +list({type: 'checkbox', title: 'Доступность', elements: richButtons})
         div.search-room__room-equipment-filter
           +dropdown({title: 'Удобства номера', width: 'medium', dropdownType: 'rooms', placeholder: 'Комплектация номера',
             data: [{name: 'Спальни', value: 2}, {name: 'Кровати', value: 2}, {name: 'Ванные комнаты', value: 0}]

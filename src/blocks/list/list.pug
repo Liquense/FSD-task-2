@@ -1,7 +1,8 @@
 include ../checkbox/checkbox
+include ../radio-button/radio-button
 include ../arrow/arrow
 
-mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false, title = "", elements = []} = {})
+mixin list({type='', isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
   -const listClassName = 'list'
   -const titleClassName = `${listClassName}__title`
   -const containerClassName = `${listClassName}__container`
@@ -12,23 +13,13 @@ mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false,
   -const containerAttrs = {class: `js-${containerClassName} ${containerClassName} `}
   -const attrs = [listAttrs, titleAttrs, containerAttrs]
 
-  -let inputType = ''
-  -let isRich = false;
-
   each value, index in attrs
-    if type.includes("checkbox")
+    if type === 'checkbox'
       -value.class += `${classNames[index]}_type_checkbox `
-      -inputType = "checkbox"
-    else if type.includes("radio")
+    else if type === 'radio'
       -value.class += `${classNames[index]}_type_radio `
-      -inputType = "radio"
-    else if type.includes("toggle")
+    else if type === 'toggle'
       -value.class += `${classNames[index]}_type_toggle `
-      -inputType = "toggle"
-    else if type.includes("rich")
-      -value.class += `${classNames[index]}_type_rich `
-      -inputType = "rich"
-      -isRich = true
 
     if isExpandable
       -value.class += `${classNames[index]}_expandable `
@@ -45,8 +36,8 @@ mixin list({type = "", isExpandable = false, isNarrow = false, isOpened = false,
           +arrow({type: 'expand'})
     div&attributes(containerAttrs)
       each value, index in elements
-        div(class=`${listClassName}__input ${listClassName}__input_type_${inputType}`)
-          +checkbox({
-            text: value.text, type: `${inputType}`, isRich: isRich,
-            additional: value, isChecked: value.isChecked
-          })
+        div(class=`${listClassName}__input ${listClassName}__input_type_${type}`)
+          if type === 'radio'
+            +radioButton(value)
+          else
+            +checkbox(Object.assign(value, {type}))
