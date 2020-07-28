@@ -6,6 +6,9 @@ import initDropdowns from '../../blocks/dropdown/init';
 import initSliders from '../../blocks/slider/init';
 import initLists from '../../blocks/list/init';
 import initCheckboxes from '../../blocks/checkbox/init';
+import initHeaders from '../../page-elements/header/init';
+
+initHeaders();
 
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));

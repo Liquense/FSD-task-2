@@ -15,9 +15,7 @@ body {
     max-height: $backgroundImageHeight;
 
     .registration-login__background-image {
-      height: 100%;
       min-height: 380px;
-      object-position: 0 get-vw(-70px);
 
       @media (max-width: 1400px) {
         object-position: 0;

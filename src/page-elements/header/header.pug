@@ -6,7 +6,7 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
   -const narrowClass = `${headerClass}_narrow`
   -const logo = require('../../assets/images/logo-colored-withText.svg');
 
-  header(class=`${headerClass} ${isNarrow ? narrowClass : ''}`)
+  header(class=`js-${headerClass} ${headerClass} ${isNarrow ? narrowClass : ''}`)
     a(class=`js-${headerClass}__logo-link ${headerClass}__logo-link ${isNarrow ? `${headerClass}__logo-link_narrow` : ''}`)
       img(src=logo alt='logo' class=`${headerClass}__logo ${isNarrow ? `${headerClass}__logo_narrow` : ''}`)
     div(class=`${headerClass}__content-container ${isNarrow ? `${headerClass}__content-container_narrow` : ''}`)
