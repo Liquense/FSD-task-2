@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import initArrows from '../arrow/init';
 import initRadioButtons from '../radio-button/init';
 import initCheckboxes from '../checkbox/init';

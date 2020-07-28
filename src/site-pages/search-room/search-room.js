@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { importCommon, importContext } from '../../index';
 import initRoomPreviewCards from '../../cards/room-preview-card/init';
 import initPaginations from '../../blocks/pagination/init';

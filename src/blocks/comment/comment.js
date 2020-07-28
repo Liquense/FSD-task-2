@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import initLikes from '../like-button/init';
 
 class Comment {

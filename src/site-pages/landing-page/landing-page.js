@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { importCommon, importContext } from '../../index';
 import initFindRoomCards from '../../cards/find-room-card/init';
 

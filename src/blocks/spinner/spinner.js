@@ -1,4 +1,3 @@
-/* eslint-disable no-undef,no-underscore-dangle */
 import 'jquery-ui/ui/widgets/spinner';
 
 class Spinner {

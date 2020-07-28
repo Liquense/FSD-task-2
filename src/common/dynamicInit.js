@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 function initBlocks(rootElement, selector, ClassToInit, ...classInitParams) {
   const blockInstanceKey = `${ClassToInit.className}Instance`;
   const blocks = [];

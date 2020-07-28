@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 const indexURL = 'landing-page.html';
 const $logoLink = $('.js-header__logo-link');
 $logoLink.attr('href', indexURL);

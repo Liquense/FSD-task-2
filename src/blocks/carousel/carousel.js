@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import 'slick-carousel';
 import '../../../node_modules/slick-carousel/slick/slick.css';
 

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import 'air-datepicker';
 import arrowBack from '../../assets/images/arrow-back.svg';
 import initArrows from '../arrow/init';

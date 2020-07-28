@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import 'jquery-ui/ui/effects/effect-fade';
 
 import { ruDeclination } from '../../common/functions';

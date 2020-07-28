@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { formatNumber, ruDeclination } from '../../common/functions';
 import initDropdowns from '../../blocks/dropdown/init';
 import initTwoCalendarDatepickers from '../../blocks/two-calendar-range-picker/init';

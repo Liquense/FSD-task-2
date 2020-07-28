@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import 'jquery.maskedinput/src/jquery.maskedinput';
 
 class MaskedInput {

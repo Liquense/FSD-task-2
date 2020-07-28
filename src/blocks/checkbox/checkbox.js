@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import 'jquery-ui/ui/widgets/checkboxradio';
 
 class Checkbox {

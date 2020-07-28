@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-// jquery подключена вебпаком
 import DatepickerBlock from '../datepicker-block/datepicker-block';
 import initDatepickers from '../datepicker-block/init';
 

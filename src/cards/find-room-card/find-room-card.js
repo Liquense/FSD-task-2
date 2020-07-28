@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import initTwoCalendarDatepickers from '../../blocks/two-calendar-range-picker/init';
 import initDropdowns from '../../blocks/dropdown/init';
 

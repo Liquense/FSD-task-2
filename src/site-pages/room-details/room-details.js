@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import { importCommon, importContext } from '../../index';
 
 import initDonutCharts from '../../blocks/donut-chart/init';

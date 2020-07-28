@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import initBookingCards from '../../../cards/booking-card/init';
 import initFindRoomCards from '../../../cards/find-room-card/init';
 import initRegistrationCards from '../../../cards/registration-card/init';

@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import initLists from '../../blocks/list/init';
 import initCheckboxes from '../../blocks/checkbox/init';
 

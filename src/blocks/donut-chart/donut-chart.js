@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-// jquery объявлена глобально вебпаком
 import { getAverageNum, ruDeclination } from '../../common/functions';
 
 class DonutChart {

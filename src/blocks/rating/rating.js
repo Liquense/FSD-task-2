@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 class Rating {
   static states = { empty: 'star_border', half: 'star_half', full: 'star' };
 
