@@ -1,11 +1,11 @@
 mixin rateButton({maxRating = 5, rating = -1} = {})
   -const rateButtonClass = 'rating'
-  -const starClassName = `${rateButtonClass}__star`
-  -const starAttrs = {class: `js-${starClassName} ${starClassName}`}
+  -const starClass = `${rateButtonClass}__star`
+  -const starAttributes = {class: `js-${starClass} ${starClass}`}
 
   div(class=`js-${rateButtonClass} ${rateButtonClass}` data-maxRating=maxRating data-rating=rating)
     - var i = 1
     while i <= maxRating
-      - starAttrs["data-index"] = i
-      label&attributes(starAttrs) star
+      - starAttributes["data-index"] = i
+      label&attributes(starAttributes) star
       - i++

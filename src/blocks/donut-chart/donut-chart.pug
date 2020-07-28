@@ -1,17 +1,17 @@
 mixin donut-chart({data=[], defaultStyle={}, activeStyle={}, arcsGap=0} = {})
-  -const donutChartCN = 'donut-chart'
-  -const imageContainerCN = `${donutChartCN}__image-container`
-  -const svgCN = `${donutChartCN}__svg`
-  -const svgArcCN = `${donutChartCN}__svg-arc`
-  -const activeDataCN = `${donutChartCN}__active-data`
-  -const activeValueCN = `${donutChartCN}__active-value`
-  -const valueTextCN = `${donutChartCN}__value-text`
-  -const legendCN = `${donutChartCN}__legend`
-  -const legendItemCN = `${donutChartCN}__legend-item`
+  -const donutChartClass = 'donut-chart'
+  -const imageContainerClass = `${donutChartClass}__image-container`
+  -const svgClass = `${donutChartClass}__svg`
+  -const svgArcClass = `${donutChartClass}__svg-arc`
+  -const activeDataClass = `${donutChartClass}__active-data`
+  -const activeValueClass = `${donutChartClass}__active-value`
+  -const valueTextClass = `${donutChartClass}__value-text`
+  -const legendClass = `${donutChartClass}__legend`
+  -const legendItemClass = `${donutChartClass}__legend-item`
 
   div(class=`js-donut-chart donut-chart`)
-    div(class=`${imageContainerCN}`)
-      svg(class=`js-${svgCN} ${svgCN}` width="200" height="200" preserveAspectRatio="xMidYMid meet"
+    div(class=`${imageContainerClass}`)
+      svg(class=`js-${svgClass} ${svgClass}` width="200" height="200" preserveAspectRatio="xMidYMid meet"
         data-arcs-gap=arcsGap
         data-default-outer-radius=defaultStyle.outerRadius data-default-inner-radius=defaultStyle.innerRadius
         data-active-outer-radius=activeStyle.outerRadius data-active-inner-radius=activeStyle.innerRadius)
@@ -21,13 +21,13 @@ mixin donut-chart({data=[], defaultStyle={}, activeStyle={}, arcsGap=0} = {})
               stop(stop-color=arc.firstColor)
               stop(offset="100%" stop-color=arc.secondColor)
         each arc, index in data
-          path(class=`js-${svgArcCN} ${svgArcCN}` stroke=`url(#grad${index})` fill="transparent"
+          path(class=`js-${svgArcClass} ${svgArcClass}` stroke=`url(#grad${index})` fill="transparent"
             data-value=arc.value data-is-active=`${arc.isActive}` data-color=arc.firstColor)
-      div(class=`js-${activeDataCN} ${activeDataCN}`)
-        span(class=`js-${activeValueCN} ${activeValueCN}`)
-        span(class=`js-${valueTextCN} ${valueTextCN}`)
-    ul(class=`js-${legendCN} ${legendCN}`)
+      div(class=`js-${activeDataClass} ${activeDataClass}`)
+        span(class=`js-${activeValueClass} ${activeValueClass}`)
+        span(class=`js-${valueTextClass} ${valueTextClass}`)
+    ul(class=`js-${legendClass} ${legendClass}`)
       each arc in data
-        li(class=`js-${legendItemCN} ${legendItemCN}`
+        li(class=`js-${legendItemClass} ${legendItemClass}`
           style=`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%);`
           ) #{arc.caption}

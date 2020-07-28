@@ -2,15 +2,15 @@ include ../../blocks/arrow/arrow
 include ../../blocks/input/input
 
 mixin datepicker({title = "", width, placeholder, isInline = false, data = undefined} = {})
-  -const datepickerCN = 'datepicker-block'
-  -const inputWrapCN = `${datepickerCN}__input-wrap`
-  -const inlineInputWrapCN = `${inputWrapCN}_inline`
+  -const datepickerClass = 'datepicker-block'
+  -const inputWrapClass = `${datepickerClass}__input-wrap`
+  -const inlineInputWrapClass = `${inputWrapClass}_inline`
 
-  - const inputWrapAttributes = {class: `js-${inputWrapCN} ${inputWrapCN} `}
-  - inputWrapAttributes.class += `${isInline ? `js-${inlineInputWrapCN} ${inlineInputWrapCN}` : ''}`
+  - const inputWrapAttributes = {class: `js-${inputWrapClass} ${inputWrapClass} `}
+  - inputWrapAttributes.class += `${isInline ? `js-${inlineInputWrapClass} ${inlineInputWrapClass}` : ''}`
   - inputWrapAttributes['data-first-date'] = data ? data[0] : ''
   - inputWrapAttributes['data-second-date'] = data ? data[1] : ''
 
-  div(class=`js-${datepickerCN} ${datepickerCN}`)
+  div(class=`js-${datepickerClass} ${datepickerClass}`)
     div&attributes(inputWrapAttributes)
       +input({title: title, width: width, placeholder: placeholder, isExpandable: !isInline, inDatepicker: true})

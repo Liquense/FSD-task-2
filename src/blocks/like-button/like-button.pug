@@ -1,19 +1,19 @@
 mixin like({isChecked=false, count=0} = {})
-  -const likeClassName = 'like-button'
-  -const labelClassName = `${likeClassName}__label`
-  -const textClassName = `${likeClassName}__text`
-  -const inputClassName = `${likeClassName}__hidden-button`
-  -const descriptionClassName = `${likeClassName}__description`
-  -const classNames = [likeClassName, labelClassName, inputClassName, descriptionClassName, textClassName]
+  -const likeClass = 'like-button'
+  -const labelClass = `${likeClass}__label`
+  -const textClass = `${likeClass}__text`
+  -const inputClass = `${likeClass}__hidden-button`
+  -const descriptionClass = `${likeClass}__description`
+  -const classNames = [likeClass, labelClass, inputClass, descriptionClass, textClass]
 
-  -const checkboxAttrs = {class: `js-${likeClassName} ${likeClassName} `}
-  -const labelAttrs = {class: `js-${labelClassName} ${labelClassName} `, 'data-likes-count': count}
-  -const inputAttrs = {class: `js-${inputClassName} ${inputClassName} `, type: 'checkbox', 'data-is-checked': `${isChecked}`}
-  -const descriptionAttrs = {class: `${descriptionClassName} `}
-  -const textAttrs = {class: `js-${textClassName} ${textClassName} `}
-  -const allAttrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
+  -const checkboxAttributes = {class: `js-${likeClass} ${likeClass} `}
+  -const labelAttributes = {class: `js-${labelClass} ${labelClass} `, 'data-likes-count': count}
+  -const inputAttributes = {class: `js-${inputClass} ${inputClass} `, type: 'checkbox', 'data-is-checked': `${isChecked}`}
+  -const descriptionAttributes = {class: `${descriptionClass} `}
+  -const textAttributes = {class: `js-${textClass} ${textClass} `}
+  -const allAttributes = [checkboxAttributes, labelAttributes, inputAttributes, descriptionAttributes, textAttributes]
 
-  div&attributes(checkboxAttrs)
-    label&attributes(labelAttrs)
-      p&attributes(textAttrs) #{count}
-      input&attributes(inputAttrs)
+  div&attributes(checkboxAttributes)
+    label&attributes(labelAttributes)
+      p&attributes(textAttributes) #{count}
+      input&attributes(inputAttributes)

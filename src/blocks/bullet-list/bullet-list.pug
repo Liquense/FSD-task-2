@@ -1,16 +1,16 @@
 mixin bulletList({title = "", contentStrings = []} = {})
-  -const listCN = "bullet-list"
-  -const listTitleCN = "__title"
-  -const listContainerCN = "__container"
-  -const listElementCN = "__item"
-  -const listElementImageCN = "__item-image"
-  -const listElementTextCN = "__item-text"
+  -const listClass = "bullet-list"
+  -const listTitleClass = "__title"
+  -const listContainerClass = "__container"
+  -const listElementClass = "__item"
+  -const listElementImageClass = "__item-image"
+  -const listElementTextClass = "__item-text"
 
-  div(class=listCN)
+  div(class=listClass)
     if title
-      h4(class=`${listCN}${listTitleCN}`) #{title}
-    ul(class=`${listCN}${listContainerCN}`)
+      h4(class=`${listClass}${listTitleClass}`) #{title}
+    ul(class=`${listClass}${listContainerClass}`)
       each string, index in contentStrings
-        li(class=`${listCN}${listElementCN}`)
-          div(class=`${listCN}${listElementImageCN}`)
-          span(class=`${listCN}${listElementTextCN}`) #{string}
+        li(class=`${listClass}${listElementClass}`)
+          div(class=`${listClass}${listElementImageClass}`)
+          span(class=`${listClass}${listElementTextClass}`) #{string}

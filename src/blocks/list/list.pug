@@ -3,17 +3,17 @@ include ../radio-button/radio-button
 include ../arrow/arrow
 
 mixin list({type='', isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
-  -const listClassName = 'list'
-  -const titleClassName = `${listClassName}__title`
-  -const containerClassName = `${listClassName}__container`
-  -const classNames = [listClassName, titleClassName, containerClassName]
+  -const listClass = 'list'
+  -const titleClass = `${listClass}__title`
+  -const containerClass = `${listClass}__container`
+  -const classNames = [listClass, titleClass, containerClass]
 
-  -const listAttrs = {class: `js-${listClassName} ${listClassName} `}
-  -const titleAttrs = {class: `js-${titleClassName} ${titleClassName} `}
-  -const containerAttrs = {class: `js-${containerClassName} ${containerClassName} `}
-  -const attrs = [listAttrs, titleAttrs, containerAttrs]
+  -const listAttributes = {class: `js-${listClass} ${listClass} `}
+  -const titleAttributes = {class: `js-${titleClass} ${titleClass} `}
+  -const containerAttributes = {class: `js-${containerClass} ${containerClass} `}
+  -const allAttributes = [listAttributes, titleAttributes, containerAttributes]
 
-  each value, index in attrs
+  each value, index in allAttributes
     case type
       when 'radio'
         -value.class += `${classNames[index]}_type_radio `
@@ -27,20 +27,20 @@ mixin list({type='', isExpandable=false, isNarrow=false, isOpened=false, title='
       -value.class += `${classNames[index]}_expandable `
 
   if isNarrow
-    -titleAttrs.class += `${titleClassName}_narrow `
+    -titleAttributes.class += `${titleClass}_narrow `
   if isOpened
-    -listAttrs.class += `${listClassName}_expanded `
+    -listAttributes.class += `${listClass}_expanded `
 
-  fieldset&attributes(listAttrs)
+  fieldset&attributes(listAttributes)
     if title
-      legend&attributes(titleAttrs) #{title}
+      legend&attributes(titleAttributes) #{title}
       if isExpandable
         div.list__expand-arrow
           +arrow({type: 'expand'})
-    div&attributes(containerAttrs)
+    div&attributes(containerAttributes)
       each value, index in elements
-        -const itemClasses = `${listClassName}__item ${listClassName}__item_type_${type} `
-        -  + `${value.description ? `${listClassName}__item_rich` : ''}`
+        -const itemClasses = `${listClass}__item ${listClass}__item_type_${type} `
+        -  + `${value.description ? `${listClass}__item_rich` : ''}`
         div(class=itemClasses)
           if type === 'radio'
             +radioButton(value)

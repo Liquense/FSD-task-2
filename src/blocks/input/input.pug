@@ -1,20 +1,20 @@
 include ../arrow/arrow
 
-mixin input({title = '', type, width, placeholder, withSubscription = false, isExpandable = false, isFocused = false} = {})
-  -const blockClassName = 'input'
-  -const titleClassName = `${blockClassName}__title`
-  -const controlWrapperCN = `${blockClassName}__control-wrapper`
-  -const controlClassName = `${blockClassName}__control`
-  -const classNames = [blockClassName, titleClassName, controlClassName, controlWrapperCN]
+mixin input({title='', type, width, placeholder, withSubscription=false, isExpandable=false, isFocused=false} = {})
+  -const blockClass = 'input'
+  -const titleClass = `${blockClass}__title`
+  -const controlWrapperClass = `${blockClass}__control-wrapper`
+  -const controlClass = `${blockClass}__control`
+  -const classNames = [blockClass, titleClass, controlClass, controlWrapperClass]
 
-  -const blockAttributes = {class: `${blockClassName} `}
-  -const titleAttributes = {class: `js-${titleClassName} ${titleClassName} `}
-  -const controlWrapperAttrs = {class: `${controlWrapperCN} `}
-  -const controlAttributes = {class: `js-${controlClassName} ${controlClassName} `,
+  -const blockAttributes = {class: `${blockClass} `}
+  -const titleAttributes = {class: `js-${titleClass} ${titleClass} `}
+  -const controlWrapperAttributes = {class: `${controlWrapperClass} `}
+  -const controlAttributes = {class: `js-${controlClass} ${controlClass} `,
   -  placeholder: placeholder}
-  -const allAttrs = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttrs}
+  -const allAttributes = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttributes}
 
-  each value, index in Object.values(allAttrs)
+  each value, index in Object.values(allAttributes)
     case width
       when 'narrow'
         -value.class += `${classNames[index]}_width_narrow `
@@ -34,16 +34,16 @@ mixin input({title = '', type, width, placeholder, withSubscription = false, isE
     case type
       when 'text'
         -value.class += `${classNames[index]}_type_text `
-        -allAttrs.controlAttributes.type = 'text'
+        -allAttributes.controlAttributes.type = 'text'
       when 'mask'
         -const stringToAdd = `${classNames[index]}_type_masked `
         -value.class += `js-${stringToAdd} ${stringToAdd} `
 
-  label&attributes(allAttrs.blockAttributes)
+  label&attributes(allAttributes.blockAttributes)
     if title
-      p&attributes(allAttrs.titleAttributes) #{title}
-    div&attributes(allAttrs.controlWrapperAttrs)
-      input&attributes(allAttrs.controlAttributes)
+      p&attributes(allAttributes.titleAttributes) #{title}
+    div&attributes(allAttributes.controlWrapperAttributes)
+      input&attributes(allAttributes.controlAttributes)
       if withSubscription
         div.input__arrow_with-subscription
           +arrow({type: 'enter', isColored: true, isBold: true})

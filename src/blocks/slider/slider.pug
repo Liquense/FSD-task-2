@@ -6,20 +6,20 @@ mixin slider({minValue = 0, maxValue = 10, step = 1, title = "", isRange = false
   -const containerClass = `${sliderClass}__container`
   -const controlClass = `${sliderClass}__control`
 
-  -const sliderAttrs = {class: `js-${sliderClass} ${sliderClass}`}
-  -const textAttrs = {class: textClass}
-  -const titleAttrs = {class: titleClass}
-  -const valueAttrs = {class: `js-${valueClass} ${valueClass}`}
-  -const containerAttrs = {class: containerClass}
-  -const controlAttrs = {class: `js-${controlClass} ${controlClass}`, ['data-min']: minValue, ['data-max']: maxValue, ['data-step']: step, ['data-first-value']: initialValues[0]}
+  -const sliderAttributes = {class: `js-${sliderClass} ${sliderClass}`}
+  -const textAttributes = {class: textClass}
+  -const titleAttributes = {class: titleClass}
+  -const valueAttributes = {class: `js-${valueClass} ${valueClass}`}
+  -const containerAttributes = {class: containerClass}
+  -const controlAttributes = {class: `js-${controlClass} ${controlClass}`, ['data-min']: minValue, ['data-max']: maxValue, ['data-step']: step, ['data-first-value']: initialValues[0]}
 
   if isRange
-    -controlAttrs.class += ` ${controlClass}_range `
-    -controlAttrs['data-second-value'] = initialValues[1]
+    -controlAttributes.class += ` ${controlClass}_range `
+    -controlAttributes['data-second-value'] = initialValues[1]
 
-  div&attributes(sliderAttrs)
-    div&attributes(textAttrs)
-      p&attributes(titleAttrs) #{title}
-      p&attributes(valueAttrs) ₽
-    div&attributes(containerAttrs)
-      div&attributes(controlAttrs)
+  div&attributes(sliderAttributes)
+    div&attributes(textAttributes)
+      p&attributes(titleAttributes) #{title}
+      p&attributes(valueAttributes) ₽
+    div&attributes(containerAttributes)
+      div&attributes(controlAttributes)

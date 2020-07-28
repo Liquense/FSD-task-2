@@ -1,13 +1,13 @@
 mixin pagination({pageSize = 12} = {})
-  -const paginationClassName = 'pagination'
-  -const contentContainerClassName = `${paginationClassName}__content-container`
-  -const buttonsContainerClassName = `${paginationClassName}__buttons-container`
+  -const paginationClass = 'pagination'
+  -const contentContainerClass = `${paginationClass}__content-container`
+  -const buttonsContainerClass = `${paginationClass}__buttons-container`
 
-  -const paginationAttrs = {class: `js-${paginationClassName} ${paginationClassName}`}
-  -const contentAttrs = {class: `js-${contentContainerClassName} ${contentContainerClassName} `}
-  -const buttonsAttrs =	{class: `js-${buttonsContainerClassName} ${buttonsContainerClassName} `}
+  -const paginationAttributes = {class: `js-${paginationClass} ${paginationClass}`}
+  -const contentAttributes = {class: `js-${contentContainerClass} ${contentContainerClass} `}
+  -const buttonsAttributes =	{class: `js-${buttonsContainerClass} ${buttonsContainerClass} `}
 
-  div&attributes(paginationAttrs)(data-page-size=pageSize)
-    div&attributes(contentAttrs)
+  div&attributes(paginationAttributes)(data-page-size=pageSize)
+    div&attributes(contentAttributes)
       block
-    div&attributes(buttonsAttrs)
+    div&attributes(buttonsAttributes)

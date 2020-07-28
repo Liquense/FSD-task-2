@@ -1,15 +1,15 @@
 include ../arrow/arrow
 mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', size = '', decoration = '', isHovered = false} = {})
-  - const blockClassName = 'button'
-  - const borderClassName = `${blockClassName}__border`
-  - const controlClassName = `${blockClassName}__control`
-  - const decorationCN = `${blockClassName}__decoration`
-  - const classNames = [blockClassName, borderClassName, controlClassName, decorationCN]
+  - const blockClass = 'button'
+  - const borderClass = `${blockClass}__border`
+  - const controlClass = `${blockClass}__control`
+  - const decorationClass = `${blockClass}__decoration`
+  - const classNames = [blockClass, borderClass, controlClass, decorationClass]
 
-  - const blockAttributes = {class: `${blockClassName} `}
-  - const borderAttributes = {class: `${borderClassName} `}
-  - const controlAttributes = {class: `${controlClassName} `}
-  - const decorationAttributes = {class: `${decorationCN} `}
+  - const blockAttributes = {class: `${blockClass} `}
+  - const borderAttributes = {class: `${borderClass} `}
+  - const controlAttributes = {class: `${controlClass} `}
+  - const decorationAttributes = {class: `${decorationClass} `}
   - const allAttributes = [blockAttributes, borderAttributes, controlAttributes, decorationAttributes]
 
   each value, index in Object.values(allAttributes)
@@ -34,7 +34,7 @@ mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', s
         -value.class += `${classNames[index]}_type_filled `
 
   -const blockTag = isLink ? 'a' : 'div'
-  -blockAttributes.class += `js-${blockClassName}`
+  -blockAttributes.class += `js-${blockClass}`
   #{blockTag}(class=blockAttributes.class)
     button&attributes(controlAttributes) #{text}
     if decoration === 'enter-arrow'

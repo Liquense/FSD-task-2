@@ -1,25 +1,25 @@
 mixin radioButton({isChecked=false, text, group='', description} = {})
-  -const checkboxClassName = 'radio-button'
-  -const labelClassName = `${checkboxClassName}__label`
-  -const textClassName = `${checkboxClassName}__text`
-  -const inputClassName = `${checkboxClassName}__hidden-button`
-  -const descriptionClassName = `${checkboxClassName}__description`
-  -const classNames = [checkboxClassName, labelClassName, inputClassName, descriptionClassName, textClassName]
+  -const checkboxClass = 'radio-button'
+  -const labelClass = `${checkboxClass}__label`
+  -const textClass = `${checkboxClass}__text`
+  -const inputClass = `${checkboxClass}__hidden-button`
+  -const descriptionClass = `${checkboxClass}__description`
+  -const classNames = [checkboxClass, labelClass, inputClass, descriptionClass, textClass]
 
-  -const checkboxAttrs = {class: `js-${checkboxClassName} ${checkboxClassName} `}
-  -const labelAttrs = {class: `${labelClassName} `}
-  -const inputAttrs = {class: `js-${inputClassName} ${inputClassName} `, type: 'radio', name: group, 'data-is-checked': `${isChecked}`}
-  -const descriptionAttrs = {class: `${descriptionClassName} `}
-  -const textAttrs = {class: `${textClassName} `}
-  -const allAttrs = [checkboxAttrs, labelAttrs, inputAttrs, descriptionAttrs, textAttrs]
+  -const checkboxAttributes = {class: `js-${checkboxClass} ${checkboxClass} `}
+  -const labelAttributes = {class: `${labelClass} `}
+  -const inputAttributes = {class: `js-${inputClass} ${inputClass} `, type: 'radio', name: group, 'data-is-checked': `${isChecked}`}
+  -const descriptionAttributes = {class: `${descriptionClass} `}
+  -const textAttributes = {class: `${textClass} `}
+  -const allAttributes = [checkboxAttributes, labelAttributes, inputAttributes, descriptionAttributes, textAttributes]
 
   if description
-    each value, index in allAttrs
+    each value, index in allAttributes
       - value.class += `${index ? classNames[index] : ''}_rich `
 
-  div&attributes(checkboxAttrs)
-    label&attributes(labelAttrs)
-      p&attributes(textAttrs) #{text}
-      input&attributes(inputAttrs)
+  div&attributes(checkboxAttributes)
+    label&attributes(labelAttributes)
+      p&attributes(textAttributes) #{text}
+      input&attributes(inputAttributes)
       if description
-        p&attributes(descriptionAttrs) #{description}
+        p&attributes(descriptionAttributes) #{description}
