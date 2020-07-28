@@ -8,7 +8,7 @@ mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', s
 
   - const blockAttributes = {class: `${blockClass} `}
   - const borderAttributes = {class: `${borderClass} `}
-  - const controlAttributes = {class: `${controlClass} `}
+  - const controlAttributes = {class: `js-${controlClass} ${controlClass} `}
   - const decorationAttributes = {class: `${decorationClass} `}
   - const allAttributes = [blockAttributes, borderAttributes, controlAttributes, decorationAttributes]
 
@@ -33,10 +33,9 @@ mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', s
       default
         -value.class += `${classNames[index]}_type_filled `
 
-  -const blockTag = isLink ? 'a' : 'div'
-  -blockAttributes.class += `js-${blockClass}`
-  #{blockTag}(class=blockAttributes.class)
-    button&attributes(controlAttributes) #{text}
+  -const blockTag = isLink ? 'a' : 'button'
+  div(class=blockAttributes.class)
+    #{blockTag}&attributes(controlAttributes) #{text}
     if decoration === 'enter-arrow'
       div&attributes(decorationAttributes)
         +arrow({type: 'enter'})
