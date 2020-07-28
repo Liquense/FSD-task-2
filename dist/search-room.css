@@ -1395,7 +1395,6 @@
   .pagination__content {
     text-align: center; }
   .pagination__buttons-container {
-    max-width: 360px;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -1949,7 +1948,7 @@
     @media (max-width: 380px) {
       .find-room-card__title {
         text-align: center; } }
-  .find-room-card__in-out-range-picker {
+  .find-room-card__staying-dates-picker {
     margin-bottom: 19px; }
   .find-room-card__guests-dropdown {
     margin-bottom: 30px; }

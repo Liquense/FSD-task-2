@@ -1395,7 +1395,6 @@
   .pagination__content {
     text-align: center; }
   .pagination__buttons-container {
-    max-width: 360px;
     width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
@@ -1949,7 +1948,7 @@
     @media (max-width: 380px) {
       .find-room-card__title {
         text-align: center; } }
-  .find-room-card__in-out-range-picker {
+  .find-room-card__staying-dates-picker {
     margin-bottom: 19px; }
   .find-room-card__guests-dropdown {
     margin-bottom: 30px; }
@@ -2626,10 +2625,7 @@ body {
   min-height: 380px;
   max-height: 685px; }
   .registration-login__login-container .registration-login__background-image {
-    height: 100%;
-    min-height: 380px;
-    -o-object-position: 0 -4.86111vw;
-       object-position: 0 -4.86111vw; }
+    min-height: 380px; }
     @media (max-width: 1400px) {
       .registration-login__login-container .registration-login__background-image {
         -o-object-position: 0;
