@@ -1,25 +1,6 @@
 mixin radioButton({isChecked=false, text, group='', description} = {})
-  -const checkboxClass = 'radio-button'
-  -const labelClass = `${checkboxClass}__label`
-  -const textClass = `${checkboxClass}__text`
-  -const inputClass = `${checkboxClass}__hidden-button`
-  -const descriptionClass = `${checkboxClass}__description`
-  -const classNames = [checkboxClass, labelClass, inputClass, descriptionClass, textClass]
+  -const radioClass = 'radio-button'
 
-  -const checkboxAttributes = {class: `js-${checkboxClass} ${checkboxClass} `}
-  -const labelAttributes = {class: `${labelClass} `}
-  -const inputAttributes = {class: `js-${inputClass} ${inputClass} `, type: 'radio', name: group, 'data-is-checked': `${isChecked}`}
-  -const descriptionAttributes = {class: `${descriptionClass} `}
-  -const textAttributes = {class: `${textClass} `}
-  -const allAttributes = [checkboxAttributes, labelAttributes, inputAttributes, descriptionAttributes, textAttributes]
-
-  if description
-    each value, index in allAttributes
-      - value.class += `${index ? classNames[index] : ''}_rich `
-
-  div&attributes(checkboxAttributes)
-    label&attributes(labelAttributes)
-      p&attributes(textAttributes) #{text}
-      input&attributes(inputAttributes)
-      if description
-        p&attributes(descriptionAttributes) #{description}
+  label(class=radioClass)
+    input(class=`${radioClass}__input` type='radio' name=group checked=isChecked)
+    span(class=`${radioClass}__text`) #{text}

@@ -1,6 +1,4 @@
 import initArrows from '../arrow/init';
-import initRadioButtons from '../radio-button/init';
-import initCheckboxes from '../checkbox/init';
 
 class List {
   static expandableClass = 'list_expandable';
@@ -19,8 +17,6 @@ class List {
 
   isExpanded;
 
-  listItems;
-
   constructor(rootElement) {
     this._initElements(rootElement);
     this._initList();
@@ -35,15 +31,6 @@ class List {
 
   _initList() {
     if (this.$list.hasClass(List.expandableClass)) { this._initExpandableList(); }
-
-    this.listItems = this._initListItems();
-  }
-
-  _initListItems() {
-    if (this.$list.hasClass('list_type_radio')) { initRadioButtons(this.$list); } else
-    if (this.$list.hasClass('list_type_checkbox') || this.$list.hasClass('list_type_toggle')) {
-      initCheckboxes(this.$list);
-    }
   }
 
   _initExpandableList() {

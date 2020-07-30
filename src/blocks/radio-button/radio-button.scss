@@ -5,51 +5,18 @@ $buttonRightMargin: 10px;
 .radio-button {
   @include boxSizingBorderBox();
   width: fit-content;
+  display: inline-block;
+  -webkit-user-select: none;
+  vertical-align: middle;
+  cursor: pointer;
 
-  &__label {
-    @include text_regular();
-    display: inline-block;
-    -webkit-user-select: none;
-    vertical-align: middle;
-    cursor: pointer;
-    color: $darkShade50;
-    line-height: 18px;
-
-    &:hover,
-    &.ui-checkboxradio-checked {
-      color: $darkShade75;
-    }
-
-    &:hover .radio-button__button,
-    &.ui-checkboxradio-checked .radio-button__button {
-      border-color: $purple;
-    }
-
-    &.ui-checkboxradio-checked .radio-button__button:after {
-      content: "";
-      display: block;
-      width: 66.67%;
-      height: 66.67%;
-      left: 16.67%;
-      top: 16.67%;
-      border-radius: 50%;
-      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-      position: relative;
-    }
-
-    &_rich {
-      max-width: 320px;
-      color: $darkShade75;
-      font-weight: bold;
-      line-height: 20px;
-    }
-  }
-
-  &__button {
+  &__input {
+    appearance: none;
+    outline: none;
     height: $checkboxButtonSize;
     line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
     border: $checkboxButtonBorderWidth solid $darkShade25;
-    margin-right: $buttonRightMargin;
+    margin: 0 $buttonRightMargin 0 0;
     display: block;
     float: left;
     clear: both;
@@ -57,27 +24,37 @@ $buttonRightMargin: 10px;
     min-width: $checkboxButtonSize;
     border-radius: 50%;
     background-color: #ffffff;
+
+    &:checked {
+      &:after {
+        content: "";
+        display: block;
+        width: 66.67%;
+        height: 66.67%;
+        left: 16.67%;
+        top: 16.67%;
+        border-radius: 50%;
+        background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+        position: relative;
+      }
+    }
+
+    &:checked, &:hover {
+      border-color: $purple;
+
+      + .radio-button__text {
+        color: $darkShade75;
+      }
+    }
   }
 
   &__text {
-    margin: 0;
-    display: inline-block;
-    max-width: 23ch;
-  }
-
-  &__hidden-button {
-    display: none;
-  }
-
-  &__description {
     @include text_regular();
-    display: inline-block;
-    padding-left: $checkboxButtonSize + $buttonRightMargin;
-    margin: 5px 0 0 0;
     color: $darkShade50;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 14px;
-    white-space: pre-line;
+    display: inline-block;
+    line-height: 20px;
+    margin: 0;
+    max-width: 23ch;
+    vertical-align: baseline;
   }
 }
