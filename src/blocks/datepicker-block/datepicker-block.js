@@ -113,7 +113,9 @@ class DatepickerBlock {
   _initDatepicker() {
     if (this.$inputControl.data('datepicker')) return;
 
+    const addClass = this.isInline ? 'datepicker-block__calendar_wide' : 'datepicker-block__calendar_narrow';
     this.datepickerPlugin = this.$inputControl.datepicker({
+      classes: addClass,
       range: true,
       inline: this.isInline,
       clearButton: true,

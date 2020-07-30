@@ -1,12 +1,9 @@
 @import url(../../../node_modules/air-datepicker/dist/css/datepicker.css);
 
 $datepickerBorderWidth: 1px;
-$datepickerWidth: 320px;
 $datepickerContentHeight: 240px;
 $cellTextColor: $darkShade50;
 $datepickerContentSidesPadding: 20px;
-$datepickerContentWidth: $datepickerWidth - 2*$datepickerContentSidesPadding;
-
 $actualPointsGradient: linear-gradient($gradientDefaultAngle,
     $purple 0%,
     $purpleGradientSecond 100%);
@@ -23,49 +20,18 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
     rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
     rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%);
 
-.datepicker-block {
-  max-width: 266px;
+@mixin cellSize($datepickerWidth, $sidePaddings) {
+  $datepickerContentWidth: $datepickerWidth - 2*$sidePaddings;
+  $yearMonthCellSize: $datepickerContentWidth/4;
+  min-width: $datepickerWidth;
 
-  &__label {
-    @include text_label-CTA();
-  }
-
-  &__input-wrap {
-    &_inline {
-      .input__control-wrapper {
-        margin-top: 0;
-      }
-
-      .input__control {
-        display: none;
-      }
+  .datepicker {
+    &--cell-month {
+      height: $yearMonthCellSize;
     }
 
-    .input__control {
-      color: $darkShade75;
-
-      &:valid:hover,
-      &:valid:focus,
-      &::placeholder,
-      &:focus::placeholder,
-      &:hover::placeholder {
-        color: $darkShade75;
-      }
-    }
-  }
-
-  &__confirm-button {
-    @include text_label-CTA();
-    border: none;
-    background-color: transparent;
-    width: fit-content;
-    height: 15px;
-    color: $purple;
-    cursor: pointer;
-    padding: 0;
-
-    &:focus {
-      outline: none;
+    &--cell-year {
+      height: $yearMonthCellSize;
     }
   }
 }
@@ -76,11 +42,9 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   box-sizing: border-box;
   @include text(Montserrat, normal, 12px, 15px, $cellTextColor, normal);
   color: $darkShade100;
-  min-width: $datepickerWidth;
 
   &--cell {
     border-radius: 50%;
-    height: 40px;
 
     &.-focus- {
       background: linear-gradient($gradientDefaultAngle, rgba($purple, 0.5) 0%, rgba($purpleGradientSecond, 0.5) 100%);
@@ -202,7 +166,6 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
   &--cells-months {
     height: $datepickerContentHeight;
-    padding: 0 ($datepickerContentWidth - $datepickerContentHeight)/2;
 
     .datepicker--cell-month {
       width: 25%;
@@ -223,7 +186,6 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
     }
   }
 
-  $yearCellSize: $datepickerContentWidth/4;
   $yearCellsRowLength: 4;
   $yearCellsColumnLength: 3;
 
@@ -237,7 +199,6 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
   &--cell-year {
     width: 25%;
-    height: $yearCellSize;
 
     &.-range-from-.-range-to- {
       border-radius: 50%;
@@ -342,6 +303,76 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
       &.-focus- {
         background: $actualPointsGradient;
       }
+    }
+  }
+}
+
+.datepicker-block {
+  max-width: 266px;
+
+  &__label {
+    @include text_label-CTA();
+  }
+
+  &__input-wrap {
+    &_inline {
+      .input__control-wrapper {
+        margin-top: 0;
+      }
+
+      .input__control {
+        display: none;
+      }
+    }
+
+    .input__control {
+      color: $darkShade75;
+
+      &:valid:hover,
+      &:valid:focus,
+      &::placeholder,
+      &:focus::placeholder,
+      &:hover::placeholder {
+        color: $darkShade75;
+      }
+    }
+  }
+
+  &__calendar {
+    &_wide {
+      @include cellSize(320px, 20px);
+      .datepicker--cell-day {
+        height: 40px;
+      }
+    }
+
+    &_narrow {
+      @include cellSize(266px, 10px);
+      .datepicker {
+        &--content {
+          min-height: unset;
+          padding: 19px 10px 0 10px;
+        }
+
+        &--cell-day {
+          height: 35px;
+        }
+      }
+    }
+  }
+
+  &__confirm-button {
+    @include text_label-CTA();
+    border: none;
+    background-color: transparent;
+    width: fit-content;
+    height: 15px;
+    color: $purple;
+    cursor: pointer;
+    padding: 0;
+
+    &:focus {
+      outline: none;
     }
   }
 }

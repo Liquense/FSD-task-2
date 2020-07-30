@@ -40,8 +40,8 @@ class TwoCalendarDatepicker {
   _initTwoCalendarDatePicker() {
     if (!this.firstDatepicker || !this.secondDatepicker) return;
 
-    this.firstDatepicker.datepickerPlugin.update({ position: 'bottom left' });
-    this.secondDatepicker.datepickerPlugin.update({ position: 'bottom right' });
+    this.firstDatepicker.datepickerPlugin.update({ position: 'bottom left', classes: 'datepicker-block__calendar_wide' });
+    this.secondDatepicker.datepickerPlugin.update({ position: 'bottom right', classes: 'datepicker-block__calendar_wide' });
 
     this._addDatepickerOnSelectHandler(
       this.firstDatepicker, this.secondDatepicker, 0,
