@@ -87,7 +87,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
       cursor: pointer;
     }
 
-    // region type
     &_type_masked:valid:hover,
     &_type_masked:focus {
       color: $darkShade75;
@@ -97,7 +96,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     &_type_text:hover {
       color: $darkShade75;
     }
-    // endregion
 
     &:focus,
     &:hover {

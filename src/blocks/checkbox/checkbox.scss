@@ -6,7 +6,6 @@ $toggleCircleXOffset: 7.9%;
 $toggleCircleYOffset: 16.67%;
 $toggleCircleWidth: 31.58%;
 
-// region toggle animations
 @keyframes desaturate {
   from {
     border-color: $purple;
@@ -50,8 +49,6 @@ $toggleCircleWidth: 31.58%;
     background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
   }
 }
-
-// endregion
 
 .checkbox {
   @include clearfix();

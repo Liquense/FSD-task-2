@@ -45,7 +45,6 @@ $arrowSize: 24px;
     }
   }
 
-  // region control
   &__control {
     @include text_label-CTA();
     cursor: pointer;
@@ -102,9 +101,7 @@ $arrowSize: 24px;
       padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
     }
   }
-  // endregion
 
-  // region decoration
   &__decoration {
     display: block;
     font-weight: normal;
@@ -123,5 +120,4 @@ $arrowSize: 24px;
       color: $inputBackgroundColor;
     }
   }
-  // endregion
 }
