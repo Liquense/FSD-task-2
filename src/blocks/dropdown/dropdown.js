@@ -259,14 +259,16 @@ class Dropdown {
 
     this.namesValues.forEach((nameValue) => {
       if (nameValue.name.toLowerCase() === 'младенцы') {
-        infants = nameValue.value;
+        infants = parseInt(nameValue.value, 10);
         return;
       }
       sum += parseInt(nameValue.value, 10);
     });
 
-    return `${sum} ${Dropdown._selectProperWord(sum, 'гости')}, `
-      + `${infants} ${Dropdown._selectProperWord(infants, 'младенцы')}`;
+    let resultString = `${sum} ${Dropdown._selectProperWord(sum, 'гости')}`;
+    if (infants !== 0) { resultString += `, ${infants} ${Dropdown._selectProperWord(infants, 'младенцы')}`; }
+
+    return resultString;
   }
 
   _createCustomersString(namesValues, isUnified) {
