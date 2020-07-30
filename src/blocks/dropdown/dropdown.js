@@ -30,11 +30,15 @@ class Dropdown {
 
   isPure = false;
 
+  isUnified = false;
+
   areValuesAccepted = true;
 
   oldNamesValues = [];
 
   spinners = [];
+
+  type;
 
   get namesValues() {
     const namesValues = [];
@@ -159,6 +163,7 @@ class Dropdown {
     this.isPure = !this.$dropdown.hasClass('dropdown_pure');
     this.oldNamesValues = this.namesValues;
 
+    this._getDropdownType();
     this._updateVisuals();
 
     this.$listWrapper.position({
@@ -175,18 +180,15 @@ class Dropdown {
   }
 
   _getDropdownType() {
-    const dropdownParams = {};
     const listClassPrefix = 'dropdown__list_';
 
-    if (this.$list.hasClass(`${listClassPrefix}unified`)) { dropdownParams.isUnified = true; }
+    if (this.$list.hasClass(`${listClassPrefix}unified`)) { this.isUnified = true; }
 
     if (this.$list.hasClass(`${listClassPrefix}type_rooms`)) {
-      dropdownParams.name = Dropdown.types.rooms;
+      this.type = Dropdown.types.rooms;
     } else if (this.$list.hasClass(`${listClassPrefix}type_customers`)) {
-      dropdownParams.name = Dropdown.types.customers;
-    } else return false;
-
-    return dropdownParams;
+      this.type = Dropdown.types.customers;
+    }
   }
 
   static _selectProperWord(itemsCount, itemName) {
@@ -241,16 +243,28 @@ class Dropdown {
     return result;
   }
 
-  _createRoomsString(namesValues, isUnified) {
+  _createRoomsString(namesValues) {
     let result;
 
-    if (isUnified) {
+    if (this.isUnified) {
       result = this._createUnifiedString('комнаты');
     } else {
       result = this._createSeparateRoomsString(namesValues);
     }
 
     return result;
+  }
+
+  _createCustomersString(namesValues, isUnified) {
+    let resultString;
+
+    if (isUnified) {
+      resultString = this._createUnifiedString('гост|ь|я|ей');
+    } else {
+      resultString = this._createCustomersWithInfantsString();
+    }
+
+    return resultString;
   }
 
   _createCustomersWithInfantsString() {
@@ -271,29 +285,17 @@ class Dropdown {
     return resultString;
   }
 
-  _createCustomersString(namesValues, isUnified) {
-    let resultString;
-
-    if (isUnified) {
-      resultString = this._createUnifiedString('гост|ь|я|ей');
-    } else {
-      resultString = this._createCustomersWithInfantsString();
-    }
-
-    return resultString;
-  }
-
-  _createInputText(namesValues, dropdownType) {
+  _createInputText(namesValues) {
     let result = '';
     if (this._areAllValuesZero(namesValues)) return result;
 
-    switch (dropdownType.name) {
+    switch (this.type) {
       case Dropdown.types.rooms: {
-        result = this._createRoomsString(namesValues, dropdownType.isUnified);
+        result = this._createRoomsString(namesValues);
         break;
       }
       case Dropdown.types.customers: {
-        result = this._createCustomersString(namesValues, dropdownType.isUnified);
+        result = this._createCustomersString(namesValues);
         break;
       }
       default: {
@@ -308,8 +310,7 @@ class Dropdown {
   }
 
   _updateInputText() {
-    const dropdownType = this._getDropdownType(this.$list);
-    const newInputText = this._createInputText(this.namesValues, dropdownType);
+    const newInputText = this._createInputText(this.namesValues);
 
     this.$inputControl.val(newInputText);
   }
