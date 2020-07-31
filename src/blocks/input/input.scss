@@ -70,7 +70,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     text-overflow: ellipsis;
 
     &::placeholder {
-      @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
+      @include text(inherit, inherit, inherit, inherit, $darkShade25, inherit);
     }
 
     &_focused {
