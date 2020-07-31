@@ -6,6 +6,15 @@ $toggleCircleXOffset: 7.9%;
 $toggleCircleYOffset: 16.67%;
 $toggleCircleWidth: 31.58%;
 
+@mixin saturateToggleButton() {
+  border-color: $purple;
+  animation-name: saturate;
+
+  &:after {
+    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+  }
+}
+
 @keyframes desaturate {
   from {
     border-color: $purple;
@@ -51,94 +60,64 @@ $toggleCircleWidth: 31.58%;
 }
 
 .checkbox {
-  @include clearfix();
   @include boxSizingBorderBox();
   width: fit-content;
+  display: inline-block;
+  user-select: none;
+  cursor: pointer;
 
-  &__label {
-    @include text_regular();
-    display: inline-block;
-    -webkit-user-select: none;
-    vertical-align: middle;
-    cursor: pointer;
-    color: $darkShade50;
-    line-height: 18px;
+  &_type_default:hover &__button:not(:checked) {
+    border-color: $purple;
+    animation: saturate 0.4s;
+  }
 
-    &_type_default {
-      &:hover,
-      &.ui-checkboxradio-checked {
-        color: $darkShade50;
-      }
+  &_type_toggle:hover &__button {
+    @include saturateToggleButton();
+    animation-duration: 0.4s;
+  }
 
-      &:hover .checkbox__button_type_default,
-      &.ui-checkboxradio-checked .checkbox__button_type_default {
-        border-color: $purple;
-      }
-    }
-
-    &_type_toggle {
-      max-width: none;
-
-      &:hover, &.ui-checkboxradio-checked {
-        color: $darkShade75;
-
-        .checkbox__button_type_toggle {
-          border-color: $purple;
-          animation-name: saturate;
-
-          &:after {
-            background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-          }
-        }
-      }
-
-      &:hover .checkbox__button_type_toggle {
-        animation-duration: 0.4s;
-      }
-    }
-
-    &_rich {
-      max-width: 320px;
-      color: $darkShade75;
-      font-weight: bold;
-      line-height: 20px;
-    }
+  &_rich {
+    max-width: 320px;
   }
 
   &__button {
+    appearance: none;
+    animation: desaturate 0.4s;
+    cursor: pointer;
+    outline: none;
     height: $checkboxButtonSize;
     line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
-    border: $checkboxButtonBorderWidth solid #000;
-    margin-right: $buttonRightMargin;
-    display: block;
-    float: left;
-    clear: both;
-    cursor: pointer;
+    margin: 0 $buttonRightMargin 0 0;
+    padding: 0;
+    vertical-align: top;
 
     &_type_default {
-      @include icon();
-      height: calc(1em + 2 * #{$defaultTypePadding} + 2 * #{$checkboxButtonBorderWidth});
-      width: calc(1em + 2 * #{$defaultTypePadding} + 2 * #{$checkboxButtonBorderWidth});
-      line-height: normal;
+      height: 20px;
+      width: 20px;
+      line-height: 14px;
       padding: $defaultTypePadding;
       border: $checkboxButtonBorderWidth solid $darkShade25;
-      color: transparent;
       border-radius: 4px;
 
-      &.ui-state-checked {
-        font-size: 14px;
-        font-weight: bolder;
-        @include textGradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
-        text-align: center;
+      &:checked {
+        border-color: $purple;
+        animation-name: saturate;
+
+        &:after {
+          @include icon();
+          @include textGradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
+          content: 'checked';
+          font-size: 14px;
+          font-weight: bolder;
+          text-align: center;
+        }
       }
     }
 
     &_type_toggle {
       min-width: 40px;
       border-radius: 10px;
-      border-color: $darkShade25;
-      animation-name: desaturate;
-      animation-duration: 0.4s;
+      border: $checkboxButtonBorderWidth solid $darkShade25;
 
       &:after {
         content: "";
@@ -154,7 +133,8 @@ $toggleCircleWidth: 31.58%;
         animation-duration: 0.4s;
       }
 
-      &.ui-state-checked {
+      &:checked {
+        @include saturateToggleButton();
         animation-duration: 1s;
 
         &:after {
@@ -167,17 +147,25 @@ $toggleCircleWidth: 31.58%;
   }
 
   &__text {
+    @include text_regular();
+    line-height: 18px;
     margin: 0;
     display: inline-block;
     max-width: 23ch;
+    vertical-align: top;
+
+    &_type_default {
+      color: $darkShade50;
+    }
 
     &_type_toggle {
       color: $darkShade75;
     }
-  }
 
-  &__hidden-button {
-    display: none;
+    &_rich {
+      color: $darkShade75;
+      font-weight: bold;
+    }
   }
 
   &__description {

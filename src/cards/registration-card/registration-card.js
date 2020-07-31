@@ -1,8 +1,9 @@
 import initLists from '../../blocks/list/init';
-import initCheckboxes from '../../blocks/checkbox/init';
 
 class RegistrationCard {
   $registrationCard;
+
+  lists;
 
   constructor(rootElement) {
     this._initElements(rootElement);
@@ -14,8 +15,7 @@ class RegistrationCard {
   }
 
   _initContent() {
-    initLists(this.$registrationCard);
-    initCheckboxes(this.$registrationCard);
+    this.lists = initLists(this.$registrationCard);
   }
 }
 

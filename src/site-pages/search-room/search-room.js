@@ -5,7 +5,6 @@ import initDatepickers from '../../blocks/datepicker-block/init';
 import initDropdowns from '../../blocks/dropdown/init';
 import initSliders from '../../blocks/slider/init';
 import initLists from '../../blocks/list/init';
-import initCheckboxes from '../../blocks/checkbox/init';
 import initHeaders from '../../page-elements/header/init';
 
 initHeaders();
@@ -32,5 +31,4 @@ initDatepickers();
 initDropdowns();
 initSliders();
 initLists();
-initCheckboxes();
 initRoomPreviewCards();

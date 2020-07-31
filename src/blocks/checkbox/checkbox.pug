@@ -1,17 +1,15 @@
 mixin checkbox({isChecked=false, text='', type='', description} = {})
   -const checkboxClass = 'checkbox'
-  -const labelClass = `${checkboxClass}__label`
   -const textClass = `${checkboxClass}__text`
-  -const inputClass = `${checkboxClass}__hidden-button`
+  -const inputClass = `${checkboxClass}__button`
   -const descriptionClass = `${checkboxClass}__description`
-  -const classNames = [checkboxClass, labelClass, inputClass, descriptionClass, textClass]
+  -const classNames = [checkboxClass, inputClass, descriptionClass, textClass]
 
-  -const checkboxAttributes = {class: `js-${checkboxClass} ${checkboxClass} `}
-  -const labelAttributes = {class: `${labelClass} `}
-  -const inputAttributes = {class: `js-${inputClass} ${inputClass} `, type: 'checkbox', 'data-is-checked': `${isChecked}`}
+  -const checkboxAttributes = {class: `${checkboxClass} `}
+  -const inputAttributes = {class: `${inputClass} `, type: 'checkbox', checked: isChecked}
   -const descriptionAttributes = {class: `${descriptionClass} `}
   -const textAttributes = {class: `${textClass} `}
-  -const allAttributes = [checkboxAttributes, labelAttributes, inputAttributes, descriptionAttributes, textAttributes]
+  -const allAttributes = [checkboxAttributes, inputAttributes, descriptionAttributes, textAttributes]
 
   each value, index in Object.values(allAttributes)
     if description
@@ -21,13 +19,12 @@ mixin checkbox({isChecked=false, text='', type='', description} = {})
       when 'toggle'
         - value.class += `${classNames[index]}_type_toggle `
         if isChecked
-          - labelAttributes.class += `${labelClass}_toggled `
+          - checkboxAttributes.class += `${checkboxClass}_toggled `
       default
         - value.class += `${classNames[index]}_type_default `
 
-  div&attributes(checkboxAttributes)
-    label&attributes(labelAttributes)
-      p&attributes(textAttributes) #{text}
-      input&attributes(inputAttributes)
-      if description
-        p&attributes(descriptionAttributes) #{description}
+  label&attributes(checkboxAttributes)
+    input&attributes(inputAttributes)
+    span&attributes(textAttributes) #{text}
+    if description
+      p&attributes(descriptionAttributes) #{description}
