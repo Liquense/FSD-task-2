@@ -12,21 +12,9 @@ $titleHeight: 12px;
 
   &__title {
     @include text_label-CTA();
-    margin: 0;
     padding: 0;
     user-select: none;
-
-    &_type_checkbox {
-      margin-bottom: 16px;
-    }
-
-    &_type_radio {
-      margin-bottom: 15px;
-    }
-
-    &_type_toggle {
-      margin-bottom: 16px;
-    }
+    margin: 0 0 16px;
 
     &_expandable {
       min-width: 266px;
@@ -71,19 +59,9 @@ $titleHeight: 12px;
   }
 
   &__item {
-    &_type_checkbox {
-      content: "text";
-      &:not(:last-child) {
-        margin-bottom: 10.5px;
-      }
-    }
-
-    &_type_radio {
-      display: inline-block;
-    }
-
-    &_type_radio#{&}:not(:last-child) {
-      margin-right: 20px;
+    content: "text";
+    &:not(:last-child) {
+      margin-bottom: 10.5px;
     }
 
     &_rich {
@@ -92,12 +70,6 @@ $titleHeight: 12px;
       }
       &:not(:last-child) {
         margin-bottom: 9px;
-      }
-    }
-
-    &_type_toggle {
-      &:not(:last-child) {
-        margin-bottom: 13px;
       }
     }
   }

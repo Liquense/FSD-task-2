@@ -2,7 +2,7 @@ include ../checkbox/checkbox
 include ../radio-button/radio-button
 include ../arrow/arrow
 
-mixin list({type='', isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
+mixin list({isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
   -const listClass = 'list'
   -const titleClass = `${listClass}__title`
   -const containerClass = `${listClass}__container`
@@ -14,15 +14,6 @@ mixin list({type='', isExpandable=false, isNarrow=false, isOpened=false, title='
   -const allAttributes = [listAttributes, titleAttributes, containerAttributes]
 
   each value, index in allAttributes
-    case type
-      when 'radio'
-        -value.class += `${classNames[index]}_type_radio `
-      when 'toggle'
-        -value.class += `${classNames[index]}_type_toggle `
-      when 'checkbox'
-      default
-        -value.class += `${classNames[index]}_type_checkbox `
-
     if isExpandable
       -value.class += `${classNames[index]}_expandable `
 
@@ -39,10 +30,6 @@ mixin list({type='', isExpandable=false, isNarrow=false, isOpened=false, title='
           +arrow({type: 'expand'})
     div&attributes(containerAttributes)
       each value, index in elements
-        -const itemClasses = `${listClass}__item ${listClass}__item_type_${type} `
-        -  + `${value.description ? `${listClass}__item_rich` : ''}`
+        -const itemClasses = `${listClass}__item ${value.description ? `${listClass}__item_rich` : ''}`
         div(class=itemClasses)
-          if type === 'radio'
-            +radioButton(value)
-          else
-            +checkbox(Object.assign(value, {type}))
+          +checkbox(value)
