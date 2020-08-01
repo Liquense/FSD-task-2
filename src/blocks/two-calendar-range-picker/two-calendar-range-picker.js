@@ -40,8 +40,16 @@ class TwoCalendarDatepicker {
   _initTwoCalendarDatePicker() {
     if (!this.firstDatepicker || !this.secondDatepicker) return;
 
-    this.firstDatepicker.datepickerPlugin.update({ position: 'bottom left', classes: 'datepicker-block__calendar_wide' });
-    this.secondDatepicker.datepickerPlugin.update({ position: 'bottom right', classes: 'datepicker-block__calendar_wide' });
+    this.firstDatepicker.datepickerPlugin.update({
+      position: 'bottom left',
+      classes: 'datepicker-block__calendar_wide',
+      dateFormat: '',
+    });
+    this.secondDatepicker.datepickerPlugin.update({
+      position: 'bottom right',
+      classes: 'datepicker-block__calendar_wide',
+      dateFormat: '',
+    });
 
     this._addDatepickerOnSelectHandler(
       this.firstDatepicker, this.secondDatepicker, 0,
@@ -58,20 +66,13 @@ class TwoCalendarDatepicker {
     if (this.isSecondAssignStarted) return;
 
     const { datepickerPlugin } = datepicker;
-    const otherDatepickerPlugin = otherDatepicker.datepickerPlugin;
     const otherNumber = 1 - number;
     const newDates = datepickerPlugin.selectedDates;
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
 
-    if (newDates.length < 2) {
-      datepickerPlugin.update({ dateFormat: '' });
-      otherDatepickerPlugin.update({ dateFormat: 'ДД.ММ.ГГГГ' });
-    }
-
-    this.isSecondAssignStarted = true;
-    otherDatepickerPlugin.clear();
-    otherDatepickerPlugin.selectDate(datepickerPlugin.selectedDates);
-    this.isSecondAssignStarted = false;
+    this._preventRecursiveDatesUpdate();
+    TwoCalendarDatepicker._updateOtherDatepickerDates(otherDatepicker, newDates);
+    this._resumeRecursiveDatesUpdate();
 
     if (newDates.length > 1) {
       datepicker.$inputControl.val(newDates[number].toLocaleDateString('ru-RU', options));
@@ -80,6 +81,17 @@ class TwoCalendarDatepicker {
 
     // вызов события вручную, поскольку автоматически этого не происходит, а оно используется
     $(datepicker.$inputControl).change();
+  }
+
+  _preventRecursiveDatesUpdate() { this.isSecondAssignStarted = true; }
+
+  _resumeRecursiveDatesUpdate() { this.isSecondAssignStarted = false; }
+
+  static _updateOtherDatepickerDates(otherDatepicker, selectedDates) {
+    const otherDatepickerPlugin = otherDatepicker.datepickerPlugin;
+    otherDatepickerPlugin.clear();
+    otherDatepickerPlugin.selectDate(selectedDates);
+    if (selectedDates.length < 2) { otherDatepicker.$inputControl.val('ДД.ММ.ГГГГ'); }
   }
 
   _addDatepickerOnSelectHandler(datepicker, otherDatepicker, number) {
