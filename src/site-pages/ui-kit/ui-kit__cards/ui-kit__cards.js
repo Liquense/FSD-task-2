@@ -11,7 +11,6 @@ initRegistrationCards();
 initRoomPreviewCards();
 
 const $inlineDatepicker = $('.js-ui-kit__datepicker_inline');
-// классы air-datepicker, которые не изменить без вмешательства в плагин
 const $datepickerCells = $inlineDatepicker.find('.datepicker--cell.datepicker--cell-day');
 
 $datepickerCells.each((index, element) => {
