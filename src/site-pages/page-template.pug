@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+html(lang='ru')
+  head
+    -let options = {title: 'TOXIN'}
+    block options
+
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    meta(name='keywords' content=options.keywords)
+    meta(name='description' content=options.description)
+    link(rel='icon' href=require('../../assets/images/logo-colored.png'))
+    title #{options.title}
+  body
+    include ../page-elements/header/header
+    include ../page-elements/footer/footer
+    +header(
+      {
+        loginText: 'Войти',
+        registerText: 'Зарегистрироваться',
+        content: [
+          {text: 'О нас'},
+          {
+            text: 'Услуги',
+            children: [
+              {text: 'Услуга 1', children: [{text: '456', children: [{text: '1231'}]}]},
+              {text: 'Услуга 2', children: [{text: '123'}]}
+            ]
+          },
+          {text: 'Вакансии'},
+          {text: 'Новости'},
+          {
+            text: 'Соглашения',
+            children: [
+              {text: 'Соглашение 1', children: [{text: '456', children: [{text: '1231'}]}]},
+              {text: 'Соглашение 2', children: [{text: '123'}]}
+            ]
+          },
+        ],
+        isNarrow: true
+      }
+    )
+
+    block content
+
+    +footer(
+      {
+        logo: logoPath,
+        text: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»',
+        copyright: 'Copyright © 2018 Toxin отель. Все права зачищены.',
+        links: [
+          {
+            title: 'Навигация',
+            links:
+              [
+                {text: 'О нас', url: '#'},
+                {text: 'Новости', url: '#'},
+                {text: 'Служба поддержки', url: '#'},
+                {text: 'Услуги', url: '#'}
+              ]
+          },
+          {
+            title: 'О нас',
+            links:
+              [
+                {text: 'О сервисе', url: '#'},
+                {text: 'Наша команда', url: '#'},
+                {text: 'Вакансии', url: '#'},
+                {text: 'Инвесторы', url: '#'}
+              ]
+          },
+          {
+            title: 'Служба поддержки',
+            links:
+              [
+                {text: 'Соглашения', url: '#'},
+                {text: 'Сообщества', url: '#'},
+                {text: 'Связь с нами', url: '#'}
+              ]
+          }
+        ],
+        subscription: {
+          title: 'Подписка',
+          text: 'Получайте специальные предложения и новости сервиса',
+          emailPlaceholder: 'Email'
+        }
+      }
+    )

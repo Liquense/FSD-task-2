@@ -1,85 +1,13 @@
-<!DOCTYPE html>
-include ../../page-elements/header/header
+extends ../page-template
+
 include ../../cards/find-room-card/find-room-card
-include ../../page-elements/footer/footer
 
-html(lang="ru")
-  head
-    meta(charset="UTF-8")
-    meta(name="viewport" content="width=device-width, initial-scale=1.0")
-    meta(name="keywords" content="landing")
-    meta(name="description" content="landing page")
-    link(rel="icon" href=require('../../assets/images/logo-colored.png'))
-    title TOXIN
-  body
-    -var logoPath = require('../../assets/images/logo-colored-withText.svg')
-    div.landing-page__header
-      +header(
-        {
-          loginText: "Войти",
-          registerText: "Зарегистрироваться",
-          logo: logoPath
-        ,
-        content: [
-          {text: "О нас"},
-          {
-            text: "Услуги",
-            children: [
-              {text: "Услуга 1", children: [{text: "456", children: [{text: "1231"}]}]},
-              {text: "Услуга 2", children: [{text: "123"}]}
-            ]
-          },
-          {text: "Вакансии"},
-          {text: "Новости"},
-          {
-            text: "Соглашения",
-            children: [
-              {text: "Соглашение 1", children: [{text: "456", children: [{text: "1231"}]}]},
-              {text: "Соглашение 2", children: [{text: "123"}]}
-            ]
-          },
-        ],
-        isNarrow: true}
-      )
+block options
+  -options.keywords = 'landing'
+  -options.description = 'landing page'
 
-    div.landing-page__room-container
-      div.landing-page__find-room-card
-        +findRoomCard()
-      span.landing-page__slogan Лучшие номера для вашей работы, отдыха и просто вдохновения
-
-    div.landing-page__footer
-      +footer(
-        {
-          logo: logoPath,
-          text: "Бронирование номеров в лучшем отеле 2019 года по версии ассоциации «Отельные взгляды»",
-          copyright: "Copyright © 2018 Toxin отель. Все права зачищены.",
-        links: [
-          {title: "Навигация",
-            links:
-              [
-                {text: "О нас", url: "#"},
-                {text: "Новости", url: "#"},
-                {text: "Служба поддержки", url: "#"},
-                {text: "Услуги", url: "#"}
-              ]
-          },
-          {title: "О нас",
-            links:
-              [
-                {text: "О сервисе", url: "#"},
-                {text: "Наша команда", url: "#"},
-                {text: "Вакансии", url: "#"},
-                {text: "Инвесторы", url: "#"}
-              ]
-          },
-          {title: "Служба поддержки",
-            links:
-              [
-                {text: "Соглашения", url: "#"},
-                {text: "Сообщества", url: "#"},
-                {text: "Связь с нами", url: "#"}
-              ]
-          }
-        ],
-        subscription: {title: "Подписка", text: "Получайте специальные предложения и новости сервиса", emailPlaceholder: "Email"}}
-      )
+block content
+  div.landing-page__room-container
+    div.landing-page__find-room-card
+      +findRoomCard()
+    span.landing-page__slogan Лучшие номера для вашей работы, отдыха и просто вдохновения
