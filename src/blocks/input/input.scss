@@ -59,14 +59,14 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   }
 
   &__control {
+    @include text(Montserrat, normal, 14px, $lineHeight, $darkShade50, -0.18px);
     border-radius: 4px;
     width: 100%;
     height: $inputHeight;
     border: $borderWidth solid $darkShade25;
     background: $inputBackgroundColor;
     padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
-    @include text(Montserrat, normal, 14px, $lineHeight, $darkShade25, -0.18px);
-    margin: 0 0 0 0;
+    margin: 0;
     text-overflow: ellipsis;
 
     &::placeholder {

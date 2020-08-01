@@ -18,6 +18,10 @@ $inputBorderRadius: 4px;
       color: $darkShade75;
       padding-right: 9.6ch;
 
+      &::placeholder {
+        color: $darkShade75;
+      }
+
       &_focused {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
