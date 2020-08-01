@@ -24,12 +24,10 @@ class DatepickerBlock {
   isInline;
 
   constructor(element) {
-    this._initProperties(element);
+    this._initElements(element);
+    this._initProperties();
     this._initDatepicker();
     if (!this.isInline) this._initExpandableEvents();
-
-    const initDates = this.getInitDates();
-    this.datepickerPlugin.selectDate(initDates);
   }
 
   static parseAttrToDate(attrDate) {
@@ -42,11 +40,14 @@ class DatepickerBlock {
     return new Date(dateString);
   }
 
-  _initProperties(element) {
+  _initElements(element) {
     this.$datepicker = $(element);
     this.$inputWrap = this.$datepicker.find('.js-datepicker-block__input-wrap');
     this.$inputControl = this.$inputWrap.find('.js-input__control');
     this.$inputLabel = this.$inputWrap.find('.js-input__title');
+  }
+
+  _initProperties() {
     this.isInline = this.$inputWrap.hasClass('js-datepicker-block__input-wrap_inline');
     this.arrow = initArrows(this.$datepicker);
   }
@@ -111,10 +112,11 @@ class DatepickerBlock {
   }
 
   _initDatepicker() {
-    if (this.$inputControl.data('datepicker')) return;
+    const initDates = this.getInitDates();
 
     const addClass = this.isInline ? 'datepicker-block__calendar_wide' : 'datepicker-block__calendar_narrow';
     this.datepickerPlugin = this.$inputControl.datepicker({
+      startDate: initDates?.length ? initDates[0] : null,
       classes: addClass,
       range: true,
       inline: this.isInline,
@@ -138,6 +140,7 @@ class DatepickerBlock {
     this.$buttonsContainer = this.datepickerPlugin.$datepicker.find('.datepicker--buttons');
 
     this._createConfirmButton();
+    this.datepickerPlugin.selectDate(initDates);
   }
 
   _createConfirmButton() {
