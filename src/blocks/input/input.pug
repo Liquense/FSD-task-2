@@ -1,6 +1,7 @@
 include ../arrow/arrow
+include ../title/title
 
-mixin input({title='', type, width, placeholder, withSubscription=false, isExpandable=false, isFocused=false} = {})
+mixin input({title='', type, width, placeholder, withSubscription=false, isExpandable=false, isFocused=false, text} = {})
   -const blockClass = 'input'
   -const titleClass = `${blockClass}__title`
   -const controlWrapperClass = `${blockClass}__control-wrapper`
@@ -11,10 +12,10 @@ mixin input({title='', type, width, placeholder, withSubscription=false, isExpan
   -const titleAttributes = {class: `js-${titleClass} ${titleClass} `}
   -const controlWrapperAttributes = {class: `${controlWrapperClass} `}
   -const controlAttributes = {class: `js-${controlClass} ${controlClass} `,
-  -  placeholder: placeholder}
-  -const allAttributes = {blockAttributes, titleAttributes, controlAttributes, controlWrapperAttributes}
+  - value: text, placeholder: placeholder}
+  -const allAttributes = [blockAttributes, titleAttributes, controlAttributes, controlWrapperAttributes]
 
-  each value, index in Object.values(allAttributes)
+  each value, index in allAttributes
     case width
       when 'narrow'
         -value.class += `${classNames[index]}_width_narrow `
@@ -34,16 +35,17 @@ mixin input({title='', type, width, placeholder, withSubscription=false, isExpan
     case type
       when 'text'
         -value.class += `${classNames[index]}_type_text `
-        -allAttributes.controlAttributes.type = 'text'
+        -controlAttributes.type = 'text'
       when 'mask'
         -const stringToAdd = `${classNames[index]}_type_masked `
         -value.class += `js-${stringToAdd} ${stringToAdd} `
 
-  label&attributes(allAttributes.blockAttributes)
+  label&attributes(blockAttributes)
     if title
-      p&attributes(allAttributes.titleAttributes) #{title}
-    div&attributes(allAttributes.controlWrapperAttributes)
-      input&attributes(allAttributes.controlAttributes)
+      div&attributes(titleAttributes)
+        +title({type: 'label', text: title})
+    div&attributes(controlWrapperAttributes)
+      input&attributes(controlAttributes)
       if withSubscription
         div.input__arrow_with-subscription
           +arrow({type: 'enter', isColored: true, isBold: true})

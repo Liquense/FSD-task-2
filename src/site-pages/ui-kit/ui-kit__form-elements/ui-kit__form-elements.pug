@@ -13,6 +13,7 @@ include ../../../blocks/slider/slider
 include ../../../blocks/button/button
 include ../../../blocks/pagination/pagination
 include ../../../blocks/comment/comment
+include ../../../blocks/title/title
 
 section.form-elements
   div.form-elements__top-area
@@ -20,7 +21,7 @@ section.form-elements
       div.form-elements__text-input
         +input({title: 'Text field', type: 'text', placeholder: 'Email'})
       div.form-elements__focused-text-input
-        +input({title: 'Text field', type: 'text', placeholder: 'This is pretty awesome', data: 'This is pretty awesome', isFocused: true})
+        +input({title: 'Text field', type: 'text', placeholder: 'This is pretty awesome', text: 'This is pretty awesome', isFocused: true})
       div.form-elements__dropdown
         +dropdown({title: 'Dropdown', dropdownType: 'customers', placeholder: 'Сколько гостей',
           data: [{name: 'Взрослые', value: 0}, {name: 'Дети', value: 0}, {name: 'Младенцы', value: 0}]})
@@ -37,26 +38,35 @@ section.form-elements
         -checkButtons.push({text: 'Можно с питомцами', isChecked: true})
         -checkButtons.push({text: 'Можно пригласить гостей (до 10 человек)', isChecked: true})
       div.form-elements__checkboxes
-        +list({type: 'checkbox', title: 'Checkbox Buttons', elements: checkButtons})
+        +list({title: 'Checkbox Buttons', elements: checkButtons})
 
-      -const radioButtons = [{text: 'Мужчина', group: 'gender', isChecked: true}]
-        -radioButtons.push({text: 'Женщина', group: 'gender', isChecked: false})
       div.form-elements__radios
-        +list({type: 'radio', title: 'Radio buttons', elements: radioButtons})
+        div.form-elements__radios-title
+          +title({type: 'label', text: 'Radio buttons'})
+        div.form-elements__radio-button
+          +radioButton({text: 'Мужчина', group: 'gender', isChecked: true})
+        div.form-elements__radio-button
+          +radioButton({text: 'Женщина', group: 'gender', isChecked: false})
 
-      -const toggleButtons = [{text: 'Получать спецпредложения', isChecked: true}]
-      -toggleButtons.push({text: 'Получать спецпредложения', isChecked: false})
       div.form-elements__toggles
-        +list({type: 'toggle', title: 'toggle', elements: toggleButtons})
+        div.form-elements__toggles-title
+          +title({type: 'label', text: 'Toggle'})
+        div.form-elements__toggle-button
+          +checkbox({type: 'toggle', text: 'Получать спецпредложения', isChecked: true})
+        div.form-elements__toggle-button
+          +checkbox({type: 'toggle', text: 'Получать спецпредложения', isChecked: false})
+
       div.form-elements__likes
-        H2.form-elements__likes-header Like button
+        div.form-elements__likes-header
+          +title({type: 'label', text: 'Like button'})
         div.form-elements__likes-body
           div.form-elements__like
             +like({count: '2'})
           div.form-elements__like
             +like({count: '12', isChecked: true})
       div.form-elements__rates
-        H2.form-elements__rates-header rate button
+        div.form-elements__rates-header
+          +title({type: 'label', text: 'rate button'})
         div.form-elements__rates-body
           div.form-elements__rate
             +rateButton({maxRating: 5, rating: 4})
@@ -67,7 +77,8 @@ section.form-elements
       div.form-elements__slider
         +slider({minValue: 0, maxValue: 16000, step: 100, title: 'Range slider', isRange: true, initialValues: [5000, 10000]})
       div.form-elements__buttons
-        H2.form-elements__buttons-header buttons
+        div.form-elements__buttons-header
+          +title({type: 'label', text: 'buttons'})
         div.form-elements__filled-buttons.buttons-row
           +button({text: 'Click Me', type: 'filled'})
           +button({text: 'Click Me', type: 'filled', isHovered: true})
@@ -80,7 +91,8 @@ section.form-elements
         div.form-elements__wide-button
           +button({text: 'Перейти к оплате', type: 'filled', size: 'wide', decoration: 'enter-arrow'})
         div.form-elements__pagination
-          H2.form-elements__pagination-title pagination
+          div.form-elements__pagination-title
+            +title({type: 'label', text: 'pagination'})
           +pagination(12)
             -let i = 0;
             while i < 151

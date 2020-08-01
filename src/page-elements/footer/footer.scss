@@ -68,15 +68,12 @@
     }
   }
 
-  &__links-section-title_type_large,
-  &__subscription-title_type_large {
-    margin: 0;
-  }
-
   &__links-section-title_type_large {
-    @include text_label-CTA();
     margin-bottom: 21.8px;
-    letter-spacing: -0.15px;
+
+    .title {
+      letter-spacing: -0.15px;
+    }
   }
 
   &__link_type_large {

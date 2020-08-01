@@ -2,10 +2,7 @@
   max-width: 280px;
 
   &__title {
-    @include text_label-CTA();
-    margin: 0;
     margin-bottom: 15px;
-    padding: 0;
   }
 
   &__container {

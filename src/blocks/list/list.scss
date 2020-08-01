@@ -11,7 +11,6 @@ $titleHeight: 12px;
   width: fit-content;
 
   &__title {
-    @include text_label-CTA();
     padding: 0;
     user-select: none;
     margin: 0 0 16px;

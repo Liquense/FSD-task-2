@@ -1,9 +1,11 @@
 include ../../blocks/input/input
 include ../../blocks/button/button
+include ../../blocks/title/title
 
 mixin loginCard()
   div.login-card
-    h3.login-card__title Войти
+    div.login-card__title
+      +title({type: 'widget', text: 'Войти'})
     div.login-card__email-input
       +input({type: 'text', placeholder: 'Email'})
     div.login-card__password-input

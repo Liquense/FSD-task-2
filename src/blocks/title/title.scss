@@ -1,0 +1,16 @@
+.title {
+  &_type_label {
+    @include text_label-CTA();
+  }
+
+  &_type_widget {
+    @include text_widget-title();
+  }
+
+  &_type_item {
+    @include text_item-title();
+  }
+
+  padding: 0;
+  margin: 0;
+}

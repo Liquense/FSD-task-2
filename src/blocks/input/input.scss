@@ -28,11 +28,12 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   }
 
   &__title {
-    @include text_label-CTA();
     margin: 0 0 3px 0;
     width: fit-content;
-    display: block;
-    line-height: $lineHeight;
+
+    .title {
+      line-height: $lineHeight;
+    }
 
     &_expandable {
       cursor: pointer;

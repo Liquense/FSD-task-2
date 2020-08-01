@@ -54,7 +54,7 @@ $maxSliderWidth: 266px;
     content: attr(sliderHandleValue);
     position: absolute;
     text-align: center;
-    width: 40px; // у тултипа хэндлера фиксированный размер
+    width: 40px;
     left: -20px+$sliderHandleSize/2;
     bottom: $sliderHandleSize;
   }
@@ -68,15 +68,8 @@ $maxSliderWidth: 266px;
     margin: 0 0 $sliderTextMargin 0;
   }
 
-  &__title {
-    @include text_label-CTA();
-  }
-
   &__value {
     @include text_regular();
-  }
-
-  &__title, &__value {
     line-height: $fontSize;
     font-size: $fontSize;
     margin: 0;

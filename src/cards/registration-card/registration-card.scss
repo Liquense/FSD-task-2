@@ -6,7 +6,7 @@ $borderWidth: 1px;
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
-  padding: 40px - $borderWidth 30px 30px - $borderWidth 30px;
+  padding: 40px - $borderWidth 30px 30px 30px - $borderWidth;
   @include boxSizingBorderBox();
 
   @media (max-width: 380px) {
@@ -18,13 +18,15 @@ $borderWidth: 1px;
   }
 
   &__title {
-    @include text_widget-title();
-    align-self: stretch;
-    margin: 0 0 20px;
-    letter-spacing: -0.6px;
+    margin-bottom: 20px;
 
-    @media (max-width: 380px) {
-      text-align: center;
+    .title {
+      align-self: stretch;
+      letter-spacing: -0.6px;
+
+      @media (max-width: 380px) {
+        text-align: center;
+      }
     }
   }
 
@@ -47,6 +49,14 @@ $borderWidth: 1px;
     }
   }
 
+  &__male-radio-button, &__female-radio-button {
+    display: inline-block;
+  }
+
+  &__male-radio-button {
+    margin-right: 20px;
+  }
+
   &__birthday-input {
     margin-bottom: 21px;
   }
@@ -56,8 +66,7 @@ $borderWidth: 1px;
   }
 
   &__login-data-title {
-    @include text_label-CTA();
-    margin: 0 0 6px;
+    margin-bottom: 6px;
   }
 
   &__email-input {

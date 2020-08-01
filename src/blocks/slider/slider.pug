@@ -1,14 +1,13 @@
+include ../title/title
 mixin slider({minValue = 0, maxValue = 10, step = 1, title = "", isRange = false, initialValues = [5]} = {})
   -const sliderClass = 'slider'
   -const textClass = `${sliderClass}__text`
-  -const titleClass = `${sliderClass}__title`
   -const valueClass = `${sliderClass}__value`
   -const containerClass = `${sliderClass}__container`
   -const controlClass = `${sliderClass}__control`
 
   -const sliderAttributes = {class: `js-${sliderClass} ${sliderClass}`}
   -const textAttributes = {class: textClass}
-  -const titleAttributes = {class: titleClass}
   -const valueAttributes = {class: `js-${valueClass} ${valueClass}`}
   -const containerAttributes = {class: containerClass}
   -const controlAttributes = {class: `js-${controlClass} ${controlClass}`, ['data-min']: minValue, ['data-max']: maxValue, ['data-step']: step, ['data-first-value']: initialValues[0]}
@@ -19,7 +18,7 @@ mixin slider({minValue = 0, maxValue = 10, step = 1, title = "", isRange = false
 
   div&attributes(sliderAttributes)
     div&attributes(textAttributes)
-      p&attributes(titleAttributes) #{title}
+      +title({type: 'label', text: title})
       p&attributes(valueAttributes) ₽
     div&attributes(containerAttributes)
       div&attributes(controlAttributes)

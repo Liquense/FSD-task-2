@@ -1,4 +1,5 @@
 include ../../blocks/input/input
+include ../../blocks/title/title
 mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} = {})
   -const logo = require('../../assets/images/logo-colored-withText.svg');
   -const typeModifier = isSimple ? '_type_simple' : '_type_large'
@@ -11,12 +12,14 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
         div.footer__links-section.footer__links-section_type_large
           each column in links
             div.footer__links-column.footer__links-column_type_large
-              h3.footer__links-section-title.footer__links-section-title_type_large #{column.title}
+              div.footer__links-section-title.footer__links-section-title_type_large
+                +title({type: 'label', text: column.title})
               if column.links
                 each link in column.links
                   a.footer__link.footer__link_type_large(href=link.url) #{link.text}
         div.footer__subscribe-section.footer__subscribe-section_type_large
-          h3.footer__subscription-title.footer__subscription-title_type_large #{subscription.title}
+          div.footer__subscription-title.footer__subscription-title_type_large
+            +title({type: 'label', text: subscription.title})
           span.footer__subscription-text.footer__subscription-text_type_large #{subscription.text}
           div.footer__subscribe-input
             +input({

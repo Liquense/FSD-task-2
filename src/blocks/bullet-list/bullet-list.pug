@@ -1,16 +1,18 @@
-mixin bulletList({title = "", contentStrings = []} = {})
-  -const listClass = "bullet-list"
-  -const listTitleClass = "__title"
-  -const listContainerClass = "__container"
-  -const listElementClass = "__item"
-  -const listElementImageClass = "__item-image"
-  -const listElementTextClass = "__item-text"
+include ../title/title
+mixin bulletList({title = '', contentStrings = []} = {})
+  -const listClass = 'bullet-list'
+  -const listTitleClass = `${listClass}__title`
+  -const listContainerClass = `${listClass}__container`
+  -const listElementClass = `${listClass}__item`
+  -const listElementImageClass = `${listClass}__item-image`
+  -const listElementTextClass = `${listClass}__item-text`
 
   div(class=listClass)
     if title
-      h4(class=`${listClass}${listTitleClass}`) #{title}
-    ul(class=`${listClass}${listContainerClass}`)
+      div(class=listTitleClass)
+        +title({type: 'label', text: title})
+    ul(class=listContainerClass)
       each string, index in contentStrings
-        li(class=`${listClass}${listElementClass}`)
-          div(class=`${listClass}${listElementImageClass}`)
-          span(class=`${listClass}${listElementTextClass}`) #{string}
+        li(class=listElementClass)
+          div(class=listElementImageClass)
+          span(class=listElementTextClass) #{string}

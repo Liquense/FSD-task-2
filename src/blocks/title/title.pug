@@ -1,0 +1,12 @@
+mixin title({type, text}={})
+  -let validType
+  case type
+    when 'label'
+      -validType = 'label'
+    when 'widget'
+      -validType = 'widget'
+    when 'item'
+    default
+      -validType = 'item'
+
+  h3(class=`title title_type_${validType}`) #{text}

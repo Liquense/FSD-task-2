@@ -41,16 +41,17 @@
     align-items: baseline;
   }
 
-  &__room-num-symbol {
+  &__room-num-symbol, &__room-number {
     @include text_label-CTA();
     color: black;
+  }
+
+  &__room-num-symbol {
     font-size: 14px;
     line-height: 14px;
   }
 
   &__room-number {
-    @include text_label-CTA();
-    color: black;
     font-size: 17px;
     line-height: 24px;
   }

@@ -20,13 +20,14 @@ $borderWidth: 1px;
   }
 
   &__title {
-    @include text_widget-title();
-    padding: 0;
-    letter-spacing: -0.4px;
-    margin: 0 0 19px;
+    margin-bottom: 19px;
 
-    @media (max-width: 380px) {
-      text-align: center;
+    .title {
+      letter-spacing: -0.4px;
+
+      @media (max-width: 380px) {
+        text-align: center;
+      }
     }
   }
 

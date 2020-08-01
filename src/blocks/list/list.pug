@@ -1,6 +1,7 @@
 include ../checkbox/checkbox
 include ../radio-button/radio-button
 include ../arrow/arrow
+include ../title/title
 
 mixin list({isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
   -const listClass = 'list'
@@ -24,7 +25,8 @@ mixin list({isExpandable=false, isNarrow=false, isOpened=false, title='', elemen
 
   fieldset&attributes(listAttributes)
     if title
-      legend&attributes(titleAttributes) #{title}
+      legend&attributes(titleAttributes)
+        +title({type: 'label', text: title})
       if isExpandable
         div.list__expand-arrow
           +arrow({type: 'expand'})
