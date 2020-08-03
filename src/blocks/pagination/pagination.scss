@@ -23,12 +23,22 @@ $pageButtonSize: 40px;
       justify-content: center;
 
       .paginationjs-pages {
-        ul {
+        > ul {
           padding: 0;
           margin: 0;
 
-          li {
+          .paginationjs-prev,
+          .paginationjs-page,
+          .paginationjs-next {
+            cursor: pointer;
+          }
+
+          .paginationjs-prev,
+          .paginationjs-page,
+          .paginationjs-ellipsis,
+          .paginationjs-next {
             display: inline-block;
+            user-select: none;
             border-radius: 50%;
             width: $pageButtonSize;
             height: $pageButtonSize;
