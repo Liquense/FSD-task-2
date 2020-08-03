@@ -15,7 +15,7 @@ const template = require('./registration-login__card-template.pug');
 const locals = { login: isLogin === 'true' };
 const templateHTML = template(locals);
 
-const $registrationLoginContent = $('.js-registration-login__content');
+const $registrationLoginContent = $('.js-registration-login');
 if (locals.login) {
   $registrationLoginContent.append(templateHTML);
 } else {

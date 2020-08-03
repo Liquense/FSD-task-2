@@ -12,7 +12,7 @@ imagePaths.push(require('../../assets/images/room-big-1.jpg'));
 imagePaths.push(require('../../assets/images/room-big-2.jpg'));
 imagePaths.push(require('../../assets/images/room-big-3.jpg'));
 
-const $roomContainers = $('.landing-page__room-container');
+const $roomContainers = $('.js-landing-page');
 function initRoomContainer() {
   const $container = $(this);
   const randomNum = Math.floor(Math.random() * imagePaths.length);
