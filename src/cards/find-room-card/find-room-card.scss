@@ -2,6 +2,9 @@ $cardWidth: 380px;
 $borderWidth: 1px;
 
 .find-room-card {
+  @include box-sizing-border-box();
+  display: flex;
+  flex-direction: column;
   height: fit-content;
   max-width: $cardWidth;
   box-shadow: 0px 0px 25px $darkShade20;
@@ -9,12 +12,10 @@ $borderWidth: 1px;
   border: $borderWidth solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
   padding: (40px - $borderWidth) (30px - $borderWidth) (30px - $borderWidth);
-  @include box-sizing-border-box();
-
   @media (max-width: 380px) {
+    align-items: center;
     width: 100%;
-    padding-left: 0;
-    padding-right: 0;
+    padding: 25px 10px;
     border-right: 0;
     border-left: 0;
   }

@@ -1,9 +1,21 @@
-$spaceBetweenInputs: 20px;
-$narrowInputWidth: 150px;
-
 .double-date-picker {
-  display: flex;
-  max-width: $narrowInputWidth*2 + $spaceBetweenInputs;
-  justify-content: space-between;
   @include box-sizing-border-box();
+  display: flex;
+  max-width: 320px;
+  justify-content: space-between;
+  @media (max-width: 380px) {
+    max-width: 300px;
+  }
+
+  &__first-date-picker,
+  &__second-date-picker {
+    max-width: 150px;
+    @media (max-width: 380px) {
+      max-width: 140px;
+    }
+  }
+
+  &__first-date-picker {
+    margin-right: 20px;
+  }
 }

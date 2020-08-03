@@ -53,7 +53,6 @@ body {
 
   $horizontalGap: 70px;
   $verticalGap: 30px;
-
   &__content {
     padding: get-vw(70px) 0 get-vw(72px);
     border-bottom: 1px solid $darkShade25;
@@ -65,6 +64,9 @@ body {
     @media (max-width: 1250px) {
       flex-wrap: wrap-reverse;
     }
+    @media (max-width: 380px) {
+      padding: 0;
+    }
   }
 
   &__info-container {
@@ -74,16 +76,9 @@ body {
     @media (max-width: 1250px) {
       margin-left: get-vw($horizontalGap);
     }
-    @media (max-width: 850px) {
-      margin-right: 5px;
-      margin-left: 5px;
-    }
-
-    h2 {
+    @media (max-width: 380px) {
       margin: 0;
-      margin-bottom: 20px;
-      padding: 0;
-      width: fit-content;
+      padding: 20px 20px;
     }
   }
 
@@ -110,13 +105,19 @@ body {
     }
   }
 
+  &__features-title,
+  &__expressions-title,
+  &__reviews-title,
+  &__rules-title,
+  &__cancellation-title {
+    margin: 0 0 20px 0;
+  }
+
   &__features-title {
-    @include text_item-title();
     letter-spacing: -0.6px;
   }
 
   &__expressions-title {
-    @include text_item-title();
     letter-spacing: -0.4px;
   }
 
@@ -140,14 +141,13 @@ body {
     }
   }
 
-  &__reviews-title-container {
+  &__reviews-title-row {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
   }
 
   &__reviews-title {
-    @include text_item-title();
     letter-spacing: -0.4px;
   }
 
@@ -167,23 +167,22 @@ body {
   }
 
   &__rules-container {
-    @media (max-width: 610px) {
+    @media (max-width: 650px) {
+      margin-right: 20px;
       margin-bottom: $verticalGap;
+    }
+    @media (max-width: 380px) {
+      margin-right: 0;
     }
   }
 
   &__rules-title {
-    @include text_item-title();
-    margin-bottom: 17px;
+    padding: 0;
     margin-left: 20px;
-    @media (max-width: 610px) {
+    @media (max-width: 650px) {
+      text-align: center;
       margin-left: 0;
-    }
-  }
-
-  &__rules-list {
-    .list__title {
-      display: none;
+      margin-bottom: 10px;
     }
   }
 
@@ -191,15 +190,18 @@ body {
     margin-right: 10px;
     min-width: 280px;
     max-width: 340px;
-    @media (max-width: 550px) {
-      max-width: 280px;
+    @media (max-width: 650px) {
+      min-width: unset;
+      max-width: 253px;
       margin-right: 0;
     }
   }
 
   &__cancellation-title {
-    @include text_item-title();
-    margin-bottom: 17px;
+    @media (max-width: 650px) {
+      text-align: center;
+      margin-bottom: 10px
+    }
   }
 
   &__cancellation-text {
@@ -210,6 +212,10 @@ body {
   &__booking-card {
     @media (max-width: 1250px) {
       margin-bottom: $verticalGap*2;
+    }
+    @media (max-width: 380px) {
+      width: 100%;
+      margin: 0;
     }
   }
 }

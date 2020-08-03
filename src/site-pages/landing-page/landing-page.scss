@@ -3,6 +3,7 @@ body {
 }
 
 .landing-page {
+  @include box-sizing-border-box();
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: -70px;
@@ -12,8 +13,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: get-vw(71px) get-vw(134px) get-vw(21px) get-vw(140px);
-  @include box-sizing-border-box();
-
+  @media (max-width: 1439px) {
+    background-position-y: 0;
+  }
   @media (max-width: 1345px) {
     padding-bottom: get-vw(50px);
   }
@@ -49,6 +51,9 @@ body {
     }
     @media (max-width: 850px) {
       align-self: unset;
+    }
+    @media (max-width: 380px) {
+      display: none;
     }
   }
 }

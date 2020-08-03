@@ -341,8 +341,15 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   &__calendar {
     &_wide {
       @include cell-size(320px, 20px);
+      @media (max-width: 380px) {
+        @include cell-size(300px, 20px);
+      }
+
       .datepicker--cell-day {
         height: 40px;
+        @media (max-width: 380px) {
+          height: 37px;
+        }
       }
     }
 

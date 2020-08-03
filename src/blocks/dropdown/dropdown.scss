@@ -8,6 +8,9 @@ $inputBorderRadius: 4px;
   position: relative;
   min-width: $minInputWidth;
   width: fit-content;
+  @media (max-width: 380px) {
+    min-width: 300px;
+  }
 
   &_width_medium {
     min-width: $minMediumInputWidth;
@@ -16,7 +19,7 @@ $inputBorderRadius: 4px;
   &__input {
     .input__control {
       color: $darkShade75;
-      padding-right: 9.6ch;
+      padding-right: 80px;
 
       &::placeholder {
         color: $darkShade75;

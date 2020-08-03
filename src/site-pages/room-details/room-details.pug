@@ -12,6 +12,7 @@ block content
   include ../../blocks/features-list/features-list
   include ../../blocks/bullet-list/bullet-list
   include ../../cards/booking-card/booking-card
+  include ../../blocks/title/title
 
   div.room-details
     div.room-details__photos
@@ -23,7 +24,8 @@ block content
       div.room-details__info-container
         div.room-details__main-info
           div.room-details__features-container
-            h2.room-details__features-title Сведения о номере
+            div.room-details__features-title
+              +title({text: 'Сведения о номере', type: 'item'})
             div.room-details__features-content
               +features-list({
                 items: [
@@ -33,7 +35,8 @@ block content
                 ]
               })
           div.room-details__expressions-container
-            h2.room-details__expressions-title Впечатления от номера
+            div.room-details__expressions-title
+              +title({text: 'Впечатления от номера', type: 'item'})
             div.js-room-details__donut-chart.room-details__donut-chart
               -const donutParams = {
               -  data: [
@@ -60,8 +63,9 @@ block content
               -};
               +donut-chart(donutParams)
         div.room-details__reviews-container
-          div.room-details__reviews-title-container
-            h2.room-details__reviews-title Отзывы посетителей номера
+          div.room-details__reviews-title-row
+            div.room-details__reviews-title
+              +title({text: 'Отзывы посетителей номера', type: 'item'})
             span.room-details__reviews-count 2 отзыва
           div.room-details__reviews-content
             div.room-details__comment
@@ -86,14 +90,16 @@ block content
               })
         div.room-details__additional-info
           div.room-details__rules-container
-            h2.room-details__rules-title Правила
+            div.room-details__rules-title
+              +title({text: 'Правила', type: 'item'})
             div.room-details__rules-list
               +bullet-list({
                 title: '',
                 contentStrings: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']
               })
           div.room-details__cancellation-container
-            h2.room-details__cancellation-title Отмена
+            div.room-details__cancellation-title
+              +title({text: 'Отмена', type: 'item'})
             span.room-details__cancellation-text
               | Бесплатная отмена в течение 48 ч.
               | После этого при отмене не позднее чем за 5 дн. до прибытия

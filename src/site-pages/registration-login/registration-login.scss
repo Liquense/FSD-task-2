@@ -30,18 +30,31 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-
-    @media (max-width: 450px) {
+    @media (max-width: 380px) {
+      min-height: unset;
       height: unset;
+    }
+  }
+
+  &__login-card,
+  &__registration-card {
+    @media (max-width: 380px) {
+      width: 100%;
     }
   }
 
   &__login-card {
     margin-bottom: 1px;
+    @media (max-width: 380px) {
+      margin-bottom: 0;
+    }
   }
 
   &__registration-card {
     margin-top: 4px;
+    @media (max-width: 380px) {
+      margin-top: 0;
+    }
   }
 
   &__background-image {

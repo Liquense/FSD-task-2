@@ -26,6 +26,10 @@ $arrowSize: 24px;
 
   &_size_wide {
     min-width: 320px;
+
+    @media (max-width: 380px) {
+      min-width: 300px;
+    }
   }
 
   &_decorated {

@@ -3,13 +3,12 @@ include ../../blocks/arrow/arrow
 
 mixin header({userLogin='', loginText='Login', registerText='register', content=[], isNarrow=false} = {})
   -const headerClass = 'header'
-  -const narrowClass = `${headerClass}_narrow`
   -const logo = require('../../assets/images/logo-colored-withText.svg');
 
-  header(class=`js-${headerClass} ${headerClass} ${isNarrow ? narrowClass : ''}`)
+  header(class=`js-${headerClass} ${headerClass} ${isNarrow ? `${headerClass}_narrow` : ''}`)
     a(class=`js-${headerClass}__logo-link ${headerClass}__logo-link ${isNarrow ? `${headerClass}__logo-link_narrow` : ''}`)
       img(src=logo alt='logo' class=`${headerClass}__logo ${isNarrow ? `${headerClass}__logo_narrow` : ''}`)
-    div(class=`${headerClass}__content-container ${isNarrow ? `${headerClass}__content-container_narrow` : ''}`)
+    div(class=`${headerClass}__content ${isNarrow ? `${headerClass}__content_narrow` : ''}`)
       ul(class=`${headerClass}__menu ${isNarrow ? `${headerClass}__menu_narrow` : ''}`)
         each item, index in content
           -const itemClasses = `${headerClass}__menu-item ${isNarrow ? `${headerClass}__menu-item_narrow` : ''}` +
@@ -23,7 +22,7 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
         div(class=`${headerClass}__divider ${isNarrow ? `${headerClass}__divider_narrow` : ''}`)
         div(class=`${headerClass}__user-name ${isNarrow ? `${headerClass}__user-name_narrow` : ''}`) #{userLogin}
       else
-        div(class=`${headerClass}__buttons-container ${isNarrow ? `${headerClass}__buttons-container_narrow` : ''}`)
+        div(class=`${headerClass}__buttons ${isNarrow ? `${headerClass}__buttons_narrow` : ''}`)
           div(class=`js-${headerClass}__login-button ${headerClass}__login-button ${isNarrow ? `${headerClass}__login-button_narrow` : ''}`)
             +button({text: loginText, type: 'bordered', isTextSized: true, isLink: true})
           div(class=`js-${headerClass}__register-button ${headerClass}__register-button ${isNarrow ? `${headerClass}__register-button_narrow` : ''}`)

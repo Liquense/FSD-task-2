@@ -7,7 +7,7 @@
   background: white;
   box-shadow: 0 10px 20px $darkShade5;
   width: 100%;
-  padding: get-vw(15px) get-vw(140px);
+  padding: 15px get-vw(140px);
 
   @media (max-width: 1100px) {
     padding-right: 0;
@@ -23,7 +23,7 @@
     display: block;
   }
 
-  &__content-container {
+  &__content {
     display: flex;
     align-items: center;
 
@@ -33,10 +33,6 @@
 
     @media (max-width: 450px) {
       width: 100%;
-
-      :not(.header__expand-button):not(:last-child) {
-        margin-bottom: 10px;
-      }
     }
   }
 
@@ -49,7 +45,7 @@
     align-items: center;
 
     @media (max-width: 850px) {
-      margin-right: 0;
+      margin: 10px 0;
     }
 
     @media (max-width: 450px) {
@@ -136,7 +132,7 @@
     color: $darkShade50;
   }
 
-  &__buttons-container {
+  &__buttons {
     display: flex;
     margin-left: get-vw(27px);
 
@@ -145,12 +141,16 @@
     }
 
     @media (max-width: 450px) {
-      justify-content: space-evenly;
+      justify-content: center;
       width: 100%;
 
       &_narrow {
         margin-left: get-vw(20px);
       }
+    }
+
+    @media (max-width: 850px) {
+      //margin-bottom: 10px;
     }
   }
 

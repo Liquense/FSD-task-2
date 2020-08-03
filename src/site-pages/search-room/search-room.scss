@@ -23,8 +23,8 @@ body {
     user-select: none;
     display: none;
     width: 40px;
-    height: 40px;
     line-height: 40px;
+    font-size: 25px;
     text-align: center;
     color: $darkShade50;
 
@@ -62,41 +62,30 @@ body {
       margin-bottom: 40px;
       display: grid;
       align-items: center;
+      justify-items: center;
       row-gap: 30px;
       column-gap: 15px;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    }
-
-    > * {
-      margin-bottom: 32px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-
-      @media (max-width: 1070px) {
-        margin-bottom: 0;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 280px;
-
-        &:first-child {
-          margin-bottom: 0;
-        }
-      }
     }
   }
 
   &__staying-dates {
     margin-bottom: 18px;
+    @media (max-width: 1070px) {
+      margin-bottom: 0;
+    }
   }
 
   &__guests {
     margin-bottom: 32px;
+    @media (max-width: 1070px) {
+      margin-bottom: 0;
+    }
   }
 
   &__daily-price-container {
     width: fit-content;
+    margin-bottom: 32px;
   }
 
   &__daily-price-filter {
@@ -111,10 +100,28 @@ body {
 
   &__benefits-filter {
     margin-bottom: 34px;
+    @media (max-width: 1070px) {
+      max-width: 266px;
+      margin-bottom: 0;
+    }
+    @media (max-width: 380px) {
+      width: 100%;
+    }
   }
 
   &__availability-filter {
     margin-bottom: 28px;
+    @media (max-width: 1070px) {
+      max-width: 266px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__room-equipment-filter {
+    margin-bottom: 32px;
+    @media (max-width: 1070px) {
+      margin-bottom: 0;
+    }
   }
 
   &__rooms {
