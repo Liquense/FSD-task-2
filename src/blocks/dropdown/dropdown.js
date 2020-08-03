@@ -63,7 +63,6 @@ class Dropdown {
 
   _initElements(rootElement) {
     this.$dropdown = $(rootElement);
-
     this.$listWrapper = this.$dropdown.find('.js-dropdown__list-wrapper');
     this.$inputControl = this.$dropdown.find('.js-dropdown__input .js-input__control');
     this.$spinners = this.$dropdown.find('.js-spinner');
@@ -126,9 +125,9 @@ class Dropdown {
   }
 
   _handleDocumentClick = (event) => {
-    const clickedElement = $(event.target);
+    const clickedElement = $(event.target).get(0);
 
-    if ($.contains(this.$dropdown.get(0), clickedElement.get(0))) return;
+    if ($.contains(this.$dropdown.get(0), clickedElement)) return;
 
     if (this.isOpened) {
       if (!this.isAlwaysOpened) { this._toggle(); }
