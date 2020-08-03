@@ -25,7 +25,7 @@ block content
           div.room-details__features-container
             h2.room-details__features-title Сведения о номере
             div.room-details__features-content
-              +featureList({
+              +features-list({
                 items: [
                   {text: 'Шумопоглощающие стены', title: 'Комфорт', icon: 'insert_emoticon'},
                   {title: 'Удобство', text: 'Окно в каждой из спален', icon: 'location_city'},
@@ -88,7 +88,7 @@ block content
           div.room-details__rules-container
             h2.room-details__rules-title Правила
             div.room-details__rules-list
-              +bulletList({
+              +bullet-list({
                 title: '',
                 contentStrings: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']
               })
@@ -99,7 +99,7 @@ block content
               | После этого при отмене не позднее чем за 5 дн. до прибытия
               | вы получите полный возврат за вычетом сбора за услуги.
       div.room-details__booking-card
-        +bookingCard({
+        +booking-card({
           roomNumber: '888',
           roomType: 'люкс',
           currency: '₽',

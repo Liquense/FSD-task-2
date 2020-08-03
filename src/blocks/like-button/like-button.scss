@@ -3,7 +3,7 @@ $checkboxButtonBorderWidth: 1px;
 
 .like-button {
   @include clearfix();
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
   width: fit-content;
   min-width: 40px;
   height: $checkboxButtonSize;

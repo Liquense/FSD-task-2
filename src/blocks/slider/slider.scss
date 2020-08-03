@@ -7,7 +7,7 @@ $maxSliderWidth: 266px;
 
 .slider {
   max-width: $maxSliderWidth;
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 
   &__plugin-container {
     max-width: $maxSliderWidth;

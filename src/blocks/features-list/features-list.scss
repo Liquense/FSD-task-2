@@ -28,7 +28,7 @@
 
   &__item-image {
     @include icon();
-    @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
+    @include text-gradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
     user-select: none;
     font-size: 48px;
     margin-right: 10px;

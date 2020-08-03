@@ -4,10 +4,10 @@ div(class=containerClass)
   if login
     include ../../cards/login-card/login-card
     div.registration-login__login-card
-      +loginCard()
+      +login-card()
   else
     include ../../cards/registration-card/registration-card
     div.registration-login__registration-card
-      +registrationCard()
+      +registration-card()
 
   img.registration-login__background-image(src=require("../../assets/images/registration-login-background.jpg") alt="backgroundImage")

@@ -10,11 +10,6 @@
   text-decoration: none;
 }
 
-@mixin minSize($minWidth, $minHeight) {
-  min-width: $minWidth;
-  min-height: $minHeight;
-}
-
 @mixin clearfix() {
   &:after {
     content: "";
@@ -32,13 +27,13 @@
   vertical-align: middle;
 }
 
-@mixin textGradient($gradient) {
+@mixin text-gradient($gradient) {
   background: $gradient;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-@mixin boxSizingBorderBox() {
+@mixin box-sizing-border-box() {
   box-sizing: border-box;
   * {
     box-sizing: border-box;

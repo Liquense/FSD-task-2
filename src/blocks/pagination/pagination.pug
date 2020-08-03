@@ -12,6 +12,6 @@ mixin pagination({pageSize = 12, items=[]} = {})
     div&attributes(contentAttributes)
       each item, index in items
         div.pagination__item
-          +roomPreviewCard(item)
+          +room-preview-card(item)
 
     div&attributes(buttonsAttributes)

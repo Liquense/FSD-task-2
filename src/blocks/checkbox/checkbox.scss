@@ -5,7 +5,7 @@ $toggleCircleXOffset: 7.9%;
 $toggleCircleYOffset: 16.67%;
 $toggleCircleWidth: 31.58%;
 
-@mixin saturateToggleButton() {
+@mixin saturate-toggle-button() {
   border-color: $purple;
   animation-name: saturate;
 
@@ -59,7 +59,7 @@ $toggleCircleWidth: 31.58%;
 }
 
 .checkbox {
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
   width: fit-content;
   display: inline-block;
   user-select: none;
@@ -71,7 +71,7 @@ $toggleCircleWidth: 31.58%;
   }
 
   &_type_toggle:hover &__button {
-    @include saturateToggleButton();
+    @include saturate-toggle-button();
     animation-duration: 0.4s;
   }
 
@@ -105,7 +105,7 @@ $toggleCircleWidth: 31.58%;
 
         &:after {
           @include icon();
-          @include textGradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
+          @include text-gradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
           content: 'checked';
           display: block;
           height: 1em;
@@ -138,7 +138,7 @@ $toggleCircleWidth: 31.58%;
       }
 
       &:checked {
-        @include saturateToggleButton();
+        @include saturate-toggle-button();
         animation-duration: 1s;
 
         &:after {

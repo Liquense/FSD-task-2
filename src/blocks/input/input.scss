@@ -13,7 +13,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   height: fit-content;
   width: fit-content;
   min-width: 320px;
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 
   &_width_narrow {
     min-width: 150px;

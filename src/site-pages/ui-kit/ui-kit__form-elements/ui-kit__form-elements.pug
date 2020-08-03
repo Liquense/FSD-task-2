@@ -28,9 +28,9 @@ section.form-elements
       div.form-elements__masked-input
         +input({title: 'Masked Text Field', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
 
-    div.form-elements__datepickers
-      +twoCalendarRangePicker({secondDate: '19.08.2019', labels: ['date dropdown', 'date dropdown']})
-      +datepicker({title: 'filter date dropdown', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', data: ['19.08.2019', '23.08.2019']})
+    div.form-elements__date-pickers
+      +double-date-picker({secondDate: '19.08.2019', labels: ['date dropdown', 'date dropdown']})
+      +date-picker({title: 'filter date dropdown', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', data: ['19.08.2019', '23.08.2019']})
       +input({title: 'subscription text field', type: 'text', width: 'medium', withSubscription: true, placeholder: 'Email'})
 
     div.form-elements__checkboxes-ratings
@@ -44,9 +44,9 @@ section.form-elements
         div.form-elements__radios-title
           +title({type: 'label', text: 'Radio buttons'})
         div.form-elements__radio-button
-          +radioButton({text: 'Мужчина', group: 'gender', isChecked: true})
+          +radio-button({text: 'Мужчина', group: 'gender', isChecked: true})
         div.form-elements__radio-button
-          +radioButton({text: 'Женщина', group: 'gender', isChecked: false})
+          +radio-button({text: 'Женщина', group: 'gender', isChecked: false})
 
       div.form-elements__toggles
         div.form-elements__toggles-title
@@ -61,17 +61,17 @@ section.form-elements
           +title({type: 'label', text: 'Like button'})
         div.form-elements__likes-body
           div.form-elements__like
-            +like({count: '2'})
+            +like-button({count: '2'})
           div.form-elements__like
-            +like({count: '12', isChecked: true})
+            +like-button({count: '12', isChecked: true})
       div.form-elements__rates
         div.form-elements__rates-header
           +title({type: 'label', text: 'rate button'})
         div.form-elements__rates-body
           div.form-elements__rate
-            +rateButton({maxRating: 5, rating: 4})
+            +rating({maxRating: 5, rating: 4})
           div.form-elements__rate
-            +rateButton({maxRating: 5, rating: 5})
+            +rating({maxRating: 5, rating: 5})
 
     div.form-elements__slider-buttons-pagination
       div.form-elements__slider
@@ -130,7 +130,7 @@ section.form-elements
         +list({type: 'checkbox', title: 'Rich checkbox buttons', elements: richCheckboxes})
 
       div.form-elements__bullet-list
-        +bulletList({
+        +bullet-list({
           title: 'Bullet List',
           contentStrings: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']
           }
@@ -138,7 +138,7 @@ section.form-elements
 
   div.form-elements__bottom-area
     div.form-elements__feature-list
-      +featureList({items: [
+      +features-list({items: [
         {title: 'Комфорт', text: 'Шумопоглощающие стены', icon: 'insert_emoticon'},
         {title: 'Удобство', text: 'Окно в каждой из спален', icon: 'location_city'},
       ]})

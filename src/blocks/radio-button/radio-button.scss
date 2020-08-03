@@ -3,7 +3,7 @@ $checkboxButtonBorderWidth: 1px;
 $buttonRightMargin: 10px;
 
 .radio-button {
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
   width: fit-content;
   display: inline-block;
   -webkit-user-select: none;

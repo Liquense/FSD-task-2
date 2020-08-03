@@ -2,7 +2,7 @@ $avatarSize: 48px;
 
 .comment {
   max-width: 710px;
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 
   &__header {
     display: flex;

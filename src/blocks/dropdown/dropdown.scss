@@ -4,7 +4,7 @@ $borderWidth: 1px;
 $inputBorderRadius: 4px;
 
 .dropdown {
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
   position: relative;
   min-width: $minInputWidth;
   width: fit-content;

@@ -1,7 +1,7 @@
 $arrowSize: 44px;
 
 .carousel {
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 
   .slick {
     &-list {

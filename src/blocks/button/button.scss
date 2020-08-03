@@ -3,7 +3,7 @@ $buttonHeight: 44px;
 $arrowSize: 24px;
 
 .button {
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
   cursor: pointer;
   display: inline-block;
   width: fit-content;

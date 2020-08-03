@@ -5,7 +5,7 @@
   box-shadow: 0 10px 20px $darkShade5;
   border-radius: 4px;
   overflow: hidden;
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 
   @media (max-width: 551px) {
     border-radius: 0;

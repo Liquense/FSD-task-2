@@ -1,6 +1,6 @@
 include ../../blocks/carousel/carousel
 include ../../blocks/rating/rating
-mixin roomPreviewCard({link = 'room-details.html', room={}, carousel={content: [], carouselParams: {}}} = {})
+mixin room-preview-card({link = 'room-details.html', room={}, carousel={content: [], carouselParams: {}}} = {})
   -room.currencySymbol = room.currencySymbol ? room.currencySymbol : '₽';
   -room.periodText = room.periodText ? room.periodText : 'в сутки';
   -room.rating = room.rating ? room.rating : [5, 5];
@@ -30,7 +30,7 @@ mixin roomPreviewCard({link = 'room-details.html', room={}, carousel={content: [
       hr.room-preview-card__division-line
       div.room-preview-card__rate-info
         div.room-preview-card__rating
-          +rateButton({maxRating: room.rating[1], rating: room.rating[0]})
+          +rating({maxRating: room.rating[1], rating: room.rating[0]})
         div.room-preview-card__reviews-info
           span.js-room-preview-card__reviews-count.room-preview-card__reviews-count
             |#{room.reviewsCount}

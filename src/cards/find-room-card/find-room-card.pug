@@ -3,12 +3,12 @@ include ../../blocks/dropdown/dropdown
 include ../../blocks/button/button
 include ../../blocks/title/title
 
-mixin findRoomCard()
+mixin find-room-card()
   div.js-find-room-card.find-room-card
     div.find-room-card__title
       +title({type: 'widget', text: 'Найдём номера под ваши пожелания'})
     div.find-room-card__staying-dates-picker
-      +twoCalendarRangePicker({labels: ['Прибытие', 'Выезд']})
+      +double-date-picker({labels: ['Прибытие', 'Выезд']})
     div.find-room-card__guests-dropdown
       +dropdown({title: 'Гости', dropdownType: 'customers', placeholder: 'Сколько гостей', data: [{name: 'Взрослые'}, {name: 'Дети'}, {name: 'Младенцы'}]})
     div.find-room-card__search-button

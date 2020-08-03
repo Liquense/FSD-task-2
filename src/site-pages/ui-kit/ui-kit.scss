@@ -5,7 +5,7 @@ body {
   background-color: #eeeeee;
   align-items: center;
   flex-direction: column;
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 }
 
 section {

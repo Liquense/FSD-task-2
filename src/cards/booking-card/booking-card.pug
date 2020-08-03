@@ -2,7 +2,7 @@ include ../../blocks/double-date-picker/double-date-picker
 include ../../blocks/button/button
 include ../../blocks/dropdown/dropdown
 
-mixin bookingCard({roomNumber, roomType, dailyPrice, currency, arrivalDate, departureDate, dropdownItems=[], services, additionalPrice} = {})
+mixin booking-card({roomNumber, roomType, dailyPrice, currency, arrivalDate, departureDate, dropdownItems=[], services, additionalPrice} = {})
   div.js-booking-card.booking-card
     header.booking-card__header
       div.booking-card__room-info
@@ -13,7 +13,7 @@ mixin bookingCard({roomNumber, roomType, dailyPrice, currency, arrivalDate, depa
         span.js-booking-card__daily-price.booking-card__daily-price(data-daily-price=dailyPrice data-currency=currency) #{dailyPrice}#{currency}
         span.booking-card__payment-period  в сутки
     div.js-booking-card__range-picker.booking-card__range-picker
-      +twoCalendarRangePicker({labels: ['Прибытие', 'Выезд'], firstDate: arrivalDate, secondDate: departureDate})
+      +double-date-picker({labels: ['Прибытие', 'Выезд'], firstDate: arrivalDate, secondDate: departureDate})
     div.js-booking-card__guests-dropdown.booking-card__guests-dropdown
       +dropdown({title: 'Гости', dropdownType: 'customers', placeholder: 'Сколько гостей', data: dropdownItems})
     div.booking-card__check-container

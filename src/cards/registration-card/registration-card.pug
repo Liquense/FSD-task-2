@@ -4,7 +4,7 @@ include ../../blocks/button/button
 include ../../blocks/radio-button/radio-button
 include ../../blocks/title/title
 
-mixin registrationCard({loginURL=''} = {})
+mixin registration-card({loginURL=''} = {})
   div.js-registration-card.registration-card
     div.registration-card__title
       +title({type: 'widget', text: 'Регистрация аккаунта'})
@@ -14,9 +14,9 @@ mixin registrationCard({loginURL=''} = {})
       +input({type: 'text', placeholder: 'Фамилия'})
     div.registration-card__gender-list
       div.registration-card__male-radio-button
-        +radioButton({text: 'Мужчина', group: 'registrationGender', isChecked: true})
+        +radio-button({text: 'Мужчина', group: 'registrationGender', isChecked: true})
       div.registration-card__female-radio-button
-        +radioButton({text: 'Женщина', group: 'registrationGender'})
+        +radio-button({text: 'Женщина', group: 'registrationGender'})
     div.registration-card__birthday-input
       +input({title: 'Дата рождения', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
     div.registration-card__login-data-container

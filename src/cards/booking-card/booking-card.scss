@@ -7,7 +7,7 @@
   border-radius: 4px;
   padding: 49px 29px 29px 29px;
   @include clearfix();
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 
   @media (max-width: 380px) {
     padding-left: 0;

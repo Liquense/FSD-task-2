@@ -7,7 +7,7 @@ class Datepicker {
     text: 'Применить', 'data-action': 'hide', class: 'date-picker__confirm-button',
   });
 
-  $datepicker;
+  $datePicker;
 
   $inputWrap;
 
@@ -19,7 +19,7 @@ class Datepicker {
 
   arrow;
 
-  datepickerPlugin;
+  datePickerPlugin;
 
   isInline;
 
@@ -41,15 +41,15 @@ class Datepicker {
   }
 
   _initElements(element) {
-    this.$datepicker = $(element);
-    this.$inputWrap = this.$datepicker.find('.js-date-picker__input-wrap');
+    this.$datePicker = $(element);
+    this.$inputWrap = this.$datePicker.find('.js-date-picker__input-wrap');
     this.$inputControl = this.$inputWrap.find('.js-input__control');
     this.$inputLabel = this.$inputWrap.find('.js-input__title');
   }
 
   _initProperties() {
     this.isInline = this.$inputWrap.hasClass('js-date-picker__input-wrap_inline');
-    this.arrow = initArrows(this.$datepicker);
+    this.arrow = initArrows(this.$datePicker);
   }
 
   getInitDates() {
@@ -71,9 +71,9 @@ class Datepicker {
       const $controlWrap = $(event.target).parent();
 
       if (this.arrow.getExpandState($controlWrap)) {
-        this.datepickerPlugin.hide();
+        this.datePickerPlugin.hide();
       } else {
-        this.datepickerPlugin.show();
+        this.datePickerPlugin.show();
       }
     });
   }
@@ -85,7 +85,7 @@ class Datepicker {
   _setExpandArrowEventHandlers() {
     const { arrow, $inputLabel } = this;
 
-    this.datepickerPlugin.update({
+    this.datePickerPlugin.update({
       onHide(inst, isAnimationEnded) {
         const $controlWrap = $(inst.el).parent();
 
@@ -106,7 +106,7 @@ class Datepicker {
   _initExpandableEvents() {
     this._setExpandArrowEventHandlers();
 
-    if (this.datepickerPlugin) {
+    if (this.datePickerPlugin) {
       this._addClickHandler();
     }
   }
@@ -115,7 +115,7 @@ class Datepicker {
     const initDates = this.getInitDates();
 
     const addClass = this.isInline ? 'date-picker__calendar_wide' : 'date-picker__calendar_narrow';
-    this.datepickerPlugin = this.$inputControl.datepicker({
+    this.datePickerPlugin = this.$inputControl.datepicker({
       startDate: initDates?.length ? initDates[0] : null,
       classes: addClass,
       range: true,
@@ -137,10 +137,10 @@ class Datepicker {
         this.$inputControl.val(formattedDate.toLowerCase());
       },
     }).data('datepicker');
-    this.$buttonsContainer = this.datepickerPlugin.$datepicker.find('.datepicker--buttons');
+    this.$buttonsContainer = this.datePickerPlugin.$datepicker.find('.datepicker--buttons');
 
     this._createConfirmButton();
-    this.datepickerPlugin.selectDate(initDates);
+    this.datePickerPlugin.selectDate(initDates);
   }
 
   _createConfirmButton() {

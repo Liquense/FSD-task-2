@@ -1,7 +1,7 @@
 $pageButtonSize: 40px;
 
 .pagination {
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 
   &__content {
     text-align: center;

@@ -25,7 +25,7 @@ class BookingCard {
 
   guestsDropdown;
 
-  rangeDatepicker;
+  doubleDatePicker;
 
   servicesCostSum;
 
@@ -85,12 +85,12 @@ class BookingCard {
   }
 
   _initRangeDatepicker() {
-    this.rangeDatepicker = initTwoCalendarDatepickers(this.$rangeDatepickerWrap);
+    this.doubleDatePicker = initTwoCalendarDatepickers(this.$rangeDatepickerWrap);
   }
 
   _addRefreshCostsOnInputChange() {
-    const $firstDatePicker = this.rangeDatepicker.$firstDatepicker;
-    const $secondDatePicker = this.rangeDatepicker.$secondDatepicker;
+    const { $firstDatePicker } = this.doubleDatePicker;
+    const { $secondDatePicker } = this.doubleDatePicker;
 
     $firstDatePicker.on('change.bookingCard', this._handleDatepickerChange);
     $secondDatePicker.on('change.bookingCard', this._handleDatepickerChange);
@@ -121,7 +121,7 @@ class BookingCard {
   static _secondsToDays = (secondsAmount) => Math.round(secondsAmount / (24 * 60 * 60 * 1000));
 
   _updateDaysAmount() {
-    const dateRange = this.rangeDatepicker.getSelectedDates();
+    const dateRange = this.doubleDatePicker.getSelectedDates();
 
     let daysAmount;
     if (dateRange[0] && dateRange[1]) {

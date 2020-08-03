@@ -16,16 +16,16 @@ block content
     div.js-search-room__show-sidebar-button.search-room__show-sidebar-button filter_list
     div.search-room__sidebar
       div.search-room__staying-dates
-        +datepicker({title: 'Даты пребывания в отеле', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', data: ['19.08.2019', '23.08.2019']})
+        +date-picker({title: 'Даты пребывания в отеле', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', data: ['19.08.2019', '23.08.2019']})
       div.search-room__guests
         +dropdown({
           title: 'Гости', dropdownType: 'customers', width: 'medium', placeholder: 'Сколько гостей',
           data: [{name: 'Взрослые', value: 3}, {name: 'Дети', value: 0}, {name: 'Младенцы', value: 1}]
         })
-      div.search-room__price-per-day-slider-container
-        div.search-room__price-per-day-slider-filter
+      div.search-room__daily-price-container
+        div.search-room__daily-price-filter
           +slider({minValue: 0, maxValue: 16000, step: 100, title: 'Диапазон цены', isRange: true, initialValues: [5000, 10000]})
-        p.search-room__price-per-day-text Стоимость за сутки пребывания в номере
+        p.search-room__daily-price-text Стоимость за сутки пребывания в номере
       -let checkButtons = []
       -checkButtons.push({text: 'Можно курить'});
       -checkButtons.push({text: 'Можно с питомцами', isChecked: true});

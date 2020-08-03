@@ -20,7 +20,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
     rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
     rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%);
 
-@mixin cellSize($datepickerWidth, $sidePaddings) {
+@mixin cell-size($datepickerWidth, $sidePaddings) {
   $datepickerContentWidth: $datepickerWidth - 2*$sidePaddings;
   $yearMonthCellSize: $datepickerContentWidth/4;
   min-width: $datepickerWidth;
@@ -340,14 +340,14 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
   &__calendar {
     &_wide {
-      @include cellSize(320px, 20px);
+      @include cell-size(320px, 20px);
       .datepicker--cell-day {
         height: 40px;
       }
     }
 
     &_narrow {
-      @include cellSize(266px, 10px);
+      @include cell-size(266px, 10px);
       .datepicker {
         &--content {
           min-height: unset;

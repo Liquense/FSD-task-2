@@ -50,7 +50,7 @@ $expandWidth: 1em;
   }
 
   &_colored {
-    @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
+    @include text-gradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
   }
 
   &_bold {

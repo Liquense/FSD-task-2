@@ -3,7 +3,7 @@ $arrowSize: 24px;
 $titleHeight: 12px;
 
 .list {
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
   padding: 0;
   margin: 0;
   border: none;

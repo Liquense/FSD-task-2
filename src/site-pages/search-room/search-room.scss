@@ -95,15 +95,15 @@ body {
     margin-bottom: 32px;
   }
 
-  &__price-per-day-slider-container {
+  &__daily-price-container {
     width: fit-content;
   }
 
-  &__price-per-day-slider-filter {
+  &__daily-price-filter {
     margin-bottom: 14px;
   }
 
-  &__price-per-day-text {
+  &__daily-price-text {
     @include text_regular();
     font-size: 12px;
     margin: 0;

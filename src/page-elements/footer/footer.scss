@@ -2,7 +2,7 @@
   width: 100%;
   box-shadow: 0 10px 20px $darkShade5;
   background-color: white;
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 
   &_type_simple {
     display: flex;
@@ -214,7 +214,7 @@
     .fab {
       font-size: 24px;
       text-decoration: none;
-      @include textGradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
+      @include text-gradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
     }
   }
 

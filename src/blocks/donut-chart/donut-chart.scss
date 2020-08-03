@@ -4,7 +4,7 @@
   align-items: flex-end;
   width: fit-content;
   height: fit-content;
-  @include boxSizingBorderBox();
+  @include box-sizing-border-box();
 
   &__image-container {
     max-width: 120px;
