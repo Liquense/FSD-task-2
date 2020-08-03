@@ -1,4 +1,4 @@
-import initTwoCalendarDatepickers from '../../blocks/two-calendar-range-picker/init';
+import initTwoCalendarDatepickers from '../../blocks/double-date-picker/init';
 import initDropdowns from '../../blocks/dropdown/init';
 
 class FindRoomCard {

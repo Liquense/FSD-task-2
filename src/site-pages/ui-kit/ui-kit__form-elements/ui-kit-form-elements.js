@@ -3,7 +3,7 @@ import initMaskedInputs from '../../../blocks/input/init';
 import initLists from '../../../blocks/list/init';
 import initPaginations from '../../../blocks/pagination/init';
 import initSliders from '../../../blocks/slider/init';
-import initTwoCalendarDatepickers from '../../../blocks/two-calendar-range-picker/init';
+import initTwoCalendarDatepickers from '../../../blocks/double-date-picker/init';
 import initRatings from '../../../blocks/rating/init';
 import initLikes from '../../../blocks/like-button/init';
 
