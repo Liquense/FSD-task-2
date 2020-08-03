@@ -2,9 +2,9 @@ import 'air-datepicker';
 import arrowBack from '../../assets/images/arrow-back.svg';
 import initArrows from '../arrow/init';
 
-class DatepickerBlock {
+class Datepicker {
   $confirmButton = $('<button></button>', {
-    text: 'Применить', 'data-action': 'hide', class: 'datepicker-block__confirm-button',
+    text: 'Применить', 'data-action': 'hide', class: 'date-picker__confirm-button',
   });
 
   $datepicker;
@@ -42,13 +42,13 @@ class DatepickerBlock {
 
   _initElements(element) {
     this.$datepicker = $(element);
-    this.$inputWrap = this.$datepicker.find('.js-datepicker-block__input-wrap');
+    this.$inputWrap = this.$datepicker.find('.js-date-picker__input-wrap');
     this.$inputControl = this.$inputWrap.find('.js-input__control');
     this.$inputLabel = this.$inputWrap.find('.js-input__title');
   }
 
   _initProperties() {
-    this.isInline = this.$inputWrap.hasClass('js-datepicker-block__input-wrap_inline');
+    this.isInline = this.$inputWrap.hasClass('js-date-picker__input-wrap_inline');
     this.arrow = initArrows(this.$datepicker);
   }
 
@@ -56,11 +56,11 @@ class DatepickerBlock {
     const dates = [];
 
     if (this.$inputWrap.attr('data-first-date')) {
-      dates.push(DatepickerBlock.parseAttrToDate(this.$inputWrap.attr('data-first-date')));
+      dates.push(Datepicker.parseAttrToDate(this.$inputWrap.attr('data-first-date')));
     }
 
     if (this.$inputWrap.attr('data-second-date')) {
-      dates.push(DatepickerBlock.parseAttrToDate(this.$inputWrap.attr('data-second-date')));
+      dates.push(Datepicker.parseAttrToDate(this.$inputWrap.attr('data-second-date')));
     }
 
     return dates.length === 0 ? undefined : dates;
@@ -91,13 +91,13 @@ class DatepickerBlock {
 
         if (isAnimationEnded) arrow.handleArrowCollapsing($controlWrap);
 
-        $inputLabel.unbind('click', DatepickerBlock._disableLabelClicks);
+        $inputLabel.unbind('click', Datepicker._disableLabelClicks);
       },
       onShow(inst) {
         const $controlWrap = $(inst.el).parent();
         arrow.handleArrowExpanding($controlWrap);
 
-        $inputLabel.click(DatepickerBlock._disableLabelClicks);
+        $inputLabel.click(Datepicker._disableLabelClicks);
       },
       todayButton: false,
     });
@@ -114,7 +114,7 @@ class DatepickerBlock {
   _initDatepicker() {
     const initDates = this.getInitDates();
 
-    const addClass = this.isInline ? 'datepicker-block__calendar_wide' : 'datepicker-block__calendar_narrow';
+    const addClass = this.isInline ? 'date-picker__calendar_wide' : 'date-picker__calendar_narrow';
     this.datepickerPlugin = this.$inputControl.datepicker({
       startDate: initDates?.length ? initDates[0] : null,
       classes: addClass,
@@ -127,9 +127,9 @@ class DatepickerBlock {
       position: 'bottom center',
       offset: 5,
       navTitles: {
-        days: '<span class="datepicker-block__title">MM yyyy</span>',
-        months: '<span class="datepicker-block__title">yyyy</span>',
-        years: '<span class="datepicker-block__title">yyyy1 - yyyy2</span>',
+        days: '<span class="date-picker__title">MM yyyy</span>',
+        months: '<span class="date-picker__title">yyyy</span>',
+        years: '<span class="date-picker__title">yyyy1 - yyyy2</span>',
       },
       prevHtml: `<img src="${arrowBack}" alt="назад"">`,
       nextHtml: `<img src="${arrowBack}" alt="назад" style="transform: scale(-1, 1)">`,
@@ -150,4 +150,4 @@ class DatepickerBlock {
   }
 }
 
-export default DatepickerBlock;
+export default Datepicker;

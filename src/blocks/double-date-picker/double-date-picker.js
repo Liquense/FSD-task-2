@@ -1,5 +1,5 @@
-import DatepickerBlock from '../datepicker-block/datepicker-block';
-import initDatepickers from '../datepicker-block/init';
+import Datepicker from '../date-picker/date-picker';
+import initDatepickers from '../date-picker/init';
 
 class TwoCalendarDatepicker {
   isSecondAssignStarted = false;
@@ -40,14 +40,15 @@ class TwoCalendarDatepicker {
   _initTwoCalendarDatePicker() {
     if (!this.firstDatepicker || !this.secondDatepicker) return;
 
+    const wideDatepickerClass = 'date-picker__calendar_wide';
     this.firstDatepicker.datepickerPlugin.update({
       position: 'bottom left',
-      classes: 'datepicker-block__calendar_wide',
+      classes: wideDatepickerClass,
       dateFormat: '',
     });
     this.secondDatepicker.datepickerPlugin.update({
       position: 'bottom right',
-      classes: 'datepicker-block__calendar_wide',
+      classes: wideDatepickerClass,
       dateFormat: '',
     });
 
@@ -109,12 +110,12 @@ class TwoCalendarDatepicker {
     const dates = {};
 
     if (this.$twoCalendarDatepicker.attr('data-first-date')) {
-      dates.firstDate = DatepickerBlock.parseAttrToDate(
+      dates.firstDate = Datepicker.parseAttrToDate(
         this.$twoCalendarDatepicker.attr('data-first-date'),
       );
     }
     if (this.$twoCalendarDatepicker.attr('data-second-date')) {
-      dates.secondDate = DatepickerBlock.parseAttrToDate(
+      dates.secondDate = Datepicker.parseAttrToDate(
         this.$twoCalendarDatepicker.attr('data-second-date'),
       );
     }

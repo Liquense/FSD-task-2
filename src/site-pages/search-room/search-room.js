@@ -1,7 +1,7 @@
 import { importCommon, importContext } from '../../index';
 import initRoomPreviewCards from '../../cards/room-preview-card/init';
 import initPaginations from '../../blocks/pagination/init';
-import initDatepickers from '../../blocks/datepicker-block/init';
+import initDatepickers from '../../blocks/date-picker/init';
 import initDropdowns from '../../blocks/dropdown/init';
 import initSliders from '../../blocks/slider/init';
 import initLists from '../../blocks/list/init';

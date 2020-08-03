@@ -1,8 +1,8 @@
 include ../../blocks/arrow/arrow
 include ../../blocks/input/input
 
-mixin datepicker({title = "", width, placeholder, isInline = false, data = undefined} = {})
-  -const datepickerClass = 'datepicker-block'
+mixin datepicker({title='', width, placeholder, isInline=false, data} = {})
+  -const datepickerClass = 'date-picker'
   -const inputWrapClass = `${datepickerClass}__input-wrap`
   -const inlineInputWrapClass = `${inputWrapClass}_inline`
 

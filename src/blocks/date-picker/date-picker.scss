@@ -229,7 +229,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
   &--nav-title,
   &--nav-action {
-    .datepicker-block__title {
+    .date-picker__title {
       @include text_item-title();
       letter-spacing: -0.8px;
     }
@@ -307,7 +307,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   }
 }
 
-.datepicker-block {
+.date-picker {
   max-width: 266px;
 
   &__label {
