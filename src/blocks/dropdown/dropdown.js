@@ -93,7 +93,8 @@ class Dropdown {
 
   _handleClearButtonClick = () => {
     this._clearSpinnersValues();
-    this._updateVisuals();
+    this._handleConfirmButtonClick();
+    this._updateInputText();
   }
 
   _addConfirmButtonEvents() {
