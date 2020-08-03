@@ -155,6 +155,10 @@
 
     .pagination {
       width: fit-content;
+
+      &__content {
+        display: none;
+      }
     }
   }
 

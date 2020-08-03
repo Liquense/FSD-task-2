@@ -19,8 +19,8 @@ class Pagination {
 
   _initElements(rootElement) {
     this.$pagination = $(rootElement);
-    this.$contentContainer = this.$pagination.find('.js-pagination__content-container');
-    this.$buttons = this.$pagination.find('.js-pagination__buttons-container');
+    this.$contentContainer = this.$pagination.find('.js-pagination__content');
+    this.$buttons = this.$pagination.find('.js-pagination__buttons');
 
     this.pageSize = this.$pagination.attr('data-page-size');
   }

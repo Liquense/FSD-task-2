@@ -135,7 +135,7 @@ body {
   }
 
   &__rooms-pagination {
-    .pagination__content-container {
+    .pagination__content {
       display: grid;
       justify-content: space-between;
       row-gap: 18px;
@@ -155,7 +155,7 @@ body {
       }
     }
 
-    .pagination__buttons-container {
+    .pagination__buttons {
       .paginationjs {
         margin-right: get-vw(15px);
       }

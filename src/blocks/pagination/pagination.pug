@@ -1,8 +1,8 @@
 include ../../cards/room-preview-card/room-preview-card
 mixin pagination({pageSize = 12, items=[]} = {})
   -const paginationClass = 'pagination'
-  -const contentContainerClass = `${paginationClass}__content-container`
-  -const buttonsContainerClass = `${paginationClass}__buttons-container`
+  -const contentContainerClass = `${paginationClass}__content`
+  -const buttonsContainerClass = `${paginationClass}__buttons`
 
   -const paginationAttributes = {class: `js-${paginationClass} ${paginationClass}`}
   -const contentAttributes = {class: `js-${contentContainerClass} ${contentContainerClass} `}

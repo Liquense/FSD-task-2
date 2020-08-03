@@ -93,11 +93,12 @@ section.form-elements
         div.form-elements__pagination
           div.form-elements__pagination-title
             +title({type: 'label', text: 'pagination'})
-          +pagination(12)
-            -let i = 0;
-            while i < 151
-              div.pagination__item
-              -i += 1
+          -const paginationItems = [];
+          -let i = 0;
+          while i < 151
+            -paginationItems.push({});
+            -i += 1
+          +pagination({items: paginationItems})
 
   div.form-elements__middle-area
     div.form-elements__dropdowns
