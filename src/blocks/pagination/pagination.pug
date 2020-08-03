@@ -1,4 +1,5 @@
-mixin pagination({pageSize = 12} = {})
+include ../../cards/room-preview-card/room-preview-card
+mixin pagination({pageSize = 12, items=[]} = {})
   -const paginationClass = 'pagination'
   -const contentContainerClass = `${paginationClass}__content-container`
   -const buttonsContainerClass = `${paginationClass}__buttons-container`
@@ -9,5 +10,8 @@ mixin pagination({pageSize = 12} = {})
 
   div&attributes(paginationAttributes)(data-page-size=pageSize)
     div&attributes(contentAttributes)
-      block
+      each item, index in items
+        div.pagination__item
+          +roomPreviewCard(item)
+
     div&attributes(buttonsAttributes)
