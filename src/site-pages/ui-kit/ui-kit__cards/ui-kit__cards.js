@@ -10,7 +10,7 @@ initFindRoomCards();
 initRegistrationCards();
 initRoomPreviewCards();
 
-const $inlineDatepicker = $('.js-ui-kit__datepicker_inline');
+const $inlineDatepicker = $('.js-ui-kit__date-picker_inline');
 const $datepickerCells = $inlineDatepicker.find('.datepicker--cell.datepicker--cell-day');
 
 $datepickerCells.each((index, element) => {
