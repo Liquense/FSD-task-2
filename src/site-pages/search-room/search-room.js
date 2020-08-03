@@ -12,7 +12,6 @@ initHeaders();
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));
 
-// для отображения/скрытия меню на маленьких экранах
 const $showSidebarButtons = $('.js-search-room__show-sidebar-button');
 $showSidebarButtons.each((index, element) => {
   const $showSideBarButton = $(element);

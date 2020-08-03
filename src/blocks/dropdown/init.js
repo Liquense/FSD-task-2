@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import Dropdown from './dropdown';
 import initBlocks from '../../common/dynamicInit';
 

@@ -30,6 +30,7 @@ $inputBorderRadius: 4px;
   }
 
   &__list-wrapper {
+    display: none;
     position: absolute;
     width: 100%;
     border: $borderWidth solid $darkShade50;
@@ -38,9 +39,6 @@ $inputBorderRadius: 4px;
     background-color: $inputBackgroundColor;
     box-shadow: 0 10px 20px $darkShade5;
     z-index: 10;
-
-    //toggle в jquery делает изменения через inline-стили, поэтому здесь по дефолту элемент невидим
-    display: none;
   }
 
   &__list {

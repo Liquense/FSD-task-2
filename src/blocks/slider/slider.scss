@@ -33,7 +33,7 @@ $maxSliderWidth: 266px;
   .ui-slider-horizontal .ui-slider-handle {
     border-radius: 50%;
     background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
-    width: $sliderHandleSize + $sliderHandleBorderWidth*2; // хэндлер фиксированного размера
+    width: $sliderHandleSize + $sliderHandleBorderWidth*2;
     height: $sliderHandleSize + $sliderHandleBorderWidth*2;
     border: $sliderHandleBorderWidth solid $inputBackgroundColor;
     top: $sliderHorizontalHeight - $sliderHandleSize;

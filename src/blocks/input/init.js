@@ -1,4 +1,3 @@
-// '.js-input__control_type_masked'
 import initBlocks from '../../common/dynamicInit';
 import MaskedInput from './input';
 

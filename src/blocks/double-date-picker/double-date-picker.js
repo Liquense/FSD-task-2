@@ -80,7 +80,6 @@ class TwoCalendarDatepicker {
       otherDatepicker.$inputControl.val(newDates[otherNumber].toLocaleDateString('ru-RU', options));
     }
 
-    // вызов события вручную, поскольку автоматически этого не происходит, а оно используется
     $(datepicker.$inputControl).change();
   }
 
