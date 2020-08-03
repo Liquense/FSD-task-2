@@ -15,10 +15,10 @@ class Carousel {
 
   _getCarouselParams() {
     return {
-      arrows: (this.$element.attr('data-arrows').toLowerCase() === 'true'),
+      arrows: (this.$element.attr('data-arrows')?.toLowerCase() === 'true'),
       prevArrow: '<label class="slick-prev"><button type="button" >expand_more</button></label>',
       nextArrow: '<label class="slick-next"><button type="button" >expand_more</button></label>',
-      dots: (this.$element.attr('data-dots').toLowerCase() === 'true'),
+      dots: (this.$element.attr('data-dots')?.toLowerCase() === 'true'),
     };
   }
 
