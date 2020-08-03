@@ -42,8 +42,8 @@ class RoomPreviewCard {
     const formattedCostPerPeriod = formatNumber(this.dailyCost, ' ');
     this.$dailyCost.text(`${formattedCostPerPeriod}${this.currency}`);
 
-    const formattedReviewsCount = formatNumber(this.reviewsAmount, ' ');
-    this.$reviewsAmount.text(formattedReviewsCount);
+    const formattedReviewsAmount = formatNumber(this.reviewsAmount, ' ');
+    this.$reviewsAmount.text(formattedReviewsAmount);
 
     const inclinedReviewsText = ruDeclination(this.reviewsAmount, 'Отзыв||а|ов');
     this.$reviewsText.text(inclinedReviewsText);
