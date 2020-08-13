@@ -6,6 +6,7 @@ body {
   &__photos {
     display: flex;
     justify-content: center;
+    margin: 0;
     width: 100%;
     background-color: $darkShade50;
     @media (max-width: 1439px) {

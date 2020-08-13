@@ -12,9 +12,9 @@ block content
   include ../../blocks/pagination/pagination
   include ../../blocks/date-picker/date-picker
   include ../../blocks/dropdown/dropdown
-  div.search-room
+  main.search-room
     div.js-search-room__show-sidebar-button.search-room__show-sidebar-button filter_list
-    div.search-room__sidebar
+    nav.search-room__sidebar
       div.search-room__staying-dates
         +date-picker({title: 'Даты пребывания в отеле', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', data: ['19.08.2019', '23.08.2019']})
       div.search-room__guests
@@ -58,7 +58,7 @@ block content
           title: 'Дополнительные удобства',
           elements: checkButtons
         })
-    div.search-room__rooms
+    section.search-room__rooms
       h2.search-room__rooms-title Номера, которые мы для вас подобрали
       div.js-search-room__rooms-pagination.search-room__rooms-pagination
         -const paginationItems = [];

@@ -14,18 +14,18 @@ block content
   include ../../cards/booking-card/booking-card
   include ../../blocks/title/title
 
-  div.room-details
-    div.room-details__photos
-      img.room-details__main-photo(src=require('../../assets/images/room-details-1.jpg'))
+  main.room-details
+    figure.room-details__photos
+      img.room-details__main-photo(src=require('../../assets/images/room-details-1.jpg') alt='big-photo')
       div.room-details__side-photos
-        img.room-details__upper-side-photo(src=require('../../assets/images/room-details-2.jpg'))
-        img.room-details__lower-side-photo(src=require('../../assets/images/room-details-3.jpg'))
+        img.room-details__upper-side-photo(src=require('../../assets/images/room-details-2.jpg') alt='small-upper-photo')
+        img.room-details__lower-side-photo(src=require('../../assets/images/room-details-3.jpg') alt='small-lower-photo')
     div.room-details__content
       div.room-details__info-container
         div.room-details__main-info
-          div.room-details__features-container
+          section.room-details__features-container
             div.room-details__features-title
-              +title({text: 'Сведения о номере', type: 'item'})
+              +title({headerLevel: 2, text: 'Сведения о номере', type: 'item'})
             div.room-details__features-content
               +features-list({
                 items: [
@@ -34,9 +34,9 @@ block content
                   {title: 'Уют', text: 'Номер оснащён камином', icon: 'whatshot'},
                 ]
               })
-          div.room-details__expressions-container
+          section.room-details__expressions-container
             div.room-details__expressions-title
-              +title({text: 'Впечатления от номера', type: 'item'})
+              +title({headerLevel: 2, text: 'Впечатления от номера', type: 'item'})
             div.js-room-details__donut-chart.room-details__donut-chart
               -const donutParams = {
               -  data: [
@@ -62,10 +62,10 @@ block content
               -  arcsGap: 2,
               -};
               +donut-chart(donutParams)
-        div.room-details__reviews-container
+        section.room-details__reviews-container
           div.room-details__reviews-title-row
             div.room-details__reviews-title
-              +title({text: 'Отзывы посетителей номера', type: 'item'})
+              +title({headerLevel: 2, text: 'Отзывы посетителей номера', type: 'item'})
             span.room-details__reviews-count 2 отзыва
           div.room-details__reviews-content
             div.room-details__comment
@@ -89,22 +89,22 @@ block content
                 likesCount: 2
               })
         div.room-details__additional-info
-          div.room-details__rules-container
+          section.room-details__rules-container
             div.room-details__rules-title
-              +title({text: 'Правила', type: 'item'})
+              +title({headerLevel: 2, text: 'Правила', type: 'item'})
             div.room-details__rules-list
               +bullet-list({
                 title: '',
                 contentStrings: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']
               })
-          div.room-details__cancellation-container
+          section.room-details__cancellation-container
             div.room-details__cancellation-title
-              +title({text: 'Отмена', type: 'item'})
+              +title({headerLevel: 2, text: 'Отмена', type: 'item'})
             span.room-details__cancellation-text
               | Бесплатная отмена в течение 48 ч.
               | После этого при отмене не позднее чем за 5 дн. до прибытия
               | вы получите полный возврат за вычетом сбора за услуги.
-      div.room-details__booking-card
+      aside.room-details__booking-card
         +booking-card({
           roomNumber: '888',
           roomType: 'люкс',
