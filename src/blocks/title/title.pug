@@ -1,4 +1,4 @@
-mixin title({type, text}={})
+mixin title({type, text, headerLevel=3}={})
   -let validType
   case type
     when 'label'
@@ -9,4 +9,4 @@ mixin title({type, text}={})
     default
       -validType = 'item'
 
-  h3(class=`title title_type_${validType}`) #{text}
+  #{`h${headerLevel}`}(class=`title title_type_${validType}`) #{text}
