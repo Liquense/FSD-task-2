@@ -4,21 +4,29 @@ $datepickerBorderWidth: 1px;
 $datepickerContentHeight: 240px;
 $cellTextColor: $darkShade50;
 $datepickerContentSidesPadding: 20px;
-$actualPointsGradient: linear-gradient($gradientDefaultAngle,
-    $purple 0%,
-    $purpleGradientSecond 100%);
+$actualPointsGradient: linear-gradient(
+        $gradientDefaultAngle,
+        $purple 0%,
+        $purpleGradientSecond 100%
+);
 
-$actualRangeGradient: linear-gradient($gradientDefaultAngle,
-    rgba($purple, 0.25) 0%,
-    rgba($purpleGradientSecond, 0.25) 100%);
+$actualRangeGradient: linear-gradient(
+        $gradientDefaultAngle,
+        rgba($purple, 0.25) 0%,
+        rgba($purpleGradientSecond, 0.25) 100%
+);
 
-$otherPointsGradient: linear-gradient($gradientDefaultAngle,
-    scale-color($purple, $lightness: 50%) 0%,
-    scale-color($purpleGradientSecond, $lightness: 50%) 100%);
+$otherPointsGradient: linear-gradient(
+        $gradientDefaultAngle,
+        scale-color($purple, $lightness: 50%) 0%,
+        scale-color($purpleGradientSecond, $lightness: 50%) 100%
+);
 
-$otherRangeGradient: linear-gradient($gradientDefaultAngle,
-    rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
-    rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%);
+$otherRangeGradient: linear-gradient(
+        $gradientDefaultAngle,
+        rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
+        rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%
+);
 
 @mixin cell-size($datepickerWidth, $sidePaddings) {
   $datepickerContentWidth: $datepickerWidth - 2*$sidePaddings;
@@ -37,10 +45,10 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 }
 
 .datepicker {
+  @include text(Montserrat, normal, 12px, 15px, $cellTextColor, normal);
   border: $datepickerBorderWidth solid $darkShade25;
   box-shadow: 0 10px 20px $darkShade5;
   box-sizing: border-box;
-  @include text(Montserrat, normal, 12px, 15px, $cellTextColor, normal);
   color: $darkShade100;
 
   &--cell {
@@ -64,11 +72,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
       &.-other-month-,
       &.-disabled- {
         color: white;
-        background: linear-gradient(
-                $gradientDefaultAngle,
-                rgba($green, 0.25) 0%,
-                rgba($greenGradientSecond, 0.25) 100%
-        );
+        background: linear-gradient($gradientDefaultAngle, rgba($green, 0.25) 0%, rgba($greenGradientSecond, 0.25) 100%);
 
         &.-focus- {
           background: $otherPointsGradient;
@@ -341,12 +345,14 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
   &__calendar {
     &_wide {
       @include cell-size(320px, 20px);
+
       @media (max-width: 380px) {
         @include cell-size(300px, 20px);
       }
 
       .datepicker--cell-day {
         height: 40px;
+
         @media (max-width: 380px) {
           height: 37px;
         }
@@ -355,6 +361,7 @@ $otherRangeGradient: linear-gradient($gradientDefaultAngle,
 
     &_narrow {
       @include cell-size(266px, 10px);
+
       .datepicker {
         &--content {
           min-height: unset;

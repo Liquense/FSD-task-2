@@ -97,6 +97,7 @@
       line-height: 23px;
       &+.colors-type__type-text {
         @include text_item-title();
+
         letter-spacing: -0.36px;
       }
     }

@@ -13,18 +13,22 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: get-vw(71px) get-vw(134px) get-vw(21px) get-vw(140px);
+
   @media (max-width: 1439px) {
     background-position-y: 0;
   }
+
   @media (max-width: 1345px) {
     padding-bottom: get-vw(50px);
   }
+
   @media (max-width: 850px) {
     align-items: center;
     height: fit-content;
     background-position-y: 0;
     padding-bottom: get-vw(10px);
   }
+
   @media (max-width: 380px) {
     background-position-y: -58px;
     padding: 0;
@@ -32,6 +36,7 @@ body {
 
   &__find-room-card {
     align-self: flex-start;
+
     @media (max-width: 850px) {
       align-self: unset;
     }
@@ -49,9 +54,11 @@ body {
       max-width: max-content;
       align-self: center;
     }
+
     @media (max-width: 850px) {
       align-self: unset;
     }
+
     @media (max-width: 380px) {
       display: none;
     }

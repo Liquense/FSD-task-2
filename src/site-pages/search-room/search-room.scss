@@ -13,6 +13,7 @@ body {
     flex-direction: column;
     align-items: center;
   }
+
   @media (max-width: 810px) {
     padding-right: 0;
     padding-left: 0;
@@ -20,6 +21,7 @@ body {
 
   &__show-sidebar-button {
     @include icon();
+
     user-select: none;
     display: none;
     width: 40px;
@@ -56,6 +58,7 @@ body {
   &__sidebar {
     width: 266px;
     margin-right: get-vw(60px);
+
     @media (max-width: 1070px) {
       width: 100%;
       margin-right: 0;
@@ -71,6 +74,7 @@ body {
 
   &__staying-dates {
     margin-bottom: 18px;
+
     @media (max-width: 1070px) {
       margin-bottom: 0;
     }
@@ -94,16 +98,19 @@ body {
 
   &__daily-price-text {
     @include text_regular();
+
     font-size: 12px;
     margin: 0;
   }
 
   &__benefits-filter {
     margin-bottom: 34px;
+
     @media (max-width: 1070px) {
       max-width: 266px;
       margin-bottom: 0;
     }
+
     @media (max-width: 380px) {
       width: 100%;
     }
@@ -111,6 +118,7 @@ body {
 
   &__availability-filter {
     margin-bottom: 28px;
+
     @media (max-width: 1070px) {
       max-width: 266px;
       margin-bottom: 0;
@@ -119,6 +127,7 @@ body {
 
   &__room-equipment-filter {
     margin-bottom: 32px;
+
     @media (max-width: 1070px) {
       margin-bottom: 0;
     }

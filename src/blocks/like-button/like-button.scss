@@ -49,7 +49,7 @@ $checkboxButtonBorderWidth: 1px;
     clear: both;
     cursor: pointer;
     width: calc(100% - 2 * #{$checkboxButtonBorderWidth});
-    height: calc(100% - 2 * #{$checkboxButtonBorderWidth});;
+    height: calc(100% - 2 * #{$checkboxButtonBorderWidth});
     background-color: $inputBackgroundColor;
     margin: 0;
     border: none;
