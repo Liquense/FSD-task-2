@@ -1,4 +1,4 @@
-# SliderView
+# TOXIN
 Проект является вёрсткой макета по программе обучения 
 [FSD](https://www.fullstack-development.com/). \
 Использованы: \
@@ -9,7 +9,7 @@
 [Макет](https://www.figma.com/file/MumYcKVk9RkKZEG6dR5E3A/FSD-frontend-education-program.-The-2nd-task)
 
 ## Установка
-```
+```shell script
 git clone https://github.com/Liquense/FSD-task-2
 npm install
 ```
