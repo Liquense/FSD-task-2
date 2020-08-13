@@ -1,4 +1,4 @@
-# SliderView
+# TOXIN
 Проект является вёрсткой макета по программе обучения 
 [FSD](https://www.fullstack-development.com/). \
 Использованы: \
