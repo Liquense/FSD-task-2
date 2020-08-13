@@ -13,7 +13,7 @@
 git clone https://github.com/Liquense/FSD-task-2
 npm install
 ```
-#### Команды
+### Команды
 Сборка: `npm run build` \
 Сборка с дев-сервером: `npm run dev-server` \
 Проверка линтером: `npm run eslint`
