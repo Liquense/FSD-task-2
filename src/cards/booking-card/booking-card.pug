@@ -3,11 +3,11 @@ include ../../blocks/button/button
 include ../../blocks/dropdown/dropdown
 
 mixin booking-card({roomNumber, roomType, dailyPrice, currency, arrivalDate, departureDate, dropdownItems=[], services, additionalPrice} = {})
-  div.js-booking-card.booking-card
+  form.js-booking-card.booking-card
     header.booking-card__header
       div.booking-card__room-info
         span.booking-card__number-text №
-        h3.booking-card__room-num #{roomNumber}
+        h2.booking-card__room-num #{roomNumber}
         span.booking-card__room-type #{roomType}
       div.booking-card__price-info
         span.js-booking-card__daily-price.booking-card__daily-price(data-daily-price=dailyPrice data-currency=currency) #{dailyPrice}#{currency}
@@ -16,20 +16,18 @@ mixin booking-card({roomNumber, roomType, dailyPrice, currency, arrivalDate, dep
       +double-date-picker({labels: ['Прибытие', 'Выезд'], firstDate: arrivalDate, secondDate: departureDate})
     div.js-booking-card__guests-dropdown.booking-card__guests-dropdown
       +dropdown({title: 'Гости', dropdownType: 'customers', placeholder: 'Сколько гостей', data: dropdownItems})
-    div.booking-card__check-container
-      span.js-booking-card__staying-cost-calculation.booking-card__staying-cost-calculation test
-      div.booking-card__placeholder
-      span.js-booking-card__staying-cost-sum.booking-card__staying-cost-sum test
-
-      span.js-booking-card__services.booking-card__services(data-services=services)
-      span.booking-card__info-icon i
-      span.js-booking-card__services-sum.booking-card__services-sum
-
-      span.booking-card__additional-services-text Сбор за дополнительные услуги
-      span.booking-card__info-icon i
-      span.js-booking-card__additional-services-sum.booking-card__additional-services-sum(data-addServices=additionalPrice) #{additionalPrice}#{currency}
-    div.booking-card__summary
-      span.booking-card__summary-text Итого
+    section.booking-card__receipt
+      p.js-booking-card__staying-cost-calculation.booking-card__staying-cost-calculation test
+      i.booking-card__placeholder
+      p.js-booking-card__staying-cost-sum.booking-card__staying-cost-sum test
+      p.js-booking-card__services.booking-card__services(data-services=services)
+      i.booking-card__info-icon i
+      p.js-booking-card__services-sum.booking-card__services-sum
+      p.booking-card__additional-services-text Сбор за дополнительные услуги
+      i.booking-card__info-icon i
+      p.js-booking-card__additional-services-sum.booking-card__additional-services-sum(data-addServices=additionalPrice) #{additionalPrice}#{currency}
+    section.booking-card__summary
+      h2.booking-card__summary-text Итого
       div.booking-card__summary-dash-underline
       span.js-booking-card__summary-total-cost.booking-card__summary-total-cost
     div.booking-card__booking-button

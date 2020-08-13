@@ -75,7 +75,7 @@
 
   $iconSize: 20px;
 
-  &__check-container {
+  &__receipt {
     @include text_regular();
     display: grid;
     grid-template-columns: 67.29% $iconSize auto;
@@ -88,13 +88,16 @@
     @media (max-width: 380px) {
       padding-right: 10px;
       padding-left: 10px;
-
-      .booking-card__staying-cost-row,
-      .booking-card__services-cost-row,
-      .booking-card__additional-services-row {
-        max-width: unset;
-      }
     }
+  }
+
+  &__staying-cost-calculation,
+  &__staying-cost-sum,
+  &__services,
+  &__services-sum,
+  &__additional-services-text,
+  &__additional-services-sum {
+    margin: 0;
   }
 
   &__staying-cost-sum,
@@ -105,6 +108,7 @@
 
   &__info-icon {
     height: $iconSize;
+    font-style: normal;
     display: block;
     line-height: $iconSize - 2px;
     vertical-align: middle;
@@ -116,7 +120,6 @@
   }
 
   &__summary {
-    @include text_item-title();
     margin-bottom: 19px;
     padding-left: 1px;
     display: flex;
@@ -129,9 +132,14 @@
     }
   }
 
+  &__summary-text,
+  &__summary-total-cost {
+    @include text_item-title();
+  }
+
   &__summary-text {
     flex-shrink: 0;
-    margin-right: 5px;
+    margin: 0 5px 0 0;
   }
 
   &__summary-dash-underline {

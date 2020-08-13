@@ -4,9 +4,9 @@ include ../../blocks/button/button
 include ../../blocks/title/title
 
 mixin find-room-card()
-  div.js-find-room-card.find-room-card
+  form.js-find-room-card.find-room-card
     div.find-room-card__title
-      +title({type: 'widget', text: 'Найдём номера под ваши пожелания'})
+      +title({type: 'widget', text: 'Найдём номера под ваши пожелания', headerLevel: 2})
     div.find-room-card__staying-dates-picker
       +double-date-picker({labels: ['Прибытие', 'Выезд']})
     div.find-room-card__guests-dropdown

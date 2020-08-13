@@ -5,9 +5,9 @@ include ../../blocks/radio-button/radio-button
 include ../../blocks/title/title
 
 mixin registration-card({loginURL=''} = {})
-  div.js-registration-card.registration-card
+  form.js-registration-card.registration-card
     div.registration-card__title
-      +title({type: 'widget', text: 'Регистрация аккаунта'})
+      +title({type: 'widget', text: 'Регистрация аккаунта', headerLevel: 2})
     div.registration-card__user-name-input
       +input({type: 'text', placeholder: 'Имя'})
     div.registration-card__user-surname-input

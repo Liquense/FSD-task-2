@@ -3,9 +3,9 @@ include ../../blocks/button/button
 include ../../blocks/title/title
 
 mixin login-card()
-  div.login-card
+  form.login-card
     div.login-card__title
-      +title({type: 'widget', text: 'Войти'})
+      +title({type: 'widget', text: 'Войти', headerLevel: 2})
     div.login-card__email-input
       +input({type: 'text', placeholder: 'Email'})
     div.login-card__password-input
@@ -13,6 +13,6 @@ mixin login-card()
     div.login-card__login-button
       +button({text: 'Войти', type: 'filled', size: 'wide', decoration: 'enter-arrow'})
     div.login-card__create-account-container
-      span.login-card__no-account-caption Нет аккаунта на Toxin?
+      p.login-card__no-account-caption Нет аккаунта на Toxin?
       div.login-card__create-login-button
         +button({text: 'Создать', type: 'bordered'})
