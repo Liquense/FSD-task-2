@@ -1,19 +1,16 @@
-.ui-kit {
-  &__cards {
-    background-color: #F4F4F6;
-    margin-bottom: 100px;
-    padding-top: 150px;
-    padding-bottom: 140px;
-    padding-left: 140px;
-    display: grid;
-    grid-template-columns: min-content min-content min-content;
-    grid-template-rows: 369px 1.66px 137px 110.5px 247.5px min-content;
-    column-gap: 40px;
+.cards {
+  margin-bottom: 100px;
+  padding-top: 150px;
+  padding-bottom: 140px;
+  padding-left: 140px;
+  display: grid;
+  grid-template-columns: min-content min-content min-content;
+  grid-template-rows: 369px 1.66px 137px 110.5px 247.5px min-content;
+  column-gap: 40px;
 
-    > div {
-      width: fit-content;
-      height: fit-content;
-    }
+  > div {
+    width: fit-content;
+    height: fit-content;
   }
 
   &__find-room-card {
@@ -54,6 +51,7 @@
   }
 
   $upperMargin: 39px;
+
   &__room-preview-card {
     margin-top: $upperMargin;
     grid-column-start: 3;

@@ -8,14 +8,23 @@ body {
   @include box-sizing-border-box();
 }
 
-section {
+.ui-kit__colors-type,
+.ui-kit__form-elements,
+.ui-kit__cards,
+.ui-kit__headers-footers {
   background-color: #FFFFFF;
   margin: 20px auto;
   width: 1440px;
   min-height: 1350px;
 }
 
+.ui-kit__cards {
+  background-color: #F4F4F6;
+}
+
 .ui-kit__note {
   @include text_item-title();
+  max-width: 1440px;
+  margin: 30px auto 0;
   text-align: center;
 }

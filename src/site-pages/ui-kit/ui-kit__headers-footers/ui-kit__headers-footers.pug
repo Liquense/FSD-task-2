@@ -1,9 +1,9 @@
 include ../../../page-elements/header/header
 include ../../../page-elements/footer/footer
 
-section.ui-kit__headers-footers
+section.headers-footers
   -const logoPath = require('../../assets/images/logo-colored-withText.svg')
-  div.ui-kit__header-unauthorized
+  div.headers-footers__header-unauthorized
     +header(
       {logo: logoPath,
       content: [
@@ -21,7 +21,7 @@ section.ui-kit__headers-footers
       {text: 'Documentation'}
       ]}
     )
-  div.ui-kit__header-authorized
+  div.headers-footers__header-authorized
     +header(
       {
         userLogin: 'Cosmin Negoita',
@@ -45,7 +45,7 @@ section.ui-kit__headers-footers
       ]}
     )
 
-  div.ui-kit__footer-large
+  div.headers-footers__footer-large
     +footer(
       {
         logo: logoPath,
@@ -76,7 +76,7 @@ section.ui-kit__headers-footers
       ],
       subscription: {title: 'Subscribe to our newsletter', text: 'Receive our latest news and promotions in your inbox!', emailPlaceholder: 'Your email address'}
     })
-  div.ui-kit__footer-simple
+  div.headers-footers__footer-simple
     +footer({
       logo: logoPath,
       text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',
