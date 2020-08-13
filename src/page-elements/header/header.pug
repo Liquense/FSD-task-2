@@ -8,12 +8,12 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
   header(class=`js-${headerClass} ${headerClass} ${isNarrow ? `${headerClass}_narrow` : ''}`)
     a(class=`js-${headerClass}__logo-link ${headerClass}__logo-link ${isNarrow ? `${headerClass}__logo-link_narrow` : ''}`)
       img(src=logo alt='logo' class=`${headerClass}__logo ${isNarrow ? `${headerClass}__logo_narrow` : ''}`)
-    div(class=`${headerClass}__content ${isNarrow ? `${headerClass}__content_narrow` : ''}`)
-      ul(class=`${headerClass}__menu ${isNarrow ? `${headerClass}__menu_narrow` : ''}`)
+    nav(class=`${headerClass}__content ${isNarrow ? `${headerClass}__content_narrow` : ''}`)
+      ul(class=`${headerClass}__navigation ${isNarrow ? `${headerClass}__navigation_narrow` : ''}`)
         each item, index in content
-          -const itemClasses = `${headerClass}__menu-item ${isNarrow ? `${headerClass}__menu-item_narrow` : ''}` +
-          -`${item.bold ? ` ${headerClass}__menu-item_bold` : ''}` +
-          -`${item.children ? ` ${headerClass}__menu-item_expandable` : ''}`
+          -const itemClasses = `${headerClass}__navigation-item ${isNarrow ? `${headerClass}__navigation-item_narrow` : ''}` +
+          -`${item.bold ? ` ${headerClass}__navigation-item_bold` : ''}` +
+          -`${item.children ? ` ${headerClass}__navigation-item_expandable` : ''}`
           li(class=itemClasses) #{item.text}
             if item.children
               div(class=`${headerClass}__expand-button ${isNarrow ? `${headerClass}__expand-button_narrow` : ''}`)
