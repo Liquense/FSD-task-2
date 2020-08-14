@@ -4,6 +4,7 @@ $buttonRightMargin: 10px;
 
 .radio-button {
   @include box-sizing-border-box();
+
   width: fit-content;
   display: inline-block;
   -webkit-user-select: none;
@@ -50,6 +51,7 @@ $buttonRightMargin: 10px;
 
   &__text {
     @include text_regular();
+
     color: $darkShade50;
     display: inline-block;
     line-height: 18px;

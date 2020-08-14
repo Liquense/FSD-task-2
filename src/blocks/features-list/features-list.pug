@@ -1,13 +1,12 @@
 mixin features-list({items=[]} = {})
   -const listClass = 'features-list'
 
-  div(class=listClass)
-    ul(class=`${listClass}__container`)
-      each item, index in items
-        if index
-          hr(class=`${listClass}__divider`)
-        li(class=`${listClass}__item`)
-          span(class=`${listClass}__item-image`) #{item.icon}
-          div(class=`${listClass}__item-text-container`)
-            h4(class=`${listClass}__item-title`) #{item.title}
-            span(class=`${listClass}__item-text`) #{item.text}
+  ul(class=`${listClass}`)
+    each item, index in items
+      if index
+        hr(class=`${listClass}__divider`)
+      li(class=`${listClass}__item`)
+        span(class=`${listClass}__item-image`) #{item.icon}
+        div(class=`${listClass}__item-text-container`)
+          h3(class=`${listClass}__item-title`) #{item.title}
+          span(class=`${listClass}__item-text`) #{item.text}

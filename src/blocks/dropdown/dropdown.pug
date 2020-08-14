@@ -34,10 +34,10 @@ mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], isUnified
     -listWrapperClasses += `${listWrapperClass}_width_medium `
     -validWidth = 'medium'
 
-  div(class=blockClasses)
+  article(class=blockClasses)
     div(class=`js-${inputClass} ${inputClass}`)
       +input({title, width: validWidth, placeholder, isExpandable: true, isFocused: isOpened})
-    div(class=listWrapperClasses)
+    section(class=listWrapperClasses)
       div(class=listClasses)
         each element, index in data
           div.dropdown__list-row

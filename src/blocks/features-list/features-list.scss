@@ -1,11 +1,8 @@
 .features-list {
   max-width: 280px;
-
-  &__container {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+  list-style: none;
+  margin: 0;
+  padding: 0;
 
   &__divider {
     border-color: $darkShade10;
@@ -29,6 +26,7 @@
   &__item-image {
     @include icon();
     @include text-gradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
+
     user-select: none;
     font-size: 48px;
     margin-right: 10px;
@@ -37,6 +35,7 @@
   &__item-title,
   &__item-text {
     @include text_regular();
+
     font-size: 14px;
     line-height: 24px;
   }

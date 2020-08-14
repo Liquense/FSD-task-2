@@ -37,6 +37,8 @@ $pageButtonSize: 40px;
           .paginationjs-page,
           .paginationjs-ellipsis,
           .paginationjs-next {
+            @include text(Montserrat, normal, 12px, $pageButtonSize, $darkShade50, 0);
+
             display: inline-block;
             user-select: none;
             border-radius: 50%;
@@ -64,12 +66,16 @@ $pageButtonSize: 40px;
               }
             }
 
-            &.J-paginationjs-previous, &.J-paginationjs-next, &.active {
+            &.J-paginationjs-previous,
+            &.J-paginationjs-next,
+            &.active {
               color: white;
             }
 
-            &.J-paginationjs-previous, &.J-paginationjs-next {
+            &.J-paginationjs-previous,
+            &.J-paginationjs-next {
               @include icon();
+
               font-size: 24px;
               background: linear-gradient($green 0%, $greenGradientSecond 100%);
             }
@@ -86,8 +92,6 @@ $pageButtonSize: 40px;
             &.paginationjs-ellipsis {
               opacity: 1;
             }
-
-            @include text(Montserrat, normal, 12px, $pageButtonSize, $darkShade50, 0);
           }
         }
       }

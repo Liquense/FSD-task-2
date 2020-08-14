@@ -3,4 +3,4 @@ mixin radio-button({isChecked=false, text, group='', description} = {})
 
   label(class=radioClass)
     input(class=`${radioClass}__input` type='radio' name=group checked=isChecked)
-    span(class=`${radioClass}__text`) #{text}
+    p(class=`${radioClass}__text`) #{text}

@@ -5,9 +5,11 @@ $inputBorderRadius: 4px;
 
 .dropdown {
   @include box-sizing-border-box();
+
   position: relative;
   min-width: $minInputWidth;
   width: fit-content;
+
   @media (max-width: 380px) {
     min-width: 300px;
   }
@@ -60,16 +62,18 @@ $inputBorderRadius: 4px;
 
   &__list-row-text {
     @include text_label-CTA();
+
     margin: 0;
     line-height: 30px;
   }
 
   &__buttons-container {
+    @include clearfix();
+
     display: none;
     flex-wrap: wrap;
     justify-content: space-between;
     margin: 18px 6px 12px 14px;
-    @include clearfix();
 
     &_visible {
       display: block;

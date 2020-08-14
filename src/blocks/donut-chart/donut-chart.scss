@@ -1,10 +1,12 @@
 .donut-chart {
+  @include box-sizing-border-box();
+
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   width: fit-content;
   height: fit-content;
-  @include box-sizing-border-box();
+  margin: 0;
 
   &__image-container {
     max-width: 120px;
@@ -21,6 +23,7 @@
 
   &__active-data {
     $activeDataHeight: 45px;
+
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -34,12 +37,14 @@
 
   &__active-value {
     @include text_widget-title();
+
     font-size: 24px;
     line-height: 30px;
   }
 
   &__value-text {
     @include text_widget-title();
+
     font-size: 14px;
     line-height: 15px;
   }
@@ -52,6 +57,7 @@
 
   &__legend-item {
     @include text_regular();
+
     display: flex;
     align-items: baseline;
 

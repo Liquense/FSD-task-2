@@ -16,7 +16,7 @@ mixin slider({minValue = 0, maxValue = 10, step = 1, title = "", isRange = false
     -controlAttributes.class += ` ${controlClass}_range `
     -controlAttributes['data-second-value'] = initialValues[1]
 
-  div&attributes(sliderAttributes)
+  article&attributes(sliderAttributes)
     div&attributes(textAttributes)
       +title({type: 'label', text: title})
       p&attributes(valueAttributes) ₽

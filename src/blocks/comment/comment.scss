@@ -1,8 +1,9 @@
 $avatarSize: 48px;
 
 .comment {
-  max-width: 710px;
   @include box-sizing-border-box();
+
+  max-width: 710px;
 
   &__header {
     display: flex;
@@ -26,6 +27,7 @@ $avatarSize: 48px;
   &__author,
   &__date-time {
     @include text_regular();
+
     font-size: 14px;
     line-height: 24px;
   }
@@ -43,13 +45,14 @@ $avatarSize: 48px;
 
   &__like {
     min-width: $avatarSize;
-    margin-top: 1px;
+    margin-top: 2px;
     display: flex;
     justify-content: center;
   }
 
   &__text {
     @include text_regular();
+
     font-size: 14px;
     line-height: 24px;
   }

@@ -4,6 +4,7 @@ $arrowSize: 24px;
 
 .button {
   @include box-sizing-border-box();
+  
   cursor: pointer;
   display: inline-block;
   width: fit-content;
@@ -43,14 +44,9 @@ $arrowSize: 24px;
     opacity: 0.5;
   }
 
-  &_hovered#{&}_type_text, &_type_text:hover {
-    .button__control, .button__decoration {
-      color: $darkShade50;
-    }
-  }
-
   &__control {
     @include text_label-CTA();
+
     cursor: pointer;
     height: 100%;
     width: 100%;
@@ -122,6 +118,12 @@ $arrowSize: 24px;
 
     &_type_filled {
       color: $inputBackgroundColor;
+    }
+  }
+
+  &_hovered#{&}_type_text, &_type_text:hover {
+    .button__control, .button__decoration {
+      color: $darkShade50;
     }
   }
 }

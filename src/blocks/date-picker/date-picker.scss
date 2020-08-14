@@ -5,27 +5,27 @@ $datepickerContentHeight: 240px;
 $cellTextColor: $darkShade50;
 $datepickerContentSidesPadding: 20px;
 $actualPointsGradient: linear-gradient(
-        $gradientDefaultAngle,
-        $purple 0%,
-        $purpleGradientSecond 100%
+    $gradientDefaultAngle,
+    $purple 0%,
+    $purpleGradientSecond 100%
 );
 
 $actualRangeGradient: linear-gradient(
-        $gradientDefaultAngle,
-        rgba($purple, 0.25) 0%,
-        rgba($purpleGradientSecond, 0.25) 100%
+    $gradientDefaultAngle,
+    rgba($purple, 0.25) 0%,
+    rgba($purpleGradientSecond, 0.25) 100%
 );
 
 $otherPointsGradient: linear-gradient(
-        $gradientDefaultAngle,
-        scale-color($purple, $lightness: 50%) 0%,
-        scale-color($purpleGradientSecond, $lightness: 50%) 100%
+    $gradientDefaultAngle,
+    scale-color($purple, $lightness: 50%) 0%,
+    scale-color($purpleGradientSecond, $lightness: 50%) 100%
 );
 
 $otherRangeGradient: linear-gradient(
-        $gradientDefaultAngle,
-        rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
-        rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%
+    $gradientDefaultAngle,
+    rgba(scale-color($purple, $lightness: 75%), 0.25) 0%,
+    rgba(scale-color($purpleGradientSecond, $lightness: 75%), 0.25) 100%
 );
 
 @mixin cell-size($datepickerWidth, $sidePaddings) {
@@ -46,6 +46,7 @@ $otherRangeGradient: linear-gradient(
 
 .datepicker {
   @include text(Montserrat, normal, 12px, 15px, $cellTextColor, normal);
+
   border: $datepickerBorderWidth solid $darkShade25;
   box-shadow: 0 10px 20px $darkShade5;
   box-sizing: border-box;
@@ -235,6 +236,7 @@ $otherRangeGradient: linear-gradient(
   &--nav-action {
     .date-picker__title {
       @include text_item-title();
+
       letter-spacing: -0.8px;
     }
   }
@@ -262,6 +264,7 @@ $otherRangeGradient: linear-gradient(
 
   &--button {
     @include text_label-CTA();
+
     flex: none;
     height: unset;
     cursor: pointer;
@@ -377,6 +380,7 @@ $otherRangeGradient: linear-gradient(
 
   &__confirm-button {
     @include text_label-CTA();
+    
     border: none;
     background-color: transparent;
     width: fit-content;

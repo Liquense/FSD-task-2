@@ -14,6 +14,8 @@ class Dropdown {
 
   $inputControl;
 
+  $expandArrow;
+
   $spinners;
 
   $spinnerValues;
@@ -64,7 +66,9 @@ class Dropdown {
   _initElements(rootElement) {
     this.$dropdown = $(rootElement);
     this.$listWrapper = this.$dropdown.find('.js-dropdown__list-wrapper');
-    this.$inputControl = this.$dropdown.find('.js-dropdown__input .js-input__control');
+    const $input = this.$dropdown.find('.js-dropdown__input');
+    this.$inputControl = $input.find('.js-input__control');
+    this.$expandArrow = $input.find('.js-input__arrow_expandable');
     this.$spinners = this.$dropdown.find('.js-spinner');
     this.$spinnerValues = this.$dropdown.find('.js-spinner__value');
     this.$buttonsContainer = this.$dropdown.find('.js-dropdown__buttons-container');
@@ -80,11 +84,20 @@ class Dropdown {
   }
 
   _initEvents() {
+    this._addExpandArrowEvents();
     this._addClearButtonEvents();
     this._addConfirmButtonEvents();
     this._addSpinnersEvents();
     this._addDocumentEvents();
     this._addInputEvents();
+  }
+
+  _addExpandArrowEvents() {
+    this.$expandArrow.on('click.dropdown', this._handleExpandArrowClick);
+  }
+
+  _handleExpandArrowClick = () => {
+    this._handleInputClick();
   }
 
   _addClearButtonEvents() {

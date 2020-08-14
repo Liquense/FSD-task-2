@@ -22,6 +22,7 @@
 
   $textLineHeight: 24px;
   $ellipseSize: 10px;
+
   &__item-image {
     flex-shrink: 0;
     width: $ellipseSize;
@@ -34,6 +35,8 @@
 
   &__item-text {
     @include text_regular();
+
+    margin: 0;
     max-width: 25ch;
     line-height: $textLineHeight;
   }

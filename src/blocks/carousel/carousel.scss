@@ -27,6 +27,7 @@ $arrowSize: 44px;
 
       > button {
         @include icon();
+
         outline: none;
         cursor: pointer;
         background-color: transparent;

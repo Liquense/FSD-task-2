@@ -19,6 +19,7 @@ $toggleCircleWidth: 31.58%;
     border-color: $purple;
     filter: grayscale(0%) brightness(100%);
   }
+
   to {
     filter: grayscale(100%) brightness(120%);
     border-color: $purple;
@@ -30,6 +31,7 @@ $toggleCircleWidth: 31.58%;
     filter: grayscale(100%) brightness(120%);
     border-color: $purple;
   }
+
   to {
     filter: grayscale(0%) brightness(100%);
     border-color: $purple;
@@ -41,6 +43,7 @@ $toggleCircleWidth: 31.58%;
     left: $toggleCircleXOffset;
     background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
   }
+
   to {
     left: 100% - $toggleCircleWidth - $toggleCircleXOffset;
     background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
@@ -52,6 +55,7 @@ $toggleCircleWidth: 31.58%;
     left: 100% - $toggleCircleWidth - $toggleCircleXOffset;
     background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
   }
+
   to {
     left: $toggleCircleXOffset;
     background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
@@ -60,6 +64,7 @@ $toggleCircleWidth: 31.58%;
 
 .checkbox {
   @include box-sizing-border-box();
+
   width: fit-content;
   display: inline-block;
   user-select: none;
@@ -72,6 +77,7 @@ $toggleCircleWidth: 31.58%;
 
   &_type_toggle:hover &__button {
     @include saturate-toggle-button();
+
     animation-duration: 0.4s;
   }
 
@@ -106,6 +112,7 @@ $toggleCircleWidth: 31.58%;
         &:after {
           @include icon();
           @include text-gradient(linear-gradient($purple 22%, $purpleGradientSecond 78%));
+
           content: 'checked';
           display: block;
           height: 1em;
@@ -139,6 +146,7 @@ $toggleCircleWidth: 31.58%;
 
       &:checked {
         @include saturate-toggle-button();
+
         animation-duration: 1s;
 
         &:after {
@@ -152,6 +160,7 @@ $toggleCircleWidth: 31.58%;
 
   &__text {
     @include text_regular();
+
     line-height: 18px;
     margin: 0;
     display: inline-block;
@@ -174,6 +183,7 @@ $toggleCircleWidth: 31.58%;
 
   &__description {
     @include text_regular();
+
     display: inline-block;
     padding-left: $checkboxButtonSize + $buttonRightMargin;
     margin: 5px 0 0 0;

@@ -14,5 +14,5 @@ mixin bullet-list({title = '', contentStrings = []} = {})
     ul(class=listContainerClass)
       each string, index in contentStrings
         li(class=listElementClass)
-          div(class=listElementImageClass)
-          span(class=listElementTextClass) #{string}
+          i(class=listElementImageClass)
+          p(class=listElementTextClass) #{string}

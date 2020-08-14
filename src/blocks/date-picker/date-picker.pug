@@ -11,6 +11,6 @@ mixin date-picker({title='', width, placeholder, isInline=false, data} = {})
   - inputWrapAttributes['data-first-date'] = data ? data[0] : ''
   - inputWrapAttributes['data-second-date'] = data ? data[1] : ''
 
-  div(class=`js-${datepickerClass} ${datepickerClass}`)
+  article(class=`js-${datepickerClass} ${datepickerClass}`)
     div&attributes(inputWrapAttributes)
       +input({title: title, width: width, placeholder: placeholder, isExpandable: !isInline, inDatepicker: true})

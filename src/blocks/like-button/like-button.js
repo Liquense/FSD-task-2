@@ -3,19 +3,17 @@ import 'jquery-ui/ui/widgets/checkboxradio';
 class LikeButton {
   $like;
 
-  $label;
-
   $text;
 
   $hiddenButton;
 
   get likesAmount() {
-    return Number.parseInt(this.$label.attr('data-likes-count'), 10);
+    return Number.parseInt(this.$like.attr('data-likes-count'), 10);
   }
 
   set likesAmount(amount) {
     this.$text.text(amount);
-    this.$label.attr('data-likes-count', amount);
+    this.$like.attr('data-likes-count', amount);
   }
 
   constructor(rootElement) {
@@ -25,7 +23,6 @@ class LikeButton {
 
   _initElements(rootElement) {
     this.$like = $(rootElement);
-    this.$label = this.$like.find('.js-like-button__label');
     this.$text = this.$like.find('.js-like-button__text');
     this.$hiddenButton = this.$like.find('.js-like-button__hidden-button');
   }
@@ -39,11 +36,11 @@ class LikeButton {
   _createBorder() {
     const gradientBorderElement = document.createElement('div');
     gradientBorderElement.classList.add('like-button__border');
-    this.$label.prepend(gradientBorderElement);
+    this.$like.prepend(gradientBorderElement);
   }
 
   _handleChange = () => {
-    this.likesAmount = this.$label.hasClass('ui-checkboxradio-checked')
+    this.likesAmount = this.$like.hasClass('ui-checkboxradio-checked')
       ? this.likesAmount + 1
       : this.likesAmount - 1;
   }

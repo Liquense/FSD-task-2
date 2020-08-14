@@ -13,7 +13,7 @@ mixin double-date-picker({labels=[], firstDate, secondDate} = {})
     })
   -}
 
-  div(class=`js-${doubleDatePickerClass} ${doubleDatePickerClass}` data-first-date=firstDate data-second-date=secondDate)
+  section(class=`js-${doubleDatePickerClass} ${doubleDatePickerClass}` data-first-date=firstDate data-second-date=secondDate)
     div(class=`js-${firstDatePickerClass} ${firstDatePickerClass}`)
       -createDatePicker(labels[0])
     div(class=`js-${secondDatePickerClass} ${secondDatePickerClass}`)

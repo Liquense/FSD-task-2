@@ -10,16 +10,19 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
 .input {
   @include box-sizing-border-box();
+
   display: block;
   height: fit-content;
   width: fit-content;
   min-width: 320px;
+
   @media (max-width: 380px) {
     min-width: 300px;
   }
 
   &_width_narrow {
     min-width: 150px;
+
     @media (max-width: 380px) {
       min-width: 140px;
     }
@@ -40,10 +43,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     .title {
       line-height: $lineHeight;
     }
-
-    &_expandable {
-      cursor: pointer;
-    }
   }
 
   &__control-wrapper {
@@ -55,6 +54,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   &__control {
     @include text(Montserrat, normal, 14px, $lineHeight, $darkShade50, -0.18px);
+    
     border-radius: 4px;
     width: 100%;
     height: $inputHeight;
@@ -110,9 +110,9 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
       position: absolute;
       top: 0;
       right: 0;
-      height: $inputHeight;
-      width: $inputHeight;
-      padding: ($inputHeight - $arrowSize)/2;
+      height: $arrowSize;
+      width: $arrowSize;
+      margin: ($inputHeight - $arrowSize)/2;
     }
   }
 }

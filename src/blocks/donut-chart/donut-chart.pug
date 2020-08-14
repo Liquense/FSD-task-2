@@ -9,7 +9,7 @@ mixin donut-chart({data=[], defaultStyle={}, activeStyle={}, arcsGap=0} = {})
   -const legendClass = `${donutChartClass}__legend`
   -const legendItemClass = `${donutChartClass}__legend-item`
 
-  div(class=`js-donut-chart donut-chart`)
+  figure(class=`js-donut-chart donut-chart`)
     div(class=`${imageContainerClass}`)
       svg(class=`js-${svgClass} ${svgClass}` width="200" height="200" preserveAspectRatio="xMidYMid meet"
         data-arcs-gap=arcsGap

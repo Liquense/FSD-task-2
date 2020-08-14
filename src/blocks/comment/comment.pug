@@ -7,7 +7,7 @@ mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} 
       div.comment__avatar-wrap
         img.comment__avatar(src=avatar, alt="user avatar")
       div.comment__info-container
-        h4.comment__author #{author}
+        h3.comment__author #{author}
         span.comment__date-time #{dateTime}
     div.comment__content
       div.comment__like
