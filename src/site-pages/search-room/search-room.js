@@ -4,7 +4,7 @@ import initPaginations from '../../blocks/pagination/init';
 import initDatepickers from '../../blocks/date-picker/init';
 import initDropdowns from '../../blocks/dropdown/init';
 import initSliders from '../../blocks/slider/init';
-import initLists from '../../blocks/list/init';
+import initLists from '../../blocks/checkbox-list/init';
 import initHeaders from '../../page-elements/header/init';
 
 initHeaders();

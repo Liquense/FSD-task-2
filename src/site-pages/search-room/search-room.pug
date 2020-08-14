@@ -8,7 +8,7 @@ block options
 block content
   include ../../blocks/input/input
   include ../../blocks/slider/slider
-  include ../../blocks/list/list
+  include ../../blocks/checkbox-list/checkbox-list
   include ../../blocks/pagination/pagination
   include ../../blocks/date-picker/date-picker
   include ../../blocks/dropdown/dropdown
@@ -31,12 +31,12 @@ block content
       -checkButtons.push({text: 'Можно с питомцами', isChecked: true});
       -checkButtons.push({text: 'Можно приглашать гостей (до 10 человек)', isChecked: true});
       div.search-room__benefits-filter
-        +list({type: 'checkbox', title: 'Checkbox buttons', elements: checkButtons})
+        +checkbox-list({type: 'checkbox', title: 'Checkbox buttons', elements: checkButtons})
       -const richButtons = []
       -richButtons.push({text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'});
       -richButtons.push({text: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'});
       div.search-room__availability-filter
-        +list({type: 'checkbox', title: 'Доступность', elements: richButtons})
+        +checkbox-list({type: 'checkbox', title: 'Доступность', elements: richButtons})
       div.search-room__room-equipment-filter
         +dropdown({title: 'Удобства номера', width: 'medium', dropdownType: 'rooms', placeholder: 'Комплектация номера',
           data: [{name: 'Спальни', value: 2}, {name: 'Кровати', value: 2}, {name: 'Ванные комнаты', value: 0}]
@@ -51,7 +51,7 @@ block content
       -checkButtons.push({text: 'Телевизор'})
       -checkButtons.push({text: 'Шампунь'})
       div.search-room__additional-features-filter
-        +list({
+        +checkbox-list({
           type: 'checkbox',
           isExpandable: true,
           isNarrow: true,

@@ -3,8 +3,8 @@ include ../radio-button/radio-button
 include ../arrow/arrow
 include ../title/title
 
-mixin list({isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
-  -const listClass = 'list'
+mixin checkbox-list({isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
+  -const listClass = 'checkbox-list'
   -const titleClass = `${listClass}__title`
   -const containerClass = `${listClass}__container`
   -const classNames = [listClass, titleClass, containerClass]
@@ -28,7 +28,7 @@ mixin list({isExpandable=false, isNarrow=false, isOpened=false, title='', elemen
       legend&attributes(titleAttributes)
         +title({type: 'label', text: title})
       if isExpandable
-        div.list__expand-arrow
+        div(class=`${listClass}__expand-arrow`)
           +arrow({type: 'expand'})
     div&attributes(containerAttributes)
       each value, index in elements

@@ -5,7 +5,7 @@ include ../../../blocks/date-picker/date-picker
 include ../../../blocks/checkbox/checkbox
 include ../../../blocks/like-button/like-button
 include ../../../blocks/radio-button/radio-button
-include ../../../blocks/list/list
+include ../../../blocks/checkbox-list/checkbox-list
 include ../../../blocks/bullet-list/bullet-list
 include ../../../blocks/features-list/features-list
 include ../../../blocks/rating/rating
@@ -38,7 +38,7 @@ section.form-elements
         -checkButtons.push({text: 'Можно с питомцами', isChecked: true})
         -checkButtons.push({text: 'Можно пригласить гостей (до 10 человек)', isChecked: true})
       div.form-elements__checkboxes
-        +list({title: 'Checkbox Buttons', elements: checkButtons})
+        +checkbox-list({title: 'Checkbox Buttons', elements: checkButtons})
 
       div.form-elements__radios
         div.form-elements__radios-title
@@ -121,14 +121,14 @@ section.form-elements
         -{text: 'Телевизор'}, {text: 'Шампунь'}
         -]
         div.form-elements__expandable-list
-          +list({type: 'checkbox', isExpandable: true, title: 'Expandable Checkbox List', elements: checkButtonsExpandable})
+          +checkbox-list({type: 'checkbox', isExpandable: true, title: 'Expandable Checkbox List', elements: checkButtonsExpandable})
         div.form-elements__expanded-list
-          +list({type: 'checkbox', isExpandable: true, isOpened: true, title: 'Expandable Checkbox List', elements: checkButtonsExpandable})
+          +checkbox-list({type: 'checkbox', isExpandable: true, isOpened: true, title: 'Expandable Checkbox List', elements: checkButtonsExpandable})
 
       -const richCheckboxes = [{text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'}]
       -richCheckboxes.push({text: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \n и проводит до номера.'})
       div.form-elements__rich-list
-        +list({type: 'checkbox', title: 'Rich checkbox buttons', elements: richCheckboxes})
+        +checkbox-list({type: 'checkbox', title: 'Rich checkbox buttons', elements: richCheckboxes})
 
       div.form-elements__bullet-list
         +bullet-list({
