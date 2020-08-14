@@ -1,5 +1,4 @@
 import { importCommon, importContext } from '../../index';
-import initRegistrationCards from '../../cards/registration-card/init';
 import initHeaders from '../../page-elements/header/init';
 
 initHeaders();
@@ -20,5 +19,4 @@ if (locals.login) {
   $registrationLoginContent.append(templateHTML);
 } else {
   $registrationLoginContent.append(templateHTML);
-  initRegistrationCards();
 }
