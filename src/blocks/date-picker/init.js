@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 import Datepicker from './date-picker';
 import initBlocks from '../../common/dynamicInit';
 
