@@ -49,8 +49,8 @@ class Spinner {
       },
       _buttonHtml() {
         return [
-          `<button class="${Spinner.decreaseButtonClasses}">-</button>`,
-          `<button class="${Spinner.increaseButtonClasses}">+</button>`];
+          `<button class="${Spinner.decreaseButtonClasses}" type="button">-</button>`,
+          `<button class="${Spinner.increaseButtonClasses}" type="button">+</button>`];
       },
       _uiSpinnerHtml() {
         return '';

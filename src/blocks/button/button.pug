@@ -34,6 +34,8 @@ mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', s
         -value.class += `${classNames[index]}_type_filled `
 
   -const blockTag = isLink ? 'a' : 'button'
+  -if (!isLink) controlAttributes.type = 'button'
+
   div(class=blockAttributes.class)
     #{blockTag}&attributes(controlAttributes) #{text}
     if decoration === 'enter-arrow'
