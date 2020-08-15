@@ -9,7 +9,6 @@ const paths = {
   build: path.join(__dirname, '../dist'),
 };
 
-// Отдельные странички
 const mainPages = ['index'].map((name) => new HtmlWebpackPlugin({
   template: `./src/${name}.pug`,
   filename: `${name}.html`,
@@ -23,10 +22,6 @@ const sitePages = [
 }));
 
 module.exports = {
-  node: {
-    fs: 'empty',
-  },
-  // названия чанков должны совпадать с названиями страниц для привязки
   entry: {
     index: `${paths.source}/index.js`,
     'ui-kit': `${paths.source}/site-pages/ui-kit/ui-kit.js`,
