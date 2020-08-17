@@ -1,5 +1,5 @@
 include ../arrow/arrow
-mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', size = '', decoration = '', isHovered = false} = {})
+mixin button({text='', isTextSized=false, isLink=false, link='/mock-address/change-me', type='filled', size='', decoration='', isHovered=false} = {})
   - const blockClass = 'button'
   - const borderClass = `${blockClass}__border`
   - const controlClass = `${blockClass}__control`
@@ -33,8 +33,11 @@ mixin button({text = '', isTextSized = false, isLink = false, type = 'filled', s
       default
         -value.class += `${classNames[index]}_type_filled `
 
-  -const blockTag = isLink ? 'a' : 'button'
-  -if (!isLink) controlAttributes.type = 'button'
+  - const blockTag = isLink ? 'a' : 'button'
+  if (isLink)
+    - controlAttributes.href = link
+  else
+    - controlAttributes.type = 'button'
 
   div(class=blockAttributes.class)
     #{blockTag}&attributes(controlAttributes) #{text}
