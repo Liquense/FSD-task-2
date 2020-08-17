@@ -47,8 +47,8 @@ mixin input({title='', type, width, placeholder, withSubscription=false, isExpan
     div&attributes(controlWrapperAttributes)
       input&attributes(controlAttributes)
       if withSubscription
-        div.input__arrow_with-subscription
+        div.input__arrow.input__arrow_with-subscription
           +arrow({type: 'enter', isColored: true, isBold: true})
       else if isExpandable
-        div.js-input__arrow_expandable.input__arrow_expandable
+        div.js-input__arrow_expandable.input__arrow.input__arrow_expandable
           +arrow({type: 'expand'})

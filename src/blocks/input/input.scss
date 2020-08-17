@@ -54,7 +54,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   &__control {
     @include text(Montserrat, normal, 14px, $lineHeight, $darkShade50, -0.18px);
-    
+
     border-radius: 4px;
     width: 100%;
     height: $inputHeight;
@@ -105,14 +105,11 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   }
 
   &__arrow {
-    &_with-subscription,
-    &_expandable {
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: $arrowSize;
-      width: $arrowSize;
-      margin: ($inputHeight - $arrowSize)/2;
-    }
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: $arrowSize;
+    width: $arrowSize;
+    margin: ($inputHeight - $arrowSize)/2;
   }
 }
