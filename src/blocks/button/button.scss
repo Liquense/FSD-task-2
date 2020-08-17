@@ -3,8 +3,10 @@ $buttonHeight: 44px;
 $arrowSize: 24px;
 
 .button {
+  $block: &;
+
   @include box-sizing-border-box();
-  
+
   cursor: pointer;
   display: inline-block;
   width: fit-content;
@@ -16,6 +18,25 @@ $arrowSize: 24px;
     background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
     border-radius: 22px;
     padding: $buttonBorderWidth;
+
+    #{$block}__control {
+      position: relative;
+      border: none;
+      background-color: $inputBackgroundColor;
+      color: $purple;
+    }
+  }
+
+  &_type_filled {
+    #{$block}__control {
+      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+      border: none;
+      color: $inputBackgroundColor;
+    }
+
+    #{$block}__decoration {
+      color: $inputBackgroundColor;
+    }
   }
 
   &_text-sized, &_type_text {
@@ -23,6 +44,33 @@ $arrowSize: 24px;
     min-height: unset;
     height: fit-content;
     width: fit-content;
+  }
+
+  &_type_text &__control {
+    border: none;
+    background-color: transparent;
+    width: fit-content;
+    height: 15px;
+    color: $purple;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &_text-sized {
+    #{$block}__control {
+      display: block;
+      width: auto;
+      height: auto;
+      line-height: normal;
+      padding: 9px 20px 10px 20px;
+    }
+
+    &#{$block}_type_bordered #{$block}__control {
+      padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
+    }
   }
 
   &_size_wide {
@@ -37,6 +85,11 @@ $arrowSize: 24px;
     display: flex;
     align-items: center;
     position: relative;
+
+    #{$block} {
+      padding-right: $buttonHeight;
+      padding-left: $buttonHeight;
+    }
   }
 
   &_hovered:not(&_type_text),
@@ -57,49 +110,6 @@ $arrowSize: 24px;
     &:focus {
       outline: none;
     }
-
-    &_type_filled {
-      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-      border: none;
-      color: $inputBackgroundColor;
-    }
-
-    &_type_bordered {
-      position: relative;
-      border: none;
-      background-color: $inputBackgroundColor;
-      color: $purple;
-    }
-
-    &_type_text {
-      border: none;
-      background-color: transparent;
-      width: fit-content;
-      height: 15px;
-      color: $purple;
-      cursor: pointer;
-
-      &:focus {
-        outline: none;
-      }
-    }
-
-    &_decorated {
-      padding-right: $buttonHeight;
-      padding-left: $buttonHeight;
-    }
-
-    &_text-sized {
-      display: block;
-      width: auto;
-      height: auto;
-      line-height: normal;
-      padding: 9px 20px 10px 20px;
-    }
-
-    &_text-sized#{&}_type_bordered {
-      padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
-    }
   }
 
   &__decoration {
@@ -115,14 +125,10 @@ $arrowSize: 24px;
     padding: ($buttonHeight - $arrowSize)/2;
     right: 0;
     top: 0;
-
-    &_type_filled {
-      color: $inputBackgroundColor;
-    }
   }
 
   &_hovered#{&}_type_text, &_type_text:hover {
-    .button__control, .button__decoration {
+    #{$block}__control, #{$block}__decoration {
       color: $darkShade50;
     }
   }

@@ -1,37 +1,30 @@
 include ../arrow/arrow
 mixin button({text='', isTextSized=false, isLink=false, link='/mock-address/change-me', type='filled', size='', decoration='', isHovered=false} = {})
   - const blockClass = 'button'
-  - const borderClass = `${blockClass}__border`
   - const controlClass = `${blockClass}__control`
-  - const decorationClass = `${blockClass}__decoration`
-  - const classNames = [blockClass, borderClass, controlClass, decorationClass]
 
-  - const blockAttributes = {class: `${blockClass} `}
-  - const borderAttributes = {class: `${borderClass} `}
-  - const controlAttributes = {class: `js-${controlClass} ${controlClass} `}
-  - const decorationAttributes = {class: `${decorationClass} `}
-  - const allAttributes = [blockAttributes, borderAttributes, controlAttributes, decorationAttributes]
+  - const blockAttributes = {class: `js-${blockClass} ${blockClass}`}
+  - const controlAttributes = {class: `js-${controlClass} ${controlClass}`}
 
-  each value, index in Object.values(allAttributes)
-    if isTextSized
-      -value.class += ` ${classNames[index]}_text-sized `
-    if isHovered
-      -value.class += ` ${classNames[index]}_hovered `
-    if decoration
-      -value.class += ` ${classNames[index]}_decorated `
+  if isTextSized
+    -blockAttributes.class += ` ${blockClass}_text-sized`
+  if isHovered
+    -blockAttributes.class += ` ${blockClass}_hovered`
+  if decoration
+    -blockAttributes.class += ` ${blockClass}_decorated`
 
-    case size
-      when 'wide'
-        -value.class += ` ${classNames[index]}_size_wide `
+  case size
+    when 'wide'
+      -blockAttributes.class += ` ${blockClass}_size_wide`
 
-    case type
-      when 'bordered'
-        -value.class += `${classNames[index]}_type_bordered `
-      when 'text'
-        -value.class += `${classNames[index]}_type_text `
-      when 'filled'
-      default
-        -value.class += `${classNames[index]}_type_filled `
+  case type
+    when 'bordered'
+      -blockAttributes.class += ` ${blockClass}_type_bordered`
+    when 'text'
+      -blockAttributes.class += ` ${blockClass}_type_text`
+    when 'filled'
+    default
+      -blockAttributes.class += ` ${blockClass}_type_filled`
 
   - const blockTag = isLink ? 'a' : 'button'
   if (isLink)
@@ -39,8 +32,8 @@ mixin button({text='', isTextSized=false, isLink=false, link='/mock-address/chan
   else
     - controlAttributes.type = 'button'
 
-  div(class=blockAttributes.class)
+  div&attributes(blockAttributes)
     #{blockTag}&attributes(controlAttributes) #{text}
     if decoration === 'enter-arrow'
-      div&attributes(decorationAttributes)
+      div(class=`${blockClass}__decoration`)
         +arrow({type: 'enter'})
