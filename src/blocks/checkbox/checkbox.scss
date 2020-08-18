@@ -63,6 +63,8 @@ $toggleCircleWidth: 31.58%;
 }
 
 .checkbox {
+  $block: &;
+
   @include box-sizing-border-box();
 
   width: fit-content;
@@ -70,39 +72,15 @@ $toggleCircleWidth: 31.58%;
   user-select: none;
   cursor: pointer;
 
-  &_type_default:hover &__button:not(:checked) {
-    border-color: $purple;
-    animation: saturate 0.4s;
-  }
+  &_type_check {
+    #{$block}__button {
+      $pixelInEm: 0.0715em;
 
-  &_type_toggle:hover &__button {
-    @include saturate-toggle-button();
-
-    animation-duration: 0.4s;
-  }
-
-  &_rich {
-    max-width: 320px;
-  }
-
-  &__button {
-    appearance: none;
-    animation: desaturate 0.4s;
-    cursor: pointer;
-    outline: none;
-    height: $checkboxButtonSize;
-    margin: 0 $buttonRightMargin 0 0;
-    padding: 0;
-    vertical-align: top;
-
-    &_type_default {
-      $emPixel: 0.0715em;
       font-size: 14px;
-      height: 1em + 6*$emPixel;
-      width: 1em + 6*$emPixel;
-      padding: 2*$emPixel;
-      border: $emPixel solid $darkShade25;
-      border-radius: 4*$emPixel;
+      height: 1em + 6*$pixelInEm;
+      width: 1em + 6*$pixelInEm;
+      padding: 2*$pixelInEm;
+      border-radius: 4*$pixelInEm;
 
       &:checked {
         animation-name: saturate;
@@ -119,16 +97,17 @@ $toggleCircleWidth: 31.58%;
           width: 1em;
           font-weight: bolder;
           position: absolute;
-          top: 2*$emPixel;
-          left: 2*$emPixel;
+          top: 2*$pixelInEm;
+          left: 2*$pixelInEm;
         }
       }
     }
+  }
 
-    &_type_toggle {
+  &_type_toggle {
+    #{$block}__button {
       min-width: 40px;
       border-radius: 10px;
-      border: $checkboxButtonBorderWidth solid $darkShade25;
 
       &:after {
         content: "";
@@ -156,6 +135,40 @@ $toggleCircleWidth: 31.58%;
         }
       }
     }
+
+    &:hover #{$block}__button {
+      @include saturate-toggle-button();
+    }
+
+    #{$block}__text {
+      color: $darkShade75;
+    }
+  }
+
+  &:hover &__button:not(:checked) {
+    border-color: $purple;
+    animation: saturate 0.4s;
+  }
+
+  &_rich {
+    max-width: 320px;
+
+    #{$block}__text {
+      color: $darkShade75;
+      font-weight: bold;
+    }
+  }
+
+  &__button {
+    appearance: none;
+    animation: desaturate 0.4s;
+    border: $checkboxButtonBorderWidth solid $darkShade25;
+    cursor: pointer;
+    outline: none;
+    height: $checkboxButtonSize;
+    margin: 0 $buttonRightMargin 0 0;
+    padding: 0;
+    vertical-align: top;
   }
 
   &__text {
@@ -166,19 +179,7 @@ $toggleCircleWidth: 31.58%;
     display: inline-block;
     max-width: 23ch;
     vertical-align: top;
-
-    &_type_default {
-      color: $darkShade50;
-    }
-
-    &_type_toggle {
-      color: $darkShade75;
-    }
-
-    &_rich {
-      color: $darkShade75;
-      font-weight: bold;
-    }
+    color: $darkShade50;
   }
 
   &__description {
