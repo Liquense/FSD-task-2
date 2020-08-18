@@ -1,5 +1,3 @@
-import 'jquery-ui/ui/effects/effect-fade';
-
 import { ruDeclination } from '../../common/functions';
 import initSpinners from '../spinner/init';
 
@@ -169,7 +167,6 @@ class Dropdown {
 
     this.isAlwaysOpened = this.$dropdown.hasClass('dropdown_opened');
     if (this.isAlwaysOpened) {
-      this.$listWrapper.toggle('fade');
       this.$listWrapper.toggleClass(Dropdown.dropdownVisibleClass);
     }
 
@@ -187,7 +184,6 @@ class Dropdown {
   }
 
   _toggle() {
-    this.$listWrapper.toggle('fade');
     this.$listWrapper.toggleClass(Dropdown.dropdownVisibleClass);
     this.$inputControl.toggleClass('input__control_focused');
   }

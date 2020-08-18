@@ -44,6 +44,10 @@ $inputBorderRadius: 4px;
     background-color: $inputBackgroundColor;
     box-shadow: 0 10px 20px $darkShade5;
     z-index: 10;
+
+    &_visible {
+      display: block;
+    }
   }
 
   &__list {
