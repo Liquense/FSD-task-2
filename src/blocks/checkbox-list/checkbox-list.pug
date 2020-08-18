@@ -5,33 +5,25 @@ include ../title/title
 
 mixin checkbox-list({isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
   -const listClass = 'checkbox-list'
-  -const titleClass = `${listClass}__title`
-  -const containerClass = `${listClass}__container`
-  -const classNames = [listClass, titleClass, containerClass]
-
   -const listAttributes = {class: `js-${listClass} ${listClass} `}
-  -const titleAttributes = {class: `js-${titleClass} ${titleClass} `}
-  -const containerAttributes = {class: `js-${containerClass} ${containerClass} `}
-  -const allAttributes = [listAttributes, titleAttributes, containerAttributes]
 
-  each value, index in allAttributes
-    if isExpandable
-      -value.class += `${classNames[index]}_expandable `
+  if isExpandable
+    -listAttributes.class += `${listClass}_expandable `
+    if isOpened
+      -listAttributes.class += `${listClass}_expanded `
 
   if isNarrow
-    -titleAttributes.class += `${titleClass}_narrow `
-  if isOpened
-    -listAttributes.class += `${listClass}_expanded `
+    -listAttributes.class += `${listClass}_narrow `
 
   fieldset&attributes(listAttributes)
     if title
-      legend&attributes(titleAttributes)
+      legend(class=`js-${listClass}__title ${listClass}__title`)
         +title({type: 'label', text: title})
       if isExpandable
         div(class=`${listClass}__expand-arrow`)
           +arrow({type: 'expand'})
-    div&attributes(containerAttributes)
+    ul(class=`js-${listClass}__container ${listClass}__container`)
       each value, index in elements
         -const itemClasses = `${listClass}__item ${value.description ? `${listClass}__item_rich` : ''}`
-        div(class=itemClasses)
+        li(class=itemClasses)
           +checkbox(value)

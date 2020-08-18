@@ -3,58 +3,65 @@ $arrowSize: 24px;
 $titleHeight: 12px;
 
 .checkbox-list {
+  $block: &;
+
   @include box-sizing-border-box();
+
   padding: 0;
   margin: 0;
   border: none;
   position: relative;
   width: fit-content;
 
-  &__title {
-    padding: 0;
-    user-select: none;
-    margin: 0 0 16px;
-
-    &_expandable {
+  &_expandable {
+    #{$block}__title {
       min-width: 266px;
       padding-right: $arrowWrapSize;
       line-height: $titleHeight;
       position: relative;
     }
 
-    &_expandable#{&}:not(&_expanded) {
-      margin-bottom: 0;
+    #{$block}__container {
+      display: none;
+      padding-top: 3px;
+
+      &_visible {
+        display: block;
+      }
     }
 
-    &_narrow {
-      &:after {
-        bottom: 2px;
-        left: 13px;
-        cursor: pointer;
-      }
+    &:not(#{$block}_expanded) #{$block}__title {
+      margin-bottom: 0;
     }
   }
 
+  &_narrow {
+    #{$block}__title:after {
+      bottom: 2px;
+      left: 13px;
+      cursor: pointer;
+    }
+  }
+
+  &__title {
+    padding: 0;
+    user-select: none;
+    margin: 0 0 16px;
+  }
+
   &__expand-arrow {
-    width: $arrowWrapSize;
-    height: $arrowWrapSize;
-    padding: ($arrowWrapSize - $arrowSize)/2;
+    width: $arrowSize;
+    height: $arrowSize;
+    margin: ($arrowWrapSize - $arrowSize)/2;
     position: absolute;
     top: -($arrowWrapSize - $titleHeight)/2 - 1px;
     right: 0;
   }
 
   &__container {
-    padding-top: 1px;
-
-    &_expandable {
-      display: none;
-      padding-top: 3px;
-    }
-
-    &_expandable#{&}_visible {
-      display: block;
-    }
+    margin: 0;
+    padding: 1px 0 0;
+    list-style: none;
   }
 
   &__item {

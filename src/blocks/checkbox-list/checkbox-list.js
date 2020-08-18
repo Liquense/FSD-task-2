@@ -3,7 +3,7 @@ import initArrows from '../arrow/init';
 class CheckboxList {
   static expandableClass = 'checkbox-list_expandable';
 
-  static expandedClass = 'checkbox-list__title_expanded';
+  static expandedClass = 'checkbox-list_expanded';
 
   $list;
 
@@ -41,7 +41,8 @@ class CheckboxList {
 
     if (this.isExpanded) {
       this.isExpanded = !this.isExpanded;
-      this._handleExpandableClick();
+      this._toggleContainerVisibility();
+      this._toggleArrowState();
     }
   }
 
@@ -58,8 +59,16 @@ class CheckboxList {
   _handleExpandableClick = () => {
     this.isExpanded = !this.isExpanded;
 
+    this.$list.toggleClass(CheckboxList.expandedClass);
+    this._toggleContainerVisibility();
+    this._toggleArrowState();
+  }
+
+  _toggleContainerVisibility() {
     this.$container.toggleClass('checkbox-list__container_visible');
-    this.$title.toggleClass('checkbox-list__title_expanded');
+  }
+
+  _toggleArrowState() {
     this.$arrow.toggleClass('checkbox-list__expand-arrow_expanded');
     this.arrow.handleArrowChangeState();
   }
