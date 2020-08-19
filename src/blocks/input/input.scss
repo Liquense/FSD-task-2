@@ -9,6 +9,8 @@ $paddingLeft: 15px - $borderWidth;
 $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
 .input {
+  $block: &;
+
   @include box-sizing-border-box();
 
   display: block;
@@ -18,6 +20,20 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   @media (max-width: 380px) {
     min-width: 300px;
+  }
+
+  &_focused &__control {
+    color: $darkShade75;
+    border-color: $darkShade50;
+    outline: 0;
+  }
+
+  &_with-subscription &__control {
+    padding-right: $inputHeight;
+  }
+
+  &_expandable &__control {
+    cursor: pointer;
   }
 
   &_width_narrow {
@@ -68,39 +84,11 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
       @include text(inherit, inherit, inherit, inherit, $darkShade25, inherit);
     }
 
-    &_focused {
-      color: $darkShade75;
-      border-color: $darkShade50;
-      outline: 0;
-    }
-
-    &_with-subscription {
-      padding-right: $inputHeight;
-    }
-
-    &_expandable {
-      cursor: pointer;
-    }
-
-    &_type_masked:valid:hover,
-    &_type_masked:focus {
-      color: $darkShade75;
-    }
-
-    &_type_text:focus,
-    &_type_text:hover {
-      color: $darkShade75;
-    }
-
     &:focus,
     &:hover {
       color: $darkShade75;
       border-color: $darkShade50;
       outline: 0;
-
-      &::placeholder {
-        @include text(inherit, inherit, inherit, inherit, $darkShade75, inherit);
-      }
     }
   }
 

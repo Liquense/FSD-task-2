@@ -1,8 +1,8 @@
 import initBlocks from '../../common/dynamicInit';
-import MaskedInput from './input';
+import Input from './input';
 
 function initMaskedInputs(rootElement) {
-  initBlocks(rootElement, '.js-input_type_masked', MaskedInput);
+  initBlocks(rootElement, '.js-input', Input);
 }
 
 export default initMaskedInputs;

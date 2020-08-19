@@ -3,52 +3,40 @@ include ../title/title
 
 mixin input({title='', type, width, placeholder, withSubscription=false, isExpandable=false, isFocused=false, text} = {})
   -const blockClass = 'input'
-  -const titleClass = `${blockClass}__title`
-  -const controlWrapperClass = `${blockClass}__control-wrapper`
   -const controlClass = `${blockClass}__control`
-  -const classNames = [blockClass, titleClass, controlClass, controlWrapperClass]
 
-  -const blockAttributes = {class: `${blockClass} `}
-  -const titleAttributes = {class: `js-${titleClass} ${titleClass} `}
-  -const controlWrapperAttributes = {class: `${controlWrapperClass} `}
-  -const controlAttributes = {class: `js-${controlClass} ${controlClass} `,
-  - value: text, placeholder: placeholder}
-  -const allAttributes = [blockAttributes, titleAttributes, controlAttributes, controlWrapperAttributes]
+  -const blockAttributes = {class: `js-${blockClass} ${blockClass}`}
+  -const controlAttributes = {class: `js-${controlClass} ${controlClass}`, value: text, placeholder: placeholder}
 
-  each value, index in allAttributes
-    case width
-      when 'narrow'
-        -value.class += `${classNames[index]}_width_narrow `
-      when 'premedium'
-        -value.class += `${classNames[index]}_width_premedium `
-      when 'medium'
-        -value.class += `${classNames[index]}_width_medium `
+  case width
+    when 'narrow'
+      -blockAttributes.class += ` ${blockClass}_width_narrow`
+    when 'premedium'
+      -blockAttributes.class += ` ${blockClass}_width_premedium`
+    when 'medium'
+      -blockAttributes.class += ` ${blockClass}_width_medium`
 
-    if withSubscription
-      -value.class += `${classNames[index]}_with-subscription `
-    if isExpandable
-      -value.class += `${classNames[index]}_expandable `
-      -controlAttributes.readonly = true
-    if isFocused
-      -value.class += `${classNames[index]}_focused `
+  if withSubscription
+    -blockAttributes.class += ` ${blockClass}_with-subscription`
+  if isExpandable
+    -blockAttributes.class += ` ${blockClass}_expandable`
+    -controlAttributes.readonly = true
+  if isFocused
+    -blockAttributes.class += ` ${blockClass}_focused`
 
-    case type
-      when 'text'
-        -value.class += `${classNames[index]}_type_text `
-        -controlAttributes.type = 'text'
-      when 'mask'
-        -const stringToAdd = `${classNames[index]}_type_masked `
-        -value.class += `js-${stringToAdd} ${stringToAdd} `
+  case type
+    when 'mask'
+      -blockAttributes.class += ` ${blockClass}_type_masked`
 
   article&attributes(blockAttributes)
     if title
-      div&attributes(titleAttributes)
+      div(class=`js-${blockClass}__title ${blockClass}__title`)
         +title({type: 'label', text: title})
-    div&attributes(controlWrapperAttributes)
+    div(class=`${blockClass}__control-wrapper`)
       input&attributes(controlAttributes)
       if withSubscription
-        div.input__arrow.input__arrow_with-subscription
+        div(class=`${blockClass}__arrow`)
           +arrow({type: 'enter', isColored: true, isBold: true})
       else if isExpandable
-        div.js-input__arrow_expandable.input__arrow.input__arrow_expandable
+        div(class=`${blockClass}__arrow`)
           +arrow({type: 'expand'})
