@@ -1,7 +1,6 @@
 mixin rating({maxRating = 5, rating = -1} = {})
   -const rateButtonClass = 'rating'
-  -const starClass = `${rateButtonClass}__star`
-  -const starAttributes = {class: `js-${starClass} ${starClass}`}
+  -const starAttributes = {class: `js-${rateButtonClass}__star ${rateButtonClass}__star`}
 
   div(class=`js-${rateButtonClass} ${rateButtonClass}` data-maxRating=maxRating data-rating=rating)
     - var i = 1

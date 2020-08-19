@@ -1,24 +1,17 @@
 include ../title/title
 mixin slider({minValue = 0, maxValue = 10, step = 1, title = "", isRange = false, initialValues = [5]} = {})
   -const sliderClass = 'slider'
-  -const textClass = `${sliderClass}__text`
-  -const valueClass = `${sliderClass}__value`
-  -const containerClass = `${sliderClass}__container`
   -const controlClass = `${sliderClass}__control`
 
-  -const sliderAttributes = {class: `js-${sliderClass} ${sliderClass}`}
-  -const textAttributes = {class: textClass}
-  -const valueAttributes = {class: `js-${valueClass} ${valueClass}`}
-  -const containerAttributes = {class: containerClass}
   -const controlAttributes = {class: `js-${controlClass} ${controlClass}`, ['data-min']: minValue, ['data-max']: maxValue, ['data-step']: step, ['data-first-value']: initialValues[0]}
 
   if isRange
     -controlAttributes.class += ` ${controlClass}_range `
     -controlAttributes['data-second-value'] = initialValues[1]
 
-  article&attributes(sliderAttributes)
-    div&attributes(textAttributes)
+  article(class=`js-${sliderClass} ${sliderClass}`)
+    div(class=`${sliderClass}__text`)
       +title({type: 'label', text: title})
-      p&attributes(valueAttributes) ₽
-    div&attributes(containerAttributes)
+      p(class=`js-${sliderClass}__value ${sliderClass}__value`) ₽
+    div(class=`${sliderClass}__container`)
       div&attributes(controlAttributes)
