@@ -1,7 +1,7 @@
 include ../arrow/arrow
 include ../title/title
 
-mixin input({title='', type, width, placeholder, withSubscription=false, isExpandable=false, isFocused=false, text, inDropdown=false} = {})
+mixin input({title='', type, width, placeholder, withSubscription=false, isExpandable=false, isFocused=false, text, inDropdown=false, inDatepicker=false} = {})
   -const blockClass = 'input'
   -const controlClass = `${blockClass}__control`
 
@@ -25,6 +25,8 @@ mixin input({title='', type, width, placeholder, withSubscription=false, isExpan
     -blockAttributes.class += ` ${blockClass}_focused`
   if inDropdown
     -blockAttributes.class += ` ${blockClass}_in-dropdown`
+  if inDatepicker
+    -blockAttributes.class += ` ${blockClass}_in-date-picker`
 
   case type
     when 'mask'
