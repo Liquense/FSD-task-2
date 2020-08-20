@@ -36,7 +36,7 @@ mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], isUnified
 
   article(class=blockClasses)
     div(class=`js-${inputClass} ${inputClass}`)
-      +input({title, width: validWidth, placeholder, isExpandable: true, isFocused: isOpened})
+      +input({title, width: validWidth, placeholder, isExpandable: true, isFocused: isOpened, inDropdown: true})
     section(class=listWrapperClasses)
       div(class=listClasses)
         each element, index in data

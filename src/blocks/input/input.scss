@@ -22,6 +22,24 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     min-width: 300px;
   }
 
+  &_in-dropdown {
+    #{$block}__control {
+      color: $darkShade75;
+      padding-right: 80px;
+
+      &::placeholder {
+        color: $darkShade75;
+      }
+    }
+
+    &#{$block}_focused {
+      #{$block}__control {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+  }
+
   &_focused &__control {
     color: $darkShade75;
     border-color: $darkShade50;
@@ -69,7 +87,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   }
 
   &__control {
-    @include text(Montserrat, normal, 14px, $lineHeight, $darkShade50, -0.18px);
+    @include text(Montserrat, normal, 14px, $lineHeight, $darkShade75, -0.18px);
 
     border-radius: 4px;
     width: 100%;

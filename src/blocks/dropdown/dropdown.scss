@@ -18,22 +18,6 @@ $inputBorderRadius: 4px;
     min-width: $minMediumInputWidth;
   }
 
-  &__input {
-    .input__control {
-      color: $darkShade75;
-      padding-right: 80px;
-
-      &::placeholder {
-        color: $darkShade75;
-      }
-
-      &_focused {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-      }
-    }
-  }
-
   &__list-wrapper {
     display: none;
     position: absolute;
