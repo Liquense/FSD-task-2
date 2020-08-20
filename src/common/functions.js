@@ -43,19 +43,25 @@ function ruDeclination(number, words) {
   return w[0] + w[3];
 }
 
-function outerHTML() {
-  return jQuery('<div />').append(this.eq(0).clone()).html();
-}
-jQuery.fn.outerHTML = outerHTML;
+function outerHTML($element) { return jQuery('<div />').append($element.eq(0).clone()).html(); }
 
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max);
-}
+function clamp(value, min, max) { return Math.min(Math.max(value, min), max); }
 
-function getAverageNum(firstNum, secondNum) {
-  return (firstNum + secondNum) / 2;
+function getAverageNum(firstNum, secondNum) { return (firstNum + secondNum) / 2; }
+
+function eventPreventDefault(event) { event.preventDefault(); }
+
+function parseAttrToDate(attrDate) {
+  const dateParts = attrDate.split('.');
+  const day = dateParts[0];
+  const month = dateParts[1];
+  const year = dateParts[2];
+  const dateString = `${year}-${month}-${day}`;
+
+  return new Date(dateString);
 }
 
 export {
-  clamp, formatNumber, ruDeclination, getAverageNum,
+  clamp, formatNumber, ruDeclination, getAverageNum, eventPreventDefault, outerHTML,
+  parseAttrToDate,
 };

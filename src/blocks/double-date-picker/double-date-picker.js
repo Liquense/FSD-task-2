@@ -1,5 +1,5 @@
-import Datepicker from '../date-picker/date-picker';
 import initDatepickers from '../date-picker/init';
+import { parseAttrToDate } from '../../common/functions';
 
 class TwoCalendarDatepicker {
   isSecondAssignStarted = false;
@@ -109,12 +109,12 @@ class TwoCalendarDatepicker {
     const dates = {};
 
     if (this.$twoCalendarDatePicker.attr('data-first-date')) {
-      dates.firstDate = Datepicker.parseAttrToDate(
+      dates.firstDate = parseAttrToDate(
         this.$twoCalendarDatePicker.attr('data-first-date'),
       );
     }
     if (this.$twoCalendarDatePicker.attr('data-second-date')) {
-      dates.secondDate = Datepicker.parseAttrToDate(
+      dates.secondDate = parseAttrToDate(
         this.$twoCalendarDatePicker.attr('data-second-date'),
       );
     }

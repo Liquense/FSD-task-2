@@ -1,6 +1,8 @@
 import 'air-datepicker';
 import arrowBack from '../../assets/images/arrow-back.svg';
 import initArrows from '../arrow/init';
+import initInputs from '../input/init';
+import { parseAttrToDate } from '../../common/functions';
 
 class Datepicker {
   $confirmButton = $('<button></button>', {
@@ -30,14 +32,18 @@ class Datepicker {
     if (!this.isInline) this._initExpandableEvents();
   }
 
-  static parseAttrToDate(attrDate) {
-    const dateParts = attrDate.split('.');
-    const day = dateParts[0];
-    const month = dateParts[1];
-    const year = dateParts[2];
-    const dateString = `${year}-${month}-${day}`;
+  getInitDates() {
+    const dates = [];
 
-    return new Date(dateString);
+    if (this.$datePicker.attr('data-first-date')) {
+      dates.push(parseAttrToDate(this.$inputWrap.attr('data-first-date')));
+    }
+
+    if (this.$datePicker.attr('data-second-date')) {
+      dates.push(parseAttrToDate(this.$inputWrap.attr('data-second-date')));
+    }
+
+    return dates.length === 0 ? undefined : dates;
   }
 
   _initElements(element) {
