@@ -4,7 +4,7 @@ import initArrows from '../arrow/init';
 import initInputs from '../input/init';
 import { parseAttrToDate } from '../../common/functions';
 
-class Datepicker {
+class DatePicker {
   $confirmButton = $('<button></button>', {
     text: 'Применить', 'data-action': 'hide', class: 'date-picker__confirm-button',
   });

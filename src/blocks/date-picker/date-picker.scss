@@ -317,32 +317,18 @@ $otherRangeGradient: linear-gradient(
 .date-picker {
   max-width: 266px;
 
-  &__label {
-    @include text_label-CTA();
+  &_inline .input {
+    &__control-wrapper {
+      margin-top: 0;
+    }
+
+    &__control {
+      display: none;
+    }
   }
 
-  &__input-wrap {
-    &_inline {
-      .input__control-wrapper {
-        margin-top: 0;
-      }
-
-      .input__control {
-        display: none;
-      }
-    }
-
-    .input__control {
-      color: $darkShade75;
-
-      &:valid:hover,
-      &:valid:focus,
-      &::placeholder,
-      &:focus::placeholder,
-      &:hover::placeholder {
-        color: $darkShade75;
-      }
-    }
+  &__label {
+    @include text_label-CTA();
   }
 
   &__calendar {
@@ -380,7 +366,7 @@ $otherRangeGradient: linear-gradient(
 
   &__confirm-button {
     @include text_label-CTA();
-    
+
     border: none;
     background-color: transparent;
     width: fit-content;
