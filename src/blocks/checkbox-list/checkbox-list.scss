@@ -19,15 +19,12 @@ $titleHeight: 12px;
       padding-right: $arrowWrapSize;
       line-height: $titleHeight;
       position: relative;
+      cursor: pointer;
     }
 
     #{$block}__container {
       display: none;
       padding-top: 3px;
-
-      &_visible {
-        display: block;
-      }
     }
 
     &:not(#{$block}_expanded) #{$block}__title {
@@ -35,11 +32,14 @@ $titleHeight: 12px;
     }
   }
 
+  &_expanded &__container {
+    display: block;
+  }
+
   &_narrow {
     #{$block}__title:after {
       bottom: 2px;
       left: 13px;
-      cursor: pointer;
     }
   }
 

@@ -29,5 +29,5 @@ mixin donut-chart({data=[], defaultStyle={}, activeStyle={}, arcsGap=0} = {})
     ul(class=`js-${legendClass} ${legendClass}`)
       each arc in data
         li(class=`js-${legendItemClass} ${legendItemClass}`
-          style=`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%);`
+          style=`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%); --color: ${arc.firstColor}`
           ) #{arc.caption}

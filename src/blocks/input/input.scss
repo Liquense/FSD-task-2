@@ -24,7 +24,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   &_in-dropdown {
     #{$block}__control {
-      color: $darkShade75;
       padding-right: 80px;
 
       &::placeholder {
@@ -42,8 +41,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   &_in-date-picker {
     #{$block}__control {
-      color: $darkShade75;
-
       &:valid:hover,
       &:valid:focus,
       &::placeholder,
@@ -65,6 +62,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   }
 
   &_expandable &__control {
+    color: $darkShade75;
     cursor: pointer;
   }
 
