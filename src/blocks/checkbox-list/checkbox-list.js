@@ -5,11 +5,7 @@ class CheckboxList {
 
   $list;
 
-  $title;
-
-  $container;
-
-  $arrow;
+  $titleWrap;
 
   arrow;
 
@@ -22,53 +18,36 @@ class CheckboxList {
 
   _initElements(rootElement) {
     this.$list = $(rootElement);
-
-    this.$title = this.$list.find('.js-checkbox-list__title');
-    this.$container = this.$list.find('.js-checkbox-list__container');
+    this.$titleWrap = this.$list.find('.js-checkbox-list__title-wrap');
   }
 
   _initList() {
-    if (this.$list.hasClass(CheckboxList.expandableClass)) { this._initExpandableList(); }
+    if (this.$list.hasClass('checkbox-list_expandable')) { this._initExpandableList(); }
   }
 
   _initExpandableList() {
-    this.isExpanded = this.$list.hasClass('checkbox-list_expanded');
+    this.isExpanded = this.$list.hasClass(CheckboxList.expandedClass);
 
     this._initArrow();
     this._addExpandableEvents();
 
     if (this.isExpanded) {
-      this.isExpanded = !this.isExpanded;
-      this._toggleContainerVisibility();
-      this._toggleArrowState();
+      this.arrow.toggleExpandState();
     }
   }
 
   _initArrow() {
     this.arrow = initArrows(this.$list);
-    this.$arrow = this.arrow.$element;
   }
 
   _addExpandableEvents() {
-    this.$title.on('click.checkbox-list', this._handleExpandableClick);
-    this.$arrow.on('click.checkbox-list', this._handleExpandableClick);
+    this.$titleWrap.on('click.checkbox-list', this._handleListClick);
   }
 
-  _handleExpandableClick = () => {
+  _handleListClick = () => {
     this.isExpanded = !this.isExpanded;
-
     this.$list.toggleClass(CheckboxList.expandedClass);
-    this._toggleContainerVisibility();
-    this._toggleArrowState();
-  }
-
-  _toggleContainerVisibility() {
-    this.$container.toggleClass('checkbox-list__container_visible');
-  }
-
-  _toggleArrowState() {
-    this.$arrow.toggleClass('checkbox-list__expand-arrow_expanded');
-    this.arrow.handleArrowChangeState();
+    this.arrow.toggleExpandState();
   }
 }
 

@@ -1,5 +1,6 @@
 import initDatepickers from '../date-picker/init';
 import { parseAttrToDate } from '../../common/functions';
+import DatePicker from '../date-picker/date-picker';
 
 class TwoCalendarDatepicker {
   isSecondAssignStarted = false;
@@ -16,13 +17,17 @@ class TwoCalendarDatepicker {
 
   selectedDates;
 
+  selectCallback = [];
+
   constructor(rootElement) {
     this._initElements(rootElement);
     this._initDatepickers();
-    this._initTwoCalendarDatePicker();
+    this._initDoubleDatePicker();
   }
 
-  getSelectedDates = () => this.firstDatePicker.datePickerPlugin.selectedDates;
+  addSelectCallback(callback) { this.selectCallback.push(callback); }
+
+  getSelectedDates = () => this.firstDatePicker.getSelectedDates();
 
   _initElements(rootElement) {
     this.$twoCalendarDatePicker = $(rootElement);
@@ -37,71 +42,65 @@ class TwoCalendarDatepicker {
     this.secondDatePicker = initDatepickers(this.$secondDatePicker);
   }
 
-  _initTwoCalendarDatePicker() {
+  _initDoubleDatePicker() {
     if (!this.firstDatePicker || !this.secondDatePicker) return;
 
-    const wideDatepickerClass = 'date-picker__calendar_wide';
-    this.firstDatePicker.datePickerPlugin.update({
+    this.firstDatePicker.updatePlugin({
       position: 'bottom left',
-      classes: wideDatepickerClass,
+      classes: DatePicker.wideClass,
       dateFormat: '',
     });
-    this.secondDatePicker.datePickerPlugin.update({
+    this.secondDatePicker.updatePlugin({
       position: 'bottom right',
-      classes: wideDatepickerClass,
+      classes: DatePicker.wideClass,
       dateFormat: '',
     });
 
-    this._addDatepickerOnSelectHandler(
-      this.firstDatePicker, this.secondDatePicker, 0,
-    );
-    this._addDatepickerOnSelectHandler(
-      this.secondDatePicker, this.firstDatePicker, 1,
-    );
+    this._addDatepickerOnSelectHandler(this.firstDatePicker, this.secondDatePicker, 0);
+    this._addDatepickerOnSelectHandler(this.secondDatePicker, this.firstDatePicker, 1);
 
     const initDates = this._getInitialDates(this.$twoCalendarDatePicker);
     this._setInitialDates(initDates);
   }
 
-  _handleOnSelect(formattedDate, datePicker, otherDatepicker, number) {
+  _handleDatePickerSelect(formattedDate, datePicker, otherDatepicker, number) {
     if (this.isSecondAssignStarted) return;
 
-    const { datePickerPlugin } = datePicker;
     const otherNumber = 1 - number;
-    const newDates = datePickerPlugin.selectedDates;
+    const newDates = datePicker.getSelectedDates();
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
 
     this._preventRecursiveDatesUpdate();
-    TwoCalendarDatepicker._updateOtherDatepickerDates(otherDatepicker, newDates);
+    TwoCalendarDatepicker._selectOtherDatepickerDates(otherDatepicker, newDates);
     this._resumeRecursiveDatesUpdate();
 
     if (newDates.length > 1) {
-      datePicker.$inputControl.val(newDates[number].toLocaleDateString('ru-RU', options));
-      otherDatepicker.$inputControl.val(newDates[otherNumber].toLocaleDateString('ru-RU', options));
+      datePicker.setText(newDates[number].toLocaleDateString('ru-RU', options));
+      otherDatepicker.setText(newDates[otherNumber].toLocaleDateString('ru-RU', options));
     }
 
-    $(datePicker.$inputControl).change();
+    this.selectCallback.forEach((callback) => callback());
   }
 
   _preventRecursiveDatesUpdate() { this.isSecondAssignStarted = true; }
 
   _resumeRecursiveDatesUpdate() { this.isSecondAssignStarted = false; }
 
-  static _updateOtherDatepickerDates(otherDatepicker, selectedDates) {
-    const otherDatepickerPlugin = otherDatepicker.datePickerPlugin;
-    otherDatepickerPlugin.clear();
-    otherDatepickerPlugin.selectDate(selectedDates);
-    if (selectedDates.length < 2) { otherDatepicker.$inputControl.val('ДД.ММ.ГГГГ'); }
+  static _selectOtherDatepickerDates(otherDatepicker, selectedDates) {
+    otherDatepicker.selectDates(selectedDates);
+    if (selectedDates.length < 2) { otherDatepicker.setText('ДД.ММ.ГГГГ'); }
   }
 
   _addDatepickerOnSelectHandler(datePicker, otherDatepicker, number) {
-    datePicker.datePickerPlugin.update({
-      onSelect: (formattedDate) => {
-        this._handleOnSelect(
-          formattedDate, datePicker,
-          otherDatepicker, number,
-        );
-      },
+    const onDatepickerSelectHandler = (formattedDate) => {
+      this._handleDatePickerSelect(
+        formattedDate, datePicker,
+        otherDatepicker, number,
+      );
+    };
+
+    datePicker.updatePlugin({
+      onSelect: onDatepickerSelectHandler,
     });
   }
 
@@ -124,10 +123,10 @@ class TwoCalendarDatepicker {
 
   _setInitialDates(initDates) {
     if (initDates.firstDate) {
-      this.firstDatePicker.datePickerPlugin.selectDate(initDates.firstDate);
+      this.firstDatePicker.selectDate(initDates.firstDate);
     }
     if (initDates.secondDate) {
-      this.secondDatePicker.datePickerPlugin.selectDate(initDates.secondDate);
+      this.secondDatePicker.selectDate(initDates.secondDate);
     }
   }
 }

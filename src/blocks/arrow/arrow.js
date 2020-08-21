@@ -1,21 +1,29 @@
 class Arrow {
   $element;
 
+  isExpand = false;
+
   constructor(rootElement) {
     this._initElement(rootElement);
   }
 
-  handleArrowChangeState() {
-    if (this.getExpandState()) this.handleArrowCollapsing();
-    else this.handleArrowExpanding();
+  toggleExpandState = () => {
+    if (this.getExpandState()) this.collapse();
+    else this.expand();
   }
 
-  handleArrowCollapsing() {
+  pureToggle = this.toggleExpandState;
+
+  collapse() {
+    if (!this.isExpand) return;
+
     this.$element.text('expand_more');
     this.$element.removeClass('arrow_expanded');
   }
 
-  handleArrowExpanding() {
+  expand() {
+    if (!this.isExpand) return;
+
     this.$element.text('expand_less');
     this.$element.addClass('arrow_expanded');
   }
@@ -26,6 +34,7 @@ class Arrow {
 
   _initElement(rootElement) {
     this.$element = $(rootElement);
+    if (this.$element.hasClass('arrow_type_expand')) this.isExpand = true;
   }
 }
 

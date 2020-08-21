@@ -1,4 +1,5 @@
 import { getAverageNum, ruDeclination } from '../../common/functions';
+import { calculateAngleFromArcLength, polarCoordinatesToCartesian } from '../../common/math';
 
 class DonutChart {
   static donutArcActiveClass = 'donut-chart__svg-arc_active';
@@ -71,21 +72,18 @@ class DonutChart {
     const arcDefaultRadius = getAverageNum(
       this.donutParams.defaultStyle.outerRadius, this.donutParams.defaultStyle.innerRadius,
     );
-    const arcsAndRatesAmounts = this._getArcsAndRatesAmounts();
 
     this.donutParams.canvasWidth = this.donutParams.activeStyle.outerRadius;
     this.donutParams.canvasHeight = this.donutParams.activeStyle.outerRadius;
-    this.donutParams.gapsAngle = DonutChart._getAngleFromArcLength(
+    this.donutParams.gapsAngle = calculateAngleFromArcLength(
       this.donutParams.arcsGap, arcDefaultRadius,
     );
     this.donutParams.startingAngle = 90 + this.donutParams.gapsAngle / 2;
-    this.donutParams.notZeroArcs = arcsAndRatesAmounts.arcs;
-    this.donutParams.allRatesAmount = arcsAndRatesAmounts.rates;
-    this.donutParams.ratesAmountWithGaps = DonutChart._getRatesWithGaps(
-      arcsAndRatesAmounts.rates,
-      this.donutParams.gapsAngle,
-      arcsAndRatesAmounts.arcs,
-    );
+
+    const { arcs, rates } = this._getArcsAndRatesAmounts();
+    this.donutParams.notZeroArcs = arcs;
+    this.donutParams.allRatesAmount = rates;
+    this.donutParams.ratesAmountWithGaps = this._calculateRatesWithGaps();
   }
 
   _createDonut() {
@@ -107,11 +105,11 @@ class DonutChart {
     return this.donutParams.defaultStyle;
   }
 
-  static _getSecondAngle(firstAngle, arcValue, allRatesAmount) {
+  static _calculateArcEndingAngle(startingAngle, arcValue, allRatesAmount) {
     const arcValueProportion = arcValue / allRatesAmount;
     const arcAngle = 360 * arcValueProportion;
 
-    return firstAngle + arcAngle;
+    return startingAngle + arcAngle;
   }
 
   _changeActiveArc(arc) {
@@ -145,12 +143,33 @@ class DonutChart {
 
   _getArcDrawData(arc) {
     const currentStyle = this._getArcStyle(arc);
-    return DonutChart._calculateArcDrawData(
-      arc,
-      currentStyle,
-      this.donutParams.ratesAmountWithGaps,
-      { width: this.donutParams.canvasWidth, height: this.donutParams.canvasHeight },
+    const allRatesAmount = this.donutParams.ratesAmountWithGaps;
+    const canvasSize = {
+      width: this.donutParams.canvasWidth,
+      height: this.donutParams.canvasHeight,
+    };
+    const { startingAngle } = arc;
+
+    const endingAngle = DonutChart._calculateArcEndingAngle(
+      startingAngle, arc.value, allRatesAmount,
     );
+    arc.endingAngle = endingAngle;
+    const startX = canvasSize.width / 2;
+    const startY = canvasSize.height / 2;
+    const strokeWidth = currentStyle.outerRadius - currentStyle.innerRadius;
+    const arcRadius = currentStyle.outerRadius / 2 - strokeWidth / 2;
+    const arcAngle = endingAngle - startingAngle;
+
+    const firstPoint = polarCoordinatesToCartesian(
+      arcRadius, startingAngle, startX, startY,
+    );
+    const secondPoint = polarCoordinatesToCartesian(
+      arcRadius, endingAngle, startX, startY,
+    );
+
+    return {
+      firstPoint, secondPoint, arcRadius, strokeWidth, startX, startY, arcAngle,
+    };
   }
 
   _updateActiveCaption() {
@@ -197,8 +216,10 @@ class DonutChart {
     });
   }
 
-  static _getRatesWithGaps(rates, gapAngle, arcsCount) {
-    return rates / (1 - ((gapAngle * arcsCount) / 360));
+  _calculateRatesWithGaps() {
+    const { rates, arcs } = this._getArcsAndRatesAmounts();
+
+    return rates / (1 - ((this.donutParams.gapsAngle * arcs) / 360));
   }
 
   _getArcsAndRatesAmounts() {

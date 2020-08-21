@@ -17,6 +17,8 @@ class Spinner {
 
   $spinner;
 
+  spinCallbacks = [];
+
   set value(value) {
     this.$spinner.spinner('value', value);
   }
@@ -25,11 +27,17 @@ class Spinner {
     return this.$spinner.spinner('value');
   }
 
+  get name() {
+    return this.$spinner.attr('data-name');
+  }
+
   constructor(spinnerElement) {
     Spinner._addButtons();
     this._initPlugin(spinnerElement);
     this.triggerSpin();
   }
+
+  addSpinCallback(callback) { this.spinCallbacks.push(callback); }
 
   triggerSpin() {
     const spinEvent = $.Event('spin', { currentTarget: this.$spinner });
@@ -68,10 +76,13 @@ class Spinner {
 
     this.value = this.$spinner.attr('value');
 
-    this.$spinner.on('spin.spinner', this._handleSpin.bind(this));
+    this.$spinner.on('spin.spinner', this._handleSpinnerSpin.bind(this));
   }
 
-  _handleSpin = (event, ui) => { this._disableButtonsAtExtremum(event, ui); }
+  _handleSpinnerSpin = (event, ui) => {
+    this._disableButtonsAtExtremum(event, ui);
+    this.spinCallbacks.forEach((callback) => callback(event, ui));
+  }
 
   _disableButtonsAtExtremum(event, ui) {
     const min = this.$spinner.attr('data-min');

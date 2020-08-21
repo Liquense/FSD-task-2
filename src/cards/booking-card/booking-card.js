@@ -89,11 +89,7 @@ class BookingCard {
   }
 
   _addRefreshCostsOnInputChange() {
-    const { $firstDatePicker } = this.doubleDatePicker;
-    const { $secondDatePicker } = this.doubleDatePicker;
-
-    $firstDatePicker.on('change.bookingCard', this._handleDatepickerChange);
-    $secondDatePicker.on('change.bookingCard', this._handleDatepickerChange);
+    this.doubleDatePicker.addSelectCallback(this._handleDatepickerChange);
   }
 
   _handleDatepickerChange = () => {

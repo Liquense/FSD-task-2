@@ -1,4 +1,5 @@
 import 'paginationjs';
+import { outerHTML } from '../../common/functions';
 
 class Pagination {
   $pagination;
@@ -27,7 +28,7 @@ class Pagination {
 
   _getPaginationContent() {
     this.$contentContainer.children().each((index, element) => {
-      this.HTMLContent.push($(element).outerHTML());
+      this.HTMLContent.push(outerHTML($(element)));
     });
   }
 

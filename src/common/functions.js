@@ -47,7 +47,9 @@ function outerHTML($element) { return jQuery('<div />').append($element.eq(0).cl
 
 function clamp(value, min, max) { return Math.min(Math.max(value, min), max); }
 
-function getAverageNum(firstNum, secondNum) { return (firstNum + secondNum) / 2; }
+function getAverageNum(firstNum, secondNum) {
+  return (parseFloat(firstNum) + parseFloat(secondNum)) / 2;
+}
 
 function eventPreventDefault(event) { event.preventDefault(); }
 

@@ -1,22 +1,14 @@
 import { ruDeclination } from '../../common/functions';
 import initSpinners from '../spinner/init';
+import initInputs from '../input/init';
+import initArrows from '../arrow/init';
 
 class Dropdown {
   static types = { rooms: 'rooms', customers: 'customers' }
 
-  static dropdownVisibleClass = 'dropdown__list-wrapper_visible';
-
   $dropdown;
 
   $listWrapper;
-
-  $inputControl;
-
-  $expandArrow;
-
-  $spinners;
-
-  $spinnerValues;
 
   $buttonsContainer;
 
@@ -25,6 +17,12 @@ class Dropdown {
   $confirmButton;
 
   $list;
+
+  arrow;
+
+  input;
+
+  isOpened;
 
   isAlwaysOpened = false;
 
@@ -40,62 +38,39 @@ class Dropdown {
 
   type;
 
-  get namesValues() {
+  constructor(rootElement) {
+    this._initElements(rootElement);
+    this._initProperties();
+    this._initEvents();
+  }
+
+  static _getVisibleClass() { return 'dropdown__list-wrapper_visible'; }
+
+  _getNamesValues() {
     const namesValues = [];
 
-    this.$spinnerValues.each((index, element) => {
-      namesValues.push(Dropdown._getNameValueFromSpinner(element));
+    this.spinners.forEach(({ name, value }) => {
+      namesValues.push({ name, value });
     });
 
     return namesValues;
   }
 
-  get isOpened() {
-    return this.$listWrapper.hasClass(Dropdown.dropdownVisibleClass);
-  }
-
-  constructor(rootElement) {
-    this._initElements(rootElement);
-    this._initSpinners();
-    this._initParams();
-    this._initEvents();
-  }
-
   _initElements(rootElement) {
     this.$dropdown = $(rootElement);
     this.$listWrapper = this.$dropdown.find('.js-dropdown__list-wrapper');
-    const $input = this.$dropdown.find('.js-dropdown__input');
-    this.$inputControl = $input.find('.js-input__control');
-    this.$expandArrow = $input.find('.js-input__arrow_expandable');
-    this.$spinners = this.$dropdown.find('.js-spinner');
-    this.$spinnerValues = this.$dropdown.find('.js-spinner__value');
     this.$buttonsContainer = this.$dropdown.find('.js-dropdown__buttons-container');
     this.$clearButton = this.$dropdown.find('.js-dropdown__clear-button');
     this.$confirmButton = this.$dropdown.find('.js-dropdown__confirm-button');
     this.$list = this.$listWrapper.find('.js-dropdown__list');
   }
 
-  _initSpinners() {
-    this.$spinners.each((index, element) => {
-      this.spinners.push(initSpinners(element));
-    });
-  }
-
   _initEvents() {
-    this._addExpandArrowEvents();
     this._addClearButtonEvents();
     this._addConfirmButtonEvents();
-    this._addSpinnersEvents();
+    this._addDropdownSpinnersEvents();
     this._addDocumentEvents();
-    this._addInputEvents();
-  }
-
-  _addExpandArrowEvents() {
-    this.$expandArrow.on('click.dropdown', this._handleExpandArrowClick);
-  }
-
-  _handleExpandArrowClick = () => {
-    this._handleInputClick();
+    this._addDropdownInputEvents();
   }
 
   _addClearButtonEvents() {
@@ -116,18 +91,18 @@ class Dropdown {
     if (!this.isAlwaysOpened) { this._toggle(); }
 
     this.areValuesAccepted = true;
-    this.oldNamesValues = this.namesValues;
+    this.oldNamesValues = this._getNamesValues();
 
     this._updateControlsVisibility();
   }
 
-  _addSpinnersEvents() {
-    this.$spinnerValues.each((index, element) => {
-      $(element).on('spin.datepicker', this._handleSpin);
+  _addDropdownSpinnersEvents() {
+    this.spinners.forEach((spinner) => {
+      spinner.addSpinCallback(this._handleSpinnerSpin);
     });
   }
 
-  _handleSpin = (event, ui) => {
+  _handleSpinnerSpin = (event, ui) => {
     $(event.currentTarget).spinner('value', ui?.value ? ui?.value : 0);
     this._updateVisuals();
   }
@@ -149,8 +124,8 @@ class Dropdown {
     }
   }
 
-  _addInputEvents() {
-    this.$inputControl.on('click.dropdown', this._handleInputClick);
+  _addDropdownInputEvents() {
+    this.input.addClickCallback(this._handleInputClick);
   }
 
   _handleInputClick = () => {
@@ -162,16 +137,22 @@ class Dropdown {
     }
   }
 
-  _initParams() {
+  _initProperties() {
+    this.arrow = initArrows(this.$dropdown);
+    this.input = initInputs(this.$dropdown);
+    this.spinners = initSpinners(this.$dropdown);
+
+    this.isOpened = this.$listWrapper.hasClass(Dropdown._getVisibleClass());
     this.areValuesAccepted = !this.$dropdown.hasClass('dropdown_unaccepted');
 
     this.isAlwaysOpened = this.$dropdown.hasClass('dropdown_opened');
     if (this.isAlwaysOpened) {
-      this.$listWrapper.toggleClass(Dropdown.dropdownVisibleClass);
+      this.$listWrapper.toggleClass(Dropdown._getVisibleClass());
+      this.arrow.expand();
     }
 
     this.isPure = !this.$dropdown.hasClass('dropdown_pure');
-    this.oldNamesValues = this.namesValues;
+    this.oldNamesValues = this._getNamesValues();
 
     this._getDropdownType();
     this._updateVisuals();
@@ -179,13 +160,15 @@ class Dropdown {
     this.$listWrapper.position({
       my: 'center',
       at: 'center',
-      of: this.$inputControl,
+      of: this.input.$control,
     });
   }
 
   _toggle() {
-    this.$listWrapper.toggleClass(Dropdown.dropdownVisibleClass);
-    this.$inputControl.toggleClass('input__control_focused');
+    this.$listWrapper.toggleClass(Dropdown._getVisibleClass());
+    this.isOpened = !this.isOpened;
+    this.input.toggleFocus();
+    this.arrow.toggleExpandState();
   }
 
   _getDropdownType() {
@@ -228,11 +211,11 @@ class Dropdown {
   }
 
   _areAllValuesZero() {
-    return !this.namesValues?.some((nameValue) => parseInt((nameValue.value), 10) !== 0);
+    return !this._getNamesValues()?.some((nameValue) => parseInt((nameValue.value), 10) !== 0);
   }
 
   _createUnifiedString(declinations) {
-    const sum = this.namesValues.reduce(
+    const sum = this._getNamesValues().reduce(
       (accumulator, currentValue) => accumulator + parseInt(currentValue.value, 10),
       0,
     );
@@ -241,7 +224,7 @@ class Dropdown {
   }
 
   _createSeparateRoomsString() {
-    let result = this.namesValues.reduce(
+    let result = this._getNamesValues().reduce(
       (accumulator, currentNameValue) => `${accumulator} `
         + `${currentNameValue.value} `
         + `${Dropdown._selectProperWord(currentNameValue.value, currentNameValue.name)}, `,
@@ -280,7 +263,7 @@ class Dropdown {
     let infants = 0;
     let sum = 0;
 
-    this.namesValues.forEach((nameValue) => {
+    this._getNamesValues().forEach((nameValue) => {
       if (nameValue.name.toLowerCase() === 'младенцы') {
         infants = parseInt(nameValue.value, 10);
         return;
@@ -319,9 +302,9 @@ class Dropdown {
   }
 
   _updateInputText() {
-    const newInputText = this._createInputText(this.namesValues);
+    const newInputText = this._createInputText(this._getNamesValues());
 
-    this.$inputControl.val(newInputText);
+    this.input.setText(newInputText);
   }
 
   static _areValuesEqual(namesValues1, namesValues2) {
@@ -342,7 +325,7 @@ class Dropdown {
       this.$clearButton.addClass(clearVisibleClass);
     }
 
-    const areEqual = Dropdown._areValuesEqual(this.namesValues, this.oldNamesValues);
+    const areEqual = Dropdown._areValuesEqual(this._getNamesValues(), this.oldNamesValues);
     if (areEqual && this.areValuesAccepted) {
       this.$confirmButton.removeClass(confirmVisibleClass);
     } else {
