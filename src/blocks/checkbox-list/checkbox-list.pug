@@ -16,13 +16,14 @@ mixin checkbox-list({isExpandable=false, isNarrow=false, isOpened=false, title='
     -listAttributes.class += `${listClass}_narrow `
 
   fieldset&attributes(listAttributes)
-    if title
-      legend(class=`js-${listClass}__title ${listClass}__title`)
-        +title({type: 'label', text: title})
-      if isExpandable
-        div(class=`${listClass}__expand-arrow`)
-          +arrow({type: 'expand'})
-    ul(class=`js-${listClass}__container ${listClass}__container`)
+    div(class=`js-${listClass}__title-wrap ${listClass}__title-wrap`)
+      if title
+        legend(class=`${listClass}__title`)
+          +title({type: 'label', text: title})
+        if isExpandable
+          div(class=`${listClass}__expand-arrow`)
+            +arrow({type: 'expand'})
+    ul(class=`${listClass}__container`)
       each value, index in elements
         -const itemClasses = `${listClass}__item ${value.description ? `${listClass}__item_rich` : ''}`
         li(class=itemClasses)
