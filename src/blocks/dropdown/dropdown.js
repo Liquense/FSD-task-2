@@ -375,12 +375,6 @@ class Dropdown {
     this._updateControlsVisibility();
     this._updateInputText();
   }
-
-  static _getNameValueFromSpinner(element) {
-    const $spinnerElement = $(element);
-
-    return { name: $spinnerElement.attr('data-name'), value: $spinnerElement.spinner('value') };
-  }
 }
 
 export default Dropdown;

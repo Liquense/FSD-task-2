@@ -114,20 +114,6 @@ class DonutChart {
     return firstAngle + arcAngle;
   }
 
-  static _degreesToRads(degreeAngleValue) {
-    return (degreeAngleValue / 180) * Math.PI;
-  }
-
-  static _toCartesian(length, angle, x0 = 0, y0 = 0) {
-    const result = { x: 0, y: 0 };
-    const angleRads = DonutChart._degreesToRads(angle);
-
-    result.x = x0 + length * Math.cos(angleRads);
-    result.y = y0 - length * Math.sin(angleRads);
-
-    return result;
-  }
-
   _changeActiveArc(arc) {
     const oldActiveArc = this.activeArc;
 
@@ -138,42 +124,13 @@ class DonutChart {
 
     if (oldActiveArc) {
       oldActiveArc.$arc.removeClass(DonutChart.donutArcActiveClass);
-      this._redrawArc(oldActiveArc);
+      this._drawArc(oldActiveArc);
     }
   }
 
-  static _calculateArcDrawData(arc, style, allRatesAmount, canvasSize) {
-    const { startingAngle } = arc;
+  _drawArc(arc) {
+    const arcDrawData = this._getArcDrawData(arc);
 
-    const endingAngle = DonutChart._getSecondAngle(
-      startingAngle, arc.value, allRatesAmount,
-    );
-    arc.endingAngle = endingAngle;
-    const startX = canvasSize.width / 2;
-    const startY = canvasSize.height / 2;
-    const strokeWidth = style.outerRadius - style.innerRadius;
-    const arcRadius = style.outerRadius / 2 - strokeWidth / 2;
-    const arcAngle = endingAngle - startingAngle;
-
-    const firstPoint = DonutChart._toCartesian(
-      arcRadius, startingAngle, startX, startY,
-    );
-    const secondPoint = DonutChart._toCartesian(
-      arcRadius, endingAngle, startX, startY,
-    );
-
-    return {
-      firstPoint,
-      secondPoint,
-      arcRadius,
-      strokeWidth,
-      startX,
-      startY,
-      arcAngle,
-    };
-  }
-
-  static _drawArc(arc, arcDrawData) {
     let isLargeArc = 0;
     if (arcDrawData.arcAngle > 180) { isLargeArc = 1; }
 
@@ -184,11 +141,6 @@ class DonutChart {
       + `0 ${isLargeArc} `
       + `0 ${arcDrawData.secondPoint.x},${arcDrawData.secondPoint.y}`,
     );
-  }
-
-  _redrawArc(arc) {
-    const arcDrawData = this._getArcDrawData(arc);
-    DonutChart._drawArc(arc, arcDrawData);
   }
 
   _getArcDrawData(arc) {
@@ -221,18 +173,18 @@ class DonutChart {
 
   _handleArcClick(arc) {
     this._changeActiveArc(arc);
-    this._redrawArc(arc);
+    this._drawArc(arc);
     this._updateActiveCaption(this.activeArc?.value, this.activeArc?.color);
   }
 
   _handleArcMouseEnter(arc, mouseEvent) {
     $(mouseEvent.target).addClass(DonutChart.donutArcActiveClass);
-    this._redrawArc(arc);
+    this._drawArc(arc);
   }
 
   _handleArcMouseLeave(arc, mouseEvent) {
     if (arc !== this.activeArc) $(mouseEvent.target).removeClass(DonutChart.donutArcActiveClass);
-    this._redrawArc(arc);
+    this._drawArc(arc);
   }
 
   _addHandlerToArcs(eventName, handler) {
@@ -262,17 +214,13 @@ class DonutChart {
     return result;
   }
 
-  static _getAngleFromArcLength(arcLength, radius) {
-    return (180 * arcLength) / (Math.PI * radius);
-  }
-
   _drawDonutOnCanvas() {
     this.arcs[0].startingAngle = this.donutParams.startingAngle;
 
     this.arcs.forEach((arc, i) => {
       if (arc.isActive) this._changeActiveArc(arc);
 
-      this._redrawArc(arc);
+      this._drawArc(arc);
 
       if (i + 1 < this.arcs.length) {
         this.arcs[i + 1].startingAngle = arc.endingAngle + this.donutParams.gapsAngle;

@@ -2,8 +2,6 @@ import 'jquery.maskedinput/src/jquery.maskedinput';
 import initArrows from '../arrow/init';
 
 class Input {
-  static expandableClass = 'input_expandable';
-
   static types = { masked: 'masked' };
 
   $input;

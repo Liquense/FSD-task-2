@@ -1,8 +1,6 @@
 import initArrows from '../arrow/init';
 
 class CheckboxList {
-  static expandableClass = 'checkbox-list_expandable';
-
   static expandedClass = 'checkbox-list_expanded';
 
   $list;
