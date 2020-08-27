@@ -8,7 +8,7 @@ initBookingCards();
 initFindRoomCards();
 initRoomPreviewCards();
 
-const $inlineDatepicker = $('.js-cards__date-picker_inline');
+const $inlineDatepicker = $('.js-cards__inline-date-picker');
 const $datepickerCells = $inlineDatepicker.find('.datepicker--cell.datepicker--cell-day');
 $datepickerCells.each((index, element) => {
   const $datepickerCell = $(element);

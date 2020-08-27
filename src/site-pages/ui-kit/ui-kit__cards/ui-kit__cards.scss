@@ -27,7 +27,7 @@
     grid-row-end: 4;
   }
 
-  &__date-picker_inline {
+  &__inline-date-picker {
     grid-column-start: 3;
     grid-column-end: 4;
     grid-row-start: 1;
@@ -60,7 +60,7 @@
     grid-row-end: 5;
   }
 
-  &__room-preview-card_dots-only {
+  &__dots-only-room-preview-card {
     margin-top: $upperMargin + 48px;
     grid-column-start: 3;
     grid-column-end: 4;
