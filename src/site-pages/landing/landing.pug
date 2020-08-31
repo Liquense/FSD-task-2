@@ -1,0 +1,13 @@
+extends ../page-template
+
+include ../../cards/find-room-card/find-room-card
+
+block options
+  -options.keywords = 'landing'
+  -options.description = 'landing page'
+
+block content
+  main.js-landing.landing
+    div.landing__find-room-card
+      +find-room-card()
+    span.landing__slogan Лучшие номера для вашей работы, отдыха и просто вдохновения

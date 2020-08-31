@@ -1,0 +1,12 @@
+extends ../page-template
+include ../../cards/login-card/login-card
+
+block options
+  -options.keywords = 'login registration'
+  -options.description = 'registration-login page'
+
+block content
+  main.login
+    div.login__login-card
+      +login-card()
+    img.login__background-image(src=require("../../assets/images/registration-login-background.jpg") alt="background image")

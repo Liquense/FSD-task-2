@@ -2,8 +2,9 @@ body {
   margin: 0;
 }
 
-.landing-page {
+.landing {
   @include box-sizing-border-box();
+
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: -70px;
@@ -44,6 +45,7 @@ body {
 
   &__slogan {
     @include text_regular();
+
     font-size: 14px;
     line-height: 24px;
     max-width: 300px;

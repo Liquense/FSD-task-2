@@ -1,4 +1,4 @@
-import { importCommon, importContext } from '../../index';
+import { importCommon, importContext } from '../../imports';
 import initFindRoomCards from '../../cards/find-room-card/init';
 import initHeaders from '../../page-elements/header/init';
 
@@ -12,7 +12,7 @@ imagePaths.push(require('../../assets/images/room-big-1.jpg'));
 imagePaths.push(require('../../assets/images/room-big-2.jpg'));
 imagePaths.push(require('../../assets/images/room-big-3.jpg'));
 
-const $roomContainers = $('.js-landing-page');
+const $roomContainers = $('.js-landing');
 function initRoomContainer() {
   const $container = $(this);
   const randomNum = Math.floor(Math.random() * imagePaths.length);

@@ -9,31 +9,31 @@ const paths = {
   build: path.join(__dirname, '../dist'),
 };
 
-const mainPages = ['index'].map((name) => new HtmlWebpackPlugin({
-  template: `./src/${name}.pug`,
-  filename: `${name}.html`,
-  chunks: [`${name}`, 'vendors'],
-}));
-const sitePages = [
-  'ui-kit', 'landing-page', 'registration-login', 'room-details', 'search-room'].map((name) => new HtmlWebpackPlugin({
-  template: `./src/site-pages/${name}/${name}.pug`,
-  filename: `${name}.html`,
-  chunks: [`${name}`, 'vendors'],
-}));
+const pageNames = [
+  'index', 'ui-kit', 'landing', 'login', 'registration', 'room-details', 'search-room',
+];
+
+const entries = pageNames.reduce(
+  (accumulator, pageName) => (
+    { ...accumulator, ...{ [pageName]: `${paths.source}/site-pages/${pageName}/${pageName}.js` } }
+  ), {},
+);
+
+const sitePages = pageNames
+  .map((name) => new HtmlWebpackPlugin({
+    template: `./src/site-pages/${name}/${name}.pug`,
+    filename: `${name}.html`,
+    chunks: [`${name}`, 'vendors'],
+  }));
 
 module.exports = {
-  entry: {
-    index: `${paths.source}/index.js`,
-    'ui-kit': `${paths.source}/site-pages/ui-kit/ui-kit.js`,
-    'landing-page': `${paths.source}/site-pages/landing-page/landing-page.js`,
-    'registration-login': `${paths.source}/site-pages/registration-login/registration-login.js`,
-    'room-details': `${paths.source}/site-pages/room-details/room-details.js`,
-    'search-room': `${paths.source}/site-pages/search-room/search-room.js`,
-  },
+  entry: entries,
+
   output: {
     path: paths.build,
     filename: 'js/[name].bundle.js',
   },
+
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
@@ -47,10 +47,12 @@ module.exports = {
       'window.$': 'jquery',
       'window.jQuery': 'jquery',
     }),
-  ].concat(mainPages, sitePages),
+  ].concat(sitePages),
+
   optimization: {
     splitChunks: {
       name: false,
+
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
@@ -61,6 +63,7 @@ module.exports = {
       },
     },
   },
+
   module: {
     rules: [
       {

@@ -1,0 +1,47 @@
+$backgroundImageHeight: 685px;
+
+body {
+  margin: 0;
+}
+
+.login {
+  height: $backgroundImageHeight;
+  min-height: 380px;
+  max-height: $backgroundImageHeight;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  @media (max-width: 380px) {
+    min-height: unset;
+    height: unset;
+  }
+
+  &__login-card {
+    margin-bottom: 1px;
+
+    @media (max-width: 380px) {
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }
+
+  &__background-image {
+    object-fit: cover;
+    bottom: 0;
+    width: get-vw(1440px);
+    position: absolute;
+    z-index: -1;
+    min-height: $backgroundImageHeight;
+
+    @media (max-width: 1400px) {
+      object-position: 0;
+    }
+
+    @media (max-width: 1300px) {
+      height: 100%;
+    }
+  }
+}

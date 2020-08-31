@@ -1,4 +1,4 @@
-import { importCommon, importContext } from '../../index';
+import { importCommon, importContext } from '../../imports';
 
 import initDonutCharts from '../../blocks/donut-chart/init';
 import initBookingCards from '../../cards/booking-card/init';

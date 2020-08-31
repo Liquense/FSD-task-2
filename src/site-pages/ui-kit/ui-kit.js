@@ -1,4 +1,4 @@
-import { importContext, importCommon } from '../../index';
+import { importContext, importCommon } from '../../imports';
 
 importCommon();
 importContext(require.context('./', true, /\.(js|scss)$/));
