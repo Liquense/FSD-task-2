@@ -2,29 +2,34 @@
 
 body {
   margin: 0;
-  background-color: #eeeeee;
-  align-items: center;
-  flex-direction: column;
+}
+
+.ui-kit {
   @include box-sizing-border-box();
-}
 
-.ui-kit__colors-type,
-.ui-kit__form-elements,
-.ui-kit__cards,
-.ui-kit__headers-footers {
-  background-color: #FFFFFF;
-  margin: 20px auto;
-  width: 1440px;
-  min-height: 1350px;
-}
-
-.ui-kit__cards {
   background-color: #F4F4F6;
-}
+  display: flex;
+  flex-direction: column;
 
-.ui-kit__note {
-  @include text_item-title();
-  max-width: 1440px;
-  margin: 30px auto 0;
-  text-align: center;
+  &__colors-type,
+  &__form-elements,
+  &__cards,
+  &__headers-footers {
+    background-color: #FFFFFF;
+    margin: 20px auto 0;
+    width: 1440px;
+    min-height: 1350px;
+  }
+
+  &__cards {
+    background-color: #F4F4F6;
+  }
+
+  &__note {
+    @include text_item-title();
+
+    max-width: 1440px;
+    margin: 30px auto 0;
+    text-align: center;
+  }
 }
