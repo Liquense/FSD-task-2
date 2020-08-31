@@ -6,8 +6,9 @@ $sliderHandleSize: 12px;
 $maxSliderWidth: 266px;
 
 .slider {
-  max-width: $maxSliderWidth;
   @include box-sizing-border-box();
+
+  max-width: $maxSliderWidth;
 
   &__plugin-container {
     max-width: $maxSliderWidth;
@@ -18,49 +19,55 @@ $maxSliderWidth: 266px;
     border: $sliderBorderWidth solid $darkShade25;
   }
 
-  .ui-corner-all {
-    border-radius: 3px;
+  .ui {
+    &-corner-all {
+      border-radius: 3px;
+    }
+
+    &-slider-horizontal {
+      height: $sliderHorizontalHeight;
+    }
+
+    &-slider {
+      $plugin: ".ui-slider";
+
+      &-range {
+        background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
+      }
+
+      &-horizontal #{$plugin}-handle {
+        border-radius: 50%;
+        background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
+        width: $sliderHandleSize + $sliderHandleBorderWidth*2;
+        height: $sliderHandleSize + $sliderHandleBorderWidth*2;
+        border: $sliderHandleBorderWidth solid $inputBackgroundColor;
+        top: $sliderHorizontalHeight - $sliderHandleSize;
+        margin-left: -$sliderHandleSize/2;
+      }
+
+      &-handle.ui-state-focus {
+        outline: none;
+        background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+      }
+
+      &-handle.ui-state-hover {
+        background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+      }
+
+      &-handle.ui-state-focus::before {
+        @include text(Montserrat, normal, 10px, $labelCTAlineHeight, $darkShade100, normal);
+
+        content: attr(sliderHandleValue);
+        position: absolute;
+        text-align: center;
+        width: 40px;
+        left: -20px+$sliderHandleSize/2;
+        bottom: $sliderHandleSize;
+      }
+    }
   }
 
-  .ui-slider-horizontal {
-    height: $sliderHorizontalHeight;
-  }
-
-  .ui-slider-range {
-    background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
-  }
-
-  .ui-slider-horizontal .ui-slider-handle {
-    border-radius: 50%;
-    background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
-    width: $sliderHandleSize + $sliderHandleBorderWidth*2;
-    height: $sliderHandleSize + $sliderHandleBorderWidth*2;
-    border: $sliderHandleBorderWidth solid $inputBackgroundColor;
-    top: $sliderHorizontalHeight - $sliderHandleSize;
-    margin-left: -$sliderHandleSize/2;
-  }
-
-  .ui-slider-handle.ui-state-focus {
-    outline: none;
-    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-  }
-
-  .ui-slider-handle.ui-state-hover {
-    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-  }
-
-  .ui-slider-handle.ui-state-focus::before {
-    @include text(Montserrat, normal, 10px, $labelCTAlineHeight, $darkShade100, normal);
-    content: attr(sliderHandleValue);
-    position: absolute;
-    text-align: center;
-    width: 40px;
-    left: -20px+$sliderHandleSize/2;
-    bottom: $sliderHandleSize;
-  }
-
-  $sliderTextMargin: 20px+
-  ($sliderHandleSize - $sliderHorizontalHeight - $sliderBorderWidth);
+  $sliderTextMargin: 20px + ($sliderHandleSize - $sliderHorizontalHeight - $sliderBorderWidth);
 
   &__text {
     display: flex;
@@ -70,6 +77,7 @@ $maxSliderWidth: 266px;
 
   &__value {
     @include text_regular();
+
     line-height: $fontSize;
     font-size: $fontSize;
     margin: 0;

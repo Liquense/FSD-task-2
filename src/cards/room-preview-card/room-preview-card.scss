@@ -1,11 +1,12 @@
 .room-preview-card {
+  @include box-sizing-border-box();
+
   height: fit-content;
   max-width: 270px;
   background: white;
   box-shadow: 0 10px 20px $darkShade5;
   border-radius: 4px;
   overflow: hidden;
-  @include box-sizing-border-box();
 
   @media (max-width: 551px) {
     border-radius: 0;
@@ -43,6 +44,7 @@
 
   &__room-num-symbol, &__room-number {
     @include text_label-CTA();
+
     color: black;
   }
 
@@ -59,6 +61,7 @@
 
   &__room-type {
     @include text_label-CTA();
+
     color: $purple;
   }
 
@@ -69,6 +72,7 @@
 
   &__cost-per-period {
     @include text_regular();
+
     color: $darkShade50;
     font-size: 14px;
     font-weight: bold;
@@ -76,6 +80,7 @@
 
   &__period {
     @include text_regular();
+
     font-size: 12px;
     line-height: 12px;
     color: $darkShade50;
@@ -104,12 +109,14 @@
 
   &__reviews-count {
     @include text_regular();
+
     color: $darkShade50;
     font-weight: bold;
   }
 
   &__reviews-text {
     @include text_regular();
+
     color: $darkShade50;
   }
 }

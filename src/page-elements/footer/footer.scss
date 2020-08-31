@@ -1,8 +1,9 @@
 .footer {
+  @include box-sizing-border-box();
+
   width: 100%;
   box-shadow: 0 10px 20px $darkShade5;
   background-color: white;
-  @include box-sizing-border-box();
 
   &_type_simple {
     display: flex;
@@ -20,6 +21,7 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
+
       @media (max-width: 1350px) {
         align-items: center;
         flex-direction: column;
@@ -73,9 +75,11 @@
   &__logo-text {
     &_type_large {
       @include text_regular();
+
       letter-spacing: -0.1px;
       max-width: 260px;
       line-height: 24px;
+
       @media (max-width: 1350px) {
         width: 100%;
         text-align: center;
@@ -85,6 +89,7 @@
 
     &_type_simple {
       @include text_regular();
+
       text-align: center;
       max-width: 560px;
       line-height: 24px;
@@ -98,6 +103,7 @@
     justify-content: space-between;
     width: 100%;
     padding-top: 6px;
+
     @media (max-width: 550px) {
       flex-direction: column;
       align-items: center;
@@ -110,9 +116,11 @@
     align-items: flex-start;
     width: 33.333%;
     min-width: max-content;
+
     @media (max-width: 1400px) {
       width: auto;
     }
+
     @media (max-width: 550px) {
       align-items: center;
     }
@@ -137,24 +145,28 @@
 
   &__link_type_large {
     @include text_regular();
+
     line-height: 17px;
 
     &:not(:last-child) {
       margin-bottom: 21px;
+
       @media (max-width: 550px) {
         margin-bottom: 5px;
       }
     }
   }
 
-  &__subscribe_type_large {
+  &__subscription_type_large {
     width: min-content;
     display: flex;
     flex-direction: column;
     padding-top: 6px;
+
     @media (max-width: 1400px) {
       margin-left: get-vw(40px);
     }
+
     @media (max-width: 550px) {
       align-items: center;
     }
@@ -162,7 +174,9 @@
 
   &__subscription-title_type_large {
     @include text_label-CTA();
+
     margin-bottom: 20px;
+
     @media (max-width: 550px) {
       margin-bottom: 10px;
     }
@@ -170,8 +184,10 @@
 
   &__subscription-text_type_large {
     @include text_regular();
+
     line-height: 24px;
     margin-bottom: 21px;
+
     @media (max-width: 550px) {
       text-align: center;
       margin-bottom: 10px;
@@ -187,11 +203,13 @@
       align-items: center;
       border-top: solid 1px $darkShade25;
       height: 70px;
+
       @media (max-width: 700px) {
         padding-left: 0;
         padding-right: 0;
         justify-content: space-evenly;
       }
+
       @media (max-width: 450px) {
         height: unset;
         padding: 10px 30px;
@@ -209,6 +227,7 @@
 
   &__copyright-text_type_large {
     @include text_regular();
+
     @media (max-width: 450px) {
       margin-bottom: 5px;
       text-align: center;
@@ -217,6 +236,7 @@
 
   &__social-media {
     display: flex;
+
     @media (max-width: 450px) {
       min-width: 80px;
     }

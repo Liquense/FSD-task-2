@@ -5,6 +5,8 @@ body {
 }
 
 .search-room {
+  $block: &;
+
   display: flex;
   padding: 29px get-vw(140px) 76px;
   border-bottom: solid 1px $darkShade25;
@@ -33,17 +35,17 @@ body {
     @media (max-width: 654px) {
       display: block;
 
-      & + .search-room__sidebar {
+      + #{$block}__sidebar {
         display: none;
       }
 
-      &.search-room__show-sidebar-button_active {
+      &#{$block}__show-sidebar-button_active {
         color: $darkShade100;
         border-radius: 50%;
         border: solid $darkShade100 1px;
         margin-bottom: 10px;
 
-        + .search-room__sidebar {
+        + #{$block}__sidebar {
           border-top: solid $darkShade75 1px;
           border-bottom: solid $darkShade10 1px;
           padding-top: 20px;
@@ -82,6 +84,7 @@ body {
 
   &__guests {
     margin-bottom: 32px;
+
     @media (max-width: 1070px) {
       margin-bottom: 0;
     }
@@ -139,6 +142,7 @@ body {
 
   &__rooms-title {
     @include text_widget-title();
+
     margin-top: 0;
     margin-bottom: 22px;
     letter-spacing: -0.5px;
@@ -151,29 +155,29 @@ body {
   }
 
   &__rooms-pagination {
-    .pagination__content {
-      display: grid;
-      justify-content: space-between;
-      row-gap: 18px;
-      column-gap: 12px;
-      grid-template-columns: repeat(auto-fit, minmax($roomCardWidth, 1fr));
-      margin-bottom: 35px;
+    .pagination {
+      &__content {
+        display: grid;
+        justify-content: space-between;
+        row-gap: 18px;
+        column-gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax($roomCardWidth, 1fr));
+        margin-bottom: 35px;
 
-      @media (max-width: 810px) {
-        row-gap: get-vw(10px);
+        @media (max-width: 810px) {
+          row-gap: get-vw(10px);
+        }
       }
 
-      .pagination__item {
+      &__item {
         .room-preview-card {
           max-width: unset;
           width: 100%;
         }
       }
-    }
 
-    .pagination__buttons {
-      .paginationjs {
-        margin-right: get-vw(15px);
+      &__buttons {
+        padding-right: get-vw(15px);
       }
     }
   }

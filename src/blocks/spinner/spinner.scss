@@ -4,6 +4,7 @@
 
   &__value {
     @include text_label-CTA();
+
     display: inline-block;
     text-align: center;
     max-width: 32px;
@@ -16,6 +17,7 @@
   $buttonSize: 30px;
   &__increase-button, &__decrease-button {
     @include text(Montserrat, normal, 18px, $buttonSize, $darkShade50, 0px);
+
     border-radius: 50%;
     border: 1px solid $darkShade50;
     color: $darkShade50;

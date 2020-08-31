@@ -1,6 +1,8 @@
 $borderWidth: 1px;
+
 .registration-card {
   @include box-sizing-border-box();
+
   display: flex;
   flex-direction: column;
   max-width: 380px;
@@ -10,6 +12,7 @@ $borderWidth: 1px;
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
   padding: 40px - $borderWidth 30px 30px 30px - $borderWidth;
+
   @media (max-width: 380px) {
     align-items: center;
     width: 100%;
@@ -83,7 +86,6 @@ $borderWidth: 1px;
       width: fit-content;
       margin-left: auto;
       margin-right: auto;
-
     }
   }
 
@@ -103,8 +105,9 @@ $borderWidth: 1px;
   }
 
   &__have-account-link {
+    @include text(Montserrat, normal, 14px, 18px, black, normal);
+
     margin-bottom: 2px;
     text-decoration: none;
-    @include text(Montserrat, normal, 14px, 18px, black, normal);
   }
 }

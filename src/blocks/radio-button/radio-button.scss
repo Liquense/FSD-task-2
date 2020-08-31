@@ -3,6 +3,8 @@ $checkboxButtonBorderWidth: 1px;
 $buttonRightMargin: 10px;
 
 .radio-button {
+  $block: &;
+
   @include box-sizing-border-box();
 
   width: fit-content;
@@ -26,24 +28,22 @@ $buttonRightMargin: 10px;
     border-radius: 50%;
     background-color: #ffffff;
 
-    &:checked {
-      &:after {
-        content: "";
-        display: block;
-        width: 66.67%;
-        height: 66.67%;
-        left: 16.67%;
-        top: 16.67%;
-        border-radius: 50%;
-        background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-        position: relative;
-      }
+    &:checked:after {
+      content: "";
+      display: block;
+      width: 66.67%;
+      height: 66.67%;
+      left: 16.67%;
+      top: 16.67%;
+      border-radius: 50%;
+      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+      position: relative;
     }
 
     &:checked, &:hover {
       border-color: $purple;
 
-      + .radio-button__text {
+      + #{$block}__text {
         color: $darkShade75;
       }
     }

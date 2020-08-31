@@ -6,7 +6,7 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
   -const logo = require('../../assets/images/logo-colored-withText.svg');
 
   header(class=`js-${headerClass} ${headerClass} ${isNarrow ? `${headerClass}_narrow` : ''}`)
-    a(class=`js-${headerClass}__logo-link ${headerClass}__logo-link ${isNarrow ? `${headerClass}__logo-link_narrow` : ''}`)
+    a(href='landing.html' class=`js-${headerClass}__logo-link ${headerClass}__logo-link ${isNarrow ? `${headerClass}__logo-link_narrow` : ''}`)
       img(src=logo alt='logo' class=`${headerClass}__logo ${isNarrow ? `${headerClass}__logo_narrow` : ''}`)
     nav(class=`${headerClass}__content ${isNarrow ? `${headerClass}__content_narrow` : ''}`)
       ul(class=`${headerClass}__items ${isNarrow ? `${headerClass}__items_narrow` : ''}`)
@@ -25,6 +25,6 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
       else
         div(class=`${headerClass}__buttons ${isNarrow ? `${headerClass}__buttons_narrow` : ''}`)
           div(class=`js-${headerClass}__login-button ${headerClass}__login-button ${isNarrow ? `${headerClass}__login-button_narrow` : ''}`)
-            +button({text: loginText, type: 'bordered', isTextSized: true, isLink: true, link: 'registration-login.html?login=true'})
+            +button({text: loginText, type: 'bordered', isTextSized: true, isLink: true, link: 'login.html'})
           div(class=`js-${headerClass}__register-button ${headerClass}__register-button ${isNarrow ? `${headerClass}__register-button_narrow` : ''}`)
-            +button({text: registerText, type: 'filled', isTextSized: true, isLink: true, link: 'registration-login.html?login=false'})
+            +button({text: registerText, type: 'filled', isTextSized: true, isLink: true, link: 'registration.html'})

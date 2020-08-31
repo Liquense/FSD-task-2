@@ -85,10 +85,9 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   &__title {
     margin: 0 0 3px 0;
     width: fit-content;
-
-    .title {
-      line-height: $lineHeight;
-    }
+    display: flex;
+    align-items: center;
+    height: $lineHeight;
   }
 
   &__control-wrapper {

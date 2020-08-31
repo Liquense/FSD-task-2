@@ -1,5 +1,8 @@
 .header {
+  $block: &;
+
   @include box-sizing-border-box();
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -43,9 +46,11 @@
     flex-direction: row;
     list-style: none;
     align-items: center;
+
     @media (max-width: 850px) {
       margin: 10px 0;
     }
+
     @media (max-width: 450px) {
       flex-direction: column;
     }
@@ -74,7 +79,7 @@
       &:not(:last-child) {
         margin: 5px 0;
 
-        &.header__item_expandable {
+        &#{$block}__item_expandable {
           margin: 5px 0 5px 12px;
         }
       }
@@ -89,6 +94,7 @@
 
   &__item-link {
     @include text_regular();
+
     color: $darkShade50;
     text-align: center;
     text-decoration: none;
@@ -130,6 +136,7 @@
 
   &__user-name {
     @include text_regular();
+
     color: $darkShade50;
   }
 

@@ -2,6 +2,8 @@ $checkboxButtonSize: 20px;
 $checkboxButtonBorderWidth: 1px;
 
 .like-button {
+  $block: &;
+
   @include clearfix();
   @include box-sizing-border-box();
   @include text_regular();
@@ -22,7 +24,7 @@ $checkboxButtonBorderWidth: 1px;
   &.ui-checkboxradio-checked {
     color: $purple;
 
-    .like-button__border {
+    #{$block}__border {
       background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
     }
   }

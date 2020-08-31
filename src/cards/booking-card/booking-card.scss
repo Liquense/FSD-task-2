@@ -1,6 +1,7 @@
 .booking-card {
   @include clearfix();
   @include box-sizing-border-box();
+
   display: flex;
   flex-direction: column;
   max-width: 380px;
@@ -10,6 +11,7 @@
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
   padding: 49px 29px 29px 29px;
+
   @media (max-width: 380px) {
     align-items: center;
     padding: 30px 10px 20px;
@@ -38,6 +40,7 @@
 
   &__number-text {
     @include text_widget-title();
+
     font-size: 14px;
     line-height: 17px;
     margin-right: 4px;
@@ -45,23 +48,27 @@
 
   &__room-num {
     @include text_label-CTA();
+
     font-size: 22px;
     margin: 0 5px 0 0;
   }
 
   &__room-type {
     @include text_label-CTA();
+
     color: $purple;
   }
 
   &__daily-price {
     @include text_label-CTA();
+
     color: $darkShade50;
     font-size: 14px;
   }
 
   &__payment-period {
     @include text_regular();
+
     font-size: 12px;
   }
 
@@ -77,6 +84,7 @@
 
   &__receipt {
     @include text_regular();
+
     display: grid;
     grid-template-columns: 67.29% $iconSize auto;
     grid-column-gap: 5px;

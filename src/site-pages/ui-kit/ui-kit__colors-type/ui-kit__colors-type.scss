@@ -48,6 +48,7 @@
 
       &__description {
         @include text_widget-title();
+
         display: flex;
         flex-direction: column;
       }
@@ -77,6 +78,7 @@
 
   &__type-header {
     @include text_regular();
+
     color: $darkShade25;
     justify-self: flex-end;
     margin: 0;
@@ -86,8 +88,9 @@
       font-size: 24px;
       line-height: 29px;
 
-      &+.colors-type__type-text {
+      + .colors-type__type-text {
         @include text_widget-title();
+
         letter-spacing: -0.5px;
       }
     }
@@ -95,7 +98,8 @@
     &[data-text-type='H2'] {
       font-size: 19px;
       line-height: 23px;
-      &+.colors-type__type-text {
+
+      + .colors-type__type-text {
         @include text_item-title();
 
         letter-spacing: -0.36px;
@@ -106,8 +110,9 @@
       font-size: 12px;
       line-height: 15px;
 
-      &+.colors-type__type-text {
+      + .colors-type__type-text {
         @include text_label-CTA();
+
         line-height: 15px;
       }
     }
@@ -116,8 +121,10 @@
       margin-top: -2px;
       font-size: 14px;
       line-height: 24px;
-      &+ .colors-type__type-text {
+
+      + .colors-type__type-text {
         @include text_regular();
+
         max-width: 33ch;
         margin-top: -2px;
         line-height: 24px;
