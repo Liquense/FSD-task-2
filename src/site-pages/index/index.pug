@@ -6,11 +6,13 @@ html(lang='ru')
     meta(charset='UTF-8')
     title TOXIN
   body
-    div.ui-kit UI
-      a(href='ui-kit.html') Go to UI-Kit
-    div.site-pages Site
-      a(href='landing-page.html') Landing page
-      a(href='registration-login.html?login=false') Registration
-      a(href='registration-login.html?login=true') Login
-      a(href='search-room.html') Room search
-      a(href='room-details.html') Room details
+    section.index__ui
+      +title({type: 'widget', text: 'UI', headerLevel: 2})
+      a.index__page-link(href='ui-kit.html') UI-Kit
+    section.index__pages
+      +title({type: 'widget', text: 'Site pages', headerLevel: 2})
+      a.index__page-link(href='landing.html') Landing page
+      a.index__page-link(href='registration.html') Registration
+      a.index__page-link(href='login.html') Login
+      a.index__page-link(href='search-room.html') Room search
+      a.index__page-link(href='room-details.html') Room details

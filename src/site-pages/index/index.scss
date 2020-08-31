@@ -1,24 +1,25 @@
-.ui-kit {
-  @include text_widget-title();
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
+.index {
+  $block: &;
 
-  > *:first-child {
+  &__page-link {
     @include text_regular();
-    margin-top: 5px;
+
+    &:first-of-type {
+      margin-top: 10px;
+    }
   }
-}
-.site-pages {
-  @include text_widget-title();
-  display: flex;
-  flex-direction: column;
 
-  > * {
-    @include text_regular();
-    margin-bottom: 5px;
+  &__ui {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
 
-    &:first-child {
+  &__pages {
+    display: flex;
+    flex-direction: column;
+
+    #{$block}__page-link {
       margin-top: 5px;
     }
   }

@@ -8,11 +8,6 @@
   grid-template-rows: 369px 1.66px 137px 110.5px 247.5px min-content;
   column-gap: 40px;
 
-  > div {
-    width: fit-content;
-    height: fit-content;
-  }
-
   &__find-room-card {
     grid-column-start: 1;
     grid-column-end: 2;

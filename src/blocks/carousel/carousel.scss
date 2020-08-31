@@ -1,21 +1,11 @@
 $arrowSize: 44px;
 
 .carousel {
+  $block: &;
+
   @include box-sizing-border-box();
 
   .slick {
-    &-list {
-      .slick-track {
-        .slick-slide {
-          > div {
-            .carousel__element {
-              display: block !important;
-            }
-          }
-        }
-      }
-    }
-
     &-arrow {
       display: block;
       height: 100%;
@@ -24,77 +14,81 @@ $arrowSize: 44px;
       z-index: 1;
       cursor: pointer;
       vertical-align: middle;
-
-      > button {
-        @include icon();
-
-        outline: none;
-        cursor: pointer;
-        background-color: transparent;
-        color: white;
-        font-size: 24px;
-        min-width: $arrowSize;
-        height: $arrowSize;
-        border: 0;
-        position: relative;
-        top: calc(50% - #{$arrowSize} / 2);
-      }
-
-      &.slick-prev {
-        left: 0;
-        top: 0;
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
-
-        > button {
-          transform: rotate(90deg);
-        }
-      }
-
-      &.slick-next {
-        right: 0;
-        top: 0;
-        background: linear-gradient(-90deg, $darkShade50 0%, transparent 100%);
-
-        > button {
-          transform: rotate(-90deg);
-        }
-      }
     }
 
-    &-dots {
+    &-active {
+      background-color: white;
+    }
+  }
+
+  &__element {
+    display: block !important;
+  }
+
+  &__nav-button {
+    @include icon();
+
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    font-size: 24px;
+    min-width: $arrowSize;
+    height: $arrowSize;
+    border: 0;
+    position: relative;
+    top: calc(50% - #{$arrowSize} / 2);
+  }
+
+  &__prev-button {
+    left: 0;
+    top: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+
+    #{$block}__nav-button {
+      transform: rotate(90deg);
+    }
+  }
+
+  &__next-button {
+    right: 0;
+    top: 0;
+    background: linear-gradient(-90deg, $darkShade50 0%, transparent 100%);
+
+    #{$block}__nav-button {
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__dots {
+    min-height: 7px;
+    height: 4.63%;
+    min-width: 7px;
+    width: 14.54%;
+    display: flex;
+    position: absolute;
+    right: 16px;
+    bottom: 15px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    z-index: 2;
+
+    > li {
+      border: 1px solid white;
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
       min-height: 7px;
-      height: 4.63%;
-      min-width: 7px;
-      width: 14.54%;
-      display: flex;
-      position: absolute;
-      right: 16px;
-      bottom: 15px;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      z-index: 2;
+      box-shadow: 0 5px 5px $darkShade30;
+      cursor: pointer;
 
-      > li {
-        border: 1px solid white;
-        border-radius: 50%;
-        width: 100%;
-        height: 100%;
-        min-height: 7px;
-        box-shadow: 0 5px 5px $darkShade30;
-        cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 9.56%;
+      }
 
-        &:not(:last-child) {
-          margin-right: 9.56%;
-        }
-
-        &.slick-active {
-          background-color: white;
-        }
-
-        > button {
-          display: none;
-        }
+      > button {
+        display: none;
       }
     }
   }

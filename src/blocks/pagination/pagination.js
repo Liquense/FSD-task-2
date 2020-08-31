@@ -62,6 +62,7 @@ class Pagination {
         return '<span class=\'text_type_regular\'>'
           + ` ${startCount} – ${endCount} из ${totalCount} вариантов аренды</span>`;
       },
+      ulClassName: 'pagination__pages-list',
     });
   }
 }
