@@ -26,30 +26,36 @@ block content
         div.search-room__daily-price-filter
           +slider({minValue: 0, maxValue: 16000, step: 100, title: 'Диапазон цены', isRange: true, initialValues: [5000, 10000]})
         p.search-room__daily-price-text Стоимость за сутки пребывания в номере
-      -let checkButtons = []
-      -checkButtons.push({text: 'Можно курить'});
-      -checkButtons.push({text: 'Можно с питомцами', isChecked: true});
-      -checkButtons.push({text: 'Можно приглашать гостей (до 10 человек)', isChecked: true});
+      -
+        let checkButtons = [
+          {text: 'Можно курить'},
+          {text: 'Можно с питомцами', isChecked: true},
+          {text: 'Можно приглашать гостей (до 10 человек)', isChecked: true},
+        ]
       div.search-room__benefits-filter
         +checkbox-list({type: 'checkbox', title: 'Checkbox buttons', elements: checkButtons})
-      -const richButtons = []
-      -richButtons.push({text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'});
-      -richButtons.push({text: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'});
+      -
+        const richButtons = [
+          {text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'},
+          {text: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'},
+        ]
       div.search-room__availability-filter
         +checkbox-list({type: 'checkbox', title: 'Доступность', elements: richButtons})
       div.search-room__room-equipment-filter
         +dropdown({title: 'Удобства номера', width: 'medium', dropdownType: 'rooms', placeholder: 'Комплектация номера',
           data: [{name: 'Спальни', value: 2}, {name: 'Кровати', value: 2}, {name: 'Ванные комнаты', value: 0}]
         })
-      -checkButtons = []
-      -checkButtons.push({text: 'Завтрак'})
-      -checkButtons.push({text: 'Письменный стол', isChecked: true})
-      -checkButtons.push({text: 'Стул для кормления', isChecked: true})
-      -checkButtons.push({text: 'Кроватка', isChecked: true})
-      -checkButtons.push({text: 'Телевизор'})
-      -checkButtons.push({text: 'Шампунь'})
-      -checkButtons.push({text: 'Телевизор'})
-      -checkButtons.push({text: 'Шампунь'})
+      -
+        checkButtons = [
+          {text: 'Завтрак'},
+          {text: 'Письменный стол', isChecked: true},
+          {text: 'Стул для кормления', isChecked: true},
+          {text: 'Кроватка', isChecked: true},
+          {text: 'Телевизор'},
+          {text: 'Шампунь'},
+          {text: 'Телевизор'},
+          {text: 'Шампунь'},
+        ]
       div.search-room__additional-features-filter
         +checkbox-list({
           type: 'checkbox',
@@ -62,204 +68,206 @@ block content
       h2.search-room__rooms-title Номера, которые мы для вас подобрали
       div.js-search-room__rooms-pagination.search-room__rooms-pagination
         -const paginationItems = [];
-        -for (let i = 0; i < 15; i += 1) {
-        - paginationItems.push({
-        -   room:
-        -     {
-        -       costPerPeriod: 9990,
-        -       reviewsCount: 145,
-        -       roomNumber: '888',
-        -       roomType: 'Люкс',
-        -       rating: [5, 5]
-        -     },
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'true',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 9900, reviewsCount: 65, roomNumber: '840', rating: [4, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 8500, reviewsCount: 35, roomNumber: '980', rating: [3, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 7300, reviewsCount: 19, roomNumber: '856', rating: [5, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 6000, reviewsCount: 44, roomNumber: '740', rating: [4, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 5800, reviewsCount: 56, roomNumber: '982', rating: [3, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 5500, reviewsCount: 45, roomNumber: '678', rating: [5, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 5300, reviewsCount: 39, roomNumber: '450', rating: [4, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 5000, reviewsCount: 77, roomNumber: '350', rating: [3, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 5000, reviewsCount: 25, roomNumber: '666', rating: [5, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 500, reviewsCount: 15, roomNumber: '444', rating: [3, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        - paginationItems.push({
-        -   room:
-        -     {costPerPeriod: 5000, reviewsCount: 55, roomNumber: '352', rating: [3, 5]},
-        -   carousel: {
-        -     content: [
-        -       {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')},
-        -       {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')}
-        -     ],
-        -     carouselParams: {
-        -       'data-arrows': 'false',
-        -       'data-dots': 'true',
-        -     },
-        -   }
-        - })
-        -}
+        -
+          for (let i = 0; i < 15; i += 1) {
+            paginationItems.push({
+              room:
+                {
+                  costPerPeriod: 9990,
+                  reviewsCount: 145,
+                  roomNumber: '888',
+                  roomType: 'Люкс',
+                  rating: [5, 5]
+                },
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'true',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 9900, reviewsCount: 65, roomNumber: '840', rating: [4, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 8500, reviewsCount: 35, roomNumber: '980', rating: [3, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 7300, reviewsCount: 19, roomNumber: '856', rating: [5, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 6000, reviewsCount: 44, roomNumber: '740', rating: [4, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 5800, reviewsCount: 56, roomNumber: '982', rating: [3, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 5500, reviewsCount: 45, roomNumber: '678', rating: [5, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 5300, reviewsCount: 39, roomNumber: '450', rating: [4, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 5000, reviewsCount: 77, roomNumber: '350', rating: [3, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 5000, reviewsCount: 25, roomNumber: '666', rating: [5, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 500, reviewsCount: 15, roomNumber: '444', rating: [3, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+            paginationItems.push({
+              room:
+                {costPerPeriod: 5000, reviewsCount: 55, roomNumber: '352', rating: [3, 5]},
+              carousel: {
+                content: [
+                  {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')},
+                  {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')}
+                ],
+                carouselParams: {
+                  'data-arrows': 'false',
+                  'data-dots': 'true',
+                },
+              }
+            })
+          }
+
         +pagination({items: paginationItems})

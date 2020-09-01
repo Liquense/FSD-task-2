@@ -120,17 +120,22 @@ section.form-elements
           data: [{name: 'Взрослые', value: 2}, {name: 'Дети', value: 1}, {name: 'Младенцы', value: 0}]})
     div.form-elements__lists
       div.form-elements__expandable-lists
-        -const checkButtonsExpandable = [{text: 'Завтрак'}, {text: 'Письменный стол', isChecked: true},
-        -{text: 'Стул для кормления', isChecked: true}, {text: 'Кроватка', isChecked: true},
-        -{text: 'Телевизор'}, {text: 'Шампунь'}
-        -]
+        -
+          const checkButtonsExpandable = [
+            {text: 'Завтрак'}, {text: 'Письменный стол', isChecked: true},
+            {text: 'Стул для кормления', isChecked: true}, {text: 'Кроватка', isChecked: true},
+            {text: 'Телевизор'}, {text: 'Шампунь'}
+          ]
         div.form-elements__expandable-list
           +checkbox-list({type: 'checkbox', isExpandable: true, title: 'Expandable Checkbox List', elements: checkButtonsExpandable})
         div.form-elements__expanded-list
           +checkbox-list({type: 'checkbox', isExpandable: true, isOpened: true, title: 'Expandable Checkbox List', elements: checkButtonsExpandable})
 
-      -const richCheckboxes = [{text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'}]
-      -richCheckboxes.push({text: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \n и проводит до номера.'})
+      -
+        const richCheckboxes = [
+          {text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'},
+          {text: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \n и проводит до номера.'}
+        ]
       div.form-elements__rich-list
         +checkbox-list({type: 'checkbox', title: 'Rich checkbox buttons', elements: richCheckboxes})
 
