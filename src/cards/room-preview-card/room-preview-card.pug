@@ -2,11 +2,9 @@ include ../../blocks/carousel/carousel
 include ../../blocks/rating/rating
 include ../../blocks/title/title
 mixin room-preview-card({link = 'room-details.html', room={}, carousel={content: [], carouselParams: {}}} = {})
-  -room.currencySymbol = room.currencySymbol ? room.currencySymbol : '₽';
-  -room.periodText = room.periodText ? room.periodText : 'в сутки';
-  -room.rating = room.rating ? room.rating : [5, 5];
+  -const {currencySymbol='₽', periodText='в сутки', rating=[5, 5]} = room
 
-  article(class='js-room-preview-card room-preview-card' data-currency=room.currencySymbol data-cost-per-period=room.costPerPeriod data-reviews-count=room.reviewsCount)
+  article(class='js-room-preview-card room-preview-card' data-currency=currencySymbol data-cost-per-period=room.costPerPeriod data-reviews-count=room.reviewsCount)
     div.room-preview-card__photos
       +carousel(carousel)
     a.js-room-preview-card__text-content.room-preview-card__text-content(href=link)
@@ -20,13 +18,13 @@ mixin room-preview-card({link = 'room-details.html', room={}, carousel={content:
             |#{room.roomType}
         div.room-preview-card__cost-info
           span.js-room-preview-card__cost-per-period.room-preview-card__cost-per-period
-            |#{room.costPerPeriod}#{room.currencySymbol}
+            |#{room.costPerPeriod}#{currencySymbol}
           span.room-preview-card__period
-            |#{room.periodText}
+            |#{periodText}
       hr.room-preview-card__division-line
       section.room-preview-card__rate-info
         div.room-preview-card__rating
-          +rating({maxRating: room.rating[1], rating: room.rating[0]})
+          +rating({maxRating: rating[1], rating: rating[0]})
         div.room-preview-card__reviews-info
           span.js-room-preview-card__reviews-count.room-preview-card__reviews-count
             |#{room.reviewsCount}

@@ -22,7 +22,7 @@ class Rating {
   }
 
   _initProperties() {
-    this.maxRating = this.$rating.attr('data-maxRating');
+    this.maxRating = this.$rating.attr('data-max-rating');
     this.specifiedRating = this.$rating.attr('data-rating');
   }
 

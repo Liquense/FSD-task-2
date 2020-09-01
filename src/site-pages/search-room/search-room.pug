@@ -67,10 +67,9 @@ block content
     section.search-room__rooms
       h2.search-room__rooms-title Номера, которые мы для вас подобрали
       div.js-search-room__rooms-pagination.search-room__rooms-pagination
-        -const paginationItems = [];
         -
-          for (let i = 0; i < 15; i += 1) {
-            paginationItems.push({
+          const pageContent = [
+            {
               room:
                 {
                   costPerPeriod: 9990,
@@ -91,8 +90,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 9900, reviewsCount: 65, roomNumber: '840', rating: [4, 5]},
               carousel: {
@@ -107,8 +106,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 8500, reviewsCount: 35, roomNumber: '980', rating: [3, 5]},
               carousel: {
@@ -123,8 +122,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 7300, reviewsCount: 19, roomNumber: '856', rating: [5, 5]},
               carousel: {
@@ -139,8 +138,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 6000, reviewsCount: 44, roomNumber: '740', rating: [4, 5]},
               carousel: {
@@ -155,8 +154,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 5800, reviewsCount: 56, roomNumber: '982', rating: [3, 5]},
               carousel: {
@@ -171,8 +170,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 5500, reviewsCount: 45, roomNumber: '678', rating: [5, 5]},
               carousel: {
@@ -187,8 +186,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 5300, reviewsCount: 39, roomNumber: '450', rating: [4, 5]},
               carousel: {
@@ -203,8 +202,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 5000, reviewsCount: 77, roomNumber: '350', rating: [3, 5]},
               carousel: {
@@ -219,8 +218,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 5000, reviewsCount: 25, roomNumber: '666', rating: [5, 5]},
               carousel: {
@@ -235,8 +234,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 500, reviewsCount: 15, roomNumber: '444', rating: [3, 5]},
               carousel: {
@@ -251,8 +250,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-            paginationItems.push({
+            },
+            {
               room:
                 {costPerPeriod: 5000, reviewsCount: 55, roomNumber: '352', rating: [3, 5]},
               carousel: {
@@ -267,7 +266,8 @@ block content
                   'data-dots': 'true',
                 },
               }
-            })
-          }
+            }
+          ]
+        -const paginationItems = new Array(15).fill(pageContent).flat();
 
         +pagination({items: paginationItems})
