@@ -1,12 +1,12 @@
-section.cards
-  include ../../../cards/find-room-card/find-room-card
-  include ../../../cards/booking-card/booking-card
-  include ../../../blocks/input/input
-  include ../../../blocks/date-picker/date-picker
-  include ../../../cards/registration-card/registration-card
-  include ../../../cards/login-card/login-card
-  include ../../../cards/room-preview-card/room-preview-card
+include ../../cards/find-room-card/find-room-card
+include ../../cards/booking-card/booking-card
+include ../../blocks/input/input
+include ../../blocks/date-picker/date-picker
+include ../../cards/registration-card/registration-card
+include ../../cards/login-card/login-card
+include ../../cards/room-preview-card/room-preview-card
 
+section.cards
   div.cards__find-room-card
     +find-room-card()
   -const customers = [{name: 'Взрослые', value: 3}, {name: 'Дети', value: 0}, {name: 'Младенцы', value: 0}]
@@ -65,7 +65,7 @@ section.cards
         }
       }
     )
-  div.cards__dots-only-room-preview-card
+  div.cards__dots-room-preview-card
     +room-preview-card(
       {
         room: {

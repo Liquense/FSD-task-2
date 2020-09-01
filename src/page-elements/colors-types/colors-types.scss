@@ -1,0 +1,22 @@
+.colors-types {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 145px 191px 0 150px;
+
+  &__color-block {
+    margin-bottom: 20px;
+  }
+
+  &__type-blocks {
+    width: 403px;
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 37px 1fr;
+    grid-auto-rows: min-content;
+  }
+
+  &__type-block {
+    margin-bottom: 50px;
+  }
+}

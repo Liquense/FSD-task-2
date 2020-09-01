@@ -1,0 +1,59 @@
+.color-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &__square {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    margin-right: 40px;
+
+    &[data-color='Dark Shade 100%'] {
+      background-color: $darkShade100;
+    }
+
+    &[data-color='Dark Shade 75%'] {
+      background-color: $darkShade75;
+    }
+
+    &[data-color='Dark Shade 50%'] {
+      background-color: $darkShade50;
+    }
+
+    &[data-color='Dark Shade 25%'] {
+      background-color: $darkShade25;
+    }
+
+    &[data-color='Dark Shade 5%'] {
+      background-color: $darkShade5;
+    }
+
+    &[data-color='Purple'] {
+      background-color: $purple;
+    }
+
+    &[data-color='Green'] {
+      background-color: $green;
+    }
+  }
+
+  &__description {
+    @include text_widget-title();
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__name, &__code {
+    letter-spacing: -0.2px;
+    margin: 0;
+    line-height: 29px;
+    font-size: 19px;
+  }
+
+  &__code {
+    letter-spacing: -1px;
+    font-weight: normal;
+  }
+}
