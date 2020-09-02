@@ -2,29 +2,25 @@ include ../../blocks/button/button
 include ../../blocks/arrow/arrow
 
 mixin header({userLogin='', loginText='Login', registerText='register', content=[], isNarrow=false} = {})
-  -const headerClass = 'header'
-  -const logo = require('../../assets/images/logo-colored-withText.svg');
-
-  header(class=`js-${headerClass} ${headerClass} ${isNarrow ? `${headerClass}_narrow` : ''}`)
-    a(href='landing.html' class=`js-${headerClass}__logo-link ${headerClass}__logo-link ${isNarrow ? `${headerClass}__logo-link_narrow` : ''}`)
-      img(src=logo alt='logo' class=`${headerClass}__logo ${isNarrow ? `${headerClass}__logo_narrow` : ''}`)
-    nav(class=`${headerClass}__content ${isNarrow ? `${headerClass}__content_narrow` : ''}`)
-      ul(class=`${headerClass}__items ${isNarrow ? `${headerClass}__items_narrow` : ''}`)
+  header.js-header.header(class=`${isNarrow ? `header_narrow` : ''}`)
+    a.js-header__logo-link.header__logo-link(href='landing.html')
+      img.header__logo(src=require('../../assets/images/logo-colored-withText.svg') alt='logo')
+    nav.header__content
+      ul.header__items
         each item, index in content
-          -const itemClasses = `${headerClass}__item ${isNarrow ? `${headerClass}__item_narrow` : ''}` +
-          -`${item.children ? ` ${headerClass}__item_expandable` : ''}`
-          li(class=itemClasses)
-            -const linkClasses = `header__item-link ${item.bold ? ` ${headerClass}__item-link_bold` : ''}`
-            a(class=linkClasses href=item.link ? item.link : '/mock-address/change-me') #{item.text}
+          -const expandableItemModifier = item.children ? 'header__item_expandable' : ''
+          li.header__item(class=`${expandableItemModifier}`)
+            -const boldLinkModifier = item.bold ? ` header__item-link_bold` : ''
+            a.header__item-link(class=`${boldLinkModifier}` href=(item.link ? item.link : '/mock-address/change-me')) #{item.text}
             if item.children
-              div(class=`${headerClass}__expand-button ${isNarrow ? `${headerClass}__expand-button_narrow` : ''}`)
+              div.header__expand-button
                 +arrow({type: 'expand', isRelative: true})
       if (userLogin)
-        div(class=`${headerClass}__divider ${isNarrow ? `${headerClass}__divider_narrow` : ''}`)
-        div(class=`${headerClass}__user-name ${isNarrow ? `${headerClass}__user-name_narrow` : ''}`) #{userLogin}
+        div.header__divider
+        div.header__user-name #{userLogin}
       else
-        div(class=`${headerClass}__buttons ${isNarrow ? `${headerClass}__buttons_narrow` : ''}`)
-          div(class=`js-${headerClass}__login-button ${headerClass}__login-button ${isNarrow ? `${headerClass}__login-button_narrow` : ''}`)
+        div.header__buttons
+          div.js-header__login-button.header__login-button
             +button({text: loginText, type: 'bordered', isTextSized: true, isLink: true, link: 'login.html'})
-          div(class=`js-${headerClass}__register-button ${headerClass}__register-button ${isNarrow ? `${headerClass}__register-button_narrow` : ''}`)
+          div.js-header__register-button.header__register-button
             +button({text: registerText, type: 'filled', isTextSized: true, isLink: true, link: 'registration.html'})

@@ -1,39 +1,37 @@
 include ../arrow/arrow
 mixin button({text='', isTextSized=false, isLink=false, link='/mock-address/change-me', type='filled', size='', decoration='', isHovered=false} = {})
-  - const blockClass = 'button'
-  - const controlClass = `${blockClass}__control`
-
-  - const blockAttributes = {class: `js-${blockClass} ${blockClass}`}
-  - const controlAttributes = {class: `js-${controlClass} ${controlClass}`}
-
+  - let textSizedModifier = hoveredModifier = decoratedModifier = ''
   if isTextSized
-    -blockAttributes.class += ` ${blockClass}_text-sized`
+    -textSizedModifier = 'button_text-sized'
   if isHovered
-    -blockAttributes.class += ` ${blockClass}_hovered`
+    -hoveredModifier = 'button_hovered'
   if decoration
-    -blockAttributes.class += ` ${blockClass}_decorated`
+    -decoratedModifier = 'button_decorated'
 
+  - let sizeModifier = ''
   case size
     when 'wide'
-      -blockAttributes.class += ` ${blockClass}_size_wide`
+      -sizeModifier = 'button_size_wide'
 
+  - let typeModifier = ''
   case type
     when 'bordered'
-      -blockAttributes.class += ` ${blockClass}_type_bordered`
+      -typeModifier = 'button_type_bordered'
     when 'text'
-      -blockAttributes.class += ` ${blockClass}_type_text`
+      -typeModifier = 'button_type_text'
     when 'filled'
     default
-      -blockAttributes.class += ` ${blockClass}_type_filled`
+      -typeModifier = 'button_type_filled'
 
   - const blockTag = isLink ? 'a' : 'button'
+  - const controlAttributes = {}
   if (isLink)
-    - controlAttributes.href = link
+    -controlAttributes.href = link
   else
-    - controlAttributes.type = 'button'
+    -controlAttributes.type = 'button'
 
-  div&attributes(blockAttributes)
-    #{blockTag}&attributes(controlAttributes) #{text}
+  div.js-button.button(class=`${textSizedModifier} ${hoveredModifier} ${decoratedModifier} ${sizeModifier} ${typeModifier}`)
+    #{blockTag}.js-button__control.button__control&attributes(controlAttributes) #{text}
     if decoration === 'enter-arrow'
-      div(class=`${blockClass}__decoration`)
+      div.button__decoration
         +arrow({type: 'enter'})

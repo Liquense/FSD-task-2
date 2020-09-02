@@ -1,6 +1,4 @@
 mixin radio-button({isChecked=false, text, group='', description} = {})
-  -const radioClass = 'radio-button'
-
-  label(class=radioClass)
-    input(class=`${radioClass}__input` type='radio' name=group checked=isChecked)
-    p(class=`${radioClass}__text`) #{text}
+  label.radio-button
+    input.radio-button__input(type='radio' name=group checked=isChecked)
+    p.radio-button__text #{text}

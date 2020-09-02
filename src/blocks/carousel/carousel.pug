@@ -2,4 +2,4 @@ mixin carousel({content = [], carouselParams={}} = {})
   div.carousel.js-carousel&attributes(carouselParams)
     each element in content
       if element.tag === 'img'
-        img(src=element.src alt="Фото комнаты" class="carousel__element")
+        img(src=element.src alt='Фото комнаты' class='carousel__element')

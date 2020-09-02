@@ -4,27 +4,25 @@ include ../arrow/arrow
 include ../title/title
 
 mixin checkbox-list({isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
-  -const listClass = 'checkbox-list'
-  -const listAttributes = {class: `js-${listClass} ${listClass} `}
-
+  -let expandableModifier = expandedModifier = ''
   if isExpandable
-    -listAttributes.class += `${listClass}_expandable `
+    -expandableModifier = 'checkbox-list_expandable '
     if isOpened
-      -listAttributes.class += `${listClass}_expanded `
+      -expandedModifier = 'checkbox-list_expanded '
 
+  -let narrowModifier = ''
   if isNarrow
-    -listAttributes.class += `${listClass}_narrow `
+    -narrowModifier = 'checkbox-list_narrow '
 
-  fieldset&attributes(listAttributes)
-    div(class=`js-${listClass}__title-wrap ${listClass}__title-wrap`)
+  fieldset.js-checkbox-list.checkbox-list(class=` ${expandableModifier} ${expandedModifier} ${narrowModifier}`)
+    div.js-checkbox-list__title-wrap.checkbox-list__title-wrap
       if title
-        legend(class=`${listClass}__title`)
+        legend.checkbox-list__title
           +title({type: 'label', text: title})
         if isExpandable
-          div(class=`${listClass}__expand-arrow`)
+          div.checkbox-list__expand-arrow
             +arrow({type: 'expand'})
-    ul(class=`${listClass}__container`)
+    ul.checkbox-list__container
       each value, index in elements
-        -const itemClasses = `${listClass}__item ${value.description ? `${listClass}__item_rich` : ''}`
-        li(class=itemClasses)
+        li.checkbox-list__item(class=` ${value.description ? `checkbox-list__item_rich` : ''}`)
           +checkbox(value)

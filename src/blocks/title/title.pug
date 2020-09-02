@@ -1,12 +1,12 @@
 mixin title({type, text, headerLevel=3}={})
-  -let validType
+  -let typeModifier = 'title_type_'
   case type
     when 'label'
-      -validType = 'label'
+      -typeModifier += 'label'
     when 'widget'
-      -validType = 'widget'
+      -typeModifier += 'widget'
     when 'item'
     default
-      -validType = 'item'
+      -typeModifier += 'item'
 
-  #{`h${headerLevel}`}(class=`title title_type_${validType}`) #{text}
+  #{`h${headerLevel}`}.title(class=`${typeModifier}`) #{text}

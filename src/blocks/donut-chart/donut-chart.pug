@@ -1,33 +1,25 @@
 mixin donut-chart({data=[], defaultStyle={}, activeStyle={}, arcsGap=0} = {})
-  -const donutChartClass = 'donut-chart'
-  -const imageContainerClass = `${donutChartClass}__image-container`
-  -const svgClass = `${donutChartClass}__svg`
-  -const svgArcClass = `${donutChartClass}__svg-arc`
-  -const activeDataClass = `${donutChartClass}__active-data`
-  -const activeValueClass = `${donutChartClass}__active-value`
-  -const valueTextClass = `${donutChartClass}__value-text`
-  -const legendClass = `${donutChartClass}__legend`
-  -const legendItemClass = `${donutChartClass}__legend-item`
-
-  figure(class=`js-donut-chart donut-chart`)
-    div(class=`${imageContainerClass}`)
-      svg(class=`js-${svgClass} ${svgClass}` width="200" height="200" preserveAspectRatio="xMidYMid meet"
+  figure.js-donut-chart.donut-chart
+    div.donut-chart__image-container
+      svg.js-donut-chart__svg.donut-chart__svg(preserveAspectRatio='xMidYMid meet'
         data-arcs-gap=arcsGap
         data-default-outer-radius=defaultStyle.outerRadius data-default-inner-radius=defaultStyle.innerRadius
-        data-active-outer-radius=activeStyle.outerRadius data-active-inner-radius=activeStyle.innerRadius)
+        data-active-outer-radius=activeStyle.outerRadius data-active-inner-radius=activeStyle.innerRadius
+        )
         defs
           each arc, index in data
-            linearGradient(id=`grad${index}` x1="0%" y1="0%" x2="0%" y2="100%")
+            linearGradient(id=`grad${index}` x1='0%' y1='0%' x2='0%' y2='100%')
               stop(stop-color=arc.firstColor)
-              stop(offset="100%" stop-color=arc.secondColor)
+              stop(offset='100%' stop-color=arc.secondColor)
         each arc, index in data
-          path(class=`js-${svgArcClass} ${svgArcClass}` stroke=`url(#grad${index})` fill="transparent"
-            data-value=arc.value data-is-active=`${arc.isActive}` data-color=arc.firstColor)
-      div(class=`js-${activeDataClass} ${activeDataClass}`)
-        span(class=`js-${activeValueClass} ${activeValueClass}`)
-        span(class=`js-${valueTextClass} ${valueTextClass}`)
-    ul(class=`js-${legendClass} ${legendClass}`)
+          path.js-donut-chart__svg-arc.donut-chart__svg-arc( stroke=`url(#grad${index})` fill='transparent'
+            data-value=arc.value data-is-active=`${arc.isActive}` data-color=arc.firstColor
+            )
+      div.js-donut-chart__active-data.donut-chart__active-data
+        span.js-donut-chart__active-value.donut-chart__active-value
+        span.js-donut-chart__value-text.donut-chart__value-text
+    ul.js-donut-chart__legend.donut-chart__legend
       each arc in data
-        li(class=`js-${legendItemClass} ${legendItemClass}`
+        li.js-donut-chart__legend-item.donut-chart__legend-item(
           style=`--background: linear-gradient(180deg, ${arc.firstColor} 0%, ${arc.secondColor} 100%); --color: ${arc.firstColor}`
           ) #{arc.caption}

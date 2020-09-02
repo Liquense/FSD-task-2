@@ -2,50 +2,40 @@ include ../spinner/spinner
 include ../input/input
 
 mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], isUnified=false, isPure=false, isOpened=false, isUnaccepted=false, isFocused=false, data=undefined} = {})
-  -const blockClass = 'dropdown'
-  -const listClass = `${blockClass}__list`
-  -const listWrapperClass = `${blockClass}__list-wrapper`
-  -const inputClass = `${blockClass}__input`
-  -const buttonsContainerClass = `${blockClass}__buttons-container`
-  -const clearButtonClass = `${blockClass}__clear-button`
-  -const confirmButtonClass = `${blockClass}__confirm-button`
+  -let typeListModifier = ''
+  case dropdownType
+    when 'rooms'
+      -typeListModifier = 'dropdown__list_type_rooms'
+    when 'customers'
+      -typeListModifier = 'dropdown__list_type_customers'
 
-  -let blockClasses = `js-${blockClass} ${blockClass} `
-  -let listClasses = `js-${listClass} ${listClass} `
-  -let listWrapperClasses = `js-${listWrapperClass} ${listWrapperClass} `
-
-  if dropdownType === 'rooms'
-    -listClasses += `${listClass}_type_rooms `
-  else if dropdownType === 'customers'
-    -listClasses += `${listClass}_type_customers `
-
+  -let unifiedListModifier = openedModifier = pureModifier = unacceptedModifier = ''
   if isUnified
-    -listClasses += `${listClass}_unified `
+    -unifiedListModifier = `dropdown__list_unified`
   if isOpened
-    -blockClasses += `${blockClass}_opened `
+    -openedModifier = 'dropdown_opened'
   if isPure
-    -blockClasses += `${blockClass}_pure `
+    -pureModifier = 'dropdown_pure'
   if isUnaccepted
-    -blockClasses += `${blockClass}_unaccepted `
+    -unacceptedModifier = 'dropdown_unaccepted'
 
-  -let validWidth = ''
+  -let validWidth = widthModifier = ''
   if width === 'medium'
-    -blockClasses += `${blockClass}_width_medium `
-    -listWrapperClasses += `${listWrapperClass}_width_medium `
+    -widthModifier = 'dropdown_width_medium'
     -validWidth = 'medium'
 
-  article(class=blockClasses)
-    div(class=`js-${inputClass} ${inputClass}`)
+  article.js-dropdown.dropdown(class=`${openedModifier} ${pureModifier} ${unacceptedModifier} ${widthModifier}`)
+    div.js-dropdown__input.dropdown__input
       +input({title, width: validWidth, placeholder, isExpandable: true, isFocused: isOpened, inDropdown: true})
-    section(class=listWrapperClasses)
-      div(class=listClasses)
+    section.js-dropdown__list-wrapper.dropdown__list-wrapper
+      div.js-dropdown__list.dropdown__list(class=`${typeListModifier} ${unifiedListModifier}`)
         each element, index in data
           div.dropdown__list-row
             p.dropdown__list-row-text #{element.name}
             div.dropdown__spinner
               +spinner({range, name: element.name, index, initValue: element.value})
-      div(class=`js-${buttonsContainerClass} ${buttonsContainerClass}`)
-        div(class=`js-${clearButtonClass} ${clearButtonClass}`)
+      div.js-dropdown__buttons-container.dropdown__buttons-container
+        div.js-dropdown__clear-button.dropdown__clear-button
           +button({text: 'Очистить', type: 'text', isHovered: true})
-        div(class=`js-${confirmButtonClass} ${confirmButtonClass}`)
+        div.js-dropdown__confirm-button.dropdown__confirm-button
           +button({text: 'Применить', type: 'text'})

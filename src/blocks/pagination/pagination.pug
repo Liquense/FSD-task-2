@@ -1,10 +1,8 @@
 include ../../cards/room-preview-card/room-preview-card
 mixin pagination({pageSize = 12, items=[]} = {})
-  -const paginationClass = 'pagination'
-
-  nav(class=`js-${paginationClass} ${paginationClass}` data-page-size=pageSize)
-    div(class=`js-${paginationClass}__content ${paginationClass}__content`)
+  nav.js-pagination.pagination(data-page-size=pageSize)
+    div.js-pagination__content.pagination__content
       each item, index in items
         div.pagination__item
           +room-preview-card(item)
-    div(class=`js-${paginationClass}__buttons ${paginationClass}__buttons`)
+    div.js-pagination__buttons.pagination__buttons

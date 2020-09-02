@@ -1,20 +1,8 @@
 include ../date-picker/date-picker
 
 mixin double-date-picker({labels=[], firstDate, secondDate} = {})
-  -const doubleDatePickerClass = 'double-date-picker'
-  -const firstDatePickerClass = `${doubleDatePickerClass}__first-date-picker`
-  -const secondDatePickerClass = `${doubleDatePickerClass}__second-date-picker`
-
-  -function createDatePicker(title) {
-    +date-picker({
-      title: title ? title : "",
-      width: "narrow",
-      placeholder: "ДД.ММ.ГГГГ",
-    })
-  -}
-
-  section(class=`js-${doubleDatePickerClass} ${doubleDatePickerClass}` data-first-date=firstDate data-second-date=secondDate)
-    div(class=`js-${firstDatePickerClass} ${firstDatePickerClass}`)
-      -createDatePicker(labels[0])
-    div(class=`js-${secondDatePickerClass} ${secondDatePickerClass}`)
-      -createDatePicker(labels[1])
+  section.js-double-date-picker.double-date-picker(data-first-date=firstDate data-second-date=secondDate)
+    div.js-double-date-picker__first-date-picker.double-date-picker__first-date-picker
+      +date-picker({title: labels[0] ? labels[0] : '', width: 'narrow', placeholder: 'ДД.ММ.ГГГГ'})
+    div.js-double-date-picker__second-date-picker.double-date-picker__second-date-picker
+      +date-picker({title: labels[1] ? labels[1] : '', width: 'narrow', placeholder: 'ДД.ММ.ГГГГ'})

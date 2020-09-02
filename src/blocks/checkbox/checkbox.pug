@@ -1,18 +1,17 @@
 mixin checkbox({isChecked=false, text='', type='', description} = {})
-  -const checkboxClass = 'checkbox'
-  -const checkboxAttributes = {class: `${checkboxClass} `}
-
+  -let richModifier = ''
   if description
-    - checkboxAttributes.class += ` ${checkboxClass}_rich`
+    -richModifier = 'checkbox_rich'
 
+  -let typeModifier = ''
   case type
     when 'toggle'
-      - checkboxAttributes.class += ` ${checkboxClass}_type_toggle`
+      -typeModifier = 'checkbox_type_toggle'
     default
-      - checkboxAttributes.class += ` ${checkboxClass}_type_check`
+      -typeModifier = 'checkbox_type_check'
 
-  label&attributes(checkboxAttributes)
-    input(class=`${checkboxClass}__button` type='checkbox' checked=isChecked)
-    span(class=`${checkboxClass}__text`) #{text}
+  label.checkbox(class=`${richModifier} ${typeModifier}`)
+    input.checkbox__button(type='checkbox' checked=isChecked)
+    span.checkbox__text #{text}
     if description
-      p(class=`${checkboxClass}__description`) #{description}
+      p.checkbox__description #{description}

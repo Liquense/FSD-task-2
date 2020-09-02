@@ -1,17 +1,16 @@
 include ../title/title
 mixin slider({minValue = 0, maxValue = 10, step = 1, title = "", isRange = false, initialValues = [5]} = {})
-  -const sliderClass = 'slider'
-  -const controlClass = `${sliderClass}__control`
-
-  -const controlAttributes = {class: `js-${controlClass} ${controlClass}`, ['data-min']: minValue, ['data-max']: maxValue, ['data-step']: step, ['data-first-value']: initialValues[0]}
-
+  -let isRangeModifier = '', secondValue
   if isRange
-    -controlAttributes.class += ` ${controlClass}_range `
-    -controlAttributes['data-second-value'] = initialValues[1]
+    -isRangeModifier = 'slider__control_range'
+    -secondValue = initialValues[1]
 
-  article(class=`js-${sliderClass} ${sliderClass}`)
-    div(class=`${sliderClass}__text`)
+  article.js-slider.slider
+    div.slider__text
       +title({type: 'label', text: title})
-      p(class=`js-${sliderClass}__value ${sliderClass}__value`) ₽
-    div(class=`${sliderClass}__container`)
-      div&attributes(controlAttributes)
+      p.js-slider__value.slider__value ₽
+    div.slider__container
+      div.js-slider__control.slider__control(class=`${isRangeModifier}`
+        data-min=minValue data-max=maxValue data-step=step
+        data-first-value=initialValues[0] data-second-value=secondValue
+      )

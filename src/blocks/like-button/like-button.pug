@@ -1,10 +1,4 @@
 mixin like-button({isChecked=false, count=0} = {})
-  -const likeClass = 'like-button'
-  -const inputClass = `${likeClass}__hidden-button`
-
-  -const likeAttributes = {class: `js-${likeClass} ${likeClass} `, 'data-likes-count': count}
-  -const inputAttributes = {class: `js-${inputClass} ${inputClass} `, type: 'checkbox', 'data-is-checked': `${isChecked}`}
-
-  label&attributes(likeAttributes)
-    p(class=`js-${likeClass}__text ${likeClass}__text`) #{count}
-    input&attributes(inputAttributes)
+  label.js-like-button.like-button(data-likes-count=count)
+    p.js-like-button__text.like-button__text #{count}
+    input.js-like-button__hidden-button.like-button__hidden-button(type='checkbox' data-is-checked=`${isChecked}`)

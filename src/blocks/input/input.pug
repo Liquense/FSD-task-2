@@ -2,45 +2,41 @@ include ../arrow/arrow
 include ../title/title
 
 mixin input({title='', type, width, placeholder, withSubscription=false, isExpandable=false, isFocused=false, text, inDropdown=false, inDatePicker=false} = {})
-  -const blockClass = 'input'
-  -const controlClass = `${blockClass}__control`
-
-  -const blockAttributes = {class: `js-${blockClass} ${blockClass}`}
-  -const controlAttributes = {class: `js-${controlClass} ${controlClass}`, value: text, placeholder: placeholder}
-
+  -let widthModifier = ''
   case width
     when 'narrow'
-      -blockAttributes.class += ` ${blockClass}_width_narrow`
+      -widthModifier = 'input_width_narrow'
     when 'premedium'
-      -blockAttributes.class += ` ${blockClass}_width_premedium`
+      -widthModifier = 'input_width_premedium'
     when 'medium'
-      -blockAttributes.class += ` ${blockClass}_width_medium`
+      -widthModifier = 'input_width_medium'
 
+  -let subscriptionModifier = expandableModifier = focusedModifier = inDropdownModifier = inDatePickerModifier = ''
   if withSubscription
-    -blockAttributes.class += ` ${blockClass}_with-subscription`
+    -subscriptionModifier = 'input_with-subscription'
   if isExpandable
-    -blockAttributes.class += ` ${blockClass}_expandable`
-    -controlAttributes.readonly = true
+    -expandableModifier = 'input_expandable'
   if isFocused
-    -blockAttributes.class += ` ${blockClass}_focused`
+    -focusedModifier = 'input_focused'
   if inDropdown
-    -blockAttributes.class += ` ${blockClass}_in-dropdown`
+    -inDropdownModifier = 'input_in-dropdown'
   if inDatePicker
-    -blockAttributes.class += ` ${blockClass}_in-date-picker`
+    -inDatePickerModifier = 'input_in-date-picker'
 
+  -let typeModifier = ''
   case type
     when 'mask'
-      -blockAttributes.class += ` ${blockClass}_type_masked`
+      -typeModifier = 'input_type_masked'
 
-  article&attributes(blockAttributes)
+  article.js-input.input(class=`${widthModifier} ${subscriptionModifier} ${expandableModifier} ${focusedModifier} ${inDropdownModifier} ${inDatePickerModifier} ${typeModifier}`)
     if title
-      div(class=`js-${blockClass}__title ${blockClass}__title`)
+      div.js-input__title.input__title
         +title({type: 'label', text: title})
-    div(class=`js-${blockClass}__control-wrapper ${blockClass}__control-wrapper`)
-      input&attributes(controlAttributes)
+    div.js-input__control-wrapper.input__control-wrapper
+      input.js-input__control.input__control(value=text placeholder=placeholder readonly=isExpandable)
       if withSubscription
-        div(class=`${blockClass}__arrow`)
+        div.input__arrow
           +arrow({type: 'enter', isColored: true, isBold: true})
       else if isExpandable
-        div(class=`${blockClass}__arrow`)
+        div.input__arrow
           +arrow({type: 'expand'})

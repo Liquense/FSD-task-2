@@ -1,18 +1,11 @@
 include ../title/title
 mixin bullet-list({title = '', contentStrings = []} = {})
-  -const listClass = 'bullet-list'
-  -const listTitleClass = `${listClass}__title`
-  -const listContainerClass = `${listClass}__container`
-  -const listElementClass = `${listClass}__item`
-  -const listElementImageClass = `${listClass}__item-image`
-  -const listElementTextClass = `${listClass}__item-text`
-
-  div(class=listClass)
+  div.bullet-list
     if title
-      div(class=listTitleClass)
+      div.bullet-list__title
         +title({type: 'label', text: title})
-    ul(class=listContainerClass)
+    ul.bullet-list__container
       each string, index in contentStrings
-        li(class=listElementClass)
-          i(class=listElementImageClass)
-          p(class=listElementTextClass) #{string}
+        li.bullet-list__item
+          i.bullet-list__item-image
+          p.bullet-list__item-text #{string}

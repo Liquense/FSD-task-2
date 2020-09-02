@@ -68,7 +68,7 @@ class DatePicker {
   }
 
   _initProperties() {
-    this.isInline = this.$datePicker.hasClass('js-date-picker_inline');
+    this.isInline = this.$datePicker.hasClass('date-picker_inline');
     this.arrow = initArrows(this.$datePicker);
     this.input = initInputs(this.$datePicker);
   }
