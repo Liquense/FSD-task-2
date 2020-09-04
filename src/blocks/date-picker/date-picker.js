@@ -1,5 +1,4 @@
 import 'air-datepicker';
-import arrowBack from '../../assets/images/arrow-back.svg';
 import initArrows from '../arrow/init';
 import initInputs from '../input/init';
 import { parseAttrToDate } from '../../common/functions';
@@ -131,8 +130,8 @@ class DatePicker {
         months: '<span class="date-picker__title">yyyy</span>',
         years: '<span class="date-picker__title">yyyy1 - yyyy2</span>',
       },
-      prevHtml: `<img src="${arrowBack}" alt="назад"">`,
-      nextHtml: `<img src="${arrowBack}" alt="назад" style="transform: scale(-1, 1)">`,
+      prevHtml: '<span>arrow_back</span>',
+      nextHtml: '<span>arrow_forward</span>',
       onSelect: this.input.setText,
     }).data('datepicker');
     this.$buttonsContainer = this.datePickerPlugin.$datepicker.find('.datepicker--buttons');

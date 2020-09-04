@@ -242,8 +242,11 @@ $otherRangeGradient: linear-gradient(
   }
 
   &--nav-action {
+    @include icon();
+
+    color: $purple;
     width: fit-content;
-    height: 24px;
+    font-size: 24px;
     display: flex;
 
     &:hover {
