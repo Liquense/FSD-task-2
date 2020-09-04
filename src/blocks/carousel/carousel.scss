@@ -23,41 +23,37 @@ $arrowSize: 44px;
 
   &__element {
     display: block !important;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
   }
 
   &__nav-button {
     @include icon();
 
+    padding: 0;
     outline: none;
     cursor: pointer;
     background-color: transparent;
     color: white;
     font-size: 24px;
     min-width: $arrowSize;
-    height: $arrowSize;
+    height: 100%;
     border: 0;
-    position: relative;
-    top: calc(50% - #{$arrowSize} / 2);
   }
 
   &__prev-button {
     left: 0;
     top: 0;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
-
-    #{$block}__nav-button {
-      transform: rotate(90deg);
-    }
   }
 
   &__next-button {
     right: 0;
     top: 0;
     background: linear-gradient(-90deg, $darkShade50 0%, transparent 100%);
-
-    #{$block}__nav-button {
-      transform: rotate(-90deg);
-    }
   }
 
   &__dots {
@@ -77,9 +73,8 @@ $arrowSize: 44px;
     > li {
       border: 1px solid white;
       border-radius: 50%;
-      width: 100%;
-      height: 100%;
       min-height: 7px;
+      width: 100%;
       box-shadow: 0 5px 5px $darkShade30;
       cursor: pointer;
 

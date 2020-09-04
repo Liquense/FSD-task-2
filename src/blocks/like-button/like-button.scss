@@ -1,5 +1,5 @@
-$checkboxButtonSize: 20px;
-$checkboxButtonBorderWidth: 1px;
+$likeButtonSize: 20px;
+$likeButtonBorderWidth: 1px;
 
 .like-button {
   $block: &;
@@ -10,7 +10,6 @@ $checkboxButtonBorderWidth: 1px;
 
   width: fit-content;
   min-width: 40px;
-  height: $checkboxButtonSize;
   display: inline-block;
   -webkit-user-select: none;
   vertical-align: middle;
@@ -19,7 +18,7 @@ $checkboxButtonBorderWidth: 1px;
   color: $darkShade25;
   font-size: 10px;
   text-align: center;
-  line-height: 19px;
+  line-height: $likeButtonSize;
 
   &.ui-checkboxradio-checked {
     color: $purple;
@@ -31,7 +30,7 @@ $checkboxButtonBorderWidth: 1px;
 
   &__border {
     background-color: $darkShade25;
-    border-radius: $checkboxButtonSize/2;
+    border-radius: $likeButtonSize/2;
     display: block;
     height: 100%;
     width: 100%;
@@ -41,37 +40,37 @@ $checkboxButtonBorderWidth: 1px;
   }
 
   &__button {
-    line-height: $checkboxButtonSize - $checkboxButtonBorderWidth*2;
+    line-height: $likeButtonSize - $likeButtonBorderWidth*2;
     display: block;
     float: left;
     clear: both;
     cursor: pointer;
-    width: calc(100% - 2 * #{$checkboxButtonBorderWidth});
-    height: calc(100% - 2 * #{$checkboxButtonBorderWidth});
+    width: calc(100% - 2 * #{$likeButtonBorderWidth});
+    height: calc(100% - 2 * #{$likeButtonBorderWidth});
     background-color: $inputBackgroundColor;
     margin: 0;
     border: none;
-    border-radius: $checkboxButtonSize/2;
+    border-radius: $likeButtonSize/2;
     position: absolute;
-    top: $checkboxButtonBorderWidth;
-    left: $checkboxButtonBorderWidth;
+    top: $likeButtonBorderWidth;
+    left: $likeButtonBorderWidth;
 
     &:after {
       content: "\e87e";
       color: $darkShade25;
       font-family: "Material Icons", sans-serif;
       font-size: 10px;
-      line-height: 10px;
+      line-height: 1em;
       position: absolute;
-      left: 5px - $checkboxButtonBorderWidth;
-      top: 5px - $checkboxButtonBorderWidth;
+      left: 5px - $likeButtonBorderWidth;
+      top: 5px - $likeButtonBorderWidth;
     }
 
     &.ui-state-checked:after {
       content: "\e87d";
       color: $purple;
-      left: 5px - $checkboxButtonBorderWidth;
-      top: 5px - $checkboxButtonBorderWidth;
+      left: 5px - $likeButtonBorderWidth;
+      top: 5px - $likeButtonBorderWidth;
       position: absolute;
     }
   }

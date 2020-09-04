@@ -38,9 +38,12 @@ section.form-elements
       +input({title: 'subscription text field', type: 'text', width: 'medium', withSubscription: true, placeholder: 'Email'})
 
     div.form-elements__checkboxes-ratings
-      -const checkButtons = [{text: 'Можно курить'}]
-        -checkButtons.push({text: 'Можно с питомцами', isChecked: true})
-        -checkButtons.push({text: 'Можно пригласить гостей (до 10 человек)', isChecked: true})
+      -
+        const checkButtons = [
+          {text: 'Можно курить'},
+          {text: 'Можно с питомцами', isChecked: true},
+          {text: 'Можно пригласить гостей (до 10 человек)', isChecked: true}
+        ]
       div.form-elements__checkboxes
         +checkbox-list({title: 'Checkbox Buttons', elements: checkButtons})
 
@@ -94,15 +97,15 @@ section.form-elements
           +button({text: 'Click Me', type: 'text', isHovered: true})
         div.form-elements__wide-button
           +button({text: 'Перейти к оплате', type: 'filled', size: 'wide', decoration: 'enter-arrow'})
-        div.form-elements__pagination
-          div.form-elements__pagination-title
-            +title({type: 'label', text: 'pagination'})
-          -const paginationItems = [];
-          -let i = 0;
-          while i < 151
-            -paginationItems.push({});
-            -i += 1
-          +pagination({items: paginationItems})
+      div.form-elements__pagination
+        div.form-elements__pagination-title
+          +title({type: 'label', text: 'pagination'})
+        -const paginationItems = [];
+        -let i = 0;
+        while i < 151
+          -paginationItems.push({});
+          -i += 1
+        +pagination({items: paginationItems})
 
   div.form-elements__middle-area
     div.form-elements__dropdowns

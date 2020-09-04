@@ -216,19 +216,15 @@ $otherRangeGradient: linear-gradient(
 
   &--content {
     padding: 29px $datepickerContentSidesPadding - 2*$datepickerBorderWidth 0 $datepickerContentSidesPadding;
-    min-height: $datepickerContentHeight;
   }
 
   &--pointer {
     display: none;
   }
 
-  $navActionWidth: 17px;
-  $navActionHeight: 18px;
-
   &--nav {
     box-sizing: border-box;
-    padding: 19px 23px 0 23px;
+    padding: 19px 19px 0 19px;
     border-bottom: none;
   }
 
@@ -373,7 +369,7 @@ $otherRangeGradient: linear-gradient(
     border: none;
     background-color: transparent;
     width: fit-content;
-    height: 15px;
+    line-height: 15px;
     color: $purple;
     cursor: pointer;
     padding: 0;

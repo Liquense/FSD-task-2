@@ -16,8 +16,8 @@ class Carousel {
   _getCarouselParams() {
     return {
       arrows: (this.$element.attr('data-arrows')?.toLowerCase() === 'true'),
-      prevArrow: '<label class="carousel__prev-button"><button class="carousel__nav-button" type="button" >expand_more</button></label>',
-      nextArrow: '<label class="carousel__next-button"><button class="carousel__nav-button" type="button" >expand_more</button></label>',
+      prevArrow: '<label class="carousel__prev-button"><button class="carousel__nav-button" type="button" >chevron_left</button></label>',
+      nextArrow: '<label class="carousel__next-button"><button class="carousel__nav-button" type="button" >chevron_right</button></label>',
       dots: (this.$element.attr('data-dots')?.toLowerCase() === 'true'),
       dotsClass: 'carousel__dots',
     };

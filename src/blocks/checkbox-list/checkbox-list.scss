@@ -50,8 +50,6 @@ $titleHeight: 12px;
   }
 
   &__expand-arrow {
-    width: $arrowSize;
-    height: $arrowSize;
     margin: ($arrowWrapSize - $arrowSize)/2;
     position: absolute;
     top: -($arrowWrapSize - $titleHeight)/2 - 1px;

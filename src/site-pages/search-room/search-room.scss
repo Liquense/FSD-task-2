@@ -59,6 +59,7 @@ body {
 
   &__sidebar {
     width: 266px;
+    margin-top: 3px;
     margin-right: get-vw(60px);
 
     @media (max-width: 1070px) {
@@ -75,7 +76,7 @@ body {
   }
 
   &__staying-dates {
-    margin-bottom: 18px;
+    margin-bottom: 21px;
 
     @media (max-width: 1070px) {
       margin-bottom: 0;
@@ -120,7 +121,7 @@ body {
   }
 
   &__availability-filter {
-    margin-bottom: 28px;
+    margin-bottom: 31px;
 
     @media (max-width: 1070px) {
       max-width: 266px;

@@ -29,7 +29,6 @@ body {
     width: 31.88%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
 
     @media (max-width: 1439px) {
       width: 100%;
@@ -38,22 +37,20 @@ body {
   }
 
   &__upper-side-photo {
-    height: 50%;
+    flex-grow: 1;
     object-fit: cover;
 
     @media (max-width: 1439px) {
       width: 50%;
-      height: auto;
     }
   }
 
   &__lower-side-photo {
-    height: 50%;
+    flex-grow: 1;
     object-fit: cover;
 
     @media (max-width: 1439px) {
       width: 50%;
-      height: auto;
     }
   }
 

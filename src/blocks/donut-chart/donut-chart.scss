@@ -31,15 +31,14 @@
   }
 
   &__active-data {
-    $activeDataHeight: 45px;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
-    height: $activeDataHeight;
-    top: calc(50% - (#{$activeDataHeight} + 9px) / 2);
+    top: 50%;
+    transform: translateY(-50%);
+    padding-bottom: 9px;
     width: 70%;
     left: 15%;
     user-select: none;

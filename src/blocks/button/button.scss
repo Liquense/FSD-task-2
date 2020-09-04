@@ -11,7 +11,6 @@ $arrowSize: 24px;
   display: inline-block;
   width: fit-content;
   min-width: 99px;
-  height: $buttonHeight;
   text-decoration: none;
 
   &_type_bordered {
@@ -21,6 +20,7 @@ $arrowSize: 24px;
 
     #{$block}__control {
       position: relative;
+      min-height: $buttonHeight - 2*$buttonBorderWidth;
       border: none;
       background-color: $inputBackgroundColor;
       color: $purple;
@@ -48,9 +48,10 @@ $arrowSize: 24px;
 
   &_type_text &__control {
     border: none;
+    min-height: unset;
     background-color: transparent;
     width: fit-content;
-    height: 15px;
+    line-height: 15px;
     color: $purple;
     cursor: pointer;
 
@@ -64,6 +65,7 @@ $arrowSize: 24px;
       display: block;
       width: auto;
       height: auto;
+      min-height: unset;
       line-height: normal;
       padding: 9px 20px 10px 20px;
     }
@@ -86,7 +88,7 @@ $arrowSize: 24px;
     align-items: center;
     position: relative;
 
-    #{$block} {
+    #{$block}__control {
       padding-right: $buttonHeight;
       padding-left: $buttonHeight;
     }
@@ -100,9 +102,10 @@ $arrowSize: 24px;
   &__control {
     @include text_label-CTA();
 
+    display: block;
     cursor: pointer;
-    height: 100%;
     width: 100%;
+    min-height: $buttonHeight;
     padding: 0;
     margin: 0;
     border-radius: 22px;
@@ -120,8 +123,6 @@ $arrowSize: 24px;
     -ms-user-select: none;
     user-select: none;
     position: absolute;
-    width: $buttonHeight;
-    height: $buttonHeight;
     padding: ($buttonHeight - $arrowSize)/2;
     right: 0;
     top: 0;

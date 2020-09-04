@@ -11,19 +11,19 @@
 
   &__basic-inputs {
     grid-column-start: 1;
-    margin-bottom: 39px;
+    margin-bottom: 42px;
   }
 
   &__text-input {
-    margin-bottom: 20px;
+    margin: 3px 0 23px;
   }
 
   &__focused-text-input {
-    margin-bottom: 17.56px;
+    margin-bottom: 20.56px;
   }
 
   &__dropdown {
-    margin-bottom: 22px;
+    margin-bottom: 25px;
   }
 
   &__date-pickers {
@@ -32,7 +32,7 @@
 
   &__date-picker,
   &__subscription-input {
-    margin-bottom: 40px;
+    margin-bottom: 43px;
   }
 
   &__checkboxes-ratings {
@@ -134,7 +134,7 @@
     }
 
     .form-elements__text-buttons {
-      padding-left: 2px;
+      padding: 2px 0 1px 2px;
       margin-bottom: 28px;
     }
   }
@@ -170,7 +170,7 @@
 
   &__dropdowns {
     display: flex;
-    height: 266px;
+    height: 263px;
     margin-bottom: 57px;
   }
 
@@ -179,7 +179,7 @@
   }
 
   &__rooms-dropdown {
-    margin-bottom: 19px;
+    margin-bottom: 22px;
   }
 
   &__guest-dropdown-unaccepted {

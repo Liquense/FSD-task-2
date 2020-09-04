@@ -6,13 +6,16 @@ body {
 
 .login {
   height: $backgroundImageHeight;
-  min-height: 380px;
-  max-height: $backgroundImageHeight;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
+  @media (max-width: 500px) {
+    min-height: 380px;
+    height: unset;
+  }
 
   @media (max-width: 380px) {
     min-height: unset;
@@ -38,10 +41,6 @@ body {
 
     @media (max-width: 1400px) {
       object-position: 0;
-    }
-
-    @media (max-width: 1300px) {
-      height: 100%;
     }
   }
 }

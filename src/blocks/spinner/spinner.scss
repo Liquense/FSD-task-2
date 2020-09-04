@@ -1,6 +1,5 @@
 .spinner {
   width: fit-content;
-  float: right;
 
   &__value {
     @include text_label-CTA();
@@ -15,15 +14,15 @@
   }
 
   $buttonSize: 30px;
+  $borderWidth: 1px;
   &__increase-button, &__decrease-button {
-    @include text(Montserrat, normal, 18px, $buttonSize, $darkShade50, 0px);
+    @include text(Montserrat, normal, 18px, $buttonSize - 2*$borderWidth, $darkShade50, 0px);
 
     border-radius: 50%;
-    border: 1px solid $darkShade50;
+    border: $borderWidth solid $darkShade50;
     color: $darkShade50;
     background-color: $inputBackgroundColor;
     width: $buttonSize;
-    height: $buttonSize;
     text-align: center;
     padding: 0;
 

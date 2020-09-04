@@ -13,7 +13,7 @@ $avatarSize: 48px;
 
   &__avatar-wrap {
     max-width: $avatarSize;
-    height: $avatarSize;
+    max-height: $avatarSize;
     border: 2px solid white;
     border-radius: 50%;
     box-shadow: 0 10px 20px rgba(31, 32, 65, 0.1);
@@ -21,6 +21,7 @@ $avatarSize: 48px;
   }
 
   &__avatar {
+    display: block;
     width: 100%;
   }
 

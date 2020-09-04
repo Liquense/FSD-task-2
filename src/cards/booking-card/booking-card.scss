@@ -26,7 +26,7 @@
     justify-content: space-between;
     align-self: stretch;
     align-items: baseline;
-    margin-bottom: 21px;
+    margin-bottom: 24px;
 
     @media (max-width: 380px) {
       justify-content: space-evenly;
@@ -73,7 +73,7 @@
   }
 
   &__range-picker {
-    margin-bottom: 19px;
+    margin-bottom: 22px;
   }
 
   &__guests-dropdown {
@@ -115,7 +115,7 @@
   }
 
   &__info-icon {
-    height: $iconSize;
+    height: fit-content;
     font-style: normal;
     display: block;
     line-height: $iconSize - 2px;

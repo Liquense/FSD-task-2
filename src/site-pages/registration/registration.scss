@@ -1,11 +1,11 @@
-$backgroundImageHeight: 685px;
+$backgroundImageHeight: 702px;
 
 body {
   margin: 0;
 }
 
 .registration {
-  height: 702px;
+  height: $backgroundImageHeight;
   position: relative;
   display: flex;
   align-items: center;
@@ -33,9 +33,5 @@ body {
     position: absolute;
     z-index: -1;
     min-height: $backgroundImageHeight;
-
-    @media (max-width: 1300px) {
-      height: 100%;
-    }
   }
 }

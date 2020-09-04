@@ -93,12 +93,8 @@ $toggleCircleWidth: 31.58%;
 
           content: 'checked';
           display: block;
-          height: 1em;
           width: 1em;
           font-weight: bolder;
-          position: absolute;
-          top: 2*$pixelInEm;
-          left: 2*$pixelInEm;
         }
       }
     }

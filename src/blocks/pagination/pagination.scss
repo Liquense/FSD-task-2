@@ -44,19 +44,16 @@ $pageButtonSize: 40px;
       user-select: none;
       border-radius: 50%;
       width: $pageButtonSize;
-      height: $pageButtonSize;
       text-align: center;
 
       @media (max-width: 450px) {
         position: relative;
         width: 25px;
-        height: 25px;
       }
 
       > a {
         color: inherit;
         text-decoration: none;
-        line-height: $pageButtonSize;
 
         @media (max-width: 450px) {
           position: absolute;

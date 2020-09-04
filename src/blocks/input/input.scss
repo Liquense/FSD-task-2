@@ -1,6 +1,5 @@
 $inputHeight: 44px;
 $borderWidth: 1px;
-$arrowSize: 24px;
 $lineHeight: 15px;
 $paddingTop: 12px - $borderWidth;
 $paddingRight: 15px - $borderWidth;
@@ -83,11 +82,10 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   }
 
   &__title {
-    margin: 0 0 3px 0;
+    margin: 0 0 6px 0;
     width: fit-content;
     display: flex;
     align-items: center;
-    height: $lineHeight;
   }
 
   &__control-wrapper {
@@ -102,7 +100,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
     border-radius: 4px;
     width: 100%;
-    height: $inputHeight;
     border: $borderWidth solid $darkShade25;
     background: $inputBackgroundColor;
     padding: $paddingTop $paddingRight $paddingBottom $paddingLeft;
@@ -123,10 +120,9 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 
   &__arrow {
     position: absolute;
-    top: 0;
+    transform: translateY(-50%);
+    top: 50%;
     right: 0;
-    height: $arrowSize;
-    width: $arrowSize;
-    margin: ($inputHeight - $arrowSize)/2;
+    margin-right: 10px;
   }
 }

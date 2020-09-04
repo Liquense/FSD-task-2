@@ -14,10 +14,9 @@
   }
 
   &__content {
-    padding: get-vw(100px) get-vw(140px) get-vw(99px);
+    padding: get-vw(100px) get-vw(140px) get-vw(101px);
 
     &_type_large {
-      min-height: 372px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -196,13 +195,11 @@
 
   &__copyright-bar {
     &_type_large {
-      padding-right: get-vw(140px);
-      padding-left: get-vw(140px);
+      padding: get-vw(23px) get-vw(140px);
       display: flex;
       justify-content: space-between;
       align-items: center;
       border-top: solid 1px $darkShade25;
-      height: 70px;
 
       @media (max-width: 700px) {
         padding-left: 0;
