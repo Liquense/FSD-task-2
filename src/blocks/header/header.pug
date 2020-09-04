@@ -1,5 +1,5 @@
-include ../../blocks/button/button
-include ../../blocks/arrow/arrow
+include ../button/button
+include ../arrow/arrow
 
 mixin header({userLogin='', loginText='Login', registerText='register', content=[], isNarrow=false} = {})
   header.js-header.header(class=`${isNarrow ? `header_narrow` : ''}`)

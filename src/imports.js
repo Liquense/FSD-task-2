@@ -6,7 +6,6 @@ function importCommon() {
   importContext(require.context('./blocks', true, /\.(js|scss)$/));
   importContext(require.context('./common', true, /\.(js|scss)$/));
   importContext(require.context('./cards', true, /\.(js|scss)$/));
-  importContext(require.context('./page-elements', true, /\.(js|scss)$/));
   importContext(require.context('./assets/fonts', true, /\.(otf|ttf|svg|woff|woff2|eot)$/));
 }
 
