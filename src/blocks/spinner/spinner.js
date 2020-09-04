@@ -17,17 +17,17 @@ class Spinner {
 
   $spinner;
 
-  spinCallbacks = [];
+  afterSpinCallbacks = [];
 
-  set value(value) {
+  setValue(value) {
     this.$spinner.spinner('value', value);
   }
 
-  get value() {
+  getValue() {
     return this.$spinner.spinner('value');
   }
 
-  get name() {
+  getName() {
     return this.$spinner.attr('data-name');
   }
 
@@ -37,11 +37,11 @@ class Spinner {
     this.triggerSpin();
   }
 
-  addSpinCallback(callback) { this.spinCallbacks.push(callback); }
+  addAfterSpinCallback(callback) { this.afterSpinCallbacks.push(callback); }
 
   triggerSpin() {
     const spinEvent = $.Event('spin', { currentTarget: this.$spinner });
-    this.$spinner.trigger(spinEvent, { value: this.value });
+    this.$spinner.trigger(spinEvent, { value: this.getValue() });
   }
 
   static _addButtons() {
@@ -74,14 +74,16 @@ class Spinner {
       max: this.$spinner.attr('data-max'),
     });
 
-    this.value = this.$spinner.attr('value');
+    this.setValue(this.$spinner.attr('value'));
 
-    this.$spinner.on('spin.spinner', this._handleSpinnerSpin.bind(this));
+    this.$spinner.on('spin.spinner', this._handleSpin.bind(this));
   }
 
-  _handleSpinnerSpin = (event, ui) => {
+  _handleSpin = (event, ui) => {
     this._disableButtonsAtExtremum(event, ui);
-    this.spinCallbacks.forEach((callback) => callback(event, ui));
+
+    $(event.currentTarget).spinner('value', ui?.value ? ui?.value : 0);
+    this.afterSpinCallbacks.forEach((callback) => callback(event, ui));
   }
 
   _disableButtonsAtExtremum(event, ui) {

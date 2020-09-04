@@ -7,12 +7,10 @@ class Arrow {
     this._initElement(rootElement);
   }
 
-  toggleExpandState = () => {
-    if (this.getExpandState()) this.collapse();
+  toggleExpandState() {
+    if (this.isExpanded()) this.collapse();
     else this.expand();
   }
-
-  pureToggle = this.toggleExpandState;
 
   collapse() {
     if (!this.isExpand) return;
@@ -28,7 +26,7 @@ class Arrow {
     this.$element.addClass('arrow_expanded');
   }
 
-  getExpandState() {
+  isExpanded() {
     return this.$element.hasClass('arrow_expanded');
   }
 

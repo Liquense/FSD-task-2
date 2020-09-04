@@ -49,8 +49,8 @@ class Dropdown {
   _getNamesValues() {
     const namesValues = [];
 
-    this.spinners.forEach(({ name, value }) => {
-      namesValues.push({ name, value });
+    this.spinners.forEach((spinner) => {
+      namesValues.push({ name: spinner.getName(), value: spinner.getValue() });
     });
 
     return namesValues;
@@ -98,12 +98,11 @@ class Dropdown {
 
   _addDropdownSpinnersEvents() {
     this.spinners.forEach((spinner) => {
-      spinner.addSpinCallback(this._handleSpinnerSpin);
+      spinner.addAfterSpinCallback(this._handleSpinnerSpin);
     });
   }
 
-  _handleSpinnerSpin = (event, ui) => {
-    $(event.currentTarget).spinner('value', ui?.value ? ui?.value : 0);
+  _handleSpinnerSpin = () => {
     this._updateVisuals();
   }
 
@@ -345,7 +344,7 @@ class Dropdown {
   _setSpinnerValues(namesValuesToSet) {
     this.spinners.forEach((spinner, i) => {
       const valuesIsArray = Array.isArray(namesValuesToSet);
-      spinner.value = valuesIsArray ? namesValuesToSet[i].value : namesValuesToSet;
+      spinner.setValue(valuesIsArray ? namesValuesToSet[i].value : namesValuesToSet);
       spinner.triggerSpin();
     });
   }

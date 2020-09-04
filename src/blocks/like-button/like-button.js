@@ -7,11 +7,11 @@ class LikeButton {
 
   $hiddenButton;
 
-  get likesAmount() {
+  _getLikesAmount() {
     return Number.parseInt(this.$like.attr('data-likes-count'), 10);
   }
 
-  set likesAmount(amount) {
+  _setLikesAmount(amount) {
     this.$text.text(amount);
     this.$like.attr('data-likes-count', amount);
   }
@@ -40,9 +40,9 @@ class LikeButton {
   }
 
   _handleChange = () => {
-    this.likesAmount = this.$like.hasClass('ui-checkboxradio-checked')
-      ? this.likesAmount + 1
-      : this.likesAmount - 1;
+    this._setLikesAmount(this.$like.hasClass('ui-checkboxradio-checked')
+      ? this._getLikesAmount() + 1
+      : this._getLikesAmount() - 1);
   }
 
   _initPlugin(icon, iconSpace) {

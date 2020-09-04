@@ -3,6 +3,8 @@ class Rating {
 
   $rating;
 
+  $stars;
+
   maxRating;
 
   specifiedRating;
@@ -19,6 +21,7 @@ class Rating {
 
   _initElements(rootElement) {
     this.$rating = $(rootElement);
+    this.$stars = this.$rating.find('.js-rating__star');
   }
 
   _initProperties() {
@@ -34,24 +37,20 @@ class Rating {
     this._setRating(rating);
   }
 
-  static _setState($star, stateKey) {
-    $star.text(Rating.states[stateKey]);
-  }
-
   _setRating(numericRating) {
     this.ratingIntegerPart = Math.floor(numericRating);
     this.ratingFractionPart = numericRating - this.ratingIntegerPart;
 
-    this.$rating.find('.js-rating__star').each(this._setStarState);
+    this.$stars.each(this._setStarState);
   }
 
   _setStarState = (index, element) => {
     if (index + 1 <= this.ratingIntegerPart) {
-      Rating._setState($(element), 'full');
+      $(element).text(Rating.states.full);
     } else if (this.ratingFractionPart > 0 && index === this.ratingIntegerPart) {
-      Rating._setState($(element), 'half');
+      $(element).text(Rating.states.half);
     } else {
-      Rating._setState($(element), 'empty');
+      $(element).text(Rating.states.empty);
     }
   }
 }

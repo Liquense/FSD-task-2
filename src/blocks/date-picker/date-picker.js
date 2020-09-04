@@ -78,14 +78,14 @@ class DatePicker {
   }
 
   _handleInputClick = () => {
-    if (this.arrow.getExpandState()) {
+    if (this.arrow.isExpanded()) {
       this.datePickerPlugin.hide();
     } else {
       this.datePickerPlugin.show();
     }
   }
 
-  _setExpandArrowEventHandlers() {
+  _setPluginEventHandlers() {
     const { arrow, input } = this;
 
     this.datePickerPlugin.update({
@@ -108,20 +108,16 @@ class DatePicker {
   }
 
   _initExpandableEvents() {
-    this._setExpandArrowEventHandlers();
-
-    if (this.datePickerPlugin) {
-      this._addClickHandler();
-    }
+    this._setPluginEventHandlers();
+    this._addClickHandler();
   }
 
   _initDatePicker() {
     const initDates = this.getInitDates();
 
-    const addClass = this.isInline ? DatePicker.wideClass : 'date-picker__calendar_narrow';
     this.datePickerPlugin = this.input.$control.datepicker({
       startDate: initDates?.length ? initDates[0] : null,
-      classes: addClass,
+      classes: this.isInline ? DatePicker.wideClass : 'date-picker__calendar_narrow',
       range: true,
       inline: this.isInline,
       clearButton: true,
