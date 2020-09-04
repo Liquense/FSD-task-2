@@ -22,8 +22,6 @@ $pageButtonSize: 40px;
   }
 
   .paginationjs {
-    $plugin: ".paginationjs";
-
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -75,7 +73,7 @@ $pageButtonSize: 40px;
         background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
       }
 
-      &.disabled:not(#{$plugin}-ellipsis) {
+      &.disabled:not(.paginationjs-ellipsis) {
         display: none;
       }
     }
