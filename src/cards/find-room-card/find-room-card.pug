@@ -10,6 +10,15 @@ mixin find-room-card()
     div.find-room-card__staying-dates-picker
       +double-date-picker({labels: ['Прибытие', 'Выезд']})
     div.find-room-card__guests-dropdown
-      +dropdown({title: 'Гости', dropdownType: 'customers', placeholder: 'Сколько гостей', data: [{name: 'Взрослые'}, {name: 'Дети'}, {name: 'Младенцы'}]})
+      +dropdown({
+        title: 'Гости',
+        unifiedCaption: 'гост|ь|я|ей',
+        placeholder: 'Сколько гостей',
+        data: [
+          {name: 'Взрослые'},
+          {name: 'Дети'},
+          {name: 'Младенцы', isSeparate: true, declinations: 'младен|ец|ца|цев'}
+        ]
+      })
     div.find-room-card__search-button
       +button({text: 'Подобрать номер', type: 'filled', size: 'wide', decoration: 'enter-arrow'})

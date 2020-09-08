@@ -55,6 +55,10 @@ $inputBorderRadius: 4px;
     line-height: 30px;
   }
 
+  &__spinner {
+    flex-shrink: 0;
+  }
+
   &__buttons-container {
     @include clearfix();
 

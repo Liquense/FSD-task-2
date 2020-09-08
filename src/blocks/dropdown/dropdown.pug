@@ -1,7 +1,7 @@
 include ../spinner/spinner
 include ../input/input
 
-mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], isUnified=false, isPure=false, isOpened=false, isUnaccepted=false, isFocused=false, data=undefined} = {})
+mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], unifiedCaption, isPure=false, isOpened=false, isUnaccepted=false, isFocused=false, data=[]} = {})
   -let typeListModifier = ''
   case dropdownType
     when 'rooms'
@@ -9,9 +9,7 @@ mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], isUnified
     when 'customers'
       -typeListModifier = 'dropdown__list_type_customers'
 
-  -let unifiedListModifier = openedModifier = pureModifier = unacceptedModifier = ''
-  if isUnified
-    -unifiedListModifier = `dropdown__list_unified`
+  -let openedModifier = pureModifier = unacceptedModifier = ''
   if isOpened
     -openedModifier = 'dropdown_opened'
   if isPure
@@ -24,16 +22,19 @@ mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], isUnified
     -widthModifier = 'dropdown_width_medium'
     -validWidth = 'medium'
 
-  article.js-dropdown.dropdown(class=`${openedModifier} ${pureModifier} ${unacceptedModifier} ${widthModifier}`)
+  article.js-dropdown.dropdown(class=`${openedModifier} ${pureModifier} ${unacceptedModifier} ${widthModifier}` data-unified-caption=unifiedCaption)
     div.js-dropdown__input.dropdown__input
       +input({title, width: validWidth, placeholder, isExpandable: true, isFocused: isOpened, inDropdown: true})
     section.js-dropdown__list-wrapper.dropdown__list-wrapper
-      div.js-dropdown__list.dropdown__list(class=`${typeListModifier} ${unifiedListModifier}`)
+      div.js-dropdown__list.dropdown__list(class=`${typeListModifier}`)
         each element, index in data
-          div.dropdown__list-row
-            p.dropdown__list-row-text #{element.name}
+          div.js-dropdown__list-row.dropdown__list-row
+            p.js-dropdown__list-row-text.dropdown__list-row-text(
+              data-declinations=element.declinations
+              data-is-separate=`${element.isSeparate || ''}`
+              data-always-visible=`${element.alwaysVisible || ''}`) #{element.name}
             div.dropdown__spinner
-              +spinner({range, name: element.name, index, initValue: element.value})
+              +spinner({range, index, initValue: element.value})
       div.js-dropdown__buttons-container.dropdown__buttons-container
         div.js-dropdown__clear-button.dropdown__clear-button
           +button({text: 'Очистить', type: 'text', isHovered: true})

@@ -23,8 +23,11 @@ section.form-elements
       div.form-elements__focused-text-input
         +input({title: 'Text field', type: 'text', placeholder: 'This is pretty awesome', text: 'This is pretty awesome', isFocused: true})
       div.form-elements__dropdown
-        +dropdown({title: 'Dropdown', dropdownType: 'customers', placeholder: 'Сколько гостей',
-          data: [{name: 'Взрослые', value: 0}, {name: 'Дети', value: 0}, {name: 'Младенцы', value: 0}]})
+        +dropdown({title: 'Dropdown', placeholder: 'Сколько гостей', unifiedCaption: 'гост|ь|я|ей',
+          data: [
+            {name: 'Взрослые', value: 0},
+            {name: 'Дети', value: 0},
+            {name: 'Младенцы', declinations: 'младен|ец|ца|цев', isSeparate: true, value: 0}]})
       div.form-elements__masked-input
         +input({title: 'Masked Text Field', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
 
@@ -100,27 +103,37 @@ section.form-elements
       div.form-elements__pagination
         div.form-elements__pagination-title
           +title({type: 'label', text: 'pagination'})
-        -const paginationItems = [];
-        -let i = 0;
-        while i < 151
-          -paginationItems.push({});
-          -i += 1
+        -
+          const paginationItems = new Array(180).fill({});
         +pagination({items: paginationItems})
 
   div.form-elements__middle-area
     div.form-elements__dropdowns
       div.form-elements__room-dropdowns
-        -const rooms = [{name: 'Спальни', value: 2}, {name: 'Кровати', value: 2}, {name: 'Ванные комнаты', value: 0}];
+        -
+          const rooms = [
+            {name: 'Спальни', isSeparate: true, declinations: 'спал|ьня|ьни|ен', value: 2},
+            {name: 'Кровати', isSeparate: true, declinations: 'кроват|ь|и|ей', value: 2},
+            {name: 'Ванные комнаты',isSeparate: true, alwaysVisible: true, declinations: 'ванн|ая|ых|ых комнат|а|ы|', value: 0}
+          ];
         div.form-elements__rooms-dropdown
-          +dropdown({title: 'Dropdown', width: 'medium', dropdownType: 'rooms', placeholder: 'Сколько убранства', data: rooms})
+          +dropdown({title: 'Dropdown', width: 'medium', placeholder: 'Сколько убранства', data: rooms})
         div.form-elements__rooms-dropdown
-          +dropdown({title: 'Dropdown', dropdownType: 'rooms', width: 'medium', isPure: true, isOpened: true, placeholder: 'Сколько убранства', data: rooms})
+          +dropdown({title: 'Dropdown', width: 'medium', isPure: true, isOpened: true, placeholder: 'Сколько убранства', data: rooms})
       div.form-elements__guest-dropdown-unaccepted
-        +dropdown({title: 'Dropdown', dropdownType: 'customers',  isOpened: true, isUnaccepted: true, placeholder: 'Сколько гостей',
-          data: [{name: 'Взрослые', value: 0}, {name: 'Дети', value: 0}, {name: 'Младенцы', value: 0}]})
+        +dropdown({title: 'Dropdown', unifiedCaption: 'гост|ь|я|ей', isOpened: true, isUnaccepted: true, placeholder: 'Сколько гостей',
+          data: [
+            {name: 'Взрослые', value: 0},
+            {name: 'Дети', value: 0},
+            {name: 'Младенцы', declinations: 'младен|ец|ца|цев', value: 0}
+          ]})
       div.form-elements__guest-dropdown
-        +dropdown({title: 'Dropdown', isUnified: true, dropdownType: 'customers', isOpened: true, isUnaccepted: true, placeholder: 'Сколько гостей',
-          data: [{name: 'Взрослые', value: 2}, {name: 'Дети', value: 1}, {name: 'Младенцы', value: 0}]})
+        +dropdown({title: 'Dropdown', unifiedCaption: 'гост|ь|я|ей', isOpened: true, isUnaccepted: true, placeholder: 'Сколько гостей',
+          data: [
+            {name: 'Взрослые', value: 2},
+            {name: 'Дети', value: 1},
+            {name: 'Младенцы', declinations: 'младен|ец|ца|цев', value: 0}
+          ]})
     div.form-elements__lists
       div.form-elements__expandable-lists
         -

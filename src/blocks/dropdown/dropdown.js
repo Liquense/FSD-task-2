@@ -4,8 +4,6 @@ import initInputs from '../input/init';
 import initArrows from '../arrow/init';
 
 class Dropdown {
-  static types = { rooms: 'rooms', customers: 'customers' }
-
   $dropdown;
 
   $listWrapper;
@@ -18,25 +16,25 @@ class Dropdown {
 
   $list;
 
+  $rows;
+
   arrow;
+
+  unifiedDeclinations;
 
   input;
 
   isOpened;
 
-  isAlwaysOpened = false;
+  isAlwaysOpened;
 
-  isPure = false;
+  isPure;
 
-  isUnified = false;
+  isUnified;
 
   areValuesAccepted = true;
 
-  oldNamesValues = [];
-
-  spinners = [];
-
-  type;
+  rows;
 
   constructor(rootElement) {
     this._initElements(rootElement);
@@ -46,14 +44,8 @@ class Dropdown {
 
   static _getVisibleClass() { return 'dropdown__list-wrapper_visible'; }
 
-  _getNamesValues() {
-    const namesValues = [];
-
-    this.spinners.forEach((spinner) => {
-      namesValues.push({ name: spinner.getName(), value: spinner.getValue() });
-    });
-
-    return namesValues;
+  _updateOldValues() {
+    this.rows.forEach((row) => { row.oldValue = row.spinner.getValue(); });
   }
 
   _initElements(rootElement) {
@@ -63,6 +55,7 @@ class Dropdown {
     this.$clearButton = this.$dropdown.find('.js-dropdown__clear-button');
     this.$confirmButton = this.$dropdown.find('.js-dropdown__confirm-button');
     this.$list = this.$listWrapper.find('.js-dropdown__list');
+    this.$rows = this.$listWrapper.find('.js-dropdown__list-row');
   }
 
   _initEvents() {
@@ -88,21 +81,22 @@ class Dropdown {
   }
 
   _handleConfirmButtonClick = () => {
-    if (!this.isAlwaysOpened) { this._toggle(); }
+    this._toggle(true);
 
     this.areValuesAccepted = true;
-    this.oldNamesValues = this._getNamesValues();
+    this._updateOldValues();
 
     this._updateControlsVisibility();
   }
 
   _addDropdownSpinnersEvents() {
-    this.spinners.forEach((spinner) => {
-      spinner.addAfterSpinCallback(this._handleSpinnerSpin);
+    this.rows.forEach((row) => {
+      row.spinner.addAfterSpinCallback((event, ui) => { this._handleSpinnerSpin(ui, row); });
     });
   }
 
-  _handleSpinnerSpin = () => {
+  _handleSpinnerSpin = (ui, row) => {
+    row.value = ui.value;
     this._updateVisuals();
   }
 
@@ -114,13 +108,9 @@ class Dropdown {
     const clickedElement = $(event.target).get(0);
 
     if ($.contains(this.$dropdown.get(0), clickedElement)) return;
+    if (!this.isOpened) return;
 
-    if (this.isOpened) {
-      if (!this.isAlwaysOpened) { this._toggle(); }
-
-      this._setSpinnerValues(this.oldNamesValues);
-      this._updateVisuals();
-    }
+    this._toggle();
   }
 
   _addDropdownInputEvents() {
@@ -128,34 +118,35 @@ class Dropdown {
   }
 
   _handleInputClick = () => {
-    if (!this.isAlwaysOpened) { this._toggle(); }
+    this._toggle();
+  }
 
-    if (!this.isOpened) {
-      this._setSpinnerValues(this.oldNamesValues);
-      this._updateVisuals();
-    }
+  _rollback() {
+    this._setSpinnerValues(this.rows.map(({ oldValue }) => oldValue));
+
+    this._updateVisuals();
   }
 
   _initProperties() {
     this.arrow = initArrows(this.$dropdown);
     this.input = initInputs(this.$dropdown);
-    this.spinners = initSpinners(this.$dropdown);
+    this.rows = this._getRows();
 
     this.isOpened = this.$listWrapper.hasClass(Dropdown._getVisibleClass());
+    this.isPure = !this.$dropdown.hasClass('dropdown_pure');
+    this.isUnified = this.$list.hasClass('dropdown__list_unified');
     this.areValuesAccepted = !this.$dropdown.hasClass('dropdown_unaccepted');
-
     this.isAlwaysOpened = this.$dropdown.hasClass('dropdown_opened');
+
+    this.unifiedDeclinations = this.$dropdown.attr('data-unified-caption') || '';
+
     if (this.isAlwaysOpened) {
       this.$listWrapper.toggleClass(Dropdown._getVisibleClass());
       this.arrow.expand();
     }
 
-    this.isPure = !this.$dropdown.hasClass('dropdown_pure');
-    this.oldNamesValues = this._getNamesValues();
-
-    this._getDropdownType();
+    this._updateOldValues();
     this._updateVisuals();
-
     this.$listWrapper.position({
       my: 'center',
       at: 'center',
@@ -163,153 +154,79 @@ class Dropdown {
     });
   }
 
-  _toggle() {
+  _getRows() {
+    return $.map(this.$rows, (row) => {
+      const $row = $(row);
+      const $rowText = $(row).find('.js-dropdown__list-row-text');
+      const spinner = initSpinners(row);
+
+      return {
+        $row,
+        declinations: $rowText.attr('data-declinations') || '',
+        $rowText,
+        spinner,
+        isSeparate: $rowText.attr('data-is-separate'),
+        alwaysVisible: $rowText.attr('data-always-visible'),
+        value: spinner.getValue(),
+      };
+    });
+  }
+
+  _toggle(valuesAccepted) {
+    if (this.isAlwaysOpened) return;
+
+    if (this.isOpened && !valuesAccepted) this._rollback();
     this.$listWrapper.toggleClass(Dropdown._getVisibleClass());
     this.isOpened = !this.isOpened;
     this.input.toggleFocus();
     this.arrow.toggleExpandState();
   }
 
-  _getDropdownType() {
-    const listClassPrefix = 'dropdown__list_';
-
-    if (this.$list.hasClass(`${listClassPrefix}unified`)) { this.isUnified = true; }
-
-    if (this.$list.hasClass(`${listClassPrefix}type_rooms`)) {
-      this.type = Dropdown.types.rooms;
-    } else if (this.$list.hasClass(`${listClassPrefix}type_customers`)) {
-      this.type = Dropdown.types.customers;
-    }
-  }
-
-  static _selectProperWord(itemsCount, itemName) {
-    let result = '';
-
-    switch (itemName.toLowerCase()) {
-      case 'спальни':
-        result = ruDeclination(itemsCount, 'спал|ьня|ьни|ен');
-        break;
-      case 'кровати':
-        result = ruDeclination(itemsCount, 'кроват|ь|и|ей');
-        break;
-      case 'ванные комнаты':
-        result = `${ruDeclination(itemsCount, 'ванн|ая|ых|ых')} ${
-          ruDeclination(itemsCount, 'комнат|а|ы|')}`;
-        break;
-      case 'гости':
-        result = ruDeclination(itemsCount, 'гост|ь|я|ей');
-        break;
-      case 'младенцы':
-        result = ruDeclination(itemsCount, 'младен|ец|ца|цев');
-        break;
-
-      default:
-    }
-
-    return result;
-  }
-
   _areAllValuesZero() {
-    return !this._getNamesValues()?.some((nameValue) => parseInt((nameValue.value), 10) !== 0);
+    return !this.rows.some(({ value }) => parseInt((value), 10) !== 0);
   }
 
-  _createUnifiedString(declinations) {
-    const sum = this._getNamesValues().reduce(
-      (accumulator, currentValue) => accumulator + parseInt(currentValue.value, 10),
+  _createCaption() {
+    return `${this._createUnifiedCaption()}, ${this._createSeparatedCaption()}`
+      .replace(/^(, )|(, )$/g, '').trim();
+  }
+
+  _createUnifiedCaption() {
+    const sum = this.rows.reduce(
+      (accumulator, { value, isSeparate }) => (
+        accumulator + (isSeparate ? 0 : parseInt(value, 10))),
       0,
     );
 
-    return `${sum} ${ruDeclination(sum, declinations)}`;
+    return sum
+      ? `${sum} ${ruDeclination(sum, this.unifiedDeclinations)}`
+      : '';
   }
 
-  _createSeparateRoomsString() {
-    let result = this._getNamesValues().reduce(
-      (accumulator, currentNameValue) => `${accumulator} `
-        + `${currentNameValue.value} `
-        + `${Dropdown._selectProperWord(currentNameValue.value, currentNameValue.name)}, `,
+  _createSeparatedCaption() {
+    return this.rows.reduce(
+      (accumulator, {
+        value, declinations, isSeparate, alwaysVisible,
+      }) => (
+        (isSeparate && (value || alwaysVisible))
+          ? `${accumulator}${value} ${ruDeclination(value, declinations)}, ` : accumulator
+      ),
       '',
     );
-    result = result.substring(0, result.length - 2).trim();
-
-    return result;
   }
 
-  _createRoomsString(namesValues) {
-    let result;
+  _createInputText() {
+    if (this._areAllValuesZero()) return '';
 
-    if (this.isUnified) {
-      result = this._createUnifiedString('комнаты');
-    } else {
-      result = this._createSeparateRoomsString(namesValues);
-    }
-
-    return result;
-  }
-
-  _createCustomersString(namesValues, isUnified) {
-    let resultString;
-
-    if (isUnified) {
-      resultString = this._createUnifiedString('гост|ь|я|ей');
-    } else {
-      resultString = this._createCustomersWithInfantsString();
-    }
-
-    return resultString;
-  }
-
-  _createCustomersWithInfantsString() {
-    let infants = 0;
-    let sum = 0;
-
-    this._getNamesValues().forEach((nameValue) => {
-      if (nameValue.name.toLowerCase() === 'младенцы') {
-        infants = parseInt(nameValue.value, 10);
-        return;
-      }
-      sum += parseInt(nameValue.value, 10);
-    });
-
-    let resultString = `${sum} ${Dropdown._selectProperWord(sum, 'гости')}`;
-    if (infants !== 0) { resultString += `, ${infants} ${Dropdown._selectProperWord(infants, 'младенцы')}`; }
-
-    return resultString;
-  }
-
-  _createInputText(namesValues) {
-    let result = '';
-    if (this._areAllValuesZero(namesValues)) return result;
-
-    switch (this.type) {
-      case Dropdown.types.rooms: {
-        result = this._createRoomsString(namesValues);
-        break;
-      }
-      case Dropdown.types.customers: {
-        result = this._createCustomersString(namesValues);
-        break;
-      }
-      default: {
-        const sum = namesValues.reduce(
-          (accumulator, nameValue) => accumulator + parseInt(nameValue.value, 10), 0,
-        );
-        result += `${sum} чего-то`;
-        break;
-      }
-    }
-    return result;
+    return this._createCaption();
   }
 
   _updateInputText() {
-    const newInputText = this._createInputText(this._getNamesValues());
-
-    this.input.setText(newInputText);
+    this.input.setText(this._createInputText());
   }
 
-  static _areValuesEqual(namesValues1, namesValues2) {
-    return !namesValues2?.some(
-      (nameValue, index) => namesValues1?.[index].value !== nameValue.value
-    );
+  _areValuesEqual() {
+    return !this.rows.some(({ value, oldValue }) => value !== oldValue);
   }
 
   _updateControlsVisibility() {
@@ -324,7 +241,7 @@ class Dropdown {
       this.$clearButton.addClass(clearVisibleClass);
     }
 
-    const areEqual = Dropdown._areValuesEqual(this._getNamesValues(), this.oldNamesValues);
+    const areEqual = this._areValuesEqual();
     if (areEqual && this.areValuesAccepted) {
       this.$confirmButton.removeClass(confirmVisibleClass);
     } else {
@@ -341,11 +258,14 @@ class Dropdown {
     }
   }
 
-  _setSpinnerValues(namesValuesToSet) {
-    this.spinners.forEach((spinner, i) => {
-      const valuesIsArray = Array.isArray(namesValuesToSet);
-      spinner.setValue(valuesIsArray ? namesValuesToSet[i].value : namesValuesToSet);
-      spinner.triggerSpin();
+  _setSpinnerValues(valuesToSet) {
+    this.rows.forEach((row, i) => {
+      const valuesIsArray = Array.isArray(valuesToSet);
+      const valueToSet = valuesIsArray ? valuesToSet[i] : valuesToSet;
+
+      row.value = valueToSet;
+      row.spinner.setValue(valueToSet);
+      row.spinner.triggerSpin();
     });
   }
 

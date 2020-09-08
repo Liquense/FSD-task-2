@@ -15,7 +15,7 @@ mixin booking-card({roomNumber, roomType, dailyPrice, currency, arrivalDate, dep
     div.js-booking-card__range-picker.booking-card__range-picker
       +double-date-picker({labels: ['Прибытие', 'Выезд'], firstDate: arrivalDate, secondDate: departureDate})
     div.js-booking-card__guests-dropdown.booking-card__guests-dropdown
-      +dropdown({title: 'Гости', dropdownType: 'customers', placeholder: 'Сколько гостей', data: dropdownItems})
+      +dropdown({title: 'Гости', unifiedCaption: 'гост|ь|я|ей', placeholder: 'Сколько гостей', data: dropdownItems})
     section.booking-card__receipt
       p.js-booking-card__staying-cost-calculation.booking-card__staying-cost-calculation test
       i.booking-card__placeholder

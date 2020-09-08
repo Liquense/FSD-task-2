@@ -1,6 +1,6 @@
-mixin spinner({range = [], name, index, initValue=0} = {})
+mixin spinner({range = [], index, initValue=0} = {})
   div.js-spinner.spinner
     input.js-spinner__value.spinner__value(
-      data-name=name data-min=range[0] data-max=range[1]
+      data-min=range[0] data-max=range[1]
       data-index=index value=initValue readonly=true
     )
