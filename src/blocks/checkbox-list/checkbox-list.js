@@ -22,7 +22,9 @@ class CheckboxList {
   }
 
   _initList() {
-    if (this.$list.hasClass('checkbox-list_expandable')) { this._initExpandableList(); }
+    if (this.$list.hasClass('checkbox-list_expandable')) {
+      this._initExpandableList();
+    }
   }
 
   _initExpandableList() {

@@ -37,7 +37,9 @@ class Spinner {
     this.triggerSpin();
   }
 
-  addAfterSpinCallback(callback) { this.afterSpinCallbacks.push(callback); }
+  addAfterSpinCallback(callback) {
+    this.afterSpinCallbacks.push(callback);
+  }
 
   triggerSpin() {
     const spinEvent = $.Event('spin', { currentTarget: this.$spinner });

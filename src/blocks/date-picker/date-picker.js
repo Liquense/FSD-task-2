@@ -29,7 +29,9 @@ class DatePicker {
     if (!this.isInline) this._initExpandableEvents();
   }
 
-  getSelectedDates() { return this.datePickerPlugin.selectedDates; }
+  getSelectedDates() {
+    return this.datePickerPlugin.selectedDates;
+  }
 
   getInitDates() {
     const dates = [];

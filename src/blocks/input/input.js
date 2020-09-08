@@ -29,7 +29,9 @@ class Input {
     if (this.type === Input.types.masked) this._initMask();
   }
 
-  addClickCallback(callback) { this.clickCallbacks.push(callback); }
+  addClickCallback(callback) {
+    this.clickCallbacks.push(callback);
+  }
 
   toggleFocus() {
     this.$input.toggleClass('input_focused');
