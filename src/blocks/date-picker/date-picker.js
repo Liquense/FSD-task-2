@@ -144,8 +144,8 @@ class DatePicker {
 
   _createConfirmButton() {
     const $airDatepickerButtonWrap = $('<span></span>', { class: 'datepicker--button' });
-    this.$buttonsContainer.append($airDatepickerButtonWrap);
     $airDatepickerButtonWrap.append(this.$confirmButton);
+    this.$buttonsContainer.append($airDatepickerButtonWrap);
   }
 }
 
