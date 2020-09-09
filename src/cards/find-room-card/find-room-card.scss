@@ -25,12 +25,8 @@ $borderWidth: 1px;
   &__title {
     margin-bottom: 22px;
 
-    .title {
-      letter-spacing: -0.4px;
-
-      @media (max-width: 380px) {
-        text-align: center;
-      }
+    @media (max-width: 380px) {
+      text-align: center;
     }
   }
 

@@ -42,7 +42,7 @@
   }
 
   &__room-num-symbol, &__room-number {
-    @include text_label-CTA();
+    @include text_widget-title();
 
     color: black;
   }

@@ -65,10 +65,6 @@
 
   &__toggles-title {
     margin-bottom: 17px;
-
-    .title {
-      letter-spacing: -0.4px;
-    }
   }
 
   &__toggle-button {
@@ -114,29 +110,30 @@
     margin-bottom: 45px;
   }
 
-  &__buttons {
-    .buttons-row {
-      display: flex;
-      margin-bottom: 30px;
+  &__filled-buttons,
+  &__bordered-buttons,
+  &__text-buttons {
+    display: flex;
+    margin-bottom: 30px;
+  }
 
-      > .button {
-        margin-right: 20px;
-      }
-    }
+  &__button {
+    line-height: 0;
+    margin-right: 20px;
+  }
 
-    .form-elements__filled-buttons {
-      padding-left: 1.5px;
-      padding-top: 1px;
-    }
+  &__filled-buttons {
+    padding-left: 1.5px;
+    padding-top: 1px;
+  }
 
-    .form-elements__bordered-buttons {
-      padding-left: 1px;
-    }
+  &__bordered-buttons {
+    padding-left: 1px;
+  }
 
-    .form-elements__text-buttons {
-      padding: 2px 0 1px 2px;
-      margin-bottom: 28px;
-    }
+  &__text-buttons {
+    padding: 2px 0 1px 2px;
+    margin-bottom: 28px;
   }
 
   &__buttons-header {
@@ -149,14 +146,6 @@
 
   &__pagination {
     padding-left: 2px;
-
-    .pagination {
-      width: fit-content;
-
-      &__content {
-        display: none;
-      }
-    }
   }
 
   &__pagination-title {

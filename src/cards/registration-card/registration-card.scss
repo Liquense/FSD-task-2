@@ -25,13 +25,8 @@ $borderWidth: 1px;
   &__title {
     margin-bottom: 20px;
 
-    .title {
-      align-self: stretch;
-      letter-spacing: -0.6px;
-
-      @media (max-width: 380px) {
-        text-align: center;
-      }
+    @media (max-width: 380px) {
+      text-align: center;
     }
   }
 

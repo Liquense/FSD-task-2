@@ -232,8 +232,6 @@ $otherRangeGradient: linear-gradient(
   &--nav-action {
     .date-picker__title {
       @include text_item-title();
-
-      letter-spacing: -0.8px;
     }
   }
 

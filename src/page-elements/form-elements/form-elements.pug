@@ -89,15 +89,21 @@ section.form-elements
       div.form-elements__buttons
         div.form-elements__buttons-header
           +title({type: 'label', text: 'buttons'})
-        div.form-elements__filled-buttons.buttons-row
-          +button({text: 'Click Me', type: 'filled'})
-          +button({text: 'Click Me', type: 'filled', isHovered: true})
-        div.form-elements__bordered-buttons.buttons-row
-          +button({text: 'Click Me', type: 'bordered'})
-          +button({text: 'Click Me', type: 'bordered', isHovered: true})
-        div.form-elements__text-buttons.buttons-row
-          +button({text: 'Click Me', type: 'text'})
-          +button({text: 'Click Me', type: 'text', isHovered: true})
+        div.form-elements__filled-buttons
+          div.form-elements__button
+            +button({text: 'Click Me', type: 'filled'})
+          div.form-elements__button
+            +button({text: 'Click Me', type: 'filled', isHovered: true})
+        div.form-elements__bordered-buttons
+          div.form-elements__button
+            +button({text: 'Click Me', type: 'bordered'})
+          div.form-elements__button
+            +button({text: 'Click Me', type: 'bordered', isHovered: true})
+        div.form-elements__text-buttons
+          div.form-elements__button
+            +button({text: 'Click Me', type: 'text'})
+          div.form-elements__button
+            +button({text: 'Click Me', type: 'text', isHovered: true})
         div.form-elements__wide-button
           +button({text: 'Перейти к оплате', type: 'filled', size: 'wide', decoration: 'enter-arrow'})
       div.form-elements__pagination
@@ -105,7 +111,7 @@ section.form-elements
           +title({type: 'label', text: 'pagination'})
         -
           const paginationItems = new Array(180).fill({});
-        +pagination({items: paginationItems})
+        +pagination({items: paginationItems, isContentVisible: false})
 
   div.form-elements__middle-area
     div.form-elements__dropdowns

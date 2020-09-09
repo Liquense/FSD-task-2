@@ -10,7 +10,7 @@
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
-  padding: 49px 29px 29px 29px;
+  padding: 41px 29px 29px 29px;
 
   @media (max-width: 380px) {
     align-items: center;
@@ -26,7 +26,7 @@
     justify-content: space-between;
     align-self: stretch;
     align-items: baseline;
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 
     @media (max-width: 380px) {
       justify-content: space-evenly;
@@ -47,9 +47,10 @@
   }
 
   &__room-num {
-    @include text_label-CTA();
+    @include text_widget-title();
 
     font-size: 22px;
+    line-height: normal;
     margin: 0 5px 0 0;
   }
 
@@ -128,7 +129,7 @@
   }
 
   &__summary {
-    margin-bottom: 19px;
+    margin-bottom: 20px;
     padding-left: 1px;
     display: flex;
     align-self: stretch;
@@ -158,8 +159,8 @@
 
   &__summary-total-cost {
     flex-shrink: 0;
-    font-family: Montserrat, sans-serif;
-    font-size: 18px;
-    letter-spacing: -0.7px;
+    margin-left: 5px;
+    line-height: 24px;
+    font-size: 19px;
   }
 }

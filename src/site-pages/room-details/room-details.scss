@@ -127,14 +127,6 @@ body {
     margin: 0 0 20px 0;
   }
 
-  &__features-title {
-    letter-spacing: -0.6px;
-  }
-
-  &__expressions-title {
-    letter-spacing: -0.4px;
-  }
-
   &__donut-chart {
     @media (max-width: 610px) {
       align-items: center;
@@ -160,10 +152,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-  }
-
-  &__reviews-title {
-    letter-spacing: -0.4px;
   }
 
   &__reviews-count {

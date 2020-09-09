@@ -22,12 +22,8 @@
   &__title {
     margin-bottom: 20px;
 
-    .title {
-      align-self: stretch;
-
-      @media (max-width: 380px) {
-        text-align: center;
-      }
+    @media (max-width: 380px) {
+      text-align: center;
     }
   }
 
