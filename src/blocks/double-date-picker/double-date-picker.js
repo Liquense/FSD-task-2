@@ -70,9 +70,7 @@ class TwoCalendarDatepicker {
     const newDates = datePicker.getSelectedDates();
     const options = { year: 'numeric', month: 'numeric', day: 'numeric' };
 
-    this._preventRecursiveDatesUpdate();
-    TwoCalendarDatepicker._selectOtherDatepickerDates(otherDatepicker, newDates);
-    this._resumeRecursiveDatesUpdate();
+    this._selectOtherDatepickerDates(otherDatepicker, newDates);
 
     if (newDates.length > 1) {
       datePicker.setText(newDates[number].toLocaleDateString('ru-RU', options));
@@ -82,13 +80,13 @@ class TwoCalendarDatepicker {
     this.selectCallback.forEach((callback) => callback());
   }
 
-  _preventRecursiveDatesUpdate() { this.isSecondAssignStarted = true; }
+  _selectOtherDatepickerDates(otherDatepicker, selectedDates) {
+    this.isSecondAssignStarted = true;
 
-  _resumeRecursiveDatesUpdate() { this.isSecondAssignStarted = false; }
-
-  static _selectOtherDatepickerDates(otherDatepicker, selectedDates) {
     otherDatepicker.selectDates(selectedDates);
     if (selectedDates.length < 2) { otherDatepicker.setText('ДД.ММ.ГГГГ'); }
+
+    this.isSecondAssignStarted = false;
   }
 
   _addDatepickerOnSelectHandler(datePicker, otherDatepicker, number) {
