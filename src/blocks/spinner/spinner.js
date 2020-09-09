@@ -48,6 +48,14 @@ class Spinner {
 
   static _addButtons() {
     $.widget('ui.spinner', $.ui.spinner, {
+      _buttonHtml() {
+        return [
+          `<button class="${Spinner.decreaseButtonClasses}" type="button">-</button>`,
+          `<button class="${Spinner.increaseButtonClasses}" type="button">+</button>`];
+      },
+      _uiSpinnerHtml() {
+        return '';
+      },
       _enhance() {
         this.uiSpinner = this.element
           .attr('autocomplete', 'off')
@@ -56,14 +64,6 @@ class Spinner {
 
           .prepend(this._buttonHtml()[0])
           .append(this._buttonHtml()[1]);
-      },
-      _buttonHtml() {
-        return [
-          `<button class="${Spinner.decreaseButtonClasses}" type="button">-</button>`,
-          `<button class="${Spinner.increaseButtonClasses}" type="button">+</button>`];
-      },
-      _uiSpinnerHtml() {
-        return '';
       },
     });
   }
