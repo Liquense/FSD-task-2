@@ -34,7 +34,13 @@ class Dropdown {
 
   areValuesAccepted = true;
 
+  oldValues;
+
   rows;
+
+  spinners;
+
+  values;
 
   constructor(rootElement) {
     this._initElements(rootElement);
@@ -45,7 +51,7 @@ class Dropdown {
   static _getVisibleClass() { return 'dropdown__list-wrapper_visible'; }
 
   _updateOldValues() {
-    this.rows.forEach((row) => { row.oldValue = row.spinner.getValue(); });
+    this.oldValues = this.rows.map((row) => row.spinner.getValue());
   }
 
   _initElements(rootElement) {
@@ -90,13 +96,13 @@ class Dropdown {
   }
 
   _addDropdownSpinnersEvents() {
-    this.rows.forEach((row) => {
-      row.spinner.addAfterSpinCallback((event, ui) => { this._handleSpinnerSpin(ui, row); });
+    this.spinners.forEach((spinner, index) => {
+      spinner.addAfterSpinCallback((event, ui) => { this._handleSpinnerSpin(ui, index); });
     });
   }
 
-  _handleSpinnerSpin = (ui, row) => {
-    row.value = ui.value;
+  _handleSpinnerSpin = (ui, index) => {
+    this.values[index] = ui.value;
     this._updateVisuals();
   }
 
@@ -122,7 +128,7 @@ class Dropdown {
   }
 
   _rollback() {
-    this._setSpinnerValues(this.rows.map(({ oldValue }) => oldValue));
+    this._setSpinnerValues(this.oldValues);
 
     this._updateVisuals();
   }
@@ -131,6 +137,8 @@ class Dropdown {
     this.arrow = initArrows(this.$dropdown);
     this.input = initInputs(this.$dropdown);
     this.rows = this._getRows();
+    this.spinners = this.rows.map(({ $row }) => initSpinners($row));
+    this.values = this.spinners.map((spinner) => spinner.getValue());
 
     this.isOpened = this.$listWrapper.hasClass(Dropdown._getVisibleClass());
     this.isPure = !this.$dropdown.hasClass('dropdown_pure');
@@ -183,7 +191,7 @@ class Dropdown {
   }
 
   _areAllValuesZero() {
-    return !this.rows.some(({ value }) => parseInt((value), 10) !== 0);
+    return !this.values.some((value) => parseInt((value), 10) !== 0);
   }
 
   _createCaption() {
@@ -193,8 +201,8 @@ class Dropdown {
 
   _createUnifiedCaption() {
     const sum = this.rows.reduce(
-      (accumulator, { value, isSeparate }) => (
-        accumulator + (isSeparate ? 0 : parseInt(value, 10))),
+      (accumulator, { isSeparate }, index) => (
+        accumulator + (isSeparate ? 0 : parseInt(this.values[index], 10))),
       0,
     );
 
@@ -205,12 +213,14 @@ class Dropdown {
 
   _createSeparatedCaption() {
     return this.rows.reduce(
-      (accumulator, {
-        value, declinations, isSeparate, alwaysVisible,
-      }) => (
-        (isSeparate && (value || alwaysVisible))
-          ? `${accumulator}${value} ${ruDeclination(value, declinations)}, ` : accumulator
-      ),
+      (accumulator, { declinations, isSeparate, alwaysVisible }, index) => {
+        const value = this.values[index];
+        const isVisible = value || alwaysVisible;
+
+        return (isSeparate && isVisible)
+          ? `${accumulator}${value} ${ruDeclination(value, declinations)}, `
+          : accumulator;
+      },
       '',
     );
   }
@@ -226,7 +236,7 @@ class Dropdown {
   }
 
   _areValuesEqual() {
-    return !this.rows.some(({ value, oldValue }) => value !== oldValue);
+    return !this.values.some((row, index) => this.values[index] !== this.oldValues[index]);
   }
 
   _updateControlsVisibility() {
@@ -259,13 +269,10 @@ class Dropdown {
   }
 
   _setSpinnerValues(valuesToSet) {
-    this.rows.forEach((row, i) => {
-      const valuesIsArray = Array.isArray(valuesToSet);
-      const valueToSet = valuesIsArray ? valuesToSet[i] : valuesToSet;
+    this.spinners.forEach((row, i) => {
+      const valueToSet = Array.isArray(valuesToSet) ? valuesToSet[i] : valuesToSet;
 
-      row.value = valueToSet;
-      row.spinner.setValue(valueToSet);
-      row.spinner.triggerSpin();
+      this.spinners[i].setValue(valueToSet);
     });
   }
 

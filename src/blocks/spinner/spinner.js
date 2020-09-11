@@ -21,6 +21,7 @@ class Spinner {
 
   setValue(value) {
     this.$spinner.spinner('value', value);
+    this._triggerSpin();
   }
 
   getValue() {
@@ -34,14 +35,14 @@ class Spinner {
   constructor(spinnerElement) {
     Spinner._addButtons();
     this._initPlugin(spinnerElement);
-    this.triggerSpin();
+    this._triggerSpin();
   }
 
   addAfterSpinCallback(callback) {
     this.afterSpinCallbacks.push(callback);
   }
 
-  triggerSpin() {
+  _triggerSpin() {
     const spinEvent = $.Event('spin', { currentTarget: this.$spinner });
     this.$spinner.trigger(spinEvent, { value: this.getValue() });
   }
