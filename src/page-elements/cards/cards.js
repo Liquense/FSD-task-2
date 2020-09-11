@@ -8,14 +8,5 @@ initBookingCards();
 initFindRoomCards();
 initRoomPreviewCards();
 
-const $inlineDatepicker = $('.js-cards__inline-date-picker');
-const $datepickerCells = $inlineDatepicker.find('.datepicker--cell.datepicker--cell-day');
-$datepickerCells.each((index, element) => {
-  const $datepickerCell = $(element);
-  if ($datepickerCell.attr('data-date') === '8') {
-    $datepickerCell.addClass('-current-');
-  }
-  if ($datepickerCell.attr('data-month') === '7') {
-    $datepickerCell.removeClass('-disabled-');
-  }
-});
+const inlineDatepicker = initDatepickers('.js-cards__inline-date-picker');
+inlineDatepicker.mimicCurrentDay(8);

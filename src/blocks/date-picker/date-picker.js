@@ -64,6 +64,16 @@ class DatePicker {
     this.input.setText(text);
   }
 
+  mimicCurrentDay(dayNum) {
+    const $datepickerCells = this.$datePicker.find('.datepicker--cell.datepicker--cell-day');
+    $datepickerCells.each((index, element) => {
+      const $datepickerCell = $(element);
+      if ($datepickerCell.attr('data-date') === dayNum.toString()) {
+        $datepickerCell.addClass('-current-');
+      }
+    });
+  }
+
   _initElements(element) {
     this.$datePicker = $(element);
   }
