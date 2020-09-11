@@ -59,8 +59,7 @@ class Pagination {
           endCount = totalNumber;
         }
 
-        return '<span class=\'text_type_regular\'>'
-          + ` ${startCount} – ${endCount} из ${totalCount} вариантов аренды</span>`;
+        return `<span>${startCount} – ${endCount} из ${totalCount} вариантов аренды</span>`;
       },
       ulClassName: 'pagination__pages-list',
     });
