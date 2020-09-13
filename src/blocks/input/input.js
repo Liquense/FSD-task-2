@@ -1,9 +1,10 @@
 import 'jquery.maskedinput/src/jquery.maskedinput';
 import initArrows from '../arrow/init';
-import { eventPreventDefault } from '../../common/functions';
 
 class Input {
   static types = { masked: 'masked' };
+
+  static focusedClass = 'input_focused';
 
   $input;
 
@@ -24,7 +25,7 @@ class Input {
   constructor(rootElement) {
     this._initElements(rootElement);
     this._initProps();
-    this._addInputClickHandler();
+    this._addInputOnClick();
 
     if (this.type === Input.types.masked) this._initMask();
   }
@@ -33,20 +34,39 @@ class Input {
     this.clickCallbacks.push(callback);
   }
 
+  removeClickCallback(callback) {
+    const callbackIndex = this.clickCallbacks.findIndex((element) => element === callback);
+
+    this.clickCallbacks.splice(callbackIndex, 1);
+  }
+
   toggleFocus() {
-    this.$input.toggleClass('input_focused');
+    this.$input.toggleClass(Input.focusedClass);
   }
 
-  disableLabelClicks() {
-    this.$input.on('click.input', eventPreventDefault);
+  focus() {
+    this.$input.addClass(Input.focusedClass);
   }
 
-  enableLabelClicks() {
-    this.$input.unbind('click.input', eventPreventDefault);
+  unfocus() {
+    this.$input.removeClass(Input.focusedClass);
+    this.$control.blur();
   }
 
   setText = (value) => {
-    this.$control.val(value);
+    this.$control.val(value ?? '');
+  }
+
+  expand() {
+    this.arrow.expand();
+  }
+
+  collapse() {
+    this.arrow.collapse();
+  }
+
+  isExpanded() {
+    return this.arrow.isExpanded();
   }
 
   _initElements(rootElement) {
@@ -56,18 +76,19 @@ class Input {
   }
 
   _initProps() {
-    this.arrow = initArrows(this.$input);
     this.placeholder = this.$input.attr('placeholder');
     this.isExpandable = this.$input.hasClass('input_expandable');
     this.type = this._getType();
+
+    if (this.isExpandable) this.arrow = initArrows(this.$input);
   }
 
-  _addInputClickHandler() {
+  _addInputOnClick() {
     this.$controlWrap.on('click.input', this._handleInputClick);
   }
 
   _handleInputClick = () => {
-    this.clickCallbacks.forEach((callback) => callback());
+    this.clickCallbacks.forEach((callback) => callback(this));
   }
 
   _getType() {

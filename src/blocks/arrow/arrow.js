@@ -1,4 +1,6 @@
 class Arrow {
+  static expandedClass = 'arrow_expanded';
+
   $element;
 
   isExpand = false;
@@ -16,18 +18,18 @@ class Arrow {
     if (!this.isExpand) return;
 
     this.$element.text('expand_more');
-    this.$element.removeClass('arrow_expanded');
+    this.$element.removeClass(Arrow.expandedClass);
   }
 
   expand() {
     if (!this.isExpand) return;
 
     this.$element.text('expand_less');
-    this.$element.addClass('arrow_expanded');
+    this.$element.addClass(Arrow.expandedClass);
   }
 
   isExpanded() {
-    return this.$element.hasClass('arrow_expanded');
+    return this.$element.hasClass(Arrow.expandedClass);
   }
 
   _initElement(rootElement) {

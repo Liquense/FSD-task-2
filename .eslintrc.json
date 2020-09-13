@@ -22,6 +22,7 @@
         "no-param-reassign": ["error", { "props": false }],
         "linebreak-style": "off",
         "no-underscore-dangle": "off",
-        "no-undef": "off"
+        "no-undef": "off",
+        "no-unused-expressions": "off"
     }
 }

@@ -58,8 +58,6 @@ function getAverageNum(firstNum, secondNum) {
   return (parseFloat(firstNum) + parseFloat(secondNum)) / 2;
 }
 
-function eventPreventDefault(event) { event.preventDefault(); }
-
 function parseAttrToDate(attrDate) {
   const dateParts = attrDate.split('.');
   const day = dateParts[0];
@@ -71,6 +69,6 @@ function parseAttrToDate(attrDate) {
 }
 
 export {
-  clamp, formatNumber, ruDeclination, getAverageNum, eventPreventDefault, outerHTML,
+  clamp, formatNumber, ruDeclination, getAverageNum, outerHTML,
   parseAttrToDate,
 };
