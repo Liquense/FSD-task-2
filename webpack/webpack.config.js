@@ -119,16 +119,26 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        include: [
-          path.resolve(paths.source, 'assets/images'),
-        ],
+        include: [path.resolve(paths.source, 'assets/images')],
         use: [
           {
             loader: 'file-loader',
             options: {
               outputPath: 'images',
               name: '[name].[ext]',
-              publicPath: 'images',
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(svg|png|ico|json|webmanifest)$/,
+        include: [path.resolve(paths.source, 'assets/favicons')],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'favicons',
+              name: '[name].[ext]',
             },
           },
         ],
@@ -144,7 +154,6 @@ module.exports = {
             options: {
               outputPath: 'fonts',
               name: '[name].[ext]',
-              publicPath: 'fonts',
             },
           },
         ],
