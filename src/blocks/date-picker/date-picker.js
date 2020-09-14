@@ -83,6 +83,10 @@ class DatePicker {
     this.datePickerPlugin.show();
   }
 
+  getCalendarElement() {
+    return this.datePickerPlugin.$datepicker[0];
+  }
+
   removeInputClickHandler() {
     this.input.removeClickCallback(this._handleInputClick);
   }
@@ -106,7 +110,10 @@ class DatePicker {
   }
 
   _handleDocumentClick = (event) => {
-    const isTargetInside = $.contains(this.$datePicker[0], event.target);
+    const isTargetInCalendar = $.contains(this.datePickerPlugin.$datepicker[0], event.target);
+    const isTargetInDatePicker = $.contains(this.$datePicker[0], event.target);
+    const isTargetInside = isTargetInDatePicker || isTargetInCalendar;
+
     if (!isTargetInside && !this.isDatesChanged) {
       this.isExpanded = false;
     }

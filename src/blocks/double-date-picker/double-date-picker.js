@@ -134,7 +134,10 @@ class TwoCalendarDatepicker {
   }
 
   _handleDocumentClick = (event) => {
-    const isTargetInside = $.contains(this.$doubleDatePicker[0], event.target);
+    const isTargetInCalendar = $.contains(this.datepicker.getCalendarElement(), event.target);
+    const isTargetInDatepickers = $.contains(this.$doubleDatePicker[0], event.target);
+    const isTargetInside = isTargetInCalendar || isTargetInDatepickers;
+
     if (!isTargetInside && !this.isDatesChanged) {
       this.isExpanded = false;
     }
