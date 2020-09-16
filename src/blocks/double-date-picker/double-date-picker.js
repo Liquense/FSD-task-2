@@ -140,9 +140,9 @@ class TwoCalendarDatepicker {
     const isTargetInDatepickers = $.contains(this.$doubleDatePicker[0], event.target);
     const isTargetInside = isTargetInCalendar || isTargetInDatepickers;
 
-    if (!isTargetInside && !this.isDatesChanged) {
-      this.isExpanded = false;
-    }
+    if (isTargetInside || this.isDatesChanged) return;
+    if (this.isExpanded) this.datepicker.hideCalendar();
+    this.isExpanded = false;
   }
 
   _changeActiveInput(input) {
@@ -176,8 +176,8 @@ class TwoCalendarDatepicker {
 
   _setInitialDates() {
     const initDates = this._getInitialDates(this.$doubleDatePicker);
+    this.activeInput = initDates.firstDate ? this.firstInput : this.secondInput;
     this.datepicker.selectDate([initDates.firstDate, initDates.secondDate]);
-    this._setInputsDates(initDates);
   }
 
   _setInputsDates(dates) {
