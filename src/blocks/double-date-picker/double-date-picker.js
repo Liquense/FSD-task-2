@@ -52,12 +52,7 @@ class TwoCalendarDatepicker {
   }
 
   _initDoubleDatePicker() {
-    this.datepicker.updatePlugin({
-      position: 'bottom left',
-      classes: DatePicker.wideClass,
-      dateFormat: '',
-    });
-
+    this.datepicker.updatePluginForTwoInputs();
     this._setInitialDates();
   }
 
@@ -65,7 +60,7 @@ class TwoCalendarDatepicker {
     $(document).on('click.doubleDatePicker', this._handleDocumentClick);
     this.datepicker.removeInputClickHandler();
     this._addInputsOnClick();
-    this._addDatepickerOnSelect();
+    this._updateDatepickerEvents();
   }
 
   _addInputsOnClick() {
@@ -86,15 +81,13 @@ class TwoCalendarDatepicker {
 
     let datesToPass = [];
     if (dates.length === 1) {
-      if (Number.isNaN(activeInputIndex)) return;
       [datesToPass[activeInputIndex]] = dates;
     } else {
       datesToPass = [...dates];
     }
 
     this._setInputsDates({ firstDate: datesToPass[0], secondDate: datesToPass[1] });
-
-    this.isDatesChanged = true;
+    if (this.isExpanded) this.isDatesChanged = true;
 
     this.selectCallback.forEach((callback) => { callback(this); });
   };
@@ -114,7 +107,7 @@ class TwoCalendarDatepicker {
     }
   }
 
-  _addDatepickerOnSelect() {
+  _updateDatepickerEvents() {
     this.datepicker.updatePlugin({
       onSelect: this._handleDatepickerSelect,
       onShow: this._handleDatepickerShow,
@@ -136,7 +129,7 @@ class TwoCalendarDatepicker {
   }
 
   _handleDocumentClick = (event) => {
-    const isTargetInCalendar = $.contains(this.datepicker.getCalendarElement(), event.target);
+    const isTargetInCalendar = this.datepicker.isElementInCalendar(event.target);
     const isTargetInDatepickers = $.contains(this.$doubleDatePicker[0], event.target);
     const isTargetInside = isTargetInCalendar || isTargetInDatepickers;
 
@@ -162,16 +155,10 @@ class TwoCalendarDatepicker {
   }
 
   _getInitialDates() {
-    const dates = {};
-
-    if (this.$doubleDatePicker.attr('data-first-date')) {
-      dates.firstDate = parseAttrToDate(this.$doubleDatePicker.attr('data-first-date'));
-    }
-    if (this.$doubleDatePicker.attr('data-second-date')) {
-      dates.secondDate = parseAttrToDate(this.$doubleDatePicker.attr('data-second-date'));
-    }
-
-    return dates;
+    return {
+      firstDate: parseAttrToDate(this.$doubleDatePicker.attr('data-first-date')) ?? null,
+      secondDate: parseAttrToDate(this.$doubleDatePicker.attr('data-second-date')) ?? null,
+    };
   }
 
   _setInitialDates() {

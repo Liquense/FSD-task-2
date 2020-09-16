@@ -59,11 +59,12 @@ function getAverageNum(firstNum, secondNum) {
 }
 
 function parseAttrToDate(attrDate) {
+  if (typeof attrDate !== 'string') return null;
+
   const dateParts = attrDate.split('.');
-  const day = dateParts[0];
-  const month = dateParts[1];
-  const year = dateParts[2];
-  const dateString = `${year}-${month}-${day}`;
+  const dateString = dateParts.reverse()
+    .reduce((accumulator, part) => `${accumulator}-${part}`, '')
+    .substring(1);
 
   return new Date(dateString);
 }

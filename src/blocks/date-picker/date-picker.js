@@ -87,8 +87,20 @@ class DatePicker {
     return this.datePickerPlugin.$datepicker[0];
   }
 
+  isElementInCalendar(element) {
+    return $.contains(this.datePickerPlugin.$datepicker[0], element);
+  }
+
   removeInputClickHandler() {
     this.input.removeClickCallback(this._handleInputClick);
+  }
+
+  updatePluginForTwoInputs() {
+    this.datePickerPlugin.update({
+      position: 'bottom left',
+      classes: DatePicker.wideClass,
+      dateFormat: '',
+    });
   }
 
   _initElements(element) {
@@ -110,7 +122,7 @@ class DatePicker {
   }
 
   _handleDocumentClick = (event) => {
-    const isTargetInCalendar = $.contains(this.datePickerPlugin.$datepicker[0], event.target);
+    const isTargetInCalendar = this.isElementInCalendar(event.target);
     const isTargetInDatePicker = $.contains(this.$datePicker[0], event.target);
     const isTargetInside = isTargetInDatePicker || isTargetInCalendar;
 
