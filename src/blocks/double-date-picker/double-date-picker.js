@@ -74,7 +74,7 @@ class TwoCalendarDatepicker {
   }
 
   _getActiveInputIndex() {
-    if (!this.activeInput) return undefined;
+    if (!this.activeInput) return null;
 
     if (this.activeInput === this.firstInput) return 0;
 
@@ -83,8 +83,10 @@ class TwoCalendarDatepicker {
 
   _handleDatepickerSelect = (formattedDate, dates) => {
     const activeInputIndex = this._getActiveInputIndex();
+
     let datesToPass = [];
     if (dates.length === 1) {
+      if (Number.isNaN(activeInputIndex)) return;
       [datesToPass[activeInputIndex]] = dates;
     } else {
       datesToPass = [...dates];
