@@ -115,9 +115,11 @@ class DonutChart {
   _changeActiveArc(arc) {
     const oldActiveArc = this.activeArc;
 
-    if (arc === this.activeArc) { this.activeArc = undefined; } else {
+    if (arc === this.activeArc) {
+      this.activeArc = null;
+    } else {
       this.activeArc = arc;
-      if (arc) arc.$arc.addClass(DonutChart.donutArcActiveClass);
+      arc?.$arc.addClass(DonutChart.donutArcActiveClass);
     }
 
     if (oldActiveArc) {

@@ -45,7 +45,7 @@ class DatePicker {
       dates.push(parseAttrToDate(this.$datePicker.attr('data-second-date')));
     }
 
-    return dates.length === 0 ? undefined : dates;
+    return dates.length === 0 ? null : dates;
   }
 
   updatePlugin(parameters) {

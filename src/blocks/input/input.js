@@ -94,7 +94,7 @@ class Input {
   _getType() {
     if (this.$input.hasClass('input_type_masked')) return Input.types.masked;
 
-    return undefined;
+    return null;
   }
 
   _initMask() {
