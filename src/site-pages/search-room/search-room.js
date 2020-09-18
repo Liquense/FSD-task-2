@@ -14,7 +14,7 @@ $showSidebarButtons.each((index, element) => {
   const $showSideBarButton = $(element);
 
   $showSideBarButton.click(() => {
-    $showSideBarButton.toggleClass('search-room__show-sidebar-button_active');
+    $showSideBarButton.toggleClass('search-room__sidebar-show-button_active');
   });
 });
 

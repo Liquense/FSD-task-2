@@ -21,7 +21,7 @@ body {
     padding-left: 0;
   }
 
-  &__show-sidebar-button {
+  &__sidebar-show-button {
     @include icon();
 
     user-select: none;
@@ -39,7 +39,7 @@ body {
         display: none;
       }
 
-      &#{$block}__show-sidebar-button_active {
+      &#{$block}__sidebar-show-button_active {
         color: $darkShade100;
         border-radius: 50%;
         border: solid $darkShade100 1px;

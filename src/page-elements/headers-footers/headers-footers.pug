@@ -3,7 +3,7 @@ include ../../blocks/footer/footer
 
 section.headers-footers
   -const logoPath = require('../../assets/images/logo-colored-withText.svg')
-  div.headers-footers__header-unauthorized
+  div.headers-footers__unauthorized-header
     +header(
       {logo: logoPath,
       content: [
@@ -21,7 +21,7 @@ section.headers-footers
       {text: 'Documentation'}
       ]}
     )
-  div.headers-footers__header-authorized
+  div.headers-footers__authorized-header
     +header(
       {
         userLogin: 'Cosmin Negoita',
@@ -45,7 +45,7 @@ section.headers-footers
       ]}
     )
 
-  div.headers-footers__footer-large
+  div.headers-footers__large-footer
     +footer(
       {
         logo: logoPath,
@@ -73,7 +73,7 @@ section.headers-footers
       ],
       subscription: {title: 'Subscribe to our newsletter', text: 'Receive our latest news and promotions in your inbox!', emailPlaceholder: 'Your email address'}
     })
-  div.headers-footers__footer-simple
+  div.headers-footers__simple-footer
     +footer({
       logo: logoPath,
       text: 'Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam eget nullam pellentesque aliquam curabitur cociis.',
