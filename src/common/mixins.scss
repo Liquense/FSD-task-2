@@ -45,7 +45,7 @@
 }
 
 @mixin text_label-CTA() {
-  @include text(Montserrat, bold, $label-CTASize, $labelCTAlineHeight, $darkShade100, normal);
+  @include text(Montserrat, bold, $labelCTASize, $labelCTAlineHeight, $darkShade100, normal);
   text-transform: uppercase;
 }
 

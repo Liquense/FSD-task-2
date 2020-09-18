@@ -7,13 +7,11 @@ $arrowSize: 44px;
 
   .slick {
     &-arrow {
-      display: block;
       height: 100%;
       width: fit-content;
       position: absolute;
       z-index: 1;
       cursor: pointer;
-      vertical-align: middle;
     }
 
     &-active {

@@ -11,7 +11,7 @@ $likeButtonBorderWidth: 1px;
   width: fit-content;
   min-width: 40px;
   display: inline-block;
-  -webkit-user-select: none;
+  user-select: none;
   vertical-align: middle;
   cursor: pointer;
   position: relative;
