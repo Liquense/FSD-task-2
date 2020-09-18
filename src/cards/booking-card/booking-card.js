@@ -137,10 +137,7 @@ class BookingCard {
 
     services.forEach((service) => {
       overallServicesCost += Number.parseFloat(service.cost);
-      servicesString
-        += `${service.name} `
-        + `${formatNumber(Math.abs(service.cost), ' ')}`
-        + `${this.currency}, `;
+      servicesString += `${service.name} ${formatNumber(Math.abs(service.cost), ' ')}${this.currency}, `;
     });
 
     servicesString = servicesString.substring(0, servicesString.length - 2);

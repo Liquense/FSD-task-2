@@ -136,10 +136,8 @@ class DonutChart {
 
     arc.$arc.attr('stroke-width', arcDrawData.strokeWidth);
     arc.$arc.attr(
-      'd', `M ${arcDrawData.firstPoint.x},${arcDrawData.firstPoint.y} `
-      + `A ${arcDrawData.arcRadius} ${arcDrawData.arcRadius} `
-      + `0 ${isLargeArc} `
-      + `0 ${arcDrawData.secondPoint.x},${arcDrawData.secondPoint.y}`,
+      'd',
+      `M ${arcDrawData.firstPoint.x},${arcDrawData.firstPoint.y} A ${arcDrawData.arcRadius} ${arcDrawData.arcRadius} 0 ${isLargeArc} 0 ${arcDrawData.secondPoint.x},${arcDrawData.secondPoint.y}`,
     );
   }
 

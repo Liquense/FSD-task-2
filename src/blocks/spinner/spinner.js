@@ -3,17 +3,11 @@ import 'jquery-ui/ui/widgets/spinner';
 class Spinner {
   static decreaseButtonBaseClass = 'spinner__decrease-button';
 
-  static decreaseButtonClasses = `js-${Spinner.decreaseButtonBaseClass}`
-    + ` ${Spinner.decreaseButtonBaseClass}`
-    + ' ui-spinner-button'
-    + ' ui-spinner-down';
+  static decreaseButtonClasses = `js-${Spinner.decreaseButtonBaseClass} ${Spinner.decreaseButtonBaseClass} ui-spinner-button ui-spinner-down`;
 
   static increaseButtonBaseClass = 'spinner__increase-button'
 
-  static increaseButtonClasses = `js-${Spinner.increaseButtonBaseClass}`
-    + ` ${Spinner.increaseButtonBaseClass}`
-    + ' ui-spinner-button'
-    + ' ui-spinner-up';
+  static increaseButtonClasses = `js-${Spinner.increaseButtonBaseClass} ${Spinner.increaseButtonBaseClass} ui-spinner-button ui-spinner-up`;
 
   $spinner;
 
