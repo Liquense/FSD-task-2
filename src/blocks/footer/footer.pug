@@ -4,23 +4,23 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
   -const logo = require('../../assets/images/logo-colored-withText.svg');
   -const typeModifier = isSimple ? '_type_simple' : '_type_large'
   footer(class=`footer footer${typeModifier}`)
-    div(class=`footer__content footer__content${typeModifier}`)
-      figure(class=`footer__logo footer__logo${typeModifier}`)
-        img(src=logo alt='logo' class=`footer__logo-image footer__logo-image${typeModifier}`)
-        figcaption(class=`footer__logo-text footer__logo-text${typeModifier}`) #{text}
+    div(class=`footer__content`)
+      figure(class=`footer__logo`)
+        img(src=logo alt='logo' class=`footer__logo-image`)
+        figcaption(class=`footer__logo-text`) #{text}
       if !isSimple
-        div.footer__links.footer__links_type_large
+        div.footer__links
           each column in links
-            section.footer__links-column.footer__links-column_type_large
-              div.footer__links-column-title.footer__links-column-title_type_large
+            section.footer__links-column
+              div.footer__links-column-title
                 +title({type: 'label', text: column.title})
               if column.links
                 each link in column.links
-                  a.footer__link.footer__link_type_large(href=link.url ? link.url : '/mock-address/change-me') #{link.text}
-        section.footer__subscription.footer__subscription_type_large
-          div.footer__subscription-title.footer__subscription-title_type_large
+                  a.footer__link(href=link.url ? link.url : '/mock-address/change-me') #{link.text}
+        section.footer__subscription
+          div.footer__subscription-title
             +title({type: 'label', text: subscription.title})
-          span.footer__subscription-text.footer__subscription-text_type_large #{subscription.text}
+          span.footer__subscription-text #{subscription.text}
           div.footer__subscription-input
             +input({
               type: 'text',
@@ -28,9 +28,9 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
               withSubscription: true,
               placeholder: subscription.emailPlaceholder
             })
-    div(class=`footer__copyright-bar footer__copyright-bar${typeModifier}`)
+    div(class=`footer__copyright-bar`)
       if !isSimple
-        span.footer__copyright-text.footer__copyright-text_type_large #{copyright}
+        span.footer__copyright-text #{copyright}
       section.footer__social-media
         div.footer__icon
           a.fab.fa-twitter(href='https://twitter.com/' target='_blank', rel='noopener noreferrer')
