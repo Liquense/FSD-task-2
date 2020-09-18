@@ -45,7 +45,7 @@ class Slider {
       range: this.isRange,
       animate: 'fast',
       change: this.isRange ? this._handleValuesChange : this._handleValueChange,
-      slide: Slider._handleHandlerValueChange,
+      slide: this._handleSlide,
     });
 
     const initialValues = [
@@ -71,7 +71,7 @@ class Slider {
     this.$sliderControl.find('.ui-slider-handle').last().attr('sliderHandleValue', values[1]);
   }
 
-  static _handleHandlerValueChange(event, ui) {
+  _handleSlide = (event, ui) => {
     $(ui.handle).attr('sliderHandleValue', ui.value);
   }
 

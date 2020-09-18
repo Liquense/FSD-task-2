@@ -12,8 +12,14 @@ function polarCoordinatesToCartesian(length, angle, x0 = 0, y0 = 0) {
   return result;
 }
 
-function calculateAngleFromArcLength(arcLength, radius) {
-  return (180 * arcLength) / (Math.PI * radius);
+function calculateCircleLength(radius) {
+  return 2 * Math.PI * radius;
 }
 
-export { degreesToRads, polarCoordinatesToCartesian, calculateAngleFromArcLength };
+function calculateAngleFromArcLength(arcLength, radius) {
+  return 360 * (arcLength / calculateCircleLength(radius));
+}
+
+export {
+  degreesToRads, polarCoordinatesToCartesian, calculateAngleFromArcLength, calculateCircleLength,
+};

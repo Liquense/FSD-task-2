@@ -1,5 +1,9 @@
 import { getAverageNum, ruDeclination } from '../../common/functions';
-import { calculateAngleFromArcLength, polarCoordinatesToCartesian } from '../../common/math';
+import {
+  calculateAngleFromArcLength,
+  calculateCircleLength,
+  polarCoordinatesToCartesian,
+} from '../../common/math';
 
 class DonutChart {
   static donutArcActiveClass = 'donut-chart__svg-arc_active';
@@ -20,7 +24,7 @@ class DonutChart {
 
   $activeValueText;
 
-  donutParams = {};
+  donutParams;
 
   arcs = [];
 
@@ -28,9 +32,8 @@ class DonutChart {
 
   constructor(rootElement) {
     this._initElements(rootElement);
-    this._readParamsFromElements();
-
-    this._calculateAdditionalParams();
+    this._initDonutParams();
+    this._initArcs();
     this._createDonut();
     this._initEvents();
   }
@@ -46,44 +49,69 @@ class DonutChart {
     this.$activeValueText = this.$dataTextContainer.find('.js-donut-chart__value-text');
   }
 
-  _readParamsFromElements() {
-    this.donutParams.arcsGap = this.$donutCanvas.attr('data-arcs-gap');
-    this.donutParams.defaultStyle = {
-      outerRadius: this.$donutCanvas.attr('data-default-outer-radius'),
-      innerRadius: this.$donutCanvas.attr('data-default-inner-radius'),
+  _initDonutParams() {
+    const defaultInnerRadius = parseFloat(this.$donutCanvas.attr('data-default-inner-radius'));
+    const defaultOuterRadius = parseFloat(this.$donutCanvas.attr('data-default-outer-radius'));
+    const arcDefaultRadius = getAverageNum(defaultOuterRadius, defaultInnerRadius);
+    const activeOuterRadius = parseFloat(this.$donutCanvas.attr('data-active-outer-radius'));
+
+    const arcGap = parseFloat(this.$donutCanvas.attr('data-arcs-gap'));
+    const gapPart = arcGap / calculateCircleLength(arcDefaultRadius);
+
+    const { arcs, rates } = this._getArcsAndRatesAmounts();
+
+    this.donutParams = {
+      arcGap,
+      defaultStyle: {
+        midRadius: arcDefaultRadius,
+        innerRadius: defaultInnerRadius,
+        outerRadius: defaultOuterRadius,
+      },
+      activeStyle: {
+        innerRadius: parseFloat(this.$donutCanvas.attr('data-active-inner-radius')),
+        outerRadius: activeOuterRadius,
+      },
+      canvasWidth: activeOuterRadius * 2,
+      canvasHeight: activeOuterRadius * 2,
+      gapAngle: calculateAngleFromArcLength(arcGap, arcDefaultRadius),
+      nonZeroArcs: arcs,
+      ratesAmount: rates,
+      ratesAmountWithGaps: rates / (1 - (gapPart * arcs)),
     };
-    this.donutParams.activeStyle = {
-      outerRadius: this.$donutCanvas.attr('data-active-outer-radius'),
-      innerRadius: this.$donutCanvas.attr('data-active-inner-radius'),
-    };
-    this.$donutArcs.each((index, arc) => { this._readArcParams($(arc)); });
   }
 
-  _readArcParams($arc) {
+  _initArcs() {
+    this.$donutArcs.each(this._initArc);
+  }
+
+  _initArc = (index, arc) => {
+    const $arc = $(arc);
     const value = Number.parseFloat($arc.attr('data-value'));
     const color = $arc.attr('data-color');
     const isActive = $arc.attr('data-is-active') === 'true';
+    const startingAngle = index
+      ? this.arcs.slice(-1)[0].endingAngle + this.donutParams.gapAngle
+      : 90 + (this.donutParams.gapAngle / 2);
+
     this.arcs.push({
-      value, $arc, isActive, color,
+      value,
+      $arc,
+      isActive,
+      color,
+      startingAngle,
+      endingAngle: this._calculateArcEndingAngle({ startingAngle, value }),
     });
   }
 
-  _calculateAdditionalParams() {
-    const arcDefaultRadius = getAverageNum(
-      this.donutParams.defaultStyle.outerRadius, this.donutParams.defaultStyle.innerRadius,
+  _calculateArcEndingAngle({ startingAngle, value }) {
+    const arcValueProportion = value / this.donutParams.ratesAmountWithGaps;
+    const pieLength = 2 * Math.PI * this.donutParams.defaultStyle.midRadius;
+    const arcAngle = calculateAngleFromArcLength(
+      arcValueProportion * pieLength,
+      this.donutParams.defaultStyle.midRadius,
     );
 
-    this.donutParams.canvasWidth = this.donutParams.activeStyle.outerRadius;
-    this.donutParams.canvasHeight = this.donutParams.activeStyle.outerRadius;
-    this.donutParams.gapsAngle = calculateAngleFromArcLength(
-      this.donutParams.arcsGap, arcDefaultRadius,
-    );
-    this.donutParams.startingAngle = 90 + this.donutParams.gapsAngle / 2;
-
-    const { arcs, rates } = this._getArcsAndRatesAmounts();
-    this.donutParams.notZeroArcs = arcs;
-    this.donutParams.allRatesAmount = rates;
-    this.donutParams.ratesAmountWithGaps = this._calculateRatesWithGaps();
+    return startingAngle + arcAngle;
   }
 
   _createDonut() {
@@ -105,13 +133,6 @@ class DonutChart {
     return this.donutParams.defaultStyle;
   }
 
-  static _calculateArcEndingAngle(startingAngle, arcValue, allRatesAmount) {
-    const arcValueProportion = arcValue / allRatesAmount;
-    const arcAngle = 360 * arcValueProportion;
-
-    return startingAngle + arcAngle;
-  }
-
   _changeActiveArc(arc) {
     const oldActiveArc = this.activeArc;
 
@@ -129,37 +150,28 @@ class DonutChart {
   }
 
   _drawArc(arc) {
-    const arcDrawData = this._getArcDrawData(arc);
+    const {
+      arcAngle, arcRadius, firstPoint, secondPoint, strokeWidth,
+    } = this._getArcDrawData(arc);
+    const isLargeArc = arcAngle > 180 ? 1 : 0;
 
-    let isLargeArc = 0;
-    if (arcDrawData.arcAngle > 180) { isLargeArc = 1; }
-
-    arc.$arc.attr('stroke-width', arcDrawData.strokeWidth);
+    arc.$arc.attr('stroke-width', strokeWidth);
     arc.$arc.attr(
       'd',
-      `M ${arcDrawData.firstPoint.x},${arcDrawData.firstPoint.y} A ${arcDrawData.arcRadius} ${arcDrawData.arcRadius} 0 ${isLargeArc} 0 ${arcDrawData.secondPoint.x},${arcDrawData.secondPoint.y}`,
+      `M ${firstPoint.x},${firstPoint.y} A ${arcRadius} ${arcRadius} 0 ${isLargeArc} 0 ${secondPoint.x},${secondPoint.y}`,
     );
   }
 
   _getArcDrawData(arc) {
     const currentStyle = this._getArcStyle(arc);
-    const allRatesAmount = this.donutParams.ratesAmountWithGaps;
-    const canvasSize = {
-      width: this.donutParams.canvasWidth,
-      height: this.donutParams.canvasHeight,
-    };
     const { startingAngle } = arc;
+    const { endingAngle } = arc;
 
-    const endingAngle = DonutChart._calculateArcEndingAngle(
-      startingAngle, arc.value, allRatesAmount,
-    );
-    arc.endingAngle = endingAngle;
-    const startX = canvasSize.width / 2;
-    const startY = canvasSize.height / 2;
+    const startX = this.donutParams.canvasWidth / 2;
+    const startY = this.donutParams.canvasHeight / 2;
     const strokeWidth = currentStyle.outerRadius - currentStyle.innerRadius;
-    const arcRadius = currentStyle.outerRadius / 2 - strokeWidth / 2;
+    const arcRadius = (currentStyle.outerRadius - (strokeWidth / 2));
     const arcAngle = endingAngle - startingAngle;
-
     const firstPoint = polarCoordinatesToCartesian(
       arcRadius, startingAngle, startX, startY,
     );
@@ -168,19 +180,17 @@ class DonutChart {
     );
 
     return {
-      firstPoint, secondPoint, arcRadius, strokeWidth, startX, startY, arcAngle,
+      firstPoint, secondPoint, arcRadius, strokeWidth, arcAngle,
     };
   }
 
   _updateActiveCaption() {
     if (!this.activeArc?.value) {
-      this.$activeValue.text(this.donutParams.allRatesAmount);
-      this.$activeValue.css('color', 'grey');
+      this.$activeValue.text(this.donutParams.ratesAmount);
+      this.$activeValue.css('color', 'black');
 
-      this.$activeValueText.text(ruDeclination(
-        this.donutParams.allRatesAmount, 'голос||а|ов',
-      ));
-      this.$activeValueText.css('color', 'grey');
+      this.$activeValueText.text(ruDeclination(this.donutParams.ratesAmount, 'голос||а|ов'));
+      this.$activeValueText.css('color', 'black');
     } else {
       this.$activeValue.text(this.activeArc.value);
       this.$activeValue.css('color', this.activeArc.color);
@@ -193,7 +203,7 @@ class DonutChart {
   _handleArcClick(arc) {
     this._changeActiveArc(arc);
     this._drawArc(arc);
-    this._updateActiveCaption(this.activeArc?.value, this.activeArc?.color);
+    this._updateActiveCaption();
   }
 
   _handleArcMouseEnter(arc, mouseEvent) {
@@ -202,7 +212,9 @@ class DonutChart {
   }
 
   _handleArcMouseLeave(arc, mouseEvent) {
-    if (arc !== this.activeArc) $(mouseEvent.target).removeClass(DonutChart.donutArcActiveClass);
+    if (arc !== this.activeArc) {
+      $(mouseEvent.target).removeClass(DonutChart.donutArcActiveClass);
+    }
     this._drawArc(arc);
   }
 
@@ -216,36 +228,23 @@ class DonutChart {
     });
   }
 
-  _calculateRatesWithGaps() {
-    const { rates, arcs } = this._getArcsAndRatesAmounts();
-
-    return rates / (1 - ((this.donutParams.gapsAngle * arcs) / 360));
-  }
-
   _getArcsAndRatesAmounts() {
     const result = { arcs: 0, rates: 0 };
 
-    this.arcs.forEach((arc) => {
-      if (arc.value === 0) { return; }
-
-      result.rates += arc.value;
-      result.arcs += 1;
+    this.$donutArcs.each((index, arc) => {
+      const value = Number.parseFloat($(arc).attr('data-value'));
+      result.rates += value;
+      result.arcs += value ? 1 : 0;
     });
 
     return result;
   }
 
   _drawDonutOnCanvas() {
-    this.arcs[0].startingAngle = this.donutParams.startingAngle;
-
-    this.arcs.forEach((arc, i) => {
+    this.arcs.forEach((arc) => {
       if (arc.isActive) this._changeActiveArc(arc);
 
       this._drawArc(arc);
-
-      if (i + 1 < this.arcs.length) {
-        this.arcs[i + 1].startingAngle = arc.endingAngle + this.donutParams.gapsAngle;
-      }
     });
 
     this._updateActiveCaption();
