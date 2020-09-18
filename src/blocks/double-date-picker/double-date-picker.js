@@ -34,7 +34,9 @@ class TwoCalendarDatepicker {
     this._initDoubleDatePicker();
   }
 
-  addSelectCallback(callback) { this.selectCallback.push(callback); }
+  addSelectCallback(callback) {
+    this.selectCallback.push(callback);
+  }
 
   getSelectedDates = () => this.datepicker.getSelectedDates();
 

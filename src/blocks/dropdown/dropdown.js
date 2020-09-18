@@ -4,6 +4,8 @@ import initInputs from '../input/init';
 import initArrows from '../arrow/init';
 
 class Dropdown {
+  static visibleClass = 'dropdown__list-wrapper_visible';
+
   $dropdown;
 
   $listWrapper;
@@ -47,8 +49,6 @@ class Dropdown {
     this._initProperties();
     this._initEvents();
   }
-
-  static _getVisibleClass() { return 'dropdown__list-wrapper_visible'; }
 
   _updateOldValues() {
     this.oldValues = this.rows.map((row) => row.spinner.getValue());
@@ -140,7 +140,7 @@ class Dropdown {
     this.spinners = this.rows.map(({ $row }) => initSpinners($row));
     this.values = this.spinners.map((spinner) => spinner.getValue());
 
-    this.isOpened = this.$listWrapper.hasClass(Dropdown._getVisibleClass());
+    this.isOpened = this.$listWrapper.hasClass(Dropdown.visibleClass);
     this.isPure = !this.$dropdown.hasClass('dropdown_pure');
     this.isUnified = this.$list.hasClass('dropdown__list_unified');
     this.areValuesAccepted = !this.$dropdown.hasClass('dropdown_unaccepted');
@@ -149,7 +149,7 @@ class Dropdown {
     this.unifiedDeclinations = this.$dropdown.attr('data-unified-caption') || '';
 
     if (this.isAlwaysOpened) {
-      this.$listWrapper.toggleClass(Dropdown._getVisibleClass());
+      this.$listWrapper.toggleClass(Dropdown.visibleClass);
       this.arrow.expand();
     }
 
@@ -184,7 +184,7 @@ class Dropdown {
     if (this.isAlwaysOpened) return;
 
     if (this.isOpened && !valuesAccepted) this._rollback();
-    this.$listWrapper.toggleClass(Dropdown._getVisibleClass());
+    this.$listWrapper.toggleClass(Dropdown.visibleClass);
     this.isOpened = !this.isOpened;
     this.input.toggleFocus();
     this.arrow.toggleExpandState();

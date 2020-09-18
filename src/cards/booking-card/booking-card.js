@@ -166,7 +166,9 @@ class BookingCard {
     return Math.max(totalCost, 0);
   }
 
-  _updateDailyPrice() { this.$dailyPrice.text(`${formatNumber(this.dailyPrice, ' ')}${this.currency}`); }
+  _updateDailyPrice() {
+    this.$dailyPrice.text(`${formatNumber(this.dailyPrice, ' ')}${this.currency}`);
+  }
 }
 
 export default BookingCard;

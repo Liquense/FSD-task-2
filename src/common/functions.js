@@ -50,9 +50,13 @@ function ruDeclination(amount, stringToDecline) {
   }, '').trim();
 }
 
-function outerHTML($element) { return jQuery('<div />').append($element.eq(0).clone()).html(); }
+function outerHTML($element) {
+  return jQuery('<div />').append($element.eq(0).clone()).html();
+}
 
-function clamp(value, min, max) { return Math.min(Math.max(value, min), max); }
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
+}
 
 function getAverageNum(firstNum, secondNum) {
   return (parseFloat(firstNum) + parseFloat(secondNum)) / 2;
