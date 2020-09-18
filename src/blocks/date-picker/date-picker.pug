@@ -4,4 +4,4 @@ include ../../blocks/input/input
 mixin date-picker({title='', width, placeholder, isInline=false, dates=[]} = {})
   -const inlineModifier = isInline ? 'date-picker_inline' : ''
   article.js-date-picker.date-picker(class=`${inlineModifier}` data-first-date=dates[0] data-second-date=dates[1])
-    +input({title, width, placeholder, isExpandable: !isInline, inDatePicker: true})
+    +input({title, width, placeholder, isExpandable: !isInline})

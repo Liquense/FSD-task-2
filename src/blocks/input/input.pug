@@ -1,7 +1,7 @@
 include ../arrow/arrow
 include ../title/title
 
-mixin input({title='', type, width, placeholder, withSubscription=false, isExpandable=false, isFocused=false, text, inDropdown=false, inDatePicker=false} = {})
+mixin input({title='', type, width, placeholder, withSubscription=false, isExpandable=false, isFocused=false, text, inDropdown=false} = {})
   -let widthModifier = ''
   case width
     when 'narrow'
@@ -11,7 +11,7 @@ mixin input({title='', type, width, placeholder, withSubscription=false, isExpan
     when 'medium'
       -widthModifier = 'input_width_medium'
 
-  -let subscriptionModifier = expandableModifier = focusedModifier = inDropdownModifier = inDatePickerModifier = ''
+  -let subscriptionModifier = expandableModifier = focusedModifier = inDropdownModifier = ''
   if withSubscription
     -subscriptionModifier = 'input_with-subscription'
   if isExpandable
@@ -19,16 +19,14 @@ mixin input({title='', type, width, placeholder, withSubscription=false, isExpan
   if isFocused
     -focusedModifier = 'input_focused'
   if inDropdown
-    -inDropdownModifier = 'input_in-dropdown'
-  if inDatePicker
-    -inDatePickerModifier = 'input_in-date-picker'
+    -inDropdownModifier = 'input_with-dropdown-list'
 
   -let typeModifier = ''
   case type
     when 'mask'
       -typeModifier = 'input_type_masked'
 
-  article.js-input.input(class=`${widthModifier} ${subscriptionModifier} ${expandableModifier} ${focusedModifier} ${inDropdownModifier} ${inDatePickerModifier} ${typeModifier}`)
+  article.js-input.input(class=`${widthModifier} ${subscriptionModifier} ${expandableModifier} ${focusedModifier} ${inDropdownModifier} ${typeModifier}`)
     if title
       div.js-input__title.input__title
         +title({type: 'label', text: title})

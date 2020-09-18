@@ -21,31 +21,15 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     min-width: 300px;
   }
 
-  &_in-dropdown {
+  &_with-dropdown-list {
     #{$block}__control {
       padding-right: 80px;
-
-      &::placeholder {
-        color: $darkShade75;
-      }
     }
 
     &#{$block}_focused {
       #{$block}__control {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-      }
-    }
-  }
-
-  &_in-date-picker {
-    #{$block}__control {
-      &:valid:hover,
-      &:valid:focus,
-      &::placeholder,
-      &:focus::placeholder,
-      &:hover::placeholder {
-        color: $darkShade75;
       }
     }
   }
@@ -63,6 +47,10 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   &_expandable &__control {
     color: $darkShade75;
     cursor: pointer;
+
+    &::placeholder {
+      color: $darkShade75;
+    }
   }
 
   &_width_narrow {
