@@ -1,6 +1,6 @@
-mixin colorBlock({color='fffff', colorName='white'})
+mixin colorBlock({colorCode='000000', colorCaption='', colorName='shade'})
   div.color-block
     div.color-block__square(data-color=colorName)
     div.color-block__description
-      p.color-block__name #{colorName}
-      p.color-block__code #{color}
+      p.color-block__name #{colorCaption}
+      p.color-block__code #{colorCode}

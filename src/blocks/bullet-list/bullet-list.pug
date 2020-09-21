@@ -1,11 +1,11 @@
 include ../title/title
-mixin bullet-list({title = '', contentStrings = []} = {})
+mixin bullet-list({title = '', strings = []} = {})
   div.bullet-list
     if title
       div.bullet-list__title
         +title({type: 'label', text: title})
     ul.bullet-list__container
-      each string, index in contentStrings
+      each string, index in strings
         li.bullet-list__item
           i.bullet-list__item-image
           p.bullet-list__item-text #{string}

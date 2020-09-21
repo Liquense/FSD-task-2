@@ -9,31 +9,31 @@
     border-radius: 6px;
     margin-right: 40px;
 
-    &[data-color='Dark Shade 100%'] {
+    &[data-color='dark shade'] {
       background-color: $darkShade100;
     }
 
-    &[data-color='Dark Shade 75%'] {
+    &[data-color='shade'] {
       background-color: $darkShade75;
     }
 
-    &[data-color='Dark Shade 50%'] {
+    &[data-color='light shade'] {
       background-color: $darkShade50;
     }
 
-    &[data-color='Dark Shade 25%'] {
+    &[data-color='lighter shade'] {
       background-color: $darkShade25;
     }
 
-    &[data-color='Dark Shade 5%'] {
+    &[data-color='lightest shade'] {
       background-color: $darkShade5;
     }
 
-    &[data-color='Purple'] {
+    &[data-color='purple'] {
       background-color: $purple;
     }
 
-    &[data-color='Green'] {
+    &[data-color='green'] {
       background-color: $green;
     }
   }

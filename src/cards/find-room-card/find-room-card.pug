@@ -8,7 +8,7 @@ mixin find-room-card()
     div.find-room-card__title
       +title({type: 'widget', text: 'Найдём номера под ваши пожелания', headerLevel: 2})
     div.find-room-card__staying-dates-picker
-      +double-date-picker({labels: ['Прибытие', 'Выезд']})
+      +double-date-picker({firstTitle: 'Прибытие', secondTitle: 'Выезд'})
     div.find-room-card__guests-dropdown
       +dropdown({
         title: 'Гости',

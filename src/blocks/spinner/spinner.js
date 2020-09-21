@@ -3,15 +3,35 @@ import 'jquery-ui/ui/widgets/spinner';
 class Spinner {
   static decreaseButtonBaseClass = 'spinner__decrease-button';
 
+  static decreaseButtonDisabledClass = `${Spinner.decreaseButtonBaseClass}_disabled`;
+
   static decreaseButtonClasses = `js-${Spinner.decreaseButtonBaseClass} ${Spinner.decreaseButtonBaseClass} ui-spinner-button ui-spinner-down`;
 
-  static increaseButtonBaseClass = 'spinner__increase-button'
+  static increaseButtonBaseClass = 'spinner__increase-button';
+
+  static increaseButtonDisabledClass = `${Spinner.increaseButtonBaseClass}_disabled`;
 
   static increaseButtonClasses = `js-${Spinner.increaseButtonBaseClass} ${Spinner.increaseButtonBaseClass} ui-spinner-button ui-spinner-up`;
 
+  $decreaseButton;
+
+  $increaseButton;
+
   $spinner;
 
+  min;
+
+  max;
+
   afterSpinCallbacks = [];
+
+  constructor(spinnerElement) {
+    this._initElements(spinnerElement);
+    this._initProperties();
+    this._initPlugin();
+    this._initPluginElements();
+    this._triggerSpin();
+  }
 
   setValue(value) {
     this.$spinner.spinner('value', value);
@@ -26,18 +46,8 @@ class Spinner {
     return this.$spinner.attr('data-name');
   }
 
-  constructor(spinnerElement) {
-    this._initPlugin(spinnerElement);
-    this._triggerSpin();
-  }
-
   addAfterSpinCallback(callback) {
     this.afterSpinCallbacks.push(callback);
-  }
-
-  _triggerSpin() {
-    const spinEvent = $.Event('spin', { currentTarget: this.$spinner });
-    this.$spinner.trigger(spinEvent, { value: this.getValue() });
   }
 
   static addButtonsToPlugin() {
@@ -55,24 +65,40 @@ class Spinner {
           .attr('autocomplete', 'off')
           .wrap(this._uiSpinnerHtml())
           .parent()
-
           .prepend(this._buttonHtml()[0])
           .append(this._buttonHtml()[1]);
       },
     });
   }
 
-  _initPlugin(spinnerElement) {
+  _initElements(spinnerElement) {
     this.$spinner = $(spinnerElement);
+  }
 
+  _initProperties() {
+    this.min = this.$spinner.attr('data-min');
+    this.max = this.$spinner.attr('data-max');
+  }
+
+  _initPlugin() {
     this.$spinner.spinner({
-      min: this.$spinner.attr('data-min'),
-      max: this.$spinner.attr('data-max'),
+      min: this.min,
+      max: this.max,
     });
 
     this.setValue(this.$spinner.attr('value'));
 
     this.$spinner.on('spin.spinner', this._handleSpin.bind(this));
+  }
+
+  _initPluginElements() {
+    this.$decreaseButton = this.$spinner.siblings(`.js-${Spinner.decreaseButtonBaseClass}`);
+    this.$increaseButton = this.$spinner.siblings(`.js-${Spinner.increaseButtonBaseClass}`);
+  }
+
+  _triggerSpin() {
+    const spinEvent = $.Event('spin', { currentTarget: this.$spinner });
+    this.$spinner.trigger(spinEvent, { value: this.getValue() });
   }
 
   _handleSpin = (event, ui) => {
@@ -83,22 +109,15 @@ class Spinner {
   }
 
   _disableButtonsAtExtremum(event, ui) {
-    const min = this.$spinner.attr('data-min');
-    const max = this.$spinner.attr('data-max');
-    const $decreaseButton = this.$spinner.siblings(`.js-${Spinner.decreaseButtonBaseClass}`);
-    const decreaseButtonDisabledClass = `${Spinner.decreaseButtonBaseClass}_disabled`;
-    const $increaseButton = this.$spinner.siblings(`.js-${Spinner.increaseButtonBaseClass}`);
-    const increaseButtonDisabledClass = `${Spinner.increaseButtonBaseClass}_disabled`;
-
-    if (ui.value <= min) {
-      $decreaseButton.addClass(decreaseButtonDisabledClass);
+    if (ui.value <= this.min) {
+      this.$decreaseButton.addClass(Spinner.decreaseButtonDisabledClass);
     } else {
-      $decreaseButton.removeClass(decreaseButtonDisabledClass);
+      this.$decreaseButton.removeClass(Spinner.decreaseButtonDisabledClass);
     }
-    if (ui.value >= max) {
-      $increaseButton.addClass(increaseButtonDisabledClass);
+    if (ui.value >= this.max) {
+      this.$increaseButton.addClass(Spinner.increaseButtonDisabledClass);
     } else {
-      $increaseButton.removeClass(increaseButtonDisabledClass);
+      this.$increaseButton.removeClass(Spinner.increaseButtonDisabledClass);
     }
   }
 }

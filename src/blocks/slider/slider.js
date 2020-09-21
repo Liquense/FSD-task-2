@@ -34,7 +34,7 @@ class Slider {
     this.min = Number(this.$sliderControl.attr('data-min'));
     this.max = Number(this.$sliderControl.attr('data-max'));
     this.step = Number(this.$sliderControl.attr('data-step'));
-    this.isRange = this.$sliderControl.hasClass('slider__control_range');
+    this.isRange = this.$slider.hasClass('slider_with-range-selection');
   }
 
   _initPlugin() {

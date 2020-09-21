@@ -33,7 +33,7 @@ section.form-elements
 
     div.form-elements__date-pickers
       div.form-elements__date-picker
-        +double-date-picker({secondDate: '19.08.2019', labels: ['date dropdown', 'date dropdown']})
+        +double-date-picker({secondDate: '19.08.2019', firstTitle: 'date dropdown', secondTitle: 'date dropdown'})
       div.form-elements__date-picker
         +date-picker({title: 'filter date dropdown', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', dates: ['19.08.2019', '23.08.2019']})
 
@@ -164,7 +164,7 @@ section.form-elements
       div.form-elements__bullet-list
         +bullet-list({
           title: 'Bullet List',
-          contentStrings: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']
+          strings: ['Нельзя с питомцами', 'Без вечеринок и мероприятий', 'Время прибытия — после 13:00, а выезд до 12:00']
           }
         )
 

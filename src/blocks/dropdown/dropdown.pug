@@ -34,7 +34,7 @@ mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], unifiedCa
               data-is-separate=`${element.isSeparate || ''}`
               data-always-visible=`${element.alwaysVisible || ''}`) #{element.name}
             div.dropdown__spinner
-              +spinner({range, index, initValue: element.value})
+              +spinner({min: range[0], max: range[1], index, initValue: element.value})
       div.js-dropdown__buttons-container.dropdown__buttons-container
         div.js-dropdown__clear-button.dropdown__clear-button
           +button({text: 'Очистить', type: 'text', isHovered: true})

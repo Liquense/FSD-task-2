@@ -1,7 +1,7 @@
 include ../../blocks/carousel/carousel
 include ../../blocks/rating/rating
 include ../../blocks/title/title
-mixin room-preview-card({link = 'room-details.html', room={}, carousel={content: [], carouselParams: {}}} = {})
+mixin room-preview-card({link = 'room-details.html', room={}, carousel={images: [], carouselParams: {}}} = {})
   -const {currencySymbol='₽', periodText='в сутки', rating=[5, 5]} = room
 
   article.js-room-preview-card.room-preview-card(data-currency=currencySymbol data-cost-per-period=room.costPerPeriod data-reviews-count=room.reviewsCount)
