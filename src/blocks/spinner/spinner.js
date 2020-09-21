@@ -27,7 +27,6 @@ class Spinner {
   }
 
   constructor(spinnerElement) {
-    Spinner._addButtons();
     this._initPlugin(spinnerElement);
     this._triggerSpin();
   }
@@ -41,7 +40,7 @@ class Spinner {
     this.$spinner.trigger(spinEvent, { value: this.getValue() });
   }
 
-  static _addButtons() {
+  static addButtonsToPlugin() {
     $.widget('ui.spinner', $.ui.spinner, {
       _buttonHtml() {
         return [

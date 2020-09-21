@@ -73,7 +73,11 @@ function parseAttrToDate(attrDate) {
   return new Date(dateString);
 }
 
+function secondsToDays(secondsAmount) {
+  return Math.round(secondsAmount / (24 * 60 * 60 * 1000));
+}
+
 export {
   clamp, formatNumber, ruDeclination, getAverageNum, outerHTML,
-  parseAttrToDate,
+  parseAttrToDate, secondsToDays,
 };

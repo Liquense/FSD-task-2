@@ -1,4 +1,4 @@
-import { formatNumber, ruDeclination } from '../../common/functions';
+import { formatNumber, ruDeclination, secondsToDays } from '../../common/functions';
 import initDropdowns from '../../blocks/dropdown/init';
 import initTwoCalendarDatepickers from '../../blocks/double-date-picker/init';
 
@@ -114,15 +114,13 @@ class BookingCard {
     this.$stayingCost.text(`${sumToPrint}${this.currency}`);
   }
 
-  static _secondsToDays = (secondsAmount) => Math.round(secondsAmount / (24 * 60 * 60 * 1000));
-
   _updateDaysAmount() {
     const dateRange = this.doubleDatePicker.getSelectedDates();
 
     let daysAmount;
     if (dateRange[0] && dateRange[1]) {
       const secondsAmount = Math.round((dateRange[1] - dateRange[0]));
-      daysAmount = BookingCard._secondsToDays(secondsAmount);
+      daysAmount = secondsToDays(secondsAmount);
     }
 
     this.daysAmount = daysAmount || 0;
