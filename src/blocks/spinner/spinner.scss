@@ -34,14 +34,15 @@
     &:focus {
       outline: none;
     }
+  }
 
-    &:not(&_disabled) {
-      &.focused,
-      &:hover {
-        border-color: $darkShade75;
-        color: $darkShade75;
-        cursor: pointer;
-      }
+  &__increase-button:not(&__increase-button_disabled),
+  &__decrease-button:not(&__decrease-button_disabled) {
+    &.focused,
+    &:hover {
+      border-color: $darkShade75;
+      color: $darkShade75;
+      cursor: pointer;
     }
   }
 }
