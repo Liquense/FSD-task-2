@@ -1,10 +1,8 @@
 include ../../blocks/carousel/carousel
 include ../../blocks/rating/rating
 include ../../blocks/title/title
-mixin room-preview-card({link = 'room-details.html', room={}, carousel={images: [], carouselParams: {}}} = {})
-  -const {currencySymbol='₽', periodText='в сутки', rating=[5, 5]} = room
-
-  article.js-room-preview-card.room-preview-card(data-currency=currencySymbol data-cost-per-period=room.costPerPeriod data-reviews-count=room.reviewsCount)
+mixin room-preview-card({link='room-details.html', room:{currencySymbol='₽', periodText='в сутки', rating=[5, 5], reviewsCount=0, roomNumber=0, roomType='', costPerPeriod=1}={}, carousel={images:[], carouselParams:{}}} = {})
+  article.js-room-preview-card.room-preview-card(data-currency=currencySymbol data-cost-per-period=costPerPeriod data-reviews-count=reviewsCount)
     div.room-preview-card__photos
       +carousel(carousel)
     a.js-room-preview-card__text-content.room-preview-card__text-content(href=link)
@@ -13,12 +11,12 @@ mixin room-preview-card({link = 'room-details.html', room={}, carousel={images: 
           span.room-preview-card__room-num-symbol
             |№
           h2.room-preview-card__room-number
-            |#{` ${room.roomNumber} `}
+            |#{` ${roomNumber} `}
           span.room-preview-card__room-type
-            |#{room.roomType}
+            |#{roomType}
         div.room-preview-card__cost-info
           span.js-room-preview-card__cost-per-period.room-preview-card__cost-per-period
-            |#{room.costPerPeriod}#{currencySymbol}
+            |#{costPerPeriod}#{currencySymbol}
           span.room-preview-card__period
             |#{periodText}
       hr.room-preview-card__division-line
@@ -27,6 +25,6 @@ mixin room-preview-card({link = 'room-details.html', room={}, carousel={images: 
           +rating({maxRating: rating[1], rating: rating[0]})
         div.room-preview-card__reviews-info
           span.js-room-preview-card__reviews-count.room-preview-card__reviews-count
-            |#{room.reviewsCount}
+            |#{reviewsCount}
           span.js-room-preview-card__reviews-text.room-preview-card__reviews-text
             |Отзывов

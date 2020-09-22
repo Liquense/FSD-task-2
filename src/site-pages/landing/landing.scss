@@ -1,6 +1,4 @@
-body {
-  margin: 0;
-}
+@use '../../common/resets';
 
 .landing {
   @include box-sizing-border-box();

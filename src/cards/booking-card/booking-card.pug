@@ -2,7 +2,7 @@ include ../../blocks/double-date-picker/double-date-picker
 include ../../blocks/button/button
 include ../../blocks/dropdown/dropdown
 
-mixin booking-card({roomNumber, roomType, dailyPrice, currency, arrivalDate, departureDate, dropdownItems=[], services, additionalPrice} = {})
+mixin booking-card({roomNumber, roomType, dailyPrice, paymentPeriod='в сутки', currency='₽', arrivalDate, departureDate, dropdownItems=[], services, additionalPrice} = {})
   form.js-booking-card.booking-card
     header.booking-card__header
       div.booking-card__room-info
@@ -11,15 +11,15 @@ mixin booking-card({roomNumber, roomType, dailyPrice, currency, arrivalDate, dep
         span.booking-card__room-type #{roomType}
       div.booking-card__price-info
         span.js-booking-card__daily-price.booking-card__daily-price(data-daily-price=dailyPrice data-currency=currency) #{dailyPrice}#{currency}
-        span.booking-card__payment-period  в сутки
+        span.booking-card__payment-period  #{paymentPeriod}
     div.js-booking-card__range-picker.booking-card__range-picker
       +double-date-picker({firstTitle: 'Прибытие', secondTitle: 'Выезд', firstDate: arrivalDate, secondDate: departureDate})
     div.js-booking-card__guests-dropdown.booking-card__guests-dropdown
       +dropdown({title: 'Гости', unifiedCaption: 'гост|ь|я|ей', placeholder: 'Сколько гостей', data: dropdownItems})
     section.booking-card__receipt
-      p.js-booking-card__staying-cost-calculation.booking-card__staying-cost-calculation test
+      p.js-booking-card__staying-cost-calculation.booking-card__staying-cost-calculation placeholder
       i.booking-card__placeholder
-      p.js-booking-card__staying-cost-sum.booking-card__staying-cost-sum test
+      p.js-booking-card__staying-cost-sum.booking-card__staying-cost-sum placeholder
       p.js-booking-card__services.booking-card__services(data-services=services)
       i.booking-card__info-icon i
       p.js-booking-card__services-sum.booking-card__services-sum

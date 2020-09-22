@@ -1,8 +1,6 @@
-$roomCardWidth: 270px;
+@use '../../common/resets';
 
-body {
-  margin: 0;
-}
+$roomCardWidth: 270px;
 
 .search-room {
   $block: &;

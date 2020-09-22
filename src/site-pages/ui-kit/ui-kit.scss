@@ -1,8 +1,4 @@
-@import "../../common/variables";
-
-body {
-  margin: 0;
-}
+@use '../../common/resets';
 
 .ui-kit {
   @include box-sizing-border-box();

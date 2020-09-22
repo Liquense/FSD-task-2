@@ -1,8 +1,6 @@
-$backgroundImageHeight: 685px;
+@use '../../common/resets';
 
-body {
-  margin: 0;
-}
+$backgroundImageHeight: 685px;
 
 .login {
   height: $backgroundImageHeight;
