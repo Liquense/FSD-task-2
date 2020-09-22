@@ -109,6 +109,7 @@ module.exports = {
           {
             loader: 'sass-resources-loader',
             options: {
+              hoistUseStatements: true,
               resources: [
                 `${paths.source}/common/mixins.scss`,
                 `${paths.source}/common/variables.scss`,

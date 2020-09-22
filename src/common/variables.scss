@@ -8,9 +8,9 @@ $darkShade12: change_color($darkShade100, $alpha: 0.12);
 $darkShade10: change_color($darkShade100, $alpha: 0.1);
 $darkShade5: change_color($darkShade100, $alpha: 0.05);
 $purple: #BC9CFF;
-$purpleGradientSecond: adjust_color($purple, null, null, null, -34.2612, -9.6, -5.09804);
+$purpleGradientSecond: adjust-color($purple, $hue: -34.2612, $saturation: -9.6, $lightness: -5.09804);
 $green: #6FCF97;
-$greenGradientSecond: adjust_color($green, null, null, null, 45.90909, 25.86207, 3.52941);
+$greenGradientSecond: adjust-color($green, $hue: 45.90909, $saturation: 25.86207, $lightness: 3.52941);
 $inputBackgroundColor: white;
 
 $labelCTASize: 12px;
