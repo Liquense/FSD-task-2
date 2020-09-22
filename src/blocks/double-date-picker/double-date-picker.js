@@ -88,7 +88,6 @@ class TwoCalendarDatepicker {
     }
 
     this._setInputsDates({ firstDate: datesToPass[0], secondDate: datesToPass[1] });
-    if (this.isExpanded) this.isDatesChanged = true;
 
     this.selectCallback.forEach((callback) => { callback(this); });
   };
@@ -97,6 +96,7 @@ class TwoCalendarDatepicker {
     if (!isAnimationEnded) {
       this._focusInputs();
       this.activeInput?.expand();
+      this.isDatesChanged = true;
     }
   }
 
@@ -134,6 +134,7 @@ class TwoCalendarDatepicker {
     const isTargetInDatepickers = $.contains(this.$doubleDatePicker[0], event.target);
     const isTargetInside = isTargetInCalendar || isTargetInDatepickers;
 
+    console.log(`isInside: ${isTargetInside} isChanged: ${this.isDatesChanged}`);
     if (isTargetInside || this.isDatesChanged) return;
     if (this.isExpanded) this.datepicker.hideCalendar();
     this.isExpanded = false;

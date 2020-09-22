@@ -170,7 +170,7 @@ class DatePicker {
       multipleDates: true,
       showEvent: '',
       position: 'bottom center',
-      offset: 5,
+      offset: 6,
       navTitles: {
         days: '<span class="date-picker__title">MM yyyy</span>',
         months: '<span class="date-picker__title">yyyy</span>',

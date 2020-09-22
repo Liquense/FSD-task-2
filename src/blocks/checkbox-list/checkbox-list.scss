@@ -30,6 +30,12 @@ $titleHeight: 12px;
     &:not(#{$block}_expanded) #{$block}__title {
       margin-bottom: 0;
     }
+
+    #{$block}__item {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
   }
 
   &_expanded &__container {

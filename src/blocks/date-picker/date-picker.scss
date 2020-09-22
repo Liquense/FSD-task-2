@@ -215,7 +215,7 @@ $otherRangeGradient: linear-gradient(
   }
 
   &--content {
-    padding: 29px $datepickerContentSidesPadding - 2*$datepickerBorderWidth 0 $datepickerContentSidesPadding;
+    padding: 30px $datepickerContentSidesPadding - 2*$datepickerBorderWidth 0 $datepickerContentSidesPadding;
   }
 
   &--pointer {
@@ -256,7 +256,7 @@ $otherRangeGradient: linear-gradient(
     border: none;
     display: flex;
     justify-content: space-between;
-    padding: 20px 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth 20px - $datepickerBorderWidth;
+    padding: 20px (20px - $datepickerBorderWidth) (20px - $datepickerBorderWidth) (20px - $datepickerBorderWidth);
   }
 
   &--button {

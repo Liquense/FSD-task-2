@@ -1,9 +1,10 @@
 @use '../../common/resets';
 
-$backgroundImageHeight: 685px;
+$backgroundImageHeight: 684px;
 
 .login {
-  height: $backgroundImageHeight;
+  min-height: $backgroundImageHeight;
+  border-bottom: solid 1px #F4F4F6;
   position: relative;
   display: flex;
   align-items: center;
@@ -31,14 +32,14 @@ $backgroundImageHeight: 685px;
 
   &__background-image {
     object-fit: cover;
-    bottom: 0;
+    bottom: -18px;
     width: get-vw(1440px);
     position: absolute;
     z-index: -1;
     min-height: $backgroundImageHeight;
 
     @media (max-width: 1400px) {
-      object-position: 0;
+      bottom: 0;
     }
   }
 }
