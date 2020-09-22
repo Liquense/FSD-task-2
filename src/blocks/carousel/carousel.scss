@@ -5,6 +5,9 @@ $arrowSize: 44px;
 
   @include box-sizing-border-box();
 
+  height: 100%;
+  max-width: 100vw;
+
   .slick {
     &-arrow {
       height: 100%;
