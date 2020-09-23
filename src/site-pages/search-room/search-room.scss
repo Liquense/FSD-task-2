@@ -19,7 +19,7 @@ $roomCardWidth: 270px;
     padding-left: 0;
   }
 
-  &__sidebar-show-button {
+  &__show-sidebar-button {
     @include icon();
 
     user-select: none;

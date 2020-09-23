@@ -12,10 +12,11 @@ importContext(require.context('./', true, /\.(js|scss)$/));
 const $showSidebarButtons = $('.js-search-room__show-sidebar-button');
 $showSidebarButtons.each((index, element) => {
   const $showSideBarButton = $(element);
-
-  $showSideBarButton.click(() => {
+  function handleButtonClick() {
     $showSideBarButton.toggleClass('search-room__sidebar-show-button_active');
-  });
+  }
+
+  $showSideBarButton.on('click', handleButtonClick);
 });
 
 const pagination = initPaginations();
