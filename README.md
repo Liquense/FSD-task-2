@@ -1,11 +1,15 @@
 # TOXIN
-Проект является вёрсткой макета по программе обучения 
-[FSD](https://www.fullstack-development.com/). \
-Использованы: \
+## Описание
+Проект является вёрсткой макета из второго задания по программе обучения 
+[FSD](https://www.fullstack-development.com/)
+
+## Стек:
 [JQuery](https://jquery.com/) \
-[SCSS](https://sass-lang.com/) - препроцессор CSS, \
-[Webpack](https://webpack.js.org/) - для сборки. \
-[Страницы с демонстрацией](https://liquense.github.io/FSD-task-2/dist/index.html) \
+[SCSS](https://sass-lang.com/) \
+[Webpack](https://webpack.js.org/)
+
+## Страницы:
+[gh-pages](https://liquense.github.io/FSD-task-2/dist/index.html) \
 [Макет](https://www.figma.com/file/MumYcKVk9RkKZEG6dR5E3A/FSD-frontend-education-program.-The-2nd-task)
 
 ## Установка
