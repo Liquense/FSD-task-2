@@ -1,7 +1,7 @@
-# TOXIN
+# TOXIN: бронирование номеров
 ## Описание
 Проект является вёрсткой макета из второго задания по программе обучения 
-[FSD](https://www.fullstack-development.com/)
+[MetaLamp](https://www.metalamp.io)
 
 ## Стек:
 [JQuery](https://jquery.com/) \
