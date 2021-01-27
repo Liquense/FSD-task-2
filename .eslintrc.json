@@ -20,7 +20,7 @@
     },
     "rules": {
         "no-param-reassign": ["error", { "props": false }],
-        "linebreak-style": "off",
+        "linebreak-style": "warn",
         "no-underscore-dangle": "off",
         "no-undef": "off",
         "no-unused-expressions": "off"
