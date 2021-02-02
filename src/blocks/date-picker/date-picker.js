@@ -30,6 +30,10 @@ class DatePicker {
     if (!this.isInline) this._initExpandableEvents();
   }
 
+  addOnConfirmButtonClick(handler) {
+    this.$confirmButton.on('click.datepicker', handler);
+  }
+
   getSelectedDates() {
     return this.datePickerPlugin.selectedDates;
   }

@@ -3,8 +3,6 @@ import { parseAttrToDate } from '../../common/functions';
 import initInputs from '../input/init';
 
 class TwoCalendarDatepicker {
-  isSecondAssignStarted = false;
-
   $doubleDatePicker;
 
   $firstDatePicker;
@@ -58,8 +56,8 @@ class TwoCalendarDatepicker {
   }
 
   _initEvents() {
-    $(document).on('click.doubleDatePicker', this._handleDocumentClick);
     this.datepicker.removeInputClickHandler();
+    this.datepicker.addOnConfirmButtonClick(this._handleDatepickerConfirmButtonClick);
     this._addInputsOnClick();
     this._updateDatepickerEvents();
   }
@@ -116,6 +114,10 @@ class TwoCalendarDatepicker {
     });
   }
 
+  _handleDatepickerConfirmButtonClick = () => {
+    this.isExpanded = false;
+  }
+
   _handleInputsClick = (input) => {
     const isSameInput = input === this.activeInput;
     if (!isSameInput) this._changeActiveInput(input);
@@ -127,17 +129,6 @@ class TwoCalendarDatepicker {
       this.datepicker.showCalendar();
       this.isExpanded = true;
     }
-  }
-
-  _handleDocumentClick = (event) => {
-    const isTargetInCalendar = this.datepicker.isElementInCalendar(event.target);
-    const isTargetInDatepickers = $.contains(this.$doubleDatePicker[0], event.target);
-    const isTargetInside = isTargetInCalendar || isTargetInDatepickers;
-
-    console.log(`isInside: ${isTargetInside} isChanged: ${this.isDatesChanged}`);
-    if (isTargetInside || this.isDatesChanged) return;
-    if (this.isExpanded) this.datepicker.hideCalendar();
-    this.isExpanded = false;
   }
 
   _changeActiveInput(input) {
