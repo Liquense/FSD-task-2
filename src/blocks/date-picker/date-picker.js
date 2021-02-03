@@ -175,6 +175,7 @@ class DatePicker {
       showEvent: '',
       position: 'bottom center',
       offset: 6,
+      minDate: new Date(),
       navTitles: {
         days: '<span class="date-picker__title">MM yyyy</span>',
         months: '<span class="date-picker__title">yyyy</span>',
