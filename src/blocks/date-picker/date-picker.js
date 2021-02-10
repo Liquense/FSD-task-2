@@ -92,7 +92,7 @@ class DatePicker {
   }
 
   isElementInCalendar(element) {
-    return $.contains(this.datePickerPlugin.$datepicker[0], element);
+    return $.contains(this.getCalendarElement(), element);
   }
 
   removeInputClickHandler() {

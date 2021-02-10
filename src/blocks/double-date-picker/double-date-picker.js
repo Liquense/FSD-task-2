@@ -19,7 +19,7 @@ class TwoCalendarDatepicker {
 
   isExpanded;
 
-  isDatesChanged;
+  isDateSelected;
 
   selectedDates;
 
@@ -56,6 +56,7 @@ class TwoCalendarDatepicker {
   }
 
   _initEvents() {
+    $(document).on('click.doubleDatePicker', this._handleDocumentClick);
     this.datepicker.removeInputClickHandler();
     this.datepicker.addOnConfirmButtonClick(this._handleDatepickerConfirmButtonClick);
     this._addInputsOnClick();
@@ -86,6 +87,7 @@ class TwoCalendarDatepicker {
     }
 
     this._setInputsDates({ firstDate: datesToPass[0], secondDate: datesToPass[1] });
+    this.isDateSelected = true;
 
     this.selectCallback.forEach((callback) => { callback(this); });
   };
@@ -94,7 +96,6 @@ class TwoCalendarDatepicker {
     if (!isAnimationEnded) {
       this._focusInputs();
       this.activeInput?.expand();
-      this.isDatesChanged = true;
     }
   }
 
@@ -102,7 +103,6 @@ class TwoCalendarDatepicker {
     if (!isAnimationEnded) {
       this._unfocusInputs();
       this.activeInput?.collapse();
-      this.isDatesChanged = false;
     }
   }
 
@@ -129,6 +129,19 @@ class TwoCalendarDatepicker {
       this.datepicker.showCalendar();
       this.isExpanded = true;
     }
+  }
+
+  _handleDocumentClick = (event) => {
+    const isTargetInCalendar = this.datepicker.isElementInCalendar(event.target);
+    const isTargetInDatepickers = $.contains(this.$doubleDatePicker[0], event.target);
+    const isTargetInside = isTargetInCalendar || isTargetInDatepickers;
+
+    if (isTargetInside || this.isDateSelected) {
+      this.isDateSelected = false;
+      return;
+    }
+    if (this.isExpanded) this.datepicker.hideCalendar();
+    this.isExpanded = false;
   }
 
   _changeActiveInput(input) {
