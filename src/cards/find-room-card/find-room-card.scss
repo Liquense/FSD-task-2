@@ -12,7 +12,7 @@ $borderWidth: 1px;
   background-color: white;
   border: $borderWidth solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  padding: (40px - $borderWidth) (30px - $borderWidth) (30px - $borderWidth);
+  padding: (38px - $borderWidth) (30px - $borderWidth) (30px - $borderWidth);
 
   @media (max-width: 380px) {
     align-items: center;
@@ -23,7 +23,7 @@ $borderWidth: 1px;
   }
 
   &__title {
-    margin-bottom: 22px;
+    margin-bottom: 26px;
 
     @media (max-width: 380px) {
       text-align: center;
