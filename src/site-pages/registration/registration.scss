@@ -1,14 +1,15 @@
 @use '../../common/resets';
 
-$backgroundImageHeight: 702px;
+$backgroundImageHeight: 683px;
 
 .registration {
-  height: $backgroundImageHeight;
+  min-height: $backgroundImageHeight;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-bottom: 1px solid grey;
 
   @media (max-width: 380px) {
     min-height: unset;
@@ -16,7 +17,7 @@ $backgroundImageHeight: 702px;
   }
 
   &__registration-card {
-    margin-top: 4px;
+    padding-left: 5px;
 
     @media (max-width: 380px) {
       margin-top: 0;
@@ -26,7 +27,7 @@ $backgroundImageHeight: 702px;
 
   &__background-image {
     object-fit: cover;
-    bottom: 0;
+    bottom: -19px;
     width: get-vw(1440px);
     position: absolute;
     z-index: -1;

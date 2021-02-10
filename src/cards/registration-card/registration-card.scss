@@ -11,7 +11,7 @@ $borderWidth: 1px;
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
-  padding: 40px - $borderWidth 30px 30px 30px - $borderWidth;
+  padding: 39px - $borderWidth 30px - $borderWidth 29px - $borderWidth 30px - $borderWidth;
 
   @media (max-width: 380px) {
     align-items: center;
@@ -23,7 +23,7 @@ $borderWidth: 1px;
   }
 
   &__title {
-    margin-bottom: 20px;
+    margin-bottom: 21px;
 
     @media (max-width: 380px) {
       text-align: center;
