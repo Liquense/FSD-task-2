@@ -1,6 +1,6 @@
 @use '../../common/resets';
 
-$backgroundImageHeight: 684px;
+$backgroundImageHeight: 702px;
 
 .login {
   min-height: $backgroundImageHeight;
@@ -22,8 +22,6 @@ $backgroundImageHeight: 684px;
   }
 
   &__login-card {
-    margin-bottom: 1px;
-
     @media (max-width: 380px) {
       margin-bottom: 0;
       width: 100%;
@@ -32,7 +30,7 @@ $backgroundImageHeight: 684px;
 
   &__background-image {
     object-fit: cover;
-    bottom: -18px;
+    bottom: 0;
     width: get-vw(1440px);
     position: absolute;
     z-index: -1;
