@@ -50,7 +50,6 @@ $otherRangeGradient: linear-gradient(
   border: $datepickerBorderWidth solid $darkShade25;
   box-shadow: 0 10px 20px $darkShade5;
   box-sizing: border-box;
-  color: $darkShade100;
 
   &--cell {
     border-radius: 50%;
@@ -78,6 +77,10 @@ $otherRangeGradient: linear-gradient(
         &.-focus- {
           background: $otherPointsGradient;
         }
+      }
+
+      &.-focus- {
+        color: white;
       }
     }
 
@@ -152,6 +155,10 @@ $otherRangeGradient: linear-gradient(
       color: white;
       background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
       font-weight: bold;
+
+      &.-disabled- {
+        color: white;
+      }
     }
   }
 
@@ -262,6 +269,7 @@ $otherRangeGradient: linear-gradient(
   &--button {
     @include text_label-CTA();
 
+    line-height: 15px;
     flex: none;
     height: unset;
     cursor: pointer;
