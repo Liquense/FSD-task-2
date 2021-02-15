@@ -13,9 +13,12 @@ $arrowSize: 24px;
   min-width: 99px;
   text-decoration: none;
 
-  &_type_bordered {
+  &:not(&_type_text) {
     background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
     border-radius: 22px;
+  }
+
+  &_type_bordered {
     padding: $buttonBorderWidth;
 
     #{$block}__control {
@@ -29,7 +32,7 @@ $arrowSize: 24px;
 
   &_type_filled {
     #{$block}__control {
-      background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+      background: transparent;
       border: none;
       color: $inputBackgroundColor;
     }
@@ -94,11 +97,6 @@ $arrowSize: 24px;
     }
   }
 
-  &_hovered:not(&_type_text),
-  &:not(&_type_text):hover {
-    opacity: 0.5;
-  }
-
   &__control {
     @include text_label-CTA();
 
@@ -126,6 +124,11 @@ $arrowSize: 24px;
     padding: ($buttonHeight - $arrowSize)/2;
     right: 0;
     top: 0;
+  }
+
+  &_hovered:not(&_type_text),
+  &:not(&_type_text):hover {
+    background: linear-gradient(180deg, rgba($purple, 0.5) 0%, rgba($purpleGradientSecond, 0.5) 100%);
   }
 
   &_hovered#{&}_type_text, &_type_text:hover {
