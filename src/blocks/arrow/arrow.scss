@@ -8,6 +8,7 @@ $expandWidth: 1em;
   vertical-align: middle;
   text-align: center;
   line-height: $expandWidth;
+  cursor: pointer;
 
   &_type_enter {
     @include icon();
@@ -21,7 +22,6 @@ $expandWidth: 1em;
     color: $darkShade50;
     font-weight: normal;
     user-select: none;
-    cursor: pointer;
     background-color: transparent;
 
     &:hover:not(.arrow_relative),
