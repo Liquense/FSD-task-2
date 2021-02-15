@@ -37,6 +37,6 @@ mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], unifiedCa
               +spinner({min: range[0], max: range[1], index, initValue: element.value})
       div.js-dropdown__buttons-container.dropdown__buttons-container
         div.js-dropdown__clear-button.dropdown__clear-button
-          +button({text: 'Очистить', type: 'text', isHovered: true})
+          +button({text: 'Очистить', type: 'text'})
         div.js-dropdown__confirm-button.dropdown__confirm-button
           +button({text: 'Применить', type: 'text'})
