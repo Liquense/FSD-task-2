@@ -268,10 +268,11 @@ $otherRangeGradient: linear-gradient(
     border: none;
     background-color: transparent;
     width: fit-content;
-    color: $darkShade50;
+    color: $purple;
 
     &:hover {
       background: none;
+      color: $darkShade50;
     }
   }
 
@@ -371,6 +372,10 @@ $otherRangeGradient: linear-gradient(
     color: $purple;
     cursor: pointer;
     padding: 0;
+
+    &:hover {
+      color: $darkShade50;
+    }
 
     &:focus {
       outline: none;

@@ -1,4 +1,5 @@
 import 'air-datepicker';
+
 import initInputs from '../input/init';
 import { parseAttrToDate } from '../../common/functions';
 
