@@ -161,7 +161,7 @@
   &__dropdowns {
     display: flex;
     min-height: 263px;
-    margin-bottom: 57px;
+    margin-bottom: 50px;
   }
 
   &__room-dropdowns {
@@ -186,11 +186,15 @@
 
   &__expandable-list {
     margin-left: 1px;
-    margin-bottom: 52px;
+    margin-bottom: 41px;
   }
 
   &__rich-list {
     margin-right: 72px;
+  }
+
+  &__rich-list, &__bullet-list {
+    padding-top: 7px;
   }
 
   &__bottom-area {
