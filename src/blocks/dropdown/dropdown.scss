@@ -52,7 +52,7 @@ $inputBorderRadius: 4px;
     @include text_label-CTA();
 
     margin: 0;
-    line-height: 30px;
+    overflow-wrap: anywhere;
   }
 
   &__spinner {
