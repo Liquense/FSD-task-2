@@ -27,6 +27,7 @@ $arrowSize: 24px;
       border: none;
       background-color: $inputBackgroundColor;
       color: $purple;
+      padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
     }
   }
 
@@ -35,6 +36,7 @@ $arrowSize: 24px;
       background: transparent;
       border: none;
       color: $inputBackgroundColor;
+      padding: 9px 20px 10px 20px;
     }
 
     #{$block}__decoration {
@@ -104,7 +106,6 @@ $arrowSize: 24px;
     cursor: pointer;
     width: 100%;
     min-height: $buttonHeight;
-    padding: 9px 20px 10px 20px;
     margin: 0;
     border-radius: 22px;
     overflow-wrap: anywhere;
