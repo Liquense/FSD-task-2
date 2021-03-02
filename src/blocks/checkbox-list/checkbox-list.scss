@@ -14,11 +14,16 @@ $titleHeight: 12px;
   width: fit-content;
 
   &_expandable {
-    #{$block}__title {
+    #{$block}__title-wrap {
       min-width: 266px;
-      padding-right: $arrowWrapSize;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 0 0 10px 0;
+    }
+
+    #{$block}__title {
       line-height: $titleHeight;
-      position: relative;
       cursor: pointer;
     }
 
@@ -27,7 +32,7 @@ $titleHeight: 12px;
       padding-top: 3px;
     }
 
-    &:not(#{$block}_expanded) #{$block}__title {
+    &:not(#{$block}_expanded) #{$block}__title-wrap {
       margin-bottom: 0;
     }
 
@@ -49,17 +54,17 @@ $titleHeight: 12px;
     }
   }
 
+  &__title-wrap {
+    margin: 0 0 16px 0;
+  }
+
   &__title {
     padding: 0;
     user-select: none;
-    margin: 0 0 16px;
   }
 
   &__expand-arrow {
-    margin: ($arrowWrapSize - $arrowSize)/2;
-    position: absolute;
-    top: -($arrowWrapSize - $titleHeight)/2 - 1px;
-    right: 0;
+    padding: 0 10px;
   }
 
   &__container {

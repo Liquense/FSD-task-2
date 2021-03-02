@@ -23,6 +23,7 @@ $expandWidth: 1em;
     font-weight: normal;
     user-select: none;
     background-color: transparent;
+    position: relative;
 
     &:hover:not(.arrow_relative),
     &:focus:not(.arrow_relative) {
