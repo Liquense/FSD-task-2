@@ -111,11 +111,19 @@ class TwoCalendarDatepicker {
       onSelect: this._handleDatepickerSelect,
       onShow: this._handleDatepickerShow,
       onHide: this._handleDatepickerHide,
+      onChangeView: this._handleDatepickerChangeView,
+      onChangeMonth: this._handleDatepickerChangeView,
+      onChangeYear: this._handleDatepickerChangeView,
+      onChangeDecade: this._handleDatepickerChangeView,
     });
   }
 
   _handleDatepickerConfirmButtonClick = () => {
     this.isExpanded = false;
+  }
+
+  _handleDatepickerChangeView = () => {
+    this.isDateSelected = true;
   }
 
   _handleInputsClick = (input) => {
