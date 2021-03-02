@@ -57,6 +57,7 @@ $arrowSize: 24px;
     line-height: 15px;
     color: $purple;
     cursor: pointer;
+    padding: 0;
 
     &:focus {
       outline: none;
@@ -70,7 +71,6 @@ $arrowSize: 24px;
       height: auto;
       min-height: unset;
       line-height: normal;
-      padding: 9px 20px 10px 20px;
     }
 
     &#{$block}_type_bordered #{$block}__control {
@@ -104,7 +104,7 @@ $arrowSize: 24px;
     cursor: pointer;
     width: 100%;
     min-height: $buttonHeight;
-    padding: 0;
+    padding: 9px 20px 10px 20px;
     margin: 0;
     border-radius: 22px;
 
@@ -123,7 +123,6 @@ $arrowSize: 24px;
     position: absolute;
     padding: ($buttonHeight - $arrowSize)/2;
     right: 0;
-    top: 0;
   }
 
   &_hovered:not(&_type_text),
