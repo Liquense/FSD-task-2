@@ -82,7 +82,6 @@
         flex-direction: column;
         flex-shrink: 0;
         align-items: flex-start;
-        margin-right: get-vw(40px);
 
         @media (max-width: 1350px) {
           align-self: unset;
@@ -110,9 +109,10 @@
       #{$block}__links {
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: space-evenly;
         width: 100%;
         padding-top: 6px;
+        margin-left: get-vw(40px);
 
         @media (max-width: 550px) {
           flex-direction: column;
@@ -125,10 +125,12 @@
         flex-direction: column;
         align-items: flex-start;
         width: 33.333%;
-        min-width: max-content;
+        padding-right: 20px;
+        margin-bottom: 30px;
 
         @media (max-width: 1400px) {
           width: auto;
+          max-width: 33.333%;
         }
 
         @media (max-width: 550px) {
@@ -154,6 +156,7 @@
         @include text_regular();
 
         line-height: 17px;
+        overflow-wrap: anywhere;
 
         &:not(:last-child) {
           margin-bottom: 21px;
@@ -234,7 +237,7 @@
   }
 
   &__content {
-    padding: get-vw(100px) get-vw(140px) get-vw(101px);
+    padding: get-vw(100px) get-vw(140px) get-vw(71px);
   }
 
   &__logo {
