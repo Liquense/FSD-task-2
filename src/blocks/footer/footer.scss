@@ -229,9 +229,8 @@
       #{$block}__copyright-text {
         @include text_regular();
 
-        @media (max-width: 450px) {
-          margin-bottom: 5px;
-          text-align: center;
+        @media (min-width: 768px) {
+          max-width: 80%;
         }
       }
 
