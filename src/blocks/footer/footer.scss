@@ -234,6 +234,12 @@
           text-align: center;
         }
       }
+
+      #{$block}__social-media {
+        @media (min-width: 768px) {
+          max-width: 20%;
+        }
+      }
     }
   }
 
@@ -249,10 +255,6 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    @media (min-width: 768px) {
-      max-width: 20%;
-    }
 
     @media (max-width: 450px) {
       min-width: 80px;
