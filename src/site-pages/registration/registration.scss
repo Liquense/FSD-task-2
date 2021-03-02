@@ -26,11 +26,13 @@ $backgroundImageHeight: 683px;
   }
 
   &__background-image {
+    $bottomOffset: 19px;
+
     object-fit: cover;
-    bottom: -19px;
+    bottom: -$bottomOffset;
     width: get-vw(1440px);
     position: absolute;
     z-index: -1;
-    min-height: $backgroundImageHeight;
+    min-height: $backgroundImageHeight + $bottomOffset;
   }
 }
