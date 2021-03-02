@@ -146,21 +146,21 @@
     display: flex;
     align-items: center;
     margin-left: get-vw(27px);
-    max-width: 38%;
+    min-width: 303px;
+    max-width: 30%;
 
     @media (max-width: 450px) {
       justify-content: center;
       width: 100%;
     }
+
+    @media (max-width: 850px) {
+      max-width: 80%;
+    }
   }
 
 
   &__login-button {
-    min-width: 28.7%;
-    margin-right: get-vw(20px);
-  }
-
-  &__register-button {
-    min-width: 65.4%;
+    margin-right: 20px;
   }
 }
