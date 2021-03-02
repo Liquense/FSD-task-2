@@ -107,6 +107,7 @@ $arrowSize: 24px;
     padding: 9px 20px 10px 20px;
     margin: 0;
     border-radius: 22px;
+    overflow-wrap: anywhere;
 
     &:focus {
       outline: none;
