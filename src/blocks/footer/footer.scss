@@ -33,6 +33,7 @@
     padding: 0;
     border-top: none;
     height: fit-content;
+    max-width: 40%;
   }
 }
 
@@ -246,6 +247,12 @@
 
   &__social-media {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: 768px) {
+      max-width: 20%;
+    }
 
     @media (max-width: 450px) {
       min-width: 80px;
@@ -259,8 +266,6 @@
   }
 
   &__icon {
-    &:not(:first-child) {
-      margin-left: get-vw(23px);
-    }
+    margin-left: get-vw(23px);
   }
 }
