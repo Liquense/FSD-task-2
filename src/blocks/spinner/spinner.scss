@@ -16,10 +16,10 @@
   $buttonSize: 30px;
   $borderWidth: 1px;
   &__increase-button, &__decrease-button {
-    @include text(Montserrat, normal, 18px, $buttonSize - 2*$borderWidth, $darkShade50, 0px);
+    @include text(Montserrat, normal, 18px, $buttonSize - 2*$borderWidth, $darkShade25, 0px);
 
     border-radius: 50%;
-    border: $borderWidth solid $darkShade50;
+    border: $borderWidth solid $darkShade25;
     color: $darkShade50;
     background-color: $inputBackgroundColor;
     width: $buttonSize;
@@ -27,8 +27,8 @@
     padding: 0;
 
     &_disabled {
-      color: $darkShade25;
-      border-color: $darkShade25;
+      color: $darkShade12;
+      border-color: $darkShade12;
     }
 
     &:focus {
