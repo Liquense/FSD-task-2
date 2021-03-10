@@ -12,7 +12,7 @@ $borderWidth: 1px;
   background-color: white;
   border: $borderWidth solid rgba(0, 0, 0, 0.12);
   border-radius: 4px;
-  padding: (38px - $borderWidth) (30px - $borderWidth) (30px - $borderWidth);
+  padding: (40px - $borderWidth) (30px - $borderWidth) (30px - $borderWidth);
 
   @media (max-width: 380px) {
     align-items: center;
@@ -23,7 +23,7 @@ $borderWidth: 1px;
   }
 
   &__title {
-    margin-bottom: 26px;
+    margin-bottom: 24px;
 
     @media (max-width: 380px) {
       text-align: center;
@@ -31,10 +31,10 @@ $borderWidth: 1px;
   }
 
   &__staying-dates-picker {
-    margin-bottom: 23px;
+    margin-bottom: 22px;
   }
 
   &__guests-dropdown {
-    margin-bottom: 31px;
+    margin-bottom: 30px;
   }
 }

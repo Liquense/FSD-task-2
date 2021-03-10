@@ -50,11 +50,11 @@
 }
 
 @mixin text_item-title() {
-  @include text(Quicksand, bold, $itemTitleSize, 24px, $darkShade100, normal);
+  @include text(Montserrat, bold, $itemTitleSize, 24px, $darkShade100, normal);
 }
 
 @mixin text_widget-title() {
-  @include text(Quicksand, bold, $widgetTitleSize, 30px, $darkShade100, normal);
+  @include text(Montserrat, bold, $widgetTitleSize, 29px, $darkShade100, normal);
 }
 
 @function get-vw($pixels) {

@@ -10,7 +10,7 @@
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
-  padding: 41px 29px 29px 29px;
+  padding: 40px 29px 29px 29px;
 
   @media (max-width: 380px) {
     align-items: center;
@@ -49,9 +49,7 @@
   &__room-num {
     @include text_widget-title();
 
-    font-size: 22px;
-    line-height: normal;
-    margin: 0 5px 0 0;
+    margin: 0 8px 0 0;
   }
 
   &__room-type {
@@ -64,7 +62,7 @@
     @include text_label-CTA();
 
     color: $darkShade50;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   &__payment-period {
@@ -74,7 +72,7 @@
   }
 
   &__range-picker {
-    margin-bottom: 22px;
+    margin-bottom: 21px;
   }
 
   &__guests-dropdown {
@@ -91,7 +89,6 @@
     grid-column-gap: 5px;
     grid-row-gap: 15px;
     margin-bottom: 30px;
-    padding-left: 1px;
     line-height: $iconSize - 2px;
 
     @media (max-width: 380px) {
@@ -129,7 +126,6 @@
 
   &__summary {
     margin-bottom: 20px;
-    padding-left: 1px;
     display: flex;
     align-self: stretch;
     align-items: baseline;

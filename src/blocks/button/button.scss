@@ -36,7 +36,7 @@ $arrowSize: 24px;
       background: transparent;
       border: none;
       color: $inputBackgroundColor;
-      padding: 9px 20px 10px 20px;
+      padding: 10px 20px 10px 20px;
     }
 
     #{$block}__decoration {
@@ -72,7 +72,6 @@ $arrowSize: 24px;
       width: auto;
       height: auto;
       min-height: unset;
-      line-height: normal;
     }
 
     &#{$block}_type_bordered #{$block}__control {
@@ -94,8 +93,8 @@ $arrowSize: 24px;
     position: relative;
 
     #{$block}__control {
-      padding-right: $buttonHeight;
-      padding-left: $buttonHeight;
+      padding-right: 47px;
+      padding-left: 43px;
     }
   }
 

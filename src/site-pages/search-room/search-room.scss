@@ -73,7 +73,7 @@ $roomCardWidth: 270px;
   }
 
   &__staying-dates {
-    margin-bottom: 23px;
+    margin-bottom: 20px;
 
     @media (max-width: 1070px) {
       margin-bottom: 0;
@@ -127,7 +127,7 @@ $roomCardWidth: 270px;
   }
 
   &__room-equipment-filter {
-    margin-bottom: 26px;
+    margin-bottom: 25px;
 
     @media (max-width: 1070px) {
       margin-bottom: 0;
@@ -143,7 +143,6 @@ $roomCardWidth: 270px;
 
     margin-top: 0;
     margin-bottom: 22px;
-    letter-spacing: -0.5px;
 
     @media (max-width: 1070px) {
       text-align: center;

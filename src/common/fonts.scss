@@ -12,17 +12,6 @@ $fontsPath: "../assets/fonts";
 }
 
 @font-face {
-  font-family: Quicksand;
-  src: url("#{$fontsPath}/Quicksand-Regular.ttf"), url("#{$fontsPath}/Quicksand-Regular.svg");
-}
-
-@font-face {
-  font-family: Quicksand;
-  src: url("#{$fontsPath}/Quicksand-Bold.ttf"), url("#{$fontsPath}/Quicksand-Bold.svg");
-  font-weight: bold;
-}
-
-@font-face {
   font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
