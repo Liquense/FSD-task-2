@@ -15,7 +15,8 @@ $titleHeight: 12px;
 
   &_expandable {
     #{$block}__title-wrap {
-      min-width: 266px;
+      cursor: pointer;
+      min-width: 256px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -24,7 +25,6 @@ $titleHeight: 12px;
 
     #{$block}__title {
       line-height: $titleHeight;
-      cursor: pointer;
     }
 
     #{$block}__container {
@@ -61,10 +61,6 @@ $titleHeight: 12px;
   &__title {
     padding: 0;
     user-select: none;
-  }
-
-  &__expand-arrow {
-    padding: 0 10px;
   }
 
   &__container {
