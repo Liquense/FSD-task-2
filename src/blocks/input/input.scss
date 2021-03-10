@@ -76,6 +76,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     width: fit-content;
     display: flex;
     align-items: center;
+    overflow-wrap: anywhere;
   }
 
   &__control-wrapper {
