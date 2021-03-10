@@ -143,11 +143,11 @@
   }
 
   &__buttons {
+    flex-shrink: 0;
     display: flex;
     align-items: center;
     margin-left: get-vw(27px);
-    min-width: 303px;
-    max-width: 30%;
+    max-width: 50%;
 
     @media (max-width: 450px) {
       justify-content: center;
