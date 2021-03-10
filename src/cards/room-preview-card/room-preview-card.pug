@@ -1,12 +1,12 @@
 include ../../blocks/carousel/carousel
 include ../../blocks/rating/rating
 include ../../blocks/title/title
-mixin room-preview-card({link='room-details.html', room:{currencySymbol='₽', periodText='в сутки', rating=[5, 5], reviewsCount=0, roomNumber=0, roomType='', costPerPeriod=1}={}, carousel={images:[], carouselParams:{}}} = {})
+mixin room-preview-card({link='', room:{currencySymbol='₽', periodText='в сутки', rating=[5, 5], reviewsCount=0, roomNumber=0, roomType='', costPerPeriod=1}={}, carousel={images:[], carouselParams:{}}} = {})
   article.js-room-preview-card.room-preview-card(data-currency=currencySymbol data-cost-per-period=costPerPeriod data-reviews-count=reviewsCount)
     div.room-preview-card__photos
       div.room-preview-card__carousel
         +carousel(carousel)
-    a.js-room-preview-card__text-content.room-preview-card__text-content(href=link)
+    a.js-room-preview-card__text-content.room-preview-card__text-content(href=link ? link : false)
       section.room-preview-card__room-info
         div.room-preview-card__room-description
           span.room-preview-card__room-num-symbol
