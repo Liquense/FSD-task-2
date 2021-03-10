@@ -35,6 +35,11 @@ $maxSliderWidth: 266px;
         background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
       }
 
+      &-horizontal #{$plugin}-range {
+        top: -$sliderBorderWidth;
+        height: $sliderHorizontalHeight;
+      }
+
       &-horizontal #{$plugin}-handle {
         border-radius: 50%;
         background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
