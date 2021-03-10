@@ -17,7 +17,7 @@ $backgroundImageHeight: 683px;
   }
 
   &__registration-card {
-    padding-left: 5px;
+    margin: 15px 0 15px 5px;
 
     @media (max-width: 380px) {
       margin-top: 0;
@@ -30,9 +30,9 @@ $backgroundImageHeight: 683px;
 
     object-fit: cover;
     bottom: -$bottomOffset;
-    width: get-vw(1440px);
+    width: 100%;
+    min-height: max(772px, calc(100% + #{$bottomOffset}));
     position: absolute;
     z-index: -1;
-    min-height: $backgroundImageHeight + $bottomOffset;
   }
 }

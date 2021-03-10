@@ -10,6 +10,10 @@ $backgroundImageHeight: 702px;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-image: url("/src/assets/images/registration-login-background.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
 
   @media (max-width: 500px) {
     min-height: 380px;
@@ -30,14 +34,9 @@ $backgroundImageHeight: 702px;
 
   &__background-image {
     object-fit: cover;
-    bottom: 0;
-    width: get-vw(1440px);
+    width: 100%;
+    min-height: 100%;
     position: absolute;
     z-index: -1;
-    min-height: $backgroundImageHeight;
-
-    @media (max-width: 1400px) {
-      bottom: 0;
-    }
   }
 }
