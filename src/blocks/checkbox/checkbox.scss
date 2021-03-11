@@ -182,7 +182,6 @@ $toggleCircleWidth: 31.58%;
   &__description {
     @include text_regular();
 
-    display: inline-block;
     padding-left: $checkboxButtonSize + $buttonRightMargin;
     margin: 5px 0 0 0;
     color: $darkShade50;
