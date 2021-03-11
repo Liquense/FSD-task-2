@@ -181,7 +181,7 @@ class TwoCalendarDatepicker {
     this.activeInput = initDates?.firstDate ? this.firstInput : this.secondInput;
     this.datepicker.selectDate([initDates.firstDate, initDates.secondDate]);
 
-    this.datepicker.setClearButtonVisibility(!!initDates?.length);
+    this.datepicker.setClearButtonVisibility(initDates?.firstDate || initDates?.secondDate);
   }
 
   _setInputsDates(dates) {
