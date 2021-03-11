@@ -88,7 +88,7 @@ $toggleCircleWidth: 31.58%;
         position: relative;
 
         &:after {
-          content: url("/src/assets/images/checkmark.svg");
+          content: url(../../assets/images/checkmark.svg);
           display: block;
           position: absolute;
           text-align: center;

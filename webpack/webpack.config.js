@@ -120,7 +120,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        include: [path.resolve(paths.source, 'assets/images')],
+        include: path.resolve(paths.source, 'assets/images'),
         use: [
           {
             loader: 'file-loader',
@@ -133,7 +133,7 @@ module.exports = {
       },
       {
         test: /\.(svg|png|ico|json|webmanifest)$/,
-        include: [path.resolve(paths.source, 'assets/favicons')],
+        include: path.resolve(paths.source, 'assets/favicons'),
         use: [
           {
             loader: 'file-loader',
@@ -146,9 +146,7 @@ module.exports = {
       },
       {
         test: /\.(otf|ttf|svg|woff|woff2|eot)$/,
-        exclude: [
-          path.resolve(paths.source, 'assets/images'),
-        ],
+        exclude: path.resolve(paths.source, 'assets/images'),
         use: [
           {
             loader: 'file-loader',
