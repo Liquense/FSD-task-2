@@ -29,6 +29,8 @@ class DatePicker {
     this._initProperties();
     this._initDatePicker();
     if (!this.isInline) this._initExpandableEvents();
+
+    this.datePickerPlugin.selectDate(this.getInitDates());
   }
 
   addOnConfirmButtonClick(handler) {
@@ -108,6 +110,15 @@ class DatePicker {
     });
   }
 
+  setClearButtonVisibility(isVisible) {
+    const $clearButton = this._getClearButton();
+    if (!isVisible) {
+      $clearButton.addClass('-invisible-');
+    } else {
+      $clearButton.removeClass('-invisible-');
+    }
+  }
+
   _initElements(element) {
     this.$datePicker = $(element);
   }
@@ -123,42 +134,39 @@ class DatePicker {
     } else {
       this.datePickerPlugin.show();
     }
-    this.isExpanded = !this.isExpanded;
   }
 
-  _handleDocumentClick = (event) => {
-    const isTargetInCalendar = this.isElementInCalendar(event.target);
-    const isTargetInDatePicker = $.contains(this.$datePicker[0], event.target);
-    const isTargetInside = isTargetInDatePicker || isTargetInCalendar;
+  _handleDateSelect = (formattedDate, date) => {
+    this.input.setText(formattedDate);
+    this.isDatesChanged = true;
 
-    if (!isTargetInside && !this.isDatesChanged) {
-      this.isExpanded = false;
-    }
+    this.setClearButtonVisibility(Boolean(date.length));
   }
 
   _initPlugin() {
     this.datePickerPlugin.update({
+      todayButton: false,
       onShow: (inst, isAnimationEnded) => {
-        if (!isAnimationEnded) this.input.expand();
+        if (!isAnimationEnded) {
+          this.input.expand();
+        } else {
+          this.isExpanded = true;
+        }
       },
       onHide: (inst, isAnimationEnded) => {
         if (!isAnimationEnded) {
           this.input.collapse();
           this.isDatesChanged = false;
+        } else {
+          this.isExpanded = false;
         }
       },
-      onSelect: (formattedDate) => {
-        this.input.setText(formattedDate);
-        this.isDatesChanged = true;
-      },
-      todayButton: false,
     });
   }
 
   _initExpandableEvents() {
     this._initPlugin();
     this.input.addClickCallback(this._handleInputClick);
-    $(document).on('click.datePicker', this._handleDocumentClick);
   }
 
   _initDatePicker() {
@@ -184,11 +192,15 @@ class DatePicker {
       },
       prevHtml: '<span>arrow_back</span>',
       nextHtml: '<span>arrow_forward</span>',
+      onSelect: this._handleDateSelect,
     }).data('datepicker');
     this.$buttonsContainer = this.datePickerPlugin.$datepicker.find('.datepicker--buttons');
 
     this._createConfirmButton();
-    this.datePickerPlugin.selectDate(initDates);
+  }
+
+  _getClearButton() {
+    return this.datePickerPlugin.$datepicker.find('.datepicker--button[data-action="clear"]');
   }
 
   _createConfirmButton() {

@@ -52,7 +52,7 @@ class TwoCalendarDatepicker {
 
   _initDoubleDatePicker() {
     this.datepicker.updatePluginForTwoInputs();
-    this._setInitialDates();
+    this._setPluginInitialDates();
   }
 
   _initEvents() {
@@ -88,6 +88,7 @@ class TwoCalendarDatepicker {
 
     this._setInputsDates({ firstDate: datesToPass[0], secondDate: datesToPass[1] });
     this.isDateSelected = true;
+    this.datepicker.setClearButtonVisibility(!!dates.length);
 
     this.selectCallback.forEach((callback) => { callback(this); });
   };
@@ -175,10 +176,12 @@ class TwoCalendarDatepicker {
     };
   }
 
-  _setInitialDates() {
+  _setPluginInitialDates() {
     const initDates = this._getInitialDates(this.$doubleDatePicker);
-    this.activeInput = initDates.firstDate ? this.firstInput : this.secondInput;
+    this.activeInput = initDates?.firstDate ? this.firstInput : this.secondInput;
     this.datepicker.selectDate([initDates.firstDate, initDates.secondDate]);
+
+    this.datepicker.setClearButtonVisibility(!!initDates?.length);
   }
 
   _setInputsDates(dates) {

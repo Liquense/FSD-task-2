@@ -282,6 +282,11 @@ $otherRangeGradient: linear-gradient(
       background: none;
       color: $darkShade50;
     }
+
+    &.-invisible- {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   &--cell-day.-other-month-,
