@@ -7,6 +7,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const paths = {
   source: path.join(__dirname, '../src'),
   build: path.join(__dirname, '../dist'),
+  node_modules: path.join(__dirname, '../node_modules'),
 };
 
 const pageNames = [
@@ -132,13 +133,12 @@ module.exports = {
         ],
       },
       {
-        test: /\.(svg|png|ico|json|webmanifest)$/,
+        test: /\.(svg|png|ico|json|webmanifest|xml)$/,
         include: path.resolve(paths.source, 'assets/favicons'),
         use: [
           {
             loader: 'file-loader',
             options: {
-              outputPath: 'favicons',
               name: '[name].[ext]',
             },
           },
@@ -146,7 +146,10 @@ module.exports = {
       },
       {
         test: /\.(otf|ttf|svg|woff|woff2|eot)$/,
-        exclude: path.resolve(paths.source, 'assets/images'),
+        include: [
+          path.resolve(paths.source, 'assets/fonts'),
+          path.resolve(paths.node_modules, '@fortawesome'),
+        ],
         use: [
           {
             loader: 'file-loader',
