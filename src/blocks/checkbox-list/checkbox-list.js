@@ -1,4 +1,6 @@
 import initArrows from '../arrow/init';
+import '../checkbox/checkbox.scss';
+import './checkbox-list.scss';
 
 class CheckboxList {
   static expandedClass = 'checkbox-list_expanded';

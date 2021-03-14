@@ -1,5 +1,7 @@
 import 'jquery.maskedinput/src/jquery.maskedinput';
+
 import initArrows from '../arrow/init';
+import './input.scss';
 
 class Input {
   static types = { masked: 'masked' };

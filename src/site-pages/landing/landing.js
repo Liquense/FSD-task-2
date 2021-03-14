@@ -1,8 +1,11 @@
-import { importCommon, importContext } from '../../imports';
-import initFindRoomCards from '../../cards/find-room-card/init';
+import { importCommon, importHeaderFooter } from '../../imports';
 
+import initFindRoomCards from '../../cards/find-room-card/init';
+import '../../cards/find-room-card/find-room-card';
+import './landing.scss';
+
+importHeaderFooter();
 importCommon();
-importContext(require.context('./', true, /\.(js|scss)$/));
 
 const imagePaths = [];
 imagePaths.push(require('../../assets/images/room-big-1.jpg'));

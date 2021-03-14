@@ -1,6 +1,8 @@
 import { formatNumber, ruDeclination } from '../../common/functions';
 import initCarousels from '../../blocks/carousel/init';
 import initRatings from '../../blocks/rating/init';
+import '../../blocks/title/title.scss';
+import './room-preview-card.scss';
 
 class RoomPreviewCard {
   $roomPreviewCard;

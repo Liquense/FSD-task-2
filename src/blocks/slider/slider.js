@@ -1,6 +1,8 @@
 import 'jquery-ui/ui/widgets/slider';
 import 'jquery-ui/themes/base/slider.css';
 
+import './slider.scss';
+
 import { clamp, formatNumber } from '../../common/functions';
 
 class Slider {

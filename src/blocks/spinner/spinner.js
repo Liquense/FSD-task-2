@@ -1,5 +1,7 @@
 import 'jquery-ui/ui/widgets/spinner';
 
+import './spinner.scss';
+
 class Spinner {
   static decreaseButtonBaseClass = 'spinner__decrease-button';
 

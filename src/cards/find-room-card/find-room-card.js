@@ -1,5 +1,8 @@
 import initTwoCalendarDatepickers from '../../blocks/double-date-picker/init';
 import initDropdowns from '../../blocks/dropdown/init';
+import '../../blocks/title/title.scss';
+import '../../blocks/button/button.scss';
+import './find-room-card.scss';
 
 class FindRoomCard {
   $findRoomCard;

@@ -1,3 +1,6 @@
-import { importContext } from '../../imports';
+import { importCommon } from '../../imports';
 
-importContext(require.context('./', false, /index\.scss$/));
+import '../../blocks/title/title.scss';
+import './index.scss';
+
+importCommon();

@@ -5,6 +5,8 @@ import {
   polarCoordinatesToCartesian,
 } from '../../common/math';
 
+import './donut-chart.scss';
+
 class DonutChart {
   static donutArcActiveClass = 'donut-chart__svg-arc_active';
 

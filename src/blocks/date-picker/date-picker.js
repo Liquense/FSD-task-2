@@ -1,7 +1,10 @@
 import 'air-datepicker';
 
-import initInputs from '../input/init';
 import { parseAttrToDate } from '../../common/functions';
+
+import initInputs from '../input/init';
+
+import './date-picker.scss';
 
 class DatePicker {
   static wideClass = 'date-picker__calendar_wide';

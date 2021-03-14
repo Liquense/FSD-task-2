@@ -1,6 +1,9 @@
 import { formatNumber, ruDeclination, secondsToDays } from '../../common/functions';
 import initDropdowns from '../../blocks/dropdown/init';
 import initTwoCalendarDatepickers from '../../blocks/double-date-picker/init';
+import '../../blocks/title/title.scss';
+import '../../blocks/button/button.scss';
+import './booking-card.scss';
 
 class BookingCard {
   $bookingCard;

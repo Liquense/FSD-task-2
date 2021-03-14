@@ -1,3 +1,5 @@
+import './arrow.scss';
+
 class Arrow {
   static expandedClass = 'arrow_expanded';
 

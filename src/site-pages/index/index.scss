@@ -4,6 +4,8 @@
   &__page-link {
     @include text_regular();
 
+    width: fit-content;
+
     &:first-of-type {
       margin-top: 10px;
     }

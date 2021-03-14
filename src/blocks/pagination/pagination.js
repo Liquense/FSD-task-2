@@ -1,5 +1,8 @@
 import 'paginationjs';
+
 import { outerHTML } from '../../common/functions';
+
+import './pagination.scss';
 
 class Pagination {
   $pagination;

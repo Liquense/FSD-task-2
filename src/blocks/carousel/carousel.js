@@ -1,5 +1,7 @@
 import 'slick-carousel';
+
 import '../../../node_modules/slick-carousel/slick/slick.css';
+import './carousel.scss';
 
 class Carousel {
   $element;

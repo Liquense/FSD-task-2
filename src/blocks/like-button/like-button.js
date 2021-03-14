@@ -1,5 +1,7 @@
 import 'jquery-ui/ui/widgets/checkboxradio';
 
+import './like-button.scss';
+
 class LikeButton {
   $like;
 

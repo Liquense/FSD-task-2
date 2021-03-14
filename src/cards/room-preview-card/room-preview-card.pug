@@ -1,6 +1,7 @@
 include ../../blocks/carousel/carousel
 include ../../blocks/rating/rating
 include ../../blocks/title/title
+
 mixin room-preview-card({link='', room:{currencySymbol='₽', periodText='в сутки', rating=[5, 5], reviewsCount=0, roomNumber=0, roomType='', costPerPeriod=1}={}, carousel={images:[], carouselParams:{}}} = {})
   article.js-room-preview-card.room-preview-card(data-currency=currencySymbol data-cost-per-period=costPerPeriod data-reviews-count=reviewsCount)
     div.room-preview-card__photos

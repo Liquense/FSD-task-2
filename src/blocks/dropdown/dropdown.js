@@ -1,7 +1,9 @@
 import { ruDeclination } from '../../common/functions';
+
 import initSpinners from '../spinner/init';
 import initInputs from '../input/init';
 import initArrows from '../arrow/init';
+import './dropdown.scss';
 
 class Dropdown {
   static visibleClass = 'dropdown__list-wrapper_visible';

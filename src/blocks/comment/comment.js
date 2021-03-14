@@ -1,4 +1,5 @@
 import initLikes from '../like-button/init';
+import './comment.scss';
 
 class Comment {
   $comment;
