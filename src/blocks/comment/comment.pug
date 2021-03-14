@@ -3,13 +3,11 @@ include ../like-button/like-button
 
 mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} = {})
   article.js-comment.comment
-    div.comment__header
-      div.comment__avatar-wrap
-        img.comment__avatar(src=avatar, alt='user avatar')
-      div.comment__info-container
-        h3.comment__author #{author}
-        span.comment__date-time #{dateTime}
-    div.comment__content
-      div.comment__like
-        +like-button({count: likesCount, isChecked: isLiked})
-      span.comment__text #{text}
+    div.comment__avatar-wrap
+      img.comment__avatar(src=avatar, alt='user avatar')
+    div.comment__info-container
+      h3.comment__author #{author}
+      span.comment__date-time #{dateTime}
+    div.comment__like
+      +like-button({count: likesCount, isChecked: isLiked})
+    span.comment__text #{text}

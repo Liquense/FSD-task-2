@@ -4,12 +4,10 @@ $avatarSize: 48px;
   @include box-sizing-border-box();
 
   max-width: 710px;
-
-  &__header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-  }
+  display: grid;
+  grid-template-columns: auto auto;
+  row-gap: 10px;
+  column-gap: 10px;
 
   &__avatar-wrap {
     max-width: $avatarSize;
@@ -21,6 +19,7 @@ $avatarSize: 48px;
   }
 
   &__avatar {
+    justify-self: end;
     display: block;
     width: 100%;
   }
@@ -39,16 +38,9 @@ $avatarSize: 48px;
     font-weight: bold;
   }
 
-  &__content {
-    display: flex;
-    align-items: flex-start;
-  }
-
   &__like {
-    min-width: $avatarSize;
+    justify-self: center;
     margin-top: 2px;
-    display: flex;
-    justify-content: center;
   }
 
   &__text {
@@ -56,9 +48,5 @@ $avatarSize: 48px;
 
     font-size: 14px;
     line-height: 24px;
-  }
-
-  &__avatar-wrap, &__like {
-    margin-right: 10px;
   }
 }
