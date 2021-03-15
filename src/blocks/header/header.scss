@@ -22,16 +22,6 @@
     flex-direction: column;
   }
 
-  &_narrow {
-    #{$block}__item:not(#{$block}__item_expandable):not(:last-child) {
-      margin-right: get-vw(21px);
-    }
-
-    #{$block}__buttons {
-      margin-left: get-vw(20px);
-    }
-  }
-
   &__logo {
     display: block;
   }

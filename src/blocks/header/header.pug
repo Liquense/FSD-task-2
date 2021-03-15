@@ -1,8 +1,8 @@
 include ../button/button
 include ../arrow/arrow
 
-mixin header({userLogin='', loginText='Login', registerText='register', content=[], isNarrow=false} = {})
-  header.header.js-header(class=`${isNarrow ? 'header_narrow' : ''}`)
+mixin header({userLogin='', loginText='Login', registerText='register', content=[]} = {})
+  header.header.js-header
     a.header__logo-link.js-header__logo-link(href='landing.html')
       img.header__logo(src=require('../../assets/images/logo-colored-withText.svg') alt='colored TOXIN logo')
     nav.header__content
