@@ -3,43 +3,23 @@ $borderWidth: 0.1em;
 $expandWidth: 1em;
 
 .arrow {
+  @include icon();
+
   font-size: 24px;
   user-select: none;
-  vertical-align: middle;
-  text-align: center;
-  line-height: $expandWidth;
   cursor: pointer;
 
-  &_type_enter {
-    @include icon();
-
-    font-weight: normal;
-  }
-
   &_type_expand {
-    @include icon();
-
     color: $darkShade50;
-    font-weight: normal;
     user-select: none;
-    background-color: transparent;
-    position: relative;
 
     &:hover,
     &:focus {
       color: $darkShade75;
     }
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &_colored {
     @include text-gradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
-  }
-
-  &_bold {
-    font-weight: bold;
   }
 }

@@ -34,7 +34,7 @@ mixin input({title='', type, width, placeholder, withSubscription=false, isExpan
       input.input__control.js-input__control(value=text placeholder=placeholder readonly=isExpandable)
       if withSubscription
         div.input__arrow
-          +arrow({type: 'enter', isColored: true, isBold: true})
+          +arrow({type: 'enter', isColored: true})
       else if isExpandable
         div.input__arrow
           +arrow({type: 'expand'})
