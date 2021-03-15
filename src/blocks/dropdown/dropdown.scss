@@ -18,6 +18,7 @@ $inputBorderRadius: 4px;
     border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
     background-color: $inputBackgroundColor;
     box-shadow: 0 10px 20px $darkShade5;
+    z-index: 1;
 
     &_visible {
       display: block;
