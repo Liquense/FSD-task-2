@@ -7,16 +7,6 @@ $inputBorderRadius: 4px;
   @include box-sizing-border-box();
 
   position: relative;
-  min-width: $minInputWidth;
-  width: fit-content;
-
-  @media (max-width: 380px) {
-    min-width: 300px;
-  }
-
-  &_width_medium {
-    min-width: $minMediumInputWidth;
-  }
 
   &__list-wrapper {
     display: none;
@@ -27,7 +17,6 @@ $inputBorderRadius: 4px;
     border-radius: 0 0 $inputBorderRadius $inputBorderRadius;
     background-color: $inputBackgroundColor;
     box-shadow: 0 10px 20px $darkShade5;
-    z-index: 10;
 
     &_visible {
       display: block;
@@ -35,10 +24,7 @@ $inputBorderRadius: 4px;
   }
 
   &__list {
-    padding: 0;
     margin: (5px - $borderWidth) (7px - $borderWidth) (9px - $borderWidth) (15px - $borderWidth);
-    border-spacing: 0;
-    border-collapse: collapse;
   }
 
   &__list-row {
@@ -60,34 +46,27 @@ $inputBorderRadius: 4px;
   }
 
   &__buttons-container {
-    @include clearfix();
-
     display: none;
     flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     margin: 18px 6px 12px 14px;
 
     &_visible {
-      display: block;
+      display: flex;
       height: fit-content;
     }
   }
 
-  &__clear-button {
-    display: none;
-
-    &_visible {
-      display: block;
-      float: left;
-    }
-  }
-
+  &__clear-button,
   &__confirm-button {
-    display: none;
+    opacity: 0;
+    max-width: 50%;
+    pointer-events: none;
 
     &_visible {
-      display: block;
-      float: right;
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 }
