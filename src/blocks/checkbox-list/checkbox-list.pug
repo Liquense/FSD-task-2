@@ -3,18 +3,14 @@ include ../radio-button/radio-button
 include ../arrow/arrow
 include ../title/title
 
-mixin checkbox-list({isExpandable=false, isNarrow=false, isOpened=false, title='', elements=[]} = {})
+mixin checkbox-list({isExpandable=false, isOpened=false, title='', elements=[]} = {})
   -let expandableModifier = expandedModifier = ''
   if isExpandable
     -expandableModifier = ' checkbox-list_expandable'
     if isOpened
       -expandedModifier = ' checkbox-list_expanded'
 
-  -let narrowModifier = ''
-  if isNarrow
-    -narrowModifier = ' checkbox-list_narrow'
-
-  fieldset(class=`checkbox-list js-checkbox-list${expandableModifier}${expandedModifier}${narrowModifier}`)
+  fieldset(class=`checkbox-list js-checkbox-list${expandableModifier}${expandedModifier}`)
     div.checkbox-list__title-wrap.js-checkbox-list__title-wrap
       if title
         legend.checkbox-list__title

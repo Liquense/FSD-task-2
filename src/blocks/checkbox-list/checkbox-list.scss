@@ -47,13 +47,6 @@ $titleHeight: 12px;
     display: block;
   }
 
-  &_narrow {
-    #{$block}__title:after {
-      bottom: 2px;
-      left: 13px;
-    }
-  }
-
   &__title-wrap {
     margin: 0 0 16px 0;
   }
