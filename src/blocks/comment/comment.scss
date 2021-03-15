@@ -19,8 +19,6 @@ $avatarSize: 48px;
   }
 
   &__avatar {
-    justify-self: end;
-    display: block;
     width: 100%;
   }
 
@@ -28,13 +26,11 @@ $avatarSize: 48px;
   &__date-time {
     @include text_regular();
 
-    font-size: 14px;
     line-height: 24px;
   }
 
   &__author {
     margin: 0;
-    padding: 0;
     font-weight: bold;
   }
 
@@ -46,7 +42,6 @@ $avatarSize: 48px;
   &__text {
     @include text_regular();
 
-    font-size: 14px;
     line-height: 24px;
   }
 }
