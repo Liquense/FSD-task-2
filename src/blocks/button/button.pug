@@ -31,7 +31,8 @@ mixin button({text='', isTextSized=false, isLink=false, link='/mock-address/chan
     -controlAttributes.type = 'button'
 
   div(class=`button js-button${textSizedModifier}${hoveredModifier}${decoratedModifier}${sizeModifier}${typeModifier}`)
-    #{blockTag}.button__control.js-button__control&attributes(controlAttributes) #{text}
-    if decoration === 'enter-arrow'
-      div.button__decoration
-        +arrow({type: 'enter'})
+    #{blockTag}.button__control.js-button__control&attributes(controlAttributes)
+      span.button__text #{text}
+      if decoration === 'enter-arrow'
+        span.button__decoration
+          +arrow({type: 'enter'})

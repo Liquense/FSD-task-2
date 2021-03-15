@@ -93,6 +93,7 @@ $arrowSize: 24px;
     width: 100%;
     min-height: $buttonHeight;
     border-radius: 22px;
+    line-height: $arrowSize;
     overflow-wrap: anywhere;
 
     &:focus {
@@ -101,7 +102,9 @@ $arrowSize: 24px;
   }
 
   &__decoration {
-    padding: ($buttonHeight - $arrowSize)/2;
+    float: right;
+    display: flex;
+    padding: 0 ($buttonHeight - $arrowSize)/2;
   }
 
   &_hovered:not(&_type_text),
