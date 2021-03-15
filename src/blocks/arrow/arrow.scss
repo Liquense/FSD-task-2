@@ -7,11 +7,11 @@ $expandWidth: 1em;
 
   font-size: 24px;
   user-select: none;
-  cursor: pointer;
 
   &_type_expand {
     color: $darkShade50;
     user-select: none;
+    cursor: pointer;
 
     &:hover,
     &:focus {
