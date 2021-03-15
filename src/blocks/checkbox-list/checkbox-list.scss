@@ -10,7 +10,6 @@ $titleHeight: 12px;
   padding: 0;
   margin: 0;
   border: none;
-  position: relative;
   width: fit-content;
 
   &_expandable {
@@ -23,8 +22,8 @@ $titleHeight: 12px;
       margin: 0 0 10px 0;
     }
 
-    #{$block}__title {
-      line-height: $titleHeight;
+    &:not(#{$block}_expanded) #{$block}__title-wrap {
+      margin-bottom: 0;
     }
 
     #{$block}__container {
@@ -32,9 +31,6 @@ $titleHeight: 12px;
       padding-top: 3px;
     }
 
-    &:not(#{$block}_expanded) #{$block}__title-wrap {
-      margin-bottom: 0;
-    }
 
     #{$block}__item {
       &:not(:last-child) {
@@ -63,7 +59,6 @@ $titleHeight: 12px;
   }
 
   &__item {
-    content: "text";
     &:not(:last-child) {
       margin-bottom: 10.5px;
     }
