@@ -63,40 +63,26 @@ $toggleCircleWidth: 31.58%;
 }
 
 .checkbox {
-  $block: &;
-
   @include box-sizing-border-box();
 
-  width: fit-content;
+  $block: &;
+
   display: inline-block;
   user-select: none;
   cursor: pointer;
 
   &_type_check {
     #{$block}__button {
-      $pixelInEm: 0.0715em;
-
-      font-size: 14px;
-      height: 1em + 6*$pixelInEm;
-      width: 1em + 6*$pixelInEm;
-      padding: 2*$pixelInEm;
-      border-radius: 4*$pixelInEm;
+      width: $checkboxButtonSize;
+      border-radius: 20%;
 
       &:checked {
         animation-name: saturate;
         border-color: $purple;
-        position: relative;
-
-        &:after {
-          content: url(../../assets/images/checkmark.svg);
-          display: block;
-          position: absolute;
-          text-align: center;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-        }
+        background-image: url(../../assets/images/checkmark.svg);
+        background-repeat: no-repeat;
+        background-size: 55%;
+        background-position: center;
       }
     }
   }
@@ -172,7 +158,6 @@ $toggleCircleWidth: 31.58%;
     @include text_regular();
 
     line-height: 18px;
-    margin: 0;
     display: inline-block;
     max-width: 23ch;
     vertical-align: top;
@@ -185,9 +170,7 @@ $toggleCircleWidth: 31.58%;
     padding-left: $checkboxButtonSize + $buttonRightMargin;
     margin: 5px 0 0 0;
     color: $darkShade50;
-    font-weight: normal;
     font-size: 12px;
-    line-height: 14px;
     white-space: pre-line;
   }
 }
