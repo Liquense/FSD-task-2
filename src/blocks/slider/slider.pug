@@ -1,15 +1,15 @@
 include ../title/title
 mixin slider({minValue = 0, maxValue = 10, step = 1, title = '', isRange = false, initialValues = [5]} = {})
-  -let isRangeModifier
+  -let isRangeModifier = ''
   if isRange
     -isRangeModifier = 'slider_with-range-selection'
 
-  article(class=`js-slider slider ${isRangeModifier}`)
+  article.slider.js-slider(class=isRangeModifier)
     div.slider__text
       +title({type: 'label', text: title})
-      p.js-slider__value.slider__value ₽
+      p.slider__value.js-slider__value ₽
     div.slider__container
-      div.js-slider__control.slider__control(class=`slider__control`
+      div.slider__control.js-slider__control(
         data-min=minValue data-max=maxValue data-step=step
         data-first-value=initialValues[0] data-second-value=initialValues[1]
       )

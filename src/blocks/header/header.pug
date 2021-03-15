@@ -2,8 +2,8 @@ include ../button/button
 include ../arrow/arrow
 
 mixin header({userLogin='', loginText='Login', registerText='register', content=[], isNarrow=false} = {})
-  header.js-header.header(class=`${isNarrow ? `header_narrow` : ''}`)
-    a.js-header__logo-link.header__logo-link(href='landing.html')
+  header.header.js-header(class=`${isNarrow ? 'header_narrow' : ''}`)
+    a.header__logo-link.js-header__logo-link(href='landing.html')
       img.header__logo(src=require('../../assets/images/logo-colored-withText.svg') alt='logo')
     nav.header__content
       ul.header__items
@@ -20,7 +20,7 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
         div.header__user-name #{userLogin}
       else
         div.header__buttons
-          div.js-header__login-button.header__login-button
+          div.header__login-button.js-header__login-button
             +button({text: loginText, type: 'bordered', isTextSized: true, isLink: true, link: 'login.html'})
-          div.js-header__register-button.header__register-button
+          div.header__register-button.js-header__register-button
             +button({text: registerText, type: 'filled', isTextSized: true, isLink: true, link: 'registration.html'})

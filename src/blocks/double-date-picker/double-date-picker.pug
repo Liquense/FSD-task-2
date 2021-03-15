@@ -2,8 +2,8 @@ include ../date-picker/date-picker
 include ../input/input
 
 mixin double-date-picker({firstTitle='', secondTitle='', firstDate, secondDate} = {})
-  section.js-double-date-picker.double-date-picker(data-first-date=firstDate data-second-date=secondDate)
-    div.js-double-date-picker__first-date-picker.double-date-picker__first-date-picker
+  section.double-date-picker.js-double-date-picker(data-first-date=firstDate data-second-date=secondDate)
+    div.double-date-picker__first-date-picker.js-double-date-picker__first-date-picker
       +date-picker({title: firstTitle, width: 'narrow', placeholder: 'ДД.ММ.ГГГГ'})
-    div.js-double-date-picker__second-date-picker.double-date-picker__second-date-picker
+    div.double-date-picker__second-date-picker.js-double-date-picker__second-date-picker
       +input({title: secondTitle, width: 'narrow', placeholder: 'ДД.ММ.ГГГГ', isExpandable: true, inDatePicker: true})

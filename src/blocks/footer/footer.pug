@@ -4,10 +4,10 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
   -const logo = require('../../assets/images/logo-colored-withText.svg');
   -const typeModifier = isSimple ? '_type_simple' : '_type_large'
   footer(class=`footer footer${typeModifier}`)
-    div(class=`footer__content`)
-      figure(class=`footer__logo`)
-        img(src=logo alt='logo' class=`footer__logo-image`)
-        figcaption(class=`footer__logo-text`) #{text}
+    div.footer__content
+      figure.footer__logo
+        img.footer__logo-image(src=logo alt='logo')
+        figcaption.footer__logo-text #{text}
       if !isSimple
         div.footer__links
           each column in links
@@ -28,7 +28,7 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
               withSubscription: true,
               placeholder: subscription.emailPlaceholder
             })
-    div(class=`footer__copyright-bar`)
+    div.footer__copyright-bar
       if !isSimple
         span.footer__copyright-text #{copyright}
       section.footer__social-media

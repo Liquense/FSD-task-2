@@ -1,16 +1,16 @@
 mixin checkbox({isChecked=false, text='', type='', description} = {})
   -let richModifier = ''
   if description
-    -richModifier = 'checkbox_rich'
+    -richModifier = ' checkbox_rich'
 
   -let typeModifier = ''
   case type
     when 'toggle'
-      -typeModifier = 'checkbox_type_toggle'
+      -typeModifier = ' checkbox_type_toggle'
     default
-      -typeModifier = 'checkbox_type_check'
+      -typeModifier = ' checkbox_type_check'
 
-  label.checkbox(class=`${richModifier} ${typeModifier}`)
+  label(class=`checkbox${richModifier}${typeModifier}`)
     input.checkbox__button(type='checkbox' checked=isChecked)
     span.checkbox__text #{text}
     if description

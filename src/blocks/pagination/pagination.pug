@@ -2,9 +2,9 @@ include ../../cards/room-preview-card/room-preview-card
 mixin pagination({pageSize = 12, items=[], isContentVisible=true} = {})
   -const contentVisibleModifier = isContentVisible ? '' : 'pagination__content_invisible'
 
-  nav.js-pagination.pagination(data-page-size=pageSize)
-    div.js-pagination__content.pagination__content(class=contentVisibleModifier)
+  nav.pagination.js-pagination(data-page-size=pageSize)
+    div.pagination__content.js-pagination__content(class=contentVisibleModifier)
       each item, index in items
         div.pagination__item
           +room-preview-card(item)
-    div.js-pagination__buttons.pagination__buttons
+    div.pagination__buttons.js-pagination__buttons

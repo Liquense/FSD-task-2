@@ -2,26 +2,26 @@ include ../arrow/arrow
 mixin button({text='', isTextSized=false, isLink=false, link='/mock-address/change-me', type='filled', size='', decoration='', isHovered=false} = {})
   - let textSizedModifier = hoveredModifier = decoratedModifier = ''
   if isTextSized
-    -textSizedModifier = 'button_text-sized'
+    -textSizedModifier = ' button_text-sized'
   if isHovered
-    -hoveredModifier = 'button_hovered'
+    -hoveredModifier = ' button_hovered'
   if decoration
-    -decoratedModifier = 'button_decorated'
+    -decoratedModifier = ' button_decorated'
 
   - let sizeModifier = ''
   case size
     when 'wide'
-      -sizeModifier = 'button_size_wide'
+      -sizeModifier = ' button_size_wide'
 
   - let typeModifier = ''
   case type
     when 'bordered'
-      -typeModifier = 'button_type_bordered'
+      -typeModifier = ' button_type_bordered'
     when 'text'
-      -typeModifier = 'button_type_text'
+      -typeModifier = ' button_type_text'
     when 'filled'
     default
-      -typeModifier = 'button_type_filled'
+      -typeModifier = ' button_type_filled'
 
   - const blockTag = isLink ? 'a' : 'button'
   - const controlAttributes = {}
@@ -30,8 +30,8 @@ mixin button({text='', isTextSized=false, isLink=false, link='/mock-address/chan
   else
     -controlAttributes.type = 'button'
 
-  div.js-button.button(class=`${textSizedModifier} ${hoveredModifier} ${decoratedModifier} ${sizeModifier} ${typeModifier}`)
-    #{blockTag}.js-button__control.button__control&attributes(controlAttributes) #{text}
+  div(class=`button js-button${textSizedModifier}${hoveredModifier}${decoratedModifier}${sizeModifier}${typeModifier}`)
+    #{blockTag}.button__control.js-button__control&attributes(controlAttributes) #{text}
     if decoration === 'enter-arrow'
       div.button__decoration
         +arrow({type: 'enter'})

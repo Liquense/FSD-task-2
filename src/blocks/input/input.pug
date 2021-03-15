@@ -5,33 +5,33 @@ mixin input({title='', type, width, placeholder, withSubscription=false, isExpan
   -let widthModifier = ''
   case width
     when 'narrow'
-      -widthModifier = 'input_width_narrow'
+      -widthModifier = ' input_width_narrow'
     when 'almost-medium'
-      -widthModifier = 'input_width_almost-medium'
+      -widthModifier = ' input_width_almost-medium'
     when 'medium'
-      -widthModifier = 'input_width_medium'
+      -widthModifier = ' input_width_medium'
 
   -let subscriptionModifier = expandableModifier = focusedModifier = inDropdownModifier = ''
   if withSubscription
-    -subscriptionModifier = 'input_with-subscription'
+    -subscriptionModifier = ' input_with-subscription'
   if isExpandable
-    -expandableModifier = 'input_expandable'
+    -expandableModifier = ' input_expandable'
   if isFocused
-    -focusedModifier = 'input_focused'
+    -focusedModifier = ' input_focused'
   if inDropdown
-    -inDropdownModifier = 'input_with-dropdown-list'
+    -inDropdownModifier = ' input_with-dropdown-list'
 
   -let typeModifier = ''
   case type
     when 'mask'
-      -typeModifier = 'input_type_masked'
+      -typeModifier = ' input_type_masked'
 
-  article.js-input.input(class=`${widthModifier} ${subscriptionModifier} ${expandableModifier} ${focusedModifier} ${inDropdownModifier} ${typeModifier}`)
+  article(class=`input js-input${widthModifier}${subscriptionModifier}${expandableModifier}${focusedModifier}${inDropdownModifier}${typeModifier}`)
     if title
-      div.js-input__title.input__title
+      div.input__title.js-input__title
         +title({type: 'label', text: title})
-    div.js-input__control-wrapper.input__control-wrapper
-      input.js-input__control.input__control(value=text placeholder=placeholder readonly=isExpandable)
+    div.input__control-wrapper.js-input__control-wrapper
+      input.input__control.js-input__control(value=text placeholder=placeholder readonly=isExpandable)
       if withSubscription
         div.input__arrow
           +arrow({type: 'enter', isColored: true, isBold: true})

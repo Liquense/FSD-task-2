@@ -1,5 +1,5 @@
 mixin carousel({images = [], carouselParams={}} = {})
-  div.carousel.js-carousel&attributes(carouselParams)
+  div.js-carousel.carousel&attributes(carouselParams)
     each image in images
       if image.tag === 'img'
         img(src=image.src alt='Фото комнаты' class='carousel__element')

@@ -2,41 +2,41 @@ include ../spinner/spinner
 include ../input/input
 
 mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], unifiedCaption, isPure=false, isOpened=false, isUnaccepted=false, isFocused=false, data=[]} = {})
-  -let typeListModifier = ''
-  case dropdownType
-    when 'rooms'
-      -typeListModifier = 'dropdown__list_type_rooms'
-    when 'customers'
-      -typeListModifier = 'dropdown__list_type_customers'
-
   -let openedModifier = pureModifier = unacceptedModifier = ''
   if isOpened
-    -openedModifier = 'dropdown_opened'
+    -openedModifier = ' dropdown_opened'
   if isPure
-    -pureModifier = 'dropdown_pure'
+    -pureModifier = ' dropdown_pure'
   if isUnaccepted
-    -unacceptedModifier = 'dropdown_unaccepted'
+    -unacceptedModifier = ' dropdown_unaccepted'
 
   -let validWidth = widthModifier = ''
   if width === 'medium'
-    -widthModifier = 'dropdown_width_medium'
+    -widthModifier = ' dropdown_width_medium'
     -validWidth = 'medium'
 
-  article.js-dropdown.dropdown(class=`${openedModifier} ${pureModifier} ${unacceptedModifier} ${widthModifier}` data-unified-caption=unifiedCaption)
-    div.js-dropdown__input.dropdown__input
+  -let typeListModifier = ''
+    case dropdownType
+      when 'rooms'
+        -typeListModifier = ' dropdown__list_type_rooms'
+      when 'customers'
+        -typeListModifier = ' dropdown__list_type_customers'
+
+  article(class=`dropdown js-dropdown${openedModifier}${pureModifier}${unacceptedModifier}${widthModifier}` data-unified-caption=unifiedCaption)
+    div.dropdown__input.js-dropdown__input
       +input({title, width: validWidth, placeholder, isExpandable: true, isFocused: isOpened, inDropdown: true})
-    section.js-dropdown__list-wrapper.dropdown__list-wrapper
-      div.js-dropdown__list.dropdown__list(class=`${typeListModifier}`)
+    section.dropdown__list-wrapper.js-dropdown__list-wrapper
+      div(class=`dropdown__list js-dropdown__list${typeListModifier}`)
         each element, index in data
-          div.js-dropdown__list-row.dropdown__list-row
-            p.js-dropdown__list-row-text.dropdown__list-row-text(
+          div.dropdown__list-row.js-dropdown__list-row
+            p.dropdown__list-row-text.js-dropdown__list-row-text(
               data-declinations=element.declinations
               data-is-separate=`${element.isSeparate || ''}`
               data-always-visible=`${element.alwaysVisible || ''}`) #{element.name}
             div.dropdown__spinner
               +spinner({min: range[0], max: range[1], index, initValue: element.value})
-      div.js-dropdown__buttons-container.dropdown__buttons-container
-        div.js-dropdown__clear-button.dropdown__clear-button
+      div.dropdown__buttons-container.js-dropdown__buttons-container
+        div.dropdown__clear-button.js-dropdown__clear-button
           +button({text: 'Очистить', type: 'text'})
-        div.js-dropdown__confirm-button.dropdown__confirm-button
+        div.dropdown__confirm-button.js-dropdown__confirm-button
           +button({text: 'Применить', type: 'text'})
