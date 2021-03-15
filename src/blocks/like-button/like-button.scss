@@ -2,85 +2,58 @@ $likeButtonSize: 20px;
 $likeButtonBorderWidth: 1px;
 
 .like-button {
+  @include box-sizing-border-box();
+
   $block: &;
 
-  @include clearfix();
-  @include box-sizing-border-box();
-  @include text_regular();
-
+  display: block;
+  border-radius: $likeButtonSize/2;
   width: fit-content;
-  min-width: 40px;
-  display: inline-block;
   user-select: none;
-  vertical-align: middle;
   cursor: pointer;
-  position: relative;
-  color: $darkShade25;
-  font-size: 10px;
-  text-align: center;
-  line-height: $likeButtonSize;
+  background-color: $darkShade25;
+  padding: $likeButtonBorderWidth;
 
-  &.ui-checkboxradio-checked {
-    color: $purple;
-
-    #{$block}__border {
-      background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
-    }
-  }
-
-  &__border {
-    background-color: $darkShade25;
-    border-radius: $likeButtonSize/2;
+  &__body {
     display: block;
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    right: 0;
-  }
-
-  &__button {
+    border-radius: $likeButtonSize/2;
+    background-color: white;
+    min-width: 40px - 2*$likeButtonBorderWidth;
     line-height: $likeButtonSize - $likeButtonBorderWidth*2;
-    display: block;
-    float: left;
-    clear: both;
-    cursor: pointer;
-    width: calc(100% - 2 * #{$likeButtonBorderWidth});
-    height: calc(100% - 2 * #{$likeButtonBorderWidth});
-    background-color: $inputBackgroundColor;
-    margin: 0;
-    border: none;
-    border-radius: $likeButtonSize/2;
-    position: absolute;
-    top: $likeButtonBorderWidth;
-    left: $likeButtonBorderWidth;
+    padding: 0 8px 0 4px;
+  }
 
-    &:after {
-      content: "\e87e";
-      color: $darkShade25;
-      font-family: "Material Icons", sans-serif;
-      font-size: 10px;
-      line-height: 1em;
-      position: absolute;
-      left: 5px - $likeButtonBorderWidth;
-      top: 5px - $likeButtonBorderWidth;
-    }
+  &__icon {
+    @include icon();
 
-    &.ui-state-checked:after {
-      content: "\e87d";
-      color: $purple;
-      left: 5px - $likeButtonBorderWidth;
-      top: 5px - $likeButtonBorderWidth;
-      position: absolute;
-    }
+    color: $darkShade25;
+    font-size: $likeButtonSize / 2;
+    vertical-align: baseline;
+    margin-right: 5px;
   }
 
   &__text {
-    position: relative;
-    margin: 0 9px 0 20px;
+    @include text_regular();
+
+    color: $darkShade25;
+    font-size: $likeButtonSize / 2;
+    text-align: center;
+    vertical-align: top;
+    display: inline-block;
+    width: calc(100% - 8px - 5px - 2*#{$likeButtonBorderWidth});
+    line-height: inherit;
   }
 
   &__hidden-button {
     display: none;
+  }
+
+  &.ui-checkboxradio-checked {
+    background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
+
+    #{$block}__text,
+    #{$block}__icon {
+      color: $purple;
+    }
   }
 }

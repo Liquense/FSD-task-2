@@ -1,4 +1,6 @@
 mixin like-button({isChecked=false, count=0} = {})
   label.like-button.js-like-button(data-likes-count=count)
-    p.like-button__text.js-like-button__text #{count}
-    input.like-button__hidden-button.js-like-button__hidden-button(type='checkbox' data-is-checked=`${isChecked}`)
+    span.like-button__body
+      i.like-button__icon.js-like-button__icon #{isChecked ? 'favorite' : 'favorite_border'}
+      span.like-button__text.js-like-button__text #{count}
+      input.like-button__hidden-button.js-like-button__hidden-button(type='checkbox' data-is-checked=`${isChecked}`)
