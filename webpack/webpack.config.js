@@ -24,7 +24,7 @@ const sitePages = pageNames
   .map((name) => new HtmlWebpackPlugin({
     template: `./src/site-pages/${name}/${name}.pug`,
     filename: `${name}.html`,
-    chunks: [`${name}`, 'vendors'],
+    chunks: [name, 'jquery', 'fontawesome'],
   }));
 
 module.exports = {
@@ -53,14 +53,17 @@ module.exports = {
   optimization: {
     splitChunks: {
       name: false,
-
       cacheGroups: {
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
+        jquery: {
+          test: /[\\/]node_modules[\\/]jquery*[\\/]/,
+          name: 'jquery',
           chunks: 'all',
-          priority: 1,
         },
+        fontAwesome: {
+          test: /[\\/]node_modules[\\/]@fortawesome[\\/]/,
+          name: 'fontawesome',
+          chunks: 'all',
+        }
       },
     },
   },
