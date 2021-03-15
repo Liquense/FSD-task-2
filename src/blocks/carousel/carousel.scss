@@ -6,13 +6,14 @@ $arrowSize: 44px;
   @include box-sizing-border-box();
 
   height: 100%;
-  max-width: 100vw;
 
   .slick {
     &-arrow {
       opacity: 0;
+      height: 100%;
       pointer-events: none;
       position: absolute;
+      z-index: 1;
     }
 
     &-active {
@@ -21,7 +22,6 @@ $arrowSize: 44px;
   }
 
   &__element {
-    display: block !important;
     cursor: grab;
 
     &:active {
@@ -45,20 +45,16 @@ $arrowSize: 44px;
 
   &__prev-button {
     left: 0;
-    top: 0;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
   }
 
   &__next-button {
     right: 0;
-    top: 0;
     background: linear-gradient(-90deg, $darkShade50 0%, transparent 100%);
   }
 
   &__dots {
-    min-height: 7px;
     height: 4.63%;
-    min-width: 7px;
     width: 14.54%;
     display: flex;
     position: absolute;
@@ -72,7 +68,6 @@ $arrowSize: 44px;
     > li {
       border: 1px solid white;
       border-radius: 50%;
-      min-height: 7px;
       width: 100%;
       box-shadow: 0 5px 5px $darkShade30;
       cursor: pointer;
@@ -92,10 +87,6 @@ $arrowSize: 44px;
       &-arrow {
         opacity: 1;
         pointer-events: auto;
-        height: 100%;
-        width: fit-content;
-        z-index: 1;
-        cursor: pointer;
       }
     }
   }
