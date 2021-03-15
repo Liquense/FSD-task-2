@@ -25,28 +25,14 @@ $expandWidth: 1em;
     background-color: transparent;
     position: relative;
 
-    &:hover:not(.arrow_relative),
-    &:focus:not(.arrow_relative) {
-      &:before {
-        box-sizing: border-box;
-        content: "";
-        position: absolute;
-        border-radius: 50%;
-        width: 1.1em;
-        height: 1.1em;
-        border: dotted 0.1em $darkShade50;
-        top: -0.05em;
-        right: -0.05em;
-      }
+    &:hover,
+    &:focus {
+      color: $darkShade75;
     }
 
     &:focus {
       outline: none;
     }
-  }
-
-  &_relative {
-    position: relative;
   }
 
   &_colored {

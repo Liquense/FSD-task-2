@@ -1,7 +1,6 @@
-mixin arrow({type='expand', isColored=false, isBold=false, isRelative=false} = {})
+mixin arrow({type='expand', isColored=false, isBold=false} = {})
   -const coloredModifier = isColored ? ' arrow_colored' : ''
   -const boldModifier = isBold ? ' arrow_bold' : ''
-  -const relativeModifier = isRelative ? ' arrow_relative' : ''
 
   -let arrowContent, validType
   case type
@@ -13,4 +12,4 @@ mixin arrow({type='expand', isColored=false, isBold=false, isRelative=false} = {
       -arrowContent = 'arrow_forward'
       -validType = 'enter'
 
-  span.arrow.js-arrow(class=`arrow_type_${validType}${coloredModifier}${boldModifier}${relativeModifier}`) #{arrowContent}
+  span.arrow.js-arrow(class=`arrow_type_${validType}${coloredModifier}${boldModifier}`) #{arrowContent}

@@ -14,7 +14,7 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
             a.header__item-link(class=`${boldLinkModifier}` href=(item.link ? item.link : '/mock-address/change-me')) #{item.text}
             if item.children
               button.header__expand-button
-                +arrow({type: 'expand', isRelative: true})
+                +arrow({type: 'expand'})
       if (userLogin)
         div.header__divider
         div.header__user-name #{userLogin}
