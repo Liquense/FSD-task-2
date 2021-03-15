@@ -2,7 +2,6 @@
   @include box-sizing-border-box();
 
   display: flex;
-  justify-content: space-between;
   align-items: flex-end;
   width: fit-content;
   height: fit-content;
@@ -15,7 +14,6 @@
 
   &__image-container {
     max-width: 120px;
-    height: fit-content;
     margin-right: 30px;
     position: relative;
 
@@ -26,29 +24,23 @@
 
   &__svg {
     width: 100%;
-    height: auto;
-    overflow: visible;
   }
 
   &__active-data {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     position: absolute;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     padding-bottom: 9px;
-    width: 100%;
-    left: 50%;
     user-select: none;
-    z-index: -1;
   }
 
   &__active-value {
     @include text_widget-title();
 
-    font-size: 24px;
     line-height: 30px;
   }
 
@@ -60,7 +52,6 @@
   }
 
   &__legend {
-    list-style: none;
     margin: 0;
     padding: 0;
   }
@@ -81,7 +72,6 @@
 
     &:before {
       content: "";
-      display: block;
       height: 10px;
       width: 10px;
       border-radius: 50%;
