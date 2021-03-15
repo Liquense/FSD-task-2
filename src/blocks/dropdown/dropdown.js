@@ -75,7 +75,7 @@ class Dropdown {
   }
 
   _addClearButtonEvents() {
-    this.$clearButton.on('click.dropdown', this._handleClearButtonClick);
+    this.$clearButton.find('.js-button').on('click.dropdown', this._handleClearButtonClick);
   }
 
   _handleClearButtonClick = () => {
@@ -85,7 +85,7 @@ class Dropdown {
   }
 
   _addConfirmButtonEvents() {
-    this.$confirmButton.on('click.dropdown', this._handleConfirmButtonClick);
+    this.$confirmButton.find('.js-button').on('click.dropdown', this._handleConfirmButtonClick);
   }
 
   _handleConfirmButtonClick = () => {
