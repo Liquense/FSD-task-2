@@ -1,4 +1,4 @@
-import { importCommon } from '../../imports';
+import { importCommon, importHeaderFooter } from '../../imports';
 import initRoomPreviewCards from '../../cards/room-preview-card/init';
 import initPaginations from '../../blocks/pagination/init';
 import initDatepickers from '../../blocks/date-picker/init';
@@ -8,6 +8,7 @@ import initLists from '../../blocks/checkbox-list/init';
 import './search-room.scss';
 
 importCommon();
+importHeaderFooter();
 
 const $showSidebarButtons = $('.js-search-room__show-sidebar-button');
 $showSidebarButtons.each((index, element) => {
