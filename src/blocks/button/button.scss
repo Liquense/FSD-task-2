@@ -3,15 +3,14 @@ $buttonHeight: 44px;
 $arrowSize: 24px;
 
 .button {
-  $block: &;
-
   @include box-sizing-border-box();
+
+  $block: &;
 
   cursor: pointer;
   display: inline-block;
   width: fit-content;
   min-width: 99px;
-  text-decoration: none;
 
   &:not(&_type_text) {
     background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
@@ -22,7 +21,6 @@ $arrowSize: 24px;
     padding: $buttonBorderWidth;
 
     #{$block}__control {
-      position: relative;
       min-height: $buttonHeight - 2*$buttonBorderWidth;
       border: none;
       background-color: $inputBackgroundColor;
@@ -47,30 +45,20 @@ $arrowSize: 24px;
   &_text-sized, &_type_text {
     min-width: unset;
     min-height: unset;
-    height: fit-content;
-    width: fit-content;
   }
 
   &_type_text &__control {
     border: none;
     min-height: unset;
     background-color: transparent;
-    width: fit-content;
     line-height: 15px;
     color: $purple;
     cursor: pointer;
     padding: 0;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &_text-sized {
     #{$block}__control {
-      display: block;
-      width: auto;
-      height: auto;
       min-height: unset;
     }
 
@@ -90,11 +78,10 @@ $arrowSize: 24px;
   &_decorated {
     display: flex;
     align-items: center;
-    position: relative;
 
     #{$block}__control {
-      padding-right: 47px;
-      padding-left: 43px;
+      padding-right: 0;
+      padding-left: 40px;
     }
   }
 
@@ -105,7 +92,6 @@ $arrowSize: 24px;
     cursor: pointer;
     width: 100%;
     min-height: $buttonHeight;
-    margin: 0;
     border-radius: 22px;
     overflow-wrap: anywhere;
 
@@ -115,15 +101,7 @@ $arrowSize: 24px;
   }
 
   &__decoration {
-    display: block;
-    font-weight: normal;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    position: absolute;
     padding: ($buttonHeight - $arrowSize)/2;
-    right: 0;
   }
 
   &_hovered:not(&_type_text),
@@ -131,7 +109,8 @@ $arrowSize: 24px;
     background: linear-gradient(180deg, rgba($purple, 0.5) 0%, rgba($purpleGradientSecond, 0.5) 100%);
   }
 
-  &_hovered#{&}_type_text, &_type_text:hover {
+  &_type_text:hover,
+  &_hovered#{&}_type_text,  {
     #{$block}__control, #{$block}__decoration {
       color: $darkShade50;
     }
