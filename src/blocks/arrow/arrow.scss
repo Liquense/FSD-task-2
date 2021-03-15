@@ -22,4 +22,8 @@ $expandWidth: 1em;
   &_colored {
     @include text-gradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
   }
+
+  &_bold {
+    font-weight: bold;
+  }
 }
