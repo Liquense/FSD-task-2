@@ -2,8 +2,9 @@ include ../../blocks/carousel/carousel
 include ../../blocks/rating/rating
 include ../../blocks/title/title
 
-mixin room-preview-card({link='', room:{currencySymbol='₽', periodText='в сутки', rating=[5, 5], reviewsCount=0, roomNumber=0, roomType='', costPerPeriod=1}={}, carousel={images:[], carouselParams:{}}} = {})
-  article.room-preview-card.js-room-preview-card(data-currency=currencySymbol data-cost-per-period=costPerPeriod data-reviews-count=reviewsCount)
+mixin room-preview-card({link='', room:{currencySymbol='₽', periodText='в сутки', rating=[5, 5], reviewsCount=0, roomNumber=0, roomType='', costPerPeriod=1}={}, carousel={images:[], carouselParams:{}}, isStretched=true} = {})
+  - const stretchedModifier = isStretched ? 'room-preview-card_stretched' : ''
+  article.room-preview-card.js-room-preview-card(class=stretchedModifier data-currency=currencySymbol data-cost-per-period=costPerPeriod data-reviews-count=reviewsCount)
     div.room-preview-card__photos
       div.room-preview-card__carousel
         +carousel(carousel)

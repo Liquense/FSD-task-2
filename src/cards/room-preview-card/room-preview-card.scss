@@ -6,7 +6,6 @@
   background: white;
   box-shadow: 0 10px 20px $darkShade5;
   border-radius: 4px;
-  overflow: hidden;
 
   @media (max-width: 551px) {
     border-radius: 0;
@@ -124,5 +123,10 @@
 
   &__reviews-count {
     font-weight: bold;
+  }
+
+  &_stretched {
+    max-width: unset;
+    width: 100%;
   }
 }

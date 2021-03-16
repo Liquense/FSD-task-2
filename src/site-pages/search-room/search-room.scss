@@ -166,13 +166,6 @@ $roomCardWidth: 270px;
         }
       }
 
-      &__item {
-        .room-preview-card {
-          max-width: unset;
-          width: 100%;
-        }
-      }
-
       &__buttons {
         padding-right: get-vw(15px);
       }
