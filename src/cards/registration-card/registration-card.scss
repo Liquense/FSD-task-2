@@ -6,7 +6,6 @@ $borderWidth: 1px;
   display: flex;
   flex-direction: column;
   max-width: 380px;
-  height: fit-content;
   background: #FFFFFF;
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
@@ -15,7 +14,6 @@ $borderWidth: 1px;
 
   @media (max-width: 380px) {
     align-items: center;
-    width: 100%;
     border-radius: 0;
     padding: 25px 10px;
     border-right: 0;
@@ -35,18 +33,11 @@ $borderWidth: 1px;
   }
 
   &__user-surname-input {
-    margin-bottom: 11px;
+    margin-bottom: 10px;
   }
 
   &__gender-list {
-    align-self: stretch;
     margin-bottom: 26px;
-
-    @media (max-width: 380px) {
-      width: fit-content;
-      margin-left: auto;
-      margin-right: auto;
-    }
   }
 
   &__male-radio-button, &__female-radio-button {
