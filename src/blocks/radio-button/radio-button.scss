@@ -7,23 +7,17 @@ $buttonRightMargin: 10px;
 
   @include box-sizing-border-box();
 
-  width: fit-content;
-  display: inline-block;
-  -webkit-user-select: none;
-  vertical-align: middle;
   cursor: pointer;
 
   &__input {
     appearance: none;
     outline: none;
     height: $checkboxButtonSize;
+    width: $checkboxButtonSize;
     border: $checkboxButtonBorderWidth solid $darkShade25;
     margin: 0 $buttonRightMargin 0 0;
-    display: block;
     float: left;
-    clear: both;
     cursor: pointer;
-    min-width: $checkboxButtonSize;
     border-radius: 50%;
     background-color: #ffffff;
 
@@ -52,9 +46,6 @@ $buttonRightMargin: 10px;
     @include text_regular();
 
     color: $darkShade50;
-    display: inline-block;
-    line-height: 18px;
-    margin: 0;
     max-width: 23ch;
     vertical-align: baseline;
   }
