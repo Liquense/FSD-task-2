@@ -36,4 +36,9 @@ $borderWidth: 1px;
   &__guests-dropdown {
     margin-bottom: 30px;
   }
+
+  &__search-button {
+    display: flex;
+    min-height: 44px;
+  }
 }

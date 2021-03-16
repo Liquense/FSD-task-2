@@ -8,82 +8,7 @@ $arrowSize: 24px;
   $block: &;
 
   cursor: pointer;
-  display: inline-block;
   width: fit-content;
-  min-width: 99px;
-
-  &:not(&_type_text) {
-    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-    border-radius: 22px;
-  }
-
-  &_type_bordered {
-    padding: $buttonBorderWidth;
-
-    #{$block}__control {
-      min-height: $buttonHeight - 2*$buttonBorderWidth;
-      border: none;
-      background-color: $inputBackgroundColor;
-      color: $purple;
-      padding: 10px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
-    }
-  }
-
-  &_type_filled {
-    #{$block}__control {
-      background: transparent;
-      border: none;
-      color: $inputBackgroundColor;
-      padding: 10px 20px 10px 20px;
-    }
-
-    #{$block}__decoration {
-      color: $inputBackgroundColor;
-    }
-  }
-
-  &_text-sized, &_type_text {
-    min-width: unset;
-    min-height: unset;
-  }
-
-  &_type_text &__control {
-    border: none;
-    min-height: unset;
-    background-color: transparent;
-    line-height: 15px;
-    color: $purple;
-    cursor: pointer;
-    padding: 0;
-  }
-
-  &_text-sized {
-    #{$block}__control {
-      min-height: unset;
-    }
-
-    &#{$block}_type_bordered #{$block}__control {
-      padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
-    }
-  }
-
-  &_size_wide {
-    min-width: 320px;
-
-    @media (max-width: 380px) {
-      min-width: 300px;
-    }
-  }
-
-  &_decorated {
-    display: flex;
-    align-items: center;
-
-    #{$block}__control {
-      padding-right: 0;
-      padding-left: 40px;
-    }
-  }
 
   &__control {
     @include text_label-CTA();
@@ -91,9 +16,9 @@ $arrowSize: 24px;
     display: block;
     cursor: pointer;
     width: 100%;
-    min-height: $buttonHeight;
+    height: 100%;
     border-radius: 22px;
-    line-height: $arrowSize;
+    text-align: center;
     overflow-wrap: anywhere;
 
     &:focus {
@@ -101,21 +26,82 @@ $arrowSize: 24px;
     }
   }
 
-  &__decoration {
-    float: right;
-    display: flex;
-    padding: 0 ($buttonHeight - $arrowSize)/2;
+  &:not(&_style_text) {
+    background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
+    border-radius: 22px;
   }
 
-  &_hovered:not(&_type_text),
-  &:not(&_type_text):hover {
+  &_style_bordered {
+    padding: $buttonBorderWidth;
+
+    #{$block}__control {
+      border: none;
+      background-color: $inputBackgroundColor;
+      color: $purple;
+      padding: 11px - $buttonBorderWidth 20px - $buttonBorderWidth 11px - $buttonBorderWidth 20px - $buttonBorderWidth;
+    }
+  }
+
+  &_style_filled {
+    #{$block}__control {
+      background: transparent;
+      border: none;
+      color: $inputBackgroundColor;
+      padding: 11px 20px 11px 20px;
+    }
+
+    #{$block}__decoration {
+      color: $inputBackgroundColor;
+    }
+  }
+
+  &_style_text {
+    cursor: auto;
+
+    #{$block}__control {
+      width: fit-content;
+      border: none;
+      background-color: transparent;
+      line-height: 15px;
+      color: $purple;
+      cursor: pointer;
+      padding: 0;
+
+      :hover {
+        color: $darkShade50;
+      }
+    }
+
+    &#{$block}_hovered #{$block}__control {
+      color: $darkShade50;
+    }
+  }
+
+  &_decorated {
+    #{$block}__control {
+      display: flex;
+      align-items: center;
+      padding-right: 0;
+      padding-left: 40px;
+    }
+
+    #{$block}__text {
+      flex-grow: 1;
+    }
+
+    #{$block}__decoration {
+      float: right;
+      display: flex;
+      padding: 0 ($buttonHeight - $arrowSize)/2;
+    }
+  }
+
+  &_hovered:not(&_style_text),
+  &:not(&_style_text):hover {
     background: linear-gradient(180deg, rgba($purple, 0.5) 0%, rgba($purpleGradientSecond, 0.5) 100%);
   }
 
-  &_type_text:hover,
-  &_hovered#{&}_type_text,  {
-    #{$block}__control, #{$block}__decoration {
-      color: $darkShade50;
-    }
+  &_stretched:not(&_style_text) {
+    width: 100%;
   }
 }

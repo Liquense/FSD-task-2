@@ -28,9 +28,9 @@ mixin registration-card({loginURL=''} = {})
         +input({type: 'text', placeholder: 'Пароль'})
     div.registration-card__send-offers-button
       +checkbox({text: 'Получать спецпредложения', type: 'toggle'})
-    div.registration-card__payment-button
-      +button({text: 'Зарегистрироваться', type: 'filled', size: 'wide', decoration: 'enter-arrow'})
+    div.registration-card__register-button
+      +button({text: 'Зарегистрироваться', style: 'filled', decoration: 'enter-arrow'})
     div.registration-card__action-container
       a.registration-card__have-account-link(href=loginURL) Уже есть аккаунт на Toxin
       div.registration-card__login-button
-        +button({text: 'Войти', type: 'bordered'})
+        +button({text: 'Войти', style: 'bordered'})

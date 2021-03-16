@@ -75,7 +75,13 @@ $borderWidth: 1px;
     }
   }
 
-  &__payment-button {
+  &__register-button,
+  &__login-button {
+    display: flex;
+    min-height: 44px;
+  }
+
+  &__register-button {
     margin-bottom: 30px;
   }
 
@@ -95,5 +101,9 @@ $borderWidth: 1px;
 
     margin-bottom: 2px;
     text-decoration: none;
+  }
+
+  &__login-button {
+    min-width: 99px;
   }
 }

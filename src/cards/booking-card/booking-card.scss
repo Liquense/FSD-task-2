@@ -155,4 +155,9 @@
     line-height: 24px;
     font-size: 19px;
   }
+
+  &__booking-button {
+    display: flex;
+    min-height: 44px;
+  }
 }

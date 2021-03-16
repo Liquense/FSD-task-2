@@ -1,4 +1,6 @@
 .form-elements {
+  $page: &;
+
   padding: 140px 0 131px 0;
 
   &__top-area {
@@ -144,7 +146,19 @@
   }
 
   &__wide-button {
+    display: flex;
+    min-height: 44px;
+    max-width: 320px;
     margin-bottom: 42px;
+  }
+
+  &__filled-buttons,
+  &__bordered-buttons {
+    #{$page}__button {
+      display: flex;
+      min-width: 99px;
+      min-height: 44px;
+    }
   }
 
   &__pagination {

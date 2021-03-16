@@ -1,27 +1,18 @@
 include ../arrow/arrow
-mixin button({text='', isTextSized=false, isLink=false, link='/mock-address/change-me', type='filled', size='', decoration='', isHovered=false} = {})
-  - let textSizedModifier = hoveredModifier = decoratedModifier = ''
-  if isTextSized
-    -textSizedModifier = ' button_text-sized'
-  if isHovered
-    -hoveredModifier = ' button_hovered'
-  if decoration
-    -decoratedModifier = ' button_decorated'
+mixin button({text='', isLink=false, link='/mock-address/change-me', style='filled', decoration='', isHovered=false, isStretched=true} = {})
+  - const stretchedModifier = isStretched ? ' button_stretched' : ''
+  - const hoveredModifier = isHovered ? ' button_hovered' : ''
+  - let decoratedModifier = decoration ? ' button_decorated' : ''
 
-  - let sizeModifier = ''
-  case size
-    when 'wide'
-      -sizeModifier = ' button_size_wide'
-
-  - let typeModifier = ''
-  case type
+  - let styleModifier = ''
+  case style
     when 'bordered'
-      -typeModifier = ' button_type_bordered'
+      -styleModifier = ' button_style_bordered'
     when 'text'
-      -typeModifier = ' button_type_text'
+      -styleModifier = ' button_style_text'
     when 'filled'
     default
-      -typeModifier = ' button_type_filled'
+      -styleModifier = ' button_style_filled'
 
   - const blockTag = isLink ? 'a' : 'button'
   - const controlAttributes = {}
@@ -30,9 +21,9 @@ mixin button({text='', isTextSized=false, isLink=false, link='/mock-address/chan
   else
     -controlAttributes.type = 'button'
 
-  div(class=`button js-button${textSizedModifier}${hoveredModifier}${decoratedModifier}${sizeModifier}${typeModifier}`)
+  div(class=`button js-button${stretchedModifier}${hoveredModifier}${decoratedModifier}${styleModifier}`)
     #{blockTag}.button__control.js-button__control&attributes(controlAttributes)
       span.button__text #{text}
       if decoration === 'enter-arrow'
-        span.button__decoration
+        i.button__decoration
           +arrow({type: 'enter'})

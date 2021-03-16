@@ -54,4 +54,9 @@
     margin: 0 0 2px 0;
     color: black;
   }
+
+  &__login-button, &__create-login-button {
+    display: flex;
+    min-height: 44px;
+  }
 }
