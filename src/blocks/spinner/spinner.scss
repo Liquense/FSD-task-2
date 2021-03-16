@@ -7,7 +7,6 @@ $borderWidth: 1px;
   &__value {
     @include text_label-CTA();
 
-    display: inline-block;
     text-align: center;
     line-height: $buttonSize;
     max-width: 32px;
@@ -25,7 +24,6 @@ $borderWidth: 1px;
     color: $darkShade50;
     background-color: $inputBackgroundColor;
     width: $buttonSize;
-    text-align: center;
     padding: 0;
 
     &_disabled {
