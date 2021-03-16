@@ -22,6 +22,7 @@ $arrowSize: 44px;
   }
 
   &__element {
+    display: block !important;
     cursor: grab;
 
     &:active {
@@ -49,6 +50,7 @@ $arrowSize: 44px;
   }
 
   &__next-button {
+    top: 0;
     right: 0;
     background: linear-gradient(-90deg, $darkShade50 0%, transparent 100%);
   }
