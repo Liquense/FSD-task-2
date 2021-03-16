@@ -4,8 +4,6 @@ $pageButtonSize: 40px;
   @include box-sizing-border-box();
 
   &__content {
-    text-align: center;
-
     &_invisible {
       display: none;
     }
@@ -27,10 +25,8 @@ $pageButtonSize: 40px;
 
   .paginationjs {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 
     &-prev,
     &-page,
@@ -45,7 +41,6 @@ $pageButtonSize: 40px;
       text-align: center;
 
       @media (max-width: 450px) {
-        position: relative;
         width: 30px;
         height: 30px;
         line-height: 30px;
@@ -86,8 +81,7 @@ $pageButtonSize: 40px;
       @include text_regular();
 
       line-height: unset;
-      align-self: flex-start;
-      margin: 11px auto 0 auto;
+      margin-top: 11px;
     }
   }
 }
