@@ -4,7 +4,7 @@ include ../like-button/like-button
 mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} = {})
   article.comment.js-comment
     div.comment__avatar-wrap
-      img.comment__avatar(src=avatar, alt='user avatar')
+      img.comment__avatar(src=avatar, alt=`аватар ${author}`)
     div.comment__info-container
       h3.comment__author #{author}
       span.comment__date-time #{dateTime}

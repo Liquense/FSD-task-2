@@ -7,7 +7,8 @@ mixin room-preview-card({link='', room:{currencySymbol='₽', periodText='в с�
   article.room-preview-card.js-room-preview-card(class=stretchedModifier data-currency=currencySymbol data-cost-per-period=costPerPeriod data-reviews-count=reviewsCount)
     div.room-preview-card__photos
       div.room-preview-card__carousel
-        +carousel(carousel)
+        - const carouselData = Object.assign({}, carousel, { roomNumber })
+        +carousel(carouselData)
     a.room-preview-card__text-content.js-room-preview-card__text-content(href=link ? link : false)
       section.room-preview-card__room-info
         div.room-preview-card__room-description
