@@ -33,8 +33,8 @@ mixin input({title='', type, width, placeholder, withSubscription=false, isExpan
     div.input__control-wrapper.js-input__control-wrapper
       input.input__control.js-input__control(value=text placeholder=placeholder readonly=isExpandable)
       if withSubscription
-        div.input__arrow
+        button.input__arrow
           +arrow({type: 'enter', isColored: true, isBold: true})
       else if isExpandable
-        div.input__arrow
+        button.input__arrow
           +arrow({type: 'expand'})
