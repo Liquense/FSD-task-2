@@ -220,10 +220,12 @@
   }
 
   &__social-media {
+    margin: 0;
     max-width: 20%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    list-style: none;
 
     @media (max-width: 450px) {
       min-width: 80px;

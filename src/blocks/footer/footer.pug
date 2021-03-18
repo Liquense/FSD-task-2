@@ -31,10 +31,10 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
     div.footer__copyright-bar
       if !isSimple
         span.footer__copyright-text #{copyright}
-      section.footer__social-media
-        div.footer__icon
+      ul.footer__social-media
+        li.footer__icon
           a.fab.fa-twitter(href='https://twitter.com/' target='_blank', rel='noopener noreferrer')
-        div.footer__icon
+        li.footer__icon
           a.fab.fa-facebook-square(href='https://facebook.com/' target='_blank' rel='noopener noreferrer')
-        div.footer__icon
+        li.footer__icon
           a.fab.fa-instagram(href='https://www.instagram.com/' target='_blank' rel='noopener noreferrer')
