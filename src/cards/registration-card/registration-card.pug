@@ -33,4 +33,4 @@ mixin registration-card({loginURL=''} = {})
     div.registration-card__action-container
       a.registration-card__have-account-link(href=loginURL) Уже есть аккаунт на Toxin
       div.registration-card__login-button
-        +button({text: 'Войти', style: 'bordered'})
+        +button({text: 'Войти', style: 'bordered', type: 'submit'})

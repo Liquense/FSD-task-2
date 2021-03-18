@@ -13,7 +13,7 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
             -const boldLinkModifier = item.bold ? ` header__item-link_bold` : ''
             a.header__item-link(class=`${boldLinkModifier}` href=(item.link ? item.link : '/mock-address/change-me')) #{item.text}
             if item.children
-              button.header__expand-button
+              button.header__expand-button(type='button')
                 +arrow({type: 'expand'})
       if (userLogin)
         div.header__divider
