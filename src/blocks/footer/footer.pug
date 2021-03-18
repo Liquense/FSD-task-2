@@ -2,8 +2,8 @@ include ../input/input
 include ../title/title
 mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} = {})
   -const logo = require('../../assets/images/logo-colored-withText.svg');
-  -const typeModifier = isSimple ? '_type_simple' : '_type_large'
-  footer.footer.js-footer(class=`footer${typeModifier}`)
+  -const typeModifier = isSimple ? 'footer_simple' : ''
+  footer.footer.js-footer(class=`${typeModifier}`)
     div.footer__content
       figure.footer__logo
         img.footer__logo-image(src=logo alt='цветной логотип с текстом: TOXIN')
