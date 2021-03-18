@@ -55,7 +55,7 @@ module.exports = {
       name: false,
       cacheGroups: {
         jquery: {
-          test: /[\\/]node_modules[\\/]jquery*[\\/]/,
+          test: /[\\/]node_modules[\\/]jquery(-ui)?[\\/]/,
           name: 'jquery',
           chunks: 'all',
         },
@@ -63,7 +63,7 @@ module.exports = {
           test: /[\\/]node_modules[\\/]@fortawesome[\\/]/,
           name: 'fontawesome',
           chunks: 'all',
-        }
+        },
       },
     },
   },
@@ -76,8 +76,11 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
-            plugins: ['@babel/plugin-proposal-optional-chaining'],
+            presets: [
+              ['@babel/preset-env',
+                { exclude: ['proposal-dynamic-import'] },
+              ],
+            ],
           },
         },
       },

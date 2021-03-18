@@ -3,7 +3,7 @@ include ../title/title
 mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} = {})
   -const logo = require('../../assets/images/logo-colored-withText.svg');
   -const typeModifier = isSimple ? '_type_simple' : '_type_large'
-  footer(class=`footer footer${typeModifier}`)
+  footer.footer.js-footer(class=`footer${typeModifier}`)
     div.footer__content
       figure.footer__logo
         img.footer__logo-image(src=logo alt='logo')

@@ -1,5 +1,3 @@
-import 'jquery.maskedinput/src/jquery.maskedinput';
-
 import initArrows from '../arrow/init';
 import './input.scss';
 
@@ -28,8 +26,9 @@ class Input {
     this._initElements(rootElement);
     this._initProps();
     this._addInputOnClick();
-
-    if (this.type === Input.types.masked) this._initMask();
+    if (this.type === Input.types.masked) {
+      import('jquery.maskedinput/src/jquery.maskedinput').then(() => this._initMask());
+    }
   }
 
   addClickCallback(callback) {
