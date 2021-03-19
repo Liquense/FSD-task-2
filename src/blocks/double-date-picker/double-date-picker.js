@@ -42,8 +42,9 @@ class TwoCalendarDatepicker {
 
   _initElements(rootElement) {
     this.$doubleDatePicker = $(rootElement);
-    this.$firstDatePicker = this.$doubleDatePicker.find('.js-double-date-picker__first-date-picker');
-    this.$secondDatePicker = this.$doubleDatePicker.find('.js-double-date-picker__second-date-picker');
+    const $datepickers = this.$doubleDatePicker.find('.js-double-date-picker__date-picker');
+    this.$firstDatePicker = $($datepickers[0]);
+    this.$secondDatePicker = $($datepickers[1]);
   }
 
   _initProperties() {

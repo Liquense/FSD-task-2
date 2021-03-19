@@ -3,22 +3,21 @@
 
   display: flex;
   align-items: flex-end;
-  max-width: 320px;
 
   @media (max-width: 380px) {
     max-width: 300px;
   }
 
-  &__first-date-picker,
-  &__second-date-picker {
-    max-width: 150px;
+  &__date-picker {
+    flex-grow: 1;
+    min-width: 150px;
 
     @media (max-width: 380px) {
-      max-width: 140px;
+      min-width: 140px;
     }
   }
 
-  &__first-date-picker {
+  &__date-picker:first-child {
     margin-right: 20px;
   }
 }
