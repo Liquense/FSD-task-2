@@ -72,6 +72,12 @@ $roomCardWidth: 270px;
     }
   }
 
+  &__staying-dates,
+  &__guests,
+  &__room-equipment-filter {
+    min-width: 266px;
+  }
+
   &__staying-dates {
     margin-bottom: 20px;
 

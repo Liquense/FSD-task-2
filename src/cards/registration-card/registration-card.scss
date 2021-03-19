@@ -5,7 +5,8 @@ $borderWidth: 1px;
 
   display: flex;
   flex-direction: column;
-  max-width: 380px;
+  align-items: stretch;
+  min-width: 380px;
   background: #FFFFFF;
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
@@ -13,7 +14,7 @@ $borderWidth: 1px;
   padding: 40px - $borderWidth 30px - $borderWidth 29px - $borderWidth 30px - $borderWidth;
 
   @media (max-width: 380px) {
-    align-items: center;
+    min-width: unset;
     border-radius: 0;
     padding: 25px 10px;
     border-right: 0;

@@ -4,10 +4,6 @@
   display: flex;
   align-items: flex-end;
 
-  @media (max-width: 380px) {
-    max-width: 300px;
-  }
-
   &__date-picker {
     flex-grow: 1;
     min-width: 150px;

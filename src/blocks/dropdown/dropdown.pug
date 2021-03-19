@@ -1,7 +1,7 @@
 include ../spinner/spinner
 include ../input/input
 
-mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], unifiedCaption, isPure=false, isOpened=false, isUnaccepted=false, isFocused=false, data=[]} = {})
+mixin dropdown({title, dropdownType, placeholder, range=[0, 5], unifiedCaption, isPure=false, isOpened=false, isUnaccepted=false, isFocused=false, data=[]} = {})
   -let openedModifier = pureModifier = unacceptedModifier = ''
   if isOpened
     -openedModifier = ' dropdown_opened'
@@ -10,11 +10,6 @@ mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], unifiedCa
   if isUnaccepted
     -unacceptedModifier = ' dropdown_unaccepted'
 
-  -let validWidth = widthModifier = ''
-  if width === 'medium'
-    -widthModifier = ' dropdown_width_medium'
-    -validWidth = 'medium'
-
   -let typeListModifier = ''
     case dropdownType
       when 'rooms'
@@ -22,9 +17,9 @@ mixin dropdown({title, width, dropdownType, placeholder, range=[0, 5], unifiedCa
       when 'customers'
         -typeListModifier = ' dropdown__list_type_customers'
 
-  article(class=`dropdown js-dropdown${openedModifier}${pureModifier}${unacceptedModifier}${widthModifier}` data-unified-caption=unifiedCaption)
+  div(class=`dropdown js-dropdown${openedModifier}${pureModifier}${unacceptedModifier}` data-unified-caption=unifiedCaption)
     div.dropdown__input.js-dropdown__input
-      +input({title, width: validWidth, placeholder, isExpandable: true, isFocused: isOpened, inDropdown: true})
+      +input({title, placeholder, isExpandable: true, isFocused: isOpened, inDropdown: true})
     section.dropdown__list-wrapper.js-dropdown__list-wrapper
       div(class=`dropdown__list js-dropdown__list${typeListModifier}`)
         each element, index in data

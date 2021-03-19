@@ -7,7 +7,6 @@ $inputBorderRadius: 4px;
   @include box-sizing-border-box();
 
   position: relative;
-  width: fit-content;
 
   &__list-wrapper {
     display: none;

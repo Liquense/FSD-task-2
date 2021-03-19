@@ -28,6 +28,11 @@
     line-height: 24px;
   }
 
+  #{$block}__copyright-bar {
+    padding: 0;
+    border: 0;
+  }
+
   #{$block}__social-media {
     margin: 0;
     max-width: unset;
@@ -185,6 +190,10 @@
       text-align: center;
       margin-bottom: 10px;
     }
+  }
+
+  &__subscription-input {
+    min-width: 260px;
   }
 
   &__copyright-bar {
