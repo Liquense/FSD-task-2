@@ -7,13 +7,13 @@ class Spinner {
 
   static decreaseButtonDisabledClass = `${Spinner.decreaseButtonBaseClass}_disabled`;
 
-  static decreaseButtonClasses = `js-${Spinner.decreaseButtonBaseClass} ${Spinner.decreaseButtonBaseClass} ui-spinner-button ui-spinner-down`;
+  static decreaseButtonClasses = `${Spinner.decreaseButtonBaseClass} js-${Spinner.decreaseButtonBaseClass} ui-spinner-button ui-spinner-down`;
 
   static increaseButtonBaseClass = 'spinner__increase-button';
 
   static increaseButtonDisabledClass = `${Spinner.increaseButtonBaseClass}_disabled`;
 
-  static increaseButtonClasses = `js-${Spinner.increaseButtonBaseClass} ${Spinner.increaseButtonBaseClass} ui-spinner-button ui-spinner-up`;
+  static increaseButtonClasses = `${Spinner.increaseButtonBaseClass} js-${Spinner.increaseButtonBaseClass} ui-spinner-button ui-spinner-up`;
 
   $decreaseButton;
 
