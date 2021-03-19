@@ -19,7 +19,7 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
               if column.links
                 each link in column.links
                   a.footer__link(href=link.url ? link.url : '/mock-address/change-me') #{link.text}
-        section.footer__subscription
+        form.footer__subscription
           div.footer__subscription-title
             +title({type: 'label', text: subscription.title})
           span.footer__subscription-text #{subscription.text}
