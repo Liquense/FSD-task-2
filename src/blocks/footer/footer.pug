@@ -13,12 +13,13 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
       if !isSimple
         div.footer__links
           each column in links
-            section.footer__links-column
-              div.footer__links-column-title
+            dl.footer__links-column
+              dt.footer__links-column-title
                 +title({type: 'label', text: column.title})
               if column.links
                 each link in column.links
-                  a.footer__link(href=link.url ? link.url : '/mock-address/change-me') #{link.text}
+                  dd.footer__links-list-item
+                    a.footer__link(href=link.url ? link.url : '/mock-address/change-me') #{link.text}
         form.footer__subscription
           div.footer__subscription-title
             +title({type: 'label', text: subscription.title})
