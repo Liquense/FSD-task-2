@@ -20,7 +20,7 @@ mixin dropdown({title, dropdownType, placeholder, range=[0, 5], unifiedCaption, 
   div(class=`dropdown js-dropdown${openedModifier}${pureModifier}${unacceptedModifier}` data-unified-caption=unifiedCaption)
     div.dropdown__input.js-dropdown__input
       +input({title, placeholder, isExpandable: true, isFocused: isOpened, inDropdown: true})
-    section.dropdown__list-wrapper.js-dropdown__list-wrapper
+    div.dropdown__list-wrapper.js-dropdown__list-wrapper
       div(class=`dropdown__list js-dropdown__list${typeListModifier}`)
         each element, index in data
           div.dropdown__list-row.js-dropdown__list-row
