@@ -1,5 +1,7 @@
 include ../input/input
 include ../title/title
+include ../fontawesome-icon-link/fontawesome-icon-link
+
 mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} = {})
   -const logo = require('../../assets/images/logo-colored-withText.svg');
   -const typeModifier = isSimple ? 'footer_simple' : ''
@@ -33,8 +35,8 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
         span.footer__copyright-text #{copyright}
       ul.footer__social-media
         li.footer__icon
-          a.fab.fa-twitter(href='https://twitter.com/' target='_blank', rel='noopener noreferrer')
+          +fontawesome-icon-link('twitter', 'https://twitter.com/')
         li.footer__icon
-          a.fab.fa-facebook-square(href='https://facebook.com/' target='_blank' rel='noopener noreferrer')
+          +fontawesome-icon-link('facebook-square', 'https://facebook.com/')
         li.footer__icon
-          a.fab.fa-instagram(href='https://www.instagram.com/' target='_blank' rel='noopener noreferrer')
+          +fontawesome-icon-link('instagram', 'https://www.instagram.com/')

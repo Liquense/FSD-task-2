@@ -1,0 +1,6 @@
+.fontawesome-icon-link {
+  @include text-gradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
+
+  font-size: 24px;
+  text-decoration: none;
+}

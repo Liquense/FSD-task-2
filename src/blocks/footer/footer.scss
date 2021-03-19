@@ -28,11 +28,8 @@
     line-height: 24px;
   }
 
-  #{$block}__copyright-bar {
-    max-width: 30%;
-  }
-
   #{$block}__social-media {
+    margin: 0;
     max-width: unset;
   }
 }
@@ -220,7 +217,8 @@
   }
 
   &__social-media {
-    margin: 0;
+    padding: 0;
+    margin: 0 0 0 get-vw(23px);
     max-width: 20%;
     display: flex;
     flex-wrap: wrap;
@@ -230,15 +228,9 @@
     @media (max-width: 450px) {
       min-width: 80px;
     }
-
-    .fab {
-      @include text-gradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
-      font-size: 24px;
-      text-decoration: none;
-    }
   }
 
-  &__icon {
+  &__icon:not(:first-child) {
     margin-left: get-vw(23px);
   }
 
