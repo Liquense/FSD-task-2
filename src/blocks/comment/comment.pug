@@ -6,8 +6,8 @@ mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} 
     div.comment__avatar-wrap
       img.comment__avatar(src=avatar, alt=`аватар ${author}`)
     div.comment__info-container
-      h3.comment__author #{author}
+      span.comment__author #{author}
       span.comment__date-time #{dateTime}
     div.comment__like
       +like-button({count: likesCount, isChecked: isLiked})
-    span.comment__text #{text}
+    p.comment__text #{text}
