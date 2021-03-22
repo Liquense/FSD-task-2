@@ -41,6 +41,10 @@ $background-indexes: 1, 2, 3;
     }
   }
 
+  &__main-heading {
+    @include visually-hidden();
+  }
+
   &__find-room-card {
     align-self: flex-start;
 

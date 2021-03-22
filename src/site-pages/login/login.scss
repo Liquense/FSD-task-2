@@ -25,6 +25,10 @@ $backgroundImageHeight: 702px;
     height: unset;
   }
 
+  &__main-heading {
+    @include visually-hidden();
+  }
+
   &__login-card {
     @media (max-width: 380px) {
       margin-bottom: 0;

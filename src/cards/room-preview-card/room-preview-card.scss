@@ -11,6 +11,10 @@
     border-radius: 0;
   }
 
+  &__main-heading {
+    @include visually-hidden();
+  }
+
   &__photos {
     position: relative;
     padding-top: 56.06%;

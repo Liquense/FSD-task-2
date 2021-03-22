@@ -1,6 +1,10 @@
 @use '../../common/resets';
 
 .room-details {
+  &__main-heading {
+    @include visually-hidden();
+  }
+
   &__photos {
     display: flex;
     justify-content: center;

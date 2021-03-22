@@ -19,6 +19,10 @@ $roomCardWidth: 270px;
     padding-left: 0;
   }
 
+  &__main-heading {
+    @include visually-hidden();
+  }
+
   &__show-sidebar-button {
     @include icon();
 

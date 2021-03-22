@@ -2,10 +2,10 @@ include ../../blocks/input/input
 include ../../blocks/button/button
 include ../../blocks/title/title
 
-mixin login-card()
+mixin login-card(headingLevel=1, registrationURL='/registration.html')
   form.login-card.js-login-card
     div.login-card__title
-      +title({type: 'widget', text: 'Войти', tag: 'h1'})
+      +title({type: 'widget', text: 'Войти', tag: `h${headingLevel}`})
     div.login-card__email-input
       +input({type: 'text', placeholder: 'Email'})
     div.login-card__password-input
@@ -13,6 +13,6 @@ mixin login-card()
     div.login-card__login-button
       +button({text: 'Войти', style: 'filled', decoration: 'enter-arrow'})
     div.login-card__create-account-container
-      p.login-card__no-account-caption Нет аккаунта на Toxin?
+      a.login-card__no-account-caption(href=registrationURL) Нет аккаунта на Toxin?
       div.login-card__create-login-button
         +button({text: 'Создать', style: 'bordered', type: 'submit'})

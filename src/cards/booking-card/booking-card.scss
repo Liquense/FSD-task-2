@@ -31,6 +31,10 @@
     }
   }
 
+  &__main-heading {
+    @include visually-hidden();
+  }
+
   &__room-info {
     display: flex;
     align-items: baseline;
