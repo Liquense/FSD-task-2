@@ -3,6 +3,7 @@ import 'paginationjs';
 import { outerHTML } from '../../common/functions';
 
 import './pagination.scss';
+import './paginationjs.scss';
 
 class Pagination {
   $pagination;
