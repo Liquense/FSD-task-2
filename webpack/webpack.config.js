@@ -28,6 +28,12 @@ const sitePages = pageNames
   }));
 
 module.exports = {
+  resolve: {
+    alias: {
+      Assets: path.join(paths.source, 'assets'),
+    },
+  },
+
   entry: entries,
 
   output: {
@@ -102,17 +108,15 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
           {
-            loader: MiniCssExtractPlugin.loader,
+            loader: 'sass-loader',
             options: {
-              hmr: process.env.NODE_ENV === 'development',
+              sourceMap: true,
             },
           },
-          {
-            loader: 'css-loader',
-          },
-          'postcss-loader',
-          'sass-loader',
           {
             loader: 'sass-resources-loader',
             options: {
@@ -127,7 +131,7 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        include: path.resolve(paths.source, 'assets/images'),
+        include: path.join(paths.source, 'assets/images'),
         use: [
           {
             loader: 'file-loader',
@@ -140,7 +144,7 @@ module.exports = {
       },
       {
         test: /\.(svg|png|ico|json|webmanifest|xml)$/,
-        include: path.resolve(paths.source, 'assets/favicons'),
+        include: path.join(paths.source, 'assets/favicons'),
         use: [
           {
             loader: 'file-loader',
@@ -153,8 +157,8 @@ module.exports = {
       {
         test: /\.(otf|ttf|svg|woff|woff2|eot)$/,
         include: [
-          path.resolve(paths.source, 'assets/fonts'),
-          path.resolve(paths.node_modules, '@fortawesome'),
+          path.join(paths.source, 'assets/fonts'),
+          path.join(paths.node_modules, '@fortawesome'),
         ],
         use: [
           {
