@@ -1,11 +1,11 @@
 include ../arrow/arrow
 include ../title/title
 
-mixin input({title='', type='text', isStretched=true, placeholder, withSubscription=false, isExpandable=false, isFocused=false, text, inDropdown=false} = {})
+mixin input({title='', type='text', isStretched=true, placeholder, withSubscription=false, isExpandable=false, isActive=false, text, inDropdown=false} = {})
   -const stretchedModifier = isStretched ? ' input_stretched' : ''
   -const subscriptionModifier = withSubscription ? ' input_with-subscription' : ''
   -const expandableModifier = isExpandable ? ' input_expandable' : ''
-  -const focusedModifier = isFocused ? ' input_focused' : ''
+  -const activeModifier = isActive ? ' input_active' : ''
   -const inDropdownModifier = inDropdown ? ' input_with-dropdown-list' : ''
 
   -let typeModifier = ''
@@ -17,7 +17,7 @@ mixin input({title='', type='text', isStretched=true, placeholder, withSubscript
     when 'mask'
       -typeAttribute = 'text'
 
-  div(class=`input js-input${stretchedModifier}${subscriptionModifier}${expandableModifier}${focusedModifier}${inDropdownModifier}${typeModifier}`)
+  div(class=`input js-input${stretchedModifier}${subscriptionModifier}${expandableModifier}${activeModifier}${inDropdownModifier}${typeModifier}`)
     if title
       div.input__title.js-input__title
         +title({type: 'label', text: title})

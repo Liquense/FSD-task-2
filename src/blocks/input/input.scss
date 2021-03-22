@@ -19,7 +19,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
       padding-right: 80px;
     }
 
-    &#{$block}_focused {
+    &#{$block}_active {
       #{$block}__control {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
@@ -27,7 +27,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     }
   }
 
-  &_focused &__control {
+  &_active &__control {
     color: $darkShade75;
     border-color: $darkShade50;
     outline: 0;

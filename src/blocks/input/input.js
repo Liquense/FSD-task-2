@@ -4,7 +4,7 @@ import './input.scss';
 class Input {
   static types = { masked: 'masked' };
 
-  static focusedClass = 'input_focused';
+  static activeClass = 'input_active';
 
   $input;
 
@@ -42,15 +42,15 @@ class Input {
   }
 
   toggleFocus() {
-    this.$input.toggleClass(Input.focusedClass);
+    this.$input.toggleClass(Input.activeClass);
   }
 
   focus() {
-    this.$input.addClass(Input.focusedClass);
+    this.$input.addClass(Input.activeClass);
   }
 
   unfocus() {
-    this.$input.removeClass(Input.focusedClass);
+    this.$input.removeClass(Input.activeClass);
     this.$control.blur();
   }
 
