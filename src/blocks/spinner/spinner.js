@@ -1,5 +1,3 @@
-import 'jquery-ui/ui/widgets/spinner';
-
 import './spinner.scss';
 
 class Spinner {
@@ -7,19 +5,17 @@ class Spinner {
 
   static decreaseButtonDisabledClass = `${Spinner.decreaseButtonBaseClass}_disabled`;
 
-  static decreaseButtonClasses = `${Spinner.decreaseButtonBaseClass} js-${Spinner.decreaseButtonBaseClass} ui-spinner-button ui-spinner-down`;
-
   static increaseButtonBaseClass = 'spinner__increase-button';
 
   static increaseButtonDisabledClass = `${Spinner.increaseButtonBaseClass}_disabled`;
 
-  static increaseButtonClasses = `${Spinner.increaseButtonBaseClass} js-${Spinner.increaseButtonBaseClass} ui-spinner-button ui-spinner-up`;
+  $spinner;
 
   $decreaseButton;
 
-  $increaseButton;
+  $input;
 
-  $spinner;
+  $increaseButton;
 
   min;
 
@@ -30,93 +26,71 @@ class Spinner {
   constructor(spinnerElement) {
     this._initElements(spinnerElement);
     this._initProperties();
-    this._initPlugin();
-    this._initPluginElements();
-    this._triggerSpin();
+    this._initHandlers();
   }
 
   setValue(value) {
-    this.$spinner.spinner('value', value);
-    this._triggerSpin();
+    this.$input.val(value);
+    this.$input.trigger('change.spinner');
   }
 
   getValue() {
-    return this.$spinner.spinner('value');
-  }
-
-  getName() {
-    return this.$spinner.attr('data-name');
+    return this.$input.val() || 0;
   }
 
   addAfterSpinCallback(callback) {
     this.afterSpinCallbacks.push(callback);
   }
 
-  static addButtonsToPlugin() {
-    $.widget('ui.spinner', $.ui.spinner, {
-      _buttonHtml() {
-        return [
-          `<button class="${Spinner.decreaseButtonClasses}" type="button">-</button>`,
-          `<button class="${Spinner.increaseButtonClasses}" type="button">+</button>`];
-      },
-      _uiSpinnerHtml() {
-        return '';
-      },
-      _enhance() {
-        this.uiSpinner = this.element
-          .attr('autocomplete', 'off')
-          .wrap(this._uiSpinnerHtml())
-          .parent()
-          .prepend(this._buttonHtml()[0])
-          .append(this._buttonHtml()[1]);
-      },
-    });
-  }
-
   _initElements(spinnerElement) {
     this.$spinner = $(spinnerElement);
+    this.$decreaseButton = $(this.$spinner.find('.js-spinner__decrease-button')[0]);
+    this.$input = $(this.$spinner.find('.js-spinner__value'));
+    this.$increaseButton = $(this.$spinner.find('.js-spinner__increase-button')[0]);
   }
 
   _initProperties() {
-    this.min = this.$spinner.attr('data-min');
-    this.max = this.$spinner.attr('data-max');
+    if (!this.$input.val()) {
+      this.$input.val(0);
+    }
+    this.min = Number.parseInt(this.$input.attr('data-min'), 10);
+    this.max = Number.parseInt(this.$input.attr('data-max'), 10);
   }
 
-  _initPlugin() {
-    this.$spinner.spinner({
-      min: this.min,
-      max: this.max,
-    });
-
-    this.setValue(this.$spinner.attr('value'));
-
-    this.$spinner.on('spin.spinner', this._handleSpin.bind(this));
+  _initHandlers() {
+    this.$input.on('change.spinner', this._handleChange);
+    this.$decreaseButton.on('click.spinner', this._handleOnDecreaseButtonClick);
+    this.$increaseButton.on('click.spinner', this._handleOnIncreaseButtonClick);
+    this.$input.trigger('change.spinner');
   }
 
-  _initPluginElements() {
-    this.$decreaseButton = this.$spinner.siblings(`.js-${Spinner.decreaseButtonBaseClass}`);
-    this.$increaseButton = this.$spinner.siblings(`.js-${Spinner.increaseButtonBaseClass}`);
+  _handleChange = (event) => {
+    const value = event.target.value ? event.target.value : 0;
+    this._disableButtonsAtExtremum(value);
+    this.afterSpinCallbacks.forEach((callback) => callback(event, { value }));
   }
 
-  _triggerSpin() {
-    const spinEvent = $.Event('spin', { currentTarget: this.$spinner });
-    this.$spinner.trigger(spinEvent, { value: this.getValue() });
+  _handleOnIncreaseButtonClick = () => {
+    const value = this.getValue();
+    if (value >= this.max) return;
+
+    this.setValue(Number.parseInt(value, 10) + 1);
   }
 
-  _handleSpin = (event, ui) => {
-    this._disableButtonsAtExtremum(event, ui);
+  _handleOnDecreaseButtonClick = () => {
+    const value = this.getValue();
+    if (value <= this.min) return;
 
-    $(event.currentTarget).spinner('value', ui?.value ? ui?.value : 0);
-    this.afterSpinCallbacks.forEach((callback) => callback(event, ui));
+    this.setValue(value - 1);
   }
 
-  _disableButtonsAtExtremum(event, ui) {
-    if (ui.value <= this.min) {
+  _disableButtonsAtExtremum(value) {
+    if (Number.parseInt(value, 10) <= this.min) {
       this.$decreaseButton.addClass(Spinner.decreaseButtonDisabledClass);
     } else {
       this.$decreaseButton.removeClass(Spinner.decreaseButtonDisabledClass);
     }
-    if (ui.value >= this.max) {
+    if (Number.parseInt(value, 10) >= this.max) {
       this.$increaseButton.addClass(Spinner.increaseButtonDisabledClass);
     } else {
       this.$increaseButton.removeClass(Spinner.increaseButtonDisabledClass);

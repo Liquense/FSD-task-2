@@ -1,6 +1,8 @@
 mixin spinner({min=0, max=5, index, initValue=0} = {})
   div.spinner.js-spinner
+    button.spinner__decrease-button.js-spinner__decrease-button -
     input.spinner__value.js-spinner__value(
       data-min=min data-max=max
       data-index=index value=initValue readonly=true
     )
+    button.spinner__increase-button.js-spinner__increase-button +
