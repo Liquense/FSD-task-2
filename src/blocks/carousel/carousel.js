@@ -2,6 +2,7 @@ import 'slick-carousel';
 
 import '../../../node_modules/slick-carousel/slick/slick.css';
 import './carousel.scss';
+import './slick-slider.scss';
 
 class Carousel {
   $element;
@@ -18,10 +19,10 @@ class Carousel {
   _getCarouselParams() {
     return {
       arrows: (this.$element.attr('data-arrows')?.toLowerCase() === 'true'),
-      prevArrow: '<label class="carousel__prev-button"><button class="carousel__nav-button" type="button" >chevron_left</button></label>',
-      nextArrow: '<label class="carousel__next-button"><button class="carousel__nav-button" type="button" >chevron_right</button></label>',
-      dots: (this.$element.attr('data-dots')?.toLowerCase() === 'true'),
-      dotsClass: 'carousel__dots',
+      prevArrow: '<label class="slick-prev"><button class="slick-nav-button" type="button" >chevron_left</button></label>',
+      nextArrow: '<label class="slick-next"><button class="slick-nav-button" type="button" >chevron_right</button></label>',
+      dots: this.$element.attr('data-dots')?.toLowerCase() === 'true',
+      dotsClass: 'slick-dots',
     };
   }
 

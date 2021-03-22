@@ -1,0 +1,86 @@
+.carousel.slick-slider {
+  $pluginPrefix: ".slick";
+
+  #{$pluginPrefix}-arrow {
+    opacity: 0;
+    height: 100%;
+    pointer-events: none;
+    position: absolute;
+    z-index: 1;
+  }
+
+  #{$pluginPrefix}-nav-button {
+    $arrowSize: 44px;
+    @include icon();
+
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: white;
+    font-size: 24px;
+    min-width: $arrowSize;
+    height: 100%;
+    border: 0;
+  }
+
+  #{$pluginPrefix}-prev {
+    left: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, transparent 100%);
+  }
+
+  #{$pluginPrefix}-next {
+    top: 0;
+    right: 0;
+    background: linear-gradient(-90deg, $darkShade50 0%, transparent 100%);
+  }
+
+  #{$pluginPrefix}-dots {
+    height: 4.63%;
+    width: 14.54%;
+    display: flex;
+    position: absolute;
+    right: 16px;
+    bottom: 15px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    z-index: 2;
+
+    > li {
+      border: 1px solid white;
+      border-radius: 50%;
+      width: 100%;
+      box-shadow: 0 5px 5px $darkShade30;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 9.56%;
+      }
+
+      > button {
+        display: none;
+      }
+    }
+  }
+
+  #{$pluginPrefix}-active {
+    background-color: white;
+  }
+
+  &:hover {
+    #{$pluginPrefix}-arrow {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  #{$pluginPrefix}-slide {
+    display: block !important;
+    cursor: grab;
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
