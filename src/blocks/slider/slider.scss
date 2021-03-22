@@ -1,9 +1,8 @@
+@import './consts.scss';
+
 $fontSize: 12px;
-$sliderBorderWidth: 1px;
-$sliderHandleBorderWidth: 2px;
-$sliderHorizontalHeight: 6px;
-$sliderHandleSize: 12px;
 $maxSliderWidth: 266px;
+$sliderTextMargin: 20px + ($sliderHandleSize - $sliderHorizontalHeight - $sliderBorderWidth);
 
 .slider {
   @include box-sizing-border-box();
@@ -18,70 +17,6 @@ $maxSliderWidth: 266px;
     background-color: $inputBackgroundColor;
     border: $sliderBorderWidth solid $darkShade25;
   }
-
-  .ui {
-    &-corner-all {
-      border-radius: 3px;
-    }
-
-    &-slider-horizontal {
-      height: $sliderHorizontalHeight;
-    }
-
-    &-slider {
-      $plugin: ".ui-slider";
-
-      cursor: pointer;
-
-      &-range {
-        background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
-      }
-
-      &-horizontal #{$plugin}-range {
-        top: -$sliderBorderWidth;
-        height: $sliderHorizontalHeight;
-      }
-
-      &-horizontal #{$plugin}-handle {
-        border-radius: 50%;
-        background: linear-gradient(180deg, $green 0%, $greenGradientSecond 100%);
-        width: $sliderHandleSize + $sliderHandleBorderWidth*2;
-        height: $sliderHandleSize + $sliderHandleBorderWidth*2;
-        border: $sliderHandleBorderWidth solid $inputBackgroundColor;
-        top: $sliderHorizontalHeight - $sliderHandleSize;
-        margin-left: -$sliderHandleSize/2;
-        cursor: grab;
-      }
-
-      &-handle {
-        &.ui-state-focus {
-          outline: none;
-          background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-
-          &:before {
-            @include text(Montserrat, normal, 10px, $labelCTAlineHeight, $darkShade100, normal);
-
-            content: attr(sliderHandleValue);
-            position: absolute;
-            text-align: center;
-            width: 40px;
-            left: -20px+$sliderHandleSize/2;
-            bottom: $sliderHandleSize;
-          }
-        }
-
-        &.ui-state-hover {
-          background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
-        }
-
-        &.ui-state-active {
-          cursor: grabbing;
-        }
-      }
-    }
-  }
-
-  $sliderTextMargin: 20px + ($sliderHandleSize - $sliderHorizontalHeight - $sliderBorderWidth);
 
   &__text {
     display: flex;
