@@ -1,4 +1,4 @@
-mixin title({type, text, headerLevel=3}={})
+mixin title({type, text, tag='h3'}={})
   -let typeModifier
   case type
     when 'label'
@@ -9,4 +9,4 @@ mixin title({type, text, headerLevel=3}={})
     default
       -typeModifier = 'item'
 
-  #{`h${headerLevel}`}.title(class=`title_type_${typeModifier}`) #{text}
+  #{tag}.title(class=`title_type_${typeModifier}`) #{text}

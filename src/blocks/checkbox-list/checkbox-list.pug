@@ -14,7 +14,7 @@ mixin checkbox-list({isExpandable=false, isOpened=false, title='', elements=[]} 
     div.checkbox-list__title-wrap.js-checkbox-list__title-wrap
       if title
         legend.checkbox-list__title
-          +title({type: 'label', text: title})
+          +title({type: 'label', text: title, tag: 'p'})
         if isExpandable
           div.checkbox-list__expand-arrow
             +arrow({type: 'expand'})

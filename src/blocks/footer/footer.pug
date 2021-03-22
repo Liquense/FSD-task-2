@@ -15,14 +15,14 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
           each column in links
             dl.footer__links-column
               dt.footer__links-column-title
-                +title({type: 'label', text: column.title})
+                +title({type: 'label', text: column.title, tag: 'h2'})
               if column.links
                 each link in column.links
                   dd.footer__links-list-item
                     a.footer__link(href=link.url ? link.url : '/mock-address/change-me') #{link.text}
         form.footer__subscription
           div.footer__subscription-title
-            +title({type: 'label', text: subscription.title})
+            +title({type: 'label', text: subscription.title, tag: 'h2'})
           span.footer__subscription-text #{subscription.text}
           div.footer__subscription-input
             +input({

@@ -21,7 +21,7 @@ mixin input({title='', type='text', isStretched=true, placeholder, withSubscript
   div(class=`input js-input${stretchedModifier}${subscriptionModifier}${expandableModifier}${activeModifier}${inDropdownModifier}${typeModifier}${invisibleModifier}`)
     if title
       div.input__title.js-input__title
-        +title({type: 'label', text: title})
+        +title({type: 'label', text: title, tag: 'p'})
     div.input__control-wrapper.js-input__control-wrapper
       input.input__control.js-input__control(value=text placeholder=placeholder readonly=isExpandable type=typeAttribute)
       button.input__arrow(type='button')

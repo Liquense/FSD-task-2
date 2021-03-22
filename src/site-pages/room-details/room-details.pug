@@ -22,7 +22,7 @@ block content
         div.room-details__main-info
           section.room-details__features-container
             div.room-details__features-title
-              +title({headerLevel: 2, text: 'Сведения о номере', type: 'item'})
+              +title({tag: 'h2', text: 'Сведения о номере', type: 'item'})
             div.room-details__features-content
               +features-list({
                 items: [
@@ -33,7 +33,7 @@ block content
               })
           section.room-details__expressions-container
             div.room-details__expressions-title
-              +title({headerLevel: 2, text: 'Впечатления от номера', type: 'item'})
+              +title({tag: 'h2', text: 'Впечатления от номера', type: 'item'})
             div.room-details__donut-chart.js-room-details__donut-chart
               -
                 const donutParams = {
@@ -63,7 +63,7 @@ block content
         section.room-details__reviews-container
           div.room-details__reviews-title-row
             div.room-details__reviews-title
-              +title({headerLevel: 2, text: 'Отзывы посетителей номера', type: 'item'})
+              +title({tag: 'h2', text: 'Отзывы посетителей номера', type: 'item'})
             span.room-details__reviews-count 2 отзыва
           div.room-details__reviews-content
             div.room-details__comment
@@ -89,7 +89,7 @@ block content
         div.room-details__additional-info
           section.room-details__rules-container
             div.room-details__rules-title
-              +title({headerLevel: 2, text: 'Правила', type: 'item'})
+              +title({tag: 'h2', text: 'Правила', type: 'item'})
             div.room-details__rules-list
               +bullet-list({
                 title: '',
@@ -97,7 +97,7 @@ block content
               })
           section.room-details__cancellation-container
             div.room-details__cancellation-title
-              +title({headerLevel: 2, text: 'Отмена', type: 'item'})
+              +title({tag: 'h2', text: 'Отмена', type: 'item'})
             span.room-details__cancellation-text
               | Бесплатная отмена в течение 48 ч.
               | После этого при отмене не позднее чем за 5 дн. до прибытия

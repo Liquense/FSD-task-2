@@ -6,7 +6,7 @@ mixin slider({minValue = 0, maxValue = 10, step = 1, title = '', isRange = false
 
   article.slider.js-slider(class=isRangeModifier)
     div.slider__text
-      +title({type: 'label', text: title})
+      +title({type: 'label', text: title, tag: 'p'})
       p.slider__value.js-slider__value ₽
     div.slider__container
       div.slider__control.js-slider__control(

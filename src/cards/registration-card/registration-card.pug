@@ -7,7 +7,7 @@ include ../../blocks/title/title
 mixin registration-card({loginURL=''} = {})
   form.registration-card.js-registration-card
     div.registration-card__title
-      +title({type: 'widget', text: 'Регистрация аккаунта', headerLevel: 2})
+      +title({type: 'widget', text: 'Регистрация аккаунта', tag: 'h1'})
     div.registration-card__user-name-input
       +input({type: 'text', placeholder: 'Имя'})
     div.registration-card__user-surname-input
@@ -21,7 +21,7 @@ mixin registration-card({loginURL=''} = {})
       +input({title: 'Дата рождения', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
     div.registration-card__login-data-container
       div.registration-card__login-data-title
-        +title({type: 'label', text: 'Данные для входа в сервис'})
+        +title({type: 'label', text: 'Данные для входа в сервис', tag: 'h2'})
       div.registration-card__email-input
         +input({type: 'text', placeholder: 'Email'})
       div.registration-card__password-input

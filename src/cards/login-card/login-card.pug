@@ -5,7 +5,7 @@ include ../../blocks/title/title
 mixin login-card()
   form.login-card.js-login-card
     div.login-card__title
-      +title({type: 'widget', text: 'Войти', headerLevel: 2})
+      +title({type: 'widget', text: 'Войти', tag: 'h1'})
     div.login-card__email-input
       +input({type: 'text', placeholder: 'Email'})
     div.login-card__password-input
