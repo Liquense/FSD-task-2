@@ -4,10 +4,11 @@ import { parseAttrToDate } from '../../common/functions';
 
 import initInputs from '../input/init';
 
+import './air-datepicker.scss';
 import './date-picker.scss';
 
 class DatePicker {
-  static wideClass = 'date-picker__calendar_wide';
+  static wideClass = '-wide-';
 
   $confirmButton = $('<button></button>', {
     text: 'Применить', 'data-action': 'hide', class: 'date-picker__confirm-button',
@@ -177,7 +178,7 @@ class DatePicker {
 
     this.datePickerPlugin = this.input.$control.datepicker({
       startDate: initDates?.length ? initDates[0] : null,
-      classes: this.isInline ? DatePicker.wideClass : 'date-picker__calendar_narrow',
+      classes: this.isInline ? DatePicker.wideClass : '',
       range: true,
       inline: this.isInline,
       clearButton: true,

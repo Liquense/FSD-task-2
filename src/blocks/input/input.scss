@@ -95,4 +95,10 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   &_stretched {
     width: 100%;
   }
+
+  &_invisible {
+    #{$block}__control {
+      display: none;
+    }
+  }
 }
