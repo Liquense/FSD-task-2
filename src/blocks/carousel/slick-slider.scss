@@ -2,9 +2,8 @@
   $pluginPrefix: ".slick";
 
   #{$pluginPrefix}-arrow {
-    opacity: 0;
+    visibility: hidden;
     height: 100%;
-    pointer-events: none;
     position: absolute;
     z-index: 1;
   }
@@ -70,8 +69,7 @@
 
   &:hover {
     #{$pluginPrefix}-arrow {
-      opacity: 1;
-      pointer-events: auto;
+      visibility: visible;
     }
   }
 
