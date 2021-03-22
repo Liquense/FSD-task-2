@@ -7,16 +7,11 @@ import './landing.scss';
 importHeaderFooter();
 importCommon();
 
-const imagePaths = [];
-imagePaths.push(require('../../assets/images/room-big-1.jpg'));
-imagePaths.push(require('../../assets/images/room-big-2.jpg'));
-imagePaths.push(require('../../assets/images/room-big-3.jpg'));
-
 const $roomContainers = $('.js-landing');
 function initRoomContainer() {
   const $container = $(this);
-  const randomNum = Math.floor(Math.random() * imagePaths.length);
-  $container.css('background-image', `url(${imagePaths[randomNum]})`);
+  const randomNum = Math.floor(Math.random() * 3) + 1;
+  $container.attr('data-background-index', randomNum);
 }
 
 $roomContainers.each(initRoomContainer);

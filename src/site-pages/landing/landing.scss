@@ -1,5 +1,7 @@
 @use '../../common/resets';
 
+$background-indexes: 1, 2, 3;
+
 .landing {
   @include box-sizing-border-box();
 
@@ -31,6 +33,12 @@
   @media (max-width: 380px) {
     background-position-y: -58px;
     padding: 0;
+  }
+
+  @each $i in $background-indexes {
+    &[data-background-index="#{$i}"] {
+      background-image: url('~Assets/images/room-big-#{$i}.jpg');
+    }
   }
 
   &__find-room-card {
