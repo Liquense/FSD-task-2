@@ -1,5 +1,3 @@
-import 'jquery-ui/ui/widgets/checkboxradio';
-
 import './like-button.scss';
 
 class LikeButton {
@@ -10,6 +8,8 @@ class LikeButton {
   $text;
 
   $hiddenButton;
+
+  checkedClass = 'like-button_checked';
 
   _getLikesAmount() {
     return Number.parseInt(this.$like.attr('data-likes-count'), 10);
@@ -33,31 +33,31 @@ class LikeButton {
   }
 
   _initLike() {
-    this._initPlugin('like-button__button');
+    const isChecked = this.$hiddenButton.attr('data-is-checked') === 'true';
+    if (isChecked) {
+      this.$hiddenButton[0].checked = true;
+      this._changeVisuals(true);
+    }
     this.$hiddenButton.on('change.like', this._handleChange);
   }
 
   _handleChange = () => {
-    if (this.$like.hasClass('ui-checkboxradio-checked')) {
+    if (this.$hiddenButton[0].checked) {
       this._setLikesAmount(this._getLikesAmount() + 1);
-      this.$icon.text('favorite');
+      this._changeVisuals(true);
     } else {
       this._setLikesAmount(this._getLikesAmount() - 1);
-      this.$icon.text('favorite_border');
+      this._changeVisuals(false);
     }
   }
 
-  _initPlugin(iconClass) {
-    const checkbox = this.$hiddenButton.checkboxradio({
-      icon: false,
-      classes: {
-        'ui-checkboxradio-icon': iconClass,
-      },
-    });
-
-    const isChecked = this.$hiddenButton.attr('data-is-checked') === 'true';
+  _changeVisuals(isChecked) {
     if (isChecked) {
-      checkbox.attr('checked', 'checked').change();
+      this.$icon.text('favorite');
+      this.$like.addClass(this.checkedClass);
+    } else {
+      this.$icon.text('favorite_border');
+      this.$like.removeClass(this.checkedClass);
     }
   }
 }

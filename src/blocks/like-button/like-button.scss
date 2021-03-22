@@ -48,7 +48,7 @@ $likeButtonBorderWidth: 1px;
     display: none;
   }
 
-  &.ui-checkboxradio-checked {
+  &_checked {
     background: linear-gradient($purple 0%, $purpleGradientSecond 100%);
 
     #{$block}__text,
