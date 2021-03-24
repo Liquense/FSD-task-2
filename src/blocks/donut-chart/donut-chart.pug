@@ -13,7 +13,7 @@ mixin donut-chart({data=[], defaultStyle={}, activeStyle={}, arcsGap=0} = {})
               stop(offset='100%' stop-color=secondColor)
           -})
         -data.forEach(({value, isActive, firstColor}, index) => {
-          path.js-donut-chart__svg-arc.donut-chart__svg-arc( stroke=`url(#grad${index})` fill='transparent'
+          path.donut-chart__svg-arc.js-donut-chart__svg-arc( stroke=`url(#grad${index})` fill='transparent'
             data-value=value data-is-active=`${isActive}` data-color=firstColor
             )
         -})
