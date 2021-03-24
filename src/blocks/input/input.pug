@@ -24,8 +24,9 @@ mixin input({title='', type='text', isStretched=true, placeholder, withSubscript
         +title({type: 'label', text: title, tag: 'p'})
     div.input__control-wrapper.js-input__control-wrapper
       input.input__control.js-input__control(value=text placeholder=placeholder readonly=isExpandable type=typeAttribute)
-      button.input__arrow(type='button')
-        if withSubscription
+      if withSubscription
+        button.input__arrow(type='submit')
           +arrow({type: 'enter', isColored: true, isBold: true})
-        else if isExpandable
+      else if isExpandable
+        button.input__arrow(type='button')
           +arrow({type: 'expand'})
