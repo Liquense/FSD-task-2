@@ -19,7 +19,6 @@ mixin room-preview-card({link='', room:{currencySymbol='₽', periodText='в с�
         div.room-preview-card__cost-info
           span.room-preview-card__cost-per-period.js-room-preview-card__cost-per-period #{costPerPeriod}#{currencySymbol}
           span.room-preview-card__period #{periodText}
-      hr.room-preview-card__division-line
       section.room-preview-card__rate-info
         div.room-preview-card__rating
           +rating({maxRating: rating[1], rating: rating[0]})

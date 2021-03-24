@@ -96,12 +96,9 @@
     color: $darkShade50;
   }
 
-  &__division-line {
-    border-color: $darkShade5;
-    margin-bottom: 8px;
-  }
-
   &__rate-info {
+    border-top: 2px solid $darkShade5;
+    padding-top: 8px;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
