@@ -21,6 +21,6 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
       else
         div.header__buttons
           div.header__login-button.js-header__login-button
-            +button({text: loginText, style: 'bordered', isStretched: false, isLink: true, link: 'login.html'})
+            +button({text: loginText, style: 'bordered', isStretched: false, link: 'login.html'})
           div.header__register-button.js-header__register-button
-            +button({text: registerText, style: 'filled', isStretched: false, isLink: true, link: 'registration.html'})
+            +button({text: registerText, style: 'filled', isStretched: false, link: 'registration.html'})

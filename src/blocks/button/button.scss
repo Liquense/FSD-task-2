@@ -13,7 +13,9 @@ $arrowSize: 24px;
   &__control {
     @include text_label-CTA();
 
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -79,8 +81,6 @@ $arrowSize: 24px;
 
   &_decorated {
     #{$block}__control {
-      display: flex;
-      align-items: center;
       padding-right: 0;
       padding-left: 40px;
     }
@@ -90,7 +90,6 @@ $arrowSize: 24px;
     }
 
     #{$block}__decoration {
-      float: right;
       display: flex;
       padding: 0 ($buttonHeight - $arrowSize)/2;
     }

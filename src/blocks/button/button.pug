@@ -1,5 +1,5 @@
 include ../arrow/arrow
-mixin button({text='', type='button', isLink=false, link='/mock-address/change-me', style='filled', decoration='', isHovered=false, isStretched=true} = {})
+mixin button({text='', type='button', link='', style='filled', decoration='', isHovered=false, isStretched=true} = {})
   - const stretchedModifier = isStretched ? ' button_stretched' : ''
   - const hoveredModifier = isHovered ? ' button_hovered' : ''
   - let decoratedModifier = decoration ? ' button_decorated' : ''
@@ -14,9 +14,9 @@ mixin button({text='', type='button', isLink=false, link='/mock-address/change-m
     default
       -styleModifier = ' button_style_filled'
 
-  - const blockTag = isLink ? 'a' : 'button'
+  - const blockTag = link ? 'a' : 'button'
   - const controlAttributes = {}
-  if (isLink)
+  if (link)
     -controlAttributes.href = link
   else
     -controlAttributes.type = type
