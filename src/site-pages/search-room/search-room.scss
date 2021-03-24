@@ -23,7 +23,7 @@ $roomCardWidth: 270px;
     @include visually-hidden();
   }
 
-  &__show-sidebar-button {
+  &__show-search-section-button {
     @include icon();
 
     background-color: #FFFFFF;
@@ -41,17 +41,17 @@ $roomCardWidth: 270px;
     @media (max-width: 654px) {
       display: block;
 
-      + #{$block}__sidebar {
+      + #{$block}__search-section {
         display: none;
       }
 
-      &#{$block}__sidebar-show-button_active {
+      &#{$block}__show-search-section-button_active {
         color: $darkShade100;
         border-radius: 50%;
         border: solid $darkShade100 1px;
         margin-bottom: 10px;
 
-        + #{$block}__sidebar {
+        + #{$block}__search-section {
           border-top: solid $darkShade75 1px;
           border-bottom: solid $darkShade10 1px;
           padding-top: 20px;
@@ -63,7 +63,7 @@ $roomCardWidth: 270px;
     }
   }
 
-  &__sidebar {
+  &__search-section {
     margin-top: 3px;
     margin-right: get-vw(60px);
 

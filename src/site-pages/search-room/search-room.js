@@ -10,11 +10,11 @@ import './search-room.scss';
 importCommon();
 importHeaderFooter();
 
-const $showSidebarButtons = $('.js-search-room__show-sidebar-button');
+const $showSidebarButtons = $('.js-search-room__show-search-section-button');
 $showSidebarButtons.each((index, element) => {
   const $showSideBarButton = $(element);
   function handleButtonClick() {
-    $showSideBarButton.toggleClass('search-room__sidebar-show-button_active');
+    $showSideBarButton.toggleClass('search-room__show-search-section-button_active');
   }
 
   $showSideBarButton.on('click', handleButtonClick);
