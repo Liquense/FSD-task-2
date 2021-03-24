@@ -14,9 +14,9 @@ mixin registration-card(headingLevel=1, loginURL='/login.html')
       +input({type: 'text', placeholder: 'Фамилия'})
     div.registration-card__gender-list
       div.registration-card__male-radio-button
-        +radio-button({text: 'Мужчина', group: 'registrationGender', isChecked: true})
+        +radio-button({text: 'Мужчина', group: 'gender', value: 'male', isChecked: true})
       div.registration-card__female-radio-button
-        +radio-button({text: 'Женщина', group: 'registrationGender'})
+        +radio-button({text: 'Женщина', group: 'gender', value: 'female'})
     div.registration-card__birthday-input
       +input({title: 'Дата рождения', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
     div.registration-card__login-data-container
@@ -27,7 +27,7 @@ mixin registration-card(headingLevel=1, loginURL='/login.html')
       div.registration-card__password-input
         +input({type: 'text', placeholder: 'Пароль'})
     div.registration-card__send-offers-button
-      +checkbox({text: 'Получать спецпредложения', type: 'toggle'})
+      +checkbox({text: 'Получать спецпредложения', type: 'toggle', value: 'receive offers'})
     div.registration-card__register-button
       +button({text: 'Зарегистрироваться', style: 'filled', decoration: 'enter-arrow', type: 'submit'})
     div.registration-card__action-container

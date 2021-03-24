@@ -31,16 +31,16 @@ block content
         p.search-room__daily-price-text Стоимость за сутки пребывания в номере
       -
         let checkButtons = [
-          {text: 'Можно курить'},
-          {text: 'Можно с питомцами', isChecked: true},
-          {text: 'Можно приглашать гостей (до 10 человек)', isChecked: true},
+          {text: 'Можно курить', value: 'smoking allowed'},
+          {text: 'Можно с питомцами', value: 'pets allowed', isChecked: true},
+          {text: 'Можно приглашать гостей (до 10 человек)', value: 'guests allowed', isChecked: true},
         ]
       div.search-room__benefits-filter
         +checkbox-list({type: 'checkbox', title: 'Правила дома', elements: checkButtons})
       -
         const richButtons = [
-          {text: 'Широкий коридор', description: 'Ширина коридоров в номере \n не менее 91 см.'},
-          {text: 'Помощник для инвалидов', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'},
+          {text: 'Широкий коридор', value: 'wide corridor', description: 'Ширина коридоров в номере \n не менее 91 см.'},
+          {text: 'Помощник для инвалидов', value: 'disability aide', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'},
         ]
       div.search-room__availability-filter
         +checkbox-list({type: 'checkbox', title: 'Доступность', elements: richButtons})
@@ -54,12 +54,12 @@ block content
         })
       -
         checkButtons = [
-          {text: 'Завтрак'},
-          {text: 'Письменный стол', isChecked: true},
-          {text: 'Стул для кормления', isChecked: true},
-          {text: 'Кроватка', isChecked: true},
-          {text: 'Телевизор'},
-          {text: 'Шампунь'},
+          {text: 'Завтрак', value: 'breakfast'},
+          {text: 'Письменный стол', value: 'writing desk', isChecked: true},
+          {text: 'Стул для кормления', value: 'feeding chair', isChecked: true},
+          {text: 'Кроватка', value: 'crib', isChecked: true},
+          {text: 'Телевизор', value: 'TV'},
+          {text: 'Шампунь', value: 'shampoo'},
         ]
       div.search-room__additional-features-filter
         +checkbox-list({
