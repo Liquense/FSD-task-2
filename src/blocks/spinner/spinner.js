@@ -50,9 +50,8 @@ class Spinner {
   }
 
   _initProperties() {
-    if (!this.$input.val()) {
-      this.$input.val(0);
-    }
+    const initialValue = Number.parseInt(this.$input.attr('data-value'), 10) ?? 0;
+    this.$input.val(initialValue);
     this.min = Number.parseInt(this.$input.attr('data-min'), 10);
     this.max = Number.parseInt(this.$input.attr('data-max'), 10);
   }

@@ -27,6 +27,7 @@ mixin footer({text='', copyright='', links=[], subscription={}, isSimple=false} 
           span.footer__subscription-text #{subscription.text}
           div.footer__subscription-input
             +input({
+              name: 'email',
               type: 'email',
               withSubscription: true,
               placeholder: subscription.emailPlaceholder

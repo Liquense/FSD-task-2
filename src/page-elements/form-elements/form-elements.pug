@@ -25,9 +25,9 @@ section.form-elements
       div.form-elements__dropdown
         +dropdown({title: 'Dropdown', placeholder: 'Сколько гостей', unifiedCaption: 'гост|ь|я|ей',
           data: [
-            {name: 'Взрослые', value: 0},
-            {name: 'Дети', value: 0},
-            {name: 'Младенцы', declinations: 'младен|ец|ца|цев', isSeparate: true, value: 0}]})
+            {title: 'Взрослые', name: 'adults', value: 0},
+            {title: 'Дети', name: 'children', value: 0},
+            {title: 'Младенцы', name: 'babies', declinations: 'младен|ец|ца|цев', isSeparate: true, value: 0}]})
       div.form-elements__masked-input
         +input({title: 'Masked Text Field', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
 
@@ -120,9 +120,9 @@ section.form-elements
       div.form-elements__room-dropdowns
         -
           const rooms = [
-            {name: 'Спальни', isSeparate: true, declinations: 'спал|ьня|ьни|ен', value: 2},
-            {name: 'Кровати', isSeparate: true, declinations: 'кроват|ь|и|ей', value: 2},
-            {name: 'Ванные комнаты',isSeparate: true, alwaysVisible: true, declinations: 'ванн|ая|ых|ых комнат|а|ы|', value: 0}
+            {title: 'Спальни', isSeparate: true, declinations: 'спал|ьня|ьни|ен', value: 2},
+            {title: 'Кровати', isSeparate: true, declinations: 'кроват|ь|и|ей', value: 2},
+            {title: 'Ванные комнаты',isSeparate: true, alwaysVisible: true, declinations: 'ванн|ая|ых|ых комнат|а|ы|', value: 0}
           ];
         div.form-elements__rooms-dropdown
           +dropdown({title: 'Dropdown', placeholder: 'Сколько убранства', data: rooms})
@@ -131,16 +131,16 @@ section.form-elements
       div.form-elements__unaccepted-guest-dropdown
         +dropdown({title: 'Dropdown', unifiedCaption: 'гост|ь|я|ей', isOpened: true, isUnaccepted: true, placeholder: 'Сколько гостей',
           data: [
-            {name: 'Взрослые', value: 0},
-            {name: 'Дети', value: 0},
-            {name: 'Младенцы', declinations: 'младен|ец|ца|цев', value: 0}
+            {title: 'Взрослые', value: 0},
+            {title: 'Дети', value: 0},
+            {title: 'Младенцы', declinations: 'младен|ец|ца|цев', value: 0}
           ]})
       div.form-elements__guest-dropdown
         +dropdown({title: 'Dropdown', unifiedCaption: 'гост|ь|я|ей', isOpened: true, isUnaccepted: true, placeholder: 'Сколько гостей',
           data: [
-            {name: 'Взрослые', value: 2},
-            {name: 'Дети', value: 1},
-            {name: 'Младенцы', declinations: 'младен|ец|ца|цев', value: 0}
+            {title: 'Взрослые', value: 2},
+            {title: 'Дети', value: 1},
+            {title: 'Младенцы', declinations: 'младен|ец|ца|цев', value: 0}
           ]})
     div.form-elements__lists
       div.form-elements__expandable-lists

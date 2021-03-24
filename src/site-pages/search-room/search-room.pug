@@ -16,14 +16,14 @@ block content
     button.search-room__show-search-section-button.js-search-room__show-search-section-button(type='button') filter_list
     form.search-room__search-section
       div.search-room__staying-dates
-        +date-picker({title: 'Даты пребывания в отеле', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', dates: ['19.08.2019', '23.08.2019']})
+        +date-picker({name: 'staying dates', title: 'Даты пребывания в отеле', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', dates: ['19.08.2019', '23.08.2019']})
       div.search-room__guests
         +dropdown({
-          title: 'Гости', placeholder: 'Сколько гостей', unifiedCaption: 'гост|ь|я|ей',
+          name: 'guests', title: 'Гости', placeholder: 'Сколько гостей', unifiedCaption: 'гост|ь|я|ей',
           data: [
-            {name: 'Взрослые', value: 3},
-            {name: 'Дети'},
-            {name: 'Младенцы', isSeparate: true, declinations: 'младен|ец|ца|цев', value: 1}
+            {title: 'Взрослые', name: 'adults', value: 3},
+            {title: 'Дети', name: 'children'},
+            {title: 'Младенцы', name: 'babies', isSeparate: true, declinations: 'младен|ец|ца|цев', value: 1}
           ]
         })
       div.search-room__daily-price-container
@@ -32,35 +32,35 @@ block content
         p.search-room__daily-price-text Стоимость за сутки пребывания в номере
       -
         let checkButtons = [
-          {text: 'Можно курить', value: 'smoking allowed'},
-          {text: 'Можно с питомцами', value: 'pets allowed', isChecked: true},
-          {text: 'Можно приглашать гостей (до 10 человек)', value: 'guests allowed', isChecked: true},
+          {name: 'house rules', text: 'Можно курить', value: 'smoking allowed'},
+          {name: 'house rules', text: 'Можно с питомцами', value: 'pets allowed', isChecked: true},
+          {name: 'house rules', text: 'Можно приглашать гостей (до 10 человек)', value: 'guests allowed', isChecked: true},
         ]
       div.search-room__house-rules-filter
         +checkbox-list({type: 'checkbox', title: 'Правила дома', elements: checkButtons})
       -
         const richButtons = [
-          {text: 'Широкий коридор', value: 'wide corridor', description: 'Ширина коридоров в номере \n не менее 91 см.'},
-          {text: 'Помощник для инвалидов', value: 'disability aide', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'},
+          {name: 'availability', text: 'Широкий коридор', value: 'wide corridor', description: 'Ширина коридоров в номере \n не менее 91 см.'},
+          {name: 'availability', text: 'Помощник для инвалидов', value: 'disability aide', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'},
         ]
       div.search-room__availability-filter
         +checkbox-list({type: 'checkbox', title: 'Доступность', elements: richButtons})
       div.search-room__room-equipment-filter
-        +dropdown({title: 'Удобства номера', dropdownType: 'rooms', placeholder: 'Комплектация номера',
+        +dropdown({name: 'room equipment', title: 'Удобства номера', dropdownType: 'rooms', placeholder: 'Комплектация номера',
           data: [
-            {name: 'Спальни', declinations: 'спал|ьня|ьни|ен', isSeparate: true, value: 2},
-            {name: 'Кровати', declinations: 'кроват|ь|и|ей', isSeparate: true, value: 2},
-            {name: 'Ванные комнаты', declinations: 'ванн|ая|ых|ых комнат|а|ы|', alwaysVisible: true, isSeparate: true, value: 0}
+            {title: 'Спальни', name: 'bedrooms', declinations: 'спал|ьня|ьни|ен', isSeparate: true, value: 2},
+            {title: 'Кровати', name: 'beds', declinations: 'кроват|ь|и|ей', isSeparate: true, value: 2},
+            {title: 'Ванные комнаты', name: 'bathrooms', declinations: 'ванн|ая|ых|ых комнат|а|ы|', alwaysVisible: true, isSeparate: true, value: 0}
           ]
         })
       -
         checkButtons = [
-          {text: 'Завтрак', value: 'breakfast'},
-          {text: 'Письменный стол', value: 'writing desk', isChecked: true},
-          {text: 'Стул для кормления', value: 'feeding chair', isChecked: true},
-          {text: 'Кроватка', value: 'crib', isChecked: true},
-          {text: 'Телевизор', value: 'TV'},
-          {text: 'Шампунь', value: 'shampoo'},
+          {name: 'additional features', text: 'Завтрак', value: 'breakfast'},
+          {name: 'additional features', text: 'Письменный стол', value: 'writing desk', isChecked: true},
+          {name: 'additional features', text: 'Стул для кормления', value: 'feeding chair', isChecked: true},
+          {name: 'additional features', text: 'Кроватка', value: 'crib', isChecked: true},
+          {name: 'additional features', text: 'Телевизор', value: 'TV'},
+          {name: 'additional features', text: 'Шампунь', value: 'shampoo'},
         ]
       div.search-room__additional-features-filter
         +checkbox-list({

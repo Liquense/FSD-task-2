@@ -1,4 +1,4 @@
-mixin checkbox({isChecked=false, text='', type='', value='', description} = {})
+mixin checkbox({isChecked=false, text='', type='', value='', name='', description} = {})
   -let richModifier = ''
   if description
     -richModifier = ' checkbox_rich'
@@ -11,7 +11,7 @@ mixin checkbox({isChecked=false, text='', type='', value='', description} = {})
       -typeModifier = ' checkbox_type_check'
 
   label(class=`checkbox${richModifier}${typeModifier}`)
-    input.checkbox__button(type='checkbox' value=value checked=isChecked)
+    input.checkbox__button(type='checkbox' name=name value=value checked=isChecked)
     span.checkbox__text #{text}
     if description
       p.checkbox__description #{description}

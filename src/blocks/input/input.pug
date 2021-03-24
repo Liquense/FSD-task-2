@@ -1,7 +1,7 @@
 include ../arrow/arrow
 include ../title/title
 
-mixin input({title='', type='text', isStretched=true, placeholder, withSubscription=false, isExpandable=false, isActive=false, text, inDropdown=false, isVisible=true} = {})
+mixin input({title='', name='', type='text', isStretched=true, placeholder, withSubscription=false, isExpandable=false, isActive=false, text, inDropdown=false, isVisible=true} = {})
   -const stretchedModifier = isStretched ? ' input_stretched' : ''
   -const subscriptionModifier = withSubscription ? ' input_with-subscription' : ''
   -const expandableModifier = isExpandable ? ' input_expandable' : ''
@@ -23,7 +23,7 @@ mixin input({title='', type='text', isStretched=true, placeholder, withSubscript
       div.input__title.js-input__title
         +title({type: 'label', text: title, tag: 'p'})
     div.input__control-wrapper.js-input__control-wrapper
-      input.input__control.js-input__control(value=text placeholder=placeholder readonly=isExpandable type=typeAttribute)
+      input.input__control.js-input__control(name=name value=text placeholder=placeholder readonly=isExpandable type=typeAttribute)
       if withSubscription
         button.input__arrow(type='submit')
           +arrow({type: 'enter', isColored: true, isBold: true})

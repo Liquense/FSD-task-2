@@ -8,16 +8,17 @@ mixin find-room-card(headerLevel=1)
     div.find-room-card__title
       +title({type: 'widget', text: 'Найдём номера под ваши пожелания', tag: `h${headerLevel}`})
     div.find-room-card__staying-dates-picker
-      +double-date-picker({firstTitle: 'Прибытие', secondTitle: 'Выезд'})
+      +double-date-picker({names: ['arrival', 'departure'], firstTitle: 'Прибытие', secondTitle: 'Выезд'})
     div.find-room-card__guests-dropdown
       +dropdown({
+        name: 'guests',
         title: 'Гости',
         unifiedCaption: 'гост|ь|я|ей',
         placeholder: 'Сколько гостей',
         data: [
-          {name: 'Взрослые'},
-          {name: 'Дети'},
-          {name: 'Младенцы', isSeparate: true, declinations: 'младен|ец|ца|цев'}
+          {title: 'Взрослые', name: 'adults'},
+          {title: 'Дети', name: 'children'},
+          {title: 'Младенцы', name: 'babies', isSeparate: true, declinations: 'младен|ец|ца|цев'}
         ]
       })
     div.find-room-card__search-button

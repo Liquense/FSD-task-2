@@ -7,9 +7,9 @@ mixin login-card(headingLevel=1, registrationURL='/registration.html')
     div.login-card__title
       +title({type: 'widget', text: 'Войти', tag: `h${headingLevel}`})
     div.login-card__email-input
-      +input({type: 'text', placeholder: 'Email'})
+      +input({name: 'email', type: 'email', placeholder: 'Email'})
     div.login-card__password-input
-      +input({type: 'text', placeholder: 'Пароль'})
+      +input({name: 'password', type: 'text', placeholder: 'Пароль'})
     div.login-card__login-button
       +button({text: 'Войти', style: 'filled', decoration: 'enter-arrow', type: 'submit'})
     div.login-card__create-account-container
