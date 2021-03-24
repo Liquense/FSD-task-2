@@ -34,6 +34,11 @@
     margin-bottom: 20px;
   }
 
+  &__login-button, &__create-account-button {
+    display: flex;
+    min-height: 44px;
+  }
+
   &__login-button {
     margin-bottom: 30px;
   }
@@ -54,10 +59,5 @@
 
     margin: 0 0 2px 0;
     color: black;
-  }
-
-  &__login-button, &__create-login-button {
-    display: flex;
-    min-height: 44px;
   }
 }
