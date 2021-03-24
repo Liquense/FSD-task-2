@@ -7,6 +7,7 @@ $borderWidth: 1px;
   &__value {
     @include text_label-CTA();
 
+    -moz-appearance: textfield;
     text-align: center;
     line-height: $buttonSize;
     max-width: 32px;
@@ -14,9 +15,15 @@ $borderWidth: 1px;
     padding: 0;
     border: none;
     outline: 0;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
   }
 
-  &__increase-button, &__decrease-button {
+  &__button {
     @include text(Montserrat, normal, 18px, $buttonSize - 2*$borderWidth, $darkShade25, 0px);
 
     border-radius: 50%;
@@ -34,15 +41,14 @@ $borderWidth: 1px;
     &:focus {
       outline: none;
     }
-  }
 
-  &__increase-button:not(&__increase-button_disabled),
-  &__decrease-button:not(&__decrease-button_disabled) {
-    &.focused,
-    &:hover {
-      border-color: $darkShade75;
-      color: $darkShade75;
-      cursor: pointer;
+    &:not(&_disabled) {
+      &:focus,
+      &:hover {
+        border-color: $darkShade75;
+        color: $darkShade75;
+        cursor: pointer;
+      }
     }
   }
 }

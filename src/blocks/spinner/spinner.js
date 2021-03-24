@@ -1,13 +1,13 @@
 import './spinner.scss';
 
 class Spinner {
-  static decreaseButtonBaseClass = 'spinner__decrease-button';
+  static buttonBaseClass = 'spinner__button';
 
-  static decreaseButtonDisabledClass = `${Spinner.decreaseButtonBaseClass}_disabled`;
+  static buttonBaseClassDisabled = `${Spinner.buttonBaseClass}_disabled`;
 
-  static increaseButtonBaseClass = 'spinner__increase-button';
+  static decreaseButtonBaseClass = `${Spinner.buttonBaseClass}_type_decrease`;
 
-  static increaseButtonDisabledClass = `${Spinner.increaseButtonBaseClass}_disabled`;
+  static increaseButtonBaseClass = `${Spinner.buttonBaseClass}_type_increase`;
 
   $spinner;
 
@@ -44,9 +44,9 @@ class Spinner {
 
   _initElements(spinnerElement) {
     this.$spinner = $(spinnerElement);
-    this.$decreaseButton = $(this.$spinner.find('.js-spinner__decrease-button')[0]);
+    this.$decreaseButton = $(this.$spinner.find(`.js-${Spinner.decreaseButtonBaseClass}`)[0]);
     this.$input = $(this.$spinner.find('.js-spinner__value'));
-    this.$increaseButton = $(this.$spinner.find('.js-spinner__increase-button')[0]);
+    this.$increaseButton = $(this.$spinner.find(`.js-${Spinner.increaseButtonBaseClass}`)[0]);
   }
 
   _initProperties() {
@@ -86,14 +86,18 @@ class Spinner {
 
   _disableButtonsAtExtremum(value) {
     if (Number.parseInt(value, 10) <= this.min) {
-      this.$decreaseButton.addClass(Spinner.decreaseButtonDisabledClass);
+      this.$decreaseButton.attr('disabled', true);
+      this.$decreaseButton.addClass(Spinner.buttonBaseClassDisabled);
     } else {
-      this.$decreaseButton.removeClass(Spinner.decreaseButtonDisabledClass);
+      this.$decreaseButton.attr('disabled', false);
+      this.$decreaseButton.removeClass(Spinner.buttonBaseClassDisabled);
     }
     if (Number.parseInt(value, 10) >= this.max) {
-      this.$increaseButton.addClass(Spinner.increaseButtonDisabledClass);
+      this.$increaseButton.attr('disabled', true);
+      this.$increaseButton.addClass(Spinner.buttonBaseClassDisabled);
     } else {
-      this.$increaseButton.removeClass(Spinner.increaseButtonDisabledClass);
+      this.$increaseButton.attr('disabled', false);
+      this.$increaseButton.removeClass(Spinner.buttonBaseClassDisabled);
     }
   }
 }
