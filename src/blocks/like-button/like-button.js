@@ -7,8 +7,6 @@ class LikeButton {
 
   $text;
 
-  $hiddenButton;
-
   checkedClass = 'like-button_checked';
 
   _getLikesAmount() {
@@ -29,23 +27,23 @@ class LikeButton {
     this.$like = $(rootElement);
     this.$text = this.$like.find('.js-like-button__text');
     this.$icon = this.$like.find('.js-like-button__icon');
-    this.$hiddenButton = this.$like.find('.js-like-button__hidden-button');
   }
 
   _initLike() {
-    const isChecked = this.$hiddenButton.attr('data-is-checked') === 'true';
+    const isChecked = this.$like.attr('data-is-checked') === 'true';
     if (isChecked) {
-      this.$hiddenButton[0].checked = true;
       this._changeVisuals(true);
     }
-    this.$hiddenButton.on('change.like', this._handleChange);
+    this.$like.on('click.like', this._handleClick);
   }
 
-  _handleChange = () => {
-    if (this.$hiddenButton[0].checked) {
+  _handleClick = () => {
+    if (this.$like.attr('data-is-checked') === 'false') {
+      this.$like.attr('data-is-checked', true);
       this._setLikesAmount(this._getLikesAmount() + 1);
       this._changeVisuals(true);
     } else {
+      this.$like.attr('data-is-checked', false);
       this._setLikesAmount(this._getLikesAmount() - 1);
       this._changeVisuals(false);
     }
