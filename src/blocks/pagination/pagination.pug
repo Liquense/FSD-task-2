@@ -1,10 +1,8 @@
-include ../../cards/room-preview-card/room-preview-card
-mixin pagination({pageSize = 12, items=[], isContentVisible=true} = {})
+mixin pagination({pageSize = 12, isContentVisible=true} = {})
   -const contentVisibleModifier = isContentVisible ? '' : 'pagination__content_invisible'
 
-  nav.pagination.js-pagination(data-page-size=pageSize)
+  div.pagination.js-pagination(data-page-size=pageSize)
     div.pagination__content.js-pagination__content(class=contentVisibleModifier)
-      each item, index in items
-        div.pagination__item
-          +room-preview-card(item)
+      if block
+        block
     div.pagination__buttons.js-pagination__buttons

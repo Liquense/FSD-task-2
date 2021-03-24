@@ -6,6 +6,11 @@ $pageButtonSize: 40px;
     flex-direction: column;
     align-items: center;
 
+    &-pages-list {
+      padding: 0;
+      margin: 0;
+    }
+
     &-prev,
     &-page,
     &-ellipsis,

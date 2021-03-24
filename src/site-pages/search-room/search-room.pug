@@ -10,6 +10,7 @@ block content
   include ../../blocks/pagination/pagination
   include ../../blocks/date-picker/date-picker
   include ../../blocks/dropdown/dropdown
+  include ../../cards/room-preview-card/room-preview-card
   main.search-room
     h1.search-room__main-heading Поиск номера
     button.search-room__show-search-section-button.js-search-room__show-search-section-button(type='button') filter_list
@@ -285,5 +286,7 @@ block content
             }
           ]
         -const paginationItems = new Array(15).fill(pageContent).flat();
-
-        +pagination({items: paginationItems})
+        +pagination()
+          each item, index in paginationItems
+            div.pagination__item.js-pagination__item
+              +room-preview-card(item)

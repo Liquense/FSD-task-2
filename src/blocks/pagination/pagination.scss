@@ -2,6 +2,19 @@
   @include box-sizing-border-box();
 
   &__content {
+    $minItemWidth: 270px;
+
+    display: grid;
+    justify-content: space-between;
+    row-gap: 20px;
+    column-gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax($minItemWidth, 1fr));
+    margin-bottom: 39px;
+
+    @media (max-width: 810px) {
+      row-gap: get-vw(10px);
+    }
+
     &_invisible {
       display: none;
     }
@@ -14,10 +27,5 @@
     @media (max-width: 450px) {
       max-width: 320px;
     }
-  }
-
-  &__pages-list {
-    padding: 0;
-    margin: 0;
   }
 }

@@ -26,12 +26,11 @@ class Pagination {
     this.$pagination = $(rootElement);
     this.$contentContainer = this.$pagination.find('.js-pagination__content');
     this.$buttons = this.$pagination.find('.js-pagination__buttons');
-
     this.pageSize = this.$pagination.attr('data-page-size');
   }
 
   _getPaginationContent() {
-    this.$contentContainer.children().each((index, element) => {
+    this.$contentContainer?.children().each((index, element) => {
       this.HTMLContent.push(outerHTML($(element)));
     });
   }
@@ -65,7 +64,7 @@ class Pagination {
 
         return `<span>${startCount} – ${endCount} из ${totalCount} вариантов аренды</span>`;
       },
-      ulClassName: 'pagination__pages-list',
+      ulClassName: 'paginationjs-pages-list',
     });
   }
 }

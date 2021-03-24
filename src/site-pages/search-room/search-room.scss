@@ -1,7 +1,5 @@
 @use '../../common/resets';
 
-$roomCardWidth: 270px;
-
 .search-room {
   $block: &;
 
@@ -162,27 +160,6 @@ $roomCardWidth: 270px;
       text-align: center;
       margin-left: 5px;
       margin-right: 5px;
-    }
-  }
-
-  &__rooms-pagination {
-    .pagination {
-      &__content {
-        display: grid;
-        justify-content: space-between;
-        row-gap: 20px;
-        column-gap: 12px;
-        grid-template-columns: repeat(auto-fit, minmax($roomCardWidth, 1fr));
-        margin-bottom: 39px;
-
-        @media (max-width: 810px) {
-          row-gap: get-vw(10px);
-        }
-      }
-
-      &__buttons {
-        padding-right: get-vw(15px);
-      }
     }
   }
 }
