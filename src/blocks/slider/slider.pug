@@ -4,7 +4,7 @@ mixin slider({minValue = 0, maxValue = 10, step = 1, title = '', isRange = false
   if isRange
     -isRangeModifier = 'slider_with-range-selection'
 
-  article.slider.js-slider(class=isRangeModifier)
+  div.slider.js-slider(class=isRangeModifier)
     div.slider__text
       +title({type: 'label', text: title, tag: 'p'})
       p.slider__value.js-slider__value ₽
