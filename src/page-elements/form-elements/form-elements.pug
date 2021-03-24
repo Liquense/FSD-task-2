@@ -111,7 +111,9 @@ section.form-elements
           +title({type: 'label', text: 'pagination'})
         -
           const paginationItems = new Array(180).fill({});
-        +pagination({items: paginationItems, isContentVisible: false})
+        +pagination({isContentVisible: false})
+          each item, index in paginationItems
+            div.pagination__item
 
   div.form-elements__middle-area
     div.form-elements__dropdowns

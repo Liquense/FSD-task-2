@@ -5,13 +5,12 @@ import { parseAttrToDate } from '../../common/functions';
 import initInputs from '../input/init';
 
 import './air-datepicker.scss';
-import './date-picker.scss';
 
 class DatePicker {
   static wideClass = '-wide-';
 
   $confirmButton = $('<button></button>', {
-    text: 'Применить', 'data-action': 'hide', class: 'date-picker__confirm-button',
+    text: 'Применить', 'data-action': 'hide', class: 'datepicker--button',
   });
 
   $datePicker;
@@ -190,9 +189,9 @@ class DatePicker {
       offset: 6,
       minDate: new Date(),
       navTitles: {
-        days: '<span class="date-picker__title">MM yyyy</span>',
-        months: '<span class="date-picker__title">yyyy</span>',
-        years: '<span class="date-picker__title">yyyy1 - yyyy2</span>',
+        days: 'MM yyyy',
+        months: 'yyyy',
+        years: 'yyyy1 - yyyy2',
       },
       prevHtml: '<span>arrow_back</span>',
       nextHtml: '<span>arrow_forward</span>',
@@ -208,9 +207,7 @@ class DatePicker {
   }
 
   _createConfirmButton() {
-    const $airDatepickerButtonWrap = $('<span></span>', { class: 'datepicker--button' });
-    $airDatepickerButtonWrap.append(this.$confirmButton);
-    this.$buttonsContainer.append($airDatepickerButtonWrap);
+    this.$buttonsContainer.append(this.$confirmButton);
   }
 }
 

@@ -252,6 +252,8 @@ $otherRangeGradient: linear-gradient(
   }
 
   &--nav-title {
+    @include text_item-title();
+
     text-transform: none;
   }
 
