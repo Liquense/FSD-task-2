@@ -26,10 +26,14 @@ $roomCardWidth: 270px;
   &__show-sidebar-button {
     @include icon();
 
+    background-color: #FFFFFF;
+    border: none;
+    outline: none;
     user-select: none;
     display: none;
     width: 40px;
-    line-height: 40px;
+    padding: 0;
+    min-height: 40px;
     font-size: 25px;
     text-align: center;
     color: $darkShade50;

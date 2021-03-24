@@ -12,7 +12,7 @@ block content
   include ../../blocks/dropdown/dropdown
   main.search-room
     h1.search-room__main-heading Поиск номера
-    div.search-room__show-sidebar-button.js-search-room__show-sidebar-button filter_list
+    button.search-room__show-sidebar-button.js-search-room__show-sidebar-button(type='button') filter_list
     aside.search-room__sidebar
       div.search-room__staying-dates
         +date-picker({title: 'Даты пребывания в отеле', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', dates: ['19.08.2019', '23.08.2019']})
