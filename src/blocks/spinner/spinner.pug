@@ -1,4 +1,4 @@
-mixin spinner({min=0, max=5, index, initValue=0, name=''} = {})
+mixin spinner({min=0, max=5, index, initValue=0, name} = {})
   div.spinner.js-spinner
     button.spinner__button.spinner__button_type_decrease.js-spinner__button_type_decrease(type='button') -
     input.spinner__value.js-spinner__value(type='number' name=name data-value=initValue readonly=true data-min=min data-max=max data-index=index)

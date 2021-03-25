@@ -77,7 +77,7 @@ $borderWidth: 1px;
   }
 
   &__register-button,
-  &__login-button {
+  &__login-link {
     display: flex;
     min-height: 44px;
   }
@@ -97,14 +97,14 @@ $borderWidth: 1px;
     }
   }
 
-  &__have-account-link {
+  &__have-account-caption {
     @include text(Montserrat, normal, 14px, 18px, black, normal);
 
     margin-bottom: 2px;
     text-decoration: none;
   }
 
-  &__login-button {
+  &__login-link {
     min-width: 99px;
   }
 }

@@ -14,5 +14,5 @@ mixin login-card(headingLevel=1, registrationURL='/registration.html')
       +button({text: 'Войти', style: 'filled', decoration: 'enter-arrow', type: 'submit'})
     div.login-card__create-account-container
       span.login-card__no-account-caption Нет аккаунта на Toxin?
-      div.login-card__create-account-button
+      div.login-card__create-account-link
         +button({text: 'Создать', style: 'bordered', link: registrationURL})

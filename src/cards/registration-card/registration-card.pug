@@ -31,6 +31,6 @@ mixin registration-card(headingLevel=1, loginURL='/login.html')
     div.registration-card__register-button
       +button({text: 'Зарегистрироваться', style: 'filled', decoration: 'enter-arrow', type: 'submit'})
     div.registration-card__action-container
-      span.registration-card__have-account-link Уже есть аккаунт на Toxin
-      div.registration-card__login-button
+      span.registration-card__have-account-caption Уже есть аккаунт на Toxin
+      div.registration-card__login-link
         +button({text: 'Войти', style: 'bordered', link: loginURL})
