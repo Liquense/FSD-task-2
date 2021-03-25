@@ -28,7 +28,7 @@ mixin booking-card({roomNumber, roomType, dailyPrice, paymentPeriod='в сутк
       p.booking-card__additional-services-sum.js-booking-card__additional-services-sum(data-addServices=additionalPrice) #{additionalPrice}#{currency}
     section.booking-card__summary
       span.booking-card__summary-text Итого
-      div.booking-card__summary-dash-underline
+      div.booking-card__dotted-underline
       span.booking-card__summary-total-cost.js-booking-card__summary-total-cost
     div.booking-card__booking-button
       +button({text: 'Забронировать', style: 'filled', decoration: 'enter-arrow', type: 'submit'})
