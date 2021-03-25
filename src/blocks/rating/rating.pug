@@ -1,4 +1,4 @@
 mixin rating({maxRating = 5, rating = -1} = {})
   div.rating.js-rating(data-maxRating=max-rating data-rating=rating)
     each val in new Array(maxRating)
-      i.rating__star.js-rating__star star
+      span.rating__star.js-rating__star star
