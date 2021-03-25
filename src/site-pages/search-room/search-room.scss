@@ -21,7 +21,7 @@
     @include visually-hidden();
   }
 
-  &__show-search-section-button {
+  &__show-filter-section-button {
     @include icon();
 
     background-color: #FFFFFF;
@@ -39,17 +39,17 @@
     @media (max-width: 654px) {
       display: block;
 
-      + #{$block}__search-section {
+      + #{$block}__filter-section {
         display: none;
       }
 
-      &#{$block}__show-search-section-button_active {
+      &#{$block}__show-filter-section-button_active {
         color: $darkShade100;
         border-radius: 50%;
         border: solid $darkShade100 1px;
         margin-bottom: 10px;
 
-        + #{$block}__search-section {
+        + #{$block}__filter-section {
           border-top: solid $darkShade75 1px;
           border-bottom: solid $darkShade10 1px;
           padding-top: 20px;
@@ -61,7 +61,7 @@
     }
   }
 
-  &__search-section {
+  &__filter-section {
     margin-top: 3px;
     margin-right: get-vw(60px);
 

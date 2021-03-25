@@ -13,8 +13,8 @@ block content
   include ../../cards/room-preview-card/room-preview-card
   main.search-room
     h1.search-room__main-heading Поиск номера
-    button.search-room__show-search-section-button.js-search-room__show-search-section-button(type='button') filter_list
-    form.search-room__search-section
+    button.search-room__show-filter-section-button.js-search-room__show-filter-section-button(type='button') filter_list
+    form.search-room__filter-section
       div.search-room__staying-dates
         +date-picker({name: 'staying_dates', title: 'Даты пребывания в отеле', width: 'medium', placeholder: 'ДД.ММ.ГГГГ', dates: ['19.08.2019', '23.08.2019']})
       div.search-room__guests
