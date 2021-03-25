@@ -27,7 +27,7 @@ mixin registration-card(headingLevel=1, loginURL='/login.html')
       div.registration-card__password-input
         +input({name: 'password', type: 'password', placeholder: 'Пароль'})
     div.registration-card__send-offers-button
-      +checkbox({text: 'Получать спецпредложения', type: 'toggle', value: 'receive offers'})
+      +checkbox({name: 'subscribe', text: 'Получать спецпредложения', type: 'toggle', value: 'offers'})
     div.registration-card__register-button
       +button({text: 'Зарегистрироваться', style: 'filled', decoration: 'enter-arrow', type: 'submit'})
     div.registration-card__action-container
