@@ -108,6 +108,10 @@
     margin: 0;
   }
 
+  &__staying-cost-calculation {
+    grid-column: 1 / 3;
+  }
+
   &__staying-cost-sum,
   &__services-sum,
   &__additional-services-sum {

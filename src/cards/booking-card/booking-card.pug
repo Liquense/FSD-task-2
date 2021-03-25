@@ -19,13 +19,12 @@ mixin booking-card({roomNumber, roomType, dailyPrice, paymentPeriod='в сутк
       +dropdown({name: 'guests', title: 'Гости', unifiedCaption: 'гост|ь|я|ей', placeholder: 'Сколько гостей', data: dropdownItems})
     section.booking-card__receipt
       p.booking-card__staying-cost-calculation.js-booking-card__staying-cost-calculation placeholder
-      i.booking-card__placeholder
       p.booking-card__staying-cost-sum.js-booking-card__staying-cost-sum placeholder
       p.booking-card__services.js-booking-card__services(data-services=services)
-      i.booking-card__info-icon i
+      span.booking-card__info-icon i
       p.booking-card__services-sum.js-booking-card__services-sum
       p.booking-card__additional-services-text Сбор за дополнительные услуги
-      i.booking-card__info-icon i
+      span.booking-card__info-icon i
       p.booking-card__additional-services-sum.js-booking-card__additional-services-sum(data-addServices=additionalPrice) #{additionalPrice}#{currency}
     section.booking-card__summary
       span.booking-card__summary-text Итого
