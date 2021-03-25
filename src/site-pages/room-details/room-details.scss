@@ -38,16 +38,7 @@
     }
   }
 
-  &__upper-side-photo {
-    flex-grow: 1;
-    object-fit: cover;
-
-    @media (max-width: 1439px) {
-      width: 50%;
-    }
-  }
-
-  &__lower-side-photo {
+  &__side-photo {
     flex-grow: 1;
     object-fit: cover;
 
