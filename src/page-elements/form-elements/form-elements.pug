@@ -43,9 +43,9 @@ section.form-elements
     div.form-elements__checkboxes-ratings
       -
         const checkButtons = [
-          {text: 'Можно курить', value: 'smoking allowed'},
-          {text: 'Можно с питомцами', value: 'pets allowed', isChecked: true},
-          {text: 'Можно пригласить гостей (до 10 человек)', value: 'guests allowed', isChecked: true}
+          {text: 'Можно курить', value: 'smoking_allowed'},
+          {text: 'Можно с питомцами', value: 'pets_allowed', isChecked: true},
+          {text: 'Можно пригласить гостей (до 10 человек)', value: 'guests_allowed', isChecked: true}
         ]
       div.form-elements__checkboxes
         +checkbox-list({title: 'Checkbox Buttons', elements: checkButtons})
@@ -62,9 +62,9 @@ section.form-elements
         div.form-elements__toggles-title
           +title({type: 'label', text: 'Toggle'})
         div.form-elements__toggle-button
-          +checkbox({type: 'toggle', text: 'Получать спецпредложения', value: 'receive offers', isChecked: true})
+          +checkbox({type: 'toggle', text: 'Получать спецпредложения', value: 'receive_offers', isChecked: true})
         div.form-elements__toggle-button
-          +checkbox({type: 'toggle', text: 'Получать спецпредложения', value: 'receive offers', isChecked: false})
+          +checkbox({type: 'toggle', text: 'Получать спецпредложения', value: 'receive_offers', isChecked: false})
 
       div.form-elements__likes
         div.form-elements__likes-header
@@ -146,8 +146,10 @@ section.form-elements
       div.form-elements__expandable-lists
         -
           const checkButtonsExpandable = [
-            {text: 'Завтрак', value: 'breakfast'}, {text: 'Письменный стол', value: 'writing desk', isChecked: true},
-            {text: 'Стул для кормления', value: 'feeding chair', isChecked: true}, {text: 'Кроватка', value: 'crib', isChecked: true},
+            {text: 'Завтрак', value: 'breakfast'},
+            {text: 'Письменный стол', value: 'writing_desk', isChecked: true},
+            {text: 'Стул для кормления', value: 'feeding_chair', isChecked: true},
+            {text: 'Кроватка', value: 'crib', isChecked: true},
             {text: 'Телевизор', value: 'TV'}, {text: 'Шампунь', value: 'shampoo'}
           ]
         div.form-elements__expandable-list
@@ -157,8 +159,8 @@ section.form-elements
 
       -
         const richCheckboxes = [
-          {text: 'Широкий коридор', value: 'wide corridor', description: 'Ширина коридоров в номере \n не менее 91 см.'},
-          {text: 'Помощник для инвалидов', value: 'disability aide', description: 'На 1 этаже вас встретит специалист \n и проводит до номера.'}
+          {text: 'Широкий коридор', value: 'wide_corridor', description: 'Ширина коридоров в номере \n не менее 91 см.'},
+          {text: 'Помощник для инвалидов', value: 'disability_aide', description: 'На 1 этаже вас встретит специалист \n и проводит до номера.'}
         ]
       div.form-elements__rich-list
         +checkbox-list({type: 'checkbox', title: 'Rich checkbox buttons', elements: richCheckboxes})

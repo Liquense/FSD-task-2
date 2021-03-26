@@ -32,16 +32,16 @@ block content
         p.search-room__daily-price-text Стоимость за сутки пребывания в номере
       -
         let checkButtons = [
-          {name: 'house_rules', text: 'Можно курить', value: 'smoking allowed'},
-          {name: 'house_rules', text: 'Можно с питомцами', value: 'pets allowed', isChecked: true},
-          {name: 'house_rules', text: 'Можно приглашать гостей (до 10 человек)', value: 'guests allowed', isChecked: true},
+          {name: 'house_rules', text: 'Можно курить', value: 'smoking_allowed'},
+          {name: 'house_rules', text: 'Можно с питомцами', value: 'pets_allowed', isChecked: true},
+          {name: 'house_rules', text: 'Можно приглашать гостей (до 10 человек)', value: 'guests_allowed', isChecked: true},
         ]
       div.search-room__house-rules-filter
         +checkbox-list({type: 'checkbox', title: 'Правила дома', elements: checkButtons})
       -
         const richButtons = [
-          {name: 'availability', text: 'Широкий коридор', value: 'wide corridor', description: 'Ширина коридоров в номере \n не менее 91 см.'},
-          {name: 'availability', text: 'Помощник для инвалидов', value: 'disability aide', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'},
+          {name: 'availability', text: 'Широкий коридор', value: 'wide_corridor', description: 'Ширина коридоров в номере \n не менее 91 см.'},
+          {name: 'availability', text: 'Помощник для инвалидов', value: 'disability_aide', description: 'На 1 этаже вас встретит специалист \n и проводит до номера'},
         ]
       div.search-room__availability-filter
         +checkbox-list({type: 'checkbox', title: 'Доступность', elements: richButtons})
@@ -56,8 +56,8 @@ block content
       -
         checkButtons = [
           {name: 'additional_features', text: 'Завтрак', value: 'breakfast'},
-          {name: 'additional_features', text: 'Письменный стол', value: 'writing desk', isChecked: true},
-          {name: 'additional_features', text: 'Стул для кормления', value: 'feeding chair', isChecked: true},
+          {name: 'additional_features', text: 'Письменный стол', value: 'writing_desk', isChecked: true},
+          {name: 'additional_features', text: 'Стул для кормления', value: 'feeding_chair', isChecked: true},
           {name: 'additional_features', text: 'Кроватка', value: 'crib', isChecked: true},
           {name: 'additional_features', text: 'Телевизор', value: 'TV'},
           {name: 'additional_features', text: 'Шампунь', value: 'shampoo'},
