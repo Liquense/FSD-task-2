@@ -41,12 +41,14 @@
   &__active-value {
     @include text_widget-title();
 
+    color: var(--color);
     line-height: 30px;
   }
 
   &__value-text {
     @include text_widget-title();
 
+    color: var(--color);
     font-size: 14px;
     line-height: 15px;
   }

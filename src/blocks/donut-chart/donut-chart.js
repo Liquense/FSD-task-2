@@ -189,16 +189,14 @@ class DonutChart {
   _updateActiveCaption() {
     if (!this.activeArc?.value) {
       this.$activeValue.text(this.donutParams.ratesAmount);
-      this.$activeValue.css('color', 'black');
-
       this.$activeValueText.text(ruDeclination(this.donutParams.ratesAmount, 'голос||а|ов'));
-      this.$activeValueText.css('color', 'black');
+
+      this.$dataTextContainer.css('--color', 'black');
     } else {
       this.$activeValue.text(this.activeArc.value);
-      this.$activeValue.css('color', this.activeArc.color);
-
       this.$activeValueText.text(ruDeclination(this.activeArc.value, 'голос||а|ов'));
-      this.$activeValueText.css('color', this.activeArc.color);
+
+      this.$dataTextContainer.css('--color', this.activeArc.color);
     }
   }
 
