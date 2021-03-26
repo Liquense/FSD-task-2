@@ -8,6 +8,6 @@ mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} 
     div.comment__info-container
       span.comment__author #{author}
       span.comment__date-time #{dateTime}
-    div.comment__like
+    div.comment__likes
       +like-button({count: likesCount, isChecked: isLiked})
     p.comment__text #{text}
