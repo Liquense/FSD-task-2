@@ -11,26 +11,27 @@
     list-style: none;
   }
 
+  $textLineHeight: 24px;
+  $ellipseSize: 10px;
+
   &__item {
     display: flex;
     align-items: flex-start;
 
+    &:before {
+      content: '';
+      flex-shrink: 0;
+      width: $ellipseSize;
+      height: $ellipseSize;
+      border-radius: 50%;
+      background-color: $darkShade25;
+      margin-top: ($textLineHeight - $ellipseSize)/2;
+      margin-right: 11px;
+    }
+
     &:not(:last-child) {
       margin-bottom: 10px;
     }
-  }
-
-  $textLineHeight: 24px;
-  $ellipseSize: 10px;
-
-  &__item-image {
-    flex-shrink: 0;
-    width: $ellipseSize;
-    height: $ellipseSize;
-    border-radius: 50%;
-    background-color: $darkShade25;
-    margin-top: ($textLineHeight - $ellipseSize)/2;
-    margin-right: 11px;
   }
 
   &__item-text {
