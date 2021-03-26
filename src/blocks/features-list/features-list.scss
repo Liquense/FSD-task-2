@@ -3,13 +3,6 @@
   margin: 0;
   padding: 0;
 
-  &__divider {
-    border-color: $darkShade10;
-    border-top: none;
-    margin: 0;
-    width: 280px;
-  }
-
   &__item {
     display: flex;
     align-items: center;
@@ -19,7 +12,9 @@
     }
 
     &:not(:first-child) {
-      margin-top: 20px;
+      border-top: 1px solid $darkShade10;
+      padding-top: 20px;
+      width: 280px;
     }
   }
 

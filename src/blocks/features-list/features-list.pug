@@ -1,8 +1,6 @@
 mixin features-list({items=[]} = {})
   ul.features-list
     each item, index in items
-      if index
-        hr.features-list__divider
       li.features-list__item
         span.features-list__item-image #{item.icon}
         div.features-list__item-text-container
