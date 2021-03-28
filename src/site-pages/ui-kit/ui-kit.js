@@ -1,4 +1,4 @@
-import { importContext, importCommon } from '../../common/imports';
+import { importContext, importCommon } from '../../utils/imports';
 
 importCommon();
 importContext(require.context('../../blocks', true, /\.(js|scss)$/));

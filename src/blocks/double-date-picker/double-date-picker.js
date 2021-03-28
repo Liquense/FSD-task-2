@@ -1,4 +1,4 @@
-import { parseAttrToDate } from '../../common/functions';
+import { parseAttrToDate } from '../../utils/functions';
 
 import initDatepickers from '../date-picker/init';
 import initInputs from '../input/init';

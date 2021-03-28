@@ -1,4 +1,4 @@
-import { formatNumber, ruDeclination, secondsToDays } from '../../common/functions';
+import { formatNumber, ruDeclination, secondsToDays } from '../../utils/functions';
 import initDropdowns from '../../blocks/dropdown/init';
 import initTwoCalendarDatepickers from '../../blocks/double-date-picker/init';
 import '../../blocks/title/title.scss';

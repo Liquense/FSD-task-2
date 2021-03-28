@@ -1,5 +1,5 @@
 import DatePicker from './date-picker';
-import initBlocks from '../../common/dynamicInit';
+import initBlocks from '../../utils/dynamicInit';
 
 function initDatepickers(rootElement) {
   return initBlocks(rootElement, '.js-date-picker', DatePicker);

@@ -1,4 +1,4 @@
-import initBlocks from '../../common/dynamicInit';
+import initBlocks from '../../utils/dynamicInit';
 import RoomPreviewCard from './room-preview-card';
 
 function initRoomPreviewCards(rootElement) {

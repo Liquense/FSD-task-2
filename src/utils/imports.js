@@ -9,7 +9,7 @@ function importHeaderFooter() {
 
 function importCommon() {
   importContext(require.context('../site-pages', true, /page-template.scss$/));
-  importContext(require.context('../common', true, /fonts.scss$/));
+  importContext(require.context('../shared', true, /fonts.scss$/));
   importContext(require.context('../assets/fonts', true, /\.(otf|ttf|svg|woff|woff2|eot)$/));
   importContext(require.context('../assets/favicons', true, /\.*$/));
 }

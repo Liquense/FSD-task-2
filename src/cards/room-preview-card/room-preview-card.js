@@ -1,4 +1,4 @@
-import { formatNumber, ruDeclination } from '../../common/functions';
+import { formatNumber, ruDeclination } from '../../utils/functions';
 import initCarousels from '../../blocks/carousel/init';
 import initRatings from '../../blocks/rating/init';
 import '../../blocks/title/title.scss';

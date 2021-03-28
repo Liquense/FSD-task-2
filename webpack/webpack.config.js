@@ -122,8 +122,8 @@ module.exports = {
             options: {
               hoistUseStatements: true,
               resources: [
-                `${paths.source}/common/mixins.scss`,
-                `${paths.source}/common/variables.scss`,
+                `${paths.source}/shared/mixins.scss`,
+                `${paths.source}/shared/variables.scss`,
               ],
             },
           },

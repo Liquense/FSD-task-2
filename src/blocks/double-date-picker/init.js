@@ -1,4 +1,4 @@
-import initBlocks from '../../common/dynamicInit';
+import initBlocks from '../../utils/dynamicInit';
 import TwoCalendarDatepicker from './double-date-picker';
 
 function initTwoCalendarDatepickers(rootElement) {

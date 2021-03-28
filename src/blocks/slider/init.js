@@ -1,4 +1,4 @@
-import initBlocks from '../../common/dynamicInit';
+import initBlocks from '../../utils/dynamicInit';
 import Slider from './slider';
 
 function initSliders(rootElement) {

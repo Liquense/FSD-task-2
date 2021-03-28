@@ -1,4 +1,4 @@
-import initBlocks from '../../common/dynamicInit';
+import initBlocks from '../../utils/dynamicInit';
 import Arrow from './arrow';
 
 function initArrows(rootElement) {

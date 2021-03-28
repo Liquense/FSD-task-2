@@ -1,4 +1,4 @@
-import initBlocks from '../../common/dynamicInit';
+import initBlocks from '../../utils/dynamicInit';
 import BookingCard from './booking-card';
 
 function initBookingCards(rootElement) {

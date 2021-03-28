@@ -1,4 +1,4 @@
-import initBlocks from '../../common/dynamicInit';
+import initBlocks from '../../utils/dynamicInit';
 import CheckboxList from './checkbox-list';
 
 function initLists(rootElement) {

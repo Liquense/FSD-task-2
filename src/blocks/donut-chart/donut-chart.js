@@ -1,9 +1,9 @@
-import { getAverageNum, ruDeclination } from '../../common/functions';
+import { getAverageNum, ruDeclination } from '../../utils/functions';
 import {
   calculateAngleFromArcLength,
   calculateCircleLength,
   polarCoordinatesToCartesian,
-} from '../../common/math';
+} from '../../utils/math';
 
 import './donut-chart.scss';
 

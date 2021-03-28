@@ -4,7 +4,7 @@ import 'jquery-ui/themes/base/slider.css';
 import './slider.scss';
 import './ui-slider.scss';
 
-import { clamp, formatNumber } from '../../common/functions';
+import { clamp, formatNumber } from '../../utils/functions';
 
 class Slider {
   $slider;
