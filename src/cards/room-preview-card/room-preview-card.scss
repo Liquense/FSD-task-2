@@ -1,7 +1,6 @@
 .room-preview-card {
   @include box-sizing-border-box();
 
-  height: fit-content;
   max-width: 270px;
   background: white;
   box-shadow: 0 10px 20px $darkShade5;

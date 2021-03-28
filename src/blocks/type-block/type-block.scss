@@ -7,7 +7,6 @@
     @include text_regular();
 
     color: $darkShade25;
-    height: fit-content;
     min-width: 37px;
     margin: 0 30px 0 0;
     text-align: end;
@@ -58,6 +57,5 @@
 
   &__text {
     margin: 0;
-    height: fit-content;
   }
 }
