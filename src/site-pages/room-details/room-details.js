@@ -1,4 +1,4 @@
-import { importCommon, importContext, importHeaderFooter } from '../../imports';
+import { importCommon, importContext, importHeaderFooter } from '../../common/imports';
 
 import '../../blocks/donut-chart/donut-chart';
 import initDonutCharts from '../../blocks/donut-chart/init';

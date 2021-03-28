@@ -1,4 +1,4 @@
-import { importCommon, importHeaderFooter } from '../../imports';
+import { importCommon, importHeaderFooter } from '../../common/imports';
 import './login.scss';
 import '../../cards/login-card/login-card';
 

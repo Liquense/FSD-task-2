@@ -1,4 +1,4 @@
-import { importCommon } from '../../imports';
+import { importCommon } from '../../common/imports';
 
 import '../../blocks/title/title.scss';
 import './index.scss';

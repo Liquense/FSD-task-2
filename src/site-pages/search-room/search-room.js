@@ -1,4 +1,4 @@
-import { importCommon, importHeaderFooter } from '../../imports';
+import { importCommon, importHeaderFooter } from '../../common/imports';
 import initRoomPreviewCards from '../../cards/room-preview-card/init';
 import initPaginations from '../../blocks/pagination/init';
 import initDatepickers from '../../blocks/date-picker/init';

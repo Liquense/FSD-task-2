@@ -1,4 +1,4 @@
-import { importCommon, importHeaderFooter } from '../../imports';
+import { importCommon, importHeaderFooter } from '../../common/imports';
 
 import initFindRoomCards from '../../cards/find-room-card/init';
 import '../../cards/find-room-card/find-room-card';
