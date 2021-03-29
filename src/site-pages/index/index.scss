@@ -1,9 +1,12 @@
+@import "../../blocks/title/title";
+
 .index {
   $block: &;
 
   &__page-link {
     @include text_regular();
 
+    margin-top: 5px;
     width: fit-content;
 
     &:first-of-type {
@@ -12,17 +15,15 @@
   }
 
   &__ui {
-    display: flex;
-    flex-direction: column;
     margin-bottom: 20px;
+
+    #{$block}__page-link {
+      display: block;
+    }
   }
 
   &__pages {
     display: flex;
     flex-direction: column;
-
-    #{$block}__page-link {
-      margin-top: 5px;
-    }
   }
 }
