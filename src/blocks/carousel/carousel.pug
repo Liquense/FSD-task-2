@@ -1,4 +1,4 @@
-mixin carousel({images = [], carouselParams={}, roomNumber} = {})
+mixin carousel({ images = [], carouselParams={}, roomNumber } = {})
   div.carousel.js-carousel&attributes(carouselParams)
     each image in images
       #{image.tag}(src=image.src alt=`фото номера №${roomNumber}` class='carousel__element')

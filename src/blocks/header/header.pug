@@ -1,7 +1,7 @@
 include ../button/button
 include ../arrow/arrow
 
-mixin header({userLogin='', loginText='Login', registerText='register', content=[]} = {})
+mixin header({ userLogin='', loginText='Login', registerText='register', content=[] } = {})
   header.header.js-header
     a.header__logo-link.js-header__logo-link(href='landing.html')
       img.header__logo(src=require('../../assets/images/logo-colored-with-text.svg') alt='цветной логотип с текстом: TOXIN')
@@ -14,13 +14,13 @@ mixin header({userLogin='', loginText='Login', registerText='register', content=
             a.header__item-link(class=`${boldLinkModifier}` href=(item.link ? item.link : '/mock-address/change-me')) #{item.text}
             if item.children
               button.header__expand-button(type='button')
-                +arrow({type: 'expand'})
+                +arrow({ type: 'expand' })
       if (userLogin)
         div.header__divider
         div.header__user-name #{userLogin}
       else
         div.header__buttons
           div.header__login-button.js-header__login-button
-            +button({text: loginText, style: 'bordered', isStretched: false, link: 'login.html'})
+            +button({ text: loginText, style: 'bordered', isStretched: false, link: 'login.html' })
           div.header__register-button.js-header__register-button
-            +button({text: registerText, style: 'filled', isStretched: false, link: 'registration.html'})
+            +button({ text: registerText, style: 'filled', isStretched: false, link: 'registration.html' })

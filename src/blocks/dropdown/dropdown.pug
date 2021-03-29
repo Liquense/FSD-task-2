@@ -1,7 +1,7 @@
 include ../spinner/spinner
 include ../input/input
 
-mixin dropdown({name, title, dropdownType, placeholder, range=[0, 5], unifiedCaption, isPure=false, isOpened=false, isUnaccepted=false, isFocused=false, data=[]} = {})
+mixin dropdown({ name, title, dropdownType, placeholder, range=[0, 5], unifiedCaption, isPure=false, isOpened=false, isUnaccepted=false, isFocused=false, data=[] } = {})
   -let openedModifier = ''
   if isOpened
     -openedModifier = ' dropdown_opened'
@@ -14,7 +14,7 @@ mixin dropdown({name, title, dropdownType, placeholder, range=[0, 5], unifiedCap
 
   div(class=`dropdown js-dropdown${openedModifier}${pureModifier}${unacceptedModifier}` data-unified-caption=unifiedCaption)
     div.dropdown__input.js-dropdown__input
-      +input({name, title, placeholder, isExpandable: true, isActive: isOpened, inDropdown: true})
+      +input({ name, title, placeholder, isExpandable: true, isActive: isOpened, inDropdown: true })
     div.dropdown__list-wrapper.js-dropdown__list-wrapper
       div.dropdown__list.js-dropdown__list
         each element, index in data
@@ -24,9 +24,9 @@ mixin dropdown({name, title, dropdownType, placeholder, range=[0, 5], unifiedCap
               data-is-separate=`${element.isSeparate || ''}`
               data-always-visible=`${element.alwaysVisible || ''}`) #{element.title}
             div.dropdown__spinner
-              +spinner({min: range[0], max: range[1], index, name: element.name, initValue: element.value})
+              +spinner({ min: range[0], max: range[1], index, name: element.name, initValue: element.value })
       div.dropdown__buttons-container.js-dropdown__buttons-container
         div.dropdown__clear-button.js-dropdown__clear-button
-          +button({text: 'Очистить', style: 'text'})
+          +button({ text: 'Очистить', style: 'text' })
         div.dropdown__confirm-button.js-dropdown__confirm-button
-          +button({text: 'Применить', style: 'text'})
+          +button({ text: 'Применить', style: 'text' })

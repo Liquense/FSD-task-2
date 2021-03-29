@@ -1,5 +1,5 @@
 include ../arrow/arrow
-mixin button({text='', type='button', link='', style='filled', decoration='', isHovered=false, isStretched=true} = {})
+mixin button({ text='', type='button', link='', style='filled', decoration='', isHovered=false, isStretched=true } = {})
   - const stretchedModifier = isStretched ? ' button_stretched' : ''
   - const hoveredModifier = isHovered ? ' button_hovered' : ''
   - let decoratedModifier = decoration ? ' button_decorated' : ''

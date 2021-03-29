@@ -1,12 +1,12 @@
 include ../title/title
-mixin slider({minValue = 0, maxValue = 10, step = 1, title = '', isRange = false, initialValues = [5]} = {})
+mixin slider({ minValue = 0, maxValue = 10, step = 1, title = '', isRange = false, initialValues = [5] } = {})
   -let isRangeModifier = ''
   if isRange
     -isRangeModifier = 'slider_with-range-selection'
 
   div.slider.js-slider(class=isRangeModifier)
     div.slider__text
-      +title({type: 'label', text: title, tag: 'p'})
+      +title({ type: 'label', text: title, tag: 'p' })
       p.slider__value.js-slider__value ₽
     div.slider__container
       div.slider__control.js-slider__control(

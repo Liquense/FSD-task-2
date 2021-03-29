@@ -7,30 +7,30 @@ include ../../blocks/title/title
 mixin registration-card(headingLevel=1, loginURL='/login.html')
   form.registration-card.js-registration-card
     div.registration-card__title
-      +title({type: 'widget', text: 'Регистрация аккаунта', tag: `h${headingLevel}`})
+      +title({ type: 'widget', text: 'Регистрация аккаунта', tag: `h${headingLevel}` })
     div.registration-card__user-name-input
-      +input({name: 'name', type: 'text', placeholder: 'Имя'})
+      +input({ name: 'name', type: 'text', placeholder: 'Имя' })
     div.registration-card__user-surname-input
-      +input({name: 'surname', type: 'text', placeholder: 'Фамилия'})
+      +input({ name: 'surname', type: 'text', placeholder: 'Фамилия' })
     div.registration-card__gender-list
       div.registration-card__male-radio-button
-        +radio-button({text: 'Мужчина', group: 'gender', value: 'male', isChecked: true})
+        +radio-button({ text: 'Мужчина', group: 'gender', value: 'male', isChecked: true })
       div.registration-card__female-radio-button
-        +radio-button({text: 'Женщина', group: 'gender', value: 'female'})
+        +radio-button({ text: 'Женщина', group: 'gender', value: 'female' })
     div.registration-card__birthday-input
-      +input({name: 'birthday', title: 'Дата рождения', type: 'mask', placeholder: 'ДД.ММ.ГГГГ'})
+      +input({ name: 'birthday', title: 'Дата рождения', type: 'mask', placeholder: 'ДД.ММ.ГГГГ' })
     div.registration-card__login-data-container
       div.registration-card__login-data-title
-        +title({type: 'label', text: 'Данные для входа в сервис', tag: 'p'})
+        +title({ type: 'label', text: 'Данные для входа в сервис', tag: 'p' })
       div.registration-card__email-input
-        +input({name: 'email', type: 'email', placeholder: 'Email'})
+        +input({ name: 'email', type: 'email', placeholder: 'Email' })
       div.registration-card__password-input
-        +input({name: 'password', type: 'password', placeholder: 'Пароль'})
+        +input({ name: 'password', type: 'password', placeholder: 'Пароль' })
     div.registration-card__send-offers-button
-      +checkbox({name: 'subscribe', text: 'Получать спецпредложения', type: 'toggle', value: 'offers'})
+      +checkbox({ name: 'subscribe', text: 'Получать спецпредложения', type: 'toggle', value: 'offers' })
     div.registration-card__register-button
-      +button({text: 'Зарегистрироваться', style: 'filled', decoration: 'enter-arrow', type: 'submit'})
+      +button({ text: 'Зарегистрироваться', style: 'filled', decoration: 'enter-arrow', type: 'submit' })
     div.registration-card__action-container
       span.registration-card__have-account-caption Уже есть аккаунт на Toxin
       div.registration-card__login-link
-        +button({text: 'Войти', style: 'bordered', link: loginURL})
+        +button({ text: 'Войти', style: 'bordered', link: loginURL })

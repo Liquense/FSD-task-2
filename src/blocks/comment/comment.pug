@@ -1,7 +1,7 @@
 include ../checkbox/checkbox
 include ../like-button/like-button
 
-mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} = {})
+mixin comment({ avatar, author, dateTime, likesCount = 0, isLiked = false, text } = {})
   article.comment.js-comment
     div.comment__avatar-wrap
       img.comment__avatar(src=avatar, alt=`аватар ${author}`)
@@ -9,5 +9,5 @@ mixin comment({avatar, author, dateTime, likesCount = 0, isLiked = false, text} 
       span.comment__author #{author}
       span.comment__date-time #{dateTime}
     div.comment__likes
-      +like-button({count: likesCount, isChecked: isLiked})
+      +like-button({ count: likesCount, isChecked: isLiked })
     p.comment__text #{text}

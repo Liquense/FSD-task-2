@@ -1,4 +1,4 @@
-mixin donut-chart({data=[], defaultStyle={}, activeStyle={}, arcsGap=0} = {})
+mixin donut-chart({ data=[], defaultStyle={}, activeStyle={}, arcsGap=0 } = {})
   figure.donut-chart.js-donut-chart
     div.donut-chart__image-container
       svg.donut-chart__svg.js-donut-chart__svg(preserveAspectRatio='xMidYMid meet'
@@ -7,13 +7,13 @@ mixin donut-chart({data=[], defaultStyle={}, activeStyle={}, arcsGap=0} = {})
         data-active-outer-radius=activeStyle.outerRadius data-active-inner-radius=activeStyle.innerRadius
         )
         defs
-          -data.forEach(({value, firstColor, secondColor}, index) => {
+          -data.forEach(({ value, firstColor, secondColor }, index) => {
             if (value)
               linearGradient(id=`grad${index}` x1='0%' y1='0%' x2='0%' y2='100%')
                 stop(stop-color=firstColor)
                 stop(offset='100%' stop-color=secondColor)
           -})
-        -data.forEach(({value, isActive, firstColor}, index) => {
+        -data.forEach(({ value, isActive, firstColor }, index) => {
           if (value)
             path.donut-chart__svg-arc.js-donut-chart__svg-arc( stroke=`url(#grad${index})` fill='transparent'
               data-value=value data-is-active=`${isActive}` data-color=firstColor
@@ -23,7 +23,7 @@ mixin donut-chart({data=[], defaultStyle={}, activeStyle={}, arcsGap=0} = {})
         span.donut-chart__active-value.js-donut-chart__active-value
         span.donut-chart__value-text.js-donut-chart__value-text
     ul.donut-chart__legend.js-donut-chart__legend
-      -data.forEach(({firstColor, secondColor, caption}) => {
+      -data.forEach(({ firstColor, secondColor, caption }) => {
         li.donut-chart__legend-item.js-donut-chart__legend-item(
           style=`--background: linear-gradient(180deg, ${firstColor} 0%, ${secondColor} 100%); --color: ${firstColor}`
           ) #{caption}

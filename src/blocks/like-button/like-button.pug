@@ -1,4 +1,4 @@
-mixin like-button({isChecked=false, count=0} = {})
+mixin like-button({ isChecked=false, count=0 } = {})
   button.like-button.js-like-button(type='button' data-likes-count=count data-is-checked=`${isChecked}`)
     span.like-button__body
       span.like-button__icon.js-like-button__icon #{isChecked ? 'favorite' : 'favorite_border'}

@@ -3,7 +3,7 @@ include ../radio-button/radio-button
 include ../arrow/arrow
 include ../title/title
 
-mixin checkbox-list({isExpandable=false, isOpened=false, title='', elements=[]} = {})
+mixin checkbox-list({ isExpandable=false, isOpened=false, title='', elements=[] } = {})
   -let expandableModifier = expandedModifier = ''
   if isExpandable
     -expandableModifier = ' checkbox-list_expandable'
@@ -14,10 +14,10 @@ mixin checkbox-list({isExpandable=false, isOpened=false, title='', elements=[]} 
     div.checkbox-list__title-wrap.js-checkbox-list__title-wrap
       if title
         legend.checkbox-list__title
-          +title({type: 'label', text: title, tag: 'p'})
+          +title({ type: 'label', text: title, tag: 'p' })
         if isExpandable
           div.checkbox-list__expand-arrow
-            +arrow({type: 'expand'})
+            +arrow({ type: 'expand' })
     ul.checkbox-list__container
       each value, index in elements
         li.checkbox-list__item(class=`${value.description ? `checkbox-list__item_rich` : ''}`)

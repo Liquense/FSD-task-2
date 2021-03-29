@@ -2,7 +2,7 @@ include ../../blocks/double-date-picker/double-date-picker
 include ../../blocks/button/button
 include ../../blocks/dropdown/dropdown
 
-mixin booking-card({roomNumber, roomType, dailyPrice, paymentPeriod='в сутки', currency='₽', arrivalDate, departureDate, dropdownItems=[], services, additionalPrice} = {}, headingLevel=2)
+mixin booking-card({ roomNumber, roomType, dailyPrice, paymentPeriod='в сутки', currency='₽', arrivalDate, departureDate, dropdownItems=[], services, additionalPrice } = {}, headingLevel=2)
   form.booking-card.js-booking-card
     header.booking-card__header
       #{`h${headingLevel}`}.booking-card__main-heading Бронирование номера №#{roomNumber}
@@ -14,9 +14,9 @@ mixin booking-card({roomNumber, roomType, dailyPrice, paymentPeriod='в сутк
         span.booking-card__daily-price.js-booking-card__daily-price(data-daily-price=dailyPrice data-currency=currency) #{dailyPrice}#{currency}
         span.booking-card__payment-period  #{paymentPeriod}
     div.booking-card__range-picker.js-booking-card__range-picker
-      +double-date-picker({names: ['arrival', 'departure'], firstTitle: 'Прибытие', secondTitle: 'Выезд', firstDate: arrivalDate, secondDate: departureDate})
+      +double-date-picker({ names: ['arrival', 'departure'], firstTitle: 'Прибытие', secondTitle: 'Выезд', firstDate: arrivalDate, secondDate: departureDate })
     div.booking-card__guests-dropdown.js-booking-card__guests-dropdown
-      +dropdown({name: 'guests', title: 'Гости', unifiedCaption: 'гост|ь|я|ей', placeholder: 'Сколько гостей', data: dropdownItems})
+      +dropdown({ name: 'guests', title: 'Гости', unifiedCaption: 'гост|ь|я|ей', placeholder: 'Сколько гостей', data: dropdownItems })
     section.booking-card__receipt
       p.booking-card__staying-cost-calculation.js-booking-card__staying-cost-calculation placeholder
       p.booking-card__staying-cost-sum.js-booking-card__staying-cost-sum placeholder
@@ -31,4 +31,4 @@ mixin booking-card({roomNumber, roomType, dailyPrice, paymentPeriod='в сутк
       div.booking-card__dotted-underline
       span.booking-card__summary-total-cost.js-booking-card__summary-total-cost
     div.booking-card__booking-button
-      +button({text: 'Забронировать', style: 'filled', decoration: 'enter-arrow', type: 'submit'})
+      +button({ text: 'Забронировать', style: 'filled', decoration: 'enter-arrow', type: 'submit' })
