@@ -1,13 +1,19 @@
-@mixin text($font, $fontWeight, $size, $lineHeight, $color, $letterSpacing) {
-  font-family: $font, Montserrat, sans-serif;
-  font-weight: $fontWeight;
-  font-style: normal;
+@mixin text($font, $fontWeight: normal, $size, $lineHeight, $color, $letterSpacing: normal) {
+  font-family: $font, Arial, sans-serif;
   font-size: $size;
-  line-height: $lineHeight;
-  letter-spacing: $letterSpacing;
-  vertical-align: middle;
   color: $color;
-  text-decoration: none;
+
+  @if($fontWeight != normal) {
+    font-weight: $fontWeight;
+  }
+
+  @if($letterSpacing != normal) {
+    letter-spacing: $letterSpacing;
+  }
+
+  @if($lineHeight) {
+    line-height: $lineHeight;
+  }
 }
 
 @mixin clearfix() {

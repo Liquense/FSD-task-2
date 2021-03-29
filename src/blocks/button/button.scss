@@ -13,6 +13,7 @@ $arrowSize: 24px;
   &__control {
     @include text_label-CTA();
 
+    text-decoration: none;
     display: flex;
     align-items: center;
     justify-content: center;

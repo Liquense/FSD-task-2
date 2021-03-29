@@ -161,6 +161,7 @@
   &__link {
     @include text_regular();
 
+    text-decoration: none;
     overflow-wrap: anywhere;
     vertical-align: unset;
   }

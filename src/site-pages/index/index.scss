@@ -6,6 +6,7 @@
   &__page-link {
     @include text_regular();
 
+    text-decoration: none;
     margin-top: 5px;
     width: fit-content;
 

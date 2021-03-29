@@ -10,6 +10,7 @@ $borderWidth: 1px;
     -moz-appearance: textfield;
     text-align: center;
     line-height: $buttonSize;
+    vertical-align: top;
     max-width: 32px;
     margin: 0;
     padding: 0;
@@ -18,13 +19,13 @@ $borderWidth: 1px;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
+      appearance: none;
       margin: 0;
     }
   }
 
   &__button {
-    @include text(Montserrat, normal, 18px, $buttonSize - 2*$borderWidth, $darkShade25, 0px);
+    @include text(Montserrat, normal, 18px, $buttonSize - 2*$borderWidth, $darkShade25, normal);
 
     border-radius: 50%;
     border: $borderWidth solid $darkShade25;
