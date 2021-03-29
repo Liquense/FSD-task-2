@@ -2,7 +2,7 @@ import { ruDeclination } from '../../utils/functions';
 
 import initSpinners from '../spinner/init';
 import initInputs from '../input/init';
-import initArrows from '../arrow/init';
+
 import './dropdown.scss';
 
 class Dropdown {
@@ -136,8 +136,8 @@ class Dropdown {
   }
 
   _initProperties() {
-    this.arrow = initArrows(this.$dropdown);
     this.input = initInputs(this.$dropdown);
+    this.arrow = this.input.arrow;
     this.rows = this._getRows();
     this.spinners = this.rows.map(({ $row }) => initSpinners($row));
     this.values = this.spinners.map((spinner) => spinner.getValue());

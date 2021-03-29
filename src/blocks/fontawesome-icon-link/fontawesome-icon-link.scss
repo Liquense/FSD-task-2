@@ -1,3 +1,5 @@
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
 .fontawesome-icon-link {
   @include text-gradient(linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%));
 

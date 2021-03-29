@@ -1,6 +1,6 @@
 import 'slick-carousel';
+import 'slick-carousel/slick/slick.scss';
 
-import '../../../node_modules/slick-carousel/slick/slick.css';
 import './carousel.scss';
 import './slick-slider.scss';
 

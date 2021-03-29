@@ -6,10 +6,8 @@ import '../../cards/booking-card/booking-card';
 import initBookingCards from '../../cards/booking-card/init';
 import '../../blocks/comment/comment';
 import initComments from '../../blocks/comment/init';
+
 import './room-details.scss';
-import '../../blocks/title/title.scss';
-import '../../blocks/features-list/features-list.scss';
-import '../../blocks/bullet-list/bullet-list.scss';
 
 importHeaderFooter();
 importCommon();

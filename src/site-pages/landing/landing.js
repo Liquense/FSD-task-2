@@ -2,6 +2,7 @@ import { importCommon, importHeaderFooter } from '../../utils/imports';
 
 import initFindRoomCards from '../../cards/find-room-card/init';
 import '../../cards/find-room-card/find-room-card';
+
 import './landing.scss';
 
 importHeaderFooter();
