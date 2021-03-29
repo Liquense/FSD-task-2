@@ -1,4 +1,4 @@
-@import url(../../../node_modules/air-datepicker/dist/css/datepicker.css);
+@import url(~air-datepicker/dist/css/datepicker.css);
 
 @mixin cell-size($datepickerWidth, $sidePaddings) {
   $datepickerContentWidth: $datepickerWidth - 2*$sidePaddings;

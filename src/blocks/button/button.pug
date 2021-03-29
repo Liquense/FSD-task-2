@@ -25,5 +25,5 @@ mixin button({ text='', type='button', link='', style='filled', decoration='', i
     #{blockTag}.button__control.js-button__control&attributes(controlAttributes)
       span.button__text #{text}
       if decoration === 'enter-arrow'
-        i.button__decoration
+        span.button__decoration
           +arrow({type: 'enter'})

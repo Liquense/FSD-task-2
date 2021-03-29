@@ -1,4 +1,6 @@
 import initArrows from '../arrow/init';
+import '../title/title';
+import '../checkbox/checkbox';
 
 import './checkbox-list.scss';
 

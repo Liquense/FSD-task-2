@@ -1,6 +1,7 @@
 import { formatNumber, ruDeclination } from '../../utils/functions';
 import initCarousels from '../../blocks/carousel/init';
 import initRatings from '../../blocks/rating/init';
+import '../../blocks/title/title';
 
 import './room-preview-card.scss';
 

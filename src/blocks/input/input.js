@@ -1,4 +1,5 @@
 import initArrows from '../arrow/init';
+import '../title/title';
 
 import './input.scss';
 
