@@ -2,18 +2,18 @@ $fontsPath: "../assets/fonts";
 
 @font-face {
   font-family: Montserrat;
-  src: url("#{$fontsPath}/Montserrat-Regular.ttf"), url("#{$fontsPath}/Montserrat-Regular.svg");
+  src: url("#{$fontsPath}/montserrat-regular.woff2"), url("#{$fontsPath}/montserrat-regular.woff");
 }
 
 @font-face {
   font-family: Montserrat;
-  src: url("#{$fontsPath}/Montserrat-Bold.ttf"), url("#{$fontsPath}/Montserrat-Bold.svg");
+  src: url("#{$fontsPath}/montserrat-bold.woff2"), url("#{$fontsPath}/montserrat-bold.woff");
   font-weight: bold;
 }
 
 @font-face {
   font-family: "Material Icons";
-  font-style: normal;
+  src: url("#{$fontsPath}/iconfont/material-icons-regular.woff2"), url("#{$fontsPath}/iconfont/material-icons-regular.woff");
   font-weight: 400;
-  src: url("#{$fontsPath}/iconfont/MaterialIcons-Regular.ttf"), url("#{$fontsPath}/iconfont/MaterialIcons-Regular.svg");
+  font-style: normal;
 }
