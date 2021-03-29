@@ -1,3 +1,19 @@
+mixin ui-kit()
+  main.ui-kit
+    div.ui-kit__colors-type
+      include ../../page-elements/colors-types/colors-types
+      +colors-types()
+    div.ui-kit__form-elements
+      include ../../page-elements/form-elements/form-elements
+      +form-elements()
+    div.ui-kit__cards
+      include ../../page-elements/cards/cards
+      +cards()
+    H2.ui-kit__note Эта секция (и страницы сайта) будет pixel-perfect при ширине экрана в 1440px, поскольку расположения элементов здесь относительны к ширине вьюпорта
+    div.ui-kit__headers-footers
+      include ../../page-elements/headers-footers/headers-footers
+      +headers-footers()
+
 <!DOCTYPE html>
 html(lang='ru')
   head
@@ -11,13 +27,4 @@ html(lang='ru')
     link(rel='manifest' href=require('../../assets/favicons/site.webmanifest'))
     title UI-Kit
   body
-    main.ui-kit
-      div.ui-kit__colors-type
-        include ../../page-elements/colors-types/colors-types
-      div.ui-kit__form-elements
-        include ../../page-elements/form-elements/form-elements
-      div.ui-kit__cards
-        include ../../page-elements/cards/cards
-      H2.ui-kit__note Эта секция (и страницы сайта) будет pixel-perfect при ширине экрана в 1440px, поскольку расположения элементов здесь относительны к ширине вьюпорта
-      div.ui-kit__headers-footers
-        include ../../page-elements/headers-footers/headers-footers
+    +ui-kit()

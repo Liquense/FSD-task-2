@@ -1,10 +1,14 @@
 extends ../page-template
+
 include ../../cards/registration-card/registration-card
+
+mixin registration()
+  main.registration
+    div.registration__registration-card
+      +registration-card(1)
 
 block options
   -options.title = 'Регистрация - TOXIN'
 
 block content
-  main.registration
-    div.registration__registration-card
-      +registration-card(1)
+  +registration()

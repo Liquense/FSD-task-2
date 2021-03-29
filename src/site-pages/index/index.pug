@@ -1,15 +1,8 @@
 include ../../blocks/title/title
+include ../page-head
 
-doctype html
-html(lang='ru')
-  head
-    meta(charset='UTF-8')
-    link(rel='apple-touch-icon' sizes='180x180' href=require('../../assets/favicons/apple-touch-icon.png'))
-    link(rel='icon' type='image/png' sizes='32x32' href=require('../../assets/favicons/favicon-32x32.png'))
-    link(rel='icon' type='image/png' sizes='16x16' href=require('../../assets/favicons/favicon-16x16.png'))
-    link(rel='manifest' href=require('../../assets/favicons/site.webmanifest'))
-    title TOXIN
-  body
+mixin index()
+  main.index
     section.index__ui
       +title({ type: 'widget', text: 'UI', headerLevel: 2 })
       a.index__page-link(href='ui-kit.html') UI-Kit
@@ -20,3 +13,9 @@ html(lang='ru')
       a.index__page-link(href='login.html') Login
       a.index__page-link(href='search-room.html') Room search
       a.index__page-link(href='room-details.html') Room details
+
+doctype html
+html(lang='ru')
+  +page-head()
+  body
+    +index()

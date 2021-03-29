@@ -130,6 +130,8 @@
   }
 
   &__donut-chart {
+    max-width: 311px;
+
     @media (max-width: 610px) {
       align-items: center;
     }

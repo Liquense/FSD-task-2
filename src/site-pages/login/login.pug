@@ -1,10 +1,14 @@
 extends ../page-template
+
 include ../../cards/login-card/login-card
+
+mixin login()
+  main.login
+    div.login__login-card
+      +login-card(1)
 
 block options
   -options.title = 'Вход - TOXIN'
 
 block content
-  main.login
-    div.login__login-card
-      +login-card(1)
+  +login()

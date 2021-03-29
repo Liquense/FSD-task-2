@@ -1,16 +1,12 @@
 extends ../page-template
 
-block options
-  -options.title = 'Информация о номере - TOXIN'
-
-block content
-  include ../../blocks/donut-chart/donut-chart
-  include ../../blocks/comment/comment
-  include ../../blocks/features-list/features-list
-  include ../../blocks/bullet-list/bullet-list
-  include ../../cards/booking-card/booking-card
-  include ../../blocks/title/title
-
+include ../../blocks/donut-chart/donut-chart
+include ../../blocks/comment/comment
+include ../../blocks/features-list/features-list
+include ../../blocks/bullet-list/bullet-list
+include ../../cards/booking-card/booking-card
+include ../../blocks/title/title
+mixin room-details()
   main.room-details
     h1.room-details__main-heading Информация о номере
     div.room-details__photos
@@ -23,18 +19,18 @@ block content
         div.room-details__main-info
           section.room-details__features-container
             div.room-details__features-title
-              +title({ tag: 'h2', text: 'Сведения о номере', type: 'item' })
+              +title({tag: 'h2', text: 'Сведения о номере', type: 'item'})
             div.room-details__features-content
               +features-list({
                 items: [
-                  { text: 'Шумопоглощающие стены', title: 'Комфорт', icon: 'insert_emoticon' },
-                  { title: 'Удобство', text: 'Окно в каждой из спален', icon: 'location_city' },
-                  { title: 'Уют', text: 'Номер оснащён камином', icon: 'whatshot' },
+                  {text: 'Шумопоглощающие стены', title: 'Комфорт', icon: 'insert_emoticon'},
+                  {title: 'Удобство', text: 'Окно в каждой из спален', icon: 'location_city'},
+                  {title: 'Уют', text: 'Номер оснащён камином', icon: 'whatshot'},
                 ]
               })
           section.room-details__expressions-container
             div.room-details__expressions-title
-              +title({ tag: 'h2', text: 'Впечатления от номера', type: 'item' })
+              +title({tag: 'h2', text: 'Впечатления от номера', type: 'item'})
             div.room-details__donut-chart.js-room-details__donut-chart
               -
                 const donutParams = {
@@ -56,15 +52,15 @@ block content
                       firstColor: '#919191', secondColor: '#3D4975',
                     },
                   ],
-                  defaultStyle: { outerRadius: 60, innerRadius: 56 },
-                  activeStyle: { outerRadius: 60, innerRadius: 50 },
+                  defaultStyle: {outerRadius: 60, innerRadius: 56},
+                  activeStyle: {outerRadius: 60, innerRadius: 50},
                   arcsGap: 5,
                 };
               +donut-chart(donutParams)
         section.room-details__reviews-container
           div.room-details__reviews-title-row
             div.room-details__reviews-title
-              +title({ tag: 'h2', text: 'Отзывы посетителей номера', type: 'item' })
+              +title({tag: 'h2', text: 'Отзывы посетителей номера', type: 'item'})
             span.room-details__reviews-count 2 отзыва
           div.room-details__reviews-content
             div.room-details__comment
@@ -90,7 +86,7 @@ block content
         div.room-details__additional-info
           section.room-details__rules-container
             div.room-details__rules-title
-              +title({ tag: 'h2', text: 'Правила', type: 'item' })
+              +title({tag: 'h2', text: 'Правила', type: 'item'})
             div.room-details__rules-list
               +bullet-list({
                 title: '',
@@ -98,7 +94,7 @@ block content
               })
           section.room-details__cancellation-container
             div.room-details__cancellation-title
-              +title({ tag: 'h2', text: 'Отмена', type: 'item' })
+              +title({tag: 'h2', text: 'Отмена', type: 'item'})
             span.room-details__cancellation-text
               | Бесплатная отмена в течение 48 ч.
               | После этого при отмене не позднее чем за 5 дн. до прибытия
@@ -110,11 +106,17 @@ block content
           dailyPrice: 9990,
           arrivalDate: '19.08.2019',
           departureDate: '23.08.2019',
-          services: [{ name: 'скидка', cost: -2179 }],
+          services: [{name: 'скидка', cost: -2179}],
           additionalPrice: 300,
           dropdownItems: [
-            { title: 'Взрослые', name: 'adults', value: 2 },
-            { title: 'Дети', name: 'children' },
-            { title: 'Младенцы', name: 'babies' }
+            {title: 'Взрослые', name: 'adults', value: 2},
+            {title: 'Дети', name: 'children'},
+            {title: 'Младенцы', name: 'babies'}
           ]
         })
+
+block options
+  -options.title = 'Информация о номере - TOXIN'
+
+block content
+  +room-details()
