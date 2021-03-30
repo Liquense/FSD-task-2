@@ -10,6 +10,7 @@
 
     text-decoration: none;
     margin-top: 5px;
+    display: block;
     width: fit-content;
 
     &:first-of-type {
@@ -19,14 +20,5 @@
 
   &__ui {
     margin-bottom: 20px;
-
-    #{$block}__page-link {
-      display: block;
-    }
-  }
-
-  &__pages {
-    display: flex;
-    flex-direction: column;
   }
 }
