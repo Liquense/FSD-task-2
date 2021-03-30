@@ -7,7 +7,11 @@ include ../../blocks/pagination/pagination
 include ../../blocks/date-picker/date-picker
 include ../../blocks/dropdown/dropdown
 include ../../cards/room-preview-card/room-preview-card
-mixin search-room()
+
+block options
+  -options.title = 'Поиск номера - TOXIN'
+
+block content
   main.search-room
     h1.search-room__main-heading Поиск номера
     button.search-room__show-filter-section-button.js-search-room__show-filter-section-button(type='button') filter_list
@@ -27,8 +31,8 @@ mixin search-room()
           placeholder: 'Сколько гостей',
           unifiedCaption: 'гост|ь|я|ей',
           data: [
-            {title: 'Взрослые', name: 'adults', value: 3},
-            {title: 'Дети', name: 'children'},
+            { title: 'Взрослые', name: 'adults', value: 3 },
+            { title: 'Дети', name: 'children' },
             {
               title: 'Младенцы',
               name: 'babies',
@@ -51,8 +55,13 @@ mixin search-room()
         p.search-room__daily-price-text Стоимость за сутки пребывания в номере
       -
         let checkButtons = [
-          {name: 'house_rules', text: 'Можно курить', value: 'smoking_allowed'},
-          {name: 'house_rules', text: 'Можно с питомцами', value: 'pets_allowed', isChecked: true},
+          { name: 'house_rules', text: 'Можно курить', value: 'smoking_allowed' },
+          {
+            name: 'house_rules',
+            text: 'Можно с питомцами',
+            value: 'pets_allowed',
+            isChecked: true
+          },
           {
             name: 'house_rules',
             text: 'Можно приглашать гостей (до 10 человек)',
@@ -61,10 +70,9 @@ mixin search-room()
           },
         ]
       div.search-room__house-rules-filter
-        +checkbox-list({type: 'checkbox', title: 'Правила дома', elements: checkButtons})
+        +checkbox-list({ type: 'checkbox', title: 'Правила дома', elements: checkButtons })
       -
-        const richButtons = [
-          {
+        const richButtons = [{
             name: 'availability',
             text: 'Широкий коридор',
             value: 'wide_corridor',
@@ -78,7 +86,7 @@ mixin search-room()
           },
         ]
       div.search-room__availability-filter
-        +checkbox-list({type: 'checkbox', title: 'Доступность', elements: richButtons})
+        +checkbox-list({ type: 'checkbox', title: 'Доступность', elements: richButtons })
       div.search-room__room-equipment-filter
         +dropdown({
           name: 'room_equipment',
@@ -112,7 +120,7 @@ mixin search-room()
         })
       -
         checkButtons = [
-          {name: 'additional_features', text: 'Завтрак', value: 'breakfast'},
+          { name: 'additional_features', text: 'Завтрак', value: 'breakfast' },
           {
             name: 'additional_features',
             text: 'Письменный стол',
@@ -125,9 +133,9 @@ mixin search-room()
             value: 'feeding_chair',
             isChecked: true
           },
-          {name: 'additional_features', text: 'Кроватка', value: 'crib', isChecked: true},
-          {name: 'additional_features', text: 'Телевизор', value: 'TV'},
-          {name: 'additional_features', text: 'Шампунь', value: 'shampoo'},
+          { name: 'additional_features', text: 'Кроватка', value: 'crib', isChecked: true },
+          { name: 'additional_features', text: 'Телевизор', value: 'TV' },
+          { name: 'additional_features', text: 'Шампунь', value: 'shampoo' },
         ]
       div.search-room__additional-features-filter
         +checkbox-list({
@@ -143,20 +151,19 @@ mixin search-room()
           const pageContent = [
             {
               link: 'room-details.html',
-              room:
-                      {
-                        costPerPeriod: 9990,
-                        reviewsCount: 145,
-                        roomNumber: '888',
-                        roomType: 'Люкс',
-                        rating: [5, 5]
-                      },
+              room: {
+                costPerPeriod: 9990,
+                reviewsCount: 145,
+                roomNumber: '888',
+                roomType: 'Люкс',
+                rating: [5, 5]
+              },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-1.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-1.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-1.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-1.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-1.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -166,14 +173,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 9900, reviewsCount: 65, roomNumber: '840', rating: [4, 5]},
+              room: { costPerPeriod: 9900, reviewsCount: 65, roomNumber: '840', rating: [4, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-2.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-2.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-2.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-2.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-2.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -183,14 +189,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 8500, reviewsCount: 35, roomNumber: '980', rating: [3, 5]},
+              room: { costPerPeriod: 8500, reviewsCount: 35, roomNumber: '980', rating: [3, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-3.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-3.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-3.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-3.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-3.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -200,14 +205,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 7300, reviewsCount: 19, roomNumber: '856', rating: [5, 5]},
+              room: { costPerPeriod: 7300, reviewsCount: 19, roomNumber: '856', rating: [5, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-4.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-4.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-4.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-4.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-4.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -217,14 +221,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 6000, reviewsCount: 44, roomNumber: '740', rating: [4, 5]},
+              room: { costPerPeriod: 6000, reviewsCount: 44, roomNumber: '740', rating: [4, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-5.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-5.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-5.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-5.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-5.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -234,14 +237,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 5800, reviewsCount: 56, roomNumber: '982', rating: [3, 5]},
+              room: { costPerPeriod: 5800, reviewsCount: 56, roomNumber: '982', rating: [3, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-6.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-6.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-6.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-6.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-6.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -251,14 +253,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 5500, reviewsCount: 45, roomNumber: '678', rating: [5, 5]},
+              room: { costPerPeriod: 5500, reviewsCount: 45, roomNumber: '678', rating: [5, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-7.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-7.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-7.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-7.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-7.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -268,14 +269,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 5300, reviewsCount: 39, roomNumber: '450', rating: [4, 5]},
+              room: { costPerPeriod: 5300, reviewsCount: 39, roomNumber: '450', rating: [4, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-8.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-8.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-8.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-8.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-8.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -285,14 +285,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 5000, reviewsCount: 77, roomNumber: '350', rating: [3, 5]},
+              room: { costPerPeriod: 5000, reviewsCount: 77, roomNumber: '350', rating: [3, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-9.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-9.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-9.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-9.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-9.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -302,14 +301,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 5000, reviewsCount: 25, roomNumber: '666', rating: [5, 5]},
+              room: { costPerPeriod: 5000, reviewsCount: 25, roomNumber: '666', rating: [5, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-10.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-10.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-10.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-10.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-10.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -319,14 +317,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 500, reviewsCount: 15, roomNumber: '444', rating: [3, 5]},
+              room: { costPerPeriod: 500, reviewsCount: 15, roomNumber: '444', rating: [3, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-11.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-11.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-11.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-11.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-11.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -336,14 +333,13 @@ mixin search-room()
             },
             {
               link: '/mock-address/change-me',
-              room:
-                      {costPerPeriod: 5000, reviewsCount: 55, roomNumber: '352', rating: [3, 5]},
+              room: { costPerPeriod: 5000, reviewsCount: 55, roomNumber: '352', rating: [3, 5] },
               carousel: {
                 images: [
-                  {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')},
-                  {tag: 'img', src: require('../../assets/images/room-mini-12.jpg')}
+                  { tag: 'img', src: require('../../assets/images/room-mini-12.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-12.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-12.jpg') },
+                  { tag: 'img', src: require('../../assets/images/room-mini-12.jpg') }
                 ],
                 carouselParams: {
                   'data-arrows': 'true',
@@ -357,9 +353,3 @@ mixin search-room()
           each item, index in paginationItems
             div.pagination__item.js-pagination__item
               +room-preview-card(item)
-
-block options
-  -options.title = 'Поиск номера - TOXIN'
-
-block content
-  +search-room()

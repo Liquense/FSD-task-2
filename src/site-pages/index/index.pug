@@ -1,21 +1,18 @@
 include ../../blocks/title/title
 include ../page-head
 
-mixin index()
-  main.index
-    section.index__ui
-      +title({ type: 'widget', text: 'UI', headerLevel: 2 })
-      a.index__page-link(href='ui-kit.html') UI-Kit
-    section.index__pages
-      +title({ type: 'widget', text: 'Site pages', headerLevel: 2 })
-      a.index__page-link(href='landing.html') Landing page
-      a.index__page-link(href='registration.html') Registration
-      a.index__page-link(href='login.html') Login
-      a.index__page-link(href='search-room.html') Room search
-      a.index__page-link(href='room-details.html') Room details
-
 doctype html
 html(lang='ru')
   +page-head()
   body
-    +index()
+    main.index
+      section.index__ui
+        +title({ type: 'widget', text: 'UI', headerLevel: 2 })
+        a.index__page-link(href='ui-kit.html') UI-Kit
+      section.index__pages
+        +title({ type: 'widget', text: 'Site pages', headerLevel: 2 })
+        a.index__page-link(href='landing.html') Landing page
+        a.index__page-link(href='registration.html') Registration
+        a.index__page-link(href='login.html') Login
+        a.index__page-link(href='search-room.html') Room search
+        a.index__page-link(href='room-details.html') Room details

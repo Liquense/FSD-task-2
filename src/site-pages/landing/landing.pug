@@ -2,11 +2,8 @@ extends ../page-template
 
 include ../../cards/find-room-card/find-room-card
 
-mixin landing()
+block content
   main.landing.js-landing
     div.landing__find-room-card
       +find-room-card(1)
     span.landing__slogan Лучшие номера для вашей работы, отдыха и просто вдохновения
-
-block content
-  +landing()
