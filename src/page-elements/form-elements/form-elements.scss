@@ -1,7 +1,7 @@
 .form-elements {
   $page: &;
 
-  padding: 140px 0 131px 0;
+  padding: 141px 0 131px 0;
 
   &__heading {
     @include visually-hidden();
@@ -17,7 +17,7 @@
 
   &__basic-inputs {
     grid-column-start: 1;
-    margin-bottom: 41px;
+    margin-bottom: 39px;
   }
 
   &__text-input,
@@ -28,15 +28,15 @@
   }
 
   &__text-input {
-    margin: 3px 0 21px;
+    margin-bottom: 19px;
   }
 
   &__focused-text-input {
-    margin-bottom: 21px;
+    margin-bottom: 19px;
   }
 
   &__dropdown {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
   }
 
   &__date-pickers {
@@ -45,36 +45,35 @@
 
   &__double-date-picker {
     max-width: 320px;
-    margin-bottom: 42px;
+    margin-bottom: 40px;
   }
 
   &__date-picker {
     max-width: 266px;
-    margin-bottom: 42px;
+    margin-bottom: 40px;
   }
 
   &__subscription-input {
     max-width: 266px;
-    margin-bottom: 43px;
+    margin-bottom: 41px;
   }
 
   &__checkboxes-ratings {
     grid-row-start: 1;
     grid-row-end: 3;
     grid-column-start: 2;
-    margin-top: 3px;
   }
 
   &__checkboxes {
-    margin-bottom: 44px;
+    margin-bottom: 42px;
   }
 
   &__radios {
-    margin-bottom: 44px;
+    margin-bottom: 43px;
   }
 
   &__radios-title {
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
 
   &__radio-button {
@@ -83,11 +82,11 @@
   }
 
   &__toggles {
-    margin-bottom: 47px;
+    margin-bottom: 45px;
   }
 
   &__toggles-title {
-    margin-bottom: 17px;
+    margin-bottom: 16px;
   }
 
   &__toggle-button {
@@ -95,15 +94,15 @@
   }
 
   &__likes {
-    margin-bottom: 42px;
+    margin-bottom: 41px;
   }
 
   &__likes-header {
-    margin-bottom: 17px;
+    margin-bottom: 16px;
   }
 
   &__rates-header {
-    margin-bottom: 17px;
+    margin-bottom: 16px;
   }
 
   &__likes-body {
@@ -126,11 +125,14 @@
     grid-row-start: 1;
     grid-row-end: 3;
     grid-column-start: 3;
-    margin-top: 3px;
   }
 
   &__slider {
-    margin-bottom: 45px;
+    margin-bottom: 43px;
+  }
+
+  &__buttons {
+    margin-bottom: 40px;
   }
 
   &__filled-buttons,
@@ -160,14 +162,13 @@
   }
 
   &__buttons-header {
-    margin-bottom: 16px;
+    margin-bottom: 15px;
   }
 
   &__wide-button {
     display: flex;
     min-height: 44px;
     max-width: 320px;
-    margin-bottom: 42px;
   }
 
   &__filled-buttons,
@@ -185,7 +186,7 @@
   }
 
   &__pagination-title {
-    margin-bottom: 16px;
+    margin-bottom: 15px;
   }
 
   &__middle-area {
@@ -196,7 +197,7 @@
   &__dropdowns {
     display: flex;
     min-height: 263px;
-    margin-bottom: 50px;
+    margin-bottom: 51px;
   }
 
   &__room-dropdowns {
@@ -205,7 +206,7 @@
 
   &__rooms-dropdown {
     min-width: 266px;
-    margin-bottom: 21px;
+    margin-bottom: 19px;
   }
 
   &__unaccepted-guest-dropdown,
@@ -235,7 +236,7 @@
   }
 
   &__rich-list, &__bullet-list {
-    padding-top: 7px;
+    padding-top: 6px;
   }
 
   &__bottom-area {
