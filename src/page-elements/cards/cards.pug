@@ -8,8 +8,9 @@ include ../../cards/room-preview-card/room-preview-card
 
 mixin cards()
   section.cards
+    h2.cards__heading карточки
     div.cards__find-room-card
-      +find-room-card()
+      +find-room-card(3)
     -
       const customers = [
         { title: 'Взрослые', value: 3 },
@@ -26,7 +27,7 @@ mixin cards()
         services: [{ name: 'скидка', cost: -2179 }],
         additionalPrice: 300,
         dropdownItems: customers
-      })
+      }, 3)
     div.cards__inline-date-picker.js-cards__inline-date-picker
       +date-picker({
         width: 'medium',
@@ -35,81 +36,79 @@ mixin cards()
         dates: ['19.08.2019', '23.08.2019']
       })
     div.cards__registration-card
-      +registration-card()
+      +registration-card(3)
     div.cards__login-card
-      +login-card()
+      +login-card(3)
     div.cards__room-preview-card
-      +room-preview-card(
-        {
-          isStretched: false,
-          room: {
-            roomNumber: '888',
-            roomType: 'люкс',
-            costPerPeriod: 9990,
-            currencySymbol: '₽',
-            periodText: 'в сутки',
-            reviewsCount: '145',
-            rating: [5, 5],
-          },
-          carousel: {
-            images: [
-              {
-                tag: 'img',
-                src: require('../../assets/images/room-mini-1.jpg')
-              },
-              {
-                tag: 'img',
-                src: require('../../assets/images/room-mini-2.jpg')
-              },
-              {
-                tag: 'img',
-                src: require('../../assets/images/room-mini-1.jpg')
-              },
-              {
-                tag: 'img',
-                src: require('../../assets/images/room-mini-2.jpg')
-              }],
-            carouselParams: {
-              'data-arrows': 'true',
-              'data-dots': 'true',
-            }
-          }
-        }
-      )
-    div.cards__dots-room-preview-card
-      +room-preview-card(
-        {
-          isStretched: false,
-          room: {
-            roomNumber: '840',
-            costPerPeriod: 9990,
-            currencySymbol: '₽',
-            periodText: 'в сутки',
-            reviewsCount: '65',
-            rating: [4, 5],
-          },
-          carousel: {
-            images: [
-              {
-                tag: 'img',
-                src: require('../../assets/images/room-mini-2.jpg')
-              },
-              {
-                tag: 'img',
-                src: require('../../assets/images/room-mini-1.jpg')
-              },
-              {
-                tag: 'img',
-                src: require('../../assets/images/room-mini-2.jpg')
-              },
-              {
-                tag: 'img',
-                src: require('../../assets/images/room-mini-1.jpg')
-              },],
-            carouselParams: {
-              'data-arrows': 'false',
-              'data-dots': 'true',
+      +room-preview-card({
+        headingLevel: 3,
+        isStretched: false,
+        room: {
+          roomNumber: '888',
+          roomType: 'люкс',
+          costPerPeriod: 9990,
+          currencySymbol: '₽',
+          periodText: 'в сутки',
+          reviewsCount: '145',
+          rating: [5, 5],
+        },
+        carousel: {
+          images: [
+            {
+              tag: 'img',
+              src: require('../../assets/images/room-mini-1.jpg')
             },
+            {
+              tag: 'img',
+              src: require('../../assets/images/room-mini-2.jpg')
+            },
+            {
+              tag: 'img',
+              src: require('../../assets/images/room-mini-1.jpg')
+            },
+            {
+              tag: 'img',
+              src: require('../../assets/images/room-mini-2.jpg')
+            }],
+          carouselParams: {
+            'data-arrows': 'true',
+            'data-dots': 'true',
           }
         }
-      )
+      })
+    div.cards__dots-room-preview-card
+      +room-preview-card({
+        headingLevel: 3,
+        isStretched: false,
+        room: {
+          roomNumber: '840',
+          costPerPeriod: 9990,
+          currencySymbol: '₽',
+          periodText: 'в сутки',
+          reviewsCount: '65',
+          rating: [4, 5],
+        },
+        carousel: {
+          images: [
+            {
+              tag: 'img',
+              src: require('../../assets/images/room-mini-2.jpg')
+            },
+            {
+              tag: 'img',
+              src: require('../../assets/images/room-mini-1.jpg')
+            },
+            {
+              tag: 'img',
+              src: require('../../assets/images/room-mini-2.jpg')
+            },
+            {
+              tag: 'img',
+              src: require('../../assets/images/room-mini-1.jpg')
+            },],
+          carouselParams: {
+            'data-arrows': 'false',
+            'data-dots': 'true',
+          },
+        }
+      })

@@ -1,6 +1,10 @@
 .index {
   $block: &;
 
+  &__heading {
+    @include visually-hidden();
+  }
+
   &__page-link {
     @include text_regular();
 

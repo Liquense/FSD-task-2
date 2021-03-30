@@ -3,6 +3,10 @@
 
   padding: 140px 0 131px 0;
 
+  &__heading {
+    @include visually-hidden();
+  }
+
   &__top-area {
     margin-left: 140px;
     margin-bottom: 58px;

@@ -7,6 +7,10 @@
   display: flex;
   flex-direction: column;
 
+  &__heading {
+    @include visually-hidden();
+  }
+
   &__colors-type,
   &__form-elements,
   &__cards,
