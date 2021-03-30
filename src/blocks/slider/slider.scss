@@ -5,13 +5,7 @@ $maxSliderWidth: 266px;
 $sliderTextMargin: 20px + ($sliderHandleSize - $sliderHorizontalHeight - $sliderBorderWidth);
 
 .slider {
-  @include box-sizing-border-box();
-
   max-width: $maxSliderWidth;
-
-  &__plugin-container {
-    max-width: $maxSliderWidth;
-  }
 
   &__control {
     background-color: $inputBackgroundColor;

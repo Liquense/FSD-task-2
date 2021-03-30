@@ -10,8 +10,6 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
 .input {
   $block: &;
 
-  @include box-sizing-border-box();
-
   width: fit-content;
 
   &_with-dropdown-list {

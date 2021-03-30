@@ -63,8 +63,6 @@ $toggleCircleWidth: 31.58%;
 }
 
 .checkbox {
-  @include box-sizing-border-box();
-
   $block: &;
 
   display: inline-block;

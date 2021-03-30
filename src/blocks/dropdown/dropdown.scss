@@ -4,8 +4,6 @@ $borderWidth: 1px;
 $inputBorderRadius: 4px;
 
 .dropdown {
-  @include box-sizing-border-box();
-
   position: relative;
 
   &__list-wrapper {

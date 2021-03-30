@@ -1,6 +1,4 @@
 .rating {
-  @include box-sizing-border-box();
-
   &__star {
     @include icon();
     @include text-gradient(linear-gradient($purple 0%, $purpleGradientSecond 100%));

@@ -2,8 +2,6 @@ $likeButtonSize: 20px;
 $likeButtonBorderWidth: 1px;
 
 .like-button {
-  @include box-sizing-border-box();
-
   $block: &;
 
   display: block;

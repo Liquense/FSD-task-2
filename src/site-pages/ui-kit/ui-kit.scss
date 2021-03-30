@@ -1,8 +1,6 @@
 @use '../../shared/resets';
 
 .ui-kit {
-  @include box-sizing-border-box();
-
   background-color: #F4F4F6;
   display: flex;
   flex-direction: column;

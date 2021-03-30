@@ -3,8 +3,6 @@
 $background-indexes: 1, 2, 3;
 
 .landing {
-  @include box-sizing-border-box();
-
   background-size: cover;
   background-repeat: no-repeat;
   background-position-y: -70px;

@@ -3,8 +3,6 @@ $buttonHeight: 44px;
 $arrowSize: 24px;
 
 .button {
-  @include box-sizing-border-box();
-
   $block: &;
 
   cursor: pointer;

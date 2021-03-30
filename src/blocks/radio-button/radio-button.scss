@@ -5,8 +5,6 @@ $buttonRightMargin: 10px;
 .radio-button {
   $block: &;
 
-  @include box-sizing-border-box();
-
   display: inline-block;
   cursor: pointer;
 

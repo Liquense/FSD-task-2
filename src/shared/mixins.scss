@@ -29,13 +29,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-@mixin box-sizing-border-box() {
-  box-sizing: border-box;
-  * {
-    box-sizing: border-box;
-  }
-}
-
 @mixin visually-hidden() {
   position: absolute;
   clip: rect(0 0 0 0);

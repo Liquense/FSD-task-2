@@ -1,8 +1,6 @@
 $avatarSize: 48px;
 
 .comment {
-  @include box-sizing-border-box();
-
   max-width: 710px;
   display: grid;
   grid-template-columns: auto auto;

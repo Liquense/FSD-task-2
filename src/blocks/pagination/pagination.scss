@@ -1,6 +1,4 @@
 .pagination {
-  @include box-sizing-border-box();
-
   &__content {
     $minItemWidth: 270px;
 
