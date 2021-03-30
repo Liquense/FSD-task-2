@@ -1,5 +1,4 @@
 import initArrows from '../arrow/init';
-
 import './input.scss';
 
 class Input {

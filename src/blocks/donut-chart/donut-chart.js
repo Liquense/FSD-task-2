@@ -4,7 +4,6 @@ import {
   calculateCircleLength,
   polarCoordinatesToCartesian,
 } from '../../utils/math';
-
 import './donut-chart.scss';
 
 class DonutChart {

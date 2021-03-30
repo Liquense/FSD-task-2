@@ -1,9 +1,7 @@
 import 'air-datepicker';
 
 import { parseAttrToDate } from '../../utils/functions';
-
 import initInputs from '../input/init';
-
 import './air-datepicker.scss';
 
 class DatePicker {

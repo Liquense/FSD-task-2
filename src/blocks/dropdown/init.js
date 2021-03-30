@@ -1,5 +1,5 @@
-import Dropdown from './dropdown';
 import initBlocks from '../../utils/dynamicInit';
+import Dropdown from './dropdown';
 
 function initDropdowns(rootElement) {
   return initBlocks(rootElement, '.js-dropdown', Dropdown);

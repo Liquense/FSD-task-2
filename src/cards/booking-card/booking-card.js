@@ -1,7 +1,6 @@
 import { formatNumber, ruDeclination, secondsToDays } from '../../utils/functions';
 import initDropdowns from '../../blocks/dropdown/init';
 import initTwoCalendarDatepickers from '../../blocks/double-date-picker/init';
-
 import './booking-card.scss';
 
 class BookingCard {

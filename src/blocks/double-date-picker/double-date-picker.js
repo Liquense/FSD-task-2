@@ -1,8 +1,6 @@
 import { parseAttrToDate } from '../../utils/functions';
-
 import initDatepickers from '../date-picker/init';
 import initInputs from '../input/init';
-
 import './double-date-picker.scss';
 
 class TwoCalendarDatepicker {

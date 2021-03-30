@@ -1,5 +1,4 @@
 import initArrows from '../arrow/init';
-
 import './checkbox-list.scss';
 
 class CheckboxList {

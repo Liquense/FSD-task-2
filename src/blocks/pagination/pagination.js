@@ -1,7 +1,6 @@
 import 'paginationjs';
 
 import { outerHTML } from '../../utils/functions';
-
 import './pagination.scss';
 import './paginationjs.scss';
 
