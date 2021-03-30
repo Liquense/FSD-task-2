@@ -3,6 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 const paths = {
   source: path.join(__dirname, '../src'),
@@ -48,6 +49,7 @@ module.exports = {
       chunkFilename: '[name].css',
       ignoreOrder: true,
     }),
+    new OptimizeCssAssetsPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
