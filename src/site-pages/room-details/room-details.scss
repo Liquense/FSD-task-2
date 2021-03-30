@@ -1,4 +1,7 @@
 @use '../../shared/resets';
+@import '../../blocks/title/title.scss';
+@import '../../blocks/features-list/features-list.scss';
+@import '../../blocks/bullet-list/bullet-list.scss';
 
 .room-details {
   &__main-heading {

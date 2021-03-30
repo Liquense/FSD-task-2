@@ -1,8 +1,6 @@
 import 'jquery-ui/ui/widgets/slider';
 import 'jquery-ui/themes/base/slider.css';
 
-import '../title/title';
-
 import './ui-slider.scss';
 import './slider.scss';
 

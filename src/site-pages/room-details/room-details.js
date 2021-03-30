@@ -1,8 +1,5 @@
 import { importCommon, importContext, importHeaderFooter } from '../../utils/imports';
 
-import '../../blocks/title/title.scss';
-import '../../blocks/features-list/features-list.scss';
-import '../../blocks/bullet-list/bullet-list.scss';
 import '../../blocks/donut-chart/donut-chart';
 import initDonutCharts from '../../blocks/donut-chart/init';
 import '../../cards/booking-card/booking-card';

@@ -2,7 +2,6 @@ import { ruDeclination } from '../../utils/functions';
 
 import initSpinners from '../spinner/init';
 import initInputs from '../input/init';
-import '../button/button';
 
 import './dropdown.scss';
 

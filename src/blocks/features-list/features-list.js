@@ -1,1 +1,0 @@
-import './features-list.scss';
