@@ -16,14 +16,6 @@
   }
 }
 
-@mixin clearfix() {
-  &::after {
-    content: "";
-    clear: both;
-    display: table;
-  }
-}
-
 @mixin icon() {
   font-family: "Material Icons", sans-serif;
   font-weight: normal;
