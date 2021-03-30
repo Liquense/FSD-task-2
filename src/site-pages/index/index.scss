@@ -1,7 +1,10 @@
+@use '../../shared/resets';
 @import "../../blocks/title/title";
 
 .index {
   $block: &;
+
+  padding: 10px;
 
   &__heading {
     @include visually-hidden();

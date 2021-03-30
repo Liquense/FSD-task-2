@@ -15,13 +15,14 @@ $pageButtonSize: 40px;
     &-page,
     &-ellipsis,
     &-next {
-      @include text(Montserrat, normal, 12px, $pageButtonSize, $darkShade50, 0);
-
+      color: $darkShade50;
       display: inline-block;
+      font-size: 12px;
       user-select: none;
       border-radius: 50%;
-      width: $pageButtonSize;
+      line-height: $pageButtonSize;
       text-align: center;
+      width: $pageButtonSize;
 
       @media (max-width: 450px) {
         width: 30px;

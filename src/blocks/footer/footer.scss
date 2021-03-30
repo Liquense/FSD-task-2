@@ -48,10 +48,9 @@
   background-color: white;
 
   &__content {
-    padding: get-vw(100px) get-vw(140px) get-vw(71px);
+    padding: get-vw(100px) get-vw(140px) get-vw(70px);
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
 
     @media (max-width: 1350px) {
       align-items: center;
@@ -94,12 +93,16 @@
     }
   }
 
+  &__links,
+  &__subscription {
+    padding-top: get-vw(5px);
+  }
+
   &__links {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
     width: 100%;
-    padding-top: 6px;
     margin-left: get-vw(40px);
 
     @media (max-width: 550px) {
@@ -109,9 +112,6 @@
   }
 
   &__links-column {
-    display: flex;
-    align-items: flex-start;
-    flex-direction: column;
     width: 33.333%;
     padding-right: 20px;
     margin: 0 0 30px 0;
@@ -133,7 +133,7 @@
   }
 
   &__links-column-title {
-    margin-bottom: 21px;
+    margin-bottom: 20px;
 
     @media (max-width: 550px) {
       margin-bottom: 10px;
@@ -147,6 +147,7 @@
   }
 
   &__links-list-item {
+    font-size: 14px;
     margin: 0;
 
     &:not(:last-child) {
@@ -159,18 +160,15 @@
   }
 
   &__link {
-    @include text_regular();
-
+    color: $darkShade75;
     text-decoration: none;
     overflow-wrap: anywhere;
-    vertical-align: unset;
   }
 
   &__subscription {
     width: min-content;
     display: flex;
     flex-direction: column;
-    padding-top: 6px;
 
     @media (max-width: 1400px) {
       margin-left: get-vw(40px);
@@ -184,7 +182,7 @@
   &__subscription-title {
     @include text_label-CTA();
 
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 
     @media (max-width: 550px) {
       margin-bottom: 10px;

@@ -8,10 +8,12 @@ html(lang='ru')
     main.index
       h1.index__heading Ссылки на страницы
       section.index__ui
-        +title({ type: 'widget', text: 'UI', tag: 'h2' })
+        div.index__title
+          +title({ type: 'widget', text: 'UI', tag: 'h2' })
         a.index__page-link(href='ui-kit.html') UI-Kit
       section.index__pages
-        +title({ type: 'widget', text: 'Site pages', tag: 'h2' })
+        div.index__title
+          +title({ type: 'widget', text: 'Site pages', tag: 'h2' })
         a.index__page-link(href='landing.html') Landing page
         a.index__page-link(href='registration.html') Registration
         a.index__page-link(href='login.html') Login

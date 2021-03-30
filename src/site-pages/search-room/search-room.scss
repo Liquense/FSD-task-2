@@ -62,7 +62,7 @@
   }
 
   &__filter-section {
-    margin-top: 3px;
+    margin-top: 1px;
     margin-right: get-vw(60px);
 
     @media (max-width: 1070px) {
@@ -85,7 +85,7 @@
   }
 
   &__staying-dates {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
 
     @media (max-width: 1070px) {
       margin-bottom: 0;
@@ -93,7 +93,7 @@
   }
 
   &__guests {
-    margin-bottom: 32px;
+    margin-bottom: 30px;
 
     @media (max-width: 1070px) {
       margin-bottom: 0;
@@ -101,11 +101,11 @@
   }
 
   &__daily-price-container {
-    margin-bottom: 31px;
+    margin-bottom: 29px;
   }
 
   &__daily-price-filter {
-    margin-bottom: 14px;
+    margin-bottom: 13px;
   }
 
   &__daily-price-text {
@@ -116,7 +116,7 @@
   }
 
   &__house-rules-filter {
-    margin-bottom: 34px;
+    margin-bottom: 32px;
 
     @media (max-width: 1070px) {
       max-width: 266px;
@@ -129,7 +129,7 @@
   }
 
   &__availability-filter {
-    margin-bottom: 30px;
+    margin-bottom: 28px;
 
     @media (max-width: 1070px) {
       max-width: 266px;
@@ -138,7 +138,7 @@
   }
 
   &__room-equipment-filter {
-    margin-bottom: 25px;
+    margin-bottom: 24px;
 
     @media (max-width: 1070px) {
       margin-bottom: 0;

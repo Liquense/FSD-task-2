@@ -43,13 +43,11 @@ $sliderHandleBorderWidth: 2px;
           background: linear-gradient(180deg, $purple 0%, $purpleGradientSecond 100%);
 
           &:before {
-            @include text(Montserrat, normal, 10px, $labelCTAlineHeight, $darkShade100, normal);
-
             content: attr(sliderHandleValue);
             position: absolute;
             text-align: center;
-            width: 40px;
-            left: -20px+$sliderHandleSize/2;
+            left: $sliderHandleSize/2;
+            transform: translateX(-50%);
             bottom: $sliderHandleSize;
           }
         }

@@ -22,7 +22,7 @@ $borderWidth: 1px;
   }
 
   &__title {
-    margin-bottom: 24px;
+    margin-bottom: 22px;
 
     @media (max-width: 380px) {
       text-align: center;
@@ -30,7 +30,7 @@ $borderWidth: 1px;
   }
 
   &__staying-dates-picker {
-    margin-bottom: 22px;
+    margin-bottom: 20px;
   }
 
   &__guests-dropdown {

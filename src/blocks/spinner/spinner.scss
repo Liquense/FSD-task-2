@@ -25,14 +25,14 @@ $borderWidth: 1px;
   }
 
   &__button {
-    @include text(Montserrat, normal, 18px, $buttonSize - 2*$borderWidth, $darkShade25, normal);
-
+    font-size: 18px;
+    line-height: $buttonSize - 2*$borderWidth;
     border-radius: 50%;
     border: $borderWidth solid $darkShade25;
-    color: $darkShade50;
     background-color: $inputBackgroundColor;
-    width: $buttonSize;
+    color: $darkShade50;
     padding: 0;
+    width: $buttonSize;
 
     &_disabled {
       color: $darkShade12;

@@ -47,7 +47,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   }
 
   &__title {
-    margin: 0 0 7px 0;
+    margin: 0 0 6px 0;
     overflow-wrap: anywhere;
   }
 
@@ -56,8 +56,9 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
   }
 
   &__control {
-    @include text(Montserrat, normal, 14px, $lineHeight, $darkShade75, -0.18px);
+    @include text_regular();
 
+    letter-spacing: -0.18px;
     border-radius: 4px;
     width: 100%;
     border: $borderWidth solid $darkShade25;
@@ -67,7 +68,7 @@ $lineHeight: ($inputHeight - 2*$borderWidth - $paddingTop - $paddingBottom);
     text-overflow: ellipsis;
 
     &::placeholder {
-      @include text(inherit, inherit, inherit, inherit, $darkShade25, inherit);
+      color: $darkShade25;
     }
 
     &:focus,

@@ -46,12 +46,14 @@ $otherRangeGradient: linear-gradient(
 
 .datepicker {
   $block: &;
-  @include text(Montserrat, normal, 12px, 15px, $cellTextColor, normal);
   @include cell-size(266px, 10px);
 
+  font-family: inherit;
   border: $datepickerBorderWidth solid $darkShade25;
   box-shadow: 0 10px 20px $darkShade5;
   box-sizing: border-box;
+  color: $cellTextColor;
+  font-size: 12px;
 
   &--cell {
     border-radius: 50%;

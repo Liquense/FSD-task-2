@@ -3,7 +3,7 @@
 
 $fontSize: 12px;
 $maxSliderWidth: 266px;
-$sliderTextMargin: 20px + ($sliderHandleSize - $sliderHorizontalHeight - $sliderBorderWidth);
+$sliderTextMargin: 19px + ($sliderHandleSize - $sliderHorizontalHeight - $sliderBorderWidth);
 
 .slider {
   max-width: $maxSliderWidth;
@@ -16,6 +16,7 @@ $sliderTextMargin: 20px + ($sliderHandleSize - $sliderHorizontalHeight - $slider
   &__text {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 0 0 $sliderTextMargin 0;
   }
 

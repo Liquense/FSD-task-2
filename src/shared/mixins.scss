@@ -1,19 +1,8 @@
-@mixin text($font, $fontWeight: normal, $size, $lineHeight, $color, $letterSpacing: normal) {
-  font-family: $font, Arial, sans-serif;
+@mixin text($fontWeight, $size, $lineHeight, $color) {
   font-size: $size;
   color: $color;
-
-  @if($fontWeight != normal) {
-    font-weight: $fontWeight;
-  }
-
-  @if($letterSpacing != normal) {
-    letter-spacing: $letterSpacing;
-  }
-
-  @if($lineHeight) {
-    line-height: $lineHeight;
-  }
+  font-weight: $fontWeight;
+  line-height: $lineHeight;
 }
 
 @mixin icon() {
@@ -38,20 +27,27 @@
 }
 
 @mixin text_regular() {
-  @include text(Montserrat, normal, $regularTextSize, 14px, $darkShade75, normal);
+  font-size: 14px;
+  color: $darkShade75;
 }
 
 @mixin text_label-CTA() {
-  @include text(Montserrat, bold, $labelCTASize, $labelCTAlineHeight, $darkShade100, normal);
+  color: $darkShade100;
+  font-size: 12px;
+  font-weight: bold;
   text-transform: uppercase;
 }
 
 @mixin text_item-title() {
-  @include text(Montserrat, bold, $itemTitleSize, 24px, $darkShade100, normal);
+  color: $darkShade100;
+  font-weight: bold;
+  font-size: 19px;
 }
 
 @mixin text_widget-title() {
-  @include text(Montserrat, bold, $widgetTitleSize, 29px, $darkShade100, normal);
+  color: $darkShade100;
+  font-weight: bold;
+  font-size: 24px;
 }
 
 @function get-vw($pixels) {

@@ -8,8 +8,10 @@ body {
 
 html {
   box-sizing: border-box;
+  font-family: Montserrat, Arial, sans-serif;
 }
 
 *, *:before, *:after {
+  font-family: inherit;
   box-sizing: inherit;
 }

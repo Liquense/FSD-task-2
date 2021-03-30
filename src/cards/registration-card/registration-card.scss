@@ -14,7 +14,7 @@ $borderWidth: 1px;
   border: 1px solid $darkShade12;
   box-shadow: 0 0 25px $darkShade20;
   border-radius: 4px;
-  padding: 40px - $borderWidth 30px - $borderWidth 29px - $borderWidth 30px - $borderWidth;
+  padding: 40px - $borderWidth 30px - $borderWidth 30px - $borderWidth;
 
   @media (max-width: 380px) {
     min-width: unset;
@@ -41,7 +41,7 @@ $borderWidth: 1px;
   }
 
   &__gender-list {
-    margin-bottom: 26px;
+    margin-bottom: 24px;
   }
 
   &__male-radio-button, &__female-radio-button {
@@ -53,7 +53,7 @@ $borderWidth: 1px;
   }
 
   &__birthday-input {
-    margin-bottom: 21px;
+    margin-bottom: 19px;
   }
 
   &__login-data-container {
@@ -61,7 +61,7 @@ $borderWidth: 1px;
   }
 
   &__login-data-title {
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
 
   &__email-input {
@@ -100,8 +100,8 @@ $borderWidth: 1px;
   }
 
   &__have-account-caption {
-    @include text(Montserrat, normal, 14px, 18px, black, normal);
-
+    color: black;
+    font-size: 14px;
     margin-bottom: 2px;
     text-decoration: none;
   }

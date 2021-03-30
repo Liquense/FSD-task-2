@@ -24,7 +24,7 @@
     justify-content: space-between;
     align-self: stretch;
     align-items: baseline;
-    margin-bottom: 22px;
+    margin-bottom: 20px;
 
     @media (max-width: 380px) {
       justify-content: space-evenly;
@@ -74,7 +74,7 @@
   }
 
   &__range-picker {
-    margin-bottom: 21px;
+    margin-bottom: 19px;
   }
 
   &__guests-dropdown {

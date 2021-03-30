@@ -41,7 +41,7 @@ $arrowSize: 24px;
       border: none;
       background-color: $inputBackgroundColor;
       color: $purple;
-      padding: 11px - $buttonBorderWidth 20px - $buttonBorderWidth 11px - $buttonBorderWidth 20px - $buttonBorderWidth;
+      padding: 9px - $buttonBorderWidth 20px - $buttonBorderWidth 10px - $buttonBorderWidth 20px - $buttonBorderWidth;
 
       &:focus {
         color: rgba($purple, 0.5);
@@ -54,7 +54,7 @@ $arrowSize: 24px;
       background: transparent;
       border: none;
       color: $inputBackgroundColor;
-      padding: 11px 20px 11px 20px;
+      padding: 9px 20px 10px 20px;
 
       &:focus {
         background: rgba(#FFF, 0.5);
@@ -99,7 +99,6 @@ $arrowSize: 24px;
     }
 
     #{$block}__decoration {
-      display: flex;
       padding: 0 ($buttonHeight - $arrowSize)/2;
     }
   }
