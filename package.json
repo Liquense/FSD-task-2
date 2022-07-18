@@ -55,7 +55,7 @@
     "@fortawesome/fontawesome-free": "^5.14.0",
     "air-datepicker": "^2.2.3",
     "jquery": "^3.5.1",
-    "jquery-ui": "^1.13.0",
+    "jquery-ui": "^1.13.2",
     "jquery.maskedinput": "^1.4.1",
     "paginationjs": "^2.1.5",
     "slick-carousel": "^1.8.1"
